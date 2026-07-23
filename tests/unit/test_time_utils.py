@@ -2,6 +2,8 @@ from datetime import UTC, datetime, timedelta
 
 import pytest
 
+from morning_radar.models import RawItem
+from morning_radar.processing.filtering import filter_news_window
 from morning_radar.time_utils import (
     collection_window,
     display_date,
@@ -49,3 +51,30 @@ def test_naive_time_is_rejected() -> None:
     with pytest.raises(ValueError, match="timezone"):
         to_display_timezone(datetime(2026, 7, 23))
 
+
+def test_news_filter_uses_published_time_and_marks_missing_time() -> None:
+    now = datetime(2026, 7, 23, 1, tzinfo=UTC)
+
+    def item(item_id: str, published_at: datetime | None, fetched_at: datetime) -> RawItem:
+        return RawItem(
+            id=item_id,
+            title=item_id,
+            url=f"https://example.com/{item_id}",
+            source_name="Fixture",
+            source_type="fixture",
+            published_at=published_at,
+            fetched_at=fetched_at,
+        )
+
+    result = filter_news_window(
+        [
+            item("recent", now - timedelta(hours=23), now),
+            item("old", now - timedelta(hours=25), now),
+            item("missing", None, now - timedelta(hours=1)),
+        ],
+        now=now,
+        hours=24,
+    )
+
+    assert [value.id for value in result] == ["recent", "missing"]
+    assert result[1].metadata["published_time_missing"] is True
