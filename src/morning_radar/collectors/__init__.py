@@ -2,6 +2,7 @@
 
 from morning_radar.collectors.base import Collector
 from morning_radar.collectors.fixture import FixtureCollector
+from morning_radar.collectors.orchestrator import CollectionResult, collect_available
 
-__all__ = ["Collector", "FixtureCollector"]
+__all__ = ["CollectionResult", "Collector", "FixtureCollector", "collect_available"]
 

@@ -9,14 +9,16 @@ from morning_radar.models.core import (
     Story,
     StoryStatus,
 )
+from morning_radar.models.metrics import GitHubSnapshot, MarketSnapshot
 
 __all__ = [
     "BriefItem",
     "DailyBrief",
+    "GitHubSnapshot",
+    "MarketSnapshot",
     "RawItem",
     "Signal",
     "SignalType",
     "Story",
     "StoryStatus",
 ]
-

@@ -1,0 +1,24 @@
+timezone: Asia/Singapore
+news_window_hours: 24
+collection_buffer_hours: 6
+trend_window_days: 7
+maximum_raw_items: 200
+maximum_ai_items: 40
+maximum_brief_items: 12
+maximum_ai_calls: 50
+maximum_ai_input_characters: 120000
+request_timeout_seconds: 20
+request_retry_attempts: 3
+relevance_threshold: 0.55
+importance_threshold: 0.60
+github_growth_threshold: 0.05
+market_movement_threshold: 0.03
+enabled_sections:
+  top_stories: true
+  market_and_companies: true
+  ai_and_open_source: true
+  trend_radar: true
+  developer_discussions: true
+  direction_observation: true
+  cognitive_extension: true
+

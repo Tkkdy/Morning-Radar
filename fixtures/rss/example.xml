@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Fixture AI News</title>
+    <link>https://example.com/ai</link>
+    <description>Offline RSS fixture</description>
+    <item>
+      <title>Example model is now available</title>
+      <link>https://example.com/ai/model-available?utm_source=rss</link>
+      <guid>fixture-model-available</guid>
+      <pubDate>Wed, 22 Jul 2026 23:10:00 GMT</pubDate>
+      <author>Fixture Lab</author>
+      <description><![CDATA[<p>A short official release description.</p>]]></description>
+    </item>
+    <item>
+      <title>Example model is now available</title>
+      <link>https://example.com/ai/model-available?utm_source=email</link>
+      <guid>fixture-model-duplicate</guid>
+      <pubDate>Wed, 22 Jul 2026 23:10:00 GMT</pubDate>
+      <description>Duplicate entry for cache and dedupe testing.</description>
+    </item>
+  </channel>
+</rss>
+

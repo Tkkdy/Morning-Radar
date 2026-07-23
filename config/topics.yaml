@@ -1,0 +1,42 @@
+topics:
+  - id: ai_models
+    name: AI 模型与产品
+    priority: high
+    keywords:
+      - artificial intelligence
+      - large language model
+      - reasoning model
+      - multimodal
+      - foundation model
+    exclude_keywords: []
+  - id: ai_coding
+    name: AI 编程与 Agent
+    priority: high
+    keywords:
+      - coding agent
+      - AI coding
+      - computer use
+      - browser agent
+      - MCP
+      - context engineering
+    exclude_keywords: []
+  - id: ai_infrastructure
+    name: AI 基础设施与芯片
+    priority: medium
+    keywords:
+      - GPU
+      - inference
+      - training
+      - semiconductor
+      - data center
+    exclude_keywords: []
+  - id: open_source_ai
+    name: AI 开源生态
+    priority: high
+    keywords:
+      - open source AI
+      - GitHub
+      - model release
+      - developer tool
+    exclude_keywords: []
+

@@ -1,0 +1,18 @@
+sources:
+  - id: openai_news
+    name: OpenAI News
+    type: rss
+    url: https://openai.com/news/rss.xml
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_coding]
+    official: true
+  - id: hn
+    name: Hacker News
+    type: hacker_news
+    url: https://hacker-news.firebaseio.com/v0
+    priority: low
+    enabled: true
+    topics: [ai_coding, open_source_ai]
+    official: false
+

@@ -1,0 +1,10 @@
+companies:
+  - {name: NVIDIA, ticker: NVDA, source_url: "https://finance.yahoo.com/quote/NVDA/", priority: high, topics: [ai_infrastructure]}
+  - {name: Microsoft, ticker: MSFT, source_url: "https://finance.yahoo.com/quote/MSFT/", priority: high, topics: [ai_models]}
+  - {name: Alphabet, ticker: GOOGL, source_url: "https://finance.yahoo.com/quote/GOOGL/", priority: high, topics: [ai_models]}
+  - {name: Meta, ticker: META, source_url: "https://finance.yahoo.com/quote/META/", priority: high, topics: [ai_models]}
+  - {name: Amazon, ticker: AMZN, source_url: "https://finance.yahoo.com/quote/AMZN/", priority: medium, topics: [ai_infrastructure]}
+  - {name: Apple, ticker: AAPL, source_url: "https://finance.yahoo.com/quote/AAPL/", priority: medium, topics: [ai_models]}
+  - {name: AMD, ticker: AMD, source_url: "https://finance.yahoo.com/quote/AMD/", priority: medium, topics: [ai_infrastructure]}
+  - {name: TSMC, ticker: TSM, source_url: "https://finance.yahoo.com/quote/TSM/", priority: medium, topics: [ai_infrastructure]}
+  - {name: Tesla, ticker: TSLA, source_url: "https://finance.yahoo.com/quote/TSLA/", priority: low, topics: [ai_models]}
