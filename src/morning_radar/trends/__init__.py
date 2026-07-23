@@ -1,0 +1,2 @@
+"""Explainable trend signal detection."""
+
