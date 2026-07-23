@@ -1,0 +1,28 @@
+{% set sections = [
+  ("今日重点", brief.top_stories),
+  ("市场与公司", brief.market_and_companies),
+  ("AI 与开源", brief.ai_and_open_source),
+  ("趋势雷达", brief.trend_radar),
+  ("开发者讨论", brief.developer_discussions)
+] %}
+{% for heading, items in sections %}
+{% if items %}
+<section>
+  <h2>{{ heading }}</h2>
+  <div class="cards">
+  {% for item in items %}
+    <article>
+      <p class="section-label">{{ item.section }}</p>
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.what_happened }}</p>
+      <p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>
+      {% if item.market_or_community_reaction %}<p><strong>市场/社区：</strong>{{ item.market_or_community_reaction }}</p>{% endif %}
+      {% if item.uncertainty %}<p class="uncertainty"><strong>不确定性：</strong>{{ item.uncertainty }}</p>{% endif %}
+      <div class="sources">{% for url in item.source_urls %}<a href="{{ url }}" rel="noopener noreferrer">来源 {{ loop.index }}</a>{% endfor %}</div>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% endfor %}
+

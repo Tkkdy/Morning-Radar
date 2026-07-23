@@ -1,0 +1,11 @@
+:root{--bg:#f4f2ec;--paper:#fffdf8;--ink:#17221e;--muted:#68746f;--line:#d8ddd8;--accent:#1b6b52;--warn:#8a4c18}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","Microsoft YaHei",sans-serif;line-height:1.7}
+a{color:var(--accent)}.hero,main,footer{width:min(1080px,calc(100% - 40px));margin:auto}.hero{padding:36px 0 26px}.hero.compact{padding-bottom:8px}
+nav{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}nav a{text-decoration:none}.brand{font-weight:800;letter-spacing:.04em}
+.eyebrow,.section-label{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}.hero h1{font-family:Georgia,"Noto Serif SC",serif;font-size:clamp(2.25rem,7vw,5.6rem);line-height:1.04;max-width:800px;margin:.35em 0 .18em}.lede{color:var(--muted);font-size:1.1rem}
+section{padding:22px 0}h2{font-family:Georgia,"Noto Serif SC",serif;font-size:1.65rem;border-bottom:1px solid var(--line);padding-bottom:8px}.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+article,.observation,.watch,.archive-list{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 8px 30px rgba(22,42,34,.04)}h3{font-size:1.2rem;line-height:1.45;margin:.25rem 0;overflow-wrap:anywhere}.why{border-left:3px solid var(--accent);padding-left:12px}.uncertainty{color:var(--warn)}
+.sources{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}.sources a{font-size:.85rem}.watch{padding-left:42px}.archive-list{display:grid;gap:0}.archive-list a{display:flex;justify-content:space-between;padding:14px 2px;border-bottom:1px solid var(--line);text-decoration:none}.archive-list a:last-child{border:0}
+footer{color:var(--muted);border-top:1px solid var(--line);padding:28px 0 48px;font-size:.85rem}
+@media(max-width:640px){.hero,main,footer{width:min(100% - 24px,1080px)}.hero{padding-top:20px}.cards{grid-template-columns:1fr}article{padding:18px}.hero h1{font-size:2.5rem}nav{font-size:.9rem}}
+

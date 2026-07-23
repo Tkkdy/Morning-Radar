@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>历史晨报 · Morning Radar</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="hero compact">
+    <nav><a class="brand" href="index.html">Morning Radar</a><a href="archive.html">历史晨报</a></nav>
+    <h1>历史晨报</h1>
+  </header>
+  <main><section><div class="archive-list">
+  {% for item in briefs %}<a href="briefs/{{ item.date }}.html"><span>{{ item.date }}</span><strong>{{ item.top_stories|length }} 条重点</strong></a>{% endfor %}
+  </div></section></main>
+</body>
+</html>
+
