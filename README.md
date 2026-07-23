@@ -1,38 +1,131 @@
 # Morning Radar
 
-Morning Radar 是一个个人定时情报晨报项目，聚合 AI 科技、重点公司市场数据、
-GitHub 项目动态和开发者社区信号。它强调少而重要、事实可追溯、同一事件只出现一次，
-并明确区分事实、分析与不确定性。
+Morning Radar 是一个个人定时情报晨报：聚合 AI 科技、重点公司市场数据、GitHub 项目动态
+和开发者社区信号，去重合并后生成可追溯的中文晨报、静态网站与微信摘要。
 
-## v0.1 目标
+它强调“少而重要”：同一事件只出现一次，事实、分析和不确定性分开，所有链接来自真实
+采集输入。市场变化仅作信息展示，不提供投资建议。
 
-v0.1 将提供：
+## v0.1 能做什么
 
-- RSS/Atom、GitHub、Hacker News 和少量重点公司市场数据采集；
-- URL 与标题去重、轻量事件聚类、评分和可解释趋势信号；
-- 单一 OpenAI Provider 的结构化分析，Fixture 模式不调用真实 AI；
-- 固定结构中文晨报、响应式静态站点和历史归档；
-- WxPusher 摘要通知、GitHub Actions 定时运行和 GitHub Pages 发布。
+- 采集 RSS/Atom、GitHub Releases/仓库指标、Hacker News 和配置内公司行情；
+- 筛选过去 24 小时，规范化 URL/标题，保守聚类并结构化评分；
+- 用唯一生产 AI `OpenAIProvider` 生成摘要，Fixture 使用离线 `FakeAIProvider`；
+- 保存至少 7 天可累积 JSON 历史，检测有证据的主题、公司、GitHub、产品和市场信号；
+- 构建响应式首页、历史页和单日页；
+- 通过 WxPusher 发送短摘要，并保证同日幂等；
+- 通过 GitHub Actions 每天新加坡时间 07:37 运行并部署 GitHub Pages。
 
-v0.1 不提供用户系统、后台、App、全文搜索、实时监控、投资建议、多 AI 投票、
-受保护平台抓取或服务器/数据库服务。
+v0.1 不做用户系统、后台、App、搜索、实时监控、全市场扫描、价格预测、多 AI 投票、
+受保护平台抓取、服务器或数据库服务。完整边界见 [产品文档](docs/PRODUCT.md)。
 
-## 当前状态
-
-项目正在按里程碑实现。可运行命令、Windows/macOS/Linux 安装步骤、部署流程、
-费用控制和故障排查会在完整流水线完成后补齐。
-
-## 目录概览
+## 目录
 
 ```text
-config/              可编辑关注范围和运行参数
-data/                结构化历史、快照与幂等状态
-docs/                产品、架构、数据模型和来源规范
-fixtures/            离线演示与测试数据
-prompts/             可版本化的 AI 任务提示
-src/morning_radar/   Python 业务代码
-templates/           静态页面模板
+config/              关注范围和运行阈值（YAML）
+data/                原始元数据、Story、Signal、快照、晨报与幂等状态
+docs/                产品、架构、数据模型、来源规范、Roadmap
+fixtures/            完全离线的演示和测试输入
+prompts/             五类可版本化 AI 任务提示
+src/morning_radar/   采集、处理、AI、趋势、建站、通知和 CLI
+templates/           Jinja2 页面模板
 site/                GitHub Pages 输出
 tests/               单元与集成测试
 ```
+
+## 本地安装
+
+需要 Python 3.12 和 Git。不要把真实 `.env` 提交到仓库。
+
+Windows PowerShell：
+
+```powershell
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -e ".[dev]"
+python -m morning_radar run --fixtures
+```
+
+macOS/Linux：
+
+```bash
+python3.12 -m venv .venv
+source .venv/bin/activate
+python -m pip install -e '.[dev]'
+python -m morning_radar run --fixtures
+```
+
+Fixture 不访问网络、不调用 OpenAI、不发送微信。完成后打开 `site/index.html`。验证项目：
+
+```powershell
+python -m pytest
+python -m ruff check src tests
+```
+
+## 真实运行
+
+复制 `.env.example` 中的变量名到你自己的安全环境配置，但不要创建含真实秘密的提交。
+PowerShell 当前会话示例：
+
+```powershell
+$env:OPENAI_API_KEY = "你的密钥"
+$env:OPENAI_MODEL = "你选择且账号可用的模型名"
+$env:GITHUB_TOKEN = "可选；本地提高 GitHub API 限额"
+$env:WXPUSHER_APP_TOKEN = "可选"
+$env:WXPUSHER_UIDS = "UID_1,UID_2"
+$env:PUBLIC_SITE_URL = "https://你的用户名.github.io/仓库名"
+python -m morning_radar run
+```
+
+`OPENAI_MODEL` 没有隐式默认值，避免项目在不知情时改变成本或行为。生产运行必须提供
+OpenAI Key/Model；WxPusher 缺配置时只跳过通知。其他命令：
+
+```powershell
+python -m morning_radar run --dry-run
+python -m morning_radar build-site
+python -m morning_radar collect
+python -m morning_radar test-notification
+```
+
+Dry Run 写入 `.tmp/dry-run/`，不修改生产状态或发送通知。手动重复通知必须显式加
+`--force-notify`。
+
+## GitHub Actions 与 Pages
+
+1. 在 GitHub 创建空仓库，把本地仓库关联并由你主动推送。
+2. 仓库 Settings → Secrets and variables → Actions 添加：
+   `OPENAI_API_KEY`、`OPENAI_MODEL`、`WXPUSHER_APP_TOKEN`、`WXPUSHER_UIDS`、
+   `PUBLIC_SITE_URL`。工作流优先使用自带 `${{ github.token }}`，无需额外 PAT。
+3. Settings → Pages → Source 选择 **GitHub Actions**。
+4. Actions → Daily Morning Radar → Run workflow。第一次建议勾选 Fixture，确认后再真实运行。
+
+工作流支持 Fixture、Dry Run、强制通知三个手动参数；定时 Cron 为 UTC 23:37，即新加坡
+次日 07:37。它先运行测试/Ruff，再生成、提交有变化的 `data/` 与 `site/`，最后用官方
+Pages Actions 部署。若 Pages 未开启，部署步骤会失败并在日志提示配置问题。
+
+## 修改观察范围
+
+- RSS/Atom 或 HN：编辑 `config/sources.yaml`；
+- 主题关键词：编辑 `config/topics.yaml`；
+- 公司：编辑 `config/companies.yaml`，同时提供真实 `source_url`；
+- GitHub 项目：编辑 `config/repositories.yaml` 的 owner/repo；
+- 开发者公开 Feed：编辑 `config/people.yaml`（v0.1 仅提供结构，启用前应配 Fixture/测试）。
+
+新增来源必须符合 [来源指南](docs/SOURCE_GUIDE.md)：公开、稳定、无需登录，并同时增加
+Fixture 和无网络测试。核心代码不应因新增观察对象而修改。
+
+## 费用、隐私与故障排查
+
+AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日调用数限制。先用 Fixture 验证，
+再逐步增加来源；GitHub Pages 默认公开，晨报不得放个人信息或秘密。
+
+- `OPENAI_MODEL is required`：设置模型名；项目不会替你选择或硬编码。
+- GitHub 403/限流：确认 `GITHUB_TOKEN`；单仓库失败不会阻断其他来源。
+- 没有微信：检查三项 WxPusher 变量，运行 `test-notification`，不要在日志粘贴 Token。
+- Pages 失败：确认 Source 为 GitHub Actions，并检查 workflow 的 Pages 权限。
+- 页面为空：查看 Actions 的采集/AI 阶段日志和 `data/raw/`；证据不足时空栏目是预期行为。
+- 重建页面：运行 `python -m morning_radar build-site`。
+
+完整架构见 [ARCHITECTURE.md](docs/ARCHITECTURE.md)，最终部署步骤集中在
+[HANDOFF.md](HANDOFF.md)。
 
