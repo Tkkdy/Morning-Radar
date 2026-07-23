@@ -1,0 +1,90 @@
+[
+  {
+    "id": "fixture-openai-release",
+    "title": "OpenAI releases a structured output update",
+    "url": "https://example.com/openai/structured-output",
+    "source_name": "Example AI Lab",
+    "source_type": "fixture_rss",
+    "author": "Research Team",
+    "published_at": "2026-07-22T23:30:00Z",
+    "fetched_at": "2026-07-23T00:30:00Z",
+    "language": "en",
+    "summary": "An offline fixture representing an official AI product update.",
+    "content_excerpt": "The release adds stricter schema validation for application developers.",
+    "topic_candidates": ["ai_models", "ai_coding"],
+    "company_candidates": ["OpenAI"],
+    "repository_candidates": [],
+    "metadata": {
+      "official": true,
+      "priority": "high"
+    }
+  },
+  {
+    "id": "fixture-openai-discussion",
+    "title": "OpenAI releases a structured output update",
+    "url": "https://news.ycombinator.com/item?id=123456",
+    "source_name": "Hacker News Fixture",
+    "source_type": "fixture_hacker_news",
+    "author": "fixture-user",
+    "published_at": "2026-07-23T00:00:00Z",
+    "fetched_at": "2026-07-23T00:30:00Z",
+    "language": "en",
+    "summary": "Developers discuss the same release.",
+    "content_excerpt": "",
+    "topic_candidates": ["ai_coding"],
+    "company_candidates": ["OpenAI"],
+    "repository_candidates": [],
+    "metadata": {
+      "score": 180,
+      "comments": 62,
+      "official": false,
+      "priority": "low"
+    }
+  },
+  {
+    "id": "fixture-github-release",
+    "title": "Example Agent v1.3.0 released",
+    "url": "https://github.com/example/agent/releases/tag/v1.3.0",
+    "source_name": "GitHub Fixture",
+    "source_type": "fixture_github",
+    "author": "example",
+    "published_at": "2026-07-22T22:00:00Z",
+    "fetched_at": "2026-07-23T00:30:00Z",
+    "language": "en",
+    "summary": "A fixture release with safer tool permission boundaries.",
+    "content_excerpt": "Version 1.3.0 adds explicit approval gates and retry limits.",
+    "topic_candidates": ["ai_coding", "open_source_ai"],
+    "company_candidates": [],
+    "repository_candidates": ["example/agent"],
+    "metadata": {
+      "official": true,
+      "stars": 12500,
+      "forks": 900,
+      "open_issues": 120
+    }
+  },
+  {
+    "id": "fixture-market",
+    "title": "NVDA closes 3.2% higher on the latest trading day",
+    "url": "https://finance.yahoo.com/quote/NVDA/",
+    "source_name": "Market Fixture",
+    "source_type": "fixture_market",
+    "author": null,
+    "published_at": "2026-07-22T20:00:00Z",
+    "fetched_at": "2026-07-23T00:30:00Z",
+    "language": "en",
+    "summary": "Fixture market movement; no single-cause attribution is made.",
+    "content_excerpt": "",
+    "topic_candidates": ["ai_infrastructure"],
+    "company_candidates": ["NVIDIA"],
+    "repository_candidates": [],
+    "metadata": {
+      "ticker": "NVDA",
+      "close": 180.25,
+      "previous_close": 174.66,
+      "change_percent": 3.2,
+      "official": false
+    }
+  }
+]
+
