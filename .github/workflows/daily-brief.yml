@@ -1,0 +1,97 @@
+name: Daily Morning Radar
+
+on:
+  workflow_dispatch:
+    inputs:
+      fixtures:
+        description: "Use offline fixture data and FakeAIProvider"
+        type: boolean
+        default: false
+      dry_run:
+        description: "Run without production state changes or notification"
+        type: boolean
+        default: false
+      force_notify:
+        description: "Allow a repeated notification for the same date"
+        type: boolean
+        default: false
+  schedule:
+    # Singapore is UTC+8 year-round: 07:37 SGT = 23:37 UTC on the previous day.
+    - cron: "37 23 * * *"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: morning-radar-daily
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project
+        run: python -m pip install -e ".[dev]"
+
+      - name: Verify
+        run: |
+          python -m pytest
+          python -m ruff check src tests
+
+      - name: Generate morning brief
+        shell: bash
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          OPENAI_MODEL: ${{ secrets.OPENAI_MODEL }}
+          GITHUB_TOKEN: ${{ github.token }}
+          WXPUSHER_APP_TOKEN: ${{ secrets.WXPUSHER_APP_TOKEN }}
+          WXPUSHER_UIDS: ${{ secrets.WXPUSHER_UIDS }}
+          PUBLIC_SITE_URL: ${{ secrets.PUBLIC_SITE_URL }}
+        run: |
+          flags=()
+          if [[ "${{ inputs.fixtures || false }}" == "true" ]]; then flags+=(--fixtures); fi
+          if [[ "${{ inputs.dry_run || false }}" == "true" ]]; then flags+=(--dry-run); fi
+          if [[ "${{ inputs.force_notify || false }}" == "true" ]]; then flags+=(--force-notify); fi
+          python -m morning_radar run "${flags[@]}"
+
+      - name: Commit generated history
+        if: ${{ !(inputs.dry_run || false) }}
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data site
+          if git diff --cached --quiet; then
+            echo "No generated changes to commit."
+          else
+            git commit -m "chore: update morning radar for $(date -u +%F)"
+            git push
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
