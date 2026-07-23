@@ -1,0 +1,70 @@
+{
+  "ai_and_open_source": [],
+  "cognitive_extension": null,
+  "date": "2026-07-23",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-07-23T00:30:00Z",
+  "market_and_companies": [],
+  "run_stats": {
+    "dry_run": false,
+    "fixture_mode": true,
+    "raw_items": 4,
+    "recent_items": 4,
+    "signals": 0,
+    "stories": 3
+  },
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "id": "brief-d7b4cf6bb141dea8234c",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://example.com/openai/structured-output",
+        "https://news.ycombinator.com/item?id=123456"
+      ],
+      "story_ids": [
+        "story-d225fdfc924819919ee6"
+      ],
+      "title": "OpenAI releases a structured output update",
+      "uncertainty": null,
+      "what_happened": "An offline fixture representing an official AI product update.",
+      "why_it_matters": "多个 Fixture 来源在离线流程中被结构化合并。"
+    },
+    {
+      "id": "brief-b123840bc8079c3ec7f6",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.com/example/agent/releases/tag/v1.3.0"
+      ],
+      "story_ids": [
+        "story-de5dc2ecf936a5076840"
+      ],
+      "title": "Example Agent v1.3.0 released",
+      "uncertainty": null,
+      "what_happened": "A fixture release with safer tool permission boundaries.",
+      "why_it_matters": "多个 Fixture 来源在离线流程中被结构化合并。"
+    },
+    {
+      "id": "brief-e94167a372d3cbde9fb3",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://finance.yahoo.com/quote/NVDA/"
+      ],
+      "story_ids": [
+        "story-85262960e748782a888e"
+      ],
+      "title": "NVDA closes 3.2% higher on the latest trading day",
+      "uncertainty": null,
+      "what_happened": "Fixture market movement; no single-cause attribution is made.",
+      "why_it_matters": "多个 Fixture 来源在离线流程中被结构化合并。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "继续观察后续官方发布与开发者反馈。"
+  ]
+}
