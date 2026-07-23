@@ -1,5 +1,6 @@
 """AI provider interfaces and implementations."""
 
+from morning_radar.ai.deepseek_provider import DeepSeekProvider
 from morning_radar.ai.fake_provider import FakeAIProvider
 from morning_radar.ai.openai_provider import (
     AIBudget,
@@ -16,7 +17,7 @@ __all__ = [
     "AIConfigurationError",
     "AIOutputError",
     "AIProvider",
+    "DeepSeekProvider",
     "FakeAIProvider",
     "OpenAIProvider",
 ]
-

@@ -31,8 +31,10 @@ git push -u origin master
 
 Settings → Secrets and variables → Actions 添加：
 
-- `OPENAI_API_KEY`：OpenAI API Key；
-- `OPENAI_MODEL`：你选择且账号可用的模型名（必填，无代码默认值）；
+- `DEEPSEEK_API_KEY`：DeepSeek API Key；
+- `DEEPSEEK_MODEL`：你选择且账号可用的模型名（必填，无代码默认值）；
+- `DEEPSEEK_BASE_URL`：DeepSeek OpenAI-compatible API 地址，例如
+  `https://api.deepseek.com`（必填，无代码默认值）；
 - `WXPUSHER_APP_TOKEN`：WxPusher 应用 Token；
 - `WXPUSHER_UIDS`：一个或多个 UID，用英文逗号分隔；
 - `PUBLIC_SITE_URL`：例如 `https://<用户名>.github.io/<仓库名>`。
@@ -55,6 +57,8 @@ Actions → Daily Morning Radar → Run workflow：
 5. 检查微信只收到短摘要，而不是整篇长晨报。
 
 定时任务每天新加坡时间 07:37 运行。`force_notify` 只用于你明确要重发同日通知时。
+真实模式默认使用 `DeepSeekProvider`；`OpenAIProvider` 仅作为备用代码保留，不需要配置
+OpenAI Secret。
 
 ## 6. 调整观察清单
 
@@ -80,4 +84,3 @@ git push
 优先使用 `git revert` 保留审计历史，不使用 `git reset --hard`。若只需停止微信推送，
 删除/撤销 WxPusher Secret 或 Token；网页生成仍可继续。若密钥疑似泄露，立即在对应平台
 吊销并重新创建，不要只从 Git 历史删除文本。
-

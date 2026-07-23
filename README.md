@@ -10,7 +10,8 @@ Morning Radar 是一个个人定时情报晨报：聚合 AI 科技、重点公�
 
 - 采集 RSS/Atom、GitHub Releases/仓库指标、Hacker News 和配置内公司行情；
 - 筛选过去 24 小时，规范化 URL/标题，保守聚类并结构化评分；
-- 用唯一生产 AI `OpenAIProvider` 生成摘要，Fixture 使用离线 `FakeAIProvider`；
+- 生产默认用 `DeepSeekProvider` 生成摘要，保留 `OpenAIProvider` 备用，Fixture 使用离线
+  `FakeAIProvider`；
 - 保存至少 7 天可累积 JSON 历史，检测有证据的主题、公司、GitHub、产品和市场信号；
 - 构建响应式首页、历史页和单日页；
 - 通过 WxPusher 发送短摘要，并保证同日幂等；
@@ -55,7 +56,7 @@ python -m pip install -e '.[dev]'
 python -m morning_radar run --fixtures
 ```
 
-Fixture 不访问网络、不调用 OpenAI、不发送微信。完成后打开 `site/index.html`。验证项目：
+Fixture 不访问网络、不调用真实 AI、不发送微信。完成后打开 `site/index.html`。验证项目：
 
 ```powershell
 python -m pytest
@@ -68,8 +69,9 @@ python -m ruff check src tests
 PowerShell 当前会话示例：
 
 ```powershell
-$env:OPENAI_API_KEY = "你的密钥"
-$env:OPENAI_MODEL = "你选择且账号可用的模型名"
+$env:DEEPSEEK_API_KEY = "你的密钥"
+$env:DEEPSEEK_MODEL = "你选择且账号可用的模型名"
+$env:DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 $env:GITHUB_TOKEN = "可选；本地提高 GitHub API 限额"
 $env:WXPUSHER_APP_TOKEN = "可选"
 $env:WXPUSHER_UIDS = "UID_1,UID_2"
@@ -77,8 +79,9 @@ $env:PUBLIC_SITE_URL = "https://你的用户名.github.io/仓库名"
 python -m morning_radar run
 ```
 
-`OPENAI_MODEL` 没有隐式默认值，避免项目在不知情时改变成本或行为。生产运行必须提供
-OpenAI Key/Model；WxPusher 缺配置时只跳过通知。其他命令：
+三个 DeepSeek 变量都没有代码内隐式默认值，避免项目在不知情时改变模型、成本或 API
+端点。生产运行必须提供 DeepSeek Key、Model 和 Base URL；WxPusher 缺配置时只跳过通知。
+`OpenAIProvider` 仅作为备用实现保留，不是当前流水线默认值。其他命令：
 
 ```powershell
 python -m morning_radar run --dry-run
@@ -94,8 +97,9 @@ Dry Run 写入 `.tmp/dry-run/`，不修改生产状态或发送通知。手动�
 
 1. 在 GitHub 创建空仓库，把本地仓库关联并由你主动推送。
 2. 仓库 Settings → Secrets and variables → Actions 添加：
-   `OPENAI_API_KEY`、`OPENAI_MODEL`、`WXPUSHER_APP_TOKEN`、`WXPUSHER_UIDS`、
-   `PUBLIC_SITE_URL`。工作流优先使用自带 `${{ github.token }}`，无需额外 PAT。
+   `DEEPSEEK_API_KEY`、`DEEPSEEK_MODEL`、`DEEPSEEK_BASE_URL`、`WXPUSHER_APP_TOKEN`、
+   `WXPUSHER_UIDS`、`PUBLIC_SITE_URL`。工作流优先使用自带 `${{ github.token }}`，无需额外
+   PAT。
 3. Settings → Pages → Source 选择 **GitHub Actions**。
 4. Actions → Daily Morning Radar → Run workflow。第一次建议勾选 Fixture，确认后再真实运行。
 
@@ -119,7 +123,8 @@ Fixture 和无网络测试。核心代码不应因新增观察对象而修改。
 AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日调用数限制。先用 Fixture 验证，
 再逐步增加来源；GitHub Pages 默认公开，晨报不得放个人信息或秘密。
 
-- `OPENAI_MODEL is required`：设置模型名；项目不会替你选择或硬编码。
+- `DEEPSEEK_MODEL is required`：设置模型名；项目不会替你选择或硬编码。
+- `DEEPSEEK_BASE_URL is required`：确认本地环境或 Actions Secret 已配置兼容 API 地址。
 - GitHub 403/限流：确认 `GITHUB_TOKEN`；单仓库失败不会阻断其他来源。
 - 没有微信：检查三项 WxPusher 变量，运行 `test-notification`，不要在日志粘贴 Token。
 - Pages 失败：确认 Source 为 GitHub Actions，并检查 workflow 的 Pages 权限。
@@ -128,4 +133,3 @@ AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日调用数�
 
 完整架构见 [ARCHITECTURE.md](docs/ARCHITECTURE.md)，最终部署步骤集中在
 [HANDOFF.md](HANDOFF.md)。
-

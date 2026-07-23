@@ -11,7 +11,8 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
 
 - `collectors`：把 RSS、GitHub、Hacker News、市场或 Fixture 转为统一 `RawItem`。
 - `processing`：规范化 URL/标题、按时间窗过滤、去重、聚类与评分。
-- `ai`：定义最小 Provider 接口；生产仅有 OpenAI，测试使用确定性的 Fake。
+- `ai`：定义最小 Provider 接口；生产默认使用 DeepSeek，保留 OpenAI 备用，测试使用
+  确定性的 Fake。
 - `trends`：读取近 7 天结构化历史并生成有证据的 `Signal`。
 - `briefing`：把事件和信号组织为数量受限的固定结构 `DailyBrief`。
 - `storage`：用 JSON 原子写入原始元数据、事件、信号、快照和幂等状态。
@@ -33,5 +34,6 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
 
 每个采集器独立捕获和记录错误；成功来源继续进入流水线。AI 格式错误重试一次，
 再次失败则跳过对应分析，不使用占位事实。缺少 WxPusher 配置只跳过通知，不影响
-存储和建站。生产必需的 OpenAI 配置缺失则在进入生产 AI 阶段时给出明确错误。
-
+存储和建站。生产必需的 DeepSeek Key、Model 或 Base URL 缺失时，在进入生产 AI 阶段
+给出明确错误。DeepSeek 通过 OpenAI-compatible Chat Completions API 返回 JSON，
+随后仍需通过 Pydantic 和来源 URL 校验才能进入业务流程。

@@ -6,7 +6,7 @@ import os
 from datetime import date, timedelta
 from pathlib import Path
 
-from morning_radar.ai import AIBudget, FakeAIProvider, OpenAIProvider
+from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
 from morning_radar.briefing import BriefLimits, generate_daily_brief
 from morning_radar.collectors import FixtureCollector, collect_available
 from morning_radar.collectors.github import GitHubCollector
@@ -53,7 +53,7 @@ class MorningRadarPipeline:
         else:
             now = utc_now()
             raw_items = self._production_collectors(output_root, now)
-            provider = OpenAIProvider.from_environment(
+            provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
                     self.app.maximum_ai_calls,
                     self.app.maximum_ai_input_characters,

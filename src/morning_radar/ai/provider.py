@@ -1,4 +1,4 @@
-"""AI provider contract; production implements only OpenAI."""
+"""AI provider contract shared by production and fixture implementations."""
 
 from __future__ import annotations
 
@@ -27,4 +27,3 @@ class AIProvider(Protocol):
         self,
         signals: list[Signal],
     ) -> DirectionObservation: ...
-
