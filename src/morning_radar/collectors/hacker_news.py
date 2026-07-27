@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import re
 from datetime import UTC, datetime
 
 from morning_radar.collectors.http import HttpClient
@@ -11,6 +12,47 @@ from morning_radar.processing import stable_item_id
 from morning_radar.time_utils import utc_now
 
 LOGGER = logging.getLogger(__name__)
+TITLE_SIGNAL_KEYWORDS = ("ai", "llm", "agent", "mcp")
+WEAK_BODY_KEYWORDS = {"github"}
+
+
+def _contains_keyword(text: str, keyword: str) -> bool:
+    normalized = keyword.casefold().strip()
+    if not normalized:
+        return False
+    if " " not in normalized and len(normalized) <= 5:
+        return re.search(rf"(?<!\w){re.escape(normalized)}(?!\w)", text) is not None
+    return normalized in text
+
+
+def _select_candidate_ids(
+    endpoint_ids: list[list[int]],
+    *,
+    maximum_candidates: int,
+) -> list[int]:
+    selected: list[int] = []
+    seen: set[int] = set()
+    positions = [0] * len(endpoint_ids)
+    while len(selected) < maximum_candidates:
+        added = False
+        for index, story_ids in enumerate(endpoint_ids):
+            while (
+                positions[index] < len(story_ids)
+                and story_ids[positions[index]] in seen
+            ):
+                positions[index] += 1
+            if positions[index] >= len(story_ids):
+                continue
+            story_id = story_ids[positions[index]]
+            positions[index] += 1
+            selected.append(story_id)
+            seen.add(story_id)
+            added = True
+            if len(selected) >= maximum_candidates:
+                break
+        if not added:
+            break
+    return selected
 
 
 class HackerNewsCollector:
@@ -32,29 +74,73 @@ class HackerNewsCollector:
         self.now = now or utc_now()
 
     def collect(self) -> list[RawItem]:
-        story_ids: list[int] = []
+        ids_by_endpoint: dict[str, list[int]] = {}
         for endpoint in ("topstories", "newstories", "beststories"):
             try:
-                story_ids.extend(self.http.get(f"{self.base_url}/{endpoint}.json").json())
+                ids_by_endpoint[endpoint] = self.http.get(
+                    f"{self.base_url}/{endpoint}.json"
+                ).json()
             except Exception:
+                ids_by_endpoint[endpoint] = []
                 LOGGER.exception("Hacker News list failed: %s", endpoint)
-        unique_ids = list(dict.fromkeys(story_ids))[: self.maximum_candidates]
+        all_ids = [
+            story_id
+            for endpoint in ("topstories", "newstories", "beststories")
+            for story_id in ids_by_endpoint[endpoint]
+        ]
+        candidate_ids = _select_candidate_ids(
+            [
+                ids_by_endpoint["topstories"],
+                ids_by_endpoint["newstories"],
+                ids_by_endpoint["beststories"],
+            ],
+            maximum_candidates=self.maximum_candidates,
+        )
 
         items: list[RawItem] = []
-        for story_id in unique_ids:
+        fetched_items = 0
+        keyword_matches = 0
+        for story_id in candidate_ids:
             try:
                 story = self.http.get(f"{self.base_url}/item/{story_id}.json").json()
+                if not story:
+                    continue
+                fetched_items += 1
                 converted = self._convert(story)
                 if converted:
+                    keyword_matches += 1
                     items.append(converted)
             except Exception:
                 LOGGER.exception("Hacker News item failed: %s", story_id)
+        LOGGER.info(
+            "Hacker News stats: top_ids=%d new_ids=%d best_ids=%d "
+            "unique_candidates=%d selected_candidates=%d fetched_items=%d "
+            "keyword_matches=%d retained_items=%d",
+            len(ids_by_endpoint["topstories"]),
+            len(ids_by_endpoint["newstories"]),
+            len(ids_by_endpoint["beststories"]),
+            len(set(all_ids)),
+            len(candidate_ids),
+            fetched_items,
+            keyword_matches,
+            len(items),
+        )
         return items
 
     def _convert(self, story: dict[str, object]) -> RawItem | None:
         title = str(story.get("title") or "").strip()
-        searchable = f"{title} {story.get('text') or ''}".casefold()
-        if not title or not any(keyword in searchable for keyword in self.keywords):
+        title_text = title.casefold()
+        body_text = str(story.get("text") or "").casefold()
+        title_keywords = [*self.keywords, *TITLE_SIGNAL_KEYWORDS]
+        title_match = any(
+            _contains_keyword(title_text, keyword) for keyword in title_keywords
+        )
+        body_match = any(
+            keyword not in WEAK_BODY_KEYWORDS
+            and _contains_keyword(body_text, keyword)
+            for keyword in self.keywords
+        )
+        if not title or not (title_match or body_match):
             return None
         story_id = int(story["id"])
         discussion_url = f"https://news.ycombinator.com/item?id={story_id}"
@@ -85,4 +171,3 @@ class HackerNewsCollector:
                 "comments": int(story.get("descendants") or 0),
             },
         )
-

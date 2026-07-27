@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import math
 from datetime import date, datetime
 from pathlib import Path
 from typing import Protocol
@@ -72,11 +73,27 @@ class MarketCollector:
 
     def _collect_company(self, company: CompanyConfig) -> tuple[RawItem, MarketSnapshot]:
         bars = self.provider.history(company.ticker)
-        if len(bars) < 2:
+        valid_bars: list[tuple[date, float, float | None]] = []
+        for trading_date, close, volume in bars:
+            if not math.isfinite(close) or close <= 0:
+                continue
+            clean_volume = (
+                volume
+                if volume is not None and math.isfinite(volume) and volume >= 0
+                else None
+            )
+            valid_bars.append((trading_date, close, clean_volume))
+        LOGGER.info(
+            "Market data stats: ticker=%s rows_received=%d valid_rows=%d "
+            "skipped_invalid_rows=%d",
+            company.ticker,
+            len(bars),
+            len(valid_bars),
+            len(bars) - len(valid_bars),
+        )
+        if len(valid_bars) < 2:
             raise ValueError(f"Need two trading days for {company.ticker}")
-        previous, latest = bars[-2], bars[-1]
-        if previous[1] <= 0 or latest[1] <= 0:
-            raise ValueError(f"Invalid close price for {company.ticker}")
+        previous, latest = valid_bars[-2], valid_bars[-1]
         change = (latest[1] - previous[1]) / previous[1]
         snapshot = MarketSnapshot(
             date=display_date(self.now),
@@ -114,4 +131,3 @@ class MarketCollector:
             },
         )
         return item, snapshot
-
