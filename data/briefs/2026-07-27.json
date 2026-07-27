@@ -4,18 +4,39 @@
   "date": "2026-07-27",
   "developer_discussions": [],
   "direction_observation": null,
-  "generated_at": "2026-07-27T01:15:04.383012Z",
+  "generated_at": "2026-07-27T10:32:27.455952Z",
   "market_and_companies": [],
   "run_stats": {
     "dry_run": false,
     "fixture_mode": false,
-    "raw_items": 200,
-    "recent_items": 0,
+    "raw_items": 2,
+    "recent_items": 2,
     "signals": 0,
-    "stories": 0
+    "stories": 2
   },
   "timezone": "Asia/Singapore",
-  "top_stories": [],
+  "top_stories": [
+    {
+      "id": "brief-41fdf1b8243a8a4c49f4",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.wsj.com/business/big-companies-are-starting-to-hire-again-defying-predictions-of-ai-wipeout-f4974e99",
+        "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work"
+      ],
+      "story_ids": [
+        "story-60a526d52c3a510df6f5",
+        "story-11ca0256b75eb5d5617e"
+      ],
+      "title": "大公司重启招聘，AI扩展而非消除工作",
+      "uncertainty": "AI对就业的净影响尚不确定，招聘复苏是否可持续、AI扩展任务是否会导致岗位根本性改变仍需观察。",
+      "what_happened": "与AI将导致大规模失业的预测相反，大型公司正在重新招聘员工。同时，OpenAI的最新研究表明，ChatGPT等AI工具正在扩展员工的工作范围，促使他们承担跨角色任务。",
+      "why_it_matters": "这表明AI对就业市场的实际影响比简单取代更为复杂，可能通过增强员工能力创造新机遇，对劳动力政策和企业战略有重要启示。"
+    }
+  ],
   "trend_radar": [],
-  "watch_next": []
+  "watch_next": [
+    "更多企业AI部署与招聘数据",
+    "政策制定者如何回应AI就业冲击"
+  ]
 }
