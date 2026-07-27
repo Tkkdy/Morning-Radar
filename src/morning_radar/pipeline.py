@@ -2,13 +2,14 @@
 
 from __future__ import annotations
 
+import logging
 import os
 from datetime import date, timedelta
 from pathlib import Path
 
 from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
 from morning_radar.briefing import BriefLimits, generate_daily_brief
-from morning_radar.collectors import FixtureCollector, collect_available
+from morning_radar.collectors import CollectionResult, FixtureCollector, collect_available
 from morning_radar.collectors.github import GitHubCollector
 from morning_radar.collectors.hacker_news import HackerNewsCollector
 from morning_radar.collectors.http import HttpClient
@@ -32,6 +33,8 @@ from morning_radar.storage import load_models, save_model, save_models
 from morning_radar.time_utils import display_date, utc_now
 from morning_radar.trends import TrendDetector
 
+LOGGER = logging.getLogger(__name__)
+
 
 class MorningRadarPipeline:
     def __init__(self, project_root: Path = Path(".")) -> None:
@@ -50,9 +53,16 @@ class MorningRadarPipeline:
             raw_items = FixtureCollector(self.root / "fixtures/sample_items.json").collect()
             now = max(item.fetched_at for item in raw_items)
             provider = FakeAIProvider()
+            collection = CollectionResult(
+                items=raw_items,
+                raw_collected=len(raw_items),
+                after_buffer=len(raw_items),
+                after_dedup=len(raw_items),
+            )
         else:
             now = utc_now()
-            raw_items = self._production_collectors(output_root, now)
+            collection = self._production_collectors(output_root, now)
+            raw_items = collection.items
             provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
                     self.app.maximum_ai_calls,
@@ -103,13 +113,38 @@ class MorningRadarPipeline:
                 "dry_run": dry_run,
             },
         )
+        selected_brief_items = sum(
+            len(items)
+            for items in (
+                brief.top_stories,
+                brief.market_and_companies,
+                brief.ai_and_open_source,
+                brief.trend_radar,
+                brief.developer_discussions,
+            )
+        )
+        ai_calls = getattr(getattr(provider, "budget", None), "calls_used", 0)
+        LOGGER.info(
+            "Pipeline stats: raw_collected=%d after_buffer=%d after_dedup=%d "
+            "after_global_cap=%d recent_24h=%d stories=%d signals=%d "
+            "selected_brief_items=%d ai_calls=%d",
+            collection.raw_collected,
+            collection.after_buffer,
+            collection.after_dedup,
+            len(raw_items),
+            len(recent),
+            len(stories),
+            len(signals),
+            selected_brief_items,
+            ai_calls,
+        )
         self._save_outputs(output_root, brief_date, raw_items, stories, signals, brief)
         self.build_site(output_root=output_root)
         if not fixtures and not dry_run:
             self._notifier(output_root).notify(brief, force=force_notify)
         return brief
 
-    def _production_collectors(self, output_root: Path, now):
+    def _production_collectors(self, output_root: Path, now) -> CollectionResult:
         sources = load_model_list(self.root / "config/sources.yaml", "sources", SourceConfig)
         topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
         repositories = load_model_list(
@@ -145,7 +180,18 @@ class MorningRadarPipeline:
                 now=now,
             ),
         ]
-        return collect_available(collectors).items[: self.app.maximum_raw_items]
+        collection_hours = (
+            self.app.news_window_hours + self.app.collection_buffer_hours
+        )
+        return collect_available(
+            collectors,
+            filter_items=lambda items: filter_news_window(
+                items,
+                now=now,
+                hours=collection_hours,
+            ),
+            maximum_items=self.app.maximum_raw_items,
+        )
 
     def _save_outputs(self, root, brief_date, raw, stories, signals, brief) -> None:
         name = f"{brief_date}.json"

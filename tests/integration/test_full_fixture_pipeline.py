@@ -1,9 +1,16 @@
+import logging
 from pathlib import Path
 
 from morning_radar.pipeline import MorningRadarPipeline
 
 
-def test_full_fixture_pipeline_has_no_network_or_real_ai(tmp_path, monkeypatch) -> None:
+def test_full_fixture_pipeline_has_no_network_or_real_ai(
+    tmp_path,
+    monkeypatch,
+    caplog,
+) -> None:
+    caplog.set_level(logging.INFO)
+
     def fail_network(*args: object, **kwargs: object) -> None:
         raise AssertionError("fixture pipeline must not access the network")
 
@@ -22,4 +29,7 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(tmp_path, monkeypatch) 
     assert (output / "data/briefs/2026-07-23.json").exists()
     assert (output / "site/index.html").exists()
     assert (output / "site/archive.html").exists()
-
+    assert "raw_collected=4" in caplog.text
+    assert "recent_24h=4" in caplog.text
+    assert "selected_brief_items=3" in caplog.text
+    assert "ai_calls=0" in caplog.text

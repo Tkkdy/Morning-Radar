@@ -1,11 +1,13 @@
+import logging
 from datetime import UTC, date, datetime
 
 import pytest
 
 from morning_radar.ai import FakeAIProvider
-from morning_radar.ai.models import BriefDraft, GeneratedBriefItem
+from morning_radar.ai.models import BriefDraft, ClassificationBatch, GeneratedBriefItem
 from morning_radar.briefing import BriefLimits, BriefValidationError, generate_daily_brief
 from morning_radar.models import Story
+from morning_radar.processing import build_stories
 
 NOW = datetime(2026, 7, 23, 1, tzinfo=UTC)
 
@@ -72,6 +74,51 @@ def test_empty_optional_sections_and_observations_remain_empty() -> None:
     assert result.cognitive_extension is None
 
 
+class RecordingEmptyProvider(FakeAIProvider):
+    def __init__(self) -> None:
+        self.classify_calls = 0
+        self.write_calls = 0
+        self.direction_calls = 0
+
+    def classify_items(self, items) -> ClassificationBatch:
+        self.classify_calls += 1
+        return super().classify_items(items)
+
+    def write_brief(self, stories, signals) -> BriefDraft:
+        self.write_calls += 1
+        return super().write_brief(stories, signals)
+
+    def write_direction_observation(self, signals):
+        self.direction_calls += 1
+        return super().write_direction_observation(signals)
+
+
+def test_empty_pipeline_inputs_skip_all_ai_calls(caplog) -> None:
+    caplog.set_level(logging.INFO)
+    provider = RecordingEmptyProvider()
+
+    stories = build_stories([], provider=provider, now=NOW)
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=12),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert result.top_stories == []
+    assert provider.classify_calls == 0
+    assert provider.write_calls == 0
+    assert provider.direction_calls == 0
+    assert "Skipping AI classification: no recent items" in caplog.text
+    assert "Skipping AI brief generation: no stories" in caplog.text
+    assert "Skipping AI direction observation: no signals" in caplog.text
+
+
 def test_source_links_are_complete_and_traceable() -> None:
     source_story = story(1)
     result = brief([source_story])
@@ -126,4 +173,3 @@ def test_disabled_section_is_not_emitted() -> None:
     )
 
     assert result.market_and_companies == []
-

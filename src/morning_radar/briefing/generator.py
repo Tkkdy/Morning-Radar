@@ -3,10 +3,11 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 from dataclasses import dataclass
 from datetime import date, datetime
 
-from morning_radar.ai.models import GeneratedBriefItem
+from morning_radar.ai.models import BriefDraft, GeneratedBriefItem
 from morning_radar.ai.provider import AIProvider
 from morning_radar.models import BriefItem, DailyBrief, Signal, Story
 
@@ -17,6 +18,7 @@ SECTION_NAMES = (
     "trend_radar",
     "developer_discussions",
 )
+LOGGER = logging.getLogger(__name__)
 
 
 class BriefValidationError(ValueError):
@@ -76,7 +78,11 @@ def generate_daily_brief(
     enabled_sections: dict[str, bool],
     run_stats: dict[str, int | float | str | bool],
 ) -> DailyBrief:
-    draft = provider.write_brief(stories, signals)
+    if stories:
+        draft = provider.write_brief(stories, signals)
+    else:
+        LOGGER.info("Skipping AI brief generation: no stories")
+        draft = BriefDraft(items=[])
     story_by_id = {story.id: story for story in stories}
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
@@ -98,6 +104,8 @@ def generate_daily_brief(
     direction = None
     if signals and enabled_sections.get("direction_observation", True):
         direction = provider.write_direction_observation(signals).observation
+    elif not signals:
+        LOGGER.info("Skipping AI direction observation: no signals")
     cognitive_extension = (
         draft.cognitive_extension
         if enabled_sections.get("cognitive_extension", True)
@@ -117,4 +125,3 @@ def generate_daily_brief(
         watch_next=draft.watch_next,
         run_stats=run_stats,
     )
-

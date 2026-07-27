@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 from datetime import datetime
 
 from morning_radar.ai.models import MergedStoryDraft
@@ -12,6 +13,7 @@ from morning_radar.processing.deduplicate import deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
+LOGGER = logging.getLogger(__name__)
 
 
 class StoryValidationError(ValueError):
@@ -103,6 +105,10 @@ def build_stories(
     provider: AIProvider,
     now: datetime,
 ) -> list[Story]:
+    if not items:
+        LOGGER.info("Skipping AI classification: no recent items")
+        return []
+
     unique = deduplicate_items(items)
     classifications = provider.classify_items(unique)
     relevant_ids = {item.item_id for item in classifications.items if item.relevant}
@@ -149,4 +155,3 @@ def rank_stories(stories: list[Story]) -> list[Story]:
         key=lambda story: (ranking_score(story), story.updated_at, story.id),
         reverse=True,
     )
-
