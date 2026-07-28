@@ -1,0 +1,38 @@
+[
+  {
+    "created_at": "2026-07-28T01:01:29.984207Z",
+    "explanation": "2 家公司在 ai_coding 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-a9834781efd8fd00ebba",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-124f756773bdde748301",
+      "story-5eb2351e3beb2760de45"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-07-28T01:01:29.984207Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-28T01:01:29.984207Z",
+    "explanation": "2 家公司在 open_source_ai 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-a3b50062ed21f3e4e4af",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-124f756773bdde748301",
+      "story-5eb2351e3beb2760de45"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-07-28T01:01:29.984207Z",
+    "window_days": 1
+  }
+]

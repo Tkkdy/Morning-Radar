@@ -1,0 +1,118 @@
+[
+  {
+    "analysis": [
+      "The research indicates that AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries."
+    ],
+    "canonical_title": "How AI is expanding what people do at work",
+    "category": "AI Research",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI published new research on July 27, 2026 about how AI expands worker tasks."
+    ],
+    "id": "story-11ca0256b75eb5d5617e",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work",
+    "product_names": [
+      "ChatGPT"
+    ],
+    "published_at": "2026-07-27T03:30:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-db9d0913513df69e6eee"
+    ],
+    "source_urls": [
+      "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI",
+      "Work",
+      "ChatGPT"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-07-28T01:01:29.984207Z"
+  },
+  {
+    "analysis": [
+      "The release candidate marks a significant step toward a stable v2, with breaking changes that require migration planning."
+    ],
+    "canonical_title": "MCP Python SDK v2.0.0rc1 Released",
+    "category": "Open Source AI",
+    "credibility_score": 0.95,
+    "entity_names": [],
+    "facts": [
+      "MCP Python SDK v2.0.0rc1 is the first v2 release candidate, available opt-in via `pip install mcp==2.0.0rc1`.",
+      "The release introduces breaking API changes: `Client(cache=False)` → `Client(cache=None)`, removal of `Context.client_id`, `RFC7523OAuthClientProvider`, `JWTParameters`, and other cleanups.",
+      "Aligns with the 2026-07-28 spec revision: optional `clientInfo._meta`, per-result `serverInfo`, and full stdio support for the new era.",
+      "Stdio servers now separate stdout/stderr to prevent JSON-RPC stream corruption, fixing known issues (#409, #671).",
+      "Streamable HTTP servers enforce a 4 MiB request body limit by default (configurable).",
+      "Tool result validation performance improved via compiled JSON Schema caching.",
+      "Stable v2.0.0 planned for 2026-07-28; users should pin the exact version until then."
+    ],
+    "id": "story-124f756773bdde748301",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0rc1",
+    "product_names": [
+      "MCP Python SDK",
+      "mcp"
+    ],
+    "published_at": "2026-07-27T13:29:47Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-dfbae541fea71ff54b44"
+    ],
+    "source_urls": [
+      "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0rc1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "The planned stable release date of 2026-07-28 may change."
+    ],
+    "updated_at": "2026-07-28T01:01:29.984207Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "openai-python v2.49.0",
+    "category": "software_release",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI",
+      "openai-python"
+    ],
+    "facts": [
+      "openai-python v2.49.0 was released on 2026-07-27.",
+      "The release requires Python 3.10 and automates version reviews."
+    ],
+    "id": "story-5eb2351e3beb2760de45",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v2.49.0",
+    "product_names": [
+      "openai-python"
+    ],
+    "published_at": "2026-07-27T21:44:49Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-7d4c792aa96b651f1261"
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v2.49.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-07-28T01:01:29.984207Z"
+  }
+]

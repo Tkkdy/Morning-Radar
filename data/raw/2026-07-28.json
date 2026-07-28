@@ -1,0 +1,427 @@
+[
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-db9d0913513df69e6eee",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-07-27T03:30:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "New OpenAI research shows how AI is expanding what workers do, with ChatGPT users taking on tasks across roles and reshaping job boundaries.",
+    "title": "How AI is expanding what people do at work",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/how-ai-is-expanding-what-people-do-at-work"
+  },
+  {
+    "author": "stainless-app[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## 2.49.0 (2026-07-27) Full Changelog: [v2.48.0...v2.49.0](https://github.com/openai/openai-python/compare/v2.48.0...v2.49.0) ### Features * require Python 3.10 and automate version reviews ([#3537](https://github.com/openai/openai-python/issues/3537)) ([d4c151d](https://github.com/openai/openai-python/commit/d4c151d92ba713e56518a4483d3b7918dd1be838))",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-7d4c792aa96b651f1261",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 5014,
+      "official": true,
+      "open_issues": 598,
+      "priority": "high",
+      "repository": "openai/openai-python",
+      "stars": 31240,
+      "stars_delta_24h": 6,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.00019209835435743102,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-07-27T21:44:49Z",
+    "repository_candidates": [
+      "openai/openai-python"
+    ],
+    "source_name": "GitHub · openai/openai-python",
+    "source_type": "github",
+    "summary": "## 2.49.0 (2026-07-27) Full Changelog: [v2.48.0...v2.49.0](https://github.com/openai/openai-python/compare/v2.48.0...v2.49.0) ### Features * require Python 3.10 and automate version reviews ([#3537](https://github.com/openai/openai-python/issues/3537)) ([d4c151d](https://github.com/openai/openai-python/commit/d4c151d92ba713e56518a4483d3b7918dd1be838))",
+    "title": "openai/openai-python: v2.49.0",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/openai/openai-python/releases/tag/v2.49.0"
+  },
+  {
+    "author": "georgeven",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-0a4eafefea62ad780037",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49077894",
+      "official": false,
+      "original_url": "https://huggingface.co/microsoft/Fara1.5-27B",
+      "score": 1
+    },
+    "published_at": "2026-07-28T00:59:15Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Microsoft finetuned Qwen 27B for computer use",
+    "topic_candidates": [],
+    "url": "https://huggingface.co/microsoft/Fara1.5-27B"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "NVIDIA"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-e9d972d33480e287f562",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.04994199387907432,
+      "close": 196.50999450683594,
+      "official": false,
+      "previous_close": 206.83999633789062,
+      "ticker": "NVDA",
+      "trading_date": "2026-07-27",
+      "volume": 153410785.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "NVIDIA 最近交易日收盘下跌 4.99%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/NVDA/"
+  },
+  {
+    "author": "maxisbey",
+    "company_candidates": [],
+    "content_excerpt": "First v2 release candidate. Pre-releases are opt-in only; `pip install mcp` still resolves to the stable 1.x line. ```bash pip install mcp==2.0.0rc1 # or uv add \"mcp==2.0.0rc1\" ``` The [documentation](https://py.sdk.modelcontextprotocol.io/v2/) has the full tutorial and API reference, and the [migration guide](https://py.sdk.modelcontextprotocol.io/v2/migration/) covers coming from v1. Stable v2 is planned for 2026-07-28 alongside the spec release - keep pinning an exact version until then. ## Highlights ### API cleanup ahead of stable (breaking for beta users) The last pre-release pass over the public surface; every item has a migration guide entry. - `Client(cache=False)` is now `Client(cache=None)`: `CacheConfig()` is the default and `None` switches the response cache off (#3164). - `Context.client_id` is removed - read `_meta` via `ctx.request_context.meta`, or the authenticated client via `get_access_token().client_id` (#3167). - `RFC7523OAuthClientProvider` and `JWTParameters` are removed - use `ClientCredentialsOAuthProvider`, `PrivateKeyJWTOAuthProvider`, or `IdentityAssertionOAuthProvider` (#3169). - The client-credentials providers take `scope=`, not `scopes=` (#3166). - `OAuthClientProvider(timeout=...)` is removed; it never bounded anything (#3165). - `message_handler` receives `ServerNotification | Exception` only; the dead `RequestResponder` arm and the `mcp.shared.session` module are gone (#3168). - `FileResource(is_binary=...)` is replaced by `encoding: str | None` (#3171). - `MCP_*` environment variables never configured `MCPServer` and are no longer advertised; `pydantic-settings` is dropped from the runtime dependencies (#3170). - Streamable HTTP servers reject request bodies over 4 MiB with HTTP 413; raise `max_request_body_size` if you accept larger messages (#3095). ### Aligned with the final 2026-07-28 identity shape (#3143) The request-side `clientInfo` `_meta` key is optional (the required pair is `protocolVersion` + `clientCapabilities`), and `serverInfo` moved out of the `server/discover` result body into every 2026-era result's `_meta`; `client.server_info` is now `Implementation | None`. This tracks spec change [#3002](https://github.com/modelcontextprotocol/modelcontextprotocol/pull/3002) and fixes interop with servers that already omit body `serverInfo`. ### The full 2026-07-28 revision over stdio (#3152) A stdio (or in-memory) server now decides the protocol era from the client's opening request, so `subscriptions/listen` and every other 2026-07-28 feature serve over stdio, not only Streamable HTTP. ### stdio servers keep handlers off the wire (#3117) `stdio_server()` serves from private duplicates of stdin/stdout and points fd 0 at the null device and fd 1 at stderr while it runs, so a stray `print()` or a chatty child process can no longer corrupt the JSON-RPC stream. This fixes the classic print-corrupts-the-wire class ([#409](https://github.com/modelcontextprotocol/python-sdk/issues/409)) and the Windows tool-call hang ([#671](https://github.com/modelcontextprotocol/python-sdk/issues/671)). ## Notes - Tool results validated against an output schema are much faster: the JSON Schema validator is compiled once and cached (#3134). - The tasks extension (SEP-2663) is not in this release, and will not be in v2.0.0. - If you install under uv's `exclude-newer` cooldown: `mcp` pins `mcp-types` to the exact same version, so exempt both packages - `exclude-newer-package = { mcp = false, mcp-types = false }`. ## What's Changed * Add Streamable HTTP request body limits by @Kludex in https://github.com/modelcontextprotocol/python-sdk/pull/3095 * docs: document Windows stdio subprocess stdin handling by @AndreKalberer in https://github.com/modelcontextprotocol/python-sdk/pull/3079 * docs: make API reference rendering independent of page order by @maxisbey in https://github.com/modelcontextprotocol/python-sdk/pull/3107 * Pin pymdown-extensions back to 11.0 by @maxisbey in https://github.com/modelcontextprot",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-dfbae541fea71ff54b44",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 3704,
+      "official": true,
+      "open_issues": 538,
+      "priority": "medium",
+      "repository": "modelcontextprotocol/python-sdk",
+      "stars": 23738,
+      "stars_delta_24h": 4,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.00016853459172495156,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-07-27T13:29:47Z",
+    "repository_candidates": [
+      "modelcontextprotocol/python-sdk"
+    ],
+    "source_name": "GitHub · modelcontextprotocol/python-sdk",
+    "source_type": "github",
+    "summary": "First v2 release candidate. Pre-releases are opt-in only; `pip install mcp` still resolves to the stable 1.x line. ```bash pip install mcp==2.0.0rc1 # or uv add \"mcp==2.0.0rc1\" ``` The [documentation](https://py.sdk.modelcontextprotocol.io/v2/) has the full tutorial and API reference, and the [migration guide](https://py.sdk.modelcontextprotocol.io/v2/migration/) covers coming from v1. Stable v2 is planned for 2026-07-28 alongside the spec release - keep pinning an exact version until then. ## Highlights ### API cleanup ahead of stable (breaking for beta users) The last pre-release pass over the public surface; every item has a migration guide entry. - `Client(cache=False)` is now `Client(cache=None)`: `CacheConfig()` is the default and `None` switches the response cache off (#3164). - `Context.client_id` is removed - read `_meta` via `ctx.request_context.meta`, or the authenticated client via `get_access_token().client_id` (#3167). - `RFC7523OAuthClientProvider` and `JWTParameters` ar",
+    "title": "modelcontextprotocol/python-sdk: v2.0.0rc1",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0rc1"
+  },
+  {
+    "author": "anon373839",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-b0c48bbb2539c6d094c8",
+    "language": "en",
+    "metadata": {
+      "comments": 467,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49068738",
+      "official": false,
+      "original_url": "https://twitter.com/HedgieMarkets/status/2081534588485296565",
+      "score": 736
+    },
+    "published_at": "2026-07-27T12:32:12Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "AI companies are shredding rare books",
+    "topic_candidates": [],
+    "url": "https://twitter.com/HedgieMarkets/status/2081534588485296565"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Microsoft"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-a1508d7ded199193ba0b",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.019386936494177196,
+      "close": 389.1000061035156,
+      "official": false,
+      "previous_close": 381.70001220703125,
+      "ticker": "MSFT",
+      "trading_date": "2026-07-27",
+      "volume": 27753671.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Microsoft 最近交易日收盘上涨 1.94%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/MSFT/"
+  },
+  {
+    "author": "pzxc",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-0a5bcb3073ed2cb4ba45",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49077815",
+      "official": false,
+      "original_url": "https://gamevibe.us/106-zombie-survival-training",
+      "score": 1
+    },
+    "published_at": "2026-07-28T00:49:18Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Show HN: Building a new game everyday with AI. Day #106 Zombie Survival Training",
+    "topic_candidates": [],
+    "url": "https://gamevibe.us/106-zombie-survival-training"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Alphabet"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-4a37a03e42faa259af76",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.021329854045531074,
+      "close": 326.55999755859375,
+      "official": false,
+      "previous_close": 319.739990234375,
+      "ticker": "GOOGL",
+      "trading_date": "2026-07-27",
+      "volume": 28340389.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Alphabet 最近交易日收盘上涨 2.13%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/GOOGL/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Meta"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-369d8f98e41ccd9ea6fb",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.0022177914931437357,
+      "close": 593.8699951171875,
+      "official": false,
+      "previous_close": 595.1900024414062,
+      "ticker": "META",
+      "trading_date": "2026-07-27",
+      "volume": 11106056.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Meta 最近交易日收盘下跌 0.22%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/META/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Amazon"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-d9675b6488c15a2cc12a",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.0031019827616639737,
+      "close": 231.38999938964844,
+      "official": false,
+      "previous_close": 232.11000061035156,
+      "ticker": "AMZN",
+      "trading_date": "2026-07-27",
+      "volume": 34898916.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Amazon 最近交易日收盘下跌 0.31%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMZN/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Apple"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-33b65e7c942ce9d621b1",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.011681024493330935,
+      "close": 336.9100036621094,
+      "official": false,
+      "previous_close": 333.0199890136719,
+      "ticker": "AAPL",
+      "trading_date": "2026-07-27",
+      "volume": 45246885.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Apple 最近交易日收盘上涨 1.17%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/AAPL/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "AMD"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-2d5b6e6cae5c2f9195fe",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.05172909161517648,
+      "close": 494.95001220703125,
+      "official": false,
+      "previous_close": 521.9500122070312,
+      "ticker": "AMD",
+      "trading_date": "2026-07-27",
+      "volume": 31641349.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "AMD 最近交易日收盘下跌 5.17%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMD/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "TSMC"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-6d2f1bf90d3913dd824a",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.010708726320622253,
+      "close": 399.0899963378906,
+      "official": false,
+      "previous_close": 403.4100036621094,
+      "ticker": "TSM",
+      "trading_date": "2026-07-27",
+      "volume": 15669384.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "TSMC 最近交易日收盘下跌 1.07%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSM/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Tesla"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-07-28T01:01:29.984207Z",
+    "id": "item-4a299bdcb14d65baad69",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.012171349626078505,
+      "close": 309.2200012207031,
+      "official": false,
+      "previous_close": 313.0299987792969,
+      "ticker": "TSLA",
+      "trading_date": "2026-07-27",
+      "volume": 43680359.0
+    },
+    "published_at": "2026-07-27T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Tesla 最近交易日收盘下跌 1.22%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSLA/"
+  }
+]
