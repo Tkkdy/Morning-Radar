@@ -116,14 +116,7 @@ def build_stories(
     if not candidates:
         LOGGER.warning("AI candidate budget left no items for classification")
         return []
-    try:
-        classifications = provider.classify_items(candidates)
-    except AIOutputError:
-        LOGGER.exception(
-            "AI degradation: classification failed; no unverified relevance "
-            "judgments will be created"
-        )
-        return []
+    classifications = provider.classify_items(candidates)
     relevant_ids = {item.item_id for item in classifications.items if item.relevant}
     relevant = [item for item in candidates if item.id in relevant_ids]
 

@@ -113,3 +113,41 @@ def test_shared_product_words_without_same_event_action_do_not_group() -> None:
     groups = group_items_by_normalized_title(items)
 
     assert len(groups) == 2
+
+
+def test_conflicting_gpt_versions_do_not_group() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "GPT-4 released", "https://one.example/gpt-4", "One"),
+            item("2", "GPT-5 released", "https://two.example/gpt-5", "Two"),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_conflicting_semantic_versions_do_not_group() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "FOO v1.2 released", "https://one.example/v1.2", "One"),
+            item("2", "FOO v1.3 released", "https://two.example/v1.3", "Two"),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_same_version_different_release_wording_can_group() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "GPT-4 released", "https://one.example/gpt-4", "One"),
+            item(
+                "2",
+                "OpenAI launches GPT-4 model",
+                "https://two.example/gpt-4",
+                "Two",
+            ),
+        ]
+    )
+
+    assert len(groups) == 1

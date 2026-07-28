@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 import pytest
 
 from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
-from morning_radar.ai.models import MergedStoryDraft
+from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
 from morning_radar.models import RawItem
 from morning_radar.processing.story_builder import (
     StoryValidationError,
@@ -156,15 +156,33 @@ class ClassificationFailureProvider(FakeAIProvider):
         raise AIOutputError("invalid structured output")
 
 
-def test_classification_failure_is_explicit_and_does_not_invent_scores(caplog) -> None:
+def test_no_input_skips_classification_normally() -> None:
+    assert build_stories([], provider=ClassificationFailureProvider(), now=NOW) == []
+
+
+class ZeroRelevantProvider(FakeAIProvider):
+    def classify_items(self, items):
+        del items
+        return ClassificationBatch(items=[])
+
+
+def test_successful_classification_with_zero_relevant_items_is_normally_empty() -> None:
     stories = build_stories(
         [item("one", "Release", "https://example.com/one", source="Fixture")],
-        provider=ClassificationFailureProvider(),
+        provider=ZeroRelevantProvider(),
         now=NOW,
     )
 
     assert stories == []
-    assert "AI degradation: classification failed" in caplog.text
+
+
+def test_global_classification_ai_failure_propagates() -> None:
+    with pytest.raises(AIOutputError, match="invalid structured output"):
+        build_stories(
+            [item("one", "Release", "https://example.com/one", source="Fixture")],
+            provider=ClassificationFailureProvider(),
+            now=NOW,
+        )
 
 
 class PartialMergeFailureProvider(FakeAIProvider):

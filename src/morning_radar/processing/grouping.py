@@ -96,9 +96,31 @@ def _published_distance_hours(left: RawItem, right: RawItem) -> float:
     ) / 3600
 
 
+def _version_markers(title: str) -> dict[str, str]:
+    normalized = normalize_title(title)
+    return {
+        product: version
+        for product, version in re.findall(
+            r"\b([a-z][a-z0-9]*)[- ]v?(\d+(?:\.\d+)*)\b",
+            normalized,
+        )
+    }
+
+
+def _has_conflicting_versions(left: RawItem, right: RawItem) -> bool:
+    left_versions = _version_markers(left.title)
+    right_versions = _version_markers(right.title)
+    return any(
+        left_versions[product] != right_versions[product]
+        for product in left_versions.keys() & right_versions.keys()
+    )
+
+
 def _candidate_match(left: RawItem, right: RawItem) -> bool:
     if normalize_title(left.title) == normalize_title(right.title):
         return True
+    if _has_conflicting_versions(left, right):
+        return False
     if _published_distance_hours(left, right) > 72:
         return False
 
