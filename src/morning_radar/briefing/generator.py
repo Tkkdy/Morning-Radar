@@ -7,6 +7,7 @@ import logging
 from dataclasses import dataclass
 from datetime import date, datetime
 
+from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import BriefDraft, GeneratedBriefItem
 from morning_radar.ai.provider import AIProvider
 from morning_radar.models import BriefItem, DailyBrief, Signal, Story
@@ -77,13 +78,45 @@ def generate_daily_brief(
     limits: BriefLimits,
     enabled_sections: dict[str, bool],
     run_stats: dict[str, int | float | str | bool],
+    relevance_threshold: float = 0,
+    importance_threshold: float = 0,
+    maximum_ai_items: int | None = None,
 ) -> DailyBrief:
-    if stories:
-        draft = provider.write_brief(stories, signals)
+    stats = dict(run_stats)
+    eligible_stories = [
+        story for story in stories if story.relevance_score >= relevance_threshold
+    ]
+    eligible_stories.sort(
+        key=lambda story: (
+            story.importance_score >= importance_threshold,
+            story.importance_score,
+            story.relevance_score,
+        ),
+        reverse=True,
+    )
+    stats["threshold_eligible_stories"] = len(eligible_stories)
+    bounded_signals = sorted(
+        signals,
+        key=lambda signal: (signal.strength, signal.id),
+        reverse=True,
+    )
+    if maximum_ai_items is not None:
+        bounded_signals = bounded_signals[:maximum_ai_items]
+    stats["ai_signal_inputs"] = len(bounded_signals)
+
+    if eligible_stories:
+        try:
+            draft = provider.write_brief(eligible_stories, bounded_signals)
+        except AIOutputError:
+            LOGGER.exception(
+                "AI degradation: brief generation failed; using verified Story facts"
+            )
+            stats["ai_brief_fallback"] = True
+            draft = _fallback_brief_draft(eligible_stories)
     else:
         LOGGER.info("Skipping AI brief generation: no stories")
         draft = BriefDraft(items=[])
-    story_by_id = {story.id: story for story in stories}
+    story_by_id = {story.id: story for story in eligible_stories}
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
 
@@ -93,8 +126,24 @@ def generate_daily_brief(
         if any(story_id in used_story_ids for story_id in generated.story_ids):
             continue
         section = generated.section if generated.section in sections else "top_stories"
-        if len(sections["top_stories"]) < limits.top_story_items:
+        referenced = [
+            story_by_id[story_id]
+            for story_id in generated.story_ids
+            if story_id in story_by_id
+        ]
+        important = bool(referenced) and any(
+            story.importance_score >= importance_threshold for story in referenced
+        )
+        top_enabled = enabled_sections.get("top_stories", True)
+        if top_enabled and important and len(sections["top_stories"]) < limits.top_story_items:
             section = "top_stories"
+        elif section == "top_stories" and (not top_enabled or not important):
+            proposed = referenced[0].category if referenced else "ai_and_open_source"
+            section = (
+                proposed
+                if proposed in sections and proposed != "top_stories"
+                else "ai_and_open_source"
+            )
         if not enabled_sections.get(section, True):
             continue
         item = _validated_item(generated, story_by_id=story_by_id, section=section)
@@ -102,9 +151,15 @@ def generate_daily_brief(
         used_story_ids.update(item.story_ids)
 
     direction = None
-    if signals and enabled_sections.get("direction_observation", True):
-        direction = provider.write_direction_observation(signals).observation
-    elif not signals:
+    if bounded_signals and enabled_sections.get("direction_observation", True):
+        try:
+            direction = provider.write_direction_observation(bounded_signals).observation
+        except AIOutputError:
+            LOGGER.exception(
+                "AI degradation: direction observation failed; section omitted"
+            )
+            stats["ai_direction_fallback"] = True
+    elif not bounded_signals:
         LOGGER.info("Skipping AI direction observation: no signals")
     cognitive_extension = (
         draft.cognitive_extension
@@ -123,5 +178,26 @@ def generate_daily_brief(
         direction_observation=direction,
         cognitive_extension=cognitive_extension,
         watch_next=draft.watch_next,
-        run_stats=run_stats,
+        run_stats=stats,
+    )
+
+
+def _fallback_brief_draft(stories: list[Story]) -> BriefDraft:
+    """Build a schema-valid draft without inventing analysis or new facts."""
+    return BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[story.id],
+                section=story.category,
+                title=story.canonical_title,
+                what_happened=story.facts[0] if story.facts else story.canonical_title,
+                why_it_matters=(
+                    "Degraded mode: why-it-matters analysis is unavailable; "
+                    "review the verified fact and source."
+                ),
+                uncertainty="AI-generated briefing analysis was unavailable.",
+                source_urls=story.source_urls,
+            )
+            for story in stories
+        ]
     )

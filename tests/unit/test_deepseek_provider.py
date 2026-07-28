@@ -134,6 +134,8 @@ def test_invalid_or_missing_json_output_retries_once() -> None:
 
     assert configured.classify_items([raw_item()]).items[0].relevant is True
     assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
 
 
 def test_invalid_output_after_retry_fails_clearly() -> None:
@@ -151,6 +153,21 @@ def test_timeout_retries_with_bounded_attempts() -> None:
 
     assert configured.classify_items([raw_item()]).items[0].relevant is True
     assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_continuous_network_failure_becomes_a_degradable_ai_error() -> None:
+    timeout = APITimeoutError(
+        request=httpx.Request("POST", "https://api.deepseek.test/chat/completions")
+    )
+    configured = provider([timeout, timeout])
+
+    with pytest.raises(AIOutputError, match="API unavailable"):
+        configured.classify_items([raw_item()])
+
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
 
 
 def test_ai_cannot_return_a_url_missing_from_input() -> None:

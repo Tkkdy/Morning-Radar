@@ -2,7 +2,7 @@ from datetime import UTC, datetime
 
 import pytest
 
-from morning_radar.ai import FakeAIProvider
+from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.models import RawItem
 from morning_radar.processing.story_builder import (
@@ -114,3 +114,75 @@ def test_ranking_weights_importance_more_than_novelty() -> None:
 
     assert ranking_score(important) > ranking_score(novelty_only)
 
+
+class RecordingProvider(FakeAIProvider):
+    def __init__(self) -> None:
+        self.classified_count = 0
+        self.budget = AIBudget(100, 100_000, 40)
+
+    def classify_items(self, items):
+        self.classified_count = len(items)
+        self.budget.consume("fixture payload", item_count=len(items))
+        return super().classify_items(items)
+
+
+def test_ai_candidate_cap_is_applied_before_classification() -> None:
+    provider = RecordingProvider()
+    items = [
+        item(
+            f"item-{index}",
+            f"Candidate {index}",
+            f"https://example.com/{index}",
+            source="Fixture",
+        )
+        for index in range(45)
+    ]
+
+    stories = build_stories(
+        items,
+        provider=provider,
+        now=NOW,
+        maximum_ai_items=40,
+    )
+
+    assert provider.classified_count == 40
+    assert provider.budget.calls_used == 1
+    assert len(stories) == 40
+
+
+class ClassificationFailureProvider(FakeAIProvider):
+    def classify_items(self, items):
+        del items
+        raise AIOutputError("invalid structured output")
+
+
+def test_classification_failure_is_explicit_and_does_not_invent_scores(caplog) -> None:
+    stories = build_stories(
+        [item("one", "Release", "https://example.com/one", source="Fixture")],
+        provider=ClassificationFailureProvider(),
+        now=NOW,
+    )
+
+    assert stories == []
+    assert "AI degradation: classification failed" in caplog.text
+
+
+class PartialMergeFailureProvider(FakeAIProvider):
+    def merge_story(self, items):
+        if items[0].id == "broken":
+            raise AIOutputError("invalid merge output")
+        return super().merge_story(items)
+
+
+def test_one_story_failure_does_not_discard_other_candidates(caplog) -> None:
+    stories = build_stories(
+        [
+            item("broken", "Broken candidate", "https://example.com/broken", source="One"),
+            item("valid", "Valid candidate", "https://example.com/valid", source="Two"),
+        ],
+        provider=PartialMergeFailureProvider(),
+        now=NOW,
+    )
+
+    assert [story.source_item_ids for story in stories] == [["valid"]]
+    assert "AI degradation: merge failed" in caplog.text

@@ -78,3 +78,46 @@ def test_news_filter_uses_published_time_and_marks_missing_time() -> None:
 
     assert [value.id for value in result] == ["recent", "missing"]
     assert result[1].metadata["published_time_missing"] is True
+
+
+def test_monday_keeps_friday_market_snapshot_but_not_friday_news() -> None:
+    now = datetime(2026, 7, 27, 1, tzinfo=UTC)
+    friday = datetime(2026, 7, 24, tzinfo=UTC)
+    market = RawItem(
+        id="market-friday",
+        title="Friday close",
+        url="https://finance.example/quote",
+        source_name="Market",
+        source_type="market",
+        published_at=friday,
+        fetched_at=now,
+        metadata={"freshness_policy": "latest_market_trading_day"},
+    )
+    news = market.model_copy(
+        update={
+            "id": "news-friday",
+            "source_type": "rss",
+            "metadata": {},
+        }
+    )
+
+    result = filter_news_window([market, news], now=now, hours=24)
+
+    assert [item.id for item in result] == ["market-friday"]
+    assert result[0].published_at == friday
+
+
+def test_market_snapshot_older_than_normal_long_weekend_is_not_kept() -> None:
+    now = datetime(2026, 7, 28, 1, tzinfo=UTC)
+    item = RawItem(
+        id="stale-market",
+        title="Old close",
+        url="https://finance.example/quote",
+        source_name="Market",
+        source_type="market",
+        published_at=datetime(2026, 7, 24, tzinfo=UTC),
+        fetched_at=now,
+        metadata={"freshness_policy": "latest_market_trading_day"},
+    )
+
+    assert filter_news_window([item], now=now, hours=24) == []

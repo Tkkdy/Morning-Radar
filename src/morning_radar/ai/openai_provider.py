@@ -48,6 +48,7 @@ class AIBudget:
     maximum_items: int
     calls_used: int = 0
     input_characters_used: int = 0
+    network_requests_used: int = 0
 
     def consume(self, payload: str, *, item_count: int) -> None:
         if item_count > self.maximum_items:
@@ -60,6 +61,10 @@ class AIBudget:
             raise AIBudgetExceeded("AI daily input character limit exceeded")
         self.calls_used += 1
         self.input_characters_used += len(payload)
+
+    def record_network_request(self) -> None:
+        """Record an actual outbound AI API request, including retries."""
+        self.network_requests_used += 1
 
 
 def _collect_urls(value: Any, field_name: str = "") -> list[str]:
@@ -144,6 +149,7 @@ class OpenAIProvider:
             reraise=True,
         )
         def invoke() -> Any:
+            self.budget.record_network_request()
             return self.client.responses.parse(
                 model=self.model,
                 instructions=instructions,
@@ -155,6 +161,16 @@ class OpenAIProvider:
         for _ in range(2):
             try:
                 parsed = invoke().output_parsed
+            except (
+                APIConnectionError,
+                APITimeoutError,
+                RateLimitError,
+                InternalServerError,
+            ) as exc:
+                raise AIOutputError(
+                    f"OpenAI API unavailable after network retries: {type(exc).__name__}"
+                ) from exc
+            try:
                 if parsed is None:
                     raise AIOutputError("OpenAI response contained no parsed structured output")
                 validated = schema.model_validate(parsed)

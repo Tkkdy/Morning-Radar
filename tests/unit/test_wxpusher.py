@@ -2,6 +2,7 @@ import logging
 from datetime import UTC, date, datetime
 
 import httpx
+import pytest
 
 from morning_radar.models import BriefItem, DailyBrief
 from morning_radar.notifications import WxPusherConfig, WxPusherNotifier
@@ -44,7 +45,22 @@ def test_success_writes_state_and_duplicate_is_skipped_unless_forced(tmp_path) -
 
     def handler(request: httpx.Request) -> httpx.Response:
         calls.append(request)
-        return httpx.Response(200, json={"code": 1000, "msg": "ok"})
+        return httpx.Response(
+            200,
+            json={
+                "code": 1000,
+                "success": True,
+                "msg": "ok",
+                "data": [
+                    {
+                        "uid": "uid-1",
+                        "code": 1000,
+                        "status": "created",
+                        "sendRecordId": 123,
+                    }
+                ],
+            },
+        )
 
     notifier = WxPusherNotifier(
         config=WxPusherConfig("secret-token", ["uid-1"], "https://radar.example"),
@@ -73,3 +89,46 @@ def test_logs_do_not_include_token_or_uid(tmp_path, caplog) -> None:
 
     assert "super-secret-token" not in caplog.text
     assert "private-uid" not in caplog.text
+
+
+def test_failed_uid_task_is_not_marked_sent(tmp_path, caplog) -> None:
+    caplog.set_level(logging.ERROR)
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        del request
+        return httpx.Response(
+            200,
+            json={
+                "code": 1000,
+                "success": True,
+                "data": [
+                    {
+                        "uid": "uid-ok",
+                        "code": 1000,
+                        "sendRecordId": 123,
+                    },
+                    {
+                        "uid": "uid-failed",
+                        "code": 1001,
+                        "status": "rejected",
+                    },
+                ],
+            },
+        )
+
+    notifier = WxPusherNotifier(
+        config=WxPusherConfig(
+            "secret-token",
+            ["uid-ok", "uid-failed"],
+            "https://radar.example",
+        ),
+        state_path=tmp_path / "state.json",
+        client=httpx.Client(transport=httpx.MockTransport(handler)),
+    )
+
+    with pytest.raises(RuntimeError, match="task creation failed"):
+        notifier.notify(brief())
+
+    assert not (tmp_path / "state.json").exists()
+    assert "failed to create 1 of 2 recipient task" in caplog.text
+    assert "uid-failed" not in caplog.text

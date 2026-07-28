@@ -105,6 +105,8 @@ def test_timeout_retries_with_bounded_attempts() -> None:
 
     assert configured.classify_items([raw_item()]) == expected
     assert configured.client.responses.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
 
 
 def test_ai_cannot_return_a_url_missing_from_input() -> None:
@@ -138,4 +140,3 @@ def test_fake_provider_works_without_api_configuration() -> None:
     result = FakeAIProvider().classify_items([raw_item()])
 
     assert result.items[0].relevant is True
-

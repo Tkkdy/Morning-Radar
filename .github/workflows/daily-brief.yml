@@ -67,7 +67,7 @@ jobs:
           flags=()
           if [[ "${{ inputs.fixtures || false }}" == "true" ]]; then flags+=(--fixtures); fi
           if [[ "${{ inputs.dry_run || false }}" == "true" ]]; then flags+=(--dry-run); fi
-          if [[ "${{ inputs.force_notify || false }}" == "true" ]]; then flags+=(--force-notify); fi
+          flags+=(--skip-notify)
           python -m morning_radar run "${flags[@]}"
 
       - name: Commit generated history
@@ -95,3 +95,27 @@ jobs:
       - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Notify after successful Pages deployment
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        shell: bash
+        env:
+          WXPUSHER_APP_TOKEN: ${{ secrets.WXPUSHER_APP_TOKEN }}
+          WXPUSHER_UIDS: ${{ secrets.WXPUSHER_UIDS }}
+          PUBLIC_SITE_URL: ${{ secrets.PUBLIC_SITE_URL }}
+        run: |
+          flags=()
+          if [[ "${{ inputs.force_notify || false }}" == "true" ]]; then flags+=(--force); fi
+          python -m morning_radar notify-latest "${flags[@]}"
+
+      - name: Commit notification state
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        shell: bash
+        run: |
+          git add data/state/notifications.json
+          if git diff --cached --quiet; then
+            echo "No notification state change to commit."
+          else
+            git commit -m "chore: record morning radar notification state"
+            git push
+          fi

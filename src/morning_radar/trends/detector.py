@@ -14,6 +14,7 @@ from morning_radar.models import (
     Story,
     StoryStatus,
 )
+from morning_radar.time_utils import display_date
 
 STATUS_ORDER = {
     StoryStatus.UNKNOWN: 0,
@@ -39,13 +40,14 @@ def _make_signal(
     strength: float,
     explanation: str,
     now: datetime,
+    current_date: date,
     metric_history: list[dict[str, object]] | None = None,
     uncertainties: list[str] | None = None,
 ) -> Signal:
     source_urls = {url for story in stories for url in story.source_urls}
     companies = {name for story in stories for name in story.entity_names}
     return Signal(
-        id=_signal_id(signal_type, topic, now.date()),
+        id=_signal_id(signal_type, topic, current_date),
         signal_type=signal_type,
         topic=topic,
         window_days=window_days,
@@ -79,6 +81,15 @@ def detect_topic_heating(
             [story for story in story_history.get(day, []) if topic in story.topic_names]
             for day in required_dates
         ]
+        seen_story_ids: set[str] = set()
+        unique_daily: list[list[Story]] = []
+        for stories in daily:
+            new_stories = [
+                story for story in stories if story.id not in seen_story_ids
+            ]
+            seen_story_ids.update(story.id for story in new_stories)
+            unique_daily.append(new_stories)
+        daily = unique_daily
         if any(not stories for stories in daily):
             continue
         all_stories = [story for stories in daily for story in stories]
@@ -97,6 +108,7 @@ def detect_topic_heating(
                 strength=min(1, 0.5 + 0.1 * source_count),
                 explanation=f"{topic} 连续 3 天保持或增加事件量，且有 {source_count} 个来源支持。",
                 now=now,
+                current_date=current_date,
                 metric_history=[
                     {"date": day.isoformat(), "story_count": count}
                     for day, count in zip(required_dates, daily_counts, strict=True)
@@ -106,7 +118,13 @@ def detect_topic_heating(
     return signals
 
 
-def detect_multi_company_direction(stories: list[Story], *, now: datetime) -> list[Signal]:
+def detect_multi_company_direction(
+    stories: list[Story],
+    *,
+    now: datetime,
+    current_date: date | None = None,
+) -> list[Signal]:
+    signal_date = current_date or display_date(now)
     by_topic: dict[str, list[Story]] = defaultdict(list)
     for story in stories:
         for topic in story.topic_names:
@@ -130,6 +148,7 @@ def detect_multi_company_direction(stories: list[Story], *, now: datetime) -> li
                     f"由 {len(sources)} 个来源支持。"
                 ),
                 now=now,
+                current_date=signal_date,
             )
         )
     return signals
@@ -141,7 +160,9 @@ def detect_github_growth(
     *,
     threshold: float,
     now: datetime,
+    current_date: date | None = None,
 ) -> list[Signal]:
+    signal_date = current_date or display_date(now)
     by_repository: dict[str, list[GitHubSnapshot]] = defaultdict(list)
     for snapshot in snapshots:
         by_repository[snapshot.repository].append(snapshot)
@@ -170,6 +191,7 @@ def detect_github_growth(
                 strength=min(1, growth / max(threshold, 0.001) * 0.5),
                 explanation=f"{repository} Star 增长 {growth:.1%}，超过阈值 {threshold:.1%}。",
                 now=now,
+                current_date=signal_date,
                 metric_history=[
                     {"date": value.date.isoformat(), "stars": value.stars}
                     for value in ordered[-2:]
@@ -220,6 +242,7 @@ def detect_product_transitions(
                         f"推进到 {current.status.value}。"
                     ),
                     now=now,
+                    current_date=current_date,
                 )
             )
     return signals
@@ -231,9 +254,19 @@ def detect_market_attention(
     *,
     threshold: float,
     now: datetime,
+    current_date: date | None = None,
 ) -> list[Signal]:
     signals: list[Signal] = []
-    for snapshot in snapshots:
+    first_snapshot_by_trading_day: dict[tuple[str, date], MarketSnapshot] = {}
+    for snapshot in sorted(snapshots, key=lambda value: (value.date, value.captured_at)):
+        first_snapshot_by_trading_day.setdefault(
+            (snapshot.ticker, snapshot.trading_date),
+            snapshot,
+        )
+    current_product_date = current_date or display_date(now)
+    for snapshot in first_snapshot_by_trading_day.values():
+        if snapshot.date != current_product_date:
+            continue
         if abs(snapshot.change_percent) < threshold:
             continue
         supporting = [
@@ -253,6 +286,7 @@ def detect_market_attention(
                     "且当日存在相关事件；两者不构成因果确认。"
                 ),
                 now=now,
+                current_date=current_product_date,
                 metric_history=[
                     {
                         "trading_date": snapshot.trading_date.isoformat(),
@@ -282,12 +316,17 @@ class TrendDetector:
         current_stories = story_history.get(current_date, [])
         return [
             *detect_topic_heating(story_history, current_date=current_date, now=now),
-            *detect_multi_company_direction(current_stories, now=now),
+            *detect_multi_company_direction(
+                current_stories,
+                now=now,
+                current_date=current_date,
+            ),
             *detect_github_growth(
                 github_snapshots,
                 current_stories,
                 threshold=self.github_threshold,
                 now=now,
+                current_date=current_date,
             ),
             *detect_product_transitions(
                 story_history,
@@ -299,6 +338,6 @@ class TrendDetector:
                 current_stories,
                 threshold=self.market_threshold,
                 now=now,
+                current_date=current_date,
             ),
         ]
-

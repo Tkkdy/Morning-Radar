@@ -122,6 +122,7 @@ class MarketCollector:
             company_candidates=[company.name],
             metadata={
                 "official": False,
+                "freshness_policy": "latest_market_trading_day",
                 "ticker": company.ticker,
                 "trading_date": latest[0].isoformat(),
                 "close": latest[1],

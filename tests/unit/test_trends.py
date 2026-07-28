@@ -188,3 +188,71 @@ def test_market_attention_requires_related_story_and_keeps_causality_uncertain()
 def test_direction_observation_is_empty_without_signals() -> None:
     assert FakeAIProvider().write_direction_observation([]).observation is None
 
+
+def test_signal_id_uses_singapore_product_date_across_utc_boundary() -> None:
+    stories = [
+        story("one", date(2026, 7, 29), companies=["Alpha"]),
+        story("two", date(2026, 7, 29), companies=["Beta"]),
+    ]
+    before_utc_midnight = datetime(2026, 7, 28, 23, 37, tzinfo=UTC)
+    after_utc_midnight = datetime(2026, 7, 29, 0, 5, tzinfo=UTC)
+
+    before = detect_multi_company_direction(stories, now=before_utc_midnight)
+    after = detect_multi_company_direction(stories, now=after_utc_midnight)
+
+    assert before[0].id == after[0].id
+
+
+def test_repeated_market_trading_day_does_not_create_a_new_attention_signal() -> None:
+    old_capture = MarketSnapshot(
+        date=date(2026, 7, 25),
+        captured_at=datetime(2026, 7, 24, 23, 37, tzinfo=UTC),
+        company="NVIDIA",
+        ticker="NVDA",
+        trading_date=date(2026, 7, 24),
+        close=105,
+        previous_close=100,
+        change_percent=0.05,
+    )
+    repeated = old_capture.model_copy(
+        update={
+            "date": date(2026, 7, 27),
+            "captured_at": datetime(2026, 7, 26, 23, 37, tzinfo=UTC),
+        }
+    )
+    related = story(
+        "nvidia-repeat",
+        date(2026, 7, 27),
+        companies=["NVIDIA"],
+    )
+
+    assert not detect_market_attention(
+        [old_capture, repeated],
+        [related],
+        threshold=0.03,
+        now=datetime(2026, 7, 26, 23, 37, tzinfo=UTC),
+    )
+
+
+def test_repeated_story_identity_does_not_manufacture_topic_heating() -> None:
+    repeated = story("same-market-close", date(2026, 7, 25))
+    history = {
+        day: [
+            repeated.model_copy(
+                update={
+                    "updated_at": datetime.combine(
+                        day,
+                        datetime.min.time(),
+                        tzinfo=UTC,
+                    )
+                }
+            )
+        ]
+        for day in (date(2026, 7, 25), date(2026, 7, 26), date(2026, 7, 27))
+    }
+
+    assert not detect_topic_heating(
+        history,
+        current_date=date(2026, 7, 27),
+        now=datetime(2026, 7, 26, 23, 37, tzinfo=UTC),
+    )

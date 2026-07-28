@@ -51,7 +51,7 @@ Settings → Pages → Build and deployment → Source 选择 **GitHub Actions**
 Actions → Daily Morning Radar → Run workflow：
 
 1. 第一次勾选 `fixtures=true`，其余保持默认；
-2. 检查测试、生成、提交和 Pages 部署日志；
+2. 检查测试、生成、提交、Pages 部署、部署后通知和通知状态提交日志；
 3. 打开 Actions 输出的 Pages URL；
 4. 再运行真实模式（`fixtures=false`）；
 5. 检查微信只收到短摘要，而不是整篇长晨报。
@@ -59,6 +59,10 @@ Actions → Daily Morning Radar → Run workflow：
 定时任务每天新加坡时间 07:37 运行。`force_notify` 只用于你明确要重发同日通知时。
 真实模式默认使用 `DeepSeekProvider`；`OpenAIProvider` 仅作为备用代码保留，不需要配置
 OpenAI Secret。
+
+生产通知只在 Pages 部署成功后发送。WxPusher 顶层请求与每个目标 UID 的任务创建记录都
+成功后才写入 `data/state/notifications.json`；该状态提交不会触发新运行，因为 workflow
+没有 `push` 触发器。Fixture 和 Dry Run 不发送生产通知。
 
 ## 6. 调整观察清单
 

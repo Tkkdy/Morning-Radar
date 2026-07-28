@@ -113,6 +113,7 @@ class DeepSeekProvider:
             reraise=True,
         )
         def invoke() -> Any:
+            self.budget.record_network_request()
             return self.client.chat.completions.create(
                 model=self.model,
                 messages=[
@@ -127,6 +128,16 @@ class DeepSeekProvider:
         for _ in range(2):
             try:
                 response = invoke()
+            except (
+                APIConnectionError,
+                APITimeoutError,
+                RateLimitError,
+                InternalServerError,
+            ) as exc:
+                raise AIOutputError(
+                    f"DeepSeek API unavailable after network retries: {type(exc).__name__}"
+                ) from exc
+            try:
                 content = response.choices[0].message.content
                 if not isinstance(content, str) or not content.strip():
                     raise AIOutputError("DeepSeek response contained no JSON content")

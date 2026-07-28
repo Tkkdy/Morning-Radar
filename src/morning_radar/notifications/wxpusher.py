@@ -68,8 +68,7 @@ class WxPusherNotifier:
         )
         response.raise_for_status()
         payload = response.json()
-        if payload.get("code") != 1000:
-            raise RuntimeError("WxPusher rejected the notification")
+        self._validate_created_tasks(payload)
         state[key] = "sent"
         write_json(self.state_path, state)
         LOGGER.info("WxPusher notification sent for %s", key)
@@ -90,7 +89,39 @@ class WxPusherNotifier:
             },
         )
         response.raise_for_status()
-        return response.json().get("code") == 1000
+        try:
+            self._validate_created_tasks(response.json())
+        except RuntimeError:
+            return False
+        return True
+
+    def _validate_created_tasks(self, payload: object) -> None:
+        if not isinstance(payload, dict):
+            raise RuntimeError("WxPusher returned an invalid response")
+        if payload.get("code") != 1000 or payload.get("success") is not True:
+            LOGGER.error("WxPusher request was rejected before task creation")
+            raise RuntimeError("WxPusher rejected the notification")
+        records = payload.get("data")
+        if not isinstance(records, list):
+            LOGGER.error("WxPusher response did not contain per-recipient task records")
+            raise RuntimeError("WxPusher task records are missing")
+
+        successful_uids = {
+            record.get("uid")
+            for record in records
+            if isinstance(record, dict)
+            and record.get("code") == 1000
+            and isinstance(record.get("sendRecordId"), int)
+            and record["sendRecordId"] > 0
+        }
+        missing_count = sum(uid not in successful_uids for uid in self.config.uids)
+        if missing_count:
+            LOGGER.error(
+                "WxPusher failed to create %d of %d recipient task(s)",
+                missing_count,
+                len(self.config.uids),
+            )
+            raise RuntimeError("WxPusher recipient task creation failed")
 
 
 _SECTIONS = (
@@ -100,4 +131,3 @@ _SECTIONS = (
     "trend_radar",
     "developer_discussions",
 )
-

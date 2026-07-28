@@ -47,6 +47,7 @@ class MorningRadarPipeline:
         fixtures: bool = False,
         dry_run: bool = False,
         force_notify: bool = False,
+        notify: bool = True,
     ) -> DailyBrief:
         output_root = self.root / ".tmp/dry-run" if dry_run else self.root
         if fixtures:
@@ -77,7 +78,21 @@ class MorningRadarPipeline:
             now=now,
             hours=self.app.news_window_hours,
         )
-        stories = build_stories(recent, provider=provider, now=now)
+        # Reserve calls for classification, brief writing, and direction
+        # observation. A rejected two-item candidate group costs five calls:
+        # one group merge plus merge + score for each resulting Story.
+        remaining_story_calls = max(0, self.app.maximum_ai_calls - 3)
+        call_safe_candidate_limit = remaining_story_calls * 2 // 5
+        ai_candidate_limit = min(
+            self.app.maximum_ai_items,
+            call_safe_candidate_limit,
+        )
+        stories = build_stories(
+            recent,
+            provider=provider,
+            now=now,
+            maximum_ai_items=ai_candidate_limit,
+        )
         brief_date = display_date(now)
         story_history = self._story_history(output_root, brief_date)
         story_history[brief_date] = stories
@@ -104,6 +119,9 @@ class MorningRadarPipeline:
             provider=provider,
             limits=BriefLimits(maximum_items=self.app.maximum_brief_items),
             enabled_sections=self.app.enabled_sections,
+            relevance_threshold=self.app.relevance_threshold,
+            importance_threshold=self.app.importance_threshold,
+            maximum_ai_items=self.app.maximum_ai_items,
             run_stats={
                 "raw_items": len(raw_items),
                 "recent_items": len(recent),
@@ -123,11 +141,14 @@ class MorningRadarPipeline:
                 brief.developer_discussions,
             )
         )
-        ai_calls = getattr(getattr(provider, "budget", None), "calls_used", 0)
+        budget = getattr(provider, "budget", None)
+        ai_calls = getattr(budget, "calls_used", 0)
+        network_ai_requests = getattr(budget, "network_requests_used", 0)
         LOGGER.info(
             "Pipeline stats: raw_collected=%d after_buffer=%d after_dedup=%d "
             "after_global_cap=%d recent_24h=%d stories=%d signals=%d "
-            "selected_brief_items=%d ai_calls=%d",
+            "selected_brief_items=%d ai_calls=%d logical_ai_calls=%d "
+            "network_ai_requests=%d",
             collection.raw_collected,
             collection.after_buffer,
             collection.after_dedup,
@@ -137,12 +158,21 @@ class MorningRadarPipeline:
             len(signals),
             selected_brief_items,
             ai_calls,
+            ai_calls,
+            network_ai_requests,
         )
         self._save_outputs(output_root, brief_date, raw_items, stories, signals, brief)
         self.build_site(output_root=output_root)
-        if not fixtures and not dry_run:
+        if notify and not fixtures and not dry_run:
             self._notifier(output_root).notify(brief, force=force_notify)
         return brief
+
+    def notify_latest(self, *, force: bool = False) -> bool:
+        brief_paths = sorted((self.root / "data/briefs").glob("*.json"))
+        if not brief_paths:
+            raise FileNotFoundError("No saved DailyBrief is available for notification")
+        brief = load_json_model(brief_paths[-1], DailyBrief)
+        return self._notifier(self.root).notify(brief, force=force)
 
     def _production_collectors(self, output_root: Path, now) -> CollectionResult:
         sources = load_model_list(self.root / "config/sources.yaml", "sources", SourceConfig)

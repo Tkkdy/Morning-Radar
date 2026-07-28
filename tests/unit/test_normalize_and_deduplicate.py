@@ -81,3 +81,35 @@ def test_different_versions_are_not_merged() -> None:
 
     assert len(groups) == 2
 
+
+def test_cross_source_release_titles_form_one_precision_first_candidate_group() -> None:
+    items = [
+        item(
+            "1",
+            "GPT-X is now available",
+            "https://openai.example/gpt-x",
+            "Official",
+        ),
+        item(
+            "2",
+            "OpenAI launches its newest GPT model",
+            "https://news.example/openai-gpt",
+            "News",
+        ),
+    ]
+
+    groups = group_items_by_normalized_title(items)
+
+    assert len(groups) == 1
+    assert {value.id for value in groups[0]} == {"1", "2"}
+
+
+def test_shared_product_words_without_same_event_action_do_not_group() -> None:
+    items = [
+        item("1", "GPT-X is now available", "https://example.com/release", "One"),
+        item("2", "GPT benchmark tests new hardware", "https://example.com/test", "Two"),
+    ]
+
+    groups = group_items_by_normalized_title(items)
+
+    assert len(groups) == 2

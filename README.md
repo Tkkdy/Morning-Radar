@@ -9,7 +9,8 @@ Morning Radar 是一个个人定时情报晨报：聚合 AI 科技、重点公�
 ## v0.1 能做什么
 
 - 采集 RSS/Atom、GitHub Releases/仓库指标、Hacker News 和配置内公司行情；
-- 筛选过去 24 小时，规范化 URL/标题，保守聚类并结构化评分；
+- 新闻严格筛选过去 24 小时；市场项保留最近有效交易日快照，再规范化 URL/标题、保守
+  聚类并结构化评分；
 - 生产默认用 `DeepSeekProvider` 生成摘要，保留 `OpenAIProvider` 备用，Fixture 使用离线
   `FakeAIProvider`；
 - 保存至少 7 天可累积 JSON 历史，检测有证据的主题、公司、GitHub、产品和市场信号；
@@ -104,8 +105,9 @@ Dry Run 写入 `.tmp/dry-run/`，不修改生产状态或发送通知。手动�
 4. Actions → Daily Morning Radar → Run workflow。第一次建议勾选 Fixture，确认后再真实运行。
 
 工作流支持 Fixture、Dry Run、强制通知三个手动参数；定时 Cron 为 UTC 23:37，即新加坡
-次日 07:37。它先运行测试/Ruff，再生成、提交有变化的 `data/` 与 `site/`，最后用官方
-Pages Actions 部署。若 Pages 未开启，部署步骤会失败并在日志提示配置问题。
+次日 07:37。它先运行测试/Ruff，再生成并提交有变化的 `data/` 与 `site/`，用官方 Pages
+Actions 部署成功后才发送 WxPusher，最后单独提交通知幂等状态。Fixture、Dry Run 或 Pages
+部署失败都不会发送生产通知。工作流只由定时或手动事件触发，提交状态不会形成 push 循环。
 
 ## 修改观察范围
 
@@ -120,8 +122,11 @@ Fixture 和无网络测试。核心代码不应因新增观察对象而修改。
 
 ## 费用、隐私与故障排查
 
-AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日调用数限制。先用 Fixture 验证，
-再逐步增加来源；GitHub Pages 默认公开，晨报不得放个人信息或秘密。
+AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日逻辑调用数限制。候选会在首次
+AI 分类前确定性排序和截断；`maximum_ai_calls` 统计逻辑任务，真实 HTTP 请求（含重试）
+另行记录。`relevance_threshold` 控制晨报候选，`importance_threshold` 控制头条资格。
+可恢复 AI 输出失败会明确记录降级，只复用已验证的 Story 事实和来源，不生成替代判断。
+先用 Fixture 验证，再逐步增加来源；GitHub Pages 默认公开，晨报不得放个人信息或秘密。
 
 - `DEEPSEEK_MODEL is required`：设置模型名；项目不会替你选择或硬编码。
 - `DEEPSEEK_BASE_URL is required`：确认本地环境或 Actions Secret 已配置兼容 API 地址。

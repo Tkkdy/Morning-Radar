@@ -17,9 +17,15 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--fixtures", action="store_true")
     run.add_argument("--dry-run", action="store_true")
     run.add_argument("--force-notify", action="store_true")
+    run.add_argument("--skip-notify", action="store_true")
     commands.add_parser("build-site", help="rebuild pages from saved brief JSON")
     commands.add_parser("collect", help="collect and process data without notification")
     commands.add_parser("test-notification", help="send a safe WxPusher test")
+    notify = commands.add_parser(
+        "notify-latest",
+        help="notify the latest saved brief after Pages deployment",
+    )
+    notify.add_argument("--force", action="store_true")
     return parser
 
 
@@ -32,6 +38,7 @@ def main(argv: list[str] | None = None) -> int:
             fixtures=args.fixtures,
             dry_run=args.dry_run,
             force_notify=args.force_notify,
+            notify=not args.skip_notify,
         )
     elif args.command == "build-site":
         pipeline.build_site()
@@ -42,6 +49,8 @@ def main(argv: list[str] | None = None) -> int:
         and not pipeline._notifier(pipeline.root).send_test()
     ):
         raise SystemExit("WxPusher test failed or configuration is missing")
+    elif args.command == "notify-latest":
+        pipeline.notify_latest(force=args.force)
     return 0
 
 

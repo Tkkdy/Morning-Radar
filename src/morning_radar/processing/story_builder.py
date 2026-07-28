@@ -6,6 +6,7 @@ import hashlib
 import logging
 from datetime import datetime
 
+from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
 from morning_radar.models import RawItem, Story
@@ -104,25 +105,89 @@ def build_stories(
     *,
     provider: AIProvider,
     now: datetime,
+    maximum_ai_items: int | None = None,
 ) -> list[Story]:
     if not items:
         LOGGER.info("Skipping AI classification: no recent items")
         return []
 
     unique = deduplicate_items(items)
-    classifications = provider.classify_items(unique)
+    candidates = preselect_ai_candidates(unique, maximum_items=maximum_ai_items)
+    if not candidates:
+        LOGGER.warning("AI candidate budget left no items for classification")
+        return []
+    try:
+        classifications = provider.classify_items(candidates)
+    except AIOutputError:
+        LOGGER.exception(
+            "AI degradation: classification failed; no unverified relevance "
+            "judgments will be created"
+        )
+        return []
     relevant_ids = {item.item_id for item in classifications.items if item.relevant}
-    relevant = [item for item in unique if item.id in relevant_ids]
+    relevant = [item for item in candidates if item.id in relevant_ids]
 
     stories: list[Story] = []
     for group in group_items_by_normalized_title(relevant):
-        draft = provider.merge_story(group)
+        try:
+            draft = provider.merge_story(group)
+        except AIOutputError:
+            LOGGER.exception(
+                "AI degradation: merge failed; skipping candidate group with %d item(s)",
+                len(group),
+            )
+            continue
         if draft.same_event or len(group) == 1:
             # Reuse a tiny adapter to avoid changing the provider contract.
-            stories.append(build_story(group, provider=_DraftProvider(provider, draft), now=now))
+            try:
+                stories.append(
+                    build_story(group, provider=_DraftProvider(provider, draft), now=now)
+                )
+            except AIOutputError:
+                LOGGER.exception(
+                    "AI degradation: scoring failed; skipping candidate group with %d item(s)",
+                    len(group),
+                )
         else:
-            stories.extend(build_story([item], provider=provider, now=now) for item in group)
+            for item in group:
+                try:
+                    stories.append(build_story([item], provider=provider, now=now))
+                except AIOutputError:
+                    LOGGER.exception(
+                        "AI degradation: single-item story generation failed; "
+                        "skipping item %s",
+                        item.id,
+                    )
     return rank_stories(stories)
+
+
+def preselect_ai_candidates(
+    items: list[RawItem],
+    *,
+    maximum_items: int | None,
+) -> list[RawItem]:
+    """Deterministically prioritize candidates before the first AI call."""
+    if maximum_items is None:
+        return list(items)
+
+    def candidate_key(item: RawItem) -> tuple[int, int, float, str]:
+        priority = str(item.metadata.get("priority", "low"))
+        event_time = item.published_at or item.fetched_at
+        return (
+            0 if item.metadata.get("official") else 1,
+            PRIORITY_ORDER.get(priority, 3),
+            -event_time.timestamp(),
+            item.id,
+        )
+
+    selected = sorted(items, key=candidate_key)[:maximum_items]
+    if len(selected) < len(items):
+        LOGGER.info(
+            "AI candidate cap applied: candidates=%d selected=%d",
+            len(items),
+            len(selected),
+        )
+    return selected
 
 
 class _DraftProvider:
