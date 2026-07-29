@@ -1,0 +1,56 @@
+{
+  "ai_and_open_source": [],
+  "cognitive_extension": null,
+  "date": "2026-07-29",
+  "developer_discussions": [],
+  "direction_observation": "AI coding and open source AI topics are experiencing heightened media coverage and multi-company involvement, indicating strong directional momentum.",
+  "generated_at": "2026-07-29T01:05:20.808606Z",
+  "market_and_companies": [],
+  "run_stats": {
+    "ai_signal_inputs": 3,
+    "dry_run": false,
+    "fixture_mode": false,
+    "raw_items": 17,
+    "recent_items": 16,
+    "signals": 3,
+    "stories": 4,
+    "threshold_eligible_stories": 3
+  },
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "id": "brief-13d2fbb06c3350c09b91",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0"
+      ],
+      "story_ids": [
+        "story-61e13c601a33cabb863a"
+      ],
+      "title": "MCP Python SDK v2.0.0 稳定版发布",
+      "uncertainty": null,
+      "what_happened": "发布稳定版v2.0.0，支持2026-07-28协议修订版，并在同一服务器上兼容所有早期版本。`pip install mcp` 现在安装v2.x；v1.x进入维护模式仅接受安全修复。任务扩展(SEP-2663)和客户端DPoP绑定(SEP-1932)及工作负载身份`jwt-bearer`授权暂未实现。",
+      "why_it_matters": "这是MCP Python SDK的重大更新，大幅简化API并支持最新协议，将推动AI编程与工具集成生态的升级。"
+    },
+    {
+      "id": "brief-fd0188f10ef391ed29f0",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/scientific-computing-agentic-ai"
+      ],
+      "story_ids": [
+        "story-71678965b5eacbbd7d66"
+      ],
+      "title": "OpenAI发布科学计算领域AI编程代理应用报告",
+      "uncertainty": null,
+      "what_happened": "OpenAI于7月28日发布实地报告，展示科学家如何利用AI编程代理现代化科学计算，加速基因组学等领域的软件开发和发现。",
+      "why_it_matters": "该报告反映了AI编程代理从通用开发向垂直科学领域的渗透，展示了AI在推动科学计算转型中的潜力，也印证了AI编程主题的持续升温。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "story-6b29a96bc3137b721b95"
+  ]
+}

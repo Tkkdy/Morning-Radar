@@ -1,0 +1,155 @@
+[
+  {
+    "analysis": [
+      "This release represents a major update to the MCP Python SDK, bringing support for the latest protocol revision and significant API simplification, though some planned extensions and client features are deferred."
+    ],
+    "canonical_title": "MCP Python SDK v2.0.0 Released",
+    "category": "release",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "modelcontextprotocol/python-sdk"
+    ],
+    "facts": [
+      "This is v2.0.0, the stable v2 release of the MCP Python SDK.",
+      "It supports the 2026-07-28 revision of the Model Context Protocol and serves every earlier revision from the same server.",
+      "`pip install mcp` now installs 2.x.",
+      "v1.x is in maintenance mode and will only receive security fixes from now on.",
+      "The tasks extension (SEP-2663) is not part of this release.",
+      "On the client, the DPoP proof binding (SEP-1932) and the workload-identity `jwt-bearer` grant are not implemented."
+    ],
+    "id": "story-61e13c601a33cabb863a",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0",
+    "product_names": [
+      "MCP Python SDK",
+      "mcp",
+      "mcp-types"
+    ],
+    "published_at": "2026-07-28T13:41:36Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-bbda7908f1b85d4ffa8e"
+    ],
+    "source_urls": [
+      "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.0.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Scientific computing in the age of agentic AI",
+    "category": "Technology",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "OpenAI published a field report on July 28, 2026.",
+      "The report shows how scientists use AI coding agents to modernize scientific computing, accelerating software development and discovery in genomics and beyond."
+    ],
+    "id": "story-71678965b5eacbbd7d66",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/scientific-computing-agentic-ai",
+    "product_names": [],
+    "published_at": "2026-07-28T17:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-824b5ba22f1e74f57103"
+    ],
+    "source_urls": [
+      "https://openai.com/index/scientific-computing-agentic-ai"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI Python Library v2.50.0 Released",
+    "category": "ai_coding",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI Python library version 2.50.0 was released on 2026-07-28.",
+      "New feature: transcription model updates.",
+      "Bug fix: restored transcription keyword overload in audio.",
+      "Full changelog: https://github.com/openai/openai-python/compare/v2.49.0...v2.50.0"
+    ],
+    "id": "story-6b29a96bc3137b721b95",
+    "importance_score": 0.2,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v2.50.0",
+    "product_names": [
+      "openai-python"
+    ],
+    "published_at": "2026-07-28T22:15:35Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-d0a56d4786ff396aca9f"
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v2.50.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Release of modelcontextprotocol/python-sdk v1.29.0",
+    "category": "software_release",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "modelcontextprotocol"
+    ],
+    "facts": [
+      "modelcontextprotocol/python-sdk version 1.29.0 was released on 2026-07-28.",
+      "Route Context.report_progress() to the originating request stream (PR #2994, by maxisbey).",
+      "docs: publish llms.txt and markdown renditions of the docs (PR #3029, by maxisbey).",
+      "docs: pin mkdocs<2 (PR #3074, by maxisbey).",
+      "Add Streamable HTTP request body limits (PR #3101, by Kludex).",
+      "fix: reject trailing newline in tool-name validation (PR #3086, by maxisbey).",
+      "ci: pick the docs toolchain per worktree in build-docs.sh (PR #3082, by maxisbey).",
+      "Move the v1.x docs to /v1/ and mark v1.x as the maintenance line (PR #3177, by maxisbey).",
+      "Full changelog available at https://github.com/modelcontextprotocol/python-sdk/compare/v1.28.1...v1.29.0"
+    ],
+    "id": "story-60e53404f975899eaa3f",
+    "importance_score": 0.2,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.29.0",
+    "product_names": [
+      "modelcontextprotocol/python-sdk"
+    ],
+    "published_at": "2026-07-28T13:37:06Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-657c8a5449f4c091cf2d"
+    ],
+    "source_urls": [
+      "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.29.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z"
+  }
+]

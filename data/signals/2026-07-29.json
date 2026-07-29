@@ -1,0 +1,77 @@
+[
+  {
+    "created_at": "2026-07-29T01:05:20.808606Z",
+    "explanation": "ai_coding 连续 3 天保持或增加事件量，且有 7 个来源支持。",
+    "id": "signal-80352333f3b32dfd9f89",
+    "metric_history": [
+      {
+        "date": "2026-07-27",
+        "story_count": 1
+      },
+      {
+        "date": "2026-07-28",
+        "story_count": 2
+      },
+      {
+        "date": "2026-07-29",
+        "story_count": 4
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 4,
+    "supporting_source_count": 7,
+    "supporting_story_ids": [
+      "story-11ca0256b75eb5d5617e",
+      "story-124f756773bdde748301",
+      "story-5eb2351e3beb2760de45",
+      "story-61e13c601a33cabb863a",
+      "story-71678965b5eacbbd7d66",
+      "story-6b29a96bc3137b721b95",
+      "story-60e53404f975899eaa3f"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-07-29T01:05:20.808606Z",
+    "explanation": "3 家公司在 ai_coding 上出现同向事件，由 4 个来源支持。",
+    "id": "signal-ed0ff0413fc7dd0fe6d9",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.8,
+    "supporting_company_count": 3,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-61e13c601a33cabb863a",
+      "story-71678965b5eacbbd7d66",
+      "story-6b29a96bc3137b721b95",
+      "story-60e53404f975899eaa3f"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-29T01:05:20.808606Z",
+    "explanation": "3 家公司在 open_source_ai 上出现同向事件，由 3 个来源支持。",
+    "id": "signal-55c2bb1d10378c9bfc6a",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.8,
+    "supporting_company_count": 3,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-61e13c601a33cabb863a",
+      "story-6b29a96bc3137b721b95",
+      "story-60e53404f975899eaa3f"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-07-29T01:05:20.808606Z",
+    "window_days": 1
+  }
+]
