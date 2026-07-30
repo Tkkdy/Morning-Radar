@@ -1,0 +1,73 @@
+{
+  "ai_and_open_source": [],
+  "cognitive_extension": null,
+  "date": "2026-07-30",
+  "developer_discussions": [],
+  "direction_observation": "ChatGPT product status transitioned from unknown to announced, indicating progress towards launch.",
+  "generated_at": "2026-07-30T01:00:38.676649Z",
+  "market_and_companies": [],
+  "run_stats": {
+    "ai_signal_inputs": 1,
+    "dry_run": false,
+    "fixture_mode": false,
+    "raw_items": 19,
+    "recent_items": 16,
+    "signals": 1,
+    "stories": 4,
+    "threshold_eligible_stories": 4
+  },
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "id": "brief-234f953fcade9c93d48a",
+      "market_or_community_reaction": "开发者社区对便捷的优化方法反应积极，可能推动相关设置的最佳实践讨论。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/how-two-settings-tripled-our-arc-agi-3-scores"
+      ],
+      "story_ids": [
+        "story-2f86a0b5df8895f000d4"
+      ],
+      "title": "两项设置使 GPT-5.6 在 ARC-AGI-3 得分翻三倍",
+      "uncertainty": null,
+      "what_happened": "7月29日，OpenAI 报告称，通过保留推理（retaining reasoning）和启用压缩（compaction）两项 API 设置，GPT-5.6 在 ARC-AGI-3 基准测试上的得分提升至原来的三倍。",
+      "why_it_matters": "这表明通过优化调用方式可以显著提升大模型性能，为 API 用户提供了简单高效的性能挖掘路径。"
+    },
+    {
+      "id": "brief-7db5d32337efddba96b9",
+      "market_or_community_reaction": "学术界普遍欢迎，预期将推动更多 AI 辅助研究项目。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/chatgpt-for-academic-researchers"
+      ],
+      "story_ids": [
+        "story-0df9410b0fc811f990ac"
+      ],
+      "title": "ChatGPT 向十万学术研究者免费开放",
+      "uncertainty": null,
+      "what_happened": "OpenAI 宣布向 10 万名学术研究者免费提供 ChatGPT 的最先进模型，以加速科学研究与合作。",
+      "why_it_matters": "此举有望降低科研门槛，促进跨学科发现，并加强 AI 在学术界的应用深度。"
+    },
+    {
+      "id": "brief-0fa29cccb54dfdd2c1ee",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.science.org/content/article/ai-s-top-startups-are-barely-publishing-their-research"
+      ],
+      "story_ids": [
+        "story-b11388309011a4feea5b"
+      ],
+      "title": "顶尖 AI 初创公司研究发表量显著减少",
+      "uncertainty": "文中未明确具体公司及评判标准，趋势广度待确认。",
+      "what_happened": "有报道指出，当前 AI 领域的顶尖初创公司极少公开发表研究成果。",
+      "why_it_matters": "可能反映出对商业机密的保护倾向，但这可能减缓整体创新速度和知识共享。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "GPT-5.6 的优化设置是否会在其他模型或基准上复现",
+    "免费 ChatGPT 对学术产出的实际影响评估",
+    "AI 初创公司研究透明度变化趋势跟踪"
+  ]
+}
