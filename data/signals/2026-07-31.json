@@ -1,0 +1,258 @@
+[
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 7 个来源支持。",
+    "id": "signal-e02299c78f935eb83779",
+    "metric_history": [
+      {
+        "date": "2026-07-29",
+        "story_count": 1
+      },
+      {
+        "date": "2026-07-30",
+        "story_count": 1
+      },
+      {
+        "date": "2026-07-31",
+        "story_count": 5
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 8,
+    "supporting_source_count": 7,
+    "supporting_story_ids": [
+      "story-71678965b5eacbbd7d66",
+      "story-0df9410b0fc811f990ac",
+      "story-f7ce847628ca0a1252b6",
+      "story-e6890097a8794a228db5",
+      "story-d14a046146fa55fe089b",
+      "story-c334ba88af3e0adfd140",
+      "story-3b743ca2d15e3e9740c4"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "8 家公司在 ai_models 上出现同向事件，由 5 个来源支持。",
+    "id": "signal-3194ca0815480dc91d6a",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 1.0,
+    "supporting_company_count": 8,
+    "supporting_source_count": 5,
+    "supporting_story_ids": [
+      "story-f7ce847628ca0a1252b6",
+      "story-e6890097a8794a228db5",
+      "story-d14a046146fa55fe089b",
+      "story-c334ba88af3e0adfd140",
+      "story-3b743ca2d15e3e9740c4"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "4 家公司在 ai_coding 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-ad987df0b32f585733e5",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.9,
+    "supporting_company_count": 4,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-f7ce847628ca0a1252b6",
+      "story-4f03d071e59c8dad719f"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "3 家公司在 ai_infrastructure 上出现同向事件，由 3 个来源支持。",
+    "id": "signal-42d27c55626c79a94ed8",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.8,
+    "supporting_company_count": 3,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-df09bc93a398e4c5aea1",
+      "story-f1be04fdf89e0c9edbf8",
+      "story-ca8d1fa43fce5455e4e9"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "openai-python 状态由 available 推进到 updated。",
+    "id": "signal-8cd7e4c6cefa6977ce2f",
+    "metric_history": [],
+    "signal_type": "product_status_transition",
+    "strength": 0.8,
+    "supporting_company_count": 1,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-6b29a96bc3137b721b95",
+      "story-4f03d071e59c8dad719f"
+    ],
+    "topic": "openai-python",
+    "uncertainties": [],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 2
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "Microsoft 最近交易日变动 15.5%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-3a3f9844c5d5943482fd",
+    "metric_history": [
+      {
+        "change_percent": 0.15506733300956496,
+        "trading_date": "2026-07-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 1.0,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-e6890097a8794a228db5"
+    ],
+    "topic": "Microsoft",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "Meta 最近交易日变动 -8.0%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-07e4839873a49b6721a8",
+    "metric_history": [
+      {
+        "change_percent": -0.07954091839250982,
+        "trading_date": "2026-07-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 1.0,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-d14a046146fa55fe089b"
+    ],
+    "topic": "Meta",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "Amazon 最近交易日变动 3.9%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-61b94d95dbab35825c83",
+    "metric_history": [
+      {
+        "change_percent": 0.03904701672993471,
+        "trading_date": "2026-07-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.6507836121655785,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-b72de04f34f2f8d1e1c3"
+    ],
+    "topic": "Amazon",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "AMD 最近交易日变动 13.0%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-c72819366e27bfa48bc4",
+    "metric_history": [
+      {
+        "change_percent": 0.12997024259045048,
+        "trading_date": "2026-07-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 1.0,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-df09bc93a398e4c5aea1"
+    ],
+    "topic": "AMD",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "TSMC 最近交易日变动 7.6%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-b8513d45b71e83a64417",
+    "metric_history": [
+      {
+        "change_percent": 0.07644055596774733,
+        "trading_date": "2026-07-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 1.0,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-f1be04fdf89e0c9edbf8"
+    ],
+    "topic": "TSMC",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-07-31T01:10:12.956089Z",
+    "explanation": "Tesla 最近交易日变动 3.5%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-3d3c6a32ccf4a130b6f5",
+    "metric_history": [
+      {
+        "change_percent": 0.03529766197629752,
+        "trading_date": "2026-07-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.5882943662716255,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-56663e2a261167c984f4"
+    ],
+    "topic": "Tesla",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-07-31T01:10:12.956089Z",
+    "window_days": 1
+  }
+]
