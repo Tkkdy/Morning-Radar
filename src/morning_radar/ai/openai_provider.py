@@ -27,6 +27,7 @@ from morning_radar.ai.models import (
     StoryScore,
 )
 from morning_radar.models import RawItem, Signal, Story
+from morning_radar.provenance import verified_source_urls_for_items
 
 
 class AIConfigurationError(RuntimeError):
@@ -84,7 +85,9 @@ def validate_output_urls(output: BaseModel, allowed_urls: set[str]) -> None:
     returned = _collect_urls(output.model_dump(mode="json"))
     invented = sorted(set(returned) - allowed_urls)
     if invented:
-        raise AIOutputError(f"AI returned URL not present in input: {invented[0]}")
+        raise AIOutputError(
+            f"AI returned URL not present in verified source set: {invented[0]}"
+        )
 
 
 class OpenAIProvider:
@@ -195,7 +198,7 @@ class OpenAIProvider:
             schema=MergedStoryDraft,
             payload_data=[item.model_dump(mode="json") for item in items],
             item_count=len(items),
-            allowed_urls={item.url for item in items},
+            allowed_urls=set(verified_source_urls_for_items(items)),
         )
 
     def score_story(self, story: Story) -> StoryScore:

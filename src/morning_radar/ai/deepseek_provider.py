@@ -32,6 +32,7 @@ from morning_radar.ai.openai_provider import (
     validate_output_urls,
 )
 from morning_radar.models import RawItem, Signal, Story
+from morning_radar.provenance import verified_source_urls_for_items
 
 
 class DeepSeekProvider:
@@ -170,7 +171,7 @@ class DeepSeekProvider:
             schema=MergedStoryDraft,
             payload_data=[item.model_dump(mode="json") for item in items],
             item_count=len(items),
-            allowed_urls={item.url for item in items},
+            allowed_urls=set(verified_source_urls_for_items(items)),
         )
 
     def score_story(self, story: Story) -> StoryScore:

@@ -29,6 +29,20 @@ def raw_item(url: str = "https://example.com/real") -> RawItem:
     )
 
 
+def hn_raw_item() -> RawItem:
+    return raw_item("https://example.com/real").model_copy(
+        update={
+            "source_name": "Hacker News",
+            "source_type": "hacker_news",
+            "metadata": {
+                "discussion_url": "https://news.ycombinator.com/item?id=49132412",
+                "original_url": "https://example.com/real",
+                "community_signal": True,
+            },
+        }
+    )
+
+
 class FakeChatCompletions:
     def __init__(self, results: list[object]) -> None:
         self.results = results
@@ -181,8 +195,38 @@ def test_ai_cannot_return_a_url_missing_from_input() -> None:
     output = draft.model_dump_json()
     configured = provider([output, output])
 
-    with pytest.raises(AIOutputError, match="not present in input"):
+    with pytest.raises(AIOutputError, match="not present in verified source set"):
         configured.merge_story([raw_item()])
+
+
+def test_deepseek_merge_accepts_verified_hn_discussion_url() -> None:
+    discussion_url = "https://news.ycombinator.com/item?id=49132412"
+    draft = MergedStoryDraft(
+        same_event=True,
+        canonical_title="HN event",
+        category="developer_discussions",
+        source_urls=["https://example.com/real", discussion_url],
+        primary_source_url="https://example.com/real",
+    )
+    configured = provider([draft.model_dump_json()])
+
+    assert configured.merge_story([hn_raw_item()]) == draft
+
+
+def test_hn_item_cannot_return_another_items_discussion_url() -> None:
+    item_b_url = "https://news.ycombinator.com/item?id=49130604"
+    draft = MergedStoryDraft(
+        same_event=True,
+        canonical_title="Wrong HN event",
+        category="developer_discussions",
+        source_urls=[item_b_url],
+        primary_source_url=item_b_url,
+    )
+    output = draft.model_dump_json()
+    configured = provider([output, output])
+
+    with pytest.raises(AIOutputError, match="not present in verified source set"):
+        configured.merge_story([hn_raw_item()])
 
 
 def test_budget_rejects_excess_candidates_before_call() -> None:

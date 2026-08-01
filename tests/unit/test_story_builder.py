@@ -92,12 +92,51 @@ class InventingProvider(FakeAIProvider):
 
 
 def test_business_layer_rejects_provider_invented_url() -> None:
-    with pytest.raises(StoryValidationError, match="outside source"):
+    with pytest.raises(StoryValidationError, match="outside verified source set"):
         build_story(
             [item("one", "Release", "https://real.example/release", source="Real")],
             provider=InventingProvider(),
             now=NOW,
         )
+
+
+class HnDiscussionProvider(FakeAIProvider):
+    discussion_url = "https://news.ycombinator.com/item?id=49132412"
+
+    def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
+        return MergedStoryDraft(
+            same_event=True,
+            canonical_title=items[0].title,
+            category="developer_discussions",
+            source_urls=[items[0].url, self.discussion_url],
+            primary_source_url=items[0].url,
+        )
+
+
+def test_story_builder_accepts_and_preserves_verified_hn_sources() -> None:
+    original_url = "https://example.com/hn-story"
+    discussion_url = HnDiscussionProvider.discussion_url
+    hn_item = item(
+        "hn-one",
+        "HN AI release",
+        original_url,
+        source="Hacker News",
+    ).model_copy(
+        update={
+            "source_type": "hacker_news",
+            "metadata": {
+                "official": False,
+                "discussion_url": discussion_url,
+                "original_url": original_url,
+                "community_signal": True,
+            },
+        }
+    )
+
+    story = build_story([hn_item], provider=HnDiscussionProvider(), now=NOW)
+
+    assert story.primary_source_url == original_url
+    assert story.source_urls == [original_url, discussion_url]
 
 
 def test_ranking_weights_importance_more_than_novelty() -> None:
