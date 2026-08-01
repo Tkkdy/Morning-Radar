@@ -5,6 +5,7 @@ import httpx
 
 from morning_radar.collectors.hacker_news import HackerNewsCollector
 from morning_radar.collectors.http import HttpClient
+from morning_radar.provenance import verified_source_urls
 
 
 def test_hacker_news_filters_keywords_limits_candidates_and_keeps_both_links() -> None:
@@ -40,6 +41,10 @@ def test_hacker_news_filters_keywords_limits_candidates_and_keeps_both_links() -
     assert items[0].url == "https://example.com/agent"
     assert items[0].metadata["discussion_url"] == "https://news.ycombinator.com/item?id=1"
     assert items[0].metadata["community_signal"] is True
+    assert verified_source_urls(items[0]) == (
+        "https://example.com/agent",
+        "https://news.ycombinator.com/item?id=1",
+    )
 
 
 def test_candidate_budget_is_shared_across_all_three_lists(caplog) -> None:

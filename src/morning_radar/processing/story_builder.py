@@ -12,6 +12,7 @@ from morning_radar.ai.provider import AIProvider
 from morning_radar.models import RawItem, Story
 from morning_radar.processing.deduplicate import deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
+from morning_radar.provenance import verified_source_urls_for_items
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
 LOGGER = logging.getLogger(__name__)
@@ -46,14 +47,15 @@ def choose_primary_source(items: list[RawItem]) -> RawItem:
 
 
 def _validate_draft_urls(draft: MergedStoryDraft, items: list[RawItem]) -> None:
-    allowed = {item.url for item in items}
+    allowed = set(verified_source_urls_for_items(items))
     returned = set(draft.source_urls)
     if draft.primary_source_url:
         returned.add(draft.primary_source_url)
     invented = returned - allowed
     if invented:
         raise StoryValidationError(
-            f"AI story draft contains URL outside source items: {sorted(invented)[0]}"
+            "AI story draft contains URL outside verified source set: "
+            f"{sorted(invented)[0]}"
         )
 
 
@@ -66,7 +68,7 @@ def build_story(
     draft = provider.merge_story(items)
     _validate_draft_urls(draft, items)
     primary = choose_primary_source(items)
-    source_urls = list(dict.fromkeys(item.url for item in items))
+    source_urls = list(verified_source_urls_for_items(items))
     published_values = [item.published_at for item in items if item.published_at is not None]
     provisional = Story(
         id=_story_id(items),
