@@ -1,0 +1,39 @@
+[
+  {
+    "created_at": "2026-08-02T01:11:50.316510Z",
+    "explanation": "2 家公司在 ai_models 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-8d4b751c8e8279da7504",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-0405fca5618721285e25",
+      "story-6fcdd793367589012453"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-02T01:11:50.316510Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-02T01:11:50.316510Z",
+    "explanation": "3 家公司在 ai_infrastructure 上出现同向事件，由 3 个来源支持。",
+    "id": "signal-c5aa72369f9d855fd4b0",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.8,
+    "supporting_company_count": 3,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-6065610c095f3739b146",
+      "story-8accdc34e6d18b0366bd",
+      "story-7bc490649d39159269dd"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-08-02T01:11:50.316510Z",
+    "window_days": 1
+  }
+]
