@@ -1,0 +1,93 @@
+[
+  {
+    "created_at": "2026-08-03T01:12:30.060537Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 5 个来源支持。",
+    "id": "signal-bb4764c007d5c488a9f5",
+    "metric_history": [
+      {
+        "date": "2026-08-01",
+        "story_count": 1
+      },
+      {
+        "date": "2026-08-02",
+        "story_count": 2
+      },
+      {
+        "date": "2026-08-03",
+        "story_count": 2
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 5,
+    "supporting_source_count": 5,
+    "supporting_story_ids": [
+      "story-cc96b59162d71ba9dfa7",
+      "story-0405fca5618721285e25",
+      "story-6fcdd793367589012453",
+      "story-8e9a782d6498321054ea",
+      "story-f721446eb983a7550819"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-03T01:12:30.060537Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-08-03T01:12:30.060537Z",
+    "explanation": "4 家公司在 ai_infrastructure 上出现同向事件，由 4 个来源支持。",
+    "id": "signal-3f73b9ed7e0a51811bd6",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.9,
+    "supporting_company_count": 4,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-6065610c095f3739b146",
+      "story-f009535b9533099e529e",
+      "story-8accdc34e6d18b0366bd",
+      "story-7bc490649d39159269dd"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-08-03T01:12:30.060537Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-03T01:12:30.060537Z",
+    "explanation": "3 家公司在 ai_models 上出现同向事件，由 3 个来源支持。",
+    "id": "signal-6695fe0798381497935e",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.8,
+    "supporting_company_count": 3,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-8e9a782d6498321054ea",
+      "story-f721446eb983a7550819",
+      "story-0405fca5618721285e25"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-03T01:12:30.060537Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-03T01:12:30.060537Z",
+    "explanation": "2 家公司在 stock market 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-28635746651bab3e02a7",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-6fcdd793367589012453",
+      "story-401b6801ee68ec5406bf"
+    ],
+    "topic": "stock market",
+    "uncertainties": [],
+    "updated_at": "2026-08-03T01:12:30.060537Z",
+    "window_days": 1
+  }
+]
