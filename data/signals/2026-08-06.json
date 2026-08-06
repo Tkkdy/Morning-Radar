@@ -1,0 +1,214 @@
+[
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "3 家公司在 AI 上出现同向事件，由 4 个来源支持。",
+    "id": "signal-b12cf9c719e99d6f8073",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.8,
+    "supporting_company_count": 3,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-c27e98be788e93366a96",
+      "story-aa9924e5571b23d416b9"
+    ],
+    "topic": "AI",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "2 家公司在 Long-Context Inference 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-630d13b78a5c456cc42e",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-aa9924e5571b23d416b9"
+    ],
+    "topic": "Long-Context Inference",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "2 家公司在 CPU Inference 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-e7d29f053f0f41b8d89a",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-aa9924e5571b23d416b9"
+    ],
+    "topic": "CPU Inference",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "2 家公司在 Encoders 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-709c86722bfff045c260",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-aa9924e5571b23d416b9"
+    ],
+    "topic": "Encoders",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "4 家公司在 ai_infrastructure 上出现同向事件，由 4 个来源支持。",
+    "id": "signal-c7abb274a91735c5a1c4",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.9,
+    "supporting_company_count": 4,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-6673ed11fb15f21aa52e",
+      "story-46a3e081a450aecf8c31",
+      "story-0e634e2cdb69d8d94865",
+      "story-93cdec5c2ae46044406d"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "2 家公司在 AI-generated content 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-ae8f7e9d931bd17fdc3f",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-fea4f873317835a6307d"
+    ],
+    "topic": "AI-generated content",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "2 家公司在 Labeling 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-6212c2363d55b1a7653b",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-fea4f873317835a6307d"
+    ],
+    "topic": "Labeling",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "2 家公司在 Transparency 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-ea17fbf4072ee955fb05",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-fea4f873317835a6307d"
+    ],
+    "topic": "Transparency",
+    "uncertainties": [],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "NVIDIA 最近交易日变动 3.4%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-8678d30956f56d2c0731",
+    "metric_history": [
+      {
+        "change_percent": 0.03434933799866088,
+        "trading_date": "2026-08-05"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.572488966644348,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-46a3e081a450aecf8c31"
+    ],
+    "topic": "NVIDIA",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "Alphabet 最近交易日变动 -4.0%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-34993f1a3a717083e6d5",
+    "metric_history": [
+      {
+        "change_percent": -0.040301870691609225,
+        "trading_date": "2026-08-05"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.6716978448601538,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-1f761041afba75958d2a"
+    ],
+    "topic": "Alphabet",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-06T01:00:55.903303Z",
+    "explanation": "AMD 最近交易日变动 -7.0%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-d01b5d9425e9bd18edb2",
+    "metric_history": [
+      {
+        "change_percent": -0.07044241600722187,
+        "trading_date": "2026-08-05"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 1.0,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-6673ed11fb15f21aa52e"
+    ],
+    "topic": "AMD",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-08-06T01:00:55.903303Z",
+    "window_days": 1
+  }
+]
