@@ -68,6 +68,38 @@ class RawItem(RadarModel):
     _url_is_http = field_validator("url")(_validate_http_url)
 
 
+class StorySourceRef(RadarModel):
+    """A deterministic snapshot of one collector record supporting a Story.
+
+    ``published_at`` is the publication time supplied by the collected source.
+    It is not guaranteed to be the underlying event time or the original
+    article publication time; for Hacker News it is the HN submission time.
+    """
+
+    raw_item_id: str = Field(min_length=1)
+    title: str = Field(min_length=1, max_length=500)
+    source_name: str = Field(min_length=1)
+    source_type: str = Field(min_length=1)
+    url: str
+    author: str | None = None
+    published_at: datetime | None = None
+    fetched_at: datetime
+    discussion_url: str | None = None
+
+    _url_is_http = field_validator("url")(_validate_http_url)
+    _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
+    _fetched_is_aware = field_validator("fetched_at")(_validate_aware_datetime)
+
+    @field_validator("discussion_url")
+    @classmethod
+    def discussion_url_requires_hacker_news(cls, value: str | None, info: Any) -> str | None:
+        if value is None:
+            return value
+        if info.data.get("source_type") != "hacker_news":
+            raise ValueError("discussion_url is only supported for hacker_news sources")
+        return _validate_http_url(value)
+
+
 class Story(RadarModel):
     id: str = Field(min_length=1)
     canonical_title: str = Field(min_length=1, max_length=500)
@@ -80,6 +112,7 @@ class Story(RadarModel):
     source_item_ids: list[str] = Field(min_length=1)
     source_urls: list[str] = Field(min_length=1)
     primary_source_url: str
+    source_refs: list[StorySourceRef] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
     analysis: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)
@@ -102,6 +135,29 @@ class Story(RadarModel):
         if value not in info.data.get("source_urls", []):
             raise ValueError("primary_source_url must be present in source_urls")
         return value
+
+    @field_validator("source_refs")
+    @classmethod
+    def source_refs_must_match_story_provenance(
+        cls,
+        values: list[StorySourceRef],
+        info: Any,
+    ) -> list[StorySourceRef]:
+        item_ids = set(info.data.get("source_item_ids", []))
+        source_urls = set(info.data.get("source_urls", []))
+        for source_ref in values:
+            if source_ref.raw_item_id not in item_ids:
+                raise ValueError("source_ref raw_item_id must be present in source_item_ids")
+            if source_ref.url not in source_urls:
+                raise ValueError("source_ref url must be present in source_urls")
+            if (
+                source_ref.discussion_url is not None
+                and source_ref.discussion_url not in source_urls
+            ):
+                raise ValueError(
+                    "source_ref discussion_url must be present in source_urls"
+                )
+        return values
 
 
 class Signal(RadarModel):
@@ -154,4 +210,3 @@ class DailyBrief(RadarModel):
     run_stats: dict[str, int | float | str | bool] = Field(default_factory=dict)
 
     _generated_is_aware = field_validator("generated_at")(_validate_aware_datetime)
-

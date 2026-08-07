@@ -71,6 +71,31 @@ def test_same_event_multiple_sources_becomes_one_story_with_complete_links() -> 
     assert set(stories[0].source_item_ids) == {"one", "two"}
 
 
+def test_story_source_ref_preserves_rss_collector_context() -> None:
+    rss_item = item(
+        "rss-one",
+        "RSS release",
+        "https://example.com/releases/1",
+        source="Example RSS",
+    ).model_copy(update={"source_type": "rss", "author": "Ada"})
+
+    story = build_story([rss_item], provider=FakeAIProvider(), now=NOW)
+
+    assert [source_ref.model_dump() for source_ref in story.source_refs] == [
+        {
+            "raw_item_id": "rss-one",
+            "title": "RSS release",
+            "source_name": "Example RSS",
+            "source_type": "rss",
+            "url": "https://example.com/releases/1",
+            "author": "Ada",
+            "published_at": NOW,
+            "fetched_at": NOW,
+            "discussion_url": None,
+        }
+    ]
+
+
 def test_different_versions_remain_separate_stories() -> None:
     items = [
         item("one", "Agent v1.2 released", "https://example.com/v1.2", source="One"),
@@ -137,6 +162,29 @@ def test_story_builder_accepts_and_preserves_verified_hn_sources() -> None:
 
     assert story.primary_source_url == original_url
     assert story.source_urls == [original_url, discussion_url]
+    assert story.source_refs[0].url == original_url
+    assert story.source_refs[0].discussion_url == discussion_url
+    assert story.source_refs[0].published_at == NOW
+
+
+def test_story_source_ref_rejects_unverified_hn_discussion_url() -> None:
+    hn_item = item(
+        "hn-one",
+        "HN AI release",
+        "https://example.com/hn-story",
+        source="Hacker News",
+    ).model_copy(
+        update={
+            "source_type": "hacker_news",
+            "metadata": {
+                "discussion_url": "https://news.ycombinator.com/newest?id=49132412"
+            },
+        }
+    )
+
+    story = build_story([hn_item], provider=FakeAIProvider(), now=NOW)
+
+    assert story.source_refs[0].discussion_url is None
 
 
 def test_ranking_weights_importance_more_than_novelty() -> None:

@@ -63,3 +63,75 @@ def test_story_primary_source_must_be_in_source_urls() -> None:
             credibility_score=1,
         )
 
+
+def test_old_story_json_without_source_refs_loads_with_an_empty_list() -> None:
+    legacy = {
+        "id": "story-1",
+        "canonical_title": "Release",
+        "category": "ai_and_open_source",
+        "published_at": None,
+        "updated_at": "2026-07-23T00:00:00Z",
+        "source_item_ids": ["item-1"],
+        "source_urls": ["https://example.com/a"],
+        "primary_source_url": "https://example.com/a",
+        "relevance_score": 1,
+        "importance_score": 0.8,
+        "novelty_score": 0.8,
+        "credibility_score": 1,
+    }
+
+    assert Story.model_validate(legacy).source_refs == []
+
+
+@pytest.mark.parametrize(
+    ("source_ref", "error"),
+    [
+        (
+            {"url": "https://example.com/other"},
+            "source_ref url must be present in source_urls",
+        ),
+        (
+            {"discussion_url": "https://news.ycombinator.com/item?id=123"},
+            "source_ref discussion_url must be present in source_urls",
+        ),
+        (
+            {"raw_item_id": "item-other"},
+            "source_ref raw_item_id must be present in source_item_ids",
+        ),
+    ],
+)
+def test_story_source_refs_cannot_expand_story_provenance(
+    source_ref: dict[str, str],
+    error: str,
+) -> None:
+    values = {
+        "id": "story-1",
+        "canonical_title": "Release",
+        "category": "ai_and_open_source",
+        "published_at": None,
+        "updated_at": "2026-07-23T00:00:00Z",
+        "source_item_ids": ["item-1"],
+        "source_urls": ["https://example.com/a"],
+        "primary_source_url": "https://example.com/a",
+        "relevance_score": 1,
+        "importance_score": 0.8,
+        "novelty_score": 0.8,
+        "credibility_score": 1,
+        "source_refs": [
+            {
+                "raw_item_id": "item-1",
+                "title": "Release",
+                "source_name": "Example",
+                "source_type": "hacker_news",
+                "url": "https://example.com/a",
+                "author": None,
+                "published_at": None,
+                "fetched_at": "2026-07-23T00:00:00Z",
+                "discussion_url": None,
+                **source_ref,
+            }
+        ],
+    }
+
+    with pytest.raises(ValidationError, match=error):
+        Story.model_validate(values)

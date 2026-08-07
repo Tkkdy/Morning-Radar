@@ -7,6 +7,7 @@ from morning_radar.models.core import (
     Signal,
     SignalType,
     Story,
+    StorySourceRef,
     StoryStatus,
 )
 from morning_radar.models.metrics import GitHubSnapshot, MarketSnapshot
@@ -20,5 +21,6 @@ __all__ = [
     "Signal",
     "SignalType",
     "Story",
+    "StorySourceRef",
     "StoryStatus",
 ]

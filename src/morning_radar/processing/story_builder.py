@@ -9,10 +9,10 @@ from datetime import datetime
 from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
-from morning_radar.models import RawItem, Story
+from morning_radar.models import RawItem, Story, StorySourceRef
 from morning_radar.processing.deduplicate import deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
-from morning_radar.provenance import verified_source_urls_for_items
+from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
 LOGGER = logging.getLogger(__name__)
@@ -59,6 +59,28 @@ def _validate_draft_urls(draft: MergedStoryDraft, items: list[RawItem]) -> None:
         )
 
 
+def _source_ref(item: RawItem) -> StorySourceRef:
+    """Snapshot collector context without broadening verified URL provenance."""
+    discussion_url = None
+    if item.source_type == "hacker_news":
+        candidate = item.metadata.get("discussion_url")
+        if isinstance(candidate, str) and candidate in verified_source_urls(item):
+            discussion_url = candidate
+    return StorySourceRef(
+        raw_item_id=item.id,
+        title=item.title,
+        source_name=item.source_name,
+        source_type=item.source_type,
+        url=item.url,
+        author=item.author,
+        # This is the collected source's time (HN submission time for HN),
+        # not a claimed original-article or underlying-event time.
+        published_at=item.published_at,
+        fetched_at=item.fetched_at,
+        discussion_url=discussion_url,
+    )
+
+
 def build_story(
     items: list[RawItem],
     *,
@@ -82,6 +104,7 @@ def build_story(
         source_item_ids=[item.id for item in items],
         source_urls=source_urls,
         primary_source_url=primary.url,
+        source_refs=[_source_ref(item) for item in items],
         facts=draft.facts,
         analysis=draft.analysis,
         uncertainties=draft.uncertainties,
