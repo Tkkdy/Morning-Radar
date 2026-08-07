@@ -12,6 +12,8 @@ def test_site_builder_creates_index_archive_and_daily_page(tmp_path) -> None:
         title="很长的中文标题用于验证移动端能够自然换行而不会撑破页面布局",
         what_happened="发生了可追溯的 Fixture 事件。",
         why_it_matters="它验证了静态网站生成流程。",
+        market_or_community_reaction="Fixture community reaction.",
+        uncertainty="Fixture uncertainty.",
         source_urls=["https://example.com/source"],
         story_ids=["story-1"],
     )
@@ -33,5 +35,10 @@ def test_site_builder_creates_index_archive_and_daily_page(tmp_path) -> None:
     assert (output / "briefs/2026-07-23.html").exists()
     assert "今日重点" in index
     assert "市场与公司" not in index
+    assert item.title in index
+    assert item.what_happened in index
+    assert item.why_it_matters in index
+    assert item.market_or_community_reaction in index
+    assert item.uncertainty in index
     assert 'href="https://example.com/source"' in index
     assert "viewport" in index
