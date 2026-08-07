@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from morning_radar.models import RawItem, Story
+from morning_radar.models import BriefItem, RawItem, Story
 
 
 def make_raw_item(**overrides: object) -> RawItem:
@@ -135,3 +135,53 @@ def test_story_source_refs_cannot_expand_story_provenance(
 
     with pytest.raises(ValidationError, match=error):
         Story.model_validate(values)
+
+
+def test_old_brief_item_json_without_story_contexts_loads_with_an_empty_list() -> None:
+    legacy = {
+        "id": "brief-1",
+        "section": "top_stories",
+        "title": "Release",
+        "what_happened": "A release happened.",
+        "why_it_matters": "It matters.",
+        "source_urls": ["https://example.com/a"],
+        "story_ids": ["story-1"],
+    }
+
+    assert BriefItem.model_validate(legacy).story_contexts == []
+
+
+def _brief_story_context(story_id: str) -> dict[str, object]:
+    return {
+        "story_id": story_id,
+        "canonical_title": f"Title for {story_id}",
+        "category": "ai_and_open_source",
+        "primary_source_url": "https://example.com/a",
+    }
+
+
+@pytest.mark.parametrize(
+    "story_contexts",
+    [
+        [_brief_story_context("story-a"), _brief_story_context("story-other")],
+        [_brief_story_context("story-a")],
+        [_brief_story_context("story-b"), _brief_story_context("story-a")],
+    ],
+    ids=["unknown-story-id", "missing-context", "wrong-order"],
+)
+def test_nonempty_brief_story_contexts_must_exactly_match_story_ids(
+    story_contexts: list[dict[str, object]],
+) -> None:
+    values = {
+        "id": "brief-1",
+        "section": "top_stories",
+        "title": "Release",
+        "what_happened": "A release happened.",
+        "why_it_matters": "It matters.",
+        "source_urls": ["https://example.com/a"],
+        "story_ids": ["story-a", "story-b"],
+        "story_contexts": story_contexts,
+    }
+
+    with pytest.raises(ValidationError, match="story_contexts must exactly match"):
+        BriefItem.model_validate(values)

@@ -2,6 +2,7 @@
 
 from morning_radar.models.core import (
     BriefItem,
+    BriefStoryContext,
     DailyBrief,
     RawItem,
     Signal,
@@ -14,6 +15,7 @@ from morning_radar.models.metrics import GitHubSnapshot, MarketSnapshot
 
 __all__ = [
     "BriefItem",
+    "BriefStoryContext",
     "DailyBrief",
     "GitHubSnapshot",
     "MarketSnapshot",

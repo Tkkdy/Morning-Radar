@@ -10,7 +10,7 @@ from datetime import date, datetime
 from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import BriefDraft, GeneratedBriefItem
 from morning_radar.ai.provider import AIProvider
-from morning_radar.models import BriefItem, DailyBrief, Signal, Story
+from morning_radar.models import BriefItem, BriefStoryContext, DailyBrief, Signal, Story
 
 SECTION_NAMES = (
     "top_stories",
@@ -35,6 +35,25 @@ class BriefLimits:
 def _brief_item_id(story_ids: list[str], section: str) -> str:
     identity = f"{section}:{'|'.join(sorted(story_ids))}"
     return f"brief-{hashlib.sha256(identity.encode()).hexdigest()[:20]}"
+
+
+def _story_context(story: Story) -> BriefStoryContext:
+    """Copy display context from a validated Story without another AI call."""
+    return BriefStoryContext(
+        story_id=story.id,
+        canonical_title=story.canonical_title,
+        category=story.category,
+        entity_names=story.entity_names,
+        product_names=story.product_names,
+        topic_names=story.topic_names,
+        published_at=story.published_at,
+        facts=story.facts,
+        analysis=story.analysis,
+        uncertainties=story.uncertainties,
+        status=story.status,
+        primary_source_url=story.primary_source_url,
+        source_refs=story.source_refs,
+    )
 
 
 def _validated_item(
@@ -64,6 +83,7 @@ def _validated_item(
         uncertainty=generated.uncertainty,
         source_urls=generated.source_urls,
         story_ids=generated.story_ids,
+        story_contexts=[_story_context(story_by_id[story_id]) for story_id in generated.story_ids],
     )
 
 

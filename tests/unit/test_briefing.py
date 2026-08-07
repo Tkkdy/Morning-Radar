@@ -6,7 +6,7 @@ import pytest
 from morning_radar.ai import AIOutputError, FakeAIProvider
 from morning_radar.ai.models import BriefDraft, ClassificationBatch, GeneratedBriefItem
 from morning_radar.briefing import BriefLimits, BriefValidationError, generate_daily_brief
-from morning_radar.models import Signal, SignalType, Story
+from morning_radar.models import Signal, SignalType, Story, StorySourceRef
 from morning_radar.processing import build_stories
 
 NOW = datetime(2026, 7, 23, 1, tzinfo=UTC)
@@ -124,6 +124,86 @@ def test_source_links_are_complete_and_traceable() -> None:
     result = brief([source_story])
 
     assert result.top_stories[0].source_urls == source_story.source_urls
+
+
+def test_brief_item_embeds_deterministic_single_story_context() -> None:
+    source_story = story(1).model_copy(
+        update={
+            "entity_names": ["Example Corp"],
+            "product_names": ["Example Product"],
+            "topic_names": ["ai_coding", "agents"],
+            "uncertainties": ["Source details may change."],
+            "source_refs": [
+                StorySourceRef(
+                    raw_item_id="item-1",
+                    title="Collector title",
+                    source_name="Example RSS",
+                    source_type="rss",
+                    url="https://example.com/story-1",
+                    author="Ada",
+                    published_at=NOW,
+                    fetched_at=NOW,
+                )
+            ],
+        }
+    )
+
+    context = brief([source_story]).top_stories[0].story_contexts[0]
+
+    assert context.story_id == source_story.id
+    assert context.canonical_title == source_story.canonical_title
+    assert context.category == source_story.category
+    assert context.entity_names == ["Example Corp"]
+    assert context.product_names == ["Example Product"]
+    assert context.topic_names == ["ai_coding", "agents"]
+    assert context.published_at == NOW
+    assert context.facts == source_story.facts
+    assert context.analysis == source_story.analysis
+    assert context.uncertainties == ["Source details may change."]
+    assert context.status == source_story.status
+    assert context.primary_source_url == source_story.primary_source_url
+    assert context.source_refs == source_story.source_refs
+
+
+class MultiStoryProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[stories[1].id, stories[0].id],
+                    section="ai_and_open_source",
+                    title="Combined",
+                    what_happened="Combined summary",
+                    why_it_matters="Combined importance",
+                    source_urls=[stories[1].primary_source_url, stories[0].primary_source_url],
+                )
+            ]
+        )
+
+
+def test_multi_story_contexts_preserve_generated_story_id_order() -> None:
+    first = story(1)
+    second = story(2)
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[first, second],
+        signals=[],
+        provider=MultiStoryProvider(),
+        limits=BriefLimits(maximum_items=5),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+
+    contexts = result.ai_and_open_source[0].story_contexts
+    assert [context.story_id for context in contexts] == [second.id, first.id]
+    assert [context.canonical_title for context in contexts] == [
+        second.canonical_title,
+        first.canonical_title,
+    ]
 
 
 class InventedBriefProvider(FakeAIProvider):
@@ -267,6 +347,8 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     assert result.top_stories[0].what_happened == source_story.facts[0]
     assert "analysis is unavailable" in result.top_stories[0].why_it_matters
     assert result.top_stories[0].source_urls == source_story.source_urls
+    assert result.top_stories[0].story_contexts[0].story_id == source_story.id
+    assert result.top_stories[0].story_contexts[0].source_refs == []
     assert result.run_stats["ai_brief_fallback"] is True
     assert "AI degradation: brief generation failed" in caplog.text
 

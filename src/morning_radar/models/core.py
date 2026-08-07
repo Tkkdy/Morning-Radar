@@ -179,6 +179,31 @@ class Signal(RadarModel):
     _updated_is_aware = field_validator("updated_at")(_validate_aware_datetime)
 
 
+class BriefStoryContext(RadarModel):
+    """Deterministic Story context embedded in a BriefItem for display.
+
+    ``published_at`` preserves the current Story time semantics. It is not
+    guaranteed to be the underlying event time or original article time.
+    """
+
+    story_id: str = Field(min_length=1)
+    canonical_title: str = Field(min_length=1, max_length=500)
+    category: str
+    entity_names: list[str] = Field(default_factory=list)
+    product_names: list[str] = Field(default_factory=list)
+    topic_names: list[str] = Field(default_factory=list)
+    published_at: datetime | None = None
+    facts: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(default_factory=list)
+    uncertainties: list[str] = Field(default_factory=list)
+    status: StoryStatus = StoryStatus.UNKNOWN
+    primary_source_url: str
+    source_refs: list[StorySourceRef] = Field(default_factory=list)
+
+    _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
+    _primary_url_is_http = field_validator("primary_source_url")(_validate_http_url)
+
+
 class BriefItem(RadarModel):
     id: str = Field(min_length=1)
     section: str = Field(min_length=1)
@@ -189,10 +214,24 @@ class BriefItem(RadarModel):
     uncertainty: str | None = None
     source_urls: list[str] = Field(min_length=1)
     story_ids: list[str] = Field(min_length=1)
+    story_contexts: list[BriefStoryContext] = Field(default_factory=list)
 
     _source_urls_are_http = field_validator("source_urls")(
         lambda urls: [_validate_http_url(url) for url in urls]
     )
+
+    @field_validator("story_contexts")
+    @classmethod
+    def story_contexts_must_match_story_ids(
+        cls,
+        values: list[BriefStoryContext],
+        info: Any,
+    ) -> list[BriefStoryContext]:
+        if values and [context.story_id for context in values] != info.data.get(
+            "story_ids", []
+        ):
+            raise ValueError("story_contexts must exactly match story_ids in order")
+        return values
 
 
 class DailyBrief(RadarModel):
