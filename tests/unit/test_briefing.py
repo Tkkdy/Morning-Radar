@@ -126,6 +126,94 @@ def test_source_links_are_complete_and_traceable() -> None:
     assert result.top_stories[0].source_urls == source_story.source_urls
 
 
+class SelectiveBriefProvider(FakeAIProvider):
+    def __init__(self, selected_indexes: list[int]) -> None:
+        self.selected_indexes = selected_indexes
+        self.write_calls = 0
+
+    def write_brief(self, stories, signals):
+        del signals
+        self.write_calls += 1
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[stories[index].id],
+                    section="ai_and_open_source",
+                    title=f"Selected {index}",
+                    what_happened="Selected story",
+                    why_it_matters="Selected importance",
+                    source_urls=[stories[index].primary_source_url],
+                )
+                for index in self.selected_indexes
+            ]
+        )
+
+
+def test_other_reading_keeps_unselected_eligible_stories_in_ranked_order() -> None:
+    stories = [story(index) for index in range(5)]
+    provider = SelectiveBriefProvider([1, 3])
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=12, other_reading_items=6),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+
+    main_story_ids = {
+        story_id
+        for item in result.ai_and_open_source
+        for story_id in item.story_ids
+    }
+    assert [item.story_ids for item in result.other_reading] == [
+        [stories[0].id],
+        [stories[2].id],
+        [stories[4].id],
+    ]
+    assert main_story_ids.isdisjoint(
+        {story_id for item in result.other_reading for story_id in item.story_ids}
+    )
+    assert result.other_reading[0].source_urls == stories[0].source_urls
+    assert result.other_reading[0].story_contexts[0].story_id == stories[0].id
+    assert provider.write_calls == 1
+
+
+def test_other_reading_respects_total_and_independent_item_limits() -> None:
+    stories = [story(index) for index in range(10)]
+
+    total_limited = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=SelectiveBriefProvider([0, 1]),
+        limits=BriefLimits(maximum_items=4, other_reading_items=6),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+    independently_limited = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=SelectiveBriefProvider([0]),
+        limits=BriefLimits(maximum_items=12, other_reading_items=6),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+
+    assert len(total_limited.ai_and_open_source) == 2
+    assert len(total_limited.other_reading) == 2
+    assert len(independently_limited.other_reading) == 6
+
+
 def test_brief_item_embeds_deterministic_single_story_context() -> None:
     source_story = story(1).model_copy(
         update={
@@ -349,6 +437,7 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     assert result.top_stories[0].source_urls == source_story.source_urls
     assert result.top_stories[0].story_contexts[0].story_id == source_story.id
     assert result.top_stories[0].story_contexts[0].source_refs == []
+    assert result.other_reading == []
     assert result.run_stats["ai_brief_fallback"] is True
     assert "AI degradation: brief generation failed" in caplog.text
 

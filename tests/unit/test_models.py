@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from morning_radar.models import BriefItem, RawItem, Story
+from morning_radar.models import BriefItem, DailyBrief, RawItem, Story
 
 
 def make_raw_item(**overrides: object) -> RawItem:
@@ -149,6 +149,16 @@ def test_old_brief_item_json_without_story_contexts_loads_with_an_empty_list() -
     }
 
     assert BriefItem.model_validate(legacy).story_contexts == []
+
+
+def test_old_daily_brief_json_without_other_reading_loads_with_an_empty_list() -> None:
+    legacy = {
+        "date": "2026-07-23",
+        "timezone": "Asia/Singapore",
+        "generated_at": "2026-07-23T00:00:00Z",
+    }
+
+    assert DailyBrief.model_validate(legacy).other_reading == []
 
 
 def _brief_story_context(story_id: str) -> dict[str, object]:

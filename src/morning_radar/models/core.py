@@ -243,6 +243,7 @@ class DailyBrief(RadarModel):
     ai_and_open_source: list[BriefItem] = Field(default_factory=list)
     trend_radar: list[BriefItem] = Field(default_factory=list)
     developer_discussions: list[BriefItem] = Field(default_factory=list)
+    other_reading: list[BriefItem] = Field(default_factory=list)
     direction_observation: str | None = None
     cognitive_extension: str | None = None
     watch_next: list[str] = Field(default_factory=list)

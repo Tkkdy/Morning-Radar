@@ -30,6 +30,7 @@ class BriefValidationError(ValueError):
 class BriefLimits:
     maximum_items: int
     top_story_items: int = 3
+    other_reading_items: int = 6
 
 
 def _brief_item_id(story_ids: list[str], section: str) -> str:
@@ -53,6 +54,35 @@ def _story_context(story: Story) -> BriefStoryContext:
         status=story.status,
         primary_source_url=story.primary_source_url,
         source_refs=story.source_refs,
+    )
+
+
+def _deterministic_generated_item(
+    story: Story,
+    *,
+    section: str,
+    fallback: bool = False,
+) -> GeneratedBriefItem:
+    """Create a conservative, schema-valid item from an already verified Story."""
+    return GeneratedBriefItem(
+        story_ids=[story.id],
+        section=section,
+        title=story.canonical_title,
+        what_happened=story.facts[0] if story.facts else story.canonical_title,
+        why_it_matters=(
+            "Degraded mode: why-it-matters analysis is unavailable; "
+            "review the verified fact and source."
+            if fallback or not story.analysis
+            else (
+                story.analysis[0]
+            )
+        ),
+        uncertainty=(
+            "AI-generated briefing analysis was unavailable."
+            if fallback
+            else (story.uncertainties[0] if story.uncertainties else None)
+        ),
+        source_urls=story.source_urls,
     )
 
 
@@ -145,6 +175,8 @@ def generate_daily_brief(
             break
         if any(story_id in used_story_ids for story_id in generated.story_ids):
             continue
+        if len(used_story_ids | set(generated.story_ids)) > limits.maximum_items:
+            continue
         section = generated.section if generated.section in sections else "top_stories"
         referenced = [
             story_by_id[story_id]
@@ -169,6 +201,24 @@ def generate_daily_brief(
         item = _validated_item(generated, story_by_id=story_by_id, section=section)
         sections[section].append(item)
         used_story_ids.update(item.story_ids)
+
+    other_reading: list[BriefItem] = []
+    remaining_capacity = max(0, limits.maximum_items - len(used_story_ids))
+    other_reading_capacity = min(limits.other_reading_items, remaining_capacity)
+    for story in eligible_stories:
+        if len(other_reading) >= other_reading_capacity:
+            break
+        if story.id in used_story_ids:
+            continue
+        generated = _deterministic_generated_item(story, section="other_reading")
+        other_reading.append(
+            _validated_item(
+                generated,
+                story_by_id=story_by_id,
+                section="other_reading",
+            )
+        )
+        used_story_ids.add(story.id)
 
     direction = None
     if bounded_signals and enabled_sections.get("direction_observation", True):
@@ -195,6 +245,7 @@ def generate_daily_brief(
         ai_and_open_source=sections["ai_and_open_source"],
         trend_radar=sections["trend_radar"],
         developer_discussions=sections["developer_discussions"],
+        other_reading=other_reading,
         direction_observation=direction,
         cognitive_extension=cognitive_extension,
         watch_next=draft.watch_next,
@@ -206,17 +257,10 @@ def _fallback_brief_draft(stories: list[Story]) -> BriefDraft:
     """Build a schema-valid draft without inventing analysis or new facts."""
     return BriefDraft(
         items=[
-            GeneratedBriefItem(
-                story_ids=[story.id],
+            _deterministic_generated_item(
+                story,
                 section=story.category,
-                title=story.canonical_title,
-                what_happened=story.facts[0] if story.facts else story.canonical_title,
-                why_it_matters=(
-                    "Degraded mode: why-it-matters analysis is unavailable; "
-                    "review the verified fact and source."
-                ),
-                uncertainty="AI-generated briefing analysis was unavailable.",
-                source_urls=story.source_urls,
+                fallback=True,
             )
             for story in stories
         ]
