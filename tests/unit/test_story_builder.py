@@ -4,7 +4,7 @@ import pytest
 
 from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
 from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
-from morning_radar.models import RawItem
+from morning_radar.models import PublishedAtRole, RawItem
 from morning_radar.processing.story_builder import (
     StoryValidationError,
     build_stories,
@@ -90,10 +90,51 @@ def test_story_source_ref_preserves_rss_collector_context() -> None:
             "url": "https://example.com/releases/1",
             "author": "Ada",
             "published_at": NOW,
+            "published_at_role": PublishedAtRole.FEED_ENTRY_TIME,
             "fetched_at": NOW,
             "discussion_url": None,
         }
     ]
+
+
+@pytest.mark.parametrize(
+    ("source_type", "published_at_role"),
+    [
+        ("rss", PublishedAtRole.FEED_ENTRY_TIME),
+        ("atom", PublishedAtRole.FEED_ENTRY_TIME),
+        ("github", PublishedAtRole.GITHUB_RELEASE_PUBLISHED_TIME),
+        ("market", PublishedAtRole.MARKET_TRADING_DAY),
+        ("fixture", PublishedAtRole.UNKNOWN),
+    ],
+)
+def test_story_source_ref_assigns_published_at_role_by_source_type(
+    source_type: str,
+    published_at_role: PublishedAtRole,
+) -> None:
+    source_item = item(
+        "source-one",
+        "Release",
+        "https://example.com/release",
+        source="Example",
+    ).model_copy(update={"source_type": source_type})
+
+    story = build_story([source_item], provider=FakeAIProvider(), now=NOW)
+
+    assert story.source_refs[0].published_at_role is published_at_role
+
+
+def test_rss_source_ref_keeps_none_published_at_without_inventing_time() -> None:
+    source_item = item(
+        "rss-one",
+        "RSS release",
+        "https://example.com/releases/1",
+        source="Example RSS",
+    ).model_copy(update={"source_type": "rss", "published_at": None})
+
+    story = build_story([source_item], provider=FakeAIProvider(), now=NOW)
+
+    assert story.source_refs[0].published_at is None
+    assert story.source_refs[0].published_at_role is PublishedAtRole.FEED_ENTRY_TIME
 
 
 def test_different_versions_remain_separate_stories() -> None:
@@ -165,6 +206,7 @@ def test_story_builder_accepts_and_preserves_verified_hn_sources() -> None:
     assert story.source_refs[0].url == original_url
     assert story.source_refs[0].discussion_url == discussion_url
     assert story.source_refs[0].published_at == NOW
+    assert story.source_refs[0].published_at_role is PublishedAtRole.HN_SUBMISSION_TIME
 
 
 def test_story_source_ref_rejects_unverified_hn_discussion_url() -> None:

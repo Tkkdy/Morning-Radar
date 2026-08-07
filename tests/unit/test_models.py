@@ -3,7 +3,14 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from morning_radar.models import BriefItem, DailyBrief, RawItem, Story
+from morning_radar.models import (
+    BriefItem,
+    DailyBrief,
+    PublishedAtRole,
+    RawItem,
+    Story,
+    StorySourceRef,
+)
 
 
 def make_raw_item(**overrides: object) -> RawItem:
@@ -159,6 +166,19 @@ def test_old_daily_brief_json_without_other_reading_loads_with_an_empty_list() -
     }
 
     assert DailyBrief.model_validate(legacy).other_reading == []
+
+
+def test_legacy_story_source_ref_without_published_at_role_defaults_to_unknown() -> None:
+    legacy = {
+        "raw_item_id": "item-1",
+        "title": "Release",
+        "source_name": "Example",
+        "source_type": "rss",
+        "url": "https://example.com/a",
+        "fetched_at": "2026-07-23T00:00:00Z",
+    }
+
+    assert StorySourceRef.model_validate(legacy).published_at_role is PublishedAtRole.UNKNOWN
 
 
 def _brief_story_context(story_id: str) -> dict[str, object]:

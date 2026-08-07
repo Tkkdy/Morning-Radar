@@ -9,12 +9,19 @@ from datetime import datetime
 from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
-from morning_radar.models import RawItem, Story, StorySourceRef
+from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
 from morning_radar.processing.deduplicate import deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
+PUBLISHED_AT_ROLE_BY_SOURCE_TYPE = {
+    "rss": PublishedAtRole.FEED_ENTRY_TIME,
+    "atom": PublishedAtRole.FEED_ENTRY_TIME,
+    "hacker_news": PublishedAtRole.HN_SUBMISSION_TIME,
+    "github": PublishedAtRole.GITHUB_RELEASE_PUBLISHED_TIME,
+    "market": PublishedAtRole.MARKET_TRADING_DAY,
+}
 LOGGER = logging.getLogger(__name__)
 
 
@@ -76,6 +83,10 @@ def _source_ref(item: RawItem) -> StorySourceRef:
         # This is the collected source's time (HN submission time for HN),
         # not a claimed original-article or underlying-event time.
         published_at=item.published_at,
+        published_at_role=PUBLISHED_AT_ROLE_BY_SOURCE_TYPE.get(
+            item.source_type,
+            PublishedAtRole.UNKNOWN,
+        ),
         fetched_at=item.fetched_at,
         discussion_url=discussion_url,
     )

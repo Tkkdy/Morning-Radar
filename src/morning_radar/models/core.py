@@ -38,6 +38,14 @@ class StoryStatus(StrEnum):
     UNKNOWN = "unknown"
 
 
+class PublishedAtRole(StrEnum):
+    FEED_ENTRY_TIME = "feed_entry_time"
+    HN_SUBMISSION_TIME = "hn_submission_time"
+    GITHUB_RELEASE_PUBLISHED_TIME = "github_release_published_time"
+    MARKET_TRADING_DAY = "market_trading_day"
+    UNKNOWN = "unknown"
+
+
 class SignalType(StrEnum):
     TOPIC_HEATING = "topic_heating"
     MULTI_COMPANY_DIRECTION = "multi_company_direction"
@@ -83,6 +91,7 @@ class StorySourceRef(RadarModel):
     url: str
     author: str | None = None
     published_at: datetime | None = None
+    published_at_role: PublishedAtRole = PublishedAtRole.UNKNOWN
     fetched_at: datetime
     discussion_url: str | None = None
 
