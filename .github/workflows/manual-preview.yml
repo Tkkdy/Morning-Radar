@@ -1,0 +1,61 @@
+name: Manual Morning Radar Preview
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install project
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -e .
+
+      - name: Check DeepSeek configuration
+        shell: bash
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ secrets.DEEPSEEK_MODEL }}
+          DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
+        run: |
+          missing=()
+          [[ -n "$DEEPSEEK_API_KEY" ]] || missing+=("DEEPSEEK_API_KEY")
+          [[ -n "$DEEPSEEK_MODEL" ]] || missing+=("DEEPSEEK_MODEL")
+          [[ -n "$DEEPSEEK_BASE_URL" ]] || missing+=("DEEPSEEK_BASE_URL")
+          if (( ${#missing[@]} > 0 )); then
+            echo "::error::Missing required GitHub Actions Secret configuration: ${missing[*]}"
+            exit 1
+          fi
+
+      - name: Generate preview
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ secrets.DEEPSEEK_MODEL }}
+          DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python -m morning_radar run --dry-run --skip-notify
+
+      - name: Upload preview artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: morning-radar-preview
+          path: |
+            .tmp/dry-run/data/briefs/
+            .tmp/dry-run/data/stories/
+            .tmp/dry-run/site/
+          if-no-files-found: error
+          retention-days: 3
