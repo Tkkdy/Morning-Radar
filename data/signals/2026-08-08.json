@@ -1,0 +1,125 @@
+[
+  {
+    "created_at": "2026-08-08T00:04:19.847848Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 4 个来源支持。",
+    "id": "signal-a3449a1e7adaa3992070",
+    "metric_history": [
+      {
+        "date": "2026-08-06",
+        "story_count": 1
+      },
+      {
+        "date": "2026-08-07",
+        "story_count": 1
+      },
+      {
+        "date": "2026-08-08",
+        "story_count": 2
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 0.9,
+    "supporting_company_count": 3,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-1f761041afba75958d2a",
+      "story-4b2ffb7c06756a659a78",
+      "story-ae1b27b5a9788c000c01",
+      "story-7cc8dcf6ff44250a9397"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-08T00:04:19.847848Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-08-08T00:04:19.847848Z",
+    "explanation": "2 家公司在 ai_models 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-5520a09e06ea70020f7a",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-ae1b27b5a9788c000c01",
+      "story-7cc8dcf6ff44250a9397"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-08T00:04:19.847848Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-08T00:04:19.847848Z",
+    "explanation": "2 家公司在 AI-generated code 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-46044dc100feb3657ce5",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-20db37f18d58103eec2f"
+    ],
+    "topic": "AI-generated code",
+    "uncertainties": [],
+    "updated_at": "2026-08-08T00:04:19.847848Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-08T00:04:19.847848Z",
+    "explanation": "2 家公司在 open source policy 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-9368add49fe33f8b66c4",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-20db37f18d58103eec2f"
+    ],
+    "topic": "open source policy",
+    "uncertainties": [],
+    "updated_at": "2026-08-08T00:04:19.847848Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-08T00:04:19.847848Z",
+    "explanation": "4 家公司在 ai_infrastructure 上出现同向事件，由 4 个来源支持。",
+    "id": "signal-03e9caebc485eb7d7133",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.9,
+    "supporting_company_count": 4,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-cd53ed74b19783552ad6",
+      "story-da95c8c5fa3ee54ef1a1",
+      "story-6caea76fc2ea7b885ed9",
+      "story-04795ff84816656ecfab"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-08-08T00:04:19.847848Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-08T00:04:19.847848Z",
+    "explanation": "2 家公司在 stock market 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-659ad6543b26acfaa0cc",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-896ede9101a591df0db1",
+      "story-c60724560057eea50168"
+    ],
+    "topic": "stock market",
+    "uncertainties": [],
+    "updated_at": "2026-08-08T00:04:19.847848Z",
+    "window_days": 1
+  }
+]
