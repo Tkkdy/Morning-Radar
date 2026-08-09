@@ -185,6 +185,38 @@ def test_same_company_different_acquisitions_do_not_group() -> None:
     assert len(groups) == 2
 
 
+def test_capitalized_acquisition_action_is_not_a_strong_named_token() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "Amazon Acquires Bee", "https://one.example/bee", "One"),
+            item("2", "Amazon Acquires Acme", "https://two.example/acme", "Two"),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_capitalized_partnership_action_is_not_a_strong_named_token() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item(
+                "1",
+                "Amazon Partners with Anthropic",
+                "https://one.example/anthropic",
+                "One",
+            ),
+            item(
+                "2",
+                "Amazon Partners with OpenAI",
+                "https://two.example/openai",
+                "Two",
+            ),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
 def test_acquisition_and_product_launch_do_not_group() -> None:
     groups = group_items_by_normalized_title(
         [

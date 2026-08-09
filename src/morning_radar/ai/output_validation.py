@@ -15,11 +15,15 @@ _CODE_SPAN = re.compile(r"`[^`]*`", re.DOTALL)
 _ENGLISH_WORD = re.compile(r"[A-Za-z]+(?:[-'][A-Za-z]+)*")
 _CJK = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff]")
 _LATIN = re.compile(r"[A-Za-z]")
-_CODE_KEYWORD = re.compile(r"\b(?:class|const|def|function|import|let|return)\b")
 _CODE_STRUCTURE = re.compile(
     r"(?:\w+\[[^\]]+\]|[A-Za-z_]\w*\([^)]*\)\s*(?:->|:))"
 )
-_CODE_MARKERS = ("{", "}", ";", "=>", "->", "::")
+_CODE_DECLARATION = re.compile(
+    r"(?:\b(?:def|function)\s+[A-Za-z_$]\w*\s*\([^)]*\)\s*(?:\{|:)"
+    r"|\bclass\s+[A-Za-z_$]\w*(?:\([^)]*\))?\s*(?:\{|:)"
+    r"|\b(?:const|let|var)\s+[A-Za-z_$]\w*\s*="
+    r"|=>)"
+)
 _GENERIC_ANCHORS = {
     "ai",
     "artificial intelligence",
@@ -36,11 +40,7 @@ def is_suspicious_english_prose(value: str) -> bool:
     cleaned = _URL.sub(" ", _CODE_SPAN.sub(" ", value)).strip()
     if len(cleaned) < 28:
         return False
-    if (
-        any(marker in cleaned for marker in _CODE_MARKERS)
-        or _CODE_KEYWORD.search(cleaned)
-        or _CODE_STRUCTURE.search(cleaned)
-    ):
+    if _CODE_STRUCTURE.search(cleaned) or _CODE_DECLARATION.search(cleaned):
         return False
     english_words = _ENGLISH_WORD.findall(cleaned)
     if len(english_words) < 6:
@@ -88,7 +88,7 @@ def validate_editorial_grounding(
         narratives.append(output.cognitive_extension)
     for narrative in narratives:
         normalized = _normalize_anchor(narrative)
-        if not any(anchor in normalized for anchor in anchors):
+        if not any(_anchor_matches(anchor, normalized) for anchor in anchors):
             raise ValueError(
                 "Editorial extension must name a concrete input entity, product, or topic"
             )
@@ -111,6 +111,12 @@ def _grounding_anchors(stories: list[Story], signals: list[Signal]) -> set[str]:
 
 def _normalize_anchor(value: str) -> str:
     return " ".join(re.split(r"[_\s-]+", value.casefold())).strip()
+
+
+def _anchor_matches(anchor: str, narrative: str) -> bool:
+    if _CJK.search(anchor):
+        return anchor in narrative
+    return re.search(rf"(?<!\w){re.escape(anchor)}(?!\w)", narrative) is not None
 
 
 def _present(values: Iterable[str | None]) -> Iterable[str]:

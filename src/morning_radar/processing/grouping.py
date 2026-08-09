@@ -75,7 +75,8 @@ _ACTION_GROUPS = (
     frozenset({"invest", "invested", "investing", "investment", "invests"}),
 )
 _CORPORATE_ACTION_KINDS = frozenset({3, 4, 5})
-_TITLE_ENTITY_STOP_WORDS = _STOP_WORDS | {
+_ACTION_WORDS = frozenset(word for group in _ACTION_GROUPS for word in group)
+_TITLE_ENTITY_STOP_WORDS = _STOP_WORDS | _ACTION_WORDS | {
     "after",
     "amid",
     "how",

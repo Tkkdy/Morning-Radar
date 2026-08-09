@@ -56,6 +56,8 @@ def signal(signal_id: str, story_ids: list[str]) -> Signal:
         "The article was published on August 9, 2026 and describes the product launch.",
         "Oracle bans AI-generated code from the next major OpenJDK release process.",
         "The company published [a detailed article] about the new product launch today.",
+        "The article was published today; the author explains the new model in detail.",
+        "The authors return to the main topic and explain the new model in detail.",
     ],
 )
 def test_obvious_english_narrative_is_suspicious(value: str) -> None:
@@ -71,6 +73,7 @@ def test_obvious_english_narrative_is_suspicious(value: str) -> None:
         "https://example.com/a/long/path/with/english/words",
         "`def process(items: list[RawItem]) -> list[RawItem]: return items`",
         "def process(items: list[RawItem]) -> list[RawItem]: return items",
+        "const result = items.map((item) => item.value); return result;",
     ],
 )
 def test_proper_nouns_technical_chinese_urls_and_code_are_allowed(value: str) -> None:
@@ -137,6 +140,45 @@ def test_editorial_extensions_require_a_specific_input_anchor() -> None:
             watch_next=["观察 OpenAI 是否公布 GPT-5.6 的开发者开放时间表。"],
             cognitive_extension="OpenAI 的模型发布会如何影响现有 API 集成？",
         ),
+        [source_story],
+        [],
+    )
+
+
+@pytest.mark.parametrize(
+    ("anchor", "narrative"),
+    [
+        ("Meta", "Watch whether metadata changes after today's release."),
+        ("Bee", "Watch whether the team has been changing its strategy."),
+    ],
+)
+def test_editorial_grounding_rejects_latin_anchor_substrings(
+    anchor: str,
+    narrative: str,
+) -> None:
+    source_story = story().model_copy(
+        update={"entity_names": [anchor], "product_names": [], "topic_names": []}
+    )
+
+    with pytest.raises(ValueError, match="concrete input"):
+        validate_editorial_grounding(
+            BriefDraft(items=[], watch_next=[narrative]),
+            [source_story],
+            [],
+        )
+
+
+@pytest.mark.parametrize(
+    "anchor",
+    ["Meta", "Bee", "OpenAI", "GPT-5.6", "Claude Code", "\u901a\u4e49\u5343\u95ee"],
+)
+def test_editorial_grounding_accepts_bounded_and_chinese_anchors(anchor: str) -> None:
+    source_story = story().model_copy(
+        update={"entity_names": [], "product_names": [anchor], "topic_names": []}
+    )
+
+    validate_editorial_grounding(
+        BriefDraft(items=[], watch_next=[f"Watch today's concrete {anchor} changes."]),
         [source_story],
         [],
     )
