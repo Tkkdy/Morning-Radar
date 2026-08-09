@@ -70,15 +70,14 @@ def _deterministic_generated_item(
         title=story.canonical_title,
         what_happened=story.facts[0] if story.facts else story.canonical_title,
         why_it_matters=(
-            "Degraded mode: why-it-matters analysis is unavailable; "
-            "review the verified fact and source."
+            "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
             if fallback or not story.analysis
             else (
                 story.analysis[0]
             )
         ),
         uncertainty=(
-            "AI-generated briefing analysis was unavailable."
+            "AI 晨报分析暂时不可用。"
             if fallback
             else (story.uncertainties[0] if story.uncertainties else None)
         ),

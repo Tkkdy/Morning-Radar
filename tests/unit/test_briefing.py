@@ -433,7 +433,10 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     )
 
     assert result.top_stories[0].what_happened == source_story.facts[0]
-    assert "analysis is unavailable" in result.top_stories[0].why_it_matters
+    assert result.top_stories[0].why_it_matters == (
+        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    )
+    assert result.top_stories[0].uncertainty == "AI 晨报分析暂时不可用。"
     assert result.top_stories[0].source_urls == source_story.source_urls
     assert result.top_stories[0].story_contexts[0].story_id == source_story.id
     assert result.top_stories[0].story_contexts[0].source_refs == []
