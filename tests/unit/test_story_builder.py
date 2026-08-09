@@ -10,6 +10,8 @@ from morning_radar.processing.story_builder import (
     build_stories,
     build_story,
     choose_primary_source,
+    filter_story_candidate_inputs,
+    preselect_ai_candidates,
     ranking_score,
 )
 
@@ -277,6 +279,148 @@ def test_ai_candidate_cap_is_applied_before_classification() -> None:
     assert provider.classified_count == 40
     assert provider.budget.calls_used == 1
     assert len(stories) == 40
+
+
+def test_routine_market_gate_suppresses_only_valid_subthreshold_moves() -> None:
+    routine = [
+        item(
+            f"market-{index}",
+            f"Market move {index}",
+            f"https://finance.example/{index}",
+            source="Market",
+        ).model_copy(
+            update={
+                "source_type": "market",
+                "metadata": {"change_percent": change},
+            }
+        )
+        for index, change in enumerate((0.0044, 0.0283, 0.0037, 0.0082, 0.0029, -0.0121, 0.0003))
+    ]
+    significant = item(
+        "market-significant",
+        "Large market move",
+        "https://finance.example/significant",
+        source="Market",
+    ).model_copy(
+        update={"source_type": "market", "metadata": {"change_percent": -0.03}}
+    )
+    invalid = [
+        item(
+            f"market-invalid-{index}",
+            "Unknown market move",
+            f"https://finance.example/invalid/{index}",
+            source="Market",
+        ).model_copy(
+            update={"source_type": "market", "metadata": {"change_percent": value}}
+        )
+        for index, value in enumerate((None, "0.01", True, float("nan")))
+    ]
+    news = item(
+        "news",
+        "Company launches a product",
+        "https://news.example/product",
+        source="News",
+    )
+
+    selected, suppressed = filter_story_candidate_inputs(
+        [*routine, significant, *invalid, news],
+        market_movement_threshold=0.03,
+    )
+
+    assert suppressed == 7
+    assert {value.id for value in selected} == {
+        "market-significant",
+        "market-invalid-0",
+        "market-invalid-1",
+        "market-invalid-2",
+        "market-invalid-3",
+        "news",
+    }
+
+
+def _lane_item(
+    item_id: str,
+    *,
+    source_type: str,
+    official: bool = False,
+    priority: str = "low",
+    hour: int = 0,
+) -> RawItem:
+    return item(
+        item_id,
+        f"Candidate {item_id}",
+        f"https://example.com/{item_id}",
+        source=item_id,
+        official=official,
+        priority=priority,
+    ).model_copy(
+        update={
+            "source_type": source_type,
+            "published_at": NOW.replace(hour=hour),
+        }
+    )
+
+
+def test_preselection_reserves_nonempty_source_lanes_under_cap() -> None:
+    official = [
+        _lane_item(
+            f"official-{index}",
+            source_type="rss",
+            official=True,
+            priority="high",
+            hour=index,
+        )
+        for index in range(8)
+    ]
+    github = _lane_item("github", source_type="github", official=True, priority="high")
+    secondary = _lane_item("secondary", source_type="rss", priority="medium")
+    hacker_news = _lane_item("hn", source_type="hacker_news")
+
+    selected = preselect_ai_candidates(
+        [*official, github, secondary, hacker_news],
+        maximum_items=4,
+    )
+
+    assert len(selected) == 4
+    assert {value.id for value in selected} == {
+        "official-7",
+        "github",
+        "secondary",
+        "hn",
+    }
+
+
+def test_preselection_fills_empty_lane_capacity_and_is_deterministic() -> None:
+    candidates = [
+        _lane_item(
+            "older-medium",
+            source_type="rss",
+            official=True,
+            priority="medium",
+            hour=1,
+        ),
+        _lane_item(
+            "newer-medium",
+            source_type="rss",
+            official=True,
+            priority="medium",
+            hour=2,
+        ),
+        _lane_item(
+            "low",
+            source_type="rss",
+            official=True,
+            priority="low",
+            hour=3,
+        ),
+    ]
+
+    first = preselect_ai_candidates(candidates, maximum_items=2)
+    second = preselect_ai_candidates(list(reversed(candidates)), maximum_items=2)
+
+    assert [value.id for value in first] == ["newer-medium", "older-medium"]
+    assert [value.id for value in second] == ["newer-medium", "older-medium"]
+    assert preselect_ai_candidates(candidates, maximum_items=0) == []
 
 
 class ClassificationFailureProvider(FakeAIProvider):

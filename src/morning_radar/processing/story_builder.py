@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import hashlib
 import logging
+import math
+from collections import Counter
 from datetime import datetime
 
 from morning_radar.ai import AIOutputError
@@ -15,6 +17,14 @@ from morning_radar.processing.grouping import group_items_by_normalized_title
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
+LANE_ORDER = (
+    "official_editorial",
+    "github_release",
+    "secondary_editorial",
+    "hacker_news",
+    "significant_market",
+    "other",
+)
 PUBLISHED_AT_ROLE_BY_SOURCE_TYPE = {
     "rss": PublishedAtRole.FEED_ENTRY_TIME,
     "atom": PublishedAtRole.FEED_ENTRY_TIME,
@@ -27,6 +37,31 @@ LOGGER = logging.getLogger(__name__)
 
 class StoryValidationError(ValueError):
     pass
+
+
+def filter_story_candidate_inputs(
+    items: list[RawItem],
+    *,
+    market_movement_threshold: float,
+) -> tuple[list[RawItem], int]:
+    """Suppress routine market rows from Story AI without dropping raw data."""
+    selected: list[RawItem] = []
+    suppressed = 0
+    for item in items:
+        if item.source_type != "market":
+            selected.append(item)
+            continue
+        change = item.metadata.get("change_percent")
+        valid_change = (
+            isinstance(change, (int, float))
+            and not isinstance(change, bool)
+            and math.isfinite(change)
+        )
+        if valid_change and abs(change) < market_movement_threshold:
+            suppressed += 1
+            continue
+        selected.append(item)
+    return selected, suppressed
 
 
 def _story_id(items: list[RawItem]) -> str:
@@ -198,18 +233,46 @@ def preselect_ai_candidates(
     """Deterministically prioritize candidates before the first AI call."""
     if maximum_items is None:
         return list(items)
+    maximum_items = max(0, maximum_items)
 
-    def candidate_key(item: RawItem) -> tuple[int, int, float, str]:
-        priority = str(item.metadata.get("priority", "low"))
-        event_time = item.published_at or item.fetched_at
-        return (
-            0 if item.metadata.get("official") else 1,
-            PRIORITY_ORDER.get(priority, 3),
-            -event_time.timestamp(),
-            item.id,
-        )
+    lanes: dict[str, list[RawItem]] = {name: [] for name in LANE_ORDER}
+    for item in items:
+        lanes[_candidate_lane(item)].append(item)
+    for lane_items in lanes.values():
+        lane_items.sort(key=_lane_candidate_key)
 
-    selected = sorted(items, key=candidate_key)[:maximum_items]
+    nonempty_lanes = [name for name in LANE_ORDER if lanes[name]]
+    selected: list[RawItem] = []
+    selected_ids: set[str] = set()
+    if maximum_items >= len(nonempty_lanes):
+        reserved_lanes = nonempty_lanes
+    else:
+        reserved_lanes = sorted(
+            nonempty_lanes,
+            key=lambda name: (
+                _global_candidate_key(lanes[name][0]),
+                LANE_ORDER.index(name),
+            ),
+        )[:maximum_items]
+    for lane_name in reserved_lanes:
+        item = lanes[lane_name][0]
+        selected.append(item)
+        selected_ids.add(item.id)
+
+    remaining = sorted(
+        (item for item in items if item.id not in selected_ids),
+        key=_global_candidate_key,
+    )
+    selected.extend(remaining[: max(0, maximum_items - len(selected))])
+    selected_counts = Counter(_candidate_lane(item) for item in selected)
+    LOGGER.info(
+        "AI candidate lanes: official_editorial=%d github_release=%d "
+        "secondary_editorial=%d hacker_news=%d significant_market=%d "
+        "other=%d selected_total=%d cap=%d",
+        *(selected_counts[name] for name in LANE_ORDER),
+        len(selected),
+        maximum_items,
+    )
     if len(selected) < len(items):
         LOGGER.info(
             "AI candidate cap applied: candidates=%d selected=%d",
@@ -217,6 +280,33 @@ def preselect_ai_candidates(
             len(selected),
         )
     return selected
+
+
+def _candidate_lane(item: RawItem) -> str:
+    if item.source_type == "github":
+        return "github_release"
+    if item.source_type == "hacker_news":
+        return "hacker_news"
+    if item.source_type == "market":
+        return "significant_market"
+    if item.source_type in {"rss", "atom"}:
+        return (
+            "official_editorial"
+            if item.metadata.get("official")
+            else "secondary_editorial"
+        )
+    return "other"
+
+
+def _lane_candidate_key(item: RawItem) -> tuple[int, float, str]:
+    priority = str(item.metadata.get("priority", "low"))
+    event_time = item.published_at or item.fetched_at
+    return (PRIORITY_ORDER.get(priority, 3), -event_time.timestamp(), item.id)
+
+
+def _global_candidate_key(item: RawItem) -> tuple[int, int, float, str]:
+    lane_key = _lane_candidate_key(item)
+    return (0 if item.metadata.get("official") else 1, *lane_key)
 
 
 class _DraftProvider:

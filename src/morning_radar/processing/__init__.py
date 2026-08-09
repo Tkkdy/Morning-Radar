@@ -9,6 +9,7 @@ from morning_radar.processing.story_builder import (
     build_stories,
     build_story,
     choose_primary_source,
+    filter_story_candidate_inputs,
     rank_stories,
     ranking_score,
 )
@@ -21,6 +22,7 @@ __all__ = [
     "build_stories",
     "build_story",
     "choose_primary_source",
+    "filter_story_candidate_inputs",
     "normalize_title",
     "normalize_url",
     "rank_stories",
