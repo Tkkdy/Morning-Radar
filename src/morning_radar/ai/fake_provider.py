@@ -69,6 +69,13 @@ class FakeAIProvider:
 
     def write_brief(self, stories: list[Story], signals: list[Signal]) -> BriefDraft:
         del signals
+        watch_anchor = None
+        if stories:
+            first = stories[0]
+            watch_anchor = next(
+                iter([*first.entity_names, *first.product_names]),
+                first.canonical_title,
+            )
         return BriefDraft(
             items=[
                 GeneratedBriefItem(
@@ -84,7 +91,11 @@ class FakeAIProvider:
                 )
                 for story in stories
             ],
-            watch_next=["继续观察后续官方发布与开发者反馈。"] if stories else [],
+            watch_next=(
+                [f"继续观察 {watch_anchor} 的后续官方发布与开发者反馈。"]
+                if watch_anchor
+                else []
+            ),
         )
 
     def write_direction_observation(

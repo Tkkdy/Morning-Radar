@@ -41,6 +41,8 @@ def test_site_builder_creates_index_archive_and_daily_page(tmp_path) -> None:
     assert (output / "archive.html").exists()
     assert (output / "briefs/2026-07-23.html").exists()
     assert "今日重点" in index
+    assert '<p class="section-label">今日重点</p>' in index
+    assert '<p class="section-label">top_stories</p>' not in index
     assert "市场与公司" not in index
     assert item.title in index
     assert item.what_happened in index
@@ -262,6 +264,163 @@ def test_site_builder_hides_empty_other_reading_for_legacy_brief(tmp_path) -> No
     )
 
     assert "其他值得阅读" not in (output / "index.html").read_text(encoding="utf-8")
+
+
+def test_archive_summarizes_content_without_new_persistent_data(tmp_path) -> None:
+    main = BriefItem(
+        id="brief-main",
+        section="top_stories",
+        title="当天最值得关注的事件",
+        what_happened="发生了重要事件。",
+        why_it_matters="它值得关注。",
+        source_urls=["https://example.com/main"],
+        story_ids=["story-main"],
+    )
+    other = BriefItem(
+        id="brief-other",
+        section="other_reading",
+        title="延伸阅读",
+        what_happened="补充信息。",
+        why_it_matters="提供额外背景。",
+        source_urls=["https://example.com/other"],
+        story_ids=["story-other"],
+    )
+    briefs = [
+        DailyBrief(
+            date=date(2026, 8, 9),
+            timezone="Asia/Singapore",
+            generated_at=datetime(2026, 8, 9, tzinfo=UTC),
+            top_stories=[main],
+            other_reading=[other],
+        ),
+        DailyBrief(
+            date=date(2026, 8, 8),
+            timezone="Asia/Singapore",
+            generated_at=datetime(2026, 8, 8, tzinfo=UTC),
+        ),
+    ]
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        briefs,
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    archive = (output / "archive.html").read_text(encoding="utf-8")
+    assert "当天最值得关注的事件" in archive
+    assert "1 条主内容 · 1 条延伸阅读" in archive
+    assert "当日无主内容" in archive
+    assert "0 条主内容" in archive
+
+
+def test_expanded_details_do_not_repeat_visible_card_narratives(tmp_path) -> None:
+    context = BriefStoryContext(
+        story_id="story-1",
+        canonical_title="Canonical",
+        category="ai_and_open_source",
+        facts=["卡片事实", "额外事实"],
+        analysis=["卡片分析", "额外分析"],
+        uncertainties=["卡片不确定性", "额外不确定性"],
+        primary_source_url="https://example.com/story",
+    )
+    item = BriefItem(
+        id="brief-1",
+        section="top_stories",
+        title="Card",
+        what_happened="卡片事实",
+        why_it_matters="卡片分析",
+        uncertainty="卡片不确定性",
+        source_urls=["https://example.com/story"],
+        story_ids=[context.story_id],
+        story_contexts=[context],
+    )
+    brief = DailyBrief(
+        date=date(2026, 8, 9),
+        timezone="Asia/Singapore",
+        generated_at=datetime(2026, 8, 9, tzinfo=UTC),
+        top_stories=[item],
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [brief],
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert html.count("卡片事实") == 1
+    assert html.count("卡片分析") == 1
+    assert html.count("卡片不确定性") == 1
+    assert "额外事实" in html
+    assert "额外分析" in html
+    assert "额外不确定性" in html
+
+
+def test_details_control_is_hidden_when_context_has_no_additional_information(
+    tmp_path,
+) -> None:
+    context = BriefStoryContext(
+        story_id="story-1",
+        canonical_title="Canonical",
+        category="ai_and_open_source",
+        facts=["卡片事实"],
+        analysis=["卡片分析"],
+        uncertainties=["卡片不确定性"],
+        primary_source_url="https://example.com/story",
+    )
+    item = BriefItem(
+        id="brief-1",
+        section="top_stories",
+        title="Card",
+        what_happened="卡片事实",
+        why_it_matters="卡片分析",
+        uncertainty="卡片不确定性",
+        source_urls=["https://example.com/story"],
+        story_ids=[context.story_id],
+        story_contexts=[context],
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [
+            DailyBrief(
+                date=date(2026, 8, 9),
+                timezone="Asia/Singapore",
+                generated_at=datetime(2026, 8, 9, tzinfo=UTC),
+                top_stories=[item],
+            )
+        ],
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert "<details" not in html
+    assert html.count("卡片事实") == 1
+    assert html.count("卡片分析") == 1
+    assert html.count("卡片不确定性") == 1
+
+
+def test_cognitive_question_and_watch_next_have_distinct_reader_facing_roles(
+    tmp_path,
+) -> None:
+    brief = DailyBrief(
+        date=date(2026, 8, 9),
+        timezone="Asia/Singapore",
+        generated_at=datetime(2026, 8, 9, tzinfo=UTC),
+        cognitive_extension="OpenAI 的发布会将如何改变开发者选择？",
+        watch_next=["观察 OpenAI 是否公布开发者开放时间表。"],
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [brief],
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert "<h2>值得继续思考</h2>" in html
+    assert "<h2>继续观察</h2>" in html
+    assert "<h2>认知延伸</h2>" not in html
 
 
 def test_site_builder_falls_back_to_brief_url_when_primary_ref_is_missing(tmp_path) -> None:
