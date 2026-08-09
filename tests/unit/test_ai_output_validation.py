@@ -182,3 +182,26 @@ def test_editorial_grounding_accepts_bounded_and_chinese_anchors(anchor: str) ->
         [source_story],
         [],
     )
+
+
+@pytest.mark.parametrize(
+    ("anchor", "narrative"),
+    [
+        ("OpenAI", "OpenAI发布了新模型"),
+        ("GPT-5.6", "GPT-5.6今天更新"),
+        ("Claude Code", "Claude Code推出新功能"),
+    ],
+)
+def test_editorial_grounding_accepts_latin_anchors_next_to_chinese(
+    anchor: str,
+    narrative: str,
+) -> None:
+    source_story = story().model_copy(
+        update={"entity_names": [], "product_names": [anchor], "topic_names": []}
+    )
+
+    validate_editorial_grounding(
+        BriefDraft(items=[], watch_next=[narrative]),
+        [source_story],
+        [],
+    )

@@ -116,7 +116,7 @@ def _normalize_anchor(value: str) -> str:
 def _anchor_matches(anchor: str, narrative: str) -> bool:
     if _CJK.search(anchor):
         return anchor in narrative
-    return re.search(rf"(?<!\w){re.escape(anchor)}(?!\w)", narrative) is not None
+    return re.search(rf"(?<![a-z0-9]){re.escape(anchor)}(?![a-z0-9])", narrative) is not None
 
 
 def _present(values: Iterable[str | None]) -> Iterable[str]:
