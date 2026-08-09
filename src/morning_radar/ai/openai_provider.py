@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 import os
+from collections.abc import Callable
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -25,6 +26,11 @@ from morning_radar.ai.models import (
     DirectionObservation,
     MergedStoryDraft,
     StoryScore,
+)
+from morning_radar.ai.output_validation import (
+    validate_direction_evidence,
+    validate_editorial_grounding,
+    validate_simplified_chinese_output,
 )
 from morning_radar.models import RawItem, Signal, Story
 from morning_radar.provenance import verified_source_urls_for_items
@@ -138,6 +144,7 @@ class OpenAIProvider:
         payload_data: Any,
         item_count: int,
         allowed_urls: set[str],
+        output_validator: Callable[[OutputT], None] | None = None,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
         self.budget.consume(payload, item_count=item_count)
@@ -178,6 +185,9 @@ class OpenAIProvider:
                     raise AIOutputError("OpenAI response contained no parsed structured output")
                 validated = schema.model_validate(parsed)
                 validate_output_urls(validated, allowed_urls)
+                validate_simplified_chinese_output(validated)
+                if output_validator is not None:
+                    output_validator(validated)
                 return validated
             except (AIOutputError, ValidationError, TypeError, ValueError) as exc:
                 last_error = exc
@@ -220,6 +230,11 @@ class OpenAIProvider:
             },
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},
+            output_validator=lambda output: validate_editorial_grounding(
+                output,
+                stories,
+                signals,
+            ),
         )
 
     def write_direction_observation(
@@ -232,4 +247,8 @@ class OpenAIProvider:
             payload_data=[signal.model_dump(mode="json") for signal in signals],
             item_count=len(signals),
             allowed_urls=set(),
+            output_validator=lambda output: validate_direction_evidence(
+                output,
+                signals,
+            ),
         )

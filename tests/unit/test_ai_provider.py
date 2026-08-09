@@ -14,8 +14,13 @@ from morning_radar.ai import (
     FakeAIProvider,
     OpenAIProvider,
 )
-from morning_radar.ai.models import ClassificationBatch, ClassifiedItem, MergedStoryDraft
-from morning_radar.models import RawItem
+from morning_radar.ai.models import (
+    BriefDraft,
+    ClassificationBatch,
+    ClassifiedItem,
+    MergedStoryDraft,
+)
+from morning_radar.models import RawItem, Story
 
 
 def raw_item(url: str = "https://example.com/real") -> RawItem:
@@ -110,6 +115,71 @@ def test_invalid_output_after_retry_is_skipped_with_error() -> None:
 
     with pytest.raises(AIOutputError, match="after retry"):
         configured.classify_items([raw_item()])
+
+
+def test_english_story_narrative_retries_without_extra_logical_call() -> None:
+    url = "https://example.com/real"
+    english = MergedStoryDraft(
+        same_event=True,
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        facts=["The company published a detailed article about the new model today."],
+        source_urls=[url],
+        primary_source_url=url,
+    )
+    chinese = english.model_copy(update={"facts": ["公司今天发布了新模型的详细说明。"]})
+    configured = provider([english, chinese])
+
+    assert configured.merge_story([raw_item()]) == chinese
+    assert configured.client.responses.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_repeated_english_story_narrative_fails_after_existing_retry() -> None:
+    url = "https://example.com/real"
+    english = MergedStoryDraft(
+        same_event=True,
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        facts=["The company published a detailed article about the new model today."],
+        source_urls=[url],
+        primary_source_url=url,
+    )
+    configured = provider([english, english])
+
+    with pytest.raises(AIOutputError, match="after retry"):
+        configured.merge_story([raw_item()])
+
+    assert configured.client.responses.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_editorial_grounding_violation_uses_existing_output_retry() -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    generic = BriefDraft(items=[], watch_next=["继续关注 AI 行业发展。"])
+    grounded = BriefDraft(
+        items=[],
+        watch_next=["观察 OpenAI 是否公布后续开放时间表。"],
+    )
+    configured = provider([generic, grounded])
+
+    assert configured.write_brief([source_story], []) == grounded
+    assert configured.client.responses.calls == 2
 
 
 def test_timeout_retries_with_bounded_attempts() -> None:

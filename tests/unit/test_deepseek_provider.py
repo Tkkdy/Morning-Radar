@@ -14,8 +14,13 @@ from morning_radar.ai import (
     AIOutputError,
     DeepSeekProvider,
 )
-from morning_radar.ai.models import ClassificationBatch, ClassifiedItem, MergedStoryDraft
-from morning_radar.models import RawItem
+from morning_radar.ai.models import (
+    ClassificationBatch,
+    ClassifiedItem,
+    DirectionObservation,
+    MergedStoryDraft,
+)
+from morning_radar.models import RawItem, Signal, SignalType
 
 
 def raw_item(url: str = "https://example.com/real") -> RawItem:
@@ -157,6 +162,35 @@ def test_invalid_output_after_retry_fails_clearly() -> None:
 
     with pytest.raises(AIOutputError, match="after retry"):
         configured.classify_items([raw_item()])
+
+
+def test_direction_evidence_violation_retries_with_network_counting() -> None:
+    signal = Signal(
+        id="signal-1",
+        signal_type=SignalType.TOPIC_HEATING,
+        topic="ai_models",
+        window_days=3,
+        supporting_story_ids=["story-1", "story-2"],
+        supporting_source_count=2,
+        supporting_company_count=1,
+        strength=0.8,
+        explanation="模型方向连续出现。",
+        created_at=datetime(2026, 7, 23, tzinfo=UTC),
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+    )
+    invalid = DirectionObservation(
+        observation="模型方向获得更多证据。",
+        evidence_story_ids=["story-1", "unknown-story"],
+    )
+    valid = invalid.model_copy(
+        update={"evidence_story_ids": ["story-1", "story-2"]}
+    )
+    configured = provider([invalid.model_dump_json(), valid.model_dump_json()])
+
+    assert configured.write_direction_observation([signal]) == valid
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
 
 
 def test_timeout_retries_with_bounded_attempts() -> None:
