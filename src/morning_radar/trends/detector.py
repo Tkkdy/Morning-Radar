@@ -43,6 +43,7 @@ def _make_signal(
     current_date: date,
     metric_history: list[dict[str, object]] | None = None,
     uncertainties: list[str] | None = None,
+    supporting_company_count: int | None = None,
 ) -> Signal:
     source_urls = {url for story in stories for url in story.source_urls}
     companies = {name for story in stories for name in story.entity_names}
@@ -53,7 +54,11 @@ def _make_signal(
         window_days=window_days,
         supporting_story_ids=list(dict.fromkeys(story.id for story in stories)),
         supporting_source_count=len(source_urls),
-        supporting_company_count=len(companies),
+        supporting_company_count=(
+            len(companies)
+            if supporting_company_count is None
+            else supporting_company_count
+        ),
         metric_history=metric_history or [],
         strength=max(0, min(1, strength)),
         explanation=explanation,
@@ -123,6 +128,7 @@ def detect_multi_company_direction(
     *,
     now: datetime,
     current_date: date | None = None,
+    company_names: set[str] | None = None,
 ) -> list[Signal]:
     signal_date = current_date or display_date(now)
     by_topic: dict[str, list[Story]] = defaultdict(list)
@@ -132,7 +138,12 @@ def detect_multi_company_direction(
 
     signals: list[Signal] = []
     for topic, supporting in by_topic.items():
-        companies = {name for story in supporting for name in story.entity_names}
+        companies = {
+            name
+            for story in supporting
+            for name in story.entity_names
+            if name in (company_names or set())
+        }
         sources = {url for story in supporting for url in story.source_urls}
         if len(companies) < 2 or len(sources) < 2:
             continue
@@ -149,6 +160,7 @@ def detect_multi_company_direction(
                 ),
                 now=now,
                 current_date=signal_date,
+                supporting_company_count=len(companies),
             )
         )
     return signals
@@ -300,9 +312,16 @@ def detect_market_attention(
 
 
 class TrendDetector:
-    def __init__(self, *, github_threshold: float, market_threshold: float) -> None:
+    def __init__(
+        self,
+        *,
+        github_threshold: float,
+        market_threshold: float,
+        company_names: set[str] | None = None,
+    ) -> None:
         self.github_threshold = github_threshold
         self.market_threshold = market_threshold
+        self.company_names = company_names or set()
 
     def detect(
         self,
@@ -320,6 +339,7 @@ class TrendDetector:
                 current_stories,
                 now=now,
                 current_date=current_date,
+                company_names=self.company_names,
             ),
             *detect_github_growth(
                 github_snapshots,

@@ -116,7 +116,7 @@ def test_empty_pipeline_inputs_skip_all_ai_calls(caplog) -> None:
     assert provider.direction_calls == 0
     assert "Skipping AI classification: no recent items" in caplog.text
     assert "Skipping AI brief generation: no stories" in caplog.text
-    assert "Skipping AI direction observation: no signals" in caplog.text
+    assert "Skipping AI direction observation: no coherent evidence signals" in caplog.text
 
 
 def test_source_links_are_complete_and_traceable() -> None:
@@ -457,8 +457,8 @@ def test_direction_failure_is_omitted_and_marked_without_losing_brief(caplog) ->
         signal_type=SignalType.TOPIC_HEATING,
         topic="ai_coding",
         window_days=3,
-        supporting_story_ids=["story-1"],
-        supporting_source_count=1,
+        supporting_story_ids=["story-1", "story-2"],
+        supporting_source_count=2,
         supporting_company_count=0,
         strength=0.7,
         explanation="Verified multi-day evidence",
@@ -470,7 +470,7 @@ def test_direction_failure_is_omitted_and_marked_without_losing_brief(caplog) ->
         brief_date=date(2026, 7, 23),
         generated_at=NOW,
         timezone="Asia/Singapore",
-        stories=[story(1)],
+        stories=[story(1), story(2)],
         signals=[signal],
         provider=DirectionFailureProvider(),
         limits=BriefLimits(maximum_items=5),
@@ -504,8 +504,8 @@ def test_signal_ai_inputs_are_bounded_by_maximum_ai_items() -> None:
         signal_type=SignalType.TOPIC_HEATING,
         topic="ai_coding",
         window_days=3,
-        supporting_story_ids=["story-1"],
-        supporting_source_count=1,
+        supporting_story_ids=["story-1", "story-2"],
+        supporting_source_count=2,
         supporting_company_count=0,
         strength=0.7,
         explanation="Verified evidence",
@@ -534,3 +534,36 @@ def test_signal_ai_inputs_are_bounded_by_maximum_ai_items() -> None:
     assert provider.brief_signal_count == 2
     assert provider.direction_signal_count == 2
     assert result.run_stats["ai_signal_inputs"] == 2
+
+
+def test_weak_single_story_signal_skips_direction_observation() -> None:
+    weak_signal = Signal(
+        id="signal-weak",
+        signal_type=SignalType.TOPIC_HEATING,
+        topic="ai_coding",
+        window_days=1,
+        supporting_story_ids=["story-1"],
+        supporting_source_count=1,
+        supporting_company_count=0,
+        strength=0.4,
+        explanation="Single event only",
+        created_at=NOW,
+        updated_at=NOW,
+    )
+    provider = SignalRecordingProvider()
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[story(1)],
+        signals=[weak_signal],
+        provider=provider,
+        limits=BriefLimits(maximum_items=5),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert provider.direction_signal_count == 0
+    assert result.direction_observation is None
+    assert result.run_stats["direction_signal_inputs"] == 0

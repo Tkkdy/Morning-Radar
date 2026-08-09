@@ -31,5 +31,12 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     assert (output / "site/archive.html").exists()
     assert "raw_collected=4" in caplog.text
     assert "recent_24h=4" in caplog.text
-    assert "selected_brief_items=3" in caplog.text
-    assert "ai_calls=0" in caplog.text
+    assert "story_candidate_input=4" in caplog.text
+    assert "routine_market_suppressed=0" in caplog.text
+    assert "main_brief_items=3" in caplog.text
+    assert "other_reading_items=0" in caplog.text
+    assert "total_displayed_items=3" in caplog.text
+    assert "logical_ai_calls=0" in caplog.text
+    assert brief.run_stats["main_brief_items"] == 3
+    assert brief.run_stats["other_reading_items"] == 0
+    assert brief.run_stats["total_displayed_items"] == 3

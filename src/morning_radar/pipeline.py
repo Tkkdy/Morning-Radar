@@ -17,7 +17,11 @@ from morning_radar.collectors.market import MarketCollector, YFinanceHistoryProv
 from morning_radar.collectors.rss import RSSCollector
 from morning_radar.models import DailyBrief, GitHubSnapshot, MarketSnapshot, Story
 from morning_radar.notifications import WxPusherConfig, WxPusherNotifier
-from morning_radar.processing import build_stories, filter_news_window
+from morning_radar.processing import (
+    build_stories,
+    filter_news_window,
+    filter_story_candidate_inputs,
+)
 from morning_radar.publishing import SiteBuilder
 from morning_radar.settings import (
     AppConfig,
@@ -34,6 +38,21 @@ from morning_radar.time_utils import display_date, utc_now
 from morning_radar.trends import TrendDetector
 
 LOGGER = logging.getLogger(__name__)
+
+
+def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
+    main_items = sum(
+        len(items)
+        for items in (
+            brief.top_stories,
+            brief.market_and_companies,
+            brief.ai_and_open_source,
+            brief.trend_radar,
+            brief.developer_discussions,
+        )
+    )
+    other_items = len(brief.other_reading)
+    return main_items, other_items, main_items + other_items
 
 
 class MorningRadarPipeline:
@@ -78,6 +97,12 @@ class MorningRadarPipeline:
             now=now,
             hours=self.app.news_window_hours,
         )
+        story_candidate_items, routine_market_suppressed = (
+            filter_story_candidate_inputs(
+                recent,
+                market_movement_threshold=self.app.market_movement_threshold,
+            )
+        )
         # Reserve calls for classification, brief writing, and direction
         # observation. A rejected two-item candidate group costs five calls:
         # one group merge plus merge + score for each resulting Story.
@@ -88,7 +113,7 @@ class MorningRadarPipeline:
             call_safe_candidate_limit,
         )
         stories = build_stories(
-            recent,
+            story_candidate_items,
             provider=provider,
             now=now,
             maximum_ai_items=ai_candidate_limit,
@@ -99,6 +124,14 @@ class MorningRadarPipeline:
         signals = TrendDetector(
             github_threshold=self.app.github_growth_threshold,
             market_threshold=self.app.market_movement_threshold,
+            company_names={
+                company.name
+                for company in load_model_list(
+                    self.root / "config/companies.yaml",
+                    "companies",
+                    CompanyConfig,
+                )
+            },
         ).detect(
             story_history=story_history,
             github_snapshots=self._snapshots(
@@ -123,42 +156,59 @@ class MorningRadarPipeline:
             importance_threshold=self.app.importance_threshold,
             maximum_ai_items=self.app.maximum_ai_items,
             run_stats={
-                "raw_items": len(raw_items),
-                "recent_items": len(recent),
+                "after_global_cap": len(raw_items),
+                "recent_24h": len(recent),
+                "story_candidate_input": len(story_candidate_items),
+                "routine_market_suppressed": routine_market_suppressed,
                 "stories": len(stories),
                 "signals": len(signals),
                 "fixture_mode": fixtures,
                 "dry_run": dry_run,
             },
         )
-        selected_brief_items = sum(
-            len(items)
-            for items in (
-                brief.top_stories,
-                brief.market_and_companies,
-                brief.ai_and_open_source,
-                brief.trend_radar,
-                brief.developer_discussions,
-            )
-        )
+        (
+            main_brief_items,
+            other_reading_items,
+            total_displayed_items,
+        ) = _displayed_item_counts(brief)
         budget = getattr(provider, "budget", None)
-        ai_calls = getattr(budget, "calls_used", 0)
+        logical_ai_calls = getattr(budget, "calls_used", 0)
         network_ai_requests = getattr(budget, "network_requests_used", 0)
+        brief = brief.model_copy(
+            update={
+                "run_stats": {
+                    **brief.run_stats,
+                    "main_brief_items": main_brief_items,
+                    "other_reading_items": other_reading_items,
+                    "total_displayed_items": total_displayed_items,
+                    "logical_ai_calls": logical_ai_calls,
+                    "network_ai_requests": network_ai_requests,
+                }
+            }
+        )
+        threshold_eligible_stories = int(
+            brief.run_stats.get("threshold_eligible_stories", 0)
+        )
         LOGGER.info(
             "Pipeline stats: raw_collected=%d after_buffer=%d after_dedup=%d "
-            "after_global_cap=%d recent_24h=%d stories=%d signals=%d "
-            "selected_brief_items=%d ai_calls=%d logical_ai_calls=%d "
-            "network_ai_requests=%d",
+            "after_global_cap=%d recent_24h=%d story_candidate_input=%d "
+            "routine_market_suppressed=%d stories=%d threshold_eligible_stories=%d "
+            "signals=%d main_brief_items=%d other_reading_items=%d "
+            "total_displayed_items=%d logical_ai_calls=%d network_ai_requests=%d",
             collection.raw_collected,
             collection.after_buffer,
             collection.after_dedup,
             len(raw_items),
             len(recent),
+            len(story_candidate_items),
+            routine_market_suppressed,
             len(stories),
+            threshold_eligible_stories,
             len(signals),
-            selected_brief_items,
-            ai_calls,
-            ai_calls,
+            main_brief_items,
+            other_reading_items,
+            total_displayed_items,
+            logical_ai_calls,
             network_ai_requests,
         )
         self._save_outputs(output_root, brief_date, raw_items, stories, signals, brief)

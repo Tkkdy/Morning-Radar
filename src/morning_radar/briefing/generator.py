@@ -152,6 +152,13 @@ def generate_daily_brief(
     if maximum_ai_items is not None:
         bounded_signals = bounded_signals[:maximum_ai_items]
     stats["ai_signal_inputs"] = len(bounded_signals)
+    direction_signals = [
+        signal
+        for signal in bounded_signals
+        if len(set(signal.supporting_story_ids)) >= 2
+        and signal.supporting_source_count >= 2
+    ]
+    stats["direction_signal_inputs"] = len(direction_signals)
 
     if eligible_stories:
         try:
@@ -220,16 +227,16 @@ def generate_daily_brief(
         used_story_ids.add(story.id)
 
     direction = None
-    if bounded_signals and enabled_sections.get("direction_observation", True):
+    if direction_signals and enabled_sections.get("direction_observation", True):
         try:
-            direction = provider.write_direction_observation(bounded_signals).observation
+            direction = provider.write_direction_observation(direction_signals).observation
         except AIOutputError:
             LOGGER.exception(
                 "AI degradation: direction observation failed; section omitted"
             )
             stats["ai_direction_fallback"] = True
-    elif not bounded_signals:
-        LOGGER.info("Skipping AI direction observation: no signals")
+    elif not direction_signals:
+        LOGGER.info("Skipping AI direction observation: no coherent evidence signals")
     cognitive_extension = (
         draft.cognitive_extension
         if enabled_sections.get("cognitive_extension", True)
