@@ -1,0 +1,38 @@
+[
+  {
+    "created_at": "2026-08-09T00:00:14.041621Z",
+    "explanation": "2 家公司在 ai_models 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-a03a0b579232321e9755",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-a3f64a137281c0a9aaa9",
+      "story-7cc8dcf6ff44250a9397"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-09T00:00:14.041621Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-09T00:00:14.041621Z",
+    "explanation": "2 家公司在 stock market 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-abb9dcb007cc4b4b66b8",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-896ede9101a591df0db1",
+      "story-6caea76fc2ea7b885ed9"
+    ],
+    "topic": "stock market",
+    "uncertainties": [],
+    "updated_at": "2026-08-09T00:00:14.041621Z",
+    "window_days": 1
+  }
+]
