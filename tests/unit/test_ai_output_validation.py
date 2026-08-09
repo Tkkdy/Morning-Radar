@@ -2,9 +2,15 @@ from datetime import UTC, datetime
 
 import pytest
 
-from morning_radar.ai.models import BriefDraft, DirectionObservation, MergedStoryDraft
+from morning_radar.ai.models import (
+    BriefDraft,
+    DirectionObservation,
+    GeneratedBriefItem,
+    MergedStoryDraft,
+)
 from morning_radar.ai.output_validation import (
     is_suspicious_english_prose,
+    sanitize_editorial_extensions,
     validate_direction_evidence,
     validate_editorial_grounding,
     validate_simplified_chinese_output,
@@ -166,6 +172,77 @@ def test_cognitive_extension_must_be_a_question_not_a_prediction() -> None:
         [source_story],
         [],
     )
+
+
+def test_optional_watch_entries_are_sanitized_independently(caplog) -> None:
+    draft = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=["story-openai"],
+                section="top_stories",
+                title="OpenAI 发布新模型",
+                what_happened="OpenAI 发布了新模型。",
+                why_it_matters="开发者需要评估 API 兼容性。",
+                source_urls=["https://example.com/openai"],
+            )
+        ],
+        watch_next=[
+            "继续关注 AI 行业发展。",
+            "Watch OpenAI release details and developer availability updates tomorrow.",
+            "观察 OpenAI 是否公布 GPT-5.6 的开发者开放时间表。",
+        ],
+    )
+
+    sanitized = sanitize_editorial_extensions(draft, [story()], [])
+
+    assert sanitized.items == draft.items
+    assert sanitized.watch_next == [
+        "观察 OpenAI 是否公布 GPT-5.6 的开发者开放时间表。"
+    ]
+    assert "watch_next=grounding:1" in caplog.text
+    assert "language:1" in caplog.text
+
+
+@pytest.mark.parametrize(
+    ("extension", "reason"),
+    [
+        ("量子计算会如何改变未来的软件行业？", "grounding"),
+        ("OpenAI 将改变所有现有 API 集成。", "question_contract"),
+    ],
+)
+def test_invalid_cognitive_extension_is_dropped_without_losing_core_items(
+    extension: str,
+    reason: str,
+    caplog,
+) -> None:
+    draft = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=["story-openai"],
+                section="top_stories",
+                title="OpenAI 发布新模型",
+                what_happened="OpenAI 发布了新模型。",
+                why_it_matters="开发者需要评估 API 兼容性。",
+                source_urls=["https://example.com/openai"],
+            )
+        ],
+        cognitive_extension=extension,
+    )
+
+    sanitized = sanitize_editorial_extensions(draft, [story()], [])
+
+    assert sanitized.items == draft.items
+    assert sanitized.cognitive_extension is None
+    assert f"cognitive_extension={reason}" in caplog.text
+
+
+def test_valid_grounded_cognitive_question_survives_sanitization() -> None:
+    draft = BriefDraft(
+        items=[],
+        cognitive_extension="OpenAI 的发布会如何影响现有 API 集成？",
+    )
+
+    assert sanitize_editorial_extensions(draft, [story()], []) == draft
 
 
 @pytest.mark.parametrize(

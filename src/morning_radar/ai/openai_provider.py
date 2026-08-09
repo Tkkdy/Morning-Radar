@@ -28,9 +28,9 @@ from morning_radar.ai.models import (
     StoryScore,
 )
 from morning_radar.ai.output_validation import (
+    sanitize_editorial_extensions,
+    validate_core_simplified_chinese_output,
     validate_direction_evidence,
-    validate_editorial_grounding,
-    validate_simplified_chinese_output,
 )
 from morning_radar.models import RawItem, Signal, Story
 from morning_radar.provenance import verified_source_urls_for_items
@@ -144,7 +144,7 @@ class OpenAIProvider:
         payload_data: Any,
         item_count: int,
         allowed_urls: set[str],
-        output_validator: Callable[[OutputT], None] | None = None,
+        output_validator: Callable[[OutputT], OutputT | None] | None = None,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
         self.budget.consume(payload, item_count=item_count)
@@ -185,9 +185,11 @@ class OpenAIProvider:
                     raise AIOutputError("OpenAI response contained no parsed structured output")
                 validated = schema.model_validate(parsed)
                 validate_output_urls(validated, allowed_urls)
-                validate_simplified_chinese_output(validated)
+                validate_core_simplified_chinese_output(validated)
                 if output_validator is not None:
-                    output_validator(validated)
+                    transformed = output_validator(validated)
+                    if transformed is not None:
+                        validated = transformed
                 return validated
             except (AIOutputError, ValidationError, TypeError, ValueError) as exc:
                 last_error = exc
@@ -230,7 +232,7 @@ class OpenAIProvider:
             },
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},
-            output_validator=lambda output: validate_editorial_grounding(
+            output_validator=lambda output: sanitize_editorial_extensions(
                 output,
                 stories,
                 signals,

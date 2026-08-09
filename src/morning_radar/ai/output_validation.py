@@ -2,13 +2,17 @@
 
 from __future__ import annotations
 
+import logging
 import re
+from collections import Counter
 from collections.abc import Iterable
 
 from pydantic import BaseModel
 
 from morning_radar.ai.models import BriefDraft, DirectionObservation, MergedStoryDraft
 from morning_radar.models import Signal, Story
+
+LOGGER = logging.getLogger(__name__)
 
 _URL = re.compile(r"https?://\S+", re.IGNORECASE)
 _CODE_SPAN = re.compile(r"`[^`]*`", re.DOTALL)
@@ -59,6 +63,17 @@ def validate_simplified_chinese_output(output: BaseModel) -> None:
             raise ValueError("User-visible AI narrative contains obvious English prose")
 
 
+def validate_core_simplified_chinese_output(output: BaseModel) -> None:
+    narratives = (
+        _brief_item_narratives(output)
+        if isinstance(output, BriefDraft)
+        else _user_visible_narratives(output)
+    )
+    for value in narratives:
+        if is_suspicious_english_prose(value):
+            raise ValueError("User-visible AI narrative contains obvious English prose")
+
+
 def validate_direction_evidence(
     output: DirectionObservation,
     signals: list[Signal],
@@ -98,6 +113,69 @@ def validate_editorial_grounding(
         raise ValueError("Cognitive extension must be framed as a question")
 
 
+def sanitize_editorial_extensions(
+    output: BriefDraft,
+    stories: list[Story],
+    signals: list[Signal],
+) -> BriefDraft:
+    """Drop invalid optional extensions without weakening core Brief validation."""
+    anchors = _grounding_anchors(stories, signals)
+    valid_watch: list[str] = []
+    watch_reasons: Counter[str] = Counter()
+    for narrative in output.watch_next:
+        reason = _extension_failure_reason(narrative, anchors=anchors)
+        if reason is None:
+            valid_watch.append(narrative)
+        else:
+            watch_reasons[reason] += 1
+
+    cognitive = output.cognitive_extension
+    cognitive_reason = (
+        _extension_failure_reason(cognitive, anchors=anchors, require_question=True)
+        if cognitive
+        else None
+    )
+    if cognitive_reason is not None:
+        cognitive = None
+
+    diagnostics: list[str] = []
+    if watch_reasons:
+        reasons = ",".join(
+            f"{reason}:{count}" for reason, count in sorted(watch_reasons.items())
+        )
+        diagnostics.append(f"watch_next={reasons}")
+    if cognitive_reason is not None:
+        diagnostics.append(f"cognitive_extension={cognitive_reason}")
+    if diagnostics:
+        LOGGER.warning(
+            "Dropped invalid optional Brief extensions: %s",
+            " ".join(diagnostics),
+        )
+
+    return output.model_copy(
+        update={
+            "watch_next": valid_watch,
+            "cognitive_extension": cognitive,
+        }
+    )
+
+
+def _extension_failure_reason(
+    narrative: str,
+    *,
+    anchors: set[str],
+    require_question: bool = False,
+) -> str | None:
+    if is_suspicious_english_prose(narrative):
+        return "language"
+    normalized = _normalize_anchor(narrative)
+    if not any(_anchor_matches(anchor, normalized) for anchor in anchors):
+        return "grounding"
+    if require_question and not narrative.rstrip().endswith(("?", "？")):
+        return "question_contract"
+    return None
+
+
 def _grounding_anchors(stories: list[Story], signals: list[Signal]) -> set[str]:
     values = {
         value
@@ -135,15 +213,17 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         yield from output.opinions
         yield from output.uncertainties
     elif isinstance(output, BriefDraft):
-        for item in output.items:
-            yield item.title
-            yield item.what_happened
-            yield item.why_it_matters
-            yield from _present(
-                (item.market_or_community_reaction, item.uncertainty)
-            )
+        yield from _brief_item_narratives(output)
         yield from output.watch_next
         yield from _present((output.cognitive_extension,))
     elif isinstance(output, DirectionObservation):
         yield from _present((output.observation,))
         yield from output.uncertainties
+
+
+def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:
+    for item in output.items:
+        yield item.title
+        yield item.what_happened
+        yield item.why_it_matters
+        yield from _present((item.market_or_community_reaction, item.uncertainty))

@@ -1,4 +1,4 @@
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -18,8 +18,10 @@ from morning_radar.ai.models import (
     BriefDraft,
     ClassificationBatch,
     ClassifiedItem,
+    GeneratedBriefItem,
     MergedStoryDraft,
 )
+from morning_radar.briefing import BriefLimits, generate_daily_brief
 from morning_radar.models import RawItem, Story
 
 
@@ -156,7 +158,7 @@ def test_repeated_english_story_narrative_fails_after_existing_retry() -> None:
     assert configured.budget.network_requests_used == 2
 
 
-def test_editorial_grounding_violation_uses_existing_output_retry() -> None:
+def test_generic_watch_is_dropped_without_whole_brief_fallback(caplog) -> None:
     source_story = Story(
         id="story-openai",
         canonical_title="OpenAI 发布新模型",
@@ -171,18 +173,43 @@ def test_editorial_grounding_violation_uses_existing_output_retry() -> None:
         novelty_score=0.8,
         credibility_score=0.9,
     )
-    generic = BriefDraft(items=[], watch_next=["继续关注 AI 行业发展。"])
-    grounded = BriefDraft(
-        items=[],
-        watch_next=["观察 OpenAI 是否公布后续开放时间表。"],
+    generic = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[source_story.id],
+                section="top_stories",
+                title="OpenAI 发布新模型",
+                what_happened="OpenAI 发布了新模型。",
+                why_it_matters="开发者需要评估 API 兼容性。",
+                source_urls=source_story.source_urls,
+            )
+        ],
+        watch_next=["继续关注 AI 行业发展。"],
     )
-    configured = provider([generic, grounded])
+    configured = provider([generic])
 
-    assert configured.write_brief([source_story], []) == grounded
-    assert configured.client.responses.calls == 2
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        timezone="Asia/Singapore",
+        stories=[source_story],
+        signals=[],
+        provider=configured,
+        limits=BriefLimits(maximum_items=3),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert len(result.top_stories) == 1
+    assert result.watch_next == []
+    assert "ai_brief_fallback" not in result.run_stats
+    assert configured.client.responses.calls == 1
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 1
+    assert "watch_next=grounding:1" in caplog.text
 
 
-def test_cognitive_prediction_uses_existing_output_retry() -> None:
+def test_cognitive_prediction_is_dropped_without_output_retry(caplog) -> None:
     source_story = Story(
         id="story-openai",
         canonical_title="OpenAI 发布新模型",
@@ -201,13 +228,119 @@ def test_cognitive_prediction_uses_existing_output_retry() -> None:
         items=[],
         cognitive_extension="OpenAI 将改变所有现有 API 集成。",
     )
-    question = BriefDraft(
-        items=[],
-        cognitive_extension="OpenAI 的发布会如何影响现有 API 集成？",
-    )
-    configured = provider([prediction, question])
+    configured = provider([prediction])
 
-    assert configured.write_brief([source_story], []) == question
+    assert configured.write_brief([source_story], []) == BriefDraft(items=[])
+    assert configured.client.responses.calls == 1
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 1
+    assert "cognitive_extension=question_contract" in caplog.text
+
+
+def test_core_brief_url_violation_remains_a_hard_output_failure() -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    invalid = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[source_story.id],
+                section="top_stories",
+                title="OpenAI 发布新模型",
+                what_happened="OpenAI 发布了新模型。",
+                why_it_matters="开发者需要评估 API 兼容性。",
+                source_urls=["https://invented.example/brief"],
+            )
+        ]
+    )
+    configured = provider([invalid, invalid])
+
+    with pytest.raises(AIOutputError, match="not present in verified source set"):
+        configured.write_brief([source_story], [])
+
+    assert configured.client.responses.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_core_brief_language_violation_remains_a_hard_output_failure() -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    invalid = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[source_story.id],
+                section="top_stories",
+                title="OpenAI 发布新模型",
+                what_happened=(
+                    "The company published a detailed article about its new model today."
+                ),
+                why_it_matters="开发者需要评估 API 兼容性。",
+                source_urls=source_story.source_urls,
+            )
+        ]
+    )
+    configured = provider([invalid, invalid])
+
+    with pytest.raises(AIOutputError, match="English prose"):
+        configured.write_brief([source_story], [])
+
+    assert configured.client.responses.calls == 2
+
+
+def test_invalid_core_brief_schema_remains_a_hard_output_failure() -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    missing_core_fields = {
+        "items": [
+            {
+                "story_ids": [source_story.id],
+                "section": "top_stories",
+                "title": "OpenAI 发布新模型",
+                "source_urls": source_story.source_urls,
+            }
+        ]
+    }
+    configured = provider([missing_core_fields, missing_core_fields])
+
+    with pytest.raises(AIOutputError, match="after retry"):
+        configured.write_brief([source_story], [])
+
     assert configured.client.responses.calls == 2
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2

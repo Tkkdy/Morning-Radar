@@ -400,6 +400,39 @@ class InventedBriefProvider(FakeAIProvider):
         )
 
 
+class UnknownStoryBriefProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=["unknown-story"],
+                    section="top_stories",
+                    title="Unknown",
+                    what_happened="Unknown",
+                    why_it_matters="Unknown",
+                    source_urls=[stories[0].primary_source_url],
+                )
+            ],
+            watch_next=["继续关注 AI 行业发展。"],
+        )
+
+
+def test_unknown_story_id_remains_a_hard_brief_failure() -> None:
+    with pytest.raises(BriefValidationError, match="unknown Story ID"):
+        generate_daily_brief(
+            brief_date=date(2026, 7, 23),
+            generated_at=NOW,
+            timezone="Asia/Singapore",
+            stories=[story(1)],
+            signals=[],
+            provider=UnknownStoryBriefProvider(),
+            limits=BriefLimits(maximum_items=3),
+            enabled_sections={},
+            run_stats={},
+        )
+
+
 def test_brief_rejects_url_not_present_in_referenced_story() -> None:
     with pytest.raises(BriefValidationError, match="URL"):
         generate_daily_brief(
