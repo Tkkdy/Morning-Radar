@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Morning Radar：可追溯的 AI、市场与开发者晨报">
   <title>Morning Radar · {{ brief.date }}</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="{{ root_prefix }}assets/style.css">
 </head>
 <body>
   <header class="hero">
-    <nav><a class="brand" href="index.html">Morning Radar</a><a href="archive.html">历史晨报</a></nav>
+    <nav><a class="brand" href="{{ root_prefix }}index.html">Morning Radar</a><a href="{{ root_prefix }}archive.html">历史晨报</a></nav>
     <p class="eyebrow">{{ brief.date }} · {{ brief.timezone }}</p>
     <h1>少而重要，事实可追溯。</h1>
     <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
@@ -29,4 +29,3 @@
   <footer>市场数据仅供信息参考，不构成投资建议。生成于 {{ brief.generated_at }}。</footer>
 </body>
 </html>
-

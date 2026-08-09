@@ -51,6 +51,13 @@ def test_site_builder_creates_index_archive_and_daily_page(tmp_path) -> None:
     assert "来源 1" in index
     assert "<details" not in index
     assert "viewport" in index
+    historical = (output / "briefs/2026-07-23.html").read_text(encoding="utf-8")
+    assert 'href="assets/style.css"' in index
+    assert 'href="archive.html"' in index
+    assert 'href="../assets/style.css"' in historical
+    assert 'href="../archive.html"' in historical
+    assert 'href="../index.html"' in historical
+    assert item.title in historical
 
 
 def test_site_builder_renders_v2_story_context_with_safe_source_semantics(tmp_path) -> None:
@@ -164,11 +171,97 @@ def test_site_builder_renders_v2_story_context_with_safe_source_semantics(tmp_pa
     assert "来源条目时间：" not in html
     assert f'href="{external_url}"' in html
     assert 'href="https://news.ycombinator.com/item?id=456"' in html
+    assert html.count(f'href="{external_url}"') == 1
+    assert html.count('href="https://news.ycombinator.com/item?id=456"') == 1
+    assert "example.com · 原文" in html
+    assert "经 Hacker News 发现" in html
     assert "已宣布" in html
     assert "主来源" in html
     assert "<details" in html
     assert "已验证事实" in html
     assert "HN source title" in html
+
+
+def test_site_builder_renders_other_reading_compactly_without_main_duplication(
+    tmp_path,
+) -> None:
+    now = datetime(2026, 8, 8, tzinfo=UTC)
+    source_ref = StorySourceRef(
+        raw_item_id="rss-1",
+        title="Source",
+        source_name="Official Feed",
+        source_type="rss",
+        url="https://example.com/other",
+        published_at=now,
+        published_at_role=PublishedAtRole.FEED_ENTRY_TIME,
+        fetched_at=now,
+    )
+    context = BriefStoryContext(
+        story_id="story-other",
+        canonical_title="其他内容",
+        category="ai_and_open_source",
+        facts=["已验证事实"],
+        analysis=["分析内容"],
+        uncertainties=["仍有不确定性"],
+        entity_names=["Example"],
+        product_names=["Example SDK"],
+        topic_names=["AI"],
+        status=StoryStatus.UPDATED,
+        primary_source_url=source_ref.url,
+        source_refs=[source_ref],
+    )
+    other = BriefItem(
+        id="brief-other",
+        section="other_reading",
+        title="值得继续阅读的条目",
+        what_happened="这是简短摘要。",
+        why_it_matters="这段信息只在展开详情后通过 Story context 呈现。",
+        source_urls=[source_ref.url],
+        story_ids=[context.story_id],
+        story_contexts=[context],
+    )
+    brief = DailyBrief(
+        date=date(2026, 8, 8),
+        timezone="Asia/Singapore",
+        generated_at=now,
+        other_reading=[other],
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [brief],
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert "其他值得阅读" in html
+    assert html.count(other.title) == 1
+    assert 'class="brief-card compact"' in html
+    assert other.what_happened in html
+    assert other.why_it_matters not in html
+    assert "Official Feed · 原文" in html
+    assert "已更新" in html
+    assert "查看详情" in html
+    assert "分析内容" in html
+    assert "仍有不确定性" in html
+
+
+def test_site_builder_hides_empty_other_reading_for_legacy_brief(tmp_path) -> None:
+    brief = DailyBrief.model_validate(
+        {
+            "date": "2026-08-08",
+            "timezone": "Asia/Singapore",
+            "generated_at": "2026-08-08T00:00:00Z",
+        }
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [brief],
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    assert "其他值得阅读" not in (output / "index.html").read_text(encoding="utf-8")
 
 
 def test_site_builder_falls_back_to_brief_url_when_primary_ref_is_missing(tmp_path) -> None:

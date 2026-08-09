@@ -11,9 +11,19 @@
   <h2>{{ heading }}</h2>
   <div class="cards">
   {% for item in items %}
-    {% include "brief_card.html.j2" %}
+    {% with compact = false %}{% include "brief_card.html.j2" %}{% endwith %}
   {% endfor %}
   </div>
 </section>
 {% endif %}
 {% endfor %}
+{% if brief.other_reading %}
+<section class="other-reading">
+  <h2>其他值得阅读</h2>
+  <div class="cards compact-cards">
+  {% for item in brief.other_reading %}
+    {% with compact = true %}{% include "brief_card.html.j2" %}{% endwith %}
+  {% endfor %}
+  </div>
+</section>
+{% endif %}

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import shutil
 from pathlib import Path
+from urllib.parse import urlsplit
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
@@ -19,6 +20,7 @@ class SiteBuilder:
             trim_blocks=True,
             lstrip_blocks=True,
         )
+        self.environment.filters["hostname"] = _hostname
 
     def build(self, briefs: list[DailyBrief], *, stylesheet: Path) -> None:
         if not briefs:
@@ -31,13 +33,19 @@ class SiteBuilder:
         if stylesheet.resolve() != stylesheet_destination.resolve():
             shutil.copyfile(stylesheet, stylesheet_destination)
         latest = ordered[0]
-        self._render("index.html.j2", self.output_dir / "index.html", brief=latest)
+        self._render(
+            "index.html.j2",
+            self.output_dir / "index.html",
+            brief=latest,
+            root_prefix="",
+        )
         self._render("archive.html.j2", self.output_dir / "archive.html", briefs=ordered)
         for brief in ordered:
             self._render(
                 "brief.html.j2",
                 self.output_dir / "briefs" / f"{brief.date}.html",
                 brief=brief,
+                root_prefix="../",
             )
 
     def _render(self, template: str, destination: Path, **context: object) -> None:
@@ -45,3 +53,9 @@ class SiteBuilder:
             self.environment.get_template(template).render(**context),
             encoding="utf-8",
         )
+
+
+def _hostname(url: str) -> str:
+    """Return a safe display hostname without changing the source URL."""
+    hostname = urlsplit(url).hostname or ""
+    return hostname.removeprefix("www.")
