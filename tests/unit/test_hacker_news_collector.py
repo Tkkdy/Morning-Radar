@@ -111,6 +111,111 @@ def test_weak_github_body_match_does_not_retain_unrelated_story() -> None:
     assert collector.collect() == []
 
 
+def test_high_signal_story_is_discovered_without_a_keyword_hit() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.endswith("topstories.json"):
+            return httpx.Response(200, json=[1])
+        if request.url.path.endswith(("newstories.json", "beststories.json")):
+            return httpx.Response(200, json=[])
+        return httpx.Response(
+            200,
+            json={
+                "id": 1,
+                "title": "A new compiler architecture",
+                "url": "https://example.com/compiler",
+                "time": 1785110400,
+                "score": 180,
+                "descendants": 55,
+            },
+        )
+
+    collector = HackerNewsCollector(
+        http=HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler))),
+        keywords=["AI coding"],
+    )
+
+    items = collector.collect()
+
+    assert [item.title for item in items] == ["A new compiler architecture"]
+    assert items[0].metadata["selection_reason"] == "high_signal_discovery"
+
+
+def test_low_signal_story_without_keyword_is_rejected() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.endswith("topstories.json"):
+            return httpx.Response(200, json=[1])
+        if request.url.path.endswith(("newstories.json", "beststories.json")):
+            return httpx.Response(200, json=[])
+        return httpx.Response(
+            200,
+            json={
+                "id": 1,
+                "title": "Gardening notes",
+                "time": 1785110400,
+                "score": 12,
+                "descendants": 3,
+            },
+        )
+
+    collector = HackerNewsCollector(
+        http=HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler))),
+        keywords=["AI coding"],
+    )
+
+    assert collector.collect() == []
+
+
+def test_show_hn_uses_a_lower_but_still_bounded_discovery_threshold() -> None:
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.endswith("topstories.json"):
+            return httpx.Response(200, json=[1, 2])
+        if request.url.path.endswith(("newstories.json", "beststories.json")):
+            return httpx.Response(200, json=[])
+        story_id = int(request.url.path.split("/")[-1].split(".")[0])
+        return httpx.Response(
+            200,
+            json={
+                "id": story_id,
+                "title": f"Show HN: Project {story_id}",
+                "time": 1785110400,
+                "score": 35 if story_id == 1 else 5,
+                "descendants": 2,
+            },
+        )
+
+    collector = HackerNewsCollector(
+        http=HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler))),
+        keywords=["AI coding"],
+    )
+
+    assert [item.title for item in collector.collect()] == ["Show HN: Project 1"]
+
+
+def test_configured_candidate_limit_cannot_exceed_hard_cap() -> None:
+    requested_items: list[int] = []
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        if request.url.path.endswith("topstories.json"):
+            return httpx.Response(200, json=list(range(1, 101)))
+        if request.url.path.endswith(("newstories.json", "beststories.json")):
+            return httpx.Response(200, json=[])
+        story_id = int(request.url.path.split("/")[-1].split(".")[0])
+        requested_items.append(story_id)
+        return httpx.Response(
+            200,
+            json={"id": story_id, "title": "AI release", "time": 1785110400},
+        )
+
+    collector = HackerNewsCollector(
+        http=HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler))),
+        keywords=["AI"],
+        maximum_candidates=100,
+    )
+
+    assert len(collector.collect()) == 30
+    assert len(requested_items) == 30
+
+
 def test_clear_ai_llm_agent_and_mcp_title_signals_are_retained() -> None:
     titles = {
         1: "AI changes developer workflows",

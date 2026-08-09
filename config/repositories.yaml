@@ -3,8 +3,39 @@ repositories:
     repo: openai-python
     priority: high
     topics: [ai_coding, open_source_ai]
+  - owner: openai
+    repo: openai-agents-python
+    priority: high
+    topics: [ai_coding, open_source_ai]
+  - owner: anthropics
+    repo: anthropic-sdk-python
+    priority: high
+    topics: [ai_models, ai_coding]
+  - owner: googleapis
+    repo: python-genai
+    priority: high
+    topics: [ai_models, ai_coding]
   - owner: modelcontextprotocol
     repo: python-sdk
+    priority: high
+    topics: [ai_coding, open_source_ai]
+  - owner: huggingface
+    repo: transformers
+    priority: high
+    topics: [ai_models, open_source_ai]
+  - owner: vllm-project
+    repo: vllm
+    priority: high
+    topics: [ai_infrastructure, open_source_ai]
+  - owner: ollama
+    repo: ollama
+    priority: high
+    topics: [ai_models, ai_infrastructure, open_source_ai]
+  - owner: pydantic
+    repo: pydantic-ai
     priority: medium
     topics: [ai_coding, open_source_ai]
-
+  - owner: microsoft
+    repo: autogen
+    priority: medium
+    topics: [ai_coding, open_source_ai]

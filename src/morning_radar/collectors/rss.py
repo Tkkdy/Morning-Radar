@@ -22,6 +22,22 @@ from morning_radar.time_utils import utc_now
 LOGGER = logging.getLogger(__name__)
 
 
+def _fair_merge_source_batches(batches: list[list[RawItem]]) -> list[RawItem]:
+    """Interleave feeds so one long feed cannot hide every later source."""
+    merged: list[RawItem] = []
+    positions = [0] * len(batches)
+    while True:
+        added = False
+        for index, items in enumerate(batches):
+            if positions[index] >= len(items):
+                continue
+            merged.append(items[positions[index]])
+            positions[index] += 1
+            added = True
+        if not added:
+            return merged
+
+
 def _plain_text(value: str, *, maximum: int) -> str:
     no_tags = re.sub(r"<[^>]+>", " ", value)
     return " ".join(html.unescape(no_tags).split())[:maximum]
@@ -57,16 +73,16 @@ class RSSCollector:
 
     def collect(self) -> list[RawItem]:
         state = read_json(self.state_path) if self.state_path.exists() else {}
-        items: list[RawItem] = []
+        batches: list[list[RawItem]] = []
         for source in self.sources:
             try:
-                items.extend(self._collect_source(source, state))
+                batches.append(self._collect_source(source, state))
             except Exception:
                 LOGGER.exception("RSS source failed: %s", source.id)
         write_json(self.state_path, state)
 
         unique: dict[str, RawItem] = {}
-        for item in items:
+        for item in _fair_merge_source_batches(batches):
             unique.setdefault(normalize_url(item.url), item)
         return list(unique.values())
 
