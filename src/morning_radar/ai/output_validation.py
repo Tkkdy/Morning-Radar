@@ -92,6 +92,10 @@ def validate_editorial_grounding(
             raise ValueError(
                 "Editorial extension must name a concrete input entity, product, or topic"
             )
+    if output.cognitive_extension and not output.cognitive_extension.rstrip().endswith(
+        ("?", "？")
+    ):
+        raise ValueError("Cognitive extension must be framed as a question")
 
 
 def _grounding_anchors(stories: list[Story], signals: list[Signal]) -> set[str]:

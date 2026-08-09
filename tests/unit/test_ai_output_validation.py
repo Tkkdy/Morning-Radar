@@ -145,6 +145,29 @@ def test_editorial_extensions_require_a_specific_input_anchor() -> None:
     )
 
 
+def test_cognitive_extension_must_be_a_question_not_a_prediction() -> None:
+    source_story = story()
+
+    with pytest.raises(ValueError, match="framed as a question"):
+        validate_editorial_grounding(
+            BriefDraft(
+                items=[],
+                cognitive_extension="OpenAI 将改变所有现有 API 集成。",
+            ),
+            [source_story],
+            [],
+        )
+
+    validate_editorial_grounding(
+        BriefDraft(
+            items=[],
+            cognitive_extension="OpenAI 的发布会如何影响现有 API 集成？",
+        ),
+        [source_story],
+        [],
+    )
+
+
 @pytest.mark.parametrize(
     ("anchor", "narrative"),
     [

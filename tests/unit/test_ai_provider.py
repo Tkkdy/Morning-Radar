@@ -182,6 +182,37 @@ def test_editorial_grounding_violation_uses_existing_output_retry() -> None:
     assert configured.client.responses.calls == 2
 
 
+def test_cognitive_prediction_uses_existing_output_retry() -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    prediction = BriefDraft(
+        items=[],
+        cognitive_extension="OpenAI 将改变所有现有 API 集成。",
+    )
+    question = BriefDraft(
+        items=[],
+        cognitive_extension="OpenAI 的发布会如何影响现有 API 集成？",
+    )
+    configured = provider([prediction, question])
+
+    assert configured.write_brief([source_story], []) == question
+    assert configured.client.responses.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
 def test_timeout_retries_with_bounded_attempts() -> None:
     timeout = APITimeoutError(request=httpx.Request("POST", "https://api.openai.com/v1/responses"))
     expected = ClassificationBatch(items=[])

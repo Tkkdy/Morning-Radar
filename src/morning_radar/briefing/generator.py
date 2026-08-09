@@ -195,7 +195,7 @@ def generate_daily_brief(
         top_enabled = enabled_sections.get("top_stories", True)
         if top_enabled and important and len(sections["top_stories"]) < limits.top_story_items:
             section = "top_stories"
-        elif section == "top_stories" and (not top_enabled or not important):
+        elif section == "top_stories":
             proposed = referenced[0].category if referenced else "ai_and_open_source"
             section = (
                 proposed

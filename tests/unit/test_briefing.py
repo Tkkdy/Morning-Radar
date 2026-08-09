@@ -149,6 +149,49 @@ class SelectiveBriefProvider(FakeAIProvider):
         )
 
 
+class AllTopStoriesProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[source_story.id],
+                    section="top_stories",
+                    title=source_story.canonical_title,
+                    what_happened=source_story.facts[0],
+                    why_it_matters=source_story.analysis[0],
+                    source_urls=source_story.source_urls,
+                )
+                for source_story in stories
+            ]
+        )
+
+
+def test_top_story_limit_demotes_overflow_without_hiding_it() -> None:
+    stories = [story(index) for index in range(4)]
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=AllTopStoriesProvider(),
+        limits=BriefLimits(maximum_items=12, top_story_items=3),
+        enabled_sections={},
+        run_stats={},
+        importance_threshold=0.6,
+    )
+
+    assert [item.story_ids for item in result.top_stories] == [
+        ["story-0"],
+        ["story-1"],
+        ["story-2"],
+    ]
+    assert [item.story_ids for item in result.ai_and_open_source] == [["story-3"]]
+    assert result.other_reading == []
+
+
 def test_other_reading_keeps_unselected_eligible_stories_in_ranked_order() -> None:
     stories = [story(index) for index in range(5)]
     provider = SelectiveBriefProvider([1, 3])
