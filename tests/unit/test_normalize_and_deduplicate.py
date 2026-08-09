@@ -151,3 +151,87 @@ def test_same_version_different_release_wording_can_group() -> None:
     )
 
     assert len(groups) == 1
+
+
+def test_same_acquisition_with_different_wording_forms_a_candidate_group() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item(
+                "1",
+                "Amazon acquires Bee wearable startup",
+                "https://one.example/amazon-bee",
+                "One",
+            ),
+            item(
+                "2",
+                "Amazon buys Bee in wearable AI deal",
+                "https://two.example/amazon-bee",
+                "Two",
+            ),
+        ]
+    )
+
+    assert len(groups) == 1
+
+
+def test_same_company_different_acquisitions_do_not_group() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "Amazon acquires Bee", "https://one.example/bee", "One"),
+            item("2", "Amazon buys Acme", "https://two.example/acme", "Two"),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_capitalized_acquisition_action_is_not_a_strong_named_token() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "Amazon Acquires Bee", "https://one.example/bee", "One"),
+            item("2", "Amazon Acquires Acme", "https://two.example/acme", "Two"),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_capitalized_partnership_action_is_not_a_strong_named_token() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item(
+                "1",
+                "Amazon Partners with Anthropic",
+                "https://one.example/anthropic",
+                "One",
+            ),
+            item(
+                "2",
+                "Amazon Partners with OpenAI",
+                "https://two.example/openai",
+                "Two",
+            ),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_acquisition_and_product_launch_do_not_group() -> None:
+    groups = group_items_by_normalized_title(
+        [
+            item("1", "Amazon acquires Bee", "https://one.example/bee", "One"),
+            item("2", "Amazon launches Bee device", "https://two.example/bee", "Two"),
+        ]
+    )
+
+    assert len(groups) == 2
+
+
+def test_matching_corporate_actions_beyond_72_hours_do_not_group() -> None:
+    first = item("1", "Amazon acquires Bee", "https://one.example/bee", "One")
+    second = item("2", "Amazon buys Bee", "https://two.example/bee", "Two").model_copy(
+        update={"fetched_at": first.fetched_at.replace(day=27)}
+    )
+
+    assert len(group_items_by_normalized_title([first, second])) == 2

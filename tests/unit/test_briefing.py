@@ -6,7 +6,7 @@ import pytest
 from morning_radar.ai import AIOutputError, FakeAIProvider
 from morning_radar.ai.models import BriefDraft, ClassificationBatch, GeneratedBriefItem
 from morning_radar.briefing import BriefLimits, BriefValidationError, generate_daily_brief
-from morning_radar.models import Signal, SignalType, Story
+from morning_radar.models import Signal, SignalType, Story, StorySourceRef
 from morning_radar.processing import build_stories
 
 NOW = datetime(2026, 7, 23, 1, tzinfo=UTC)
@@ -116,7 +116,7 @@ def test_empty_pipeline_inputs_skip_all_ai_calls(caplog) -> None:
     assert provider.direction_calls == 0
     assert "Skipping AI classification: no recent items" in caplog.text
     assert "Skipping AI brief generation: no stories" in caplog.text
-    assert "Skipping AI direction observation: no signals" in caplog.text
+    assert "Skipping AI direction observation: no coherent evidence signals" in caplog.text
 
 
 def test_source_links_are_complete_and_traceable() -> None:
@@ -124,6 +124,263 @@ def test_source_links_are_complete_and_traceable() -> None:
     result = brief([source_story])
 
     assert result.top_stories[0].source_urls == source_story.source_urls
+
+
+class SelectiveBriefProvider(FakeAIProvider):
+    def __init__(self, selected_indexes: list[int]) -> None:
+        self.selected_indexes = selected_indexes
+        self.write_calls = 0
+
+    def write_brief(self, stories, signals):
+        del signals
+        self.write_calls += 1
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[stories[index].id],
+                    section="ai_and_open_source",
+                    title=f"Selected {index}",
+                    what_happened="Selected story",
+                    why_it_matters="Selected importance",
+                    source_urls=[stories[index].primary_source_url],
+                )
+                for index in self.selected_indexes
+            ]
+        )
+
+
+class AllTopStoriesProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[source_story.id],
+                    section="top_stories",
+                    title=source_story.canonical_title,
+                    what_happened=source_story.facts[0],
+                    why_it_matters=source_story.analysis[0],
+                    source_urls=source_story.source_urls,
+                )
+                for source_story in stories
+            ]
+        )
+
+
+def test_top_story_limit_demotes_overflow_without_hiding_it() -> None:
+    stories = [story(index) for index in range(4)]
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=AllTopStoriesProvider(),
+        limits=BriefLimits(maximum_items=12, top_story_items=3),
+        enabled_sections={},
+        run_stats={},
+        importance_threshold=0.6,
+    )
+
+    assert [item.story_ids for item in result.top_stories] == [
+        ["story-0"],
+        ["story-1"],
+        ["story-2"],
+    ]
+    assert [item.story_ids for item in result.ai_and_open_source] == [["story-3"]]
+    assert result.other_reading == []
+
+
+def test_other_reading_keeps_unselected_eligible_stories_in_ranked_order() -> None:
+    stories = [story(index) for index in range(5)]
+    provider = SelectiveBriefProvider([1, 3])
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=12, other_reading_items=6),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+
+    main_story_ids = {
+        story_id
+        for item in result.ai_and_open_source
+        for story_id in item.story_ids
+    }
+    assert [item.story_ids for item in result.other_reading] == [
+        [stories[0].id],
+        [stories[2].id],
+        [stories[4].id],
+    ]
+    assert main_story_ids.isdisjoint(
+        {story_id for item in result.other_reading for story_id in item.story_ids}
+    )
+    assert result.other_reading[0].source_urls == stories[0].source_urls
+    assert result.other_reading[0].story_contexts[0].story_id == stories[0].id
+    assert provider.write_calls == 1
+
+
+def test_other_reading_respects_total_and_independent_item_limits() -> None:
+    stories = [story(index) for index in range(10)]
+
+    total_limited = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=SelectiveBriefProvider([0, 1]),
+        limits=BriefLimits(maximum_items=4, other_reading_items=6),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+    independently_limited = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=SelectiveBriefProvider([0]),
+        limits=BriefLimits(maximum_items=12, other_reading_items=6),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+
+    assert len(total_limited.ai_and_open_source) == 2
+    assert len(total_limited.other_reading) == 2
+    assert len(independently_limited.other_reading) == 6
+
+
+def test_brief_item_embeds_deterministic_single_story_context() -> None:
+    source_story = story(1).model_copy(
+        update={
+            "entity_names": ["Example Corp"],
+            "product_names": ["Example Product"],
+            "topic_names": ["ai_coding", "agents"],
+            "uncertainties": ["Source details may change."],
+            "source_refs": [
+                StorySourceRef(
+                    raw_item_id="item-1",
+                    title="Collector title",
+                    source_name="Example RSS",
+                    source_type="rss",
+                    url="https://example.com/story-1",
+                    author="Ada",
+                    published_at=NOW,
+                    fetched_at=NOW,
+                )
+            ],
+        }
+    )
+
+    context = brief([source_story]).top_stories[0].story_contexts[0]
+
+    assert context.story_id == source_story.id
+    assert context.canonical_title == source_story.canonical_title
+    assert context.category == source_story.category
+    assert context.entity_names == ["Example Corp"]
+    assert context.product_names == ["Example Product"]
+    assert context.topic_names == ["ai_coding", "agents"]
+    assert context.published_at == NOW
+    assert context.facts == source_story.facts
+    assert context.analysis == source_story.analysis
+    assert context.uncertainties == ["Source details may change."]
+    assert context.status == source_story.status
+    assert context.primary_source_url == source_story.primary_source_url
+    assert context.source_refs == source_story.source_refs
+
+
+class MultiStoryProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[stories[1].id, stories[0].id],
+                    section="ai_and_open_source",
+                    title="Combined",
+                    what_happened="Combined summary",
+                    why_it_matters="Combined importance",
+                    source_urls=[stories[1].primary_source_url, stories[0].primary_source_url],
+                )
+            ]
+        )
+
+
+class MultiStoryThenSingleProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[stories[0].id, stories[1].id],
+                    section="ai_and_open_source",
+                    title="Combined",
+                    what_happened="Combined summary",
+                    why_it_matters="Combined importance",
+                    source_urls=[stories[0].primary_source_url, stories[1].primary_source_url],
+                ),
+                GeneratedBriefItem(
+                    story_ids=[stories[2].id],
+                    section="ai_and_open_source",
+                    title="Single",
+                    what_happened="Single summary",
+                    why_it_matters="Single importance",
+                    source_urls=[stories[2].primary_source_url],
+                ),
+            ]
+        )
+
+
+def test_maximum_brief_items_counts_cards_not_referenced_stories() -> None:
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[story(1), story(2), story(3)],
+        signals=[],
+        provider=MultiStoryThenSingleProvider(),
+        limits=BriefLimits(maximum_items=2, top_story_items=2),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert len(result.top_stories) == 2
+    assert [item.story_ids for item in result.top_stories] == [
+        ["story-1", "story-2"],
+        ["story-3"],
+    ]
+    assert result.other_reading == []
+
+
+def test_multi_story_contexts_preserve_generated_story_id_order() -> None:
+    first = story(1)
+    second = story(2)
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[first, second],
+        signals=[],
+        provider=MultiStoryProvider(),
+        limits=BriefLimits(maximum_items=5),
+        enabled_sections={"top_stories": False},
+        run_stats={},
+    )
+
+    contexts = result.ai_and_open_source[0].story_contexts
+    assert [context.story_id for context in contexts] == [second.id, first.id]
+    assert [context.canonical_title for context in contexts] == [
+        second.canonical_title,
+        first.canonical_title,
+    ]
 
 
 class InventedBriefProvider(FakeAIProvider):
@@ -140,6 +397,39 @@ class InventedBriefProvider(FakeAIProvider):
                     source_urls=["https://invented.example/story"],
                 )
             ]
+        )
+
+
+class UnknownStoryBriefProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=["unknown-story"],
+                    section="top_stories",
+                    title="Unknown",
+                    what_happened="Unknown",
+                    why_it_matters="Unknown",
+                    source_urls=[stories[0].primary_source_url],
+                )
+            ],
+            watch_next=["继续关注 AI 行业发展。"],
+        )
+
+
+def test_unknown_story_id_remains_a_hard_brief_failure() -> None:
+    with pytest.raises(BriefValidationError, match="unknown Story ID"):
+        generate_daily_brief(
+            brief_date=date(2026, 7, 23),
+            generated_at=NOW,
+            timezone="Asia/Singapore",
+            stories=[story(1)],
+            signals=[],
+            provider=UnknownStoryBriefProvider(),
+            limits=BriefLimits(maximum_items=3),
+            enabled_sections={},
+            run_stats={},
         )
 
 
@@ -265,8 +555,14 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     )
 
     assert result.top_stories[0].what_happened == source_story.facts[0]
-    assert "analysis is unavailable" in result.top_stories[0].why_it_matters
+    assert result.top_stories[0].why_it_matters == (
+        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    )
+    assert result.top_stories[0].uncertainty == "AI 晨报分析暂时不可用。"
     assert result.top_stories[0].source_urls == source_story.source_urls
+    assert result.top_stories[0].story_contexts[0].story_id == source_story.id
+    assert result.top_stories[0].story_contexts[0].source_refs == []
+    assert result.other_reading == []
     assert result.run_stats["ai_brief_fallback"] is True
     assert "AI degradation: brief generation failed" in caplog.text
 
@@ -283,8 +579,8 @@ def test_direction_failure_is_omitted_and_marked_without_losing_brief(caplog) ->
         signal_type=SignalType.TOPIC_HEATING,
         topic="ai_coding",
         window_days=3,
-        supporting_story_ids=["story-1"],
-        supporting_source_count=1,
+        supporting_story_ids=["story-1", "story-2"],
+        supporting_source_count=2,
         supporting_company_count=0,
         strength=0.7,
         explanation="Verified multi-day evidence",
@@ -296,7 +592,7 @@ def test_direction_failure_is_omitted_and_marked_without_losing_brief(caplog) ->
         brief_date=date(2026, 7, 23),
         generated_at=NOW,
         timezone="Asia/Singapore",
-        stories=[story(1)],
+        stories=[story(1), story(2)],
         signals=[signal],
         provider=DirectionFailureProvider(),
         limits=BriefLimits(maximum_items=5),
@@ -330,8 +626,8 @@ def test_signal_ai_inputs_are_bounded_by_maximum_ai_items() -> None:
         signal_type=SignalType.TOPIC_HEATING,
         topic="ai_coding",
         window_days=3,
-        supporting_story_ids=["story-1"],
-        supporting_source_count=1,
+        supporting_story_ids=["story-1", "story-2"],
+        supporting_source_count=2,
         supporting_company_count=0,
         strength=0.7,
         explanation="Verified evidence",
@@ -360,3 +656,36 @@ def test_signal_ai_inputs_are_bounded_by_maximum_ai_items() -> None:
     assert provider.brief_signal_count == 2
     assert provider.direction_signal_count == 2
     assert result.run_stats["ai_signal_inputs"] == 2
+
+
+def test_weak_single_story_signal_skips_direction_observation() -> None:
+    weak_signal = Signal(
+        id="signal-weak",
+        signal_type=SignalType.TOPIC_HEATING,
+        topic="ai_coding",
+        window_days=1,
+        supporting_story_ids=["story-1"],
+        supporting_source_count=1,
+        supporting_company_count=0,
+        strength=0.4,
+        explanation="Single event only",
+        created_at=NOW,
+        updated_at=NOW,
+    )
+    provider = SignalRecordingProvider()
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[story(1)],
+        signals=[weak_signal],
+        provider=provider,
+        limits=BriefLimits(maximum_items=5),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert provider.direction_signal_count == 0
+    assert result.direction_observation is None
+    assert result.run_stats["direction_signal_inputs"] == 0

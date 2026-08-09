@@ -87,10 +87,27 @@ def test_multi_company_direction_requires_two_companies_and_sources() -> None:
         story("two", date(2026, 7, 23), companies=["Beta"]),
     ]
 
-    signals = detect_multi_company_direction(stories, now=NOW)
+    signals = detect_multi_company_direction(
+        stories,
+        now=NOW,
+        company_names={"Alpha", "Beta"},
+    )
 
     assert len(signals) == 1
     assert signals[0].supporting_company_count == 2
+
+
+def test_multi_company_direction_does_not_treat_generic_entities_as_companies() -> None:
+    stories = [
+        story("one", date(2026, 7, 23), companies=["Startup"]),
+        story("two", date(2026, 7, 23), companies=["Education"]),
+    ]
+
+    assert not detect_multi_company_direction(
+        stories,
+        now=NOW,
+        company_names={"Amazon", "Microsoft"},
+    )
 
 
 def test_github_growth_requires_positive_threshold_and_matching_story() -> None:
@@ -197,8 +214,16 @@ def test_signal_id_uses_singapore_product_date_across_utc_boundary() -> None:
     before_utc_midnight = datetime(2026, 7, 28, 23, 37, tzinfo=UTC)
     after_utc_midnight = datetime(2026, 7, 29, 0, 5, tzinfo=UTC)
 
-    before = detect_multi_company_direction(stories, now=before_utc_midnight)
-    after = detect_multi_company_direction(stories, now=after_utc_midnight)
+    before = detect_multi_company_direction(
+        stories,
+        now=before_utc_midnight,
+        company_names={"Alpha", "Beta"},
+    )
+    after = detect_multi_company_direction(
+        stories,
+        now=after_utc_midnight,
+        company_names={"Alpha", "Beta"},
+    )
 
     assert before[0].id == after[0].id
 

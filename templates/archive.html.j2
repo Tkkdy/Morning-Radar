@@ -12,8 +12,15 @@
     <h1>历史晨报</h1>
   </header>
   <main><section><div class="archive-list">
-  {% for item in briefs %}<a href="briefs/{{ item.date }}.html"><span>{{ item.date }}</span><strong>{{ item.top_stories|length }} 条重点</strong></a>{% endfor %}
+  {% for item in briefs %}
+    {% set main_items = item.top_stories + item.market_and_companies + item.ai_and_open_source + item.trend_radar + item.developer_discussions %}
+    {% set first_item = main_items | first %}
+    <a href="briefs/{{ item.date }}.html">
+      <span class="archive-date">{{ item.date }}</span>
+      <span class="archive-title">{% if first_item %}{{ first_item.title }}{% else %}当日无主内容{% endif %}</span>
+      <strong class="archive-count">{{ main_items|length }} 条主内容{% if item.other_reading %} · {{ item.other_reading|length }} 条延伸阅读{% endif %}</strong>
+    </a>
+  {% endfor %}
   </div></section></main>
 </body>
 </html>
-

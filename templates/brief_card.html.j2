@@ -1,0 +1,101 @@
+{% set primary_context = item.story_contexts[0] if item.story_contexts else none %}
+{% set section_labels = {"top_stories": "今日重点", "market_and_companies": "市场与公司", "ai_and_open_source": "AI 与开源", "trend_radar": "趋势雷达", "developer_discussions": "开发者讨论"} %}
+{% set primary_source = namespace(ref=none) %}
+{% if primary_context %}
+  {% for source_ref in primary_context.source_refs %}
+    {% if source_ref.url == primary_context.primary_source_url %}
+      {% set primary_source.ref = source_ref %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+<article class="brief-card{% if compact %} compact{% endif %}">
+  <p class="section-label">{% if compact %}延伸阅读{% else %}{{ section_labels.get(item.section, item.section) }}{% endif %}</p>
+  <h3>{{ item.title }}</h3>
+  <p>{{ item.what_happened }}</p>
+  {% if not compact %}<p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>{% endif %}
+  {% if primary_context and primary_context.status.value != "unknown" %}
+    {% set status_labels = {"rumor": "传闻", "official_teaser": "官方预告", "announced": "已宣布", "available": "已上线", "updated": "已更新"} %}
+    <span class="status-badge">{{ status_labels.get(primary_context.status.value, primary_context.status.value) }}</span>
+  {% endif %}
+  {% if primary_source.ref %}
+  <div class="card-meta">
+    <a class="primary-source" href="{{ primary_source.ref.url }}" rel="noopener noreferrer">
+      {% if primary_source.ref.source_type == "hacker_news" %}
+        {% if primary_source.ref.discussion_url == primary_source.ref.url %}Hacker News · 讨论{% else %}{{ primary_source.ref.url | hostname }} · 原文{% endif %}
+      {% elif primary_source.ref.source_type == "github" %}
+        {{ primary_source.ref.source_name }} · Release
+      {% elif primary_source.ref.source_type == "market" %}
+        {{ primary_source.ref.source_name }} · 市场数据
+      {% else %}
+        {{ primary_source.ref.source_name }} · 原文
+      {% endif %}
+    </a>
+    {% if primary_source.ref.source_type == "hacker_news" and primary_source.ref.discussion_url and primary_source.ref.discussion_url != primary_source.ref.url %}
+    <span class="discovery-note">经 Hacker News 发现</span>
+    <a href="{{ primary_source.ref.discussion_url }}" rel="noopener noreferrer">Hacker News · 讨论</a>
+    {% endif %}
+    <span class="primary-indicator">主来源</span>
+    {% if primary_source.ref.published_at %}
+    <span class="source-time">
+      {% if primary_source.ref.published_at_role.value == "feed_entry_time" %}来源条目时间：{{ primary_source.ref.published_at.strftime("%Y-%m-%d") }}
+      {% elif primary_source.ref.published_at_role.value == "hn_submission_time" %}{{ primary_source.ref.published_at.strftime("%Y-%m-%d") }} 在 Hacker News 提交
+      {% elif primary_source.ref.published_at_role.value == "github_release_published_time" %}Release 发布于 {{ primary_source.ref.published_at.strftime("%Y-%m-%d") }}
+      {% elif primary_source.ref.published_at_role.value == "market_trading_day" %}交易日：{{ primary_source.ref.published_at.strftime("%Y-%m-%d") }}
+      {% else %}来源记录时间：{{ primary_source.ref.published_at.strftime("%Y-%m-%d") }}
+      {% endif %}
+    </span>
+    {% endif %}
+  </div>
+  {% elif primary_context and item.source_urls %}
+  <div class="card-meta"><a class="primary-source" href="{{ item.source_urls[0] }}" rel="noopener noreferrer">来源 1</a></div>
+  {% endif %}
+  {% if not compact and item.market_or_community_reaction %}<p><strong>市场/社区：</strong>{{ item.market_or_community_reaction }}</p>{% endif %}
+  {% if not compact and item.uncertainty %}<p class="uncertainty"><strong>不确定性：</strong>{{ item.uncertainty }}</p>{% endif %}
+  {% set detail_state = namespace(available=false) %}
+  {% for context in item.story_contexts %}
+    {% set additional_facts = context.facts | reject("equalto", item.what_happened) | list %}
+    {% set additional_analysis = context.analysis if compact else (context.analysis | reject("equalto", item.why_it_matters) | list) %}
+    {% set additional_uncertainties = context.uncertainties if compact else (context.uncertainties | reject("equalto", item.uncertainty) | list) %}
+    {% if additional_facts or additional_analysis or additional_uncertainties or context.entity_names or context.product_names or context.topic_names or context.source_refs %}
+      {% set detail_state.available = true %}
+    {% endif %}
+  {% endfor %}
+  {% if detail_state.available %}
+  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+    {% for context in item.story_contexts %}
+      {% set additional_facts = context.facts | reject("equalto", item.what_happened) | list %}
+      {% set additional_analysis = context.analysis if compact else (context.analysis | reject("equalto", item.why_it_matters) | list) %}
+      {% set additional_uncertainties = context.uncertainties if compact else (context.uncertainties | reject("equalto", item.uncertainty) | list) %}
+      {% if additional_facts %}<div class="detail-block"><h4>已验证事实</h4><ul>{% for fact in additional_facts %}<li>{{ fact }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if additional_analysis %}<div class="detail-block"><h4>分析</h4><ul>{% for analysis in additional_analysis %}<li>{{ analysis }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if additional_uncertainties %}<div class="detail-block"><h4>不确定性</h4><ul>{% for uncertainty in additional_uncertainties %}<li>{{ uncertainty }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if context.entity_names or context.product_names or context.topic_names %}<div class="detail-tags">
+        {% if context.entity_names %}<span>实体：{{ context.entity_names | join("、") }}</span>{% endif %}
+        {% if context.product_names %}<span>产品：{{ context.product_names | join("、") }}</span>{% endif %}
+        {% if context.topic_names %}<span>主题：{{ context.topic_names | join("、") }}</span>{% endif %}
+      </div>{% endif %}
+      {% if context.source_refs %}<div class="detail-block source-details"><h4>来源详情</h4><ul>{% for source_ref in context.source_refs %}<li>
+        <div><strong>{% if source_ref.source_type == "hacker_news" and source_ref.discussion_url and source_ref.discussion_url != source_ref.url %}{{ source_ref.url | hostname }} · 原文{% else %}{{ source_ref.source_name }}{% endif %}</strong>{% if source_ref.url == context.primary_source_url %}<span class="primary-indicator">主来源</span>{% endif %}</div>
+        {% if source_ref.source_type == "hacker_news" and source_ref.discussion_url and source_ref.discussion_url != source_ref.url %}<div class="discovery-note">经 Hacker News 发现</div>{% endif %}
+        <div>{{ source_ref.title }}</div>
+        {% if source_ref.author %}<div>作者：{{ source_ref.author }}</div>{% endif %}
+        {% if source_ref.published_at %}<div class="source-time">
+          {% if source_ref.published_at_role.value == "feed_entry_time" %}来源条目时间：{{ source_ref.published_at.strftime("%Y-%m-%d") }}
+          {% elif source_ref.published_at_role.value == "hn_submission_time" %}{{ source_ref.published_at.strftime("%Y-%m-%d") }} 在 Hacker News 提交
+          {% elif source_ref.published_at_role.value == "github_release_published_time" %}Release 发布于 {{ source_ref.published_at.strftime("%Y-%m-%d") }}
+          {% elif source_ref.published_at_role.value == "market_trading_day" %}交易日：{{ source_ref.published_at.strftime("%Y-%m-%d") }}
+          {% else %}来源记录时间：{{ source_ref.published_at.strftime("%Y-%m-%d") }}
+          {% endif %}
+        </div>{% endif %}
+        {% if not (context == primary_context and source_ref.url == context.primary_source_url) %}<a href="{{ source_ref.url }}" rel="noopener noreferrer">{% if source_ref.source_type == "hacker_news" and source_ref.discussion_url == source_ref.url %}Hacker News · 讨论{% else %}原文{% endif %}</a>{% endif %}
+        {% if source_ref.discussion_url and source_ref.discussion_url != source_ref.url and not (context == primary_context and source_ref.url == context.primary_source_url) %}<a href="{{ source_ref.discussion_url }}" rel="noopener noreferrer">Hacker News · 讨论</a>{% endif %}
+      </li>{% endfor %}</ul></div>{% endif %}
+    {% endfor %}
+    </div>
+  </details>
+  {% elif not item.story_contexts %}
+  <div class="sources">{% for url in item.source_urls %}<a href="{{ url }}" rel="noopener noreferrer">来源 {{ loop.index }}</a>{% endfor %}</div>
+  {% endif %}
+</article>

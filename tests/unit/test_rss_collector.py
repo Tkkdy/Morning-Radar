@@ -88,3 +88,48 @@ def test_one_feed_failure_does_not_drop_successful_feed(tmp_path, caplog) -> Non
     assert len(collector.collect()) == 1
     assert "RSS source failed: broken" in caplog.text
 
+
+def test_rss_round_robin_prevents_a_long_first_feed_from_starving_later_feeds(
+    tmp_path,
+) -> None:
+    def feed(source_id: str, count: int) -> bytes:
+        entries = "".join(
+            f"<entry><title>{source_id}-{index}</title>"
+            f"<link href='https://feeds.example/{source_id}/{index}'/>"
+            "<updated>2026-07-23T00:00:00Z</updated></entry>"
+            for index in range(count)
+        )
+        return (
+            "<?xml version='1.0' encoding='utf-8'?>"
+            "<feed xmlns='http://www.w3.org/2005/Atom'>"
+            f"<title>{source_id}</title>{entries}</feed>"
+        ).encode()
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        source_id = request.url.path.rsplit("/", 1)[-1].removesuffix(".xml")
+        return httpx.Response(
+            200,
+            content=feed(source_id, 5 if source_id == "long" else 2),
+        )
+
+    collector = RSSCollector(
+        [source("long"), source("short")],
+        http=HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler))),
+        state_path=tmp_path / "rss.json",
+    )
+
+    items = collector.collect()
+
+    assert [item.source_name for item in items[:4]] == [
+        "Fixture Feed",
+        "Fixture Feed",
+        "Fixture Feed",
+        "Fixture Feed",
+    ]
+    assert [item.title for item in items[:5]] == [
+        "long-0",
+        "short-0",
+        "long-1",
+        "short-1",
+        "long-2",
+    ]

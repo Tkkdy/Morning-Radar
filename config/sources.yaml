@@ -7,6 +7,70 @@ sources:
     enabled: true
     topics: [ai_models, ai_coding]
     official: true
+  - id: google_ai
+    name: Google AI
+    type: rss
+    url: https://blog.google/innovation-and-ai/technology/ai/rss/
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_infrastructure]
+    official: true
+  - id: github_changelog
+    name: GitHub Changelog
+    type: rss
+    url: https://github.blog/changelog/feed/
+    priority: high
+    enabled: true
+    topics: [ai_coding, open_source_ai]
+    official: true
+  - id: hugging_face_blog
+    name: Hugging Face Blog
+    type: rss
+    url: https://huggingface.co/blog/feed.xml
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_infrastructure, open_source_ai]
+    official: true
+  - id: nvidia_developer_blog
+    name: NVIDIA Developer Blog
+    type: rss
+    url: https://developer.nvidia.com/blog/feed/
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_infrastructure]
+    official: true
+  - id: cloudflare_blog
+    name: Cloudflare Blog
+    type: rss
+    url: https://blog.cloudflare.com/rss/
+    priority: medium
+    enabled: true
+    topics: [ai_coding, ai_infrastructure]
+    official: true
+  - id: techcrunch_ai
+    name: TechCrunch AI
+    type: rss
+    url: https://techcrunch.com/category/artificial-intelligence/feed/
+    priority: medium
+    enabled: true
+    topics: [ai_models, ai_coding]
+    official: false
+  - id: the_verge_ai
+    name: The Verge AI
+    type: rss
+    url: https://www.theverge.com/rss/ai-artificial-intelligence/index.xml
+    priority: medium
+    enabled: true
+    topics: [ai_models, ai_coding]
+    official: false
+  - id: ars_technology_lab
+    name: Ars Technica Technology Lab
+    type: rss
+    url: https://feeds.arstechnica.com/arstechnica/technology-lab
+    priority: medium
+    enabled: true
+    topics: [ai_models, ai_infrastructure, open_source_ai]
+    official: false
   - id: hn
     name: Hacker News
     type: hacker_news
@@ -15,4 +79,3 @@ sources:
     enabled: true
     topics: [ai_coding, open_source_ai]
     official: false
-

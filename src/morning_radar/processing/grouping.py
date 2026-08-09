@@ -47,7 +47,43 @@ _ACTION_GROUPS = (
     ),
     frozenset({"update", "updated", "upgrade", "upgraded"}),
     frozenset({"benchmark", "benchmarks", "tested", "testing"}),
+    frozenset(
+        {
+            "acquire",
+            "acquired",
+            "acquires",
+            "acquiring",
+            "acquisition",
+            "bought",
+            "buy",
+            "buys",
+            "purchase",
+            "purchased",
+            "purchases",
+        }
+    ),
+    frozenset(
+        {
+            "collaborate",
+            "collaboration",
+            "partner",
+            "partnered",
+            "partners",
+            "partnership",
+        }
+    ),
+    frozenset({"invest", "invested", "investing", "investment", "invests"}),
 )
+_CORPORATE_ACTION_KINDS = frozenset({3, 4, 5})
+_ACTION_WORDS = frozenset(word for group in _ACTION_GROUPS for word in group)
+_TITLE_ENTITY_STOP_WORDS = _STOP_WORDS | _ACTION_WORDS | {
+    "after",
+    "amid",
+    "how",
+    "report",
+    "reports",
+    "why",
+}
 
 
 def _tokens(title: str) -> set[str]:
@@ -66,7 +102,8 @@ def _strong_tokens(item: RawItem) -> set[str]:
     }
     title_entities = {
         token.casefold()
-        for token in re.findall(r"\b[A-Z][A-Z0-9-]{1,}\b", item.title)
+        for token in re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", item.title)
+        if token.casefold() not in _TITLE_ENTITY_STOP_WORDS
     }
     expanded_entities = {
         part
@@ -127,6 +164,8 @@ def _candidate_match(left: RawItem, right: RawItem) -> bool:
     shared_strong = _strong_tokens(left).intersection(_strong_tokens(right))
     shared_actions = _action_kinds(left).intersection(_action_kinds(right))
     if not shared_strong or not shared_actions:
+        return False
+    if shared_actions.intersection(_CORPORATE_ACTION_KINDS) and len(shared_strong) < 2:
         return False
 
     shared_title = _tokens(left.title).intersection(_tokens(right.title))

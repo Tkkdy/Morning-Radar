@@ -14,8 +14,15 @@ from morning_radar.ai import (
     AIOutputError,
     DeepSeekProvider,
 )
-from morning_radar.ai.models import ClassificationBatch, ClassifiedItem, MergedStoryDraft
-from morning_radar.models import RawItem
+from morning_radar.ai.models import (
+    BriefDraft,
+    ClassificationBatch,
+    ClassifiedItem,
+    DirectionObservation,
+    GeneratedBriefItem,
+    MergedStoryDraft,
+)
+from morning_radar.models import RawItem, Signal, SignalType, Story
 
 
 def raw_item(url: str = "https://example.com/real") -> RawItem:
@@ -157,6 +164,102 @@ def test_invalid_output_after_retry_fails_clearly() -> None:
 
     with pytest.raises(AIOutputError, match="after retry"):
         configured.classify_items([raw_item()])
+
+
+def test_direction_evidence_violation_retries_with_network_counting() -> None:
+    signal = Signal(
+        id="signal-1",
+        signal_type=SignalType.TOPIC_HEATING,
+        topic="ai_models",
+        window_days=3,
+        supporting_story_ids=["story-1", "story-2"],
+        supporting_source_count=2,
+        supporting_company_count=1,
+        strength=0.8,
+        explanation="模型方向连续出现。",
+        created_at=datetime(2026, 7, 23, tzinfo=UTC),
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+    )
+    invalid = DirectionObservation(
+        observation="模型方向获得更多证据。",
+        evidence_story_ids=["story-1", "unknown-story"],
+    )
+    valid = invalid.model_copy(
+        update={"evidence_story_ids": ["story-1", "story-2"]}
+    )
+    configured = provider([invalid.model_dump_json(), valid.model_dump_json()])
+
+    assert configured.write_direction_observation([signal]) == valid
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_invalid_optional_brief_extensions_are_dropped_without_retry(caplog) -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    draft = BriefDraft(
+        items=[],
+        watch_next=["继续关注 AI 行业发展。"],
+        cognitive_extension="OpenAI 将改变所有现有 API 集成。",
+    )
+    configured = provider([draft.model_dump_json()])
+
+    assert configured.write_brief([source_story], []) == BriefDraft(items=[])
+    assert configured.client.chat.completions.calls == 1
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 1
+    assert "watch_next=grounding:1" in caplog.text
+    assert "cognitive_extension=question_contract" in caplog.text
+
+
+def test_deepseek_core_brief_url_violation_remains_hard() -> None:
+    source_story = Story(
+        id="story-openai",
+        canonical_title="OpenAI 发布新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=["item-1"],
+        source_urls=["https://example.com/real"],
+        primary_source_url="https://example.com/real",
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    invalid = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[source_story.id],
+                section="top_stories",
+                title="OpenAI 发布新模型",
+                what_happened="OpenAI 发布了新模型。",
+                why_it_matters="开发者需要评估 API 兼容性。",
+                source_urls=["https://invented.example/brief"],
+            )
+        ]
+    ).model_dump_json()
+    configured = provider([invalid, invalid])
+
+    with pytest.raises(AIOutputError, match="not present in verified source set"):
+        configured.write_brief([source_story], [])
+
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
 
 
 def test_timeout_retries_with_bounded_attempts() -> None:

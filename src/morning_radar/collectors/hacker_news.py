@@ -14,6 +14,11 @@ from morning_radar.time_utils import utc_now
 LOGGER = logging.getLogger(__name__)
 TITLE_SIGNAL_KEYWORDS = ("ai", "llm", "agent", "mcp")
 WEAK_BODY_KEYWORDS = {"github"}
+MAXIMUM_CANDIDATES = 30
+DISCOVERY_SCORE_THRESHOLD = 150
+DISCOVERY_COMMENTS_THRESHOLD = 80
+SHOW_HN_SCORE_THRESHOLD = 30
+SHOW_HN_COMMENTS_THRESHOLD = 15
 
 
 def _contains_keyword(text: str, keyword: str) -> bool:
@@ -69,7 +74,7 @@ class HackerNewsCollector:
     ) -> None:
         self.http = http
         self.keywords = [value.casefold() for value in keywords]
-        self.maximum_candidates = maximum_candidates
+        self.maximum_candidates = min(max(0, maximum_candidates), MAXIMUM_CANDIDATES)
         self.base_url = base_url.rstrip("/")
         self.now = now or utc_now()
 
@@ -100,6 +105,7 @@ class HackerNewsCollector:
         items: list[RawItem] = []
         fetched_items = 0
         keyword_matches = 0
+        discovery_matches = 0
         for story_id in candidate_ids:
             try:
                 story = self.http.get(f"{self.base_url}/item/{story_id}.json").json()
@@ -108,14 +114,17 @@ class HackerNewsCollector:
                 fetched_items += 1
                 converted = self._convert(story)
                 if converted:
-                    keyword_matches += 1
+                    if converted.metadata["selection_reason"] == "keyword":
+                        keyword_matches += 1
+                    else:
+                        discovery_matches += 1
                     items.append(converted)
             except Exception:
                 LOGGER.exception("Hacker News item failed: %s", story_id)
         LOGGER.info(
             "Hacker News stats: top_ids=%d new_ids=%d best_ids=%d "
             "unique_candidates=%d selected_candidates=%d fetched_items=%d "
-            "keyword_matches=%d retained_items=%d",
+            "keyword_matches=%d discovery_matches=%d retained_items=%d",
             len(ids_by_endpoint["topstories"]),
             len(ids_by_endpoint["newstories"]),
             len(ids_by_endpoint["beststories"]),
@@ -123,6 +132,7 @@ class HackerNewsCollector:
             len(candidate_ids),
             fetched_items,
             keyword_matches,
+            discovery_matches,
             len(items),
         )
         return items
@@ -140,7 +150,16 @@ class HackerNewsCollector:
             and _contains_keyword(body_text, keyword)
             for keyword in self.keywords
         )
-        if not title or not (title_match or body_match):
+        score = int(story.get("score") or 0)
+        comments = int(story.get("descendants") or 0)
+        show_hn = title_text.startswith("show hn:")
+        discovery_match = (
+            score >= DISCOVERY_SCORE_THRESHOLD
+            or comments >= DISCOVERY_COMMENTS_THRESHOLD
+            or show_hn
+            and (score >= SHOW_HN_SCORE_THRESHOLD or comments >= SHOW_HN_COMMENTS_THRESHOLD)
+        )
+        if not title or not (title_match or body_match or discovery_match):
             return None
         story_id = int(story["id"])
         discussion_url = f"https://news.ycombinator.com/item?id={story_id}"
@@ -167,7 +186,10 @@ class HackerNewsCollector:
                 "community_signal": True,
                 "discussion_url": discussion_url,
                 "original_url": story.get("url"),
-                "score": int(story.get("score") or 0),
-                "comments": int(story.get("descendants") or 0),
+                "score": score,
+                "comments": comments,
+                "selection_reason": (
+                    "keyword" if title_match or body_match else "high_signal_discovery"
+                ),
             },
         )

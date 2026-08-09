@@ -3,7 +3,14 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from morning_radar.models import RawItem, Story
+from morning_radar.models import (
+    BriefItem,
+    DailyBrief,
+    PublishedAtRole,
+    RawItem,
+    Story,
+    StorySourceRef,
+)
 
 
 def make_raw_item(**overrides: object) -> RawItem:
@@ -63,3 +70,148 @@ def test_story_primary_source_must_be_in_source_urls() -> None:
             credibility_score=1,
         )
 
+
+def test_old_story_json_without_source_refs_loads_with_an_empty_list() -> None:
+    legacy = {
+        "id": "story-1",
+        "canonical_title": "Release",
+        "category": "ai_and_open_source",
+        "published_at": None,
+        "updated_at": "2026-07-23T00:00:00Z",
+        "source_item_ids": ["item-1"],
+        "source_urls": ["https://example.com/a"],
+        "primary_source_url": "https://example.com/a",
+        "relevance_score": 1,
+        "importance_score": 0.8,
+        "novelty_score": 0.8,
+        "credibility_score": 1,
+    }
+
+    assert Story.model_validate(legacy).source_refs == []
+
+
+@pytest.mark.parametrize(
+    ("source_ref", "error"),
+    [
+        (
+            {"url": "https://example.com/other"},
+            "source_ref url must be present in source_urls",
+        ),
+        (
+            {"discussion_url": "https://news.ycombinator.com/item?id=123"},
+            "source_ref discussion_url must be present in source_urls",
+        ),
+        (
+            {"raw_item_id": "item-other"},
+            "source_ref raw_item_id must be present in source_item_ids",
+        ),
+    ],
+)
+def test_story_source_refs_cannot_expand_story_provenance(
+    source_ref: dict[str, str],
+    error: str,
+) -> None:
+    values = {
+        "id": "story-1",
+        "canonical_title": "Release",
+        "category": "ai_and_open_source",
+        "published_at": None,
+        "updated_at": "2026-07-23T00:00:00Z",
+        "source_item_ids": ["item-1"],
+        "source_urls": ["https://example.com/a"],
+        "primary_source_url": "https://example.com/a",
+        "relevance_score": 1,
+        "importance_score": 0.8,
+        "novelty_score": 0.8,
+        "credibility_score": 1,
+        "source_refs": [
+            {
+                "raw_item_id": "item-1",
+                "title": "Release",
+                "source_name": "Example",
+                "source_type": "hacker_news",
+                "url": "https://example.com/a",
+                "author": None,
+                "published_at": None,
+                "fetched_at": "2026-07-23T00:00:00Z",
+                "discussion_url": None,
+                **source_ref,
+            }
+        ],
+    }
+
+    with pytest.raises(ValidationError, match=error):
+        Story.model_validate(values)
+
+
+def test_old_brief_item_json_without_story_contexts_loads_with_an_empty_list() -> None:
+    legacy = {
+        "id": "brief-1",
+        "section": "top_stories",
+        "title": "Release",
+        "what_happened": "A release happened.",
+        "why_it_matters": "It matters.",
+        "source_urls": ["https://example.com/a"],
+        "story_ids": ["story-1"],
+    }
+
+    assert BriefItem.model_validate(legacy).story_contexts == []
+
+
+def test_old_daily_brief_json_without_other_reading_loads_with_an_empty_list() -> None:
+    legacy = {
+        "date": "2026-07-23",
+        "timezone": "Asia/Singapore",
+        "generated_at": "2026-07-23T00:00:00Z",
+    }
+
+    assert DailyBrief.model_validate(legacy).other_reading == []
+
+
+def test_legacy_story_source_ref_without_published_at_role_defaults_to_unknown() -> None:
+    legacy = {
+        "raw_item_id": "item-1",
+        "title": "Release",
+        "source_name": "Example",
+        "source_type": "rss",
+        "url": "https://example.com/a",
+        "fetched_at": "2026-07-23T00:00:00Z",
+    }
+
+    assert StorySourceRef.model_validate(legacy).published_at_role is PublishedAtRole.UNKNOWN
+
+
+def _brief_story_context(story_id: str) -> dict[str, object]:
+    return {
+        "story_id": story_id,
+        "canonical_title": f"Title for {story_id}",
+        "category": "ai_and_open_source",
+        "primary_source_url": "https://example.com/a",
+    }
+
+
+@pytest.mark.parametrize(
+    "story_contexts",
+    [
+        [_brief_story_context("story-a"), _brief_story_context("story-other")],
+        [_brief_story_context("story-a")],
+        [_brief_story_context("story-b"), _brief_story_context("story-a")],
+    ],
+    ids=["unknown-story-id", "missing-context", "wrong-order"],
+)
+def test_nonempty_brief_story_contexts_must_exactly_match_story_ids(
+    story_contexts: list[dict[str, object]],
+) -> None:
+    values = {
+        "id": "brief-1",
+        "section": "top_stories",
+        "title": "Release",
+        "what_happened": "A release happened.",
+        "why_it_matters": "It matters.",
+        "source_urls": ["https://example.com/a"],
+        "story_ids": ["story-a", "story-b"],
+        "story_contexts": story_contexts,
+    }
+
+    with pytest.raises(ValidationError, match="story_contexts must exactly match"):
+        BriefItem.model_validate(values)

@@ -10,7 +10,7 @@ from datetime import date, datetime
 from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import BriefDraft, GeneratedBriefItem
 from morning_radar.ai.provider import AIProvider
-from morning_radar.models import BriefItem, DailyBrief, Signal, Story
+from morning_radar.models import BriefItem, BriefStoryContext, DailyBrief, Signal, Story
 
 SECTION_NAMES = (
     "top_stories",
@@ -30,11 +30,59 @@ class BriefValidationError(ValueError):
 class BriefLimits:
     maximum_items: int
     top_story_items: int = 3
+    other_reading_items: int = 6
 
 
 def _brief_item_id(story_ids: list[str], section: str) -> str:
     identity = f"{section}:{'|'.join(sorted(story_ids))}"
     return f"brief-{hashlib.sha256(identity.encode()).hexdigest()[:20]}"
+
+
+def _story_context(story: Story) -> BriefStoryContext:
+    """Copy display context from a validated Story without another AI call."""
+    return BriefStoryContext(
+        story_id=story.id,
+        canonical_title=story.canonical_title,
+        category=story.category,
+        entity_names=story.entity_names,
+        product_names=story.product_names,
+        topic_names=story.topic_names,
+        published_at=story.published_at,
+        facts=story.facts,
+        analysis=story.analysis,
+        uncertainties=story.uncertainties,
+        status=story.status,
+        primary_source_url=story.primary_source_url,
+        source_refs=story.source_refs,
+    )
+
+
+def _deterministic_generated_item(
+    story: Story,
+    *,
+    section: str,
+    fallback: bool = False,
+) -> GeneratedBriefItem:
+    """Create a conservative, schema-valid item from an already verified Story."""
+    return GeneratedBriefItem(
+        story_ids=[story.id],
+        section=section,
+        title=story.canonical_title,
+        what_happened=story.facts[0] if story.facts else story.canonical_title,
+        why_it_matters=(
+            "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+            if fallback or not story.analysis
+            else (
+                story.analysis[0]
+            )
+        ),
+        uncertainty=(
+            "AI 晨报分析暂时不可用。"
+            if fallback
+            else (story.uncertainties[0] if story.uncertainties else None)
+        ),
+        source_urls=story.source_urls,
+    )
 
 
 def _validated_item(
@@ -64,6 +112,7 @@ def _validated_item(
         uncertainty=generated.uncertainty,
         source_urls=generated.source_urls,
         story_ids=generated.story_ids,
+        story_contexts=[_story_context(story_by_id[story_id]) for story_id in generated.story_ids],
     )
 
 
@@ -103,6 +152,13 @@ def generate_daily_brief(
     if maximum_ai_items is not None:
         bounded_signals = bounded_signals[:maximum_ai_items]
     stats["ai_signal_inputs"] = len(bounded_signals)
+    direction_signals = [
+        signal
+        for signal in bounded_signals
+        if len(set(signal.supporting_story_ids)) >= 2
+        and signal.supporting_source_count >= 2
+    ]
+    stats["direction_signal_inputs"] = len(direction_signals)
 
     if eligible_stories:
         try:
@@ -119,9 +175,10 @@ def generate_daily_brief(
     story_by_id = {story.id: story for story in eligible_stories}
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
+    main_item_count = 0
 
     for generated in draft.items:
-        if len(used_story_ids) >= limits.maximum_items:
+        if main_item_count >= limits.maximum_items:
             break
         if any(story_id in used_story_ids for story_id in generated.story_ids):
             continue
@@ -137,7 +194,7 @@ def generate_daily_brief(
         top_enabled = enabled_sections.get("top_stories", True)
         if top_enabled and important and len(sections["top_stories"]) < limits.top_story_items:
             section = "top_stories"
-        elif section == "top_stories" and (not top_enabled or not important):
+        elif section == "top_stories":
             proposed = referenced[0].category if referenced else "ai_and_open_source"
             section = (
                 proposed
@@ -149,18 +206,37 @@ def generate_daily_brief(
         item = _validated_item(generated, story_by_id=story_by_id, section=section)
         sections[section].append(item)
         used_story_ids.update(item.story_ids)
+        main_item_count += 1
+
+    other_reading: list[BriefItem] = []
+    remaining_capacity = max(0, limits.maximum_items - main_item_count)
+    other_reading_capacity = min(limits.other_reading_items, remaining_capacity)
+    for story in eligible_stories:
+        if len(other_reading) >= other_reading_capacity:
+            break
+        if story.id in used_story_ids:
+            continue
+        generated = _deterministic_generated_item(story, section="other_reading")
+        other_reading.append(
+            _validated_item(
+                generated,
+                story_by_id=story_by_id,
+                section="other_reading",
+            )
+        )
+        used_story_ids.add(story.id)
 
     direction = None
-    if bounded_signals and enabled_sections.get("direction_observation", True):
+    if direction_signals and enabled_sections.get("direction_observation", True):
         try:
-            direction = provider.write_direction_observation(bounded_signals).observation
+            direction = provider.write_direction_observation(direction_signals).observation
         except AIOutputError:
             LOGGER.exception(
                 "AI degradation: direction observation failed; section omitted"
             )
             stats["ai_direction_fallback"] = True
-    elif not bounded_signals:
-        LOGGER.info("Skipping AI direction observation: no signals")
+    elif not direction_signals:
+        LOGGER.info("Skipping AI direction observation: no coherent evidence signals")
     cognitive_extension = (
         draft.cognitive_extension
         if enabled_sections.get("cognitive_extension", True)
@@ -175,6 +251,7 @@ def generate_daily_brief(
         ai_and_open_source=sections["ai_and_open_source"],
         trend_radar=sections["trend_radar"],
         developer_discussions=sections["developer_discussions"],
+        other_reading=other_reading,
         direction_observation=direction,
         cognitive_extension=cognitive_extension,
         watch_next=draft.watch_next,
@@ -186,17 +263,10 @@ def _fallback_brief_draft(stories: list[Story]) -> BriefDraft:
     """Build a schema-valid draft without inventing analysis or new facts."""
     return BriefDraft(
         items=[
-            GeneratedBriefItem(
-                story_ids=[story.id],
+            _deterministic_generated_item(
+                story,
                 section=story.category,
-                title=story.canonical_title,
-                what_happened=story.facts[0] if story.facts else story.canonical_title,
-                why_it_matters=(
-                    "Degraded mode: why-it-matters analysis is unavailable; "
-                    "review the verified fact and source."
-                ),
-                uncertainty="AI-generated briefing analysis was unavailable.",
-                source_urls=story.source_urls,
+                fallback=True,
             )
             for story in stories
         ]

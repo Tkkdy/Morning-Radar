@@ -11,18 +11,19 @@
   <h2>{{ heading }}</h2>
   <div class="cards">
   {% for item in items %}
-    <article>
-      <p class="section-label">{{ item.section }}</p>
-      <h3>{{ item.title }}</h3>
-      <p>{{ item.what_happened }}</p>
-      <p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>
-      {% if item.market_or_community_reaction %}<p><strong>市场/社区：</strong>{{ item.market_or_community_reaction }}</p>{% endif %}
-      {% if item.uncertainty %}<p class="uncertainty"><strong>不确定性：</strong>{{ item.uncertainty }}</p>{% endif %}
-      <div class="sources">{% for url in item.source_urls %}<a href="{{ url }}" rel="noopener noreferrer">来源 {{ loop.index }}</a>{% endfor %}</div>
-    </article>
+    {% with compact = false %}{% include "brief_card.html.j2" %}{% endwith %}
   {% endfor %}
   </div>
 </section>
 {% endif %}
 {% endfor %}
-
+{% if brief.other_reading %}
+<section class="other-reading">
+  <h2>其他值得阅读</h2>
+  <div class="cards compact-cards">
+  {% for item in brief.other_reading %}
+    {% with compact = true %}{% include "brief_card.html.j2" %}{% endwith %}
+  {% endfor %}
+  </div>
+</section>
+{% endif %}
