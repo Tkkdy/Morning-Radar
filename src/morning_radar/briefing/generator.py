@@ -175,13 +175,12 @@ def generate_daily_brief(
     story_by_id = {story.id: story for story in eligible_stories}
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
+    main_item_count = 0
 
     for generated in draft.items:
-        if len(used_story_ids) >= limits.maximum_items:
+        if main_item_count >= limits.maximum_items:
             break
         if any(story_id in used_story_ids for story_id in generated.story_ids):
-            continue
-        if len(used_story_ids | set(generated.story_ids)) > limits.maximum_items:
             continue
         section = generated.section if generated.section in sections else "top_stories"
         referenced = [
@@ -207,9 +206,10 @@ def generate_daily_brief(
         item = _validated_item(generated, story_by_id=story_by_id, section=section)
         sections[section].append(item)
         used_story_ids.update(item.story_ids)
+        main_item_count += 1
 
     other_reading: list[BriefItem] = []
-    remaining_capacity = max(0, limits.maximum_items - len(used_story_ids))
+    remaining_capacity = max(0, limits.maximum_items - main_item_count)
     other_reading_capacity = min(limits.other_reading_items, remaining_capacity)
     for story in eligible_stories:
         if len(other_reading) >= other_reading_capacity:

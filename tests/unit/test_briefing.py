@@ -313,6 +313,52 @@ class MultiStoryProvider(FakeAIProvider):
         )
 
 
+class MultiStoryThenSingleProvider(FakeAIProvider):
+    def write_brief(self, stories, signals):
+        del signals
+        return BriefDraft(
+            items=[
+                GeneratedBriefItem(
+                    story_ids=[stories[0].id, stories[1].id],
+                    section="ai_and_open_source",
+                    title="Combined",
+                    what_happened="Combined summary",
+                    why_it_matters="Combined importance",
+                    source_urls=[stories[0].primary_source_url, stories[1].primary_source_url],
+                ),
+                GeneratedBriefItem(
+                    story_ids=[stories[2].id],
+                    section="ai_and_open_source",
+                    title="Single",
+                    what_happened="Single summary",
+                    why_it_matters="Single importance",
+                    source_urls=[stories[2].primary_source_url],
+                ),
+            ]
+        )
+
+
+def test_maximum_brief_items_counts_cards_not_referenced_stories() -> None:
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[story(1), story(2), story(3)],
+        signals=[],
+        provider=MultiStoryThenSingleProvider(),
+        limits=BriefLimits(maximum_items=2, top_story_items=2),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert len(result.top_stories) == 2
+    assert [item.story_ids for item in result.top_stories] == [
+        ["story-1", "story-2"],
+        ["story-3"],
+    ]
+    assert result.other_reading == []
+
+
 def test_multi_story_contexts_preserve_generated_story_id_order() -> None:
     first = story(1)
     second = story(2)
