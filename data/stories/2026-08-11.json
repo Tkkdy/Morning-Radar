@@ -1,0 +1,825 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "在NVIDIA上使用Meta的Muse Glimmer运行本地代理AI工作流",
+    "category": "ai_models",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Meta",
+      "NVIDIA"
+    ],
+    "facts": [
+      "Meta发布了Muse Glimmer，一个30B参数的密集模型，开源权重，拥有超过120K的上下文窗口。",
+      "该模型旨在本地运行代理AI工作流，并可在NVIDIA平台上运行。",
+      "此发布标志着Meta重返开源生态系统。"
+    ],
+    "id": "story-50fa30e8f57666241030",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/run-local-agentic-ai-workflows-with-metas-muse-glimmer-on-nvidia/",
+    "product_names": [
+      "Muse Glimmer"
+    ],
+    "published_at": "2026-08-10T13:27:19Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-c42703bc35a6b60354cd"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T13:27:19Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-c42703bc35a6b60354cd",
+        "source_name": "NVIDIA Developer Blog",
+        "source_type": "rss",
+        "title": "Run Local Agentic AI Workflows with Meta’s Muse Glimmer on NVIDIA",
+        "url": "https://developer.nvidia.com/blog/run-local-agentic-ai-workflows-with-metas-muse-glimmer-on-nvidia/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/run-local-agentic-ai-workflows-with-metas-muse-glimmer-on-nvidia/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI模型",
+      "AI基础设施",
+      "代理AI"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "vLLM 0.27.0 版本展示了社区对新模型支持的快速跟进，尤其是对 Kimi K3 的全栈集成，体现了开源推理引擎对前沿模型的敏捷支持能力。",
+      "性能优化方面，针对 DeepSeek-V4 的多个改进可能带来显著的吞吐量和延迟提升，这对生产环境部署具有实际意义。",
+      "Model Runner V2 扩展至嵌入和分类等任务，意味着 vLLM 正在从纯生成式推理向更通用的模型服务框架演进。",
+      "硬件支持方面，提前布局 NVIDIA Rubin 和 ROCm 新架构，预示 vLLM 对未来硬件的准备，有助于保持竞争力。"
+    ],
+    "canonical_title": "vLLM v0.27.0 正式发布",
+    "category": "AI Infrastructure",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "vLLM",
+      "Kimi",
+      "Qwen",
+      "K-EXAONE",
+      "VaultGemma",
+      "jina-embeddings",
+      "PyTorch",
+      "FlashAttention",
+      "DeepSeek",
+      "NVIDIA",
+      "ROCm"
+    ],
+    "facts": [
+      "vLLM v0.27.0 发布，包含 561 次提交，来自 242 位贡献者（其中 64 位为新贡献者）。",
+      "新增 Kimi K3 模型支持，包括核心模型文件、内核、Python 前端、Rust 前端、AttnRes 内核、DeepGEMM 支持、压缩张量量化检查点、DSpark AR 融合，以及可选的共享专家分片功能。",
+      "新增其他模型支持：Qwen3.5 文本密集型和 MoE 模型（支持 EVS 视频令牌剪枝）、K-EXAONE-2.0-750B-A37B、VaultGemma（通过 Transformers 后端）、jina-embeddings-v5-text-nano（EuroBERT 编码器骨干）。",
+      "PyTorch 升级至 2.13.0，torchvision 升级至 0.28.0，Triton 升级至 3.7.1，这是一个破坏性环境变更；XPU 和 CPU 后端也随后升级至 Torch 2.13。",
+      "在 SM100 上深化 FlashAttention 4 集成：支持 FP8 KV 缓存和 headdim-256，新增 JIT 预热基础设施和 runner 拥有的 Triton 内核预热，消除首次请求编译延迟。",
+      "DeepSeek-V4 性能优化：序列并行、跳过空 c128 启动使内核性能提升约 2 倍、跳过不必要的 topk/路由器提升端到端 TTFT 3.4%、工作空间重用提升 3.9% TTFT、去除冗余全内核提升 1.88 倍内核性能、自适应 topk 宽度提升 1.0% 端到端性能、PP 缓冲区节省 448 MiB GPU 内存、压缩 MXFP4 索引器 KV 缓存、在 FlashInfer >= 0.6.14 上移除稀疏 MLA q-head 填充。",
+      "Model Runner V2 扩展至非生成式工作负载：仅编码器注意力、序列池化用于嵌入/分类、编码器令牌分类和令牌嵌入、BGE-M3 池化、CPU 上的多模态、多层 MTP 推测器，PCP 现在选择 MRV2。",
+      "大规模弹性服务：用于 DP+EP 外部负载均衡器部署的（简化）容错框架，以及异步准备弹性 EP 扩展。",
+      "混合模型分解：用于混合 MLA+SSM 模型的 NIXL P/D、混合模型的异构 P/D 块大小、MoRIIO 异构 TP<->DP 预填充/解码读取路由。",
+      "Rust 前端新增 gRPC 控制平面：引擎感知健康报告、中止控制、服务器和模型发现、KV 事件源发现，以及 vllm-bench 集成到 vllm CLI。",
+      "早期下一代硬件支持：NVIDIA Rubin 的 sm_107 目标及 SM107 上的 NVLink all-reduce 路径，ROCm gfx1250 架构启用。"
+    ],
+    "id": "story-1350f7189fac31ab30db",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.0",
+    "product_names": [
+      "vLLM v0.27.0",
+      "Kimi K3",
+      "Qwen3.5",
+      "K-EXAONE-2.0-750B-A37B",
+      "VaultGemma",
+      "jina-embeddings-v5-text-nano",
+      "PyTorch 2.13.0",
+      "FlashAttention 4",
+      "DeepSeek-V4"
+    ],
+    "published_at": "2026-08-10T21:18:11Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-dbf531300b29212a0707"
+    ],
+    "source_refs": [
+      {
+        "author": "khluu",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T21:18:11Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-dbf531300b29212a0707",
+        "source_name": "GitHub · vllm-project/vllm",
+        "source_type": "github",
+        "title": "vllm-project/vllm: v0.27.0",
+        "url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/vllm-project/vllm/releases/tag/v0.27.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI Infrastructure",
+      "Open Source AI",
+      "Large Language Models"
+    ],
+    "uncertainties": [
+      "PyTorch 2.13 升级为破坏性变更，可能对现有用户的环境造成兼容性问题，需要评估迁移成本。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "这表明 NVIDIA 在语音 AI 领域的持续投入，开源策略可能推动语音代理应用的普及。"
+    ],
+    "canonical_title": "NVIDIA 发布 Magpie TTS：开源多语言低延迟语音合成模型",
+    "category": "AI模型发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 于 2026 年 8 月 10 日通过 Hugging Face 博客发布了 Magpie TTS 模型。",
+      "Magpie TTS 是一个开源的多语言文本到语音模型，旨在构建低延迟语音代理。",
+      "该模型开放权重，并提供完全部署控制。"
+    ],
+    "id": "story-93ea62c8a2cb2e6363d6",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents",
+    "product_names": [
+      "Magpie TTS"
+    ],
+    "published_at": "2026-08-10T16:25:36Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-5890b1cfd4cc38aa3885"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T16:25:36Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5890b1cfd4cc38aa3885",
+        "source_name": "Hugging Face Blog",
+        "source_type": "rss",
+        "title": "Build Low-Latency Multilingual Voice Agents: Open Weights & Full Deployment Control with NVIDIA Magpie TTS",
+        "url": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "博客标题未提供模型性能的具体数据。",
+      "支持的语言列表未在标题中明确说明。",
+      "完全部署控制的具体细节未知。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "Advisor UI 的推出标志着 Google 正在将生成式 AI 更紧密地整合到其核心营销产品中，以帮助广告主优化投放和分析。",
+      "该工具可能利用大型语言模型来提供对话式界面和智能建议，降低使用门槛。"
+    ],
+    "canonical_title": "借助新AI工具实现营销进化",
+    "category": "AI工具",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 在 Google Ads 和 Google Analytics 中推出了名为 Advisor UI 的新 AI 工具。",
+      "此次更新于 2026 年 8 月 10 日通过 Google AI 官方博客宣布，作者为 Josh Moser。"
+    ],
+    "id": "story-bcd40df5979cd9c1bcd2",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/",
+    "product_names": [
+      "Google Ads",
+      "Google Analytics",
+      "Advisor UI"
+    ],
+    "published_at": "2026-08-10T14:30:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-013cf06e857ce80e8c35"
+    ],
+    "source_refs": [
+      {
+        "author": "Josh Moser",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T14:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-013cf06e857ce80e8c35",
+        "source_name": "Google AI",
+        "source_type": "rss",
+        "title": "Evolve your marketing with new AI tools",
+        "url": "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "Advisor UI 的具体功能细节、支持的语言和完整推出时间表尚未披露。",
+      "该功能目前是否对所有 Google Ads 或 Analytics 用户开放，还是仅限部分测试用户，尚不明确。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "此次发布表明 OpenAI 正进一步拓展其在网络安全领域的专用 AI 能力，旨在帮助安全研究人员更快发现和验证漏洞，缩短网络防御窗口。"
+    ],
+    "canonical_title": "OpenAI 发布网络安全专用模型 GPT-5.6-Cyber 并通过 Daybreak Red 提供服务",
+    "category": "AI模型发布与网络安全",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了 GPT-5.6-Cyber 模型，这是一个网络安全专用模型。",
+      "该模型通过 Daybreak Red 提供，用于授权的漏洞研究、漏洞利用验证和安全测试。",
+      "消息来源于 OpenAI 官方网站。"
+    ],
+    "id": "story-0c2e7c78dac48c4fdb5f",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows",
+    "product_names": [
+      "GPT-5.6-Cyber",
+      "Daybreak Red"
+    ],
+    "published_at": "2026-08-10T10:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-081601c279be28d3ef5a"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-081601c279be28d3ef5a",
+        "source_name": "OpenAI News",
+        "source_type": "rss",
+        "title": "Expanding Daybreak as the Cyber Defense Window Narrows",
+        "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "人工智能模型",
+      "网络安全"
+    ],
+    "uncertainties": [
+      "目前尚不清楚该模型的具体性能指标、定价以及是否对所有 Daybreak Red 用户开放。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "Muse Glimmer 是 Meta 首个由 Meta Superintelligence Labs 发布的模型，表明 Meta 在开源 AI 模型尤其是面向代理场景的本地模型上的战略布局。",
+      "Ollama 作为流行的本地模型部署平台，迅速集成该模型，有助于扩大其用户基础和生态系统。",
+      "初期仅支持 Apple Silicon 可能限制部分开发者，但承诺的多平台支持计划将缓解这一局限。"
+    ],
+    "canonical_title": "Ollama v0.32.7 发布，引入 Meta 的 Muse Glimmer 30B 多模态本地代理模型",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Meta",
+      "Meta Superintelligence Labs",
+      "Ollama"
+    ],
+    "facts": [
+      "Meta 旗下的 Meta Superintelligence Labs 发布了新开源模型 Muse Glimmer。",
+      "Muse Glimmer 是一个 30B 参数的多模态模型，专为在本地运行的代理工作负载而构建。",
+      "Ollama v0.32.7 开始支持 Muse Glimmer，初期通过 MLX 引擎在 Apple Silicon 上提供支持，并启用了 DFlash 和图像输入。",
+      "目前可通过命令 'ollama run muse-glimmer:30b-mlx' 在 Ollama 上下载并运行该模型。",
+      "Ollama 支持将 Muse Glimmer 与 Claude Code、Codex、Pi、OpenClaw 和 Hermes 等代理应用和框架结合使用。",
+      "未来几天内将增加对 NVIDIA、AMD 等平台的支持和优化。"
+    ],
+    "id": "story-ff9cf389e2cc16799a45",
+    "importance_score": 0.7,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.32.7",
+    "product_names": [
+      "Muse Glimmer",
+      "Ollama",
+      "MLX Engine",
+      "Claude Code",
+      "Codex",
+      "Pi",
+      "OpenClaw",
+      "Hermes"
+    ],
+    "published_at": "2026-08-10T10:49:15Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-fc56b4dc8dcc32f12ee4"
+    ],
+    "source_refs": [
+      {
+        "author": "dhiltgen",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T10:49:15Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-fc56b4dc8dcc32f12ee4",
+        "source_name": "GitHub · ollama/ollama",
+        "source_type": "github",
+        "title": "ollama/ollama: v0.32.7",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.32.7"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.32.7"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "对其他平台（NVIDIA、AMD 等）的支持和优化虽已预告在未来几天内提供，但具体的发布日期、性能表现和优化程度尚未明确。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "这篇博客文章突显了 OpenAI 在内部使用 AI 实现财务运营现代化的实践，可能作为其他企业的参考。"
+    ],
+    "canonical_title": "OpenAI CFO 分享构建 AI 原生财务体系的五条经验",
+    "category": "AI",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 首席财务官 Sarah Friar 在 OpenAI 博客上分享了构建 AI 原生财务职能的五条经验。",
+      "这些经验包括自动化预测、更强的控制以及 AI 投资回报率。"
+    ],
+    "id": "story-742028f095f17366bd6e",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/building-an-ai-native-finance-function",
+    "product_names": [],
+    "published_at": "2026-08-10T17:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-5367cc95a8fd98172eb1"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5367cc95a8fd98172eb1",
+        "source_name": "OpenAI News",
+        "source_type": "rss",
+        "title": "What building an AI-native finance function taught me",
+        "url": "https://openai.com/index/building-an-ai-native-finance-function"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/building-an-ai-native-finance-function"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI-native finance",
+      "automated forecasting",
+      "AI ROI",
+      "controls"
+    ],
+    "uncertainties": [
+      "摘要中未提供这五条经验的完整细节。",
+      "OpenAI 在财务职能中整合 AI 的程度未明确说明。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "此举可能简化开发者在 Cloudflare 边缘网络上部署和管理 AI 服务的流程。",
+      "统一的控制平面有望提升 AI 工作负载的可观测性和治理能力。"
+    ],
+    "canonical_title": "Cloudflare 将 Workers AI 与 AI Gateway 统一为单一 AI 控制平面",
+    "category": "AI & Infrastructure",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Cloudflare"
+    ],
+    "facts": [
+      "Cloudflare 宣布将 Workers AI 与 AI Gateway 整合为统一的 AI 控制平面。"
+    ],
+    "id": "story-949166de81af3c0aa9bf",
+    "importance_score": 0.6,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://blog.cloudflare.com/workers-ai-gateway-unification/",
+    "product_names": [
+      "Workers AI",
+      "AI Gateway",
+      "AI Control Plane"
+    ],
+    "published_at": "2026-08-11T00:01:46Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-61f319dda1dd38532174"
+    ],
+    "source_refs": [
+      {
+        "author": "c_f_",
+        "discussion_url": "https://news.ycombinator.com/item?id=49251541",
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-11T00:01:46Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-61f319dda1dd38532174",
+        "source_name": "Hacker News",
+        "source_type": "hacker_news",
+        "title": "Unifying Workers AI and AI Gateway into a Single AI Control Plane",
+        "url": "https://blog.cloudflare.com/workers-ai-gateway-unification/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/workers-ai-gateway-unification/",
+      "https://news.ycombinator.com/item?id=49251541"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI",
+      "Edge Computing",
+      "Cloudflare"
+    ],
+    "uncertainties": [
+      "此次统一对现有 Workers AI 和 AI Gateway 的定价与功能有何具体影响尚不明确。",
+      "新控制平面何时全面上线及迁移路径未在摘要中提及。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Model ML 借助 GPT-5.6 Sol 提升金融工作效率",
+    "category": "AI应用",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Model ML",
+      "OpenAI"
+    ],
+    "facts": [
+      "Model ML 使用 GPT-5.6 Sol 完成金融工作，从研究和分析到可编辑、可追溯的 PowerPoint 演示文稿和 Excel 工作簿。"
+    ],
+    "id": "story-d3926a2dad88fcce079f",
+    "importance_score": 0.6,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/model-ml",
+    "product_names": [
+      "GPT-5.6 Sol",
+      "PowerPoint",
+      "Excel"
+    ],
+    "published_at": "2026-08-10T12:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-95f74aeac90a93bb12ce"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-95f74aeac90a93bb12ce",
+        "source_name": "OpenAI News",
+        "source_type": "rss",
+        "title": "Model ML completes finance work more efficiently with GPT-5.6 Sol",
+        "url": "https://openai.com/index/model-ml"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/model-ml"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI模型",
+      "金融科技",
+      "办公自动化"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "此版本大幅扩展了对多模态和前沿模型的支持，Muse Glimmer 针对智能体场景设计，Apache 2.0 许可便于本地隐私敏感部署。",
+      "破坏性变更涉及内核、缓存和注意力机制，现有用户需仔细检查代码兼容性。",
+      "注意力机制的修复与优化将提升模型性能和稳定性。"
+    ],
+    "canonical_title": "Hugging Face Transformers v5.15.0 发布",
+    "category": "软件发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Hugging Face",
+      "Meta",
+      "SKT"
+    ],
+    "facts": [
+      "2026年8月10日，Hugging Face 发布 Transformers 库 v5.15.0 版本。",
+      "新增 Meta 的多模态模型 Muse Glimmer，拥有 30B 参数（2B 视觉编码器 + 28B 文本解码器），基于 Muse 蒸馏，Apache 2.0 许可。",
+      "新增 IBM Granite 系列模型 GraniteMoeSWA 和 GraniteSWA 支持。",
+      "新增 SKT 的 A.X-K1 和 A.X-K2 模型支持。",
+      "新增 Cosmos3 Edge 模型支持（开发公司未提及）。",
+      "破坏性变更：线性注意力模型的内核现需显式启用；缓存裁剪 API 仅接受负值偏移；T5 及衍生模型默认注意力实现变更，可回退至 eager 模式；多个私有辅助函数被移除。",
+      "注意力机制改进：修复了 MLA 缓存压缩错误，优化了 Flash Attention 最大序列长度计算，修复了 CTRL flex-attention 和 SDPA 预填充问题。"
+    ],
+    "id": "story-d8295bb7ad2f3f446f1d",
+    "importance_score": 0.5,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.15.0",
+    "product_names": [
+      "Muse Glimmer",
+      "GraniteMoeSWA",
+      "GraniteSWA",
+      "A.X-K1",
+      "A.X-K2",
+      "Cosmos3 Edge",
+      "Transformers"
+    ],
+    "published_at": "2026-08-10T10:28:13Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-c07a67b182a2b19fe525"
+    ],
+    "source_refs": [
+      {
+        "author": "LysandreJik",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T10:28:13Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-c07a67b182a2b19fe525",
+        "source_name": "GitHub · huggingface/transformers",
+        "source_type": "github",
+        "title": "huggingface/transformers: Release: v5.15.0",
+        "url": "https://github.com/huggingface/transformers/releases/tag/v5.15.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/huggingface/transformers/releases/tag/v5.15.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "open_source",
+      "multimodal",
+      "software_release"
+    ],
+    "uncertainties": [
+      "Cosmos3 Edge 模型的开发公司未在发布说明中明确提及。",
+      "部分破坏性变更可能对未阅读发布说明的用户造成突发影响。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "Ollama 新版本增加 Muse Glimmer 支持，表明项目正在持续扩展其模型生态，并针对不同硬件平台进行优化。",
+      "Muse Glimmer 可能是一个新的大型语言模型，但发布说明未提供其来源或特性细节。"
+    ],
+    "canonical_title": "Ollama 发布 v0.32.8-rc0 版本，新增 Muse Glimmer 模型支持",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "ollama/ollama",
+      "Muse Glimmer"
+    ],
+    "facts": [
+      "Ollama 于 2026 年 8 月 10 日发布了 v0.32.8-rc0 候选版本。",
+      "该版本新增了对 Muse Glimmer 模型的支持。",
+      "新增的 Muse Glimmer 支持涵盖 NVIDIA、AMD 及其他平台。",
+      "此版本基于 v0.32.7 构建。"
+    ],
+    "id": "story-87c58a5ea7374fbc1a3b",
+    "importance_score": 0.3,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.32.8-rc0",
+    "product_names": [
+      "Ollama"
+    ],
+    "published_at": "2026-08-10T23:49:29Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-a4953a370b46c76ff9f3"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T23:49:29Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-a4953a370b46c76ff9f3",
+        "source_name": "GitHub · ollama/ollama",
+        "source_type": "github",
+        "title": "ollama/ollama: v0.32.8",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.32.8-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.32.8-rc0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "Muse Glimmer 模型的具体来源、参数规模和能力未知。",
+      "发布说明中 'additional platforms' 的具体范围未明确。",
+      "该候选版本是否会成为最终稳定版尚不确定。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "这一举措可能旨在确保强大的网络模型得到负责任的使用，仅由经过审查的合作伙伴操作，以降低网络安全领域滥用的风险。"
+    ],
+    "canonical_title": "OpenAI 向获批准的 Daybreak 合作伙伴开放前沿网络模型",
+    "category": "AI & Cybersecurity",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "Daybreak"
+    ],
+    "facts": [
+      "2026年8月10日，OpenAI 宣布获批准的 Daybreak 合作伙伴可以使用其前沿网络模型，向客户提供受授权和治理的网络安全服务。"
+    ],
+    "id": "story-d1b1b989ff83288eadc2",
+    "importance_score": 0.4,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands",
+    "product_names": [],
+    "published_at": "2026-08-10T10:00:00Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-29b0e61ec6cd1ed38342"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-29b0e61ec6cd1ed38342",
+        "source_name": "OpenAI News",
+        "source_type": "rss",
+        "title": "Putting frontier cyber models in more trusted hands",
+        "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "cybersecurity"
+    ],
+    "uncertainties": [
+      "具体获批准的 Daybreak 合作伙伴身份和数量未披露。",
+      "前沿网络模型的具体功能和限制未详细说明。"
+    ],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 就负责任 AI 基础设施致信得克萨斯州州长 Greg Abbott",
+    "category": "AI基础设施",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "Greg Abbott",
+      "Texas"
+    ],
+    "facts": [
+      "2026年8月10日，OpenAI 在其官网发布了致得克萨斯州州长 Greg Abbott 的公开信。",
+      "信中表达了对得州负责任 AI 基础设施建设的承诺，支持可靠、透明、惠及得州居民的增长。"
+    ],
+    "id": "story-ea7e599b275cba2d293f",
+    "importance_score": 0.2,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://openai.com/index/responsible-ai-infrastructure-texas",
+    "product_names": [],
+    "published_at": "2026-08-10T14:00:00Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-3d196224ab27a2df369c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T14:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-3d196224ab27a2df369c",
+        "source_name": "OpenAI News",
+        "source_type": "rss",
+        "title": "OpenAI’s letter to Governor Abbott on responsible AI infrastructure in Texas",
+        "url": "https://openai.com/index/responsible-ai-infrastructure-texas"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/responsible-ai-infrastructure-texas"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI基础设施",
+      "负责任AI"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  },
+  {
+    "analysis": [
+      "此次更新旨在提升用户在使用 Copilot Chat 时的便捷性，通过优化对话管理，可能提高开发者的效率。"
+    ],
+    "canonical_title": "Copilot web 版扩展对话控制功能",
+    "category": "AI 编程",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub",
+      "Copilot"
+    ],
+    "facts": [
+      "GitHub 对 github.com 上的 Copilot Chat 进行了改进，使其更易于使用。",
+      "新增功能包括更便捷地访问最近的聊天记录，以及能够最小化聊天窗口。"
+    ],
+    "id": "story-44fe91f59ec2a13bc5a4",
+    "importance_score": 0.1,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls",
+    "product_names": [
+      "GitHub Copilot Chat"
+    ],
+    "published_at": "2026-08-10T14:27:04Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-ab125d750c6e47e38562"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-11T00:04:52.701733Z",
+        "published_at": "2026-08-10T14:27:04Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-ab125d750c6e47e38562",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "Copilot on web expands conversation controls",
+        "url": "https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 编程",
+      "开源人工智能"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z"
+  }
+]

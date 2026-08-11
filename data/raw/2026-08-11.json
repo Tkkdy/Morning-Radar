@@ -1,0 +1,1358 @@
+[
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "OpenAI sent Governor Greg Abbott a letter outlining its commitment to responsible AI infrastructure in Texas. The letter supports reliable, transparent growth that benefits Texans.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-3d196224ab27a2df369c",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T14:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "OpenAI sent Governor Greg Abbott a letter outlining its commitment to responsible AI infrastructure in Texas. The letter supports reliable, transparent growth that benefits Texans.",
+    "title": "OpenAI’s letter to Governor Abbott on responsible AI infrastructure in Texas",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/responsible-ai-infrastructure-texas"
+  },
+  {
+    "author": "LysandreJik",
+    "company_candidates": [],
+    "content_excerpt": "# Release v5.15.0 ## New Model additions ### Meta Muse Glimmer Muse Glimmer, released today, is Meta’s new multimodal model, especially designed for agentic use cases. Distilled from Muse to 30B parameters, and released under the Apache 2.0 license, it can be deployed to local setups for privacy-aware applications such as coding, document analysis, personal assistants, Claw- or Hermes-like setups. Muse Glimmer is a dense 30B parameter model consisting of: - 2B ViT-style encoder for vision (Perception Encoder) - 28B parameter text decoder We're covering it in the following blogpost: http://hf.co/blog/muse-glimmer <img width=\"960\" height=\"1787\" alt=\"image\" src=\"https://github.com/user-attachments/assets/3d8e548e-f84f-4269-8bd0-a12722d7ab01\" /> --- ### GraniteMoeSWA & GraniteSWA <img width=\"1013\" height=\"389\" alt=\"image\" src=\"https://github.com/user-attachments/assets/2c2b87f0-466a-413a-a4be-25ceae49c9a5\" /> **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/granitemoe_swa) * Add Granite-swa and Granitemoe-swa model support (#47179) by @daviswer in [#47179](https://github.com/huggingface/transformers/pull/47179) **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/granite_swa) * Add Granite-swa and Granitemoe-swa model support (#47179) by @daviswer in [#47179](https://github.com/huggingface/transformers/pull/47179) --- ### A.X-K1 & A.X-K2 <img width=\"580\" height=\"319\" alt=\"image\" src=\"https://github.com/user-attachments/assets/a20665bb-43ee-4af0-bb6f-80da495ea4f3\" /> **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/axk2) * Add AXK2 from SKT (#47528) by @vasqu in [#47528](https://github.com/huggingface/transformers/pull/47528) **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/axk1) * add_axk1 (#46867) by @kmswin1 in [#46867](https://github.com/huggingface/transformers/pull/46867) --- ### Cosmos3 Edge <img width=\"1280\" height=\"720\" alt=\"image\" src=\"https://github.com/user-attachments/assets/16e41b90-11a5-4f22-8c56-11162b9c0a5f\" /> **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model_doc/cosmos3_edge) * Add Cosmos3 Edge model support (#47181) by @atharvajoshi10 in [#47181](https://github.com/huggingface/transformers/pull/47181) ## Breaking changes Kernels are now opt-in rather than mandatory for linear attention models (Mamba, GDN, Conv-only, etc.), so users who relied on automatic kernel selection must explicitly enable kernels to maintain previous behavior. * 🚨 [`Kernels`] Refactor all linear attn models & native kernels fallback (#47630) by @vasqu The cache cropping API now only accepts negative values (relative offsets) instead of absolute sizes, so users calling crop methods directly must update their code to pass negative values accordingly. * 🚨 [cache] Cropping can only be done with negative values (#47720) by @Cyrilvallez T5 and its model family (MT5, LongT5, etc.) now support SDPA and other attention backends via `ALL_ATTENTION_FUNCTIONS`, meaning the default attention implementation may change and users relying on the previous eager-only path should explicitly set `attn_implementation=\"eager\"` if needed. * 🚨 Enable SDPA (and other attention backends) for T5 and propagate to the T5 family (#47014) by @jiqing-feng Several small private helper functions (e.g., `_is_url`, `_build_image_tokens`) have been removed from multimodal processor files, so users or downstream libraries that imported these private functions directly must remove or replace those references. * :rotating_light: Processors update the rest (#46556) by @zucchini-nlp ## Attention This release includes several attention fixes and improvements, including correcting Multi-Head Latent Attention (MLA) cache compression, optimizing Flash Attention max sequence length computation in vision models, and fixing bugs in CTRL flex-attention and SDPA prefill with position bias. Additional changes refactor ",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-c07a67b182a2b19fe525",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 34181,
+      "official": true,
+      "open_issues": 2362,
+      "priority": "high",
+      "repository": "huggingface/transformers",
+      "stars": 163558,
+      "stars_delta_24h": 55,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.00033638526510216936,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-10T10:28:13Z",
+    "repository_candidates": [
+      "huggingface/transformers"
+    ],
+    "source_name": "GitHub · huggingface/transformers",
+    "source_type": "github",
+    "summary": "# Release v5.15.0 ## New Model additions ### Meta Muse Glimmer Muse Glimmer, released today, is Meta’s new multimodal model, especially designed for agentic use cases. Distilled from Muse to 30B parameters, and released under the Apache 2.0 license, it can be deployed to local setups for privacy-aware applications such as coding, document analysis, personal assistants, Claw- or Hermes-like setups. Muse Glimmer is a dense 30B parameter model consisting of: - 2B ViT-style encoder for vision (Perception Encoder) - 28B parameter text decoder We're covering it in the following blogpost: http://hf.co/blog/muse-glimmer <img width=\"960\" height=\"1787\" alt=\"image\" src=\"https://github.com/user-attachments/assets/3d8e548e-f84f-4269-8bd0-a12722d7ab01\" /> --- ### GraniteMoeSWA & GraniteSWA <img width=\"1013\" height=\"389\" alt=\"image\" src=\"https://github.com/user-attachments/assets/2c2b87f0-466a-413a-a4be-25ceae49c9a5\" /> **Links:** [Documentation](https://huggingface.co/docs/transformers/main/en/model",
+    "title": "huggingface/transformers: Release: v5.15.0",
+    "topic_candidates": [
+      "ai_models",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/huggingface/transformers/releases/tag/v5.15.0"
+  },
+  {
+    "author": "riordan",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-a287a9892573c6dbbca5",
+    "language": "en",
+    "metadata": {
+      "comments": 561,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49241679",
+      "official": false,
+      "original_url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model",
+      "score": 996,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-10T10:10:02Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Muse Glimmer: 30B-parameter model optimized for always-on local agent workflows",
+    "topic_candidates": [],
+    "url": "https://research.meta.ai/blog/introducing-muse-glimmer-open-agentic-model"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "NVIDIA"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-a3ea72a453bae2ec4e7f",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.02862119784760874,
+      "close": 217.5500030517578,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 223.9600067138672,
+      "ticker": "NVDA",
+      "trading_date": "2026-08-10",
+      "volume": 108135773.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "NVIDIA 最近交易日收盘下跌 2.86%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/NVDA/"
+  },
+  {
+    "author": "Josh Moser",
+    "company_candidates": [],
+    "content_excerpt": "Advisor UI in Google Ads and Google Analytics",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-013cf06e857ce80e8c35",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "google_ai"
+    },
+    "published_at": "2026-08-10T14:30:00Z",
+    "repository_candidates": [],
+    "source_name": "Google AI",
+    "source_type": "rss",
+    "summary": "Advisor UI in Google Ads and Google Analytics",
+    "title": "Evolve your marketing with new AI tools",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.google/products/ads-commerce/google-ads-analytics-ai-updates/"
+  },
+  {
+    "author": "khluu",
+    "company_candidates": [],
+    "content_excerpt": "# vLLM v0.27.0 Release Notes ## Highlights This release features 561 commits from 242 contributors (64 new)! * **Kimi K3 support** with a full stack landing in one release: core model files and kernels (#50089, #50000), Python (#50093) and Rust (#50104) frontends, AttnRes kernels (#50090), DeepGEMM support (#50458), compressed-tensors quantized checkpoints (#50500), DSpark AR fusion (#50242), and an option to shard the shared expert instead of replicating it (#50656). * **More new models**: Qwen3.5 text-only dense and MoE models (#50210) with EVS video token pruning (#48912), K-EXAONE-2.0-750B-A37B (#50524), VaultGemma via the Transformers modeling backend (#49803), and jina-embeddings-v5-text-nano (#50688). * **PyTorch 2.13.0 upgrade** along with torchvision 0.28.0 and Triton 3.7.1 (#48155) — this is a breaking environment change; XPU (#48677) and CPU (#50412) followed to torch 2.13 as well. * **FlashAttention 4 integration deepens on SM100**: FP8 KV cache support (#42569) and headdim-256 support (#42669), backed by a new JIT warmup infrastructure (#47451) and runner-owned Triton kernel warmup (#49903) that remove first-request compilation stalls. * **DeepSeek-V4 performance push**: sequence parallelism (#46789), ~2x kernel improvement by skipping empty c128 launches (#48957), 3.4% E2E TTFT from skipping unneeded topk/router (#49486), 3.9% E2E TTFT from workspace reuse (#49236), 1.88x kernel from removing a redundant full kernel (#50298), adaptive topk width (1.0% E2E, #50004), 448 MiB GPU memory saved in the PP buffer (#50312), a compact MXFP4 indexer KV cache (#48993), and removal of sparse-MLA q-head padding on FlashInfer >= 0.6.14 (#48047). * **Model Runner V2 expands to non-generative workloads**: encoder-only attention (#49331), sequence pooling for embedding/classification (#48791), encoder token classification (#50293) and token embedding (#50574), BGE-M3 pooling (#50661), multimodal on CPU (#50073), a multi-layer MTP speculator (#48892), and PCP now selects MRV2 (#50034). * **Resilient large-scale serving**: a (simplified) fault tolerance framework for DP+EP external load-balancer deployments (#44428) and async preparation for elastic EP scaling (#47288). * **Disaggregation for hybrid models**: NIXL P/D for hybrid MLA+SSM models (#49762), heterogeneous P/D block sizes for hybrid models (#49612), and MoRIIO heterogeneous TP<->DP prefill/decode read routing (#46116). * **Rust frontend grows a gRPC control plane**: engine-aware health reporting (#48992), abort control (#49255), server and model discovery (#49491), KV event source discovery (#50033), plus `vllm-bench` integrated into the `vllm` CLI (#48930). * **Early next-gen hardware enablement**: `sm_107` target for NVIDIA Rubin (#49387) with NVLink all-reduce paths on SM107 (#49647), and ROCm gfx1250 architecture enabled (#46516). ### Model Support * Kimi K3: new model (#50000) with model files and kernels (#50089), Python frontend (#50093), Rust frontend (#50104), AttnRes kernels (#50090), DeepGEMM support (#50458), DSpark AR fusion (#50242), and optional shared-expert sharding (#50656). * New models: Qwen3.5 text-only dense and MoE (#50210), K-EXAONE-2.0-750B-A37B (#50524), VaultGemma via Transformers backend (#49803), jina-embeddings-v5-text-nano with EuroBERT encoder backbone (#50688). * Inkling: llm-compressor NVFP4 weights (#49258) and compressed-tensors dynamic FP8 (#48876). * Multimodal: VidCom2 video token pruning (#47750), EVS for Qwen3.5 (#48912), ViT CUDA graph for Gemma-4 (#46837), Cosmos3 FP8 ModelOpt/Diffusers remapping (#48952), MiniMax-M3 MSA speculative decode verification (#50032) and default video processor (#50305), DeepSeek-OCR-2 TTFT optimization (#49531), longer max audio duration for MOSS-TD (#49403). * Diffusion models: top_k and top_p sampling for DiffusionGemma (#45429). * Transformers modeling backend: audio model support (#39330), improved `fx` tracer (#49957), fused residual-add + RMSNorm compilation pass (#48757), and fixes for MLA pad",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-dbf531300b29212a0707",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 20511,
+      "official": true,
+      "open_issues": 6441,
+      "priority": "high",
+      "repository": "vllm-project/vllm",
+      "stars": 88702,
+      "stars_delta_24h": 94,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0010608522932466595,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-10T21:18:11Z",
+    "repository_candidates": [
+      "vllm-project/vllm"
+    ],
+    "source_name": "GitHub · vllm-project/vllm",
+    "source_type": "github",
+    "summary": "# vLLM v0.27.0 Release Notes ## Highlights This release features 561 commits from 242 contributors (64 new)! * **Kimi K3 support** with a full stack landing in one release: core model files and kernels (#50089, #50000), Python (#50093) and Rust (#50104) frontends, AttnRes kernels (#50090), DeepGEMM support (#50458), compressed-tensors quantized checkpoints (#50500), DSpark AR fusion (#50242), and an option to shard the shared expert instead of replicating it (#50656). * **More new models**: Qwen3.5 text-only dense and MoE models (#50210) with EVS video token pruning (#48912), K-EXAONE-2.0-750B-A37B (#50524), VaultGemma via the Transformers modeling backend (#49803), and jina-embeddings-v5-text-nano (#50688). * **PyTorch 2.13.0 upgrade** along with torchvision 0.28.0 and Triton 3.7.1 (#48155) — this is a breaking environment change; XPU (#48677) and CPU (#50412) followed to torch 2.13 as well. * **FlashAttention 4 integration deepens on SM100**: FP8 KV cache support (#42569) and headdim",
+    "title": "vllm-project/vllm: v0.27.0",
+    "topic_candidates": [
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.0"
+  },
+  {
+    "author": "c_f_",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-61f319dda1dd38532174",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49251541",
+      "official": false,
+      "original_url": "https://blog.cloudflare.com/workers-ai-gateway-unification/",
+      "score": 1,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-11T00:01:46Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Unifying Workers AI and AI Gateway into a Single AI Control Plane",
+    "topic_candidates": [],
+    "url": "https://blog.cloudflare.com/workers-ai-gateway-unification/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Microsoft"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-95d69a425ffa7f927aa1",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.012140257690705722,
+      "close": 506.05999755859375,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 499.989990234375,
+      "ticker": "MSFT",
+      "trading_date": "2026-08-10",
+      "volume": 31137345.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Microsoft 最近交易日收盘上涨 1.21%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/MSFT/"
+  },
+  {
+    "author": "Allison",
+    "company_candidates": [],
+    "content_excerpt": "We’ve made improvements to Copilot Chat on github.com that make it easier to use. These include easier access to your recent conversations in chat, the ability to minimize the chat… The post Copilot on web expands conversation controls appeared first on The GitHub Blog .",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-ab125d750c6e47e38562",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "github_changelog"
+    },
+    "published_at": "2026-08-10T14:27:04Z",
+    "repository_candidates": [],
+    "source_name": "GitHub Changelog",
+    "source_type": "rss",
+    "summary": "We’ve made improvements to Copilot Chat on github.com that make it easier to use. These include easier access to your recent conversations in chat, the ability to minimize the chat… The post Copilot on web expands conversation controls appeared first on The GitHub Blog .",
+    "title": "Copilot on web expands conversation controls",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.blog/changelog/2026-08-10-copilot-on-web-expands-conversation-controls"
+  },
+  {
+    "author": "github-actions[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## What's Changed * Add Muse Glimmer support for NVIDIA, AMD, and additional platforms **Full Changelog**: https://github.com/ollama/ollama/compare/v0.32.7...v0.32.8-rc0",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-a4953a370b46c76ff9f3",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 17342,
+      "official": true,
+      "open_issues": 3667,
+      "priority": "high",
+      "repository": "ollama/ollama",
+      "stars": 178232,
+      "stars_delta_24h": 95,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0005332974059291444,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-10T23:49:29Z",
+    "repository_candidates": [
+      "ollama/ollama"
+    ],
+    "source_name": "GitHub · ollama/ollama",
+    "source_type": "github",
+    "summary": "## What's Changed * Add Muse Glimmer support for NVIDIA, AMD, and additional platforms **Full Changelog**: https://github.com/ollama/ollama/compare/v0.32.7...v0.32.8-rc0",
+    "title": "ollama/ollama: v0.32.8",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/ollama/ollama/releases/tag/v0.32.8-rc0"
+  },
+  {
+    "author": "laurentiurad",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-6f1e1333262e4b98b0ed",
+    "language": "en",
+    "metadata": {
+      "comments": 529,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49234675",
+      "official": false,
+      "original_url": "https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/",
+      "score": 792,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-09T19:16:49Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "How I use LLMs to learn complex topics",
+    "topic_candidates": [],
+    "url": "https://laurentiugabriel.github.io/blog/articles/how-i-use-llms-to-learn/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Alphabet"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-82d8fc7cd122ff515e29",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.009088346970490716,
+      "close": 357.5199890136719,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 354.29998779296875,
+      "ticker": "GOOGL",
+      "trading_date": "2026-08-10",
+      "volume": 18914905.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Alphabet 最近交易日收盘上涨 0.91%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/GOOGL/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-5890b1cfd4cc38aa3885",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "hugging_face_blog"
+    },
+    "published_at": "2026-08-10T16:25:36Z",
+    "repository_candidates": [],
+    "source_name": "Hugging Face Blog",
+    "source_type": "rss",
+    "summary": "",
+    "title": "Build Low-Latency Multilingual Voice Agents: Open Weights & Full Deployment Control with NVIDIA Magpie TTS",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://huggingface.co/blog/nvidia/magpie-tts-multilingual-voice-agents"
+  },
+  {
+    "author": "dhiltgen",
+    "company_candidates": [],
+    "content_excerpt": "## Muse Glimmer > Note: Muse Glimmer is currently available via initial support via Ollama's MLX engine on Apple Silicon. Additional support and optimizations for Apple Silicon, NVIDIA, AMD, and other platforms will be available in the coming days. **Muse Glimmer**, Meta's newest open model and the first released by Meta Superintelligence Labs, is now available on Ollama. It's a 30B multimodal model purpose-built for agent workloads that run locally. With Ollama, you can now use Muse Glimmer to power coding agent applications such as Claude Code, Codex, Pi and more, as well as long-running personal assistants such as OpenClaw and Hermes. Ollama's MLX engine provides state-of-the-art performance on Apple Silicon for this model, with support for DFlash and image input as of Ollama 0.32.7. To download and run Muse Glimmer locally: ```bash ollama run muse-glimmer:30b-mlx ``` To run Muse Glimmer on Apple Silicon with Claude Code, [download Ollama](https://ollama.com/download) and run: ```bash ollama launch claude --model muse-glimmer:30b-mlx ``` For a lighter-weight coding agent, try [Pi](https://pi.dev): ```bash ollama launch pi --model muse-glimmer:30b-mlx ``` For personal assistant frameworks such as OpenClaw and Hermes, use: ```bash ollama launch openclaw --model muse-glimmer:30b-mlx ``` ```bash ollama launch hermes --model muse-glimmer:30b-mlx ```",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-fc56b4dc8dcc32f12ee4",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 17342,
+      "official": true,
+      "open_issues": 3667,
+      "priority": "high",
+      "repository": "ollama/ollama",
+      "stars": 178232,
+      "stars_delta_24h": 95,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0005332974059291444,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-10T10:49:15Z",
+    "repository_candidates": [
+      "ollama/ollama"
+    ],
+    "source_name": "GitHub · ollama/ollama",
+    "source_type": "github",
+    "summary": "## Muse Glimmer > Note: Muse Glimmer is currently available via initial support via Ollama's MLX engine on Apple Silicon. Additional support and optimizations for Apple Silicon, NVIDIA, AMD, and other platforms will be available in the coming days. **Muse Glimmer**, Meta's newest open model and the first released by Meta Superintelligence Labs, is now available on Ollama. It's a 30B multimodal model purpose-built for agent workloads that run locally. With Ollama, you can now use Muse Glimmer to power coding agent applications such as Claude Code, Codex, Pi and more, as well as long-running personal assistants such as OpenClaw and Hermes. Ollama's MLX engine provides state-of-the-art performance on Apple Silicon for this model, with support for DFlash and image input as of Ollama 0.32.7. To download and run Muse Glimmer locally: ```bash ollama run muse-glimmer:30b-mlx ``` To run Muse Glimmer on Apple Silicon with Claude Code, [download Ollama](https://ollama.com/download) and run: ```ba",
+    "title": "ollama/ollama: v0.32.7",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/ollama/ollama/releases/tag/v0.32.7"
+  },
+  {
+    "author": "root-parent",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-a6719973b10754468a77",
+    "language": "en",
+    "metadata": {
+      "comments": 358,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49243880",
+      "official": false,
+      "original_url": "https://www.ft.com/content/4e3957f8-ea7c-4c46-a3de-cdce8e526878",
+      "score": 337,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-10T14:06:22Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Mark Zuckerberg attacks 'closed' AI rivals as Meta returns to open models",
+    "topic_candidates": [],
+    "url": "https://www.ft.com/content/4e3957f8-ea7c-4c46-a3de-cdce8e526878"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Meta"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-a8b8544ed0091ce4af3f",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.0047627215681407395,
+      "close": 594.9199829101562,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 592.0999755859375,
+      "ticker": "META",
+      "trading_date": "2026-08-10",
+      "volume": 14317252.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Meta 最近交易日收盘上涨 0.48%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/META/"
+  },
+  {
+    "author": "Michelle Horton",
+    "company_candidates": [],
+    "content_excerpt": "Meta returns to the open source ecosystem with the release of Muse Glimmer, a 30B open-weight dense model with a 120K+ context window built for local AI...",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-c42703bc35a6b60354cd",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "nvidia_developer_blog"
+    },
+    "published_at": "2026-08-10T13:27:19Z",
+    "repository_candidates": [],
+    "source_name": "NVIDIA Developer Blog",
+    "source_type": "rss",
+    "summary": "Meta returns to the open source ecosystem with the release of Muse Glimmer, a 30B open-weight dense model with a 120K+ context window built for local AI...",
+    "title": "Run Local Agentic AI Workflows with Meta’s Muse Glimmer on NVIDIA",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "url": "https://developer.nvidia.com/blog/run-local-agentic-ai-workflows-with-metas-muse-glimmer-on-nvidia/"
+  },
+  {
+    "author": "HenryNdubuaku",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-83d52d3faa2f4487b67f",
+    "language": "en",
+    "metadata": {
+      "comments": 62,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49246804",
+      "official": false,
+      "original_url": "https://cactuscompute.com/needle",
+      "score": 114,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-10T17:22:07Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Show HN: Needle2: 14MB agentic LLM for phones, wearables, smart home and robots",
+    "topic_candidates": [],
+    "url": "https://cactuscompute.com/needle"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Amazon"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-06a433195bc406940a88",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.01315208833820075,
+      "close": 278.0899963378906,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 274.4800109863281,
+      "ticker": "AMZN",
+      "trading_date": "2026-08-10",
+      "volume": 34530747.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Amazon 最近交易日收盘上涨 1.32%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMZN/"
+  },
+  {
+    "author": "Kathy Liao",
+    "company_candidates": [],
+    "content_excerpt": "Our latest Agents Week has come to a close. Here’s a recap of all the announcements we made, from Wallets to Radar.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-56def65bda0a22c6cb78",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "priority": "medium",
+      "source_id": "cloudflare_blog"
+    },
+    "published_at": "2026-08-10T18:34:10Z",
+    "repository_candidates": [],
+    "source_name": "Cloudflare Blog",
+    "source_type": "rss",
+    "summary": "Our latest Agents Week has come to a close. Here’s a recap of all the announcements we made, from Wallets to Radar.",
+    "title": "Everything we launched during Agents Week",
+    "topic_candidates": [
+      "ai_coding",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.cloudflare.com/agents-week-review-august-2026/"
+  },
+  {
+    "author": "etoxin",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-91f31f8e8b7933c577dd",
+    "language": "en",
+    "metadata": {
+      "comments": 348,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49239751",
+      "official": false,
+      "original_url": "https://www.docker.com/products/docker-sandboxes/",
+      "score": 623,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-10T06:02:38Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Docker Sandboxes – Disposable, isolated sandboxes for AI agents",
+    "topic_candidates": [],
+    "url": "https://www.docker.com/products/docker-sandboxes/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Apple"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-63c9b699d3d5e412eaa6",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.016180949873660748,
+      "close": 308.260009765625,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 313.3299865722656,
+      "ticker": "AAPL",
+      "trading_date": "2026-08-10",
+      "volume": 43391681.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Apple 最近交易日收盘下跌 1.62%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/AAPL/"
+  },
+  {
+    "author": "Tim Fernholz",
+    "company_candidates": [],
+    "content_excerpt": "San Francisco's housing market is in trouble again.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-5ee9830f2c5d243594ce",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-11T00:03:18Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "San Francisco's housing market is in trouble again.",
+    "title": "OpenAI reportedly completed a $7 billion employee tender offer",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/10/openai-reportedly-completed-a-7-billion-employee-tender-offer/"
+  },
+  {
+    "author": "sagacity",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-c4b7811b7161dfcd5594",
+    "language": "en",
+    "metadata": {
+      "comments": 55,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49247477",
+      "official": false,
+      "original_url": "https://www.vectorware.com/blog/simd-on-gpu/",
+      "score": 110,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-10T18:12:49Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Rust SIMD on the GPU",
+    "topic_candidates": [],
+    "url": "https://www.vectorware.com/blog/simd-on-gpu/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "AMD"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-068b27b8ddf8709cb19c",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.028550124567989624,
+      "close": 469.55999755859375,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 483.3599853515625,
+      "ticker": "AMD",
+      "trading_date": "2026-08-10",
+      "volume": 19283602.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "AMD 最近交易日收盘下跌 2.86%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMD/"
+  },
+  {
+    "author": "Elizabeth Lopatto",
+    "company_candidates": [],
+    "content_excerpt": "Recently, a man I was rock climbing with told me about how he'd used AI to make a motivational poster for himself, which he'd hung on his bedroom wall: a bear, walking a slackline over a canyon, holding a sign that said, \"Do cool shit.\" I made what I hoped was a polite noise. What […]",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-d8f43f474508ca5ef850",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-10T18:00:00-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Recently, a man I was rock climbing with told me about how he'd used AI to make a motivational poster for himself, which he'd hung on his bedroom wall: a bear, walking a slackline over a canyon, holding a sign that said, \"Do cool shit.\" I made what I hoped was a polite noise. What […]",
+    "title": "Mark Zuckerberg doesn’t understand how to live",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/ai-artificial-intelligence/977623/mark-zuckerberg-ai-manifesto-dim-vision"
+  },
+  {
+    "author": "colesantiago",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-59bb0a1de1087ebfc4a2",
+    "language": "en",
+    "metadata": {
+      "comments": 173,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49242739",
+      "official": false,
+      "original_url": "https://bobdahacker.com/blog/tldv-hack",
+      "score": 523,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-10T12:26:05Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Tl;dv: Over 180k meetings left wide open",
+    "topic_candidates": [],
+    "url": "https://bobdahacker.com/blog/tldv-hack"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "TSMC"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-4074d4b9c3311047f8fd",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.003737756623845138,
+      "close": 418.4700012207031,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 420.0400085449219,
+      "ticker": "TSM",
+      "trading_date": "2026-08-10",
+      "volume": 11748369.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "TSMC 最近交易日收盘下跌 0.37%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSM/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Model ML uses GPT-5.6 Sol to carry finance work from research and analysis through editable, traceable PowerPoint decks and Excel workbooks.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-95f74aeac90a93bb12ce",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T12:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Model ML uses GPT-5.6 Sol to carry finance work from research and analysis through editable, traceable PowerPoint decks and Excel workbooks.",
+    "title": "Model ML completes finance work more efficiently with GPT-5.6 Sol",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/model-ml"
+  },
+  {
+    "author": "hipparchus",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-d053fbb45f1a33f2f31f",
+    "language": "en",
+    "metadata": {
+      "comments": 193,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49238561",
+      "official": false,
+      "original_url": "https://blog.teknogeek.io/posts/what-happened-to-hackerone/",
+      "score": 366,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-10T02:23:17Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "What Happened to HackerOne?",
+    "topic_candidates": [],
+    "url": "https://blog.teknogeek.io/posts/what-happened-to-hackerone/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Tesla"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-a58b9eac10929f147fe7",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.0069998734084220455,
+      "close": 330.8800048828125,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 328.5799865722656,
+      "ticker": "TSLA",
+      "trading_date": "2026-08-10",
+      "volume": 24364376.0
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Tesla 最近交易日收盘上涨 0.70%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSLA/"
+  },
+  {
+    "author": "Allison",
+    "company_candidates": [],
+    "content_excerpt": "Customers in India can now use eligible saved credit cards for automatic recurring payments on monthly and annual GitHub bills. This update uses a payment mandate, also known in the… The post GitHub billing in India now supports automatic recurring payments appeared first on The GitHub Blog .",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-98e86cd859462f44dd1a",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "github_changelog"
+    },
+    "published_at": "2026-08-10T14:00:58Z",
+    "repository_candidates": [],
+    "source_name": "GitHub Changelog",
+    "source_type": "rss",
+    "summary": "Customers in India can now use eligible saved credit cards for automatic recurring payments on monthly and annual GitHub bills. This update uses a payment mandate, also known in the… The post GitHub billing in India now supports automatic recurring payments appeared first on The GitHub Blog .",
+    "title": "GitHub billing in India now supports automatic recurring payments",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.blog/changelog/2026-08-10-github-billing-in-india-now-supports-automatic-recurring-payments"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-815edfe6383208a72cfe",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "hugging_face_blog"
+    },
+    "published_at": "2026-08-10T10:05:36Z",
+    "repository_candidates": [],
+    "source_name": "Hugging Face Blog",
+    "source_type": "rss",
+    "summary": "",
+    "title": "Making Knowledge Distillation Cheap Enough to Run at Scale",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://huggingface.co/blog/MultiverseComputingCAI/efficient-knowledge-distillation"
+  },
+  {
+    "author": "Jake Schaeufele",
+    "company_candidates": [],
+    "content_excerpt": "Cloudflare for Government achieves FedRAMP Class D (High) Certified status. We also announce our commitment to pursue DoD IL4 authorization. Cloudflare brings world-class security, performance, and developer products to the public sector.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-4b6d49951797b4ddb63d",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "priority": "medium",
+      "source_id": "cloudflare_blog"
+    },
+    "published_at": "2026-08-10T13:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Cloudflare Blog",
+    "source_type": "rss",
+    "summary": "Cloudflare for Government achieves FedRAMP Class D (High) Certified status. We also announce our commitment to pursue DoD IL4 authorization. Cloudflare brings world-class security, performance, and developer products to the public sector.",
+    "title": "Serving the most critical missions: Cloudflare for Government achieves FedRAMP Class D (High) Certified status",
+    "topic_candidates": [
+      "ai_coding",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.cloudflare.com/fedramp-class-d-certification/"
+  },
+  {
+    "author": "Lucas Ropek",
+    "company_candidates": [],
+    "content_excerpt": "OpenAI is expanding its AI cybersecurity defense program Daybreak, and rolling out a new cyber-trained AI model with it.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-55886623ca9bcaeb2c5d",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-10T23:56:15Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "OpenAI is expanding its AI cybersecurity defense program Daybreak, and rolling out a new cyber-trained AI model with it.",
+    "title": "As AI-led attacks multiply, OpenAI launches a new cyber model",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/10/as-ai-led-attacks-multiply-openai-launches-a-new-cyber-model/"
+  },
+  {
+    "author": "Jess Weatherbed",
+    "company_candidates": [],
+    "content_excerpt": "Meta CEO Mark Zuckerberg has a lot to say about the idealized future he now envisions for humanity co-existing with artificial intelligence - his latest essay spans more than 6,500 words on the matter. The lengthy manifesto Zuckerberg published on Monday, titled \"The Future is for Everyone,\" broadly lays out his beliefs about how the […]",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-031f329eef992fe509a6",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-10T11:19:05-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Meta CEO Mark Zuckerberg has a lot to say about the idealized future he now envisions for humanity co-existing with artificial intelligence - his latest essay spans more than 6,500 words on the matter. The lengthy manifesto Zuckerberg published on Monday, titled \"The Future is for Everyone,\" broadly lays out his beliefs about how the […]",
+    "title": "Four takeaways from Mark Zuckerberg’s massive AI manifesto",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/tech/977395/meta-mark-zuckerberg-superintelligent-ai-ramble"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "OpenAI CFO Sarah Friar shares five lessons for building an AI-native finance function, from automated forecasting to stronger controls and AI ROI.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-5367cc95a8fd98172eb1",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T17:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "OpenAI CFO Sarah Friar shares five lessons for building an AI-native finance function, from automated forecasting to stronger controls and AI ROI.",
+    "title": "What building an AI-native finance function taught me",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/building-an-ai-native-finance-function"
+  },
+  {
+    "author": "Allison",
+    "company_candidates": [],
+    "content_excerpt": "You’ll no longer be able to configure custom thread subscriptions for GitHub notifications. What’s changing As part of this rollout, GitHub will remove support for custom thread subscription settings. If… The post Custom thread subscriptions are being deprecated appeared first on The GitHub Blog .",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-490f1679526a86970f9e",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "github_changelog"
+    },
+    "published_at": "2026-08-10T12:45:49Z",
+    "repository_candidates": [],
+    "source_name": "GitHub Changelog",
+    "source_type": "rss",
+    "summary": "You’ll no longer be able to configure custom thread subscriptions for GitHub notifications. What’s changing As part of this rollout, GitHub will remove support for custom thread subscription settings. If… The post Custom thread subscriptions are being deprecated appeared first on The GitHub Blog .",
+    "title": "Custom thread subscriptions are being deprecated",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.blog/changelog/2026-08-10-custom-thread-subscriptions-are-being-deprecated"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-dfb586131bf3d3cb04b4",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "hugging_face_blog"
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Hugging Face Blog",
+    "source_type": "rss",
+    "summary": "",
+    "title": "Meta is back with Muse Glimmer: local, agentic, multimodal, and open source",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://huggingface.co/blog/muse-glimmer"
+  },
+  {
+    "author": "Russell Brandom",
+    "company_candidates": [],
+    "content_excerpt": "On Monday, Mark Zuckerberg published a 6,500-word manifesto about personal AI, largely about the possibilities for the \"personal superintelligence\" systems Meta AI is building.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-c453e87092289e290d6a",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-10T20:53:02Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "On Monday, Mark Zuckerberg published a 6,500-word manifesto about personal AI, largely about the possibilities for the \"personal superintelligence\" systems Meta AI is building.",
+    "title": "Mark Zuckerberg’s AI manifesto is exactly why people don’t like AI",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/10/mark-zuckerbergs-ai-manifesto-is-exactly-why-people-dont-like-ai/"
+  },
+  {
+    "author": "Nilay Patel",
+    "company_candidates": [],
+    "content_excerpt": "Today, I’m talking with Lila Snyder, who is the CEO of Bose. You certainly know Bose — it’s one of the most famous brands in all of consumer tech. The company started 60 years ago selling speakers to consumers, and its focus on research and development has led it to be a leader in both […]",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-4aee09f24a27698d8216",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-10T10:00:00-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Today, I’m talking with Lila Snyder, who is the CEO of Bose. You certainly know Bose — it’s one of the most famous brands in all of consumer tech. The company started 60 years ago selling speakers to consumers, and its focus on research and development has led it to be a leader in both […]",
+    "title": "What happens to Bose when headphones become AI?",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/podcast/975732/bose-ceo-lila-snyder-ai-wearables-licensing-headphones-audio"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Meet GPT-5.6-Cyber, OpenAI’s cybersecurity-specific model available through Daybreak Red for authorized vulnerability research, exploit validation, and security testing.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-081601c279be28d3ef5a",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T10:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Meet GPT-5.6-Cyber, OpenAI’s cybersecurity-specific model available through Daybreak Red for authorized vulnerability research, exploit validation, and security testing.",
+    "title": "Expanding Daybreak as the Cyber Defense Window Narrows",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows"
+  },
+  {
+    "author": "Julie Bort",
+    "company_candidates": [],
+    "content_excerpt": "An OpenClaw agent hacked into a gym's reservation system to bump its human boss higher on a class' waitlist. And the tech industry took notice.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-36a4c5df817189dc2f5a",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-10T20:04:24Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "An OpenClaw agent hacked into a gym's reservation system to bump its human boss higher on a class' waitlist. And the tech industry took notice.",
+    "title": "Tech industry is buzzing after a Claude agent hacked into a gym",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/10/tech-industry-is-buzzing-after-a-claude-agent-hacked-into-a-gym/"
+  },
+  {
+    "author": "Andrew J. Hawkins",
+    "company_candidates": [],
+    "content_excerpt": "Ford is rolling out a new AI-powered assistant that can answer questions about your Ford or Lincoln vehicle, such as how much fuel you'll need for your next road trip or whether your truck can tow that new motor boat. The app is rolling out first to the Ford and Lincoln mobile apps, where it […]",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-7bb0c3b80dd89d6bc602",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-10T07:00:00-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Ford is rolling out a new AI-powered assistant that can answer questions about your Ford or Lincoln vehicle, such as how much fuel you'll need for your next road trip or whether your truck can tow that new motor boat. The app is rolling out first to the Ford and Lincoln mobile apps, where it […]",
+    "title": "Ford’s new AI assistant can check your fuel levels and tire pressure",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/transportation/976748/ford-ai-assistant-mobile-app"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Approved Daybreak partners can use OpenAI’s frontier cyber models to deliver authorized, governed cybersecurity services to customers.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-29b0e61ec6cd1ed38342",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T10:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Approved Daybreak partners can use OpenAI’s frontier cyber models to deliver authorized, governed cybersecurity services to customers.",
+    "title": "Putting frontier cyber models in more trusted hands",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/putting-frontier-cyber-models-in-more-trusted-hands"
+  },
+  {
+    "author": "Rebecca Bellan",
+    "company_candidates": [],
+    "content_excerpt": "Meta’s new open-weight Muse Glimmer model offers a glimpse of Mark Zuckerberg’s personal superintelligence vision, as well as the emerging divide between AI users can own and access.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-5252b79b611438f7da84",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-10T16:20:13Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Meta’s new open-weight Muse Glimmer model offers a glimpse of Mark Zuckerberg’s personal superintelligence vision, as well as the emerging divide between AI users can own and access.",
+    "title": "Meta’s new Glimmer AI model offers a hint at Zuckerberg’s personal intelligence vision",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/10/metas-new-glimmer-ai-model-offers-a-hint-at-zuckerbergs-personal-intelligence-vision/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Premium seats are coming to ChatGPT Business. Sign up by August 20 to get $100 in workspace credits and unlock higher usage for your team's most demanding work.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-2a5c0cad5d8b2f9d8e4a",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Premium seats are coming to ChatGPT Business. Sign up by August 20 to get $100 in workspace credits and unlock higher usage for your team's most demanding work.",
+    "title": "Premium seats are coming to ChatGPT Business",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/premium-seats-chatgpt-business"
+  },
+  {
+    "author": "Tim Fernholz",
+    "company_candidates": [],
+    "content_excerpt": "Discovered Materials raised $9 million to fund the hunt for more novel materials to build more efficient chips.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-bb6f398a0e840e936bd6",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-10T12:00:00Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Discovered Materials raised $9 million to fund the hunt for more novel materials to build more efficient chips.",
+    "title": "Discovered Materials is playing AI whack-a-mole to hunt cooler chips",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/10/discovered-materials-is-playing-ai-whack-a-mole-to-hunt-cooler-chips/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "The enterprise marketing team at Zapier uses ChatGPT Work to reduce the number of drop-offs in its lead funnel, build campaign assets, and automate reporting.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-6476741ad7bd8e8e5ea0",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "The enterprise marketing team at Zapier uses ChatGPT Work to reduce the number of drop-offs in its lead funnel, build campaign assets, and automate reporting.",
+    "title": "How Zapier transformed core marketing processes with ChatGPT Work",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/zapier"
+  },
+  {
+    "author": "Anthony Ha",
+    "company_candidates": [],
+    "content_excerpt": "The AI-focused hedge fund is still making some big bets.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-d2f68b094d4668e52a95",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-09T20:35:17Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "The AI-focused hedge fund is still making some big bets.",
+    "title": "Embattled hedge fund Situational Awareness invests $400M in chip startup Source Foundry",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/09/embattled-hedge-fund-situational-awareness-invests-400m-in-chip-startup-source-foundry/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Virgin Atlantic is accelerating research, product planning, and decision-making with ChatGPT Work, helping teams connect signals across the customer journey.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-0e82d8998833621ad9c9",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-10T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Virgin Atlantic is accelerating research, product planning, and decision-making with ChatGPT Work, helping teams connect signals across the customer journey.",
+    "title": "Virgin Atlantic sharpens customer journeys with ChatGPT Work",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/virgin-atlantic/chatgpt-work"
+  },
+  {
+    "author": "Anthony Ha",
+    "company_candidates": [],
+    "content_excerpt": "Programming with Claude Code will soon require even less human oversight.",
+    "fetched_at": "2026-08-11T00:04:52.701733Z",
+    "id": "item-b500779b9a8bb3551aed",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-09T19:20:32Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Programming with Claude Code will soon require even less human oversight.",
+    "title": "Anthropic is turning Claude Code’s auto mode on by default",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/09/anthropic-is-turning-claude-codes-auto-mode-on-by-default/"
+  }
+]

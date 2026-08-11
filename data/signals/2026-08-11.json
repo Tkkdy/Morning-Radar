@@ -1,0 +1,135 @@
+[
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "2 家公司在 AI模型 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-0188dcbed1d5be32a9f3",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-50fa30e8f57666241030",
+      "story-d3926a2dad88fcce079f"
+    ],
+    "topic": "AI模型",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "2 家公司在 AI基础设施 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-1b9b1862cb0aec182a00",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-50fa30e8f57666241030",
+      "story-ea7e599b275cba2d293f"
+    ],
+    "topic": "AI基础设施",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "2 家公司在 ai_models 上出现同向事件，由 6 个来源支持。",
+    "id": "signal-ca6ef984984abc20780a",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 6,
+    "supporting_story_ids": [
+      "story-93ea62c8a2cb2e6363d6",
+      "story-bcd40df5979cd9c1bcd2",
+      "story-ff9cf389e2cc16799a45",
+      "story-d8295bb7ad2f3f446f1d",
+      "story-87c58a5ea7374fbc1a3b",
+      "story-d1b1b989ff83288eadc2"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "2 家公司在 ai_infrastructure 上出现同向事件，由 4 个来源支持。",
+    "id": "signal-c1feb0ff07d791cdffe6",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-93ea62c8a2cb2e6363d6",
+      "story-bcd40df5979cd9c1bcd2",
+      "story-ff9cf389e2cc16799a45",
+      "story-87c58a5ea7374fbc1a3b"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "2 家公司在 open_source_ai 上出现同向事件，由 3 个来源支持。",
+    "id": "signal-cb762983225e2edaa4b7",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-93ea62c8a2cb2e6363d6",
+      "story-ff9cf389e2cc16799a45",
+      "story-87c58a5ea7374fbc1a3b"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "Kimi K3 状态由 unknown 推进到 available。",
+    "id": "signal-a26e00eb82490589a06c",
+    "metric_history": [],
+    "signal_type": "product_status_transition",
+    "strength": 0.8,
+    "supporting_company_count": 13,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-c38da86e757cab83fcb7",
+      "story-1350f7189fac31ab30db"
+    ],
+    "topic": "Kimi K3",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 4
+  },
+  {
+    "created_at": "2026-08-11T00:04:52.701733Z",
+    "explanation": "Claude Code 状态由 rumor 推进到 available。",
+    "id": "signal-c6aca8e47e080add335d",
+    "metric_history": [],
+    "signal_type": "product_status_transition",
+    "strength": 0.8,
+    "supporting_company_count": 5,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-e97e8b26e9ce5a30bf4d",
+      "story-ff9cf389e2cc16799a45"
+    ],
+    "topic": "Claude Code",
+    "uncertainties": [],
+    "updated_at": "2026-08-11T00:04:52.701733Z",
+    "window_days": 1
+  }
+]
