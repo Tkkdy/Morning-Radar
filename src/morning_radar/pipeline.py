@@ -8,7 +8,11 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
-from morning_radar.briefing import BriefLimits, generate_daily_brief_with_memory
+from morning_radar.briefing import (
+    BriefLimits,
+    generate_daily_brief_with_memory,
+    ranked_eligible_stories,
+)
 from morning_radar.collectors import CollectionResult, FixtureCollector, collect_available
 from morning_radar.collectors.github import GitHubCollector
 from morning_radar.collectors.hacker_news import HackerNewsCollector
@@ -102,7 +106,7 @@ class MorningRadarPipeline:
             )
         else:
             now = utc_now()
-            collection = self._production_collectors(output_root, now)
+            collection = self._production_collectors(output_root, history_root, now)
             raw_items = collection.items
             provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
@@ -139,6 +143,12 @@ class MorningRadarPipeline:
             now=now,
             maximum_ai_items=ai_candidate_limit,
         )
+        brief_limits = BriefLimits(maximum_items=self.app.maximum_brief_items)
+        brief_ai_stories = ranked_eligible_stories(
+            stories,
+            relevance_threshold=self.app.relevance_threshold,
+            importance_threshold=self.app.importance_threshold,
+        )[: brief_limits.maximum_items]
         brief_date = display_date(now)
         current_story_memory = [
             StoryMemory(
@@ -172,7 +182,8 @@ class MorningRadarPipeline:
                     self.app.maximum_continuity_input_characters
                 ),
                 reserved_input_characters=(
-                    sum(len(story.model_dump_json()) for story in stories) + 5000
+                    sum(len(story.model_dump_json()) for story in brief_ai_stories)
+                    + 5000
                 ),
             )
         except (OSError, ValueError):
@@ -201,10 +212,16 @@ class MorningRadarPipeline:
         ).detect(
             story_history=story_history,
             github_snapshots=self._snapshots(
-                output_root / "data/snapshots/github", GitHubSnapshot
+                history_root / "data/snapshots/github",
+                output_root / "data/snapshots/github",
+                GitHubSnapshot,
+                brief_date,
             ),
             market_snapshots=self._snapshots(
-                output_root / "data/snapshots/market", MarketSnapshot
+                history_root / "data/snapshots/market",
+                output_root / "data/snapshots/market",
+                MarketSnapshot,
+                brief_date,
             ),
             current_date=brief_date,
             now=now,
@@ -216,7 +233,7 @@ class MorningRadarPipeline:
             stories=stories,
             signals=signals,
             provider=provider,
-            limits=BriefLimits(maximum_items=self.app.maximum_brief_items),
+            limits=brief_limits,
             enabled_sections=self.app.enabled_sections,
             relevance_threshold=self.app.relevance_threshold,
             importance_threshold=self.app.importance_threshold,
@@ -307,6 +324,11 @@ class MorningRadarPipeline:
         budget = getattr(provider, "budget", None)
         logical_ai_calls = getattr(budget, "calls_used", 0)
         network_ai_requests = getattr(budget, "network_requests_used", 0)
+        usage_stats = (
+            budget.usage_run_stats()
+            if budget is not None and hasattr(budget, "usage_run_stats")
+            else {}
+        )
         brief = brief.model_copy(
             update={
                 "run_stats": {
@@ -316,6 +338,7 @@ class MorningRadarPipeline:
                     "total_displayed_items": total_displayed_items,
                     "logical_ai_calls": logical_ai_calls,
                     "network_ai_requests": network_ai_requests,
+                    **usage_stats,
                 }
             }
         )
@@ -347,14 +370,18 @@ class MorningRadarPipeline:
         LOGGER.info(
             "Continuity stats: historical_story_candidates=%s "
             "continuity_candidates=%s relations_confirmed=%s relations_rejected=%s "
+            "relations_unresolved=%s "
             "open_watches_considered=%s watch_matches=%s judgements_created=%s "
             "judgement_updates=%s revised=%s overturned=%s needs_review=%s "
             "continuity_logical_ai_calls=%s continuity_network_requests=%s "
-            "continuity_input_chars=%s",
+            "continuity_input_chars=%s continuity_relation_inputs=%s "
+            "continuity_watch_inputs=%s continuity_judgement_inputs=%s "
+            "continuity_character_budget_available=%s continuity_budget_skipped=%s",
             brief.run_stats.get("historical_story_candidates", 0),
             brief.run_stats.get("continuity_candidates", 0),
             brief.run_stats.get("relations_confirmed", 0),
             brief.run_stats.get("relations_rejected", 0),
+            brief.run_stats.get("relations_unresolved", 0),
             brief.run_stats.get("open_watches_considered", 0),
             brief.run_stats.get("watch_matches", 0),
             brief.run_stats.get("judgements_created", 0),
@@ -365,7 +392,14 @@ class MorningRadarPipeline:
             brief.run_stats.get("continuity_logical_ai_calls", 0),
             brief.run_stats.get("continuity_network_requests", 0),
             brief.run_stats.get("continuity_input_chars", 0),
+            brief.run_stats.get("continuity_relation_inputs", 0),
+            brief.run_stats.get("continuity_watch_inputs", 0),
+            brief.run_stats.get("continuity_judgement_inputs", 0),
+            brief.run_stats.get("continuity_character_budget_available", 0),
+            brief.run_stats.get("continuity_budget_skipped", 0),
         )
+        if usage_stats:
+            LOGGER.info("AI token usage by task: %s", usage_stats)
         self._save_outputs(
             output_root,
             brief_date,
@@ -375,7 +409,7 @@ class MorningRadarPipeline:
             brief,
             daily_continuity,
         )
-        self.build_site(output_root=output_root)
+        self.build_site(output_root=output_root, history_root=history_root)
         if notify and not fixtures and not dry_run:
             self._notifier(output_root).notify(brief, force=force_notify)
         return brief
@@ -387,7 +421,12 @@ class MorningRadarPipeline:
         brief = load_json_model(brief_paths[-1], DailyBrief)
         return self._notifier(self.root).notify(brief, force=force)
 
-    def _production_collectors(self, output_root: Path, now) -> CollectionResult:
+    def _production_collectors(
+        self,
+        output_root: Path,
+        history_root: Path,
+        now,
+    ) -> CollectionResult:
         sources = load_model_list(self.root / "config/sources.yaml", "sources", SourceConfig)
         topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
         repositories = load_model_list(
@@ -412,6 +451,7 @@ class MorningRadarPipeline:
                 repositories,
                 http=http,
                 snapshot_dir=output_root / "data/snapshots/github",
+                history_snapshot_dir=history_root / "data/snapshots/github",
                 token=os.getenv("GITHUB_TOKEN"),
                 now=now,
             ),
@@ -462,26 +502,47 @@ class MorningRadarPipeline:
                 result[day] = load_models(path, Story)
         return result
 
-    def _snapshots(self, directory: Path, model_type):
+    def _snapshots(
+        self,
+        history_directory: Path,
+        output_directory: Path,
+        model_type,
+        current_date: date,
+    ):
         values = []
-        if directory.exists():
-            for path in sorted(directory.glob("*.json"))[-self.app.trend_window_days :]:
-                values.extend(load_models(path, model_type))
+        paths_by_name: dict[str, Path] = {}
+        if history_directory.exists():
+            for path in sorted(history_directory.glob("*.json"))[
+                -self.app.trend_window_days :
+            ]:
+                paths_by_name[path.name] = path
+        current_path = output_directory / f"{current_date}.json"
+        if current_path.exists():
+            paths_by_name[current_path.name] = current_path
+        for path in sorted(paths_by_name.values(), key=lambda value: value.name):
+            values.extend(load_models(path, model_type))
         return values
 
-    def build_site(self, *, output_root: Path | None = None) -> None:
-        root = output_root or self.root
-        brief_dir = root / "data/briefs"
-        briefs = [
-            load_json_model(path, DailyBrief)
-            for path in sorted(brief_dir.glob("*.json"))
-        ]
-        continuities: list[DailyContinuity] = []
-        continuity_dir = root / "data/continuity"
-        if continuity_dir.exists():
+    def build_site(
+        self,
+        *,
+        output_root: Path | None = None,
+        history_root: Path | None = None,
+    ) -> None:
+        output = output_root or self.root
+        history = history_root or self.root
+        brief_by_date: dict[date, DailyBrief] = {}
+        for root in dict.fromkeys((history, output)):
+            for path in sorted((root / "data/briefs").glob("*.json")):
+                brief = load_json_model(path, DailyBrief)
+                brief_by_date[brief.date] = brief
+        continuity_by_date: dict[date, DailyContinuity] = {}
+        for root in dict.fromkeys((history, output)):
+            continuity_dir = root / "data/continuity"
             for path in sorted(continuity_dir.glob("*.json")):
                 try:
-                    continuities.append(load_json_model(path, DailyContinuity))
+                    continuity = load_json_model(path, DailyContinuity)
+                    continuity_by_date[continuity.date] = continuity
                 except (OSError, ValueError):
                     LOGGER.exception(
                         "Continuity degradation: skipping invalid site annotation file %s",
@@ -489,11 +550,11 @@ class MorningRadarPipeline:
                     )
         SiteBuilder(
             template_dir=self.root / "templates",
-            output_dir=root / "site",
+            output_dir=output / "site",
         ).build(
-            briefs,
+            list(brief_by_date.values()),
             stylesheet=self.root / "site/assets/style.css",
-            continuities=continuities,
+            continuities=list(continuity_by_date.values()),
         )
 
     def _notifier(self, root: Path) -> WxPusherNotifier:

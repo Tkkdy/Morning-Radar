@@ -97,9 +97,48 @@ class FakeChatCompletions:
         self.calls += 1
         if isinstance(result, Exception):
             raise result
+        if isinstance(result, SimpleNamespace):
+            return result
         return SimpleNamespace(
-            choices=[SimpleNamespace(message=SimpleNamespace(content=result))]
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(content=result),
+                    finish_reason="stop",
+                )
+            ],
+            usage=None,
         )
+
+
+def chat_response(
+    content: str,
+    *,
+    finish_reason: str = "stop",
+    prompt_tokens: int | None = None,
+    completion_tokens: int | None = None,
+    reasoning_tokens: int | None = None,
+) -> SimpleNamespace:
+    usage = None
+    if prompt_tokens is not None or completion_tokens is not None:
+        details = (
+            SimpleNamespace(reasoning_tokens=reasoning_tokens)
+            if reasoning_tokens is not None
+            else None
+        )
+        usage = SimpleNamespace(
+            prompt_tokens=prompt_tokens or 0,
+            completion_tokens=completion_tokens or 0,
+            completion_tokens_details=details,
+        )
+    return SimpleNamespace(
+        choices=[
+            SimpleNamespace(
+                message=SimpleNamespace(content=content),
+                finish_reason=finish_reason,
+            )
+        ],
+        usage=usage,
+    )
 
 
 def provider(results: list[object], *, calls: int = 10) -> DeepSeekProvider:
@@ -183,6 +222,58 @@ def test_structured_json_result_is_validated_and_returned() -> None:
     assert request["model"] == "configured-test-model"
     assert request["response_format"] == {"type": "json_object"}
     assert "json schema" in request["messages"][0]["content"]
+
+
+@pytest.mark.parametrize(
+    ("task", "max_tokens"),
+    [("classify", 6144), ("merge_story", 4096), ("score_story", 2048)],
+)
+def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
+    task: str,
+    max_tokens: int,
+) -> None:
+    configured = provider([classification_json()])
+
+    configured._parse(
+        task=task,
+        schema=ClassificationBatch,
+        payload_data={},
+        item_count=1,
+        allowed_urls=set(),
+    )
+
+    request = configured.client.chat.completions.last_request
+    assert request["extra_body"] == {"thinking": {"type": "disabled"}}
+    assert "reasoning_effort" not in request
+    assert request["max_tokens"] == max_tokens
+
+
+@pytest.mark.parametrize(
+    ("task", "max_tokens"),
+    [
+        ("write_brief", 24576),
+        ("resolve_continuity", 16384),
+        ("direction_observation", 8192),
+    ],
+)
+def test_semantic_tasks_enable_bounded_high_effort_thinking(
+    task: str,
+    max_tokens: int,
+) -> None:
+    configured = provider([classification_json()])
+
+    configured._parse(
+        task=task,
+        schema=ClassificationBatch,
+        payload_data={},
+        item_count=1,
+        allowed_urls=set(),
+    )
+
+    request = configured.client.chat.completions.last_request
+    assert request["extra_body"] == {"thinking": {"type": "enabled"}}
+    assert request["reasoning_effort"] == "high"
+    assert request["max_tokens"] == max_tokens
 
 
 def test_invalid_or_missing_json_output_retries_once() -> None:
@@ -297,6 +388,83 @@ def test_write_brief_malformed_json_retry_regenerates_complete_output(caplog) ->
         "content"
     ]
     assert "task=write_brief attempt=1 error_type=JSONDecodeError" in caplog.text
+
+
+def test_write_brief_length_finish_reason_retries_with_bounded_larger_cap() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider(
+        [
+            chat_response("{truncated", finish_reason="length"),
+            chat_response(brief_json([source_story.id], source_story.source_urls)),
+        ]
+    )
+
+    result = configured.write_brief([source_story], [])
+
+    assert result.items[0].story_ids == [source_story.id]
+    requests = configured.client.chat.completions.requests
+    assert [request["max_tokens"] for request in requests] == [24576, 32768]
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_write_brief_repeated_length_finish_reason_falls_back() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider(
+        [
+            chat_response("{truncated", finish_reason="length"),
+            chat_response("{still-truncated", finish_reason="length"),
+        ]
+    )
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        timezone="Asia/Singapore",
+        stories=[source_story],
+        signals=[],
+        provider=configured,
+        limits=BriefLimits(maximum_items=3),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert result.run_stats["ai_brief_fallback"] is True
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_deepseek_usage_records_reasoning_tokens_and_finish_reason() -> None:
+    configured = provider(
+        [
+            chat_response(
+                classification_json(),
+                prompt_tokens=120,
+                completion_tokens=45,
+                reasoning_tokens=30,
+            )
+        ]
+    )
+
+    configured.classify_items([raw_item()])
+
+    assert configured.budget.usage_run_stats() == {
+        "ai_completion_tokens": 45,
+        "ai_classify_completion_tokens": 45,
+        "ai_classify_prompt_tokens": 120,
+        "ai_classify_reasoning_tokens": 30,
+        "ai_classify_finish_stop": 1,
+        "ai_prompt_tokens": 120,
+        "ai_reasoning_tokens": 30,
+    }
+
+
+def test_deepseek_missing_usage_is_a_zero_safe_default() -> None:
+    configured = provider([chat_response(classification_json())])
+
+    configured.classify_items([raw_item()])
+
+    assert configured.budget.usage_run_stats()["ai_classify_reasoning_tokens"] == 0
 
 
 def test_write_brief_repeated_malformed_json_keeps_graceful_fallback() -> None:

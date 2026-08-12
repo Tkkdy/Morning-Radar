@@ -6,6 +6,7 @@ from morning_radar.briefing.generator import (
     BriefValidationError,
     generate_daily_brief,
     generate_daily_brief_with_memory,
+    ranked_eligible_stories,
 )
 
 __all__ = [
@@ -14,4 +15,5 @@ __all__ = [
     "BriefValidationError",
     "generate_daily_brief",
     "generate_daily_brief_with_memory",
+    "ranked_eligible_stories",
 ]

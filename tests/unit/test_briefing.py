@@ -316,16 +316,18 @@ class MultiStoryProvider(FakeAIProvider):
 class MultiStoryThenSingleProvider(FakeAIProvider):
     def write_brief(self, stories, signals):
         del signals
-        return BriefDraft(
-            items=[
-                GeneratedBriefItem(
-                    story_ids=[stories[0].id, stories[1].id],
-                    section="ai_and_open_source",
-                    title="Combined",
-                    what_happened="Combined summary",
-                    why_it_matters="Combined importance",
-                    source_urls=[stories[0].primary_source_url, stories[1].primary_source_url],
-                ),
+        items = [
+            GeneratedBriefItem(
+                story_ids=[stories[0].id, stories[1].id],
+                section="ai_and_open_source",
+                title="Combined",
+                what_happened="Combined summary",
+                why_it_matters="Combined importance",
+                source_urls=[stories[0].primary_source_url, stories[1].primary_source_url],
+            )
+        ]
+        if len(stories) > 2:
+            items.append(
                 GeneratedBriefItem(
                     story_ids=[stories[2].id],
                     section="ai_and_open_source",
@@ -333,8 +335,10 @@ class MultiStoryThenSingleProvider(FakeAIProvider):
                     what_happened="Single summary",
                     why_it_matters="Single importance",
                     source_urls=[stories[2].primary_source_url],
-                ),
-            ]
+                )
+            )
+        return BriefDraft(
+            items=items
         )
 
 
@@ -351,12 +355,37 @@ def test_maximum_brief_items_counts_cards_not_referenced_stories() -> None:
         run_stats={},
     )
 
-    assert len(result.top_stories) == 2
-    assert [item.story_ids for item in result.top_stories] == [
-        ["story-1", "story-2"],
-        ["story-3"],
-    ]
-    assert result.other_reading == []
+    assert [item.story_ids for item in result.top_stories] == [["story-1", "story-2"]]
+    assert [item.story_ids for item in result.other_reading] == [["story-3"]]
+
+
+class BriefInputRecordingProvider(FakeAIProvider):
+    def __init__(self) -> None:
+        self.story_inputs: list[Story] = []
+
+    def write_brief(self, stories, signals):
+        self.story_inputs = list(stories)
+        return super().write_brief(stories, signals)
+
+
+def test_brief_ai_input_is_bounded_to_display_capacity() -> None:
+    provider = BriefInputRecordingProvider()
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=[story(index) for index in range(16)],
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=12),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert len(provider.story_inputs) == 12
+    assert result.run_stats["threshold_eligible_stories"] == 16
+    assert result.run_stats["ai_brief_story_inputs"] == 12
 
 
 def test_multi_story_contexts_preserve_generated_story_id_order() -> None:

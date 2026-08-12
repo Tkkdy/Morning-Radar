@@ -111,21 +111,31 @@ def _trim_context(
     maximum_items: int,
     maximum_characters: int,
 ) -> tuple[ContinuityResolutionInput, int]:
-    relations = list(context.relation_candidates)
-    watches = list(context.watch_candidates)
-    judgements = list(context.prior_hypotheses)
-    while len(relations) + len(watches) + len(judgements) > maximum_items:
-        if judgements:
-            judgements.pop()
-        elif watches:
-            watches.pop()
-        else:
-            relations.pop()
-    while True:
+    source_lanes = [
+        list(context.relation_candidates),
+        list(context.watch_candidates),
+        list(context.prior_hypotheses),
+    ]
+    selected: list[list[object]] = [[], [], []]
+    nonempty_lanes = [index for index, lane in enumerate(source_lanes) if lane]
+    remaining_slots = max(0, maximum_items)
+    cursors = [0, 0, 0]
+    if remaining_slots >= len(nonempty_lanes):
+        for index in nonempty_lanes:
+            selected[index].append(source_lanes[index][0])
+            cursors[index] = 1
+            remaining_slots -= 1
+    for index in range(3):
+        while remaining_slots and cursors[index] < len(source_lanes[index]):
+            selected[index].append(source_lanes[index][cursors[index]])
+            cursors[index] += 1
+            remaining_slots -= 1
+
+    def build_context() -> tuple[ContinuityResolutionInput, int]:
         bounded = ContinuityResolutionInput(
-            relation_candidates=relations,
-            watch_candidates=watches,
-            prior_hypotheses=judgements,
+            relation_candidates=selected[0],
+            watch_candidates=selected[1],
+            prior_hypotheses=selected[2],
         )
         characters = len(
             json.dumps(
@@ -134,16 +144,30 @@ def _trim_context(
                 separators=(",", ":"),
             )
         )
+        return bounded, characters
+
+    while True:
+        bounded, characters = build_context()
         if characters <= maximum_characters:
             return bounded, characters
-        if judgements:
-            judgements.pop()
-        elif watches:
-            watches.pop()
-        elif relations:
-            relations.pop()
-        else:
+        removable = [index for index, lane in enumerate(selected) if len(lane) > 1]
+        if removable:
+            selected[max(removable, key=lambda index: len(selected[index]))].pop()
+            continue
+        populated = [index for index, lane in enumerate(selected) if lane]
+        if not populated:
             return bounded, characters
+        largest = max(
+            populated,
+            key=lambda index: len(
+                json.dumps(
+                    selected[index][-1].model_dump(mode="json"),
+                    ensure_ascii=False,
+                    separators=(",", ":"),
+                )
+            ),
+        )
+        selected[largest].pop()
 
 
 def _record_id(prefix: str, *parts: object) -> str:
@@ -242,14 +266,33 @@ def resolve_daily_continuity(
                 )
             )
 
+    full_context = ContinuityResolutionInput(
+        relation_candidates=[_relation_input(value) for value in unresolved_relations],
+        watch_candidates=watch_inputs,
+        prior_hypotheses=judgement_inputs,
+    )
+    full_input_items = (
+        len(full_context.relation_candidates)
+        + len(full_context.watch_candidates)
+        + len(full_context.prior_hypotheses)
+    )
+    budget = getattr(provider, "budget", None)
+    remaining_character_budget = maximum_input_characters
+    if budget is not None:
+        remaining_character_budget = max(
+            0,
+            getattr(budget, "maximum_input_characters", 0)
+            - getattr(budget, "input_characters_used", 0)
+            - reserved_input_characters,
+        )
+    effective_character_cap = min(
+        maximum_input_characters,
+        remaining_character_budget,
+    )
     context, input_characters = _trim_context(
-        ContinuityResolutionInput(
-            relation_candidates=[_relation_input(value) for value in unresolved_relations],
-            watch_candidates=watch_inputs,
-            prior_hypotheses=judgement_inputs,
-        ),
+        full_context,
         maximum_items=maximum_ai_items,
-        maximum_characters=maximum_input_characters,
+        maximum_characters=effective_character_cap,
     )
     input_items = (
         len(context.relation_candidates)
@@ -260,16 +303,26 @@ def resolve_daily_continuity(
         "historical_story_candidates": len(historical_stories),
         "continuity_candidates": len(relation_candidates),
         "open_watches_considered": len(open_watches[:maximum_open_watches]),
+        "continuity_relation_inputs": len(context.relation_candidates),
+        "continuity_watch_inputs": len(context.watch_candidates),
+        "continuity_judgement_inputs": len(context.prior_hypotheses),
+        "continuity_character_budget_available": effective_character_cap,
         "continuity_input_chars": input_characters if input_items else 0,
         "continuity_logical_ai_calls": 0,
         "continuity_network_requests": 0,
-        "continuity_budget_skipped": 0,
+        "continuity_budget_skipped": int(full_input_items > 0 and input_items == 0),
     }
     if input_items == 0:
+        if full_input_items:
+            LOGGER.warning(
+                "Skipping continuity AI: no candidate fits remaining character budget=%d",
+                effective_character_cap,
+            )
         stats.update(
             {
                 "relations_confirmed": len(deterministic_relations),
-                "relations_rejected": len(relation_candidates) - len(deterministic_relations),
+                "relations_rejected": 0,
+                "relations_unresolved": len(unresolved_relations),
                 "watch_matches": 0,
                 "judgement_updates": 0,
                 "revised": 0,
@@ -291,30 +344,18 @@ def resolve_daily_continuity(
             current_judgements=current_judgements,
         )
 
-    budget = getattr(provider, "budget", None)
     calls_before = getattr(budget, "calls_used", 0)
     requests_before = getattr(budget, "network_requests_used", 0)
-    character_budget_available = (
-        budget is None
-        or getattr(budget, "input_characters_used", 0)
-        + input_characters
-        + reserved_input_characters
-        <= getattr(budget, "maximum_input_characters", 0)
-    )
-    if not character_budget_available:
-        LOGGER.warning(
-            "Skipping continuity AI to preserve %d input characters for Brief generation",
-            reserved_input_characters,
-        )
+    try:
+        resolution = provider.resolve_continuity(context)
+        validate_continuity_resolution(resolution, context)
+    except AIBudgetExceeded:
+        LOGGER.exception("AI degradation: continuity budget unavailable; continuity omitted")
         stats["continuity_budget_skipped"] = 1
         resolution = None
-    else:
-        try:
-            resolution = provider.resolve_continuity(context)
-            validate_continuity_resolution(resolution, context)
-        except (AIOutputError, AIBudgetExceeded, ValueError):
-            LOGGER.exception("AI degradation: continuity resolution failed; continuity omitted")
-            resolution = None
+    except (AIOutputError, ValueError):
+        LOGGER.exception("AI degradation: continuity resolution failed; continuity omitted")
+        resolution = None
     stats["continuity_logical_ai_calls"] = (
         getattr(budget, "calls_used", calls_before) - calls_before
     )
@@ -323,6 +364,7 @@ def resolve_daily_continuity(
     )
 
     relations = list(deterministic_relations)
+    rejected_relation_pairs: set[tuple[StoryOccurrenceRef, StoryOccurrenceRef]] = set()
     watch_events: list[WatchEvent] = []
     judgement_updates: list[JudgementRecord] = []
     if resolution is not None:
@@ -337,6 +379,9 @@ def resolve_daily_continuity(
                 draft.rationale,
             )
             if not draft.confirmed:
+                rejected_relation_pairs.add(
+                    (draft.previous_story, draft.current_story)
+                )
                 continue
             relations.append(
                 StoryRelationRecord(
@@ -432,7 +477,13 @@ def resolve_daily_continuity(
     stats.update(
         {
             "relations_confirmed": len(relations),
-            "relations_rejected": len(relation_candidates) - len(relations),
+            "relations_rejected": len(rejected_relation_pairs),
+            "relations_unresolved": max(
+                0,
+                len(relation_candidates)
+                - len(relations)
+                - len(rejected_relation_pairs),
+            ),
             "watch_matches": len(watch_events),
             "judgement_updates": len(judgement_updates),
             "revised": sum(item.update_kind.value == "revised" for item in judgement_updates),

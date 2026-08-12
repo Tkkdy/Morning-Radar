@@ -46,6 +46,26 @@ class BriefGenerationResult:
     judgement_drafts: list[GeneratedJudgementDraft]
 
 
+def ranked_eligible_stories(
+    stories: list[Story],
+    *,
+    relevance_threshold: float,
+    importance_threshold: float,
+) -> list[Story]:
+    eligible = [
+        story for story in stories if story.relevance_score >= relevance_threshold
+    ]
+    eligible.sort(
+        key=lambda story: (
+            story.importance_score >= importance_threshold,
+            story.importance_score,
+            story.relevance_score,
+        ),
+        reverse=True,
+    )
+    return eligible
+
+
 def _brief_item_id(story_ids: list[str], section: str) -> str:
     identity = f"{section}:{'|'.join(sorted(story_ids))}"
     return f"brief-{hashlib.sha256(identity.encode()).hexdigest()[:20]}"
@@ -145,18 +165,14 @@ def generate_daily_brief_with_memory(
     maximum_ai_items: int | None = None,
 ) -> BriefGenerationResult:
     stats = dict(run_stats)
-    eligible_stories = [
-        story for story in stories if story.relevance_score >= relevance_threshold
-    ]
-    eligible_stories.sort(
-        key=lambda story: (
-            story.importance_score >= importance_threshold,
-            story.importance_score,
-            story.relevance_score,
-        ),
-        reverse=True,
+    eligible_stories = ranked_eligible_stories(
+        stories,
+        relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold,
     )
+    ai_stories = eligible_stories[: limits.maximum_items]
     stats["threshold_eligible_stories"] = len(eligible_stories)
+    stats["ai_brief_story_inputs"] = len(ai_stories)
     bounded_signals = sorted(
         signals,
         key=lambda signal: (signal.strength, signal.id),
@@ -173,16 +189,16 @@ def generate_daily_brief_with_memory(
     ]
     stats["direction_signal_inputs"] = len(direction_signals)
 
-    if eligible_stories:
+    if ai_stories:
         try:
-            draft = provider.write_brief(eligible_stories, bounded_signals)
-            draft = sanitize_memory_drafts(draft, eligible_stories)
+            draft = provider.write_brief(ai_stories, bounded_signals)
+            draft = sanitize_memory_drafts(draft, ai_stories)
         except AIOutputError:
             LOGGER.exception(
                 "AI degradation: brief generation failed; using verified Story facts"
             )
             stats["ai_brief_fallback"] = True
-            draft = _fallback_brief_draft(eligible_stories)
+            draft = _fallback_brief_draft(ai_stories)
     else:
         LOGGER.info("Skipping AI brief generation: no stories")
         draft = BriefDraft(items=[])

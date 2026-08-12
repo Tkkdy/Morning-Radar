@@ -6,12 +6,19 @@ import pytest
 from pydantic import ValidationError
 
 from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
+from morning_radar.ai.models import (
+    ContinuityRelationCandidate,
+    ContinuityResolutionInput,
+    ContinuityStorySummary,
+    ContinuityWatchInput,
+    PriorJudgementInput,
+)
 from morning_radar.continuity.candidates import (
     StoryMemory,
     deterministic_relation,
     generate_relation_candidates,
 )
-from morning_radar.continuity.engine import resolve_daily_continuity
+from morning_radar.continuity.engine import _trim_context, resolve_daily_continuity
 from morning_radar.continuity.materialize import (
     materialize_judgements,
     materialize_open_watches,
@@ -360,6 +367,8 @@ def test_multiple_ambiguous_candidates_use_one_batch_call() -> None:
     assert len(provider.contexts[0].relation_candidates) == 3
     assert result.stats["continuity_logical_ai_calls"] == 1
     assert result.stats["continuity_network_requests"] == 1
+    assert result.stats["relations_rejected"] == 3
+    assert result.stats["relations_unresolved"] == 0
 
 
 def test_relation_candidate_cap_is_applied_before_batch_call() -> None:
@@ -414,18 +423,30 @@ def test_character_cap_can_remove_oversized_candidates_without_calling_ai() -> N
 
     assert provider.calls == 0
     assert result.stats["continuity_input_chars"] == 0
+    assert result.stats["continuity_budget_skipped"] == 1
+    assert result.stats["relations_rejected"] == 0
+    assert result.stats["relations_unresolved"] == 1
 
 
-def test_continuity_skips_ai_when_it_would_consume_brief_character_reserve() -> None:
+def test_continuity_adapts_to_remaining_brief_character_reserve() -> None:
     provider = RecordingProvider()
-    provider.budget.input_characters_used = 85_000
+    provider.budget.input_characters_used = 80_000
+    current = story("new", "Example SDK gains controls").model_copy(
+        update={"facts": ["n" * 3500]}
+    )
 
     result = resolve_daily_continuity(
         current_date=date(2026, 8, 12),
         generated_at=NOW,
-        current_stories=[story("new", "Example SDK gains controls")],
+        current_stories=[current],
         historical_stories=[
-            memory(date(2026, 8, 11), story("old", "Example SDK announced"))
+            memory(
+                date(2026, 8, day),
+                story(f"old-{day}", f"Example SDK announcement {day}").model_copy(
+                    update={"facts": ["h" * 3500]}
+                ),
+            )
+            for day in (9, 10, 11)
         ],
         continuity_history=[],
         provider=provider,
@@ -434,11 +455,63 @@ def test_continuity_skips_ai_when_it_would_consume_brief_character_reserve() -> 
         maximum_open_watches=20,
         maximum_ai_items=40,
         maximum_input_characters=30_000,
-        reserved_input_characters=20_000,
+        reserved_input_characters=10_000,
     )
 
-    assert provider.calls == 0
-    assert result.stats["continuity_budget_skipped"] == 1
+    assert provider.calls == 1
+    assert 0 < len(provider.contexts[0].relation_candidates) < 3
+    assert result.stats["continuity_input_chars"] <= 10_000
+    assert result.stats["continuity_budget_skipped"] == 0
+
+
+def test_lane_aware_context_trimming_preserves_watch_and_judgement_inputs() -> None:
+    current = ContinuityStorySummary(
+        ref=StoryOccurrenceRef(date=date(2026, 8, 12), story_id="current"),
+        canonical_title="Example SDK current",
+    )
+    relations = [
+        ContinuityRelationCandidate(
+            previous=ContinuityStorySummary(
+                ref=StoryOccurrenceRef(
+                    date=date(2026, 8, 11),
+                    story_id=f"previous-{index}",
+                ),
+                canonical_title=f"Example SDK previous {index}",
+            ),
+            current=current,
+            days_apart=1,
+        )
+        for index in range(10)
+    ]
+    context = ContinuityResolutionInput(
+        relation_candidates=relations,
+        watch_candidates=[
+            ContinuityWatchInput(
+                watch_id="watch-1",
+                expectation="观察 Example SDK 的后续发布。",
+                current_story_candidates=[current],
+            )
+        ],
+        prior_hypotheses=[
+            PriorJudgementInput(
+                judgement_id="judgement-1",
+                root_judgement_id="judgement-1",
+                claim="Example SDK 的发布节奏正在变化。",
+                rationale="此前 Story 提供了具体版本证据。",
+                current_story_candidates=[current],
+            )
+        ],
+    )
+
+    bounded, _ = _trim_context(
+        context,
+        maximum_items=5,
+        maximum_characters=30_000,
+    )
+
+    assert len(bounded.relation_candidates) == 3
+    assert len(bounded.watch_candidates) == 1
+    assert len(bounded.prior_hypotheses) == 1
 
 
 def test_old_open_watch_outside_compute_window_stays_open_without_ai_cost() -> None:
@@ -535,6 +608,8 @@ def test_resolver_failure_degrades_to_empty_optional_records() -> None:
 
     assert result.daily.relations == []
     assert result.daily.watch_events == []
+    assert result.stats["relations_rejected"] == 0
+    assert result.stats["relations_unresolved"] == 1
 
 
 def test_brief_memory_materialization_uses_structured_source() -> None:

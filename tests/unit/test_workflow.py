@@ -7,7 +7,7 @@ def test_workflow_has_manual_schedule_pages_and_safety_controls() -> None:
     assert "workflow_dispatch:" in workflow
     assert 'cron: "37 23 * * *"' in workflow
     assert "python-version: \"3.12\"" in workflow
-    assert "timeout-minutes: 30" in workflow
+    assert "timeout-minutes: 45" in workflow
     assert "concurrency:" in workflow
     assert "actions/deploy-pages@v4" in workflow
     assert "secrets.DEEPSEEK_API_KEY" in workflow

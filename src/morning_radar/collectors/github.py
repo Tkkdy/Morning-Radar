@@ -65,12 +65,14 @@ class GitHubCollector:
         *,
         http: HttpClient,
         snapshot_dir: Path,
+        history_snapshot_dir: Path | None = None,
         token: str | None = None,
         now: datetime | None = None,
     ) -> None:
         self.repositories = repositories
         self.http = http
         self.snapshot_dir = snapshot_dir
+        self.history_snapshot_dir = history_snapshot_dir or snapshot_dir
         self.token = token
         self.now = now or utc_now()
 
@@ -120,7 +122,7 @@ class GitHubCollector:
         )
         growth = calculate_github_growth(
             snapshot,
-            _history_by_repository(self.snapshot_dir, snapshot),
+            _history_by_repository(self.history_snapshot_dir, snapshot),
         )
         releases = self._get_json(f"{repo_url}/releases?per_page=10")
         items: list[RawItem] = []
@@ -161,4 +163,3 @@ class GitHubCollector:
                 )
             )
         return items, snapshot
-
