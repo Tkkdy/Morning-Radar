@@ -1,0 +1,218 @@
+{
+  "date": "2026-08-13",
+  "generated_at": "2026-08-12T20:58:18.539857Z",
+  "judgements": [
+    {
+      "claim": "pydantic-ai 的 GHSA-h4xc-3qfq-jf93 漏洞暴露了本地开发 Web UI 的常见攻击面，修复后开发者将更重视 Content-Type 检查，但该模式可能在其他类似工具中重复出现。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-28f72ef6c79098e0648c"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-c0840ae633b7295efb41"
+          }
+        }
+      ],
+      "judgement_id": "judgement-db70069a09d035c89109",
+      "rationale": "漏洞利用本地进程权限和凭据执行工具，影响严重，促使开发者提高安全意识。",
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "root_judgement_id": "judgement-db70069a09d035c89109",
+      "uncertainty": "目前不确定类似漏洞是否已经在其他项目中广泛存在或被积极利用。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    },
+    {
+      "claim": "Amazon 在 Twitch 上默认使用主播内容训练 AI 的选择退出政策将引发更多创作者对数据使用的质疑，并可能导致部分主播转向其他平台。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-8c946e25af8e9313179b"
+          }
+        }
+      ],
+      "judgement_id": "judgement-e500266613baa7bff206",
+      "rationale": "Twitch CPO 承认选择加入没人会加入，说明平台倾向于最大化数据获取，但这一做法与创作者权益保护趋势相悖。",
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "root_judgement_id": "judgement-e500266613baa7bff206",
+      "uncertainty": "主播的实际流失规模和平台后续调整不确定。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "从此前的 openai-python v2.54.0 到当前 v3.0.0，默认 HTTP 客户端由 httpx 切换为 HTTPX2，并引入破坏性变更 PR #3594；使用自定义 HTTPX 客户端、传输或配置对象的应用需迁移或使用旧版逃生舱。",
+      "current_story": {
+        "date": "2026-08-13",
+        "story_id": "story-f5656f880a798b00bfae"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-12",
+            "story_id": "story-7bc5bcc9615783368091"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            4
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-f5656f880a798b00bfae"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-12",
+        "story_id": "story-7bc5bcc9615783368091"
+      },
+      "rationale": "两个 Story 同属 openai-python 仓库的发布序列，当前版本从 v2.54.0 升级到 v3.0.0，构成明确的后续版本发布。",
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "relation_id": "relation-3d73865713bfb7f24617",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Amazon",
+        "Twitch"
+      ],
+      "event_type": "opened",
+      "expectation": "未来可观察 Twitch 主播对默认训练政策的反应，例如选择退出的主播数量变化，或 Amazon 是否调整选择退出机制的细节。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-8c946e25af8e9313179b"
+        }
+      ],
+      "topic_anchors": [
+        "AI 训练数据",
+        "用户隐私",
+        "内容创作者权益"
+      ],
+      "watch_id": "watch-c17e7edb5a4ebe5cd620"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "AWS",
+        "Anysphere",
+        "Microsoft",
+        "OpenAI",
+        "Vercel"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub 是否会在后续公告中披露 Agent Plugins 1.0 的具体技术细节和插件示例，以及第三方开发者发布的首批插件数量和兼容客户端范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Agent Plugins 1.0",
+        "VS Code",
+        "Copilot CLI",
+        "Copilot 应用"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-07e1c99359ffe5809e7c"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-6245f87f1c9cd5ca6ded"
+    },
+    {
+      "entity_anchors": [
+        "Thrive Holdings",
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "Thrive Holdings 后续是否披露 20 亿美元融资的具体用途和 OpenAI 支持的具体形式（如投资金额、合作协议等）。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-4506467c62b8c8b3a58b"
+        }
+      ],
+      "topic_anchors": [
+        "企业 AI"
+      ],
+      "watch_id": "watch-974123a9c3b551760f06"
+    },
+    {
+      "entity_anchors": [
+        "Cognition"
+      ],
+      "event_type": "opened",
+      "expectation": "Cognition 是否正式宣布以 400 亿美元估值完成融资，以及是否披露参与投资的机构和具体条款。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-515ae82965da73c93493"
+        }
+      ],
+      "topic_anchors": [
+        "AI",
+        "编程",
+        "融资"
+      ],
+      "watch_id": "watch-cd8edb649bcd9cac6f5a"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "后续版本是否移除旧版 HTTPX 逃生舱，以及开发者社区是否报告从 HTTPX 迁移到 HTTPX2 的问题或性能改进。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "openai-python",
+        "HTTPX2"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-12T20:58:18.539857Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-f5656f880a798b00bfae"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-ca5f2ff5aec56c35f56f"
+    }
+  ]
+}

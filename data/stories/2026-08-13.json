@@ -1,0 +1,862 @@
+[
+  {
+    "analysis": [
+      "该版本发布旨在统一不同代理客户端的插件开发体验，降低开发成本。",
+      "与多家主要 AI 和云服务商联合发布，表明该标准可能获得业界广泛支持。"
+    ],
+    "canonical_title": "GitHub 发布 Agent Plugins 1.0，支持 VS Code、Copilot CLI 和 Copilot 应用",
+    "category": "AI 开发工具",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub",
+      "AWS",
+      "Anysphere",
+      "Microsoft",
+      "OpenAI",
+      "Vercel"
+    ],
+    "facts": [
+      "GitHub 于 2026 年 8 月 6 日发布 Agent Plugins 1.0。",
+      "Agent Plugins 1.0 可以在 VS Code、Copilot CLI 和 Copilot 应用中使用。",
+      "插件只需构建一次，即可在所有兼容的代理客户端中使用。",
+      "合作方包括 AWS、Anysphere、Microsoft、OpenAI 和 Vercel。"
+    ],
+    "id": "story-07e1c99359ffe5809e7c",
+    "importance_score": 0.9,
+    "novelty_score": 0.85,
+    "primary_source_url": "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app",
+    "product_names": [
+      "Agent Plugins 1.0",
+      "VS Code",
+      "Copilot CLI",
+      "Copilot 应用"
+    ],
+    "published_at": "2026-08-12T18:39:11Z",
+    "relevance_score": 0.95,
+    "source_item_ids": [
+      "item-8d24fb731207f342cd04"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T18:39:11Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-8d24fb731207f342cd04",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "Agent Plugins 1.0 in VS Code, Copilot CLI, and the Copilot app",
+        "url": "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-12-agent-plugins-1-0-in-vs-code-copilot-cli-and-the-copilot-app"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编程",
+      "开源 AI"
+    ],
+    "uncertainties": [
+      "未提供 Agent Plugins 1.0 的具体技术细节和插件示例。",
+      "公告中未说明插件的具体功能或支持的语言。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "该政策反映出 AI 训练数据获取从选择加入模式向选择退出模式的转变趋势。",
+      "平台可能面临主播流失和公众舆论压力的风险。"
+    ],
+    "canonical_title": "Amazon 将默认使用 Twitch 主播内容训练 AI，除非主播选择退出",
+    "category": "AI 伦理与政策",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Amazon",
+      "Twitch",
+      "Mike Minton"
+    ],
+    "facts": [
+      "Amazon 将默认使用 Twitch 主播内容训练 AI，除非主播主动选择退出。",
+      "Twitch CPO Mike Minton 在直播中回应称：“如果是选择加入，没有人会加入。老实说，这就是答案。”",
+      "相关信息于 2026 年 8 月 12 日由 TechCrunch 报道。"
+    ],
+    "id": "story-8c946e25af8e9313179b",
+    "importance_score": 0.9,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/",
+    "product_names": [],
+    "published_at": "2026-08-12T20:10:40Z",
+    "relevance_score": 1.0,
+    "source_item_ids": [
+      "item-ba17fbe9ce6288a081ec"
+    ],
+    "source_refs": [
+      {
+        "author": "Amanda Silberling",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T20:10:40Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-ba17fbe9ce6288a081ec",
+        "source_name": "TechCrunch AI",
+        "source_type": "rss",
+        "title": "Amazon will train on Twitch streamers’ content by default, unless they opt out",
+        "url": "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 训练数据",
+      "用户隐私",
+      "内容创作者权益"
+    ],
+    "uncertainties": [
+      "主播是否能够通过简单操作选择退出，以及退出后其内容是否仍被用于训练，尚不明确。",
+      "该政策的具体实施时间和适用范围尚未完全披露。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "该安全漏洞被评为高危，攻击者只需在开发者浏览器中打开恶意网站即可触发本地 agent 执行工具，可能导致敏感数据泄露或系统被控制。修复要求 Content-Type: application/json 可有效阻止此类跨源攻击。",
+      "实时语音转语音功能的加入使 pydantic-ai 能构建端到端的实时语音 agent，结合 WebRTC 和 sideband 支持，有望在语音助手、客服等场景得到应用。"
+    ],
+    "canonical_title": "pydantic-ai v2.28.0 发布：修复高危 XSS 漏洞并新增实时语音功能",
+    "category": "开源软件发布",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "pydantic",
+      "GitHub"
+    ],
+    "facts": [
+      "pydantic-ai v2.28.0 于 2026-08-11 发布。",
+      "此次发布修复了一个高危漏洞：开发 Web 聊天 UI（Agent.to_web()、clai web）的聊天端点未检查请求的 Content-Type，导致跨源请求可在无 CORS 预检的情况下到达端点并触发 agent 执行工具，利用本地进程权限和凭据。",
+      "该漏洞编号为 GHSA-h4xc-3qfq-jf93，已在 v2.28.0（v2）和 1.107.4（v1）中修复。",
+      "新增功能包括：通过 Agent.realtime() 支持实时语音转语音；添加 Crusoe provider；为实时语音转语音添加浏览器 WebRTC + 服务器 sideband 支持。",
+      "修复了多个 bug，包括 bedrock 的 CachePoint 处理、实时重连状态处理、Web UI 聊天端点仅接受 JSON 请求体、safe_download 的 Host 头处理等。",
+      "添加了 cerebras 可选依赖组。",
+      "新增了 4 位贡献者：@Diwak4r、@mikemikimike、@acheamponge、@bferanmi806-sketch。"
+    ],
+    "id": "story-28f72ef6c79098e0648c",
+    "importance_score": 0.9,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.28.0",
+    "product_names": [
+      "pydantic-ai"
+    ],
+    "published_at": "2026-08-12T02:04:43Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-9a07ce89c04ee1ebd6f1"
+    ],
+    "source_refs": [
+      {
+        "author": "dsfaccini",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T02:04:43Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-9a07ce89c04ee1ebd6f1",
+        "source_name": "GitHub · pydantic/pydantic-ai",
+        "source_type": "github",
+        "title": "pydantic/pydantic-ai: v2.28.0 (2026-08-11)",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.28.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/pydantic/pydantic-ai/releases/tag/v2.28.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai",
+      "security"
+    ],
+    "uncertainties": [
+      "漏洞是否已被实际利用尚未披露。",
+      "实时语音功能的具体性能和稳定性有待观察。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "该发布优先修复安全问题，表明项目对安全性的重视。",
+      "构建工具问题导致版本号跳过，项目透明度高。",
+      "修复覆盖多个版本线，确保广泛兼容性。"
+    ],
+    "canonical_title": "pydantic-ai 发布 v1.107.4，含安全修复",
+    "category": "AI开发工具",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "pydantic",
+      "pydantic-ai"
+    ],
+    "facts": [
+      "pydantic-ai 发布 v1.107.4。",
+      "该版本修复了两个安全漏洞：GHSA-h4xc-3qfq-jf93（高危）和 GHSA-3gh4-cghq-f8v4（低危）。",
+      "修复了开发 web 聊天 UI（Agent.to_web()、clai web）的端点未检查请求 Content-Type 的问题，现在要求 Content-Type: application/json。",
+      "修复了 InstrumentationSettings(include_content=False) 未正确遮盖重试提示内容的问题。",
+      "之前的 v1.107.3 版本因构建工具问题（hatchling 1.32.0 生成的包元数据不被 PyPI 接受）未发布。",
+      "修复在 v1 线（1.107.4）和 v2 线（2.28.0 和 2.27.1）上均已应用。"
+    ],
+    "id": "story-c0840ae633b7295efb41",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.4",
+    "product_names": [
+      "pydantic-ai"
+    ],
+    "published_at": "2026-08-12T03:39:33Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-be49ba0eff3583c965ee"
+    ],
+    "source_refs": [
+      {
+        "author": "dsfaccini",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T03:39:33Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-be49ba0eff3583c965ee",
+        "source_name": "GitHub · pydantic/pydantic-ai",
+        "source_type": "github",
+        "title": "pydantic/pydantic-ai: v1.107.4 (2026-08-11)",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.4"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/pydantic/pydantic-ai/releases/tag/v1.107.4"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI开发",
+      "开源AI"
+    ],
+    "uncertainties": [
+      "v1.107.3 是否对任何用户造成影响？"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "此轮融资表明市场对将 AI 技术应用于企业场景的持续兴趣。",
+      "获得 OpenAI 的支持可能增强 Thrive Holdings 在企业 AI 领域的可信度。"
+    ],
+    "canonical_title": "OpenAI 支持的 Thrive Holdings 融资 20 亿美元，估值 120 亿美元，致力于将 AI 引入企业",
+    "category": "企业 AI 融资",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Thrive Holdings",
+      "OpenAI",
+      "SoftBank",
+      "D1 Capital Partners",
+      "Altimeter Capital"
+    ],
+    "facts": [
+      "Thrive Holdings 已获得 20 亿美元新融资，投后估值 120 亿美元。",
+      "投资者包括 SoftBank、D1 Capital Partners 和 Altimeter Capital。",
+      "Thrive Holdings 获得 OpenAI 的支持。",
+      "新闻发布于 2026 年 8 月 12 日。"
+    ],
+    "id": "story-4506467c62b8c8b3a58b",
+    "importance_score": 0.9,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/",
+    "product_names": [],
+    "published_at": "2026-08-12T17:41:29Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-7c9ea0f8b26acca29456"
+    ],
+    "source_refs": [
+      {
+        "author": "Rebecca Bellan",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T17:41:29Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-7c9ea0f8b26acca29456",
+        "source_name": "TechCrunch AI",
+        "source_type": "rss",
+        "title": "OpenAI-backed Thrive Holdings raises $2B to bring AI to the enterprise",
+        "url": "https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/12/openai-backed-thrive-holdings-raises-2b-to-bring-ai-to-the-enterprise/"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "AI",
+      "企业 AI"
+    ],
+    "uncertainties": [
+      "文章未披露资金的具体用途和公司发展计划。",
+      "未说明 OpenAI 的支持形式（如投资、合作等）。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "迁移到 HTTPX2 表明 OpenAI 正在采用更新、可能更高效的 HTTP 客户端库，以提升性能和未来兼容性。",
+      "引入临时逃生舱可减轻依赖自定义 HTTPX 配置的现有用户的迁移痛苦。"
+    ],
+    "canonical_title": "OpenAI Python SDK v3.0.0 发布，默认 HTTP 客户端迁移至 HTTPX2",
+    "category": "软件开发",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI Python SDK v3.0.0 于 2026 年 8 月 12 日发布。",
+      "HTTPX2 现在是默认 HTTP 客户端，`httpx` 不再自动安装。",
+      "使用自定义 HTTPX 客户端、传输或配置对象的应用必须迁移到 HTTPX2 等价物，或使用临时的、仅运行时的旧版 HTTPX 逃生舱。",
+      "迁移指南位于 https://github.com/openai/openai-python/blob/main/httpx2.md。",
+      "该版本包含一个破坏性变更：API 迁移到 HTTPX2（PR #3594）。"
+    ],
+    "id": "story-f5656f880a798b00bfae",
+    "importance_score": 0.7,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.0.0",
+    "product_names": [
+      "openai-python",
+      "HTTPX2"
+    ],
+    "published_at": "2026-08-12T01:54:46Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-b0bb7e5adb2ad3694d34"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T01:54:46Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-b0bb7e5adb2ad3694d34",
+        "source_name": "GitHub · openai/openai-python",
+        "source_type": "github",
+        "title": "openai/openai-python: v3.0.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.0.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.0.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI SDK",
+      "Python"
+    ],
+    "uncertainties": [
+      "未说明临时逃生舱的具体可用时长。",
+      "未提供 HTTPX2 与 HTTPX 在性能或功能上的具体差异。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "三位AI先驱在Ai4大会上就开放源代码与监管展开辩论",
+    "category": "AI安全与政策",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "Geoffrey Hinton",
+      "Fei-Fei Li",
+      "Andrew Ng",
+      "Ai4"
+    ],
+    "facts": [
+      "Geoffrey Hinton、Fei-Fei Li和Andrew Ng在Ai4大会上就监管、开源获取以及美国如何在中国于亚洲取得进展的情况下竞争进行了辩论。"
+    ],
+    "id": "story-8235c8ec5cfb1ff0d1cb",
+    "importance_score": 0.85,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/",
+    "product_names": [],
+    "published_at": "2026-08-12T17:51:00Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-314e77618c7f28cbf954"
+    ],
+    "source_refs": [
+      {
+        "author": "Kate Park",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T17:51:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-314e77618c7f28cbf954",
+        "source_name": "TechCrunch AI",
+        "source_type": "rss",
+        "title": "As AI safety concerns mount, three pioneers make the case for staying open",
+        "url": "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/12/as-ai-safety-concerns-mount-three-pioneers-make-the-case-for-staying-open/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI安全",
+      "开源",
+      "监管",
+      "美国竞争力",
+      "中国AI发展"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "企业正在从AI辅助转向AI执行，agentic AI成为关键。",
+      "领先企业与滞后企业在AI采用上的差距正在扩大。"
+    ],
+    "canonical_title": "OpenAI研究揭示企业如何将AI投入实际应用：从辅助到执行",
+    "category": "企业AI应用",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI于2026年8月12日发布研究，揭示企业采用agentic AI、ChatGPT和Codex的情况。",
+      "前沿企业在AI采用方面领先。",
+      "该研究由OpenAI News通过RSS发布。"
+    ],
+    "id": "story-500f5a96235cc246be5c",
+    "importance_score": 0.75,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/how-enterprises-put-ai-to-work",
+    "product_names": [
+      "ChatGPT",
+      "Codex"
+    ],
+    "published_at": "2026-08-12T06:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-e063daae6225e1569539"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T06:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-e063daae6225e1569539",
+        "source_name": "OpenAI News",
+        "source_type": "rss",
+        "title": "From assistance to execution: How enterprises put AI to work",
+        "url": "https://openai.com/index/how-enterprises-put-ai-to-work"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/how-enterprises-put-ai-to-work"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "agentic AI",
+      "企业AI采用"
+    ],
+    "uncertainties": [
+      "报告未提供具体企业采用率数据。",
+      "未说明‘前沿企业’的定义和标准。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "Cognition 的估值在短时间内从 260 亿美元升至 400 亿美元，表明市场对其 AI 编程产品需求强劲或对其技术潜力高度看好。",
+      "若融资成功，将巩固 Cognition 在 AI 编程领域的领先地位，并可能加剧该领域的竞争。"
+    ],
+    "canonical_title": "AI 编程初创公司 Cognition 据传正洽谈以 400 亿美元估值融资",
+    "category": "融资",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Cognition"
+    ],
+    "facts": [
+      "Cognition 据传正在洽谈以 400 亿美元估值融资。",
+      "几个月前，Cognition 以 260 亿美元估值融资 10 亿美元。"
+    ],
+    "id": "story-515ae82965da73c93493",
+    "importance_score": 0.8,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/08/12/ai-coding-startup-cognition-reportedly-already-in-talks-to-raise-at-40b-valuation/",
+    "product_names": [],
+    "published_at": "2026-08-12T18:19:12Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-185e252c5e1150e1fac5"
+    ],
+    "source_refs": [
+      {
+        "author": "Julie Bort",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T18:19:12Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-185e252c5e1150e1fac5",
+        "source_name": "TechCrunch AI",
+        "source_type": "rss",
+        "title": "AI coding startup Cognition reportedly already in talks to raise at $40B valuation",
+        "url": "https://techcrunch.com/2026/08/12/ai-coding-startup-cognition-reportedly-already-in-talks-to-raise-at-40b-valuation/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/12/ai-coding-startup-cognition-reportedly-already-in-talks-to-raise-at-40b-valuation/"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI",
+      "编程",
+      "初创公司",
+      "融资"
+    ],
+    "uncertainties": [
+      "报道来源于传闻，融资谈判的具体条款和结果尚未官方确认。",
+      "报道未提及参与此轮融资的潜在投资者。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "文章旨在提供选择全栈可观测性解决方案的指导，以应对AI工厂复杂的多层基础设施监控需求。"
+    ],
+    "canonical_title": "如何为NVIDIA AI工厂选择全栈可观测性",
+    "category": "技术指南",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "AI基础设施跨计算、网络、存储、编排和应用多个层次。",
+      "当性能下降时，识别问题根源具有挑战性。",
+      "本文发布时间为2026年8月12日。"
+    ],
+    "id": "story-7d4469eb0585cc69aee9",
+    "importance_score": 0.7,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-choose-full-stack-observability-for-nvidia-ai-factories/",
+    "product_names": [
+      "NVIDIA AI Factories"
+    ],
+    "published_at": "2026-08-12T16:13:47Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a3bde1d37a86d91661b2"
+    ],
+    "source_refs": [
+      {
+        "author": "Jorge Cardoso",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T16:13:47Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-a3bde1d37a86d91661b2",
+        "source_name": "NVIDIA Developer Blog",
+        "source_type": "rss",
+        "title": "How to Choose Full-Stack Observability for NVIDIA AI Factories",
+        "url": "https://developer.nvidia.com/blog/how-to-choose-full-stack-observability-for-nvidia-ai-factories/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-choose-full-stack-observability-for-nvidia-ai-factories/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "可观测性",
+      "AI基础设施"
+    ],
+    "uncertainties": [
+      "文章具体推荐的观测性工具或方法未在摘要中说明。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "该模型专注于边缘部署，表明对设备端 AI 的日益关注。",
+      "3B 参数规模在性能和计算效率之间取得了平衡，适合边缘场景。"
+    ],
+    "canonical_title": "LFM2.5-VL-3B：为边缘设备提供更快更好的视觉能力",
+    "category": "AI模型发布",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "Liquid AI",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Liquid AI 在 Hugging Face 博客上发布了 LFM2.5-VL-3B。",
+      "该模型旨在为边缘设备提供更快更好的视觉能力。",
+      "发布日期为 2026 年 8 月 12 日。"
+    ],
+    "id": "story-49aa618c02aff503e2fb",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b",
+    "product_names": [
+      "LFM2.5-VL-3B"
+    ],
+    "published_at": "2026-08-12T14:00:51Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-2c563947428818b93259"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T14:00:51Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-2c563947428818b93259",
+        "source_name": "Hugging Face Blog",
+        "source_type": "rss",
+        "title": "LFM2.5-VL-3B for Better and Faster Vision Capabilities for the Edge",
+        "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-3b"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "视觉语言模型",
+      "边缘计算",
+      "开源AI"
+    ],
+    "uncertainties": [
+      "缺少模型架构、训练数据和基准结果的详细信息。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "Sandbar 认为语音是人工智能可穿戴设备的关键交互方式，因为它可以捕捉突发的想法和灵感。",
+      "可穿戴设备市场正在从会议转录向捕捉随意想法和灵感的领域扩展。"
+    ],
+    "canonical_title": "为什么流媒体戒指制造商 Sandbar 认为人工智能可穿戴设备的未来在于语音",
+    "category": "AI 可穿戴设备",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Sandbar",
+      "Theresa Loconsolo"
+    ],
+    "facts": [
+      "AI 笔记硬件已经在过去两年中兴起，包括信用卡大小的设备、吊坠、别针以及可以转录的耳机。",
+      "现在有一波可穿戴设备，尤其是戒指，正在押注人们想要以同样的方式捕捉突发的想法和灵感。",
+      "Sandbar 是一家流媒体戒指制造商，认为人工智能可穿戴设备的未来在于语音。"
+    ],
+    "id": "story-6ba4e90a69f3cfbd2f74",
+    "importance_score": 0.4,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://techcrunch.com/video/why-stream-ring-maker-sandbar-says-the-future-of-ai-wearables-is-voice/",
+    "product_names": [
+      "Stream ring"
+    ],
+    "published_at": "2026-08-12T16:46:02Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-9b836ad6cd2dc5ceaa16"
+    ],
+    "source_refs": [
+      {
+        "author": "Theresa Loconsolo",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T16:46:02Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-9b836ad6cd2dc5ceaa16",
+        "source_name": "TechCrunch AI",
+        "source_type": "rss",
+        "title": "Why Stream ring-maker Sandbar says the future of AI wearables is voice",
+        "url": "https://techcrunch.com/video/why-stream-ring-maker-sandbar-says-the-future-of-ai-wearables-is-voice/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/video/why-stream-ring-maker-sandbar-says-the-future-of-ai-wearables-is-voice/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI notetaking",
+      "wearables",
+      "voice"
+    ],
+    "uncertainties": [
+      "Sandbar 的流媒体戒指的具体功能和市场表现尚不明确。",
+      "文章仅提供了摘要，没有给出 Sandbar 声明的更多细节。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OlmoEarth 嵌入：从 OlmoEarth Studio 自定义导出嵌入以用于下游分析",
+    "category": "AI/模型发布",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "Allen Institute for AI"
+    ],
+    "facts": [
+      "2026年8月12日，Hugging Face Blog 发布文章，介绍从 OlmoEarth Studio 导出自定义嵌入的功能。",
+      "该功能允许用户导出嵌入以用于下游分析。",
+      "文章由 Allen Institute for AI 发布。"
+    ],
+    "id": "story-c0ee230e1fb8117f1c86",
+    "importance_score": 0.3,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://huggingface.co/blog/allenai/olmoearth-embeddings",
+    "product_names": [
+      "OlmoEarth",
+      "OlmoEarth Studio"
+    ],
+    "published_at": "2026-08-12T16:14:36Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-249a5e1ede4df4c07802"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T16:14:36Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-249a5e1ede4df4c07802",
+        "source_name": "Hugging Face Blog",
+        "source_type": "rss",
+        "title": "Introducing OlmoEarth embeddings: Custom embedding exports from OlmoEarth Studio for downstream analysis",
+        "url": "https://huggingface.co/blog/allenai/olmoearth-embeddings"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/olmoearth-embeddings"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "嵌入",
+      "下游分析",
+      "自定义导出"
+    ],
+    "uncertainties": [
+      "文章没有提供具体技术细节，如嵌入维度、导出格式或性能指标。",
+      "未明确该功能是否免费或需要特定订阅。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "Automattic（WordPress.com 母公司）正将 AI 技术融入 CRM 领域，Mesh 的 Android 版发布是其移动端布局的延续。"
+    ],
+    "canonical_title": "Automattic 旗下 AI 联系人应用 Mesh 推出 Android 版本",
+    "category": "产品发布",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Automattic",
+      "Mesh"
+    ],
+    "facts": [
+      "Mesh 是 Automattic 旗下的一款 AI 驱动的联系人应用和关系管理器。",
+      "Mesh 现已登陆 Android 平台。"
+    ],
+    "id": "story-b9dc0dab717aa0d05931",
+    "importance_score": 0.4,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://techcrunch.com/2026/08/12/mesh-automattics-crm-for-everyone-comes-to-android/",
+    "product_names": [
+      "Mesh"
+    ],
+    "published_at": "2026-08-12T16:57:58Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-65a716af85d31140d8ab"
+    ],
+    "source_refs": [
+      {
+        "author": "Sarah Perez",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T16:57:58Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-65a716af85d31140d8ab",
+        "source_name": "TechCrunch AI",
+        "source_type": "rss",
+        "title": "Mesh, Automattic’s CRM for everyone, comes to Android",
+        "url": "https://techcrunch.com/2026/08/12/mesh-automattics-crm-for-everyone-comes-to-android/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/12/mesh-automattics-crm-for-everyone-comes-to-android/"
+    ],
+    "status": "rumor",
+    "topic_names": [],
+    "uncertainties": [
+      "官方发布渠道（如 Automattic 或 Mesh 官网）尚未确认该消息。",
+      "Android 版本的具体功能范围与 iOS 版是否存在差异尚不明确。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  },
+  {
+    "analysis": [
+      "此举表明阿里正通过开放权重策略提升其在开源 AI 领域的影响力。",
+      "NVIDIA 提供部署指南有助于推广其 GB300 NVL72 平台在大规模模型推理中的应用。"
+    ],
+    "canonical_title": "NVIDIA 发布在 GB300 NVL72 上部署 Qwen3.8-2.4T-A95B 的方法",
+    "category": "AI 模型部署",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "NVIDIA",
+      "Alibaba"
+    ],
+    "facts": [
+      "阿里发布了 Qwen3.8-2.4T-A95B (Qwen3.8-Max) 的开放权重，这是其最大的开放权重模型。",
+      "NVIDIA 开发者博客介绍了在 NVIDIA GB300 NVL72 上部署该模型的方法，支持可配置推理。",
+      "该博客文章发表于 2026-08-12。"
+    ],
+    "id": "story-b63c73123c9af5153bee",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://developer.nvidia.com/blog/serve-qwen3-8-2-4t-a95b-a-2-4t-parameter-model-with-configurable-reasoning-on-nvidia-gb300-nvl72/",
+    "product_names": [
+      "Qwen3.8-2.4T-A95B (Qwen3.8-Max)",
+      "NVIDIA GB300 NVL72"
+    ],
+    "published_at": "2026-08-12T18:23:13Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-5042ddb06fd844309130"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T20:58:18.539857Z",
+        "published_at": "2026-08-12T18:23:13Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5042ddb06fd844309130",
+        "source_name": "NVIDIA Developer Blog",
+        "source_type": "rss",
+        "title": "Serve Qwen3.8-2.4T-A95B, a 2.4T-Parameter Model, with Configurable Reasoning on NVIDIA GB300 NVL72",
+        "url": "https://developer.nvidia.com/blog/serve-qwen3-8-2-4t-a95b-a-2-4t-parameter-model-with-configurable-reasoning-on-nvidia-gb300-nvl72/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/serve-qwen3-8-2-4t-a95b-a-2-4t-parameter-model-with-configurable-reasoning-on-nvidia-gb300-nvl72/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 模型",
+      "AI 基础设施"
+    ],
+    "uncertainties": [
+      "该模型的性能是否真正达到前沿水平仍待验证。",
+      "部署所需的具体硬件成本和可行性尚未披露。"
+    ],
+    "updated_at": "2026-08-12T20:58:18.539857Z"
+  }
+]
