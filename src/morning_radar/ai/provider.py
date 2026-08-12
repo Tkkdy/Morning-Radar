@@ -7,6 +7,8 @@ from typing import Protocol
 from morning_radar.ai.models import (
     BriefDraft,
     ClassificationBatch,
+    ContinuityResolution,
+    ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
     StoryScore,
@@ -27,3 +29,8 @@ class AIProvider(Protocol):
         self,
         signals: list[Signal],
     ) -> DirectionObservation: ...
+
+    def resolve_continuity(
+        self,
+        context: ContinuityResolutionInput,
+    ) -> ContinuityResolution: ...

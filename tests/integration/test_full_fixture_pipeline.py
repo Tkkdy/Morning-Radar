@@ -27,6 +27,7 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     assert brief.run_stats["fixture_mode"] is True
     assert brief.top_stories
     assert (output / "data/briefs/2026-07-23.json").exists()
+    assert (output / "data/continuity/2026-07-23.json").exists()
     assert (output / "site/index.html").exists()
     assert (output / "site/archive.html").exists()
     assert "raw_collected=4" in caplog.text

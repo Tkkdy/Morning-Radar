@@ -4,10 +4,12 @@ from morning_radar.ai import FakeAIProvider
 from morning_radar.models import (
     GitHubSnapshot,
     MarketSnapshot,
+    SignalType,
     Story,
     StoryStatus,
 )
 from morning_radar.trends.detector import (
+    TrendDetector,
     detect_github_growth,
     detect_market_attention,
     detect_multi_company_direction,
@@ -171,6 +173,37 @@ def test_product_status_only_moves_forward_with_history() -> None:
         current_date=date(2026, 7, 23),
         now=NOW,
     )
+
+
+def test_trend_detector_does_not_publish_product_name_only_transition_as_truth() -> None:
+    previous = story(
+        "old",
+        date(2026, 7, 22),
+        products=["Shared Product"],
+        status=StoryStatus.RUMOR,
+    )
+    unrelated = story(
+        "new",
+        date(2026, 7, 23),
+        products=["Shared Product"],
+        status=StoryStatus.AVAILABLE,
+    )
+
+    signals = TrendDetector(
+        github_threshold=0.05,
+        market_threshold=0.03,
+    ).detect(
+        story_history={
+            date(2026, 7, 22): [previous],
+            date(2026, 7, 23): [unrelated],
+        },
+        github_snapshots=[],
+        market_snapshots=[],
+        current_date=date(2026, 7, 23),
+        now=NOW,
+    )
+
+    assert all(signal.signal_type is not SignalType.PRODUCT_STATUS_TRANSITION for signal in signals)
 
 
 def test_market_attention_requires_related_story_and_keeps_causality_uncertain() -> None:

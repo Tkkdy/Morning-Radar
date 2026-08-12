@@ -1,7 +1,24 @@
 """Core data models."""
 
+from morning_radar.models.continuity import (
+    CurrentJudgement,
+    CurrentWatch,
+    DailyContinuity,
+    JudgementRecord,
+    JudgementUpdateKind,
+    JudgementViewState,
+    RelationDisposition,
+    StoryEvidenceRef,
+    StoryOccurrenceRef,
+    StoryRelationRecord,
+    StoryRelationType,
+    WatchEvent,
+    WatchEventType,
+)
 from morning_radar.models.core import (
+    BriefContinuityContext,
     BriefItem,
+    BriefJudgementCue,
     BriefStoryContext,
     DailyBrief,
     PublishedAtRole,
@@ -15,16 +32,31 @@ from morning_radar.models.core import (
 from morning_radar.models.metrics import GitHubSnapshot, MarketSnapshot
 
 __all__ = [
+    "BriefContinuityContext",
     "BriefItem",
+    "BriefJudgementCue",
     "BriefStoryContext",
+    "CurrentJudgement",
+    "CurrentWatch",
     "DailyBrief",
+    "DailyContinuity",
     "GitHubSnapshot",
+    "JudgementRecord",
+    "JudgementUpdateKind",
+    "JudgementViewState",
     "MarketSnapshot",
     "PublishedAtRole",
     "RawItem",
+    "RelationDisposition",
     "Signal",
     "SignalType",
     "Story",
+    "StoryEvidenceRef",
+    "StoryOccurrenceRef",
+    "StoryRelationRecord",
+    "StoryRelationType",
     "StorySourceRef",
     "StoryStatus",
+    "WatchEvent",
+    "WatchEventType",
 ]

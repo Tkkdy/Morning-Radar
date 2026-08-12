@@ -6,6 +6,8 @@ from morning_radar.ai.models import (
     BriefDraft,
     DirectionObservation,
     GeneratedBriefItem,
+    GeneratedJudgementDraft,
+    GeneratedWatchDraft,
     MergedStoryDraft,
 )
 from morning_radar.ai.output_validation import (
@@ -130,6 +132,47 @@ def test_valid_multi_story_references_and_optional_sanitization_both_work() -> N
 
     assert result.items == draft.items
     assert result.watch_next == ["观察 OpenAI 是否更新 API。"]
+
+
+def test_structured_memory_drafts_require_story_evidence_and_concrete_anchors() -> None:
+    source = story()
+    draft = BriefDraft(
+        items=[],
+        watch_items=[
+            GeneratedWatchDraft(
+                expectation="观察 OpenAI 是否公布 GPT-5.6 API 迁移说明。",
+                source_story_ids=[source.id],
+                entity_anchors=["OpenAI"],
+                product_anchors=["GPT-5.6"],
+            ),
+            GeneratedWatchDraft(
+                expectation="继续关注 AI 行业发展。",
+                source_story_ids=[source.id],
+                topic_anchors=["ai_models"],
+            ),
+        ],
+        judgements=[
+            GeneratedJudgementDraft(
+                claim="OpenAI 的 GPT-5.6 发布表明迁移成本正在转向 API 兼容性。",
+                rationale="当前 Story 明确描述了模型发布和 API 影响。",
+                evidence_story_ids=[source.id],
+            ),
+            GeneratedJudgementDraft(
+                claim="AI 行业正在快速发展。",
+                rationale="这是一个泛化判断。",
+                evidence_story_ids=[source.id],
+            ),
+        ],
+    )
+
+    result = validate_and_sanitize_brief(draft, [source], [])
+
+    assert [item.expectation for item in result.watch_items] == [
+        "观察 OpenAI 是否公布 GPT-5.6 API 迁移说明。"
+    ]
+    assert [item.claim for item in result.judgements] == [
+        "OpenAI 的 GPT-5.6 发布表明迁移成本正在转向 API 兼容性。"
+    ]
 
 
 @pytest.mark.parametrize(

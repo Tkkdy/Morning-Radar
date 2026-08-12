@@ -23,6 +23,8 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 from morning_radar.ai.models import (
     BriefDraft,
     ClassificationBatch,
+    ContinuityResolution,
+    ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
     StoryScore,
@@ -32,6 +34,7 @@ from morning_radar.ai.output_validation import (
     validate_core_simplified_chinese_output,
     validate_direction_evidence,
 )
+from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.models import RawItem, Signal, Story
 from morning_radar.provenance import verified_source_urls_for_items
 
@@ -253,4 +256,22 @@ class OpenAIProvider:
                 output,
                 signals,
             ),
+        )
+
+    def resolve_continuity(
+        self,
+        context: ContinuityResolutionInput,
+    ) -> ContinuityResolution:
+        item_count = (
+            len(context.relation_candidates)
+            + len(context.watch_candidates)
+            + len(context.prior_hypotheses)
+        )
+        return self._parse(
+            task="resolve_continuity",
+            schema=ContinuityResolution,
+            payload_data=context.model_dump(mode="json"),
+            item_count=item_count,
+            allowed_urls=set(),
+            output_validator=lambda output: validate_continuity_resolution(output, context),
         )

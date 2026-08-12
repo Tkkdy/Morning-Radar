@@ -8,14 +8,34 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
-from morning_radar.briefing import BriefLimits, generate_daily_brief
+from morning_radar.briefing import BriefLimits, generate_daily_brief_with_memory
 from morning_radar.collectors import CollectionResult, FixtureCollector, collect_available
 from morning_radar.collectors.github import GitHubCollector
 from morning_radar.collectors.hacker_news import HackerNewsCollector
 from morning_radar.collectors.http import HttpClient
 from morning_radar.collectors.market import MarketCollector, YFinanceHistoryProvider
 from morning_radar.collectors.rss import RSSCollector
-from morning_radar.models import DailyBrief, GitHubSnapshot, MarketSnapshot, Story
+from morning_radar.continuity.candidates import StoryMemory
+from morning_radar.continuity.engine import ContinuityRunResult, resolve_daily_continuity
+from morning_radar.continuity.history import (
+    load_continuity_history,
+    load_story_memory,
+)
+from morning_radar.continuity.materialize import (
+    materialize_judgements,
+    materialize_open_watches,
+    merge_daily_continuity,
+)
+from morning_radar.continuity.projection import apply_continuity_to_brief
+from morning_radar.continuity.validation import validate_daily_continuity
+from morning_radar.models import (
+    DailyBrief,
+    DailyContinuity,
+    GitHubSnapshot,
+    MarketSnapshot,
+    Story,
+    StoryOccurrenceRef,
+)
 from morning_radar.notifications import WxPusherConfig, WxPusherNotifier
 from morning_radar.processing import (
     build_stories,
@@ -103,10 +123,10 @@ class MorningRadarPipeline:
                 market_movement_threshold=self.app.market_movement_threshold,
             )
         )
-        # Reserve calls for classification, brief writing, and direction
+        # Reserve calls for classification, continuity, brief writing, and direction
         # observation. A rejected two-item candidate group costs five calls:
         # one group merge plus merge + score for each resulting Story.
-        remaining_story_calls = max(0, self.app.maximum_ai_calls - 3)
+        remaining_story_calls = max(0, self.app.maximum_ai_calls - 4)
         call_safe_candidate_limit = remaining_story_calls * 2 // 5
         ai_candidate_limit = min(
             self.app.maximum_ai_items,
@@ -119,6 +139,51 @@ class MorningRadarPipeline:
             maximum_ai_items=ai_candidate_limit,
         )
         brief_date = display_date(now)
+        current_story_memory = [
+            StoryMemory(
+                ref=StoryOccurrenceRef(date=brief_date, story_id=story.id),
+                story=story,
+            )
+            for story in stories
+        ]
+        try:
+            historical_story_memory = load_story_memory(
+                output_root,
+                current_date=brief_date,
+                history_days=self.app.continuity_history_days,
+            )
+            continuity_history = load_continuity_history(
+                output_root,
+                current_date=brief_date,
+            )
+            continuity_result = resolve_daily_continuity(
+                current_date=brief_date,
+                generated_at=now,
+                current_stories=stories,
+                historical_stories=historical_story_memory,
+                continuity_history=continuity_history,
+                provider=provider,
+                history_days=self.app.continuity_history_days,
+                maximum_candidates=self.app.maximum_continuity_candidates,
+                maximum_open_watches=self.app.maximum_open_watches_considered,
+                maximum_ai_items=self.app.maximum_ai_items,
+                maximum_input_characters=(
+                    self.app.maximum_continuity_input_characters
+                ),
+                reserved_input_characters=(
+                    sum(len(story.model_dump_json()) for story in stories) + 5000
+                ),
+            )
+        except (OSError, ValueError):
+            LOGGER.exception(
+                "Continuity degradation: history could not be loaded or reduced"
+            )
+            historical_story_memory = []
+            continuity_history = []
+            continuity_result = ContinuityRunResult(
+                daily=DailyContinuity(date=brief_date, generated_at=now),
+                stats={"continuity_unavailable": 1},
+            )
         story_history = self._story_history(output_root, brief_date)
         story_history[brief_date] = stories
         signals = TrendDetector(
@@ -143,7 +208,7 @@ class MorningRadarPipeline:
             current_date=brief_date,
             now=now,
         )
-        brief = generate_daily_brief(
+        brief_result = generate_daily_brief_with_memory(
             brief_date=brief_date,
             generated_at=now,
             timezone=self.app.timezone,
@@ -164,7 +229,74 @@ class MorningRadarPipeline:
                 "signals": len(signals),
                 "fixture_mode": fixtures,
                 "dry_run": dry_run,
+                **continuity_result.stats,
             },
+        )
+        opened_watches = materialize_open_watches(
+            brief_result.watch_drafts,
+            brief_date=brief_date,
+            recorded_at=now,
+            stories=stories,
+        )
+        new_judgements = materialize_judgements(
+            brief_result.judgement_drafts,
+            brief_date=brief_date,
+            recorded_at=now,
+            stories=stories,
+        )
+        new_daily_continuity = continuity_result.daily.model_copy(
+            update={
+                "watch_events": [
+                    *continuity_result.daily.watch_events,
+                    *opened_watches,
+                ],
+                "judgements": [
+                    *continuity_result.daily.judgements,
+                    *new_judgements,
+                ],
+            }
+        )
+        existing_daily_continuity = next(
+            (
+                daily
+                for daily in continuity_history
+                if daily.date == brief_date
+            ),
+            None,
+        )
+        daily_continuity = merge_daily_continuity(
+            existing_daily_continuity,
+            new_daily_continuity,
+        )
+        try:
+            validate_daily_continuity(
+                daily_continuity,
+                stories=[*historical_story_memory, *current_story_memory],
+            )
+        except ValueError:
+            LOGGER.exception(
+                "Continuity degradation: final records failed validation; records omitted"
+            )
+            daily_continuity = existing_daily_continuity or DailyContinuity(
+                date=brief_date,
+                generated_at=now,
+            )
+            opened_watches = []
+            new_judgements = []
+        brief = apply_continuity_to_brief(
+            brief_result.brief,
+            daily_continuity,
+            story_memory=[*historical_story_memory, *current_story_memory],
+            current_judgements=continuity_result.current_judgements,
+        )
+        brief = brief.model_copy(
+            update={
+                "run_stats": {
+                    **brief.run_stats,
+                    "judgements_created": len(new_judgements),
+                    "structured_watches_opened": len(opened_watches),
+                }
+            }
         )
         (
             main_brief_items,
@@ -211,7 +343,37 @@ class MorningRadarPipeline:
             logical_ai_calls,
             network_ai_requests,
         )
-        self._save_outputs(output_root, brief_date, raw_items, stories, signals, brief)
+        LOGGER.info(
+            "Continuity stats: historical_story_candidates=%s "
+            "continuity_candidates=%s relations_confirmed=%s relations_rejected=%s "
+            "open_watches_considered=%s watch_matches=%s judgements_created=%s "
+            "judgement_updates=%s revised=%s overturned=%s needs_review=%s "
+            "continuity_logical_ai_calls=%s continuity_network_requests=%s "
+            "continuity_input_chars=%s",
+            brief.run_stats.get("historical_story_candidates", 0),
+            brief.run_stats.get("continuity_candidates", 0),
+            brief.run_stats.get("relations_confirmed", 0),
+            brief.run_stats.get("relations_rejected", 0),
+            brief.run_stats.get("open_watches_considered", 0),
+            brief.run_stats.get("watch_matches", 0),
+            brief.run_stats.get("judgements_created", 0),
+            brief.run_stats.get("judgement_updates", 0),
+            brief.run_stats.get("revised", 0),
+            brief.run_stats.get("overturned", 0),
+            brief.run_stats.get("needs_review", 0),
+            brief.run_stats.get("continuity_logical_ai_calls", 0),
+            brief.run_stats.get("continuity_network_requests", 0),
+            brief.run_stats.get("continuity_input_chars", 0),
+        )
+        self._save_outputs(
+            output_root,
+            brief_date,
+            raw_items,
+            stories,
+            signals,
+            brief,
+            daily_continuity,
+        )
         self.build_site(output_root=output_root)
         if notify and not fixtures and not dry_run:
             self._notifier(output_root).notify(brief, force=force_notify)
@@ -273,12 +435,22 @@ class MorningRadarPipeline:
             maximum_items=self.app.maximum_raw_items,
         )
 
-    def _save_outputs(self, root, brief_date, raw, stories, signals, brief) -> None:
+    def _save_outputs(
+        self,
+        root,
+        brief_date,
+        raw,
+        stories,
+        signals,
+        brief,
+        continuity,
+    ) -> None:
         name = f"{brief_date}.json"
         save_models(root / "data/raw" / name, raw)
         save_models(root / "data/stories" / name, stories)
         save_models(root / "data/signals" / name, signals)
         save_model(root / "data/briefs" / name, brief)
+        save_model(root / "data/continuity" / name, continuity)
 
     def _story_history(self, root: Path, current: date) -> dict[date, list[Story]]:
         result = {}
@@ -303,10 +475,25 @@ class MorningRadarPipeline:
             load_json_model(path, DailyBrief)
             for path in sorted(brief_dir.glob("*.json"))
         ]
+        continuities: list[DailyContinuity] = []
+        continuity_dir = root / "data/continuity"
+        if continuity_dir.exists():
+            for path in sorted(continuity_dir.glob("*.json")):
+                try:
+                    continuities.append(load_json_model(path, DailyContinuity))
+                except (OSError, ValueError):
+                    LOGGER.exception(
+                        "Continuity degradation: skipping invalid site annotation file %s",
+                        path,
+                    )
         SiteBuilder(
             template_dir=self.root / "templates",
             output_dir=root / "site",
-        ).build(briefs, stylesheet=self.root / "site/assets/style.css")
+        ).build(
+            briefs,
+            stylesheet=self.root / "site/assets/style.css",
+            continuities=continuities,
+        )
 
     def _notifier(self, root: Path) -> WxPusherNotifier:
         return WxPusherNotifier(

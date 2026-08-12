@@ -2,7 +2,7 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from morning_radar.models import DailyBrief, Story
+from morning_radar.models import DailyBrief, DailyContinuity, Story
 from morning_radar.publishing import SiteBuilder
 from morning_radar.storage import load_model, load_models
 
@@ -31,6 +31,10 @@ def test_tracked_history_parses_renders_and_has_no_broken_internal_links(
     brief_paths = sorted((root / "data/briefs").glob("*.json"))
     story_paths = sorted((root / "data/stories").glob("*.json"))
     briefs = [load_model(path, DailyBrief) for path in brief_paths]
+    continuities = [
+        load_model(path, DailyContinuity)
+        for path in sorted((root / "data/continuity").glob("*.json"))
+    ]
     for path in story_paths:
         load_models(path, Story)
     assert briefs
@@ -40,6 +44,7 @@ def test_tracked_history_parses_renders_and_has_no_broken_internal_links(
     SiteBuilder(template_dir=root / "templates", output_dir=output).build(
         briefs,
         stylesheet=root / "site/assets/style.css",
+        continuities=continuities,
     )
 
     html_paths = sorted(output.rglob("*.html"))
