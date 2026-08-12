@@ -1,0 +1,901 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "GitHub Copilot for JetBrains 新增 Copilot 记忆功能和 Ollama 集成",
+    "category": "ai_coding",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub",
+      "JetBrains",
+      "Ollama"
+    ],
+    "facts": [
+      "GitHub Copilot for JetBrains 引入了持久记忆功能。",
+      "新增了本地模型访问支持，可通过 Ollama 接入。",
+      "提供了更多企业控制选项。",
+      "改进了日常聊天工作流程。",
+      "解决了跨 MCP 服务器的可靠性问题。"
+    ],
+    "id": "story-accf22dda02db6f3d2ba",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains",
+    "product_names": [
+      "GitHub Copilot",
+      "GitHub Copilot for JetBrains",
+      "Ollama"
+    ],
+    "published_at": "2026-08-11T20:15:55Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-06591c584a42bac9e5a7"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T20:15:55Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-06591c584a42bac9e5a7",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "Copilot memory and Ollama in GitHub Copilot for JetBrains",
+        "url": "https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-11-copilot-memory-and-ollama-in-github-copilot-for-jetbrains"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "谷歌医疗AI系统AMIE在首次同类研究中展示实时临床视频咨询能力",
+    "category": "医疗AI",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "2026年8月11日，谷歌在其博客上宣布研究医疗AI系统AMIE在一项首次同类研究中展示了实时临床视频咨询能力。",
+      "该公告由Anil Palepu发布。"
+    ],
+    "id": "story-dbecb6cc097504c6e5e6",
+    "importance_score": 0.8,
+    "novelty_score": 0.9,
+    "primary_source_url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/",
+    "product_names": [
+      "AMIE"
+    ],
+    "published_at": "2026-08-11T17:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-89df3427e525131aaaac"
+    ],
+    "source_refs": [
+      {
+        "author": "Anil Palepu",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-89df3427e525131aaaac",
+        "source_name": "Google AI",
+        "source_type": "rss",
+        "title": "AMIE, our research medical AI system, demonstrates real-time clinical video consultation capabilities in a first-of-its-kind study.",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/models-and-research/google-research/amie-video-consultations/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI模型",
+      "医疗AI",
+      "视频咨询",
+      "临床研究"
+    ],
+    "uncertainties": [
+      "研究的详细方法、数据集和评估指标未在公告中透露。",
+      "AMIE系统的临床准确性和实际应用效果尚待进一步验证。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "此次集成将增强 GitHub Copilot 的编码和视觉理解能力，尤其适用于需要处理图像的任务。"
+    ],
+    "canonical_title": "MAI-Code-1.1-Flash 已在 GitHub Copilot 中可用",
+    "category": "AI 编码",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Microsoft",
+      "GitHub"
+    ],
+    "facts": [
+      "MAI-Code-1.1-Flash 是微软最新的小型编码模型。",
+      "该模型正在 GitHub Copilot 中推出。",
+      "它基于 MAI-Code-1-Flash 构建，增加了原生视觉支持，用于图像理解。",
+      "在编码质量等方面带来了改进。"
+    ],
+    "id": "story-75e813940c1e2cc45903",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-08-11-mai-code-1-1-flash-available-in-github-copilot",
+    "product_names": [
+      "MAI-Code-1.1-Flash",
+      "GitHub Copilot",
+      "MAI-Code-1-Flash"
+    ],
+    "published_at": "2026-08-11T18:13:56Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-c4741e41ef309a2c642e"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T18:13:56Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-c4741e41ef309a2c642e",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "MAI-Code-1.1-Flash available in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-08-11-mai-code-1-1-flash-available-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-11-mai-code-1-1-flash-available-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "具体的代码质量改进和视觉能力的详细评估尚未公开。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "该技术旨在通过动态选择最适合当前任务的模型，优化 AI 代理的性能与成本效率。",
+      "NeMo Switchyard 的推出反映了 AI 生产环境中对灵活、可扩展模型基础设施的需求。"
+    ],
+    "canonical_title": "NVIDIA 发布 NeMo Switchyard，实现 AI 代理工作负载跨模型路由",
+    "category": "AI Infrastructure & Tools",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 推出了 NeMo Switchyard 技术，用于在多个 AI 模型之间路由 AI 代理的工作负载。",
+      "每个模型都有各自的优势、劣势和成本特征，且这些特征可能随时间变化。",
+      "构建 AI 代理不仅涉及选择单一模型，还需要考虑如何利用不同模型的组合。"
+    ],
+    "id": "story-f7646137e115c77a8df8",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/",
+    "product_names": [
+      "NVIDIA NeMo Switchyard"
+    ],
+    "published_at": "2026-08-11T13:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-64d8a39417625d36a596"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-64d8a39417625d36a596",
+        "source_name": "NVIDIA Developer Blog",
+        "source_type": "rss",
+        "title": "Route AI Agent Workloads Across Models with NVIDIA NeMo Switchyard",
+        "url": "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/route-ai-agent-workloads-across-models-with-nvidia-nemo-switchyard/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI Agent",
+      "Model Routing",
+      "AI Infrastructure",
+      "AI Models"
+    ],
+    "uncertainties": [
+      "目前尚不清楚 NeMo Switchyard 的具体工作原理，包括它如何评估模型性能和成本，以及支持哪些模型框架和类型。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "该版本引入了跨平台的新能力，特别是 Copilot CLI 的集成，可能提升企业开发效率。"
+    ],
+    "canonical_title": "GitHub Enterprise Server 3.22 候选版本发布",
+    "category": "软件发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 发布了 GitHub Enterprise Server 3.22 候选版本。",
+      "管理员可以配置 Copilot CLI。"
+    ],
+    "id": "story-4ecb5cb7bbd43650cc4b",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate",
+    "product_names": [
+      "GitHub Enterprise Server 3.22",
+      "Copilot CLI"
+    ],
+    "published_at": "2026-08-11T20:26:26Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-1907b3a39d68beb158a9"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T20:26:26Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-1907b3a39d68beb158a9",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "GitHub Enterprise Server 3.22 release candidate",
+        "url": "https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-11-github-enterprise-server-3-22-release-candidate"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI coding",
+      "enterprise software",
+      "release"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "Nemotron 3.5 Lightning 的发布表明 NVIDIA 正从 AI 硬件领域向 AI 模型层扩展，特别是针对代理式 AI 场景的专用模型。",
+      "该模型可能通过降低推理延迟和成本，帮助开发者在长时间任务中更高效地分配计算资源。"
+    ],
+    "canonical_title": "NVIDIA Nemotron 3.5 Lightning 为长时间运行的智能体提供快速、准确的专门任务执行",
+    "category": "ai_models",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 于 2026 年 8 月 11 日通过官方博客发布了 Nemotron 3.5 Lightning 模型。",
+      "Nemotron 3.5 Lightning 旨在为长时间运行的智能体提供快速、准确的专门任务执行。",
+      "该模型针对工具调用、结果验证和子智能体委派等高负载执行任务进行了优化。"
+    ],
+    "id": "story-1625d3723dd9a0f03bb1",
+    "importance_score": 0.7,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/",
+    "product_names": [
+      "NVIDIA Nemotron 3.5 Lightning"
+    ],
+    "published_at": "2026-08-11T13:01:07Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-4e1f5a94e87e3f0d4255"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T13:01:07Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-4e1f5a94e87e3f0d4255",
+        "source_name": "NVIDIA Developer Blog",
+        "source_type": "rss",
+        "title": "NVIDIA Nemotron 3.5 Lightning Delivers Fast, Accurate Specialized Task Execution for Long-Running Agents",
+        "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-lightning-delivers-fast-accurate-specialized-task-execution-for-long-running-agents/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI模型",
+      "AI基础设施"
+    ],
+    "uncertainties": [
+      "模型的具体发布日期、可用性、定价以及是否开源尚未明确。",
+      "Nemotron 3.5 Lightning 与完整版 Nemotron 3.5 的功能差异未知。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "此次重大版本更新强制开发者将 HTTP 客户端升级至 HTTPX2，可能对依赖旧版 httpx 的集成产生广泛影响。",
+      "对于自定义了 HTTPX 组件的用户，迁移成本较高；使用默认客户端的项目影响相对较小。",
+      "openai-python 作为 OpenAI 官方 Python SDK，此举反映了基础设施现代化和维护简化趋势。"
+    ],
+    "canonical_title": "openai-python 发布 v3.0.0：默认 HTTP 客户端迁移至 HTTPX2，引入破坏性变更",
+    "category": "开源库发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "openai-python v3.0.0 于 2026 年 8 月 12 日发布。",
+      "HTTPX2 成为默认 HTTP 客户端，httpx 不再自动安装。",
+      "使用自定义 HTTPX 客户端、传输层或配置对象的应用程序必须迁移至 HTTPX2 等效方案，或使用临时的运行时旧版 HTTPX 逃生口。",
+      "此次变更属于破坏性变更（BREAKING CHANGES）。",
+      "相关迁移指南参见 HTTPX2 迁移文档。"
+    ],
+    "id": "story-f5656f880a798b00bfae",
+    "importance_score": 0.7,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.0.0",
+    "product_names": [
+      "openai-python"
+    ],
+    "published_at": "2026-08-12T01:54:46Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-b0bb7e5adb2ad3694d34"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-12T01:54:46Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-b0bb7e5adb2ad3694d34",
+        "source_name": "GitHub · openai/openai-python",
+        "source_type": "github",
+        "title": "openai/openai-python: v3.0.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.0.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.0.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI编程",
+      "开源AI"
+    ],
+    "uncertainties": [
+      "尚不清楚有多少现有项目直接依赖了自定义的 httpx 配置或传输对象，迁移过程可能导致部分功能中断。",
+      "临时逃生口的具体有效期和支持程度未明确说明，可能在未来版本中移除。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "此次更新表明 NVIDIA 持续投入边缘 AI 和机器人领域，为开发者提供更强的视觉处理能力。Agentic Video Skills 可能使视频分析更加自主化，T3000 Emulation 可能用于下一代硬件的早期开发。"
+    ],
+    "canonical_title": "NVIDIA JetPack 7.2.1 新增 Agentic Video Skills 与 T3000 Emulation",
+    "category": "Software Release",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 于 2026 年 8 月 11 日在官方开发者博客发布 JetPack 7.2.1。",
+      "此更新为 Jetson 平台引入了 Agentic Video Skills 和 T3000 Emulation 功能。",
+      "JetPack SDK 是 NVIDIA Jetson 边缘 AI 平台的核心软件开发套件。"
+    ],
+    "id": "story-80e212c2a46739a90a99",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-jetpack-7-2-1-adds-agentic-video-skills-and-t3000-emulation/",
+    "product_names": [
+      "NVIDIA JetPack 7.2.1"
+    ],
+    "published_at": "2026-08-11T19:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-85020467db5d6b2aae23"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T19:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-85020467db5d6b2aae23",
+        "source_name": "NVIDIA Developer Blog",
+        "source_type": "rss",
+        "title": "NVIDIA JetPack 7.2.1 Adds Agentic Video Skills and T3000 Emulation",
+        "url": "https://developer.nvidia.com/blog/nvidia-jetpack-7-2-1-adds-agentic-video-skills-and-t3000-emulation/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-jetpack-7-2-1-adds-agentic-video-skills-and-t3000-emulation/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "T3000 Emulation 具体指代何硬件或功能尚不明确，可能是 Jetson 新模块的仿真环境。",
+      "Agentic Video Skills 的技术细节未在博客中详细阐述，需进一步查阅文档。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "IBM Research 发布新技术，宣称能以更少 token 实现 ACE 类似效果",
+    "category": "ai_models",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "IBM Research",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客于 2026 年 8 月 11 日发布了一篇由 IBM Research 撰写的文章，标题为“Thinking of ACE? We Can Do It with Fewer Tokens”。",
+      "该文章链接至 /ibm-research/altk-evolve-sldd，可能介绍了名为 ALTK Evolve SLDD 的技术。"
+    ],
+    "id": "story-ce8a4be068123fed012d",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://huggingface.co/blog/ibm-research/altk-evolve-sldd",
+    "product_names": [
+      "ALTK Evolve SLDD"
+    ],
+    "published_at": "2026-08-11T13:37:10Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-077b61a0fed02bcc2a08"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T13:37:10Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-077b61a0fed02bcc2a08",
+        "source_name": "Hugging Face Blog",
+        "source_type": "rss",
+        "title": "Thinking of ACE? We Can Do It with Fewer Tokens",
+        "url": "https://huggingface.co/blog/ibm-research/altk-evolve-sldd"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/ibm-research/altk-evolve-sldd"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI模型效率",
+      "Token压缩",
+      "自然语言处理"
+    ],
+    "uncertainties": [
+      "未提供文章具体内容，ACE 指代的对象未知。",
+      "不明确该技术是否已开源或处于实验阶段。",
+      "ALTK Evolve SLDD 的具体含义和性能指标未知。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "AI工具在代码生成、美术资源创作等领域的应用日益成熟，可能挤压初级开发者的就业空间，尤其在成本敏感的土耳其市场。",
+      "土耳其游戏行业可能面临结构性调整，入门级岗位需求下降，企业更倾向于使用AI或雇用资深员工。"
+    ],
+    "canonical_title": "土耳其的AI困境：对游戏开发入门级岗位的影响",
+    "category": "人工智能与就业",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "Microsoft",
+      "Xbox"
+    ],
+    "facts": [
+      "Windows Central于2026年8月12日发布了一篇题为“Turkey's AI dilemma, the impact on entry level jobs for game development”的文章。",
+      "文章链接包含“xbox-layoffs”，表明内容可能与Xbox裁员有关。"
+    ],
+    "id": "story-0e3fea2a1049c1598f25",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.windowscentral.com/gaming/ai-game-development-turkey-junior-roles-xbox-layoffs",
+    "product_names": [
+      "Xbox"
+    ],
+    "published_at": "2026-08-12T07:38:41Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-396a0d072cacf36c0fa3"
+    ],
+    "source_refs": [
+      {
+        "author": "pjmlp",
+        "discussion_url": "https://news.ycombinator.com/item?id=49269005",
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-12T07:38:41Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-396a0d072cacf36c0fa3",
+        "source_name": "Hacker News",
+        "source_type": "hacker_news",
+        "title": "Turkey's AI dilemma, the impact on entry level jobs for game development",
+        "url": "https://www.windowscentral.com/gaming/ai-game-development-turkey-junior-roles-xbox-layoffs"
+      }
+    ],
+    "source_urls": [
+      "https://www.windowscentral.com/gaming/ai-game-development-turkey-junior-roles-xbox-layoffs",
+      "https://news.ycombinator.com/item?id=49269005"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "人工智能",
+      "游戏开发",
+      "入门级岗位",
+      "裁员",
+      "土耳其"
+    ],
+    "uncertainties": [
+      "文章具体内容未知，尚不清楚土耳其游戏行业受AI影响的具体程度和案例。",
+      "Xbox裁员与土耳其AI影响的关联性尚不明确。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "MAI-Code-1-Flash 即将弃用",
+    "category": "AI编程工具",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 计划于 2026 年 9 月 10 日弃用 MAI-Code-1-Flash 模型。",
+      "建议的替代模型是 MAI-Code-1.1-Flash。",
+      "此变更将影响所有 GitHub Copilot 体验。",
+      "用户需要更新其工作流。"
+    ],
+    "id": "story-af46be7dedd79e56bcc3",
+    "importance_score": 0.6,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.blog/changelog/2026-08-11-upcoming-deprecation-of-mai-code-1-flash",
+    "product_names": [
+      "MAI-Code-1-Flash",
+      "MAI-Code-1.1-Flash",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-08-11T18:50:42Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-7ceba0473dadf6af5734"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T18:50:42Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-7ceba0473dadf6af5734",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "Upcoming deprecation of MAI-Code-1-Flash",
+        "url": "https://github.blog/changelog/2026-08-11-upcoming-deprecation-of-mai-code-1-flash"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-11-upcoming-deprecation-of-mai-code-1-flash"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI编程",
+      "开源AI"
+    ],
+    "uncertainties": [
+      "尚不清楚弃用后是否会有更多替代模型推出，以及是否会对现有依赖该模型的功能产生额外影响。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "此次更新延续了 Ollama 对新兴大语言模型架构（如 MoE）的支持，尤其是面向代理场景的模型。",
+      "集成 Nemotron 3.5 Lightning 反映了 Ollama 与 NVIDIA 在模型生态上的协作。",
+      "Muse Glimmer 解析器的修复有望提高工具调用场景的可靠性。"
+    ],
+    "canonical_title": "Ollama v0.32.9 发布：支持 NVIDIA Nemotron 3.5 Lightning 模型",
+    "category": "AI模型发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Ollama",
+      "NVIDIA"
+    ],
+    "facts": [
+      "Ollama 于 2026年8月11日发布版本 v0.32.9。",
+      "该版本新增了对 NVIDIA Nemotron 3.5 Lightning 模型的支持。",
+      "NVIDIA Nemotron 3.5 Lightning 是一个开源的 30B 混合专家（MoE）模型，活跃参数为 3B，专为常驻代理的执行层设计。",
+      "该模型可与 OpenClaw 和 Hermes Agent 等工具兼容。",
+      "这些工具由 NVIDIA NemoClaw 开源安全与管理栈提供支持。",
+      "可以通过命令 `ollama run nemotron-3.5-lightning` 运行该模型。",
+      "此版本修复了 Muse Glimmer 函数调用解析器中的一个边界条件问题。"
+    ],
+    "id": "story-4ceeae39cbe855c4dbd8",
+    "importance_score": 0.4,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.32.9",
+    "product_names": [
+      "Ollama",
+      "NVIDIA Nemotron 3.5 Lightning",
+      "OpenClaw",
+      "Hermes Agent",
+      "NemoClaw"
+    ],
+    "published_at": "2026-08-11T13:23:33Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-34c098e478fe80282aee"
+    ],
+    "source_refs": [
+      {
+        "author": "dhiltgen",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T13:23:33Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-34c098e478fe80282aee",
+        "source_name": "GitHub · ollama/ollama",
+        "source_type": "github",
+        "title": "ollama/ollama: v0.32.9",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.32.9"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.32.9"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "Nemotron 3.5 Lightning 模型在实际代理任务中的性能表现有待验证。",
+      "该模型在非代理场景下的效果未知。",
+      "Muse Glimmer 解析器修复的具体边界条件未公开。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "该补丁版本增加了对量化 DSpark Markov heads 的支持，可能提升特定模型的推理效率。"
+    ],
+    "canonical_title": "vLLM v0.27.1 发布",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "vLLM"
+    ],
+    "facts": [
+      "这是 v0.27.0 之上的一次补丁发布，新增了对量化 DSpark Markov head 的支持（PR #50424）。"
+    ],
+    "id": "story-21077eb1f3d3c54c0a33",
+    "importance_score": 0.3,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.1",
+    "product_names": [
+      "vLLM v0.27.1"
+    ],
+    "published_at": "2026-08-11T10:47:49Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-79fa413a464f8b759667"
+    ],
+    "source_refs": [
+      {
+        "author": "khluu",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T10:47:49Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-79fa413a464f8b759667",
+        "source_name": "GitHub · vllm-project/vllm",
+        "source_type": "github",
+        "title": "vllm-project/vllm: v0.27.1",
+        "url": "https://github.com/vllm-project/vllm/releases/tag/v0.27.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/vllm-project/vllm/releases/tag/v0.27.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 发布 openai-python v2.54.0",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "Castiron"
+    ],
+    "facts": [
+      "2026年8月11日，OpenAI 发布了 openai-python 库的 v2.54.0 版本。",
+      "该版本新增了 Responses 模型的标识符。",
+      "该版本明确了音频上传时元数据的要求。",
+      "该版本将生成文件的头部归属信息更新为 Castiron。"
+    ],
+    "id": "story-7bc5bcc9615783368091",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v2.54.0",
+    "product_names": [
+      "openai-python v2.54.0"
+    ],
+    "published_at": "2026-08-11T18:45:59Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-0fb1c9ac354e45db7d45"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T18:45:59Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-0fb1c9ac354e45db7d45",
+        "source_name": "GitHub · openai/openai-python",
+        "source_type": "github",
+        "title": "openai/openai-python: v2.54.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v2.54.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v2.54.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai",
+      "release"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "该功能帮助用户更细致地了解AI信用消耗，从而优化模型选择和成本管理。"
+    ],
+    "canonical_title": "GitHub使用报告新增按模型令牌细分功能",
+    "category": "产品更新",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "2026年8月11日，GitHub在更新日志中宣布，用户现在可以在使用报告中查看每个模型的令牌细分。",
+      "对于每个模型，AI使用报告会显示输入、输出和缓存的令牌数量。"
+    ],
+    "id": "story-9cfbca872ecfe941a49e",
+    "importance_score": 0.3,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-08-11-per-model-token-breakdown-in-the-usage-report",
+    "product_names": [],
+    "published_at": "2026-08-11T14:41:52Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-c232dfe83c4424f262c3"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T14:41:52Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-c232dfe83c4424f262c3",
+        "source_name": "GitHub Changelog",
+        "source_type": "rss",
+        "title": "Per-model token breakdown in the usage report",
+        "url": "https://github.blog/changelog/2026-08-11-per-model-token-breakdown-in-the-usage-report"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-11-per-model-token-breakdown-in-the-usage-report"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  },
+  {
+    "analysis": [
+      "双方说法存在矛盾，可能涉及合同或工作范围的不一致。",
+      "CEO 的声明较为笼统，未直接回应 Sacco 的具体指控。",
+      "这可能反映游戏行业对 AI 生成内容使用的内部标准争议。"
+    ],
+    "canonical_title": "Saber Interactive 否认用 ChatGPT 替换《Rideshare Stimulator》编剧，前首席编剧反驳",
+    "category": "AI与游戏开发",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Saber Interactive",
+      "Unigine"
+    ],
+    "facts": [
+      "前首席编剧 Stella Sacco 声称 Saber “用 ChatGPT 替换了我”。",
+      "Saber 首席执行官 Matthew Karch 声明 “Saber 和 Unigine 均未用 AI 替换任何编剧”。",
+      "争议涉及的游戏为《Rideshare Stimulator》，由 Unigine 开发，于上月公布。",
+      "Sacco 在 Bluesky 上反驳称自己曾是此项目的首席编剧。"
+    ],
+    "id": "story-2c4c21e910500c65725f",
+    "importance_score": 0.1,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://www.theverge.com/games/978558/rideshare-stimulator-writer-ai-saber-interactive",
+    "product_names": [
+      "Rideshare Stimulator"
+    ],
+    "published_at": "2026-08-11T20:39:26-04:00",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-2d93b9c8f35a1abeae8f"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "discussion_url": null,
+        "fetched_at": "2026-08-12T07:51:03.848510Z",
+        "published_at": "2026-08-11T20:39:26-04:00",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-2d93b9c8f35a1abeae8f",
+        "source_name": "The Verge AI",
+        "source_type": "rss",
+        "title": "Saber denies replacing Rideshare Stimulator’s writers with ChatGPT",
+        "url": "https://www.theverge.com/games/978558/rideshare-stimulator-writer-ai-saber-interactive"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/games/978558/rideshare-stimulator-writer-ai-saber-interactive"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI写作争议",
+      "游戏开发",
+      "ChatGPT"
+    ],
+    "uncertainties": [
+      "Sacco 是否确实被解雇或以 AI 替代？具体合同条款如何？",
+      "AI 是否被用于辅助而非完全替代？",
+      "Saber 内部 AI 政策如何？缺乏独立调查。"
+    ],
+    "updated_at": "2026-08-12T07:51:03.848510Z"
+  }
+]
