@@ -5,7 +5,7 @@ from __future__ import annotations
 import json
 import os
 from collections.abc import Callable
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
 
@@ -23,6 +23,8 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 from morning_radar.ai.models import (
     BriefDraft,
     ClassificationBatch,
+    ContinuityResolution,
+    ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
     StoryScore,
@@ -32,6 +34,7 @@ from morning_radar.ai.output_validation import (
     validate_core_simplified_chinese_output,
     validate_direction_evidence,
 )
+from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.models import RawItem, Signal, Story
 from morning_radar.provenance import verified_source_urls_for_items
 
@@ -56,6 +59,8 @@ class AIBudget:
     calls_used: int = 0
     input_characters_used: int = 0
     network_requests_used: int = 0
+    task_usage: dict[str, dict[str, int]] = field(default_factory=dict)
+    task_finish_reasons: dict[str, dict[str, int]] = field(default_factory=dict)
 
     def consume(self, payload: str, *, item_count: int) -> None:
         if item_count > self.maximum_items:
@@ -72,6 +77,40 @@ class AIBudget:
     def record_network_request(self) -> None:
         """Record an actual outbound AI API request, including retries."""
         self.network_requests_used += 1
+
+    def record_response_usage(
+        self,
+        task: str,
+        *,
+        prompt_tokens: int = 0,
+        completion_tokens: int = 0,
+        reasoning_tokens: int = 0,
+        finish_reason: str = "unknown",
+    ) -> None:
+        usage = self.task_usage.setdefault(
+            task,
+            {"prompt_tokens": 0, "completion_tokens": 0, "reasoning_tokens": 0},
+        )
+        usage["prompt_tokens"] += prompt_tokens
+        usage["completion_tokens"] += completion_tokens
+        usage["reasoning_tokens"] += reasoning_tokens
+        reasons = self.task_finish_reasons.setdefault(task, {})
+        reasons[finish_reason] = reasons.get(finish_reason, 0) + 1
+
+    def usage_run_stats(self) -> dict[str, int]:
+        stats: dict[str, int] = {
+            "ai_prompt_tokens": 0,
+            "ai_completion_tokens": 0,
+            "ai_reasoning_tokens": 0,
+        }
+        for task, usage in sorted(self.task_usage.items()):
+            for name, value in usage.items():
+                stats[f"ai_{task}_{name}"] = value
+                stats[f"ai_{name}"] += value
+        for task, reasons in sorted(self.task_finish_reasons.items()):
+            for reason, count in sorted(reasons.items()):
+                stats[f"ai_{task}_finish_{reason}"] = count
+        return stats
 
 
 def _collect_urls(value: Any, field_name: str = "") -> list[str]:
@@ -253,4 +292,22 @@ class OpenAIProvider:
                 output,
                 signals,
             ),
+        )
+
+    def resolve_continuity(
+        self,
+        context: ContinuityResolutionInput,
+    ) -> ContinuityResolution:
+        item_count = (
+            len(context.relation_candidates)
+            + len(context.watch_candidates)
+            + len(context.prior_hypotheses)
+        )
+        return self._parse(
+            task="resolve_continuity",
+            schema=ContinuityResolution,
+            payload_data=context.model_dump(mode="json"),
+            item_count=item_count,
+            allowed_urls=set(),
+            output_validator=lambda output: validate_continuity_resolution(output, context),
         )

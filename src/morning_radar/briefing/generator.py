@@ -8,7 +8,13 @@ from dataclasses import dataclass
 from datetime import date, datetime
 
 from morning_radar.ai import AIOutputError
-from morning_radar.ai.models import BriefDraft, GeneratedBriefItem
+from morning_radar.ai.models import (
+    BriefDraft,
+    GeneratedBriefItem,
+    GeneratedJudgementDraft,
+    GeneratedWatchDraft,
+)
+from morning_radar.ai.output_validation import sanitize_memory_drafts
 from morning_radar.ai.provider import AIProvider
 from morning_radar.models import BriefItem, BriefStoryContext, DailyBrief, Signal, Story
 
@@ -31,6 +37,33 @@ class BriefLimits:
     maximum_items: int
     top_story_items: int = 3
     other_reading_items: int = 6
+
+
+@dataclass(frozen=True, slots=True)
+class BriefGenerationResult:
+    brief: DailyBrief
+    watch_drafts: list[GeneratedWatchDraft]
+    judgement_drafts: list[GeneratedJudgementDraft]
+
+
+def ranked_eligible_stories(
+    stories: list[Story],
+    *,
+    relevance_threshold: float,
+    importance_threshold: float,
+) -> list[Story]:
+    eligible = [
+        story for story in stories if story.relevance_score >= relevance_threshold
+    ]
+    eligible.sort(
+        key=lambda story: (
+            story.importance_score >= importance_threshold,
+            story.importance_score,
+            story.relevance_score,
+        ),
+        reverse=True,
+    )
+    return eligible
 
 
 def _brief_item_id(story_ids: list[str], section: str) -> str:
@@ -116,7 +149,7 @@ def _validated_item(
     )
 
 
-def generate_daily_brief(
+def generate_daily_brief_with_memory(
     *,
     brief_date: date,
     generated_at: datetime,
@@ -130,20 +163,16 @@ def generate_daily_brief(
     relevance_threshold: float = 0,
     importance_threshold: float = 0,
     maximum_ai_items: int | None = None,
-) -> DailyBrief:
+) -> BriefGenerationResult:
     stats = dict(run_stats)
-    eligible_stories = [
-        story for story in stories if story.relevance_score >= relevance_threshold
-    ]
-    eligible_stories.sort(
-        key=lambda story: (
-            story.importance_score >= importance_threshold,
-            story.importance_score,
-            story.relevance_score,
-        ),
-        reverse=True,
+    eligible_stories = ranked_eligible_stories(
+        stories,
+        relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold,
     )
+    ai_stories = eligible_stories[: limits.maximum_items]
     stats["threshold_eligible_stories"] = len(eligible_stories)
+    stats["ai_brief_story_inputs"] = len(ai_stories)
     bounded_signals = sorted(
         signals,
         key=lambda signal: (signal.strength, signal.id),
@@ -160,15 +189,16 @@ def generate_daily_brief(
     ]
     stats["direction_signal_inputs"] = len(direction_signals)
 
-    if eligible_stories:
+    if ai_stories:
         try:
-            draft = provider.write_brief(eligible_stories, bounded_signals)
+            draft = provider.write_brief(ai_stories, bounded_signals)
+            draft = sanitize_memory_drafts(draft, ai_stories)
         except AIOutputError:
             LOGGER.exception(
                 "AI degradation: brief generation failed; using verified Story facts"
             )
             stats["ai_brief_fallback"] = True
-            draft = _fallback_brief_draft(eligible_stories)
+            draft = _fallback_brief_draft(ai_stories)
     else:
         LOGGER.info("Skipping AI brief generation: no stories")
         draft = BriefDraft(items=[])
@@ -242,21 +272,59 @@ def generate_daily_brief(
         if enabled_sections.get("cognitive_extension", True)
         else None
     )
-    return DailyBrief(
-        date=brief_date,
-        timezone=timezone,
-        generated_at=generated_at,
-        top_stories=sections["top_stories"],
-        market_and_companies=sections["market_and_companies"],
-        ai_and_open_source=sections["ai_and_open_source"],
-        trend_radar=sections["trend_radar"],
-        developer_discussions=sections["developer_discussions"],
-        other_reading=other_reading,
-        direction_observation=direction,
-        cognitive_extension=cognitive_extension,
-        watch_next=draft.watch_next,
-        run_stats=stats,
+    return BriefGenerationResult(
+        brief=DailyBrief(
+            date=brief_date,
+            timezone=timezone,
+            generated_at=generated_at,
+            top_stories=sections["top_stories"],
+            market_and_companies=sections["market_and_companies"],
+            ai_and_open_source=sections["ai_and_open_source"],
+            trend_radar=sections["trend_radar"],
+            developer_discussions=sections["developer_discussions"],
+            other_reading=other_reading,
+            direction_observation=direction,
+            cognitive_extension=cognitive_extension,
+            # v0.3 display is projected from the same validated structured Watch
+            # source. ``watch_next`` remains on the schema only for old JSON.
+            watch_next=[watch.expectation for watch in draft.watch_items],
+            run_stats=stats,
+        ),
+        watch_drafts=draft.watch_items,
+        judgement_drafts=draft.judgements,
     )
+
+
+def generate_daily_brief(
+    *,
+    brief_date: date,
+    generated_at: datetime,
+    timezone: str,
+    stories: list[Story],
+    signals: list[Signal],
+    provider: AIProvider,
+    limits: BriefLimits,
+    enabled_sections: dict[str, bool],
+    run_stats: dict[str, int | float | str | bool],
+    relevance_threshold: float = 0,
+    importance_threshold: float = 0,
+    maximum_ai_items: int | None = None,
+) -> DailyBrief:
+    """Compatibility wrapper for callers that only need the display Brief."""
+    return generate_daily_brief_with_memory(
+        brief_date=brief_date,
+        generated_at=generated_at,
+        timezone=timezone,
+        stories=stories,
+        signals=signals,
+        provider=provider,
+        limits=limits,
+        enabled_sections=enabled_sections,
+        run_stats=run_stats,
+        relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold,
+        maximum_ai_items=maximum_ai_items,
+    ).brief
 
 
 def _fallback_brief_draft(stories: list[Story]) -> BriefDraft:

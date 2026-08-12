@@ -8,7 +8,7 @@ from urllib.parse import urlsplit
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
-from morning_radar.models import DailyBrief
+from morning_radar.models import DailyBrief, DailyContinuity, JudgementUpdateKind
 
 
 class SiteBuilder:
@@ -22,7 +22,13 @@ class SiteBuilder:
         )
         self.environment.filters["hostname"] = _hostname
 
-    def build(self, briefs: list[DailyBrief], *, stylesheet: Path) -> None:
+    def build(
+        self,
+        briefs: list[DailyBrief],
+        *,
+        stylesheet: Path,
+        continuities: list[DailyContinuity] | None = None,
+    ) -> None:
         if not briefs:
             raise ValueError("At least one DailyBrief is required to build the site")
         ordered = sorted(briefs, key=lambda item: item.date, reverse=True)
@@ -33,11 +39,13 @@ class SiteBuilder:
         if stylesheet.resolve() != stylesheet_destination.resolve():
             shutil.copyfile(stylesheet, stylesheet_destination)
         latest = ordered[0]
+        annotations = _historical_judgement_annotations(continuities or [])
         self._render(
             "index.html.j2",
             self.output_dir / "index.html",
             brief=latest,
             root_prefix="",
+            historical_annotations=annotations.get(latest.date, {}),
         )
         self._render("archive.html.j2", self.output_dir / "archive.html", briefs=ordered)
         for brief in ordered:
@@ -46,6 +54,7 @@ class SiteBuilder:
                 self.output_dir / "briefs" / f"{brief.date}.html",
                 brief=brief,
                 root_prefix="../",
+                historical_annotations=annotations.get(brief.date, {}),
             )
 
     def _render(self, template: str, destination: Path, **context: object) -> None:
@@ -59,3 +68,40 @@ def _hostname(url: str) -> str:
     """Return a safe display hostname without changing the source URL."""
     hostname = urlsplit(url).hostname or ""
     return hostname.removeprefix("www.")
+
+
+def _historical_judgement_annotations(
+    continuities: list[DailyContinuity],
+) -> dict[object, dict[str, list[dict[str, str]]]]:
+    records = {
+        judgement.judgement_id: judgement
+        for daily in continuities
+        for judgement in daily.judgements
+    }
+    roots = {
+        judgement.root_judgement_id: judgement
+        for judgement in records.values()
+        if judgement.updates_judgement_id is None
+    }
+    result: dict[object, dict[str, list[dict[str, str]]]] = {}
+    visible_updates = {
+        JudgementUpdateKind.WEAKENED,
+        JudgementUpdateKind.REVISED,
+        JudgementUpdateKind.OVERTURNED,
+    }
+    for daily in continuities:
+        for judgement in daily.judgements:
+            if judgement.update_kind not in visible_updates:
+                continue
+            root = roots.get(judgement.root_judgement_id)
+            if root is None:
+                continue
+            annotation = {
+                "date": str(daily.date),
+                "kind": judgement.update_kind.value,
+                "claim": judgement.claim,
+            }
+            for evidence in root.evidence_refs:
+                by_story = result.setdefault(evidence.story.date, {})
+                by_story.setdefault(evidence.story.story_id, []).append(annotation)
+    return result

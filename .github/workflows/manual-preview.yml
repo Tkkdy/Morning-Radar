@@ -9,7 +9,7 @@ permissions:
 jobs:
   preview:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
 
     steps:
       - name: Checkout
@@ -55,6 +55,7 @@ jobs:
           name: morning-radar-preview
           path: |
             .tmp/dry-run/data/briefs/
+            .tmp/dry-run/data/continuity/
             .tmp/dry-run/data/stories/
             .tmp/dry-run/site/
           if-no-files-found: error

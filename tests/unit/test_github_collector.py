@@ -56,8 +56,11 @@ def test_github_collects_release_and_saves_snapshot(tmp_path) -> None:
         Path("fixtures/github/repository.json").read_text(encoding="utf-8")
     )
     releases_data = json.loads(Path("fixtures/github/releases.json").read_text(encoding="utf-8"))
-    snapshots = tmp_path / "github"
-    save_models(snapshots / "2026-07-22.json", [snapshot(date(2026, 7, 22), 12000)])
+    history_snapshots = tmp_path / "production/github"
+    output_snapshots = tmp_path / "preview/github"
+    history_path = history_snapshots / "2026-07-22.json"
+    save_models(history_path, [snapshot(date(2026, 7, 22), 12000)])
+    history_before = history_path.read_bytes()
 
     def handler(request: httpx.Request) -> httpx.Response:
         assert request.headers["Authorization"] == "Bearer test-token"
@@ -75,7 +78,8 @@ def test_github_collects_release_and_saves_snapshot(tmp_path) -> None:
             )
         ],
         http=HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler))),
-        snapshot_dir=snapshots,
+        snapshot_dir=output_snapshots,
+        history_snapshot_dir=history_snapshots,
         token="test-token",
         now=NOW,
     )
@@ -85,5 +89,7 @@ def test_github_collects_release_and_saves_snapshot(tmp_path) -> None:
     assert len(items) == 1
     assert items[0].url == releases_data[0]["html_url"]
     assert items[0].metadata["stars_delta_24h"] == 500
-    saved = load_models(snapshots / "2026-07-23.json", GitHubSnapshot)
+    saved = load_models(output_snapshots / "2026-07-23.json", GitHubSnapshot)
     assert saved[0].stars == 12500
+    assert history_path.read_bytes() == history_before
+    assert not (history_snapshots / "2026-07-23.json").exists()

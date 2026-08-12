@@ -10,3 +10,30 @@ footer{color:var(--muted);border-top:1px solid var(--line);padding:28px 0 48px;f
 .brief-card{position:relative}.card-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;color:var(--muted);font-size:.84rem;margin:12px 0}.primary-source{font-weight:700}.primary-indicator,.status-badge{border:1px solid var(--line);border-radius:999px;color:var(--accent);font-size:.72rem;font-weight:800;padding:1px 7px}.status-badge{background:#e6f1eb;margin-right:6px}.source-time{color:var(--muted);font-size:.84rem}.brief-details{border-top:1px solid var(--line);margin-top:16px;padding-top:12px}.brief-details summary{color:var(--accent);cursor:pointer;font-weight:700}.detail-content{padding-top:8px}.detail-block{margin-top:14px}.detail-block h4{font-size:.9rem;margin:0 0 4px}.detail-block ul,.source-details ul{margin:4px 0;padding-left:20px}.detail-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}.detail-tags span{background:#eef2ee;border-radius:999px;color:var(--muted);font-size:.78rem;padding:2px 8px}.source-details li{margin:12px 0}.source-details a{font-size:.85rem;margin-right:10px}
 .discovery-note{color:var(--muted)}.compact-cards{grid-template-columns:repeat(2,minmax(0,1fr))}.brief-card.compact{background:rgba(255,253,248,.72);box-shadow:none;padding:16px 18px}.brief-card.compact h3{font-size:1.05rem}.brief-card.compact>p:not(.section-label){color:var(--muted);margin:.45rem 0}.brief-card.compact .brief-details{margin-top:10px}
 @media(max-width:640px){.hero,main,footer{width:min(100% - 24px,1080px)}.hero{padding-top:20px}.cards{grid-template-columns:1fr}article{padding:18px}.hero h1{font-size:2.5rem}nav{font-size:.9rem}.archive-list a{grid-template-columns:1fr;gap:2px}.archive-count{white-space:normal}}
+.continuity-note,
+.watch-match,
+.judgement-cue,
+.historical-annotation {
+  margin: 0.85rem 0;
+  padding: 0.75rem 0.85rem;
+  border-left: 3px solid #6f7fd7;
+  background: #f5f7ff;
+  border-radius: 0 8px 8px 0;
+}
+
+.continuity-note p { margin: 0.45rem 0; }
+.continuity-badge {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+  color: #4050a8;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.watch-match { border-left-color: #3b8b73; background: #f2fbf7; }
+.judgement-cue.weakened,
+.judgement-cue.needs_review,
+.historical-annotation.weakened { border-left-color: #b4892f; background: #fff9e9; }
+.judgement-cue.revised,
+.historical-annotation.revised { border-left-color: #c36b2e; background: #fff5ed; }
+.judgement-cue.overturned,
+.historical-annotation.overturned { border-left-color: #b44141; background: #fff1f1; }

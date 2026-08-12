@@ -348,11 +348,10 @@ class TrendDetector:
                 now=now,
                 current_date=current_date,
             ),
-            *detect_product_transitions(
-                story_history,
-                current_date=current_date,
-                now=now,
-            ),
+            # v0.3 no longer publishes product-name-only transitions as truth.
+            # ``detect_product_transitions`` remains importable for legacy tests
+            # and candidate feature work, while confirmed reader-facing changes
+            # come from validated StoryRelationRecord values.
             *detect_market_attention(
                 market_snapshots,
                 current_stories,

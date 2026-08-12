@@ -1,0 +1,46 @@
+{
+  "cases": [
+    {
+      "name": "mcp_rc_to_stable",
+      "previous": {"date": "2026-07-28", "story_id": "story-124f756773bdde748301"},
+      "current": {"date": "2026-07-29", "story_id": "story-61e13c601a33cabb863a"},
+      "expected_relation": true
+    },
+    {
+      "name": "vllm_patch_follow_up",
+      "previous": {"date": "2026-08-11", "story_id": "story-1350f7189fac31ab30db"},
+      "current": {"date": "2026-08-12", "story_id": "story-21077eb1f3d3c54c0a33"},
+      "expected_relation": true
+    },
+    {
+      "name": "kimi_safety_is_not_vllm_release",
+      "previous": {"date": "2026-08-07", "story_id": "story-c38da86e757cab83fcb7"},
+      "current": {"date": "2026-08-11", "story_id": "story-1350f7189fac31ab30db"},
+      "expected_relation": false
+    },
+    {
+      "name": "claude_code_rumor_is_not_ollama_release",
+      "previous": {"date": "2026-08-10", "story_id": "story-e97e8b26e9ce5a30bf4d"},
+      "current": {"date": "2026-08-11", "story_id": "story-ff9cf389e2cc16799a45"},
+      "expected_relation": false
+    },
+    {
+      "name": "chatgpt_work_study_is_not_academic_research_transition",
+      "previous": {"date": "2026-07-28", "story_id": "story-11ca0256b75eb5d5617e"},
+      "current": {"date": "2026-07-30", "story_id": "story-0df9410b0fc811f990ac"},
+      "expected_relation": false
+    },
+    {
+      "name": "gpt_benchmark_is_not_price_performance_thread",
+      "previous": {"date": "2026-07-30", "story_id": "story-2f86a0b5df8895f000d4"},
+      "current": {"date": "2026-07-31", "story_id": "story-f7ce847628ca0a1252b6"},
+      "expected_relation": false
+    },
+    {
+      "name": "copilot_deprecation_is_not_memory_feature",
+      "previous": {"date": "2026-08-12", "story_id": "story-af46be7dedd79e56bcc3"},
+      "current": {"date": "2026-08-12", "story_id": "story-accf22dda02db6f3d2ba"},
+      "expected_relation": false
+    }
+  ]
+}

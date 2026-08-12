@@ -213,6 +213,23 @@ class BriefStoryContext(RadarModel):
     _primary_url_is_http = field_validator("primary_source_url")(_validate_http_url)
 
 
+class BriefJudgementCue(RadarModel):
+    judgement_id: str = Field(min_length=1)
+    update_kind: str = Field(min_length=1)
+    claim: str = Field(min_length=1)
+
+
+class BriefContinuityContext(RadarModel):
+    current_story_id: str = Field(min_length=1)
+    relation_type: str | None = None
+    what_changed: str | None = None
+    previous_story_date: date | None = None
+    previous_story_id: str | None = None
+    previous_story_title: str | None = None
+    watch_matches: list[str] = Field(default_factory=list)
+    judgement_cues: list[BriefJudgementCue] = Field(default_factory=list)
+
+
 class BriefItem(RadarModel):
     id: str = Field(min_length=1)
     section: str = Field(min_length=1)
@@ -224,6 +241,7 @@ class BriefItem(RadarModel):
     source_urls: list[str] = Field(min_length=1)
     story_ids: list[str] = Field(min_length=1)
     story_contexts: list[BriefStoryContext] = Field(default_factory=list)
+    continuity_contexts: list[BriefContinuityContext] = Field(default_factory=list)
 
     _source_urls_are_http = field_validator("source_urls")(
         lambda urls: [_validate_http_url(url) for url in urls]
@@ -240,6 +258,18 @@ class BriefItem(RadarModel):
             "story_ids", []
         ):
             raise ValueError("story_contexts must exactly match story_ids in order")
+        return values
+
+    @field_validator("continuity_contexts")
+    @classmethod
+    def continuity_contexts_must_reference_item_stories(
+        cls,
+        values: list[BriefContinuityContext],
+        info: Any,
+    ) -> list[BriefContinuityContext]:
+        story_ids = set(info.data.get("story_ids", []))
+        if any(context.current_story_id not in story_ids for context in values):
+            raise ValueError("continuity_contexts must reference item story_ids")
         return values
 
 

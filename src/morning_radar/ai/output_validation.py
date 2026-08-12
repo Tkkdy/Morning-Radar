@@ -9,7 +9,14 @@ from collections.abc import Iterable
 
 from pydantic import BaseModel
 
-from morning_radar.ai.models import BriefDraft, DirectionObservation, MergedStoryDraft
+from morning_radar.ai.models import (
+    BriefDraft,
+    ContinuityResolution,
+    DirectionObservation,
+    GeneratedJudgementDraft,
+    GeneratedWatchDraft,
+    MergedStoryDraft,
+)
 from morning_radar.models import Signal, Story
 
 LOGGER = logging.getLogger(__name__)
@@ -37,6 +44,11 @@ _GENERIC_ANCHORS = {
     "technology",
     "人工智能",
 }
+_GENERIC_INSIGHT_PATTERNS = (
+    re.compile(r"^(?:人工智能|AI)行业(?:正在|仍在|继续)?快速发展[。.]?$", re.IGNORECASE),
+    re.compile(r"^(?:人工智能|AI)智能体(?:正变得|越来越)?重要[。.]?$", re.IGNORECASE),
+    re.compile(r"^模型竞争(?:正在|将会)?(?:持续)?加剧[。.]?$", re.IGNORECASE),
+)
 
 
 def is_suspicious_english_prose(value: str) -> bool:
@@ -124,6 +136,82 @@ def validate_brief_references(output: BriefDraft, stories: list[Story]) -> None:
             )
 
 
+def sanitize_memory_drafts(output: BriefDraft, stories: list[Story]) -> BriefDraft:
+    """Drop invalid optional memory drafts without weakening core Brief items."""
+    stories_by_id = {story.id: story for story in stories}
+    valid_watches: list[GeneratedWatchDraft] = []
+    valid_judgements: list[GeneratedJudgementDraft] = []
+    dropped: Counter[str] = Counter()
+    for watch in output.watch_items:
+        referenced = [stories_by_id.get(story_id) for story_id in watch.source_story_ids]
+        if not referenced or any(story is None for story in referenced):
+            dropped["watch_story_reference"] += 1
+            continue
+        allowed_entities = {value for story in referenced for value in story.entity_names}
+        allowed_products = {value for story in referenced for value in story.product_names}
+        allowed_topics = {value for story in referenced for value in story.topic_names}
+        if not any((watch.entity_anchors, watch.product_anchors, watch.topic_anchors)):
+            dropped["watch_anchor"] += 1
+            continue
+        if (
+            not set(watch.entity_anchors).issubset(allowed_entities)
+            or not set(watch.product_anchors).issubset(allowed_products)
+            or not set(watch.topic_anchors).issubset(allowed_topics)
+        ):
+            dropped["watch_anchor"] += 1
+            continue
+        normalized_anchors = {
+            _normalize_anchor(value)
+            for value in (
+                *watch.entity_anchors,
+                *watch.product_anchors,
+                *watch.topic_anchors,
+            )
+        }
+        normalized_expectation = _normalize_anchor(watch.expectation)
+        if (
+            is_suspicious_english_prose(watch.expectation)
+            or _is_generic_insight(watch.expectation)
+            or not any(
+                _anchor_matches(anchor, normalized_expectation)
+                for anchor in normalized_anchors
+            )
+        ):
+            dropped["watch_platitude"] += 1
+            continue
+        valid_watches.append(watch)
+
+    for judgement in output.judgements:
+        referenced = [stories_by_id.get(story_id) for story_id in judgement.evidence_story_ids]
+        anchors = {
+            _normalize_anchor(value)
+            for story in referenced
+            if story is not None
+            for value in (*story.entity_names, *story.product_names, *story.topic_names)
+            if len(_normalize_anchor(value)) >= 3
+        }
+        normalized_claim = _normalize_anchor(judgement.claim)
+        if (
+            any(story_id not in stories_by_id for story_id in judgement.evidence_story_ids)
+            or len(judgement.claim.strip()) < 20
+            or is_suspicious_english_prose(judgement.claim)
+            or is_suspicious_english_prose(judgement.rationale)
+            or _is_generic_insight(judgement.claim)
+            or not any(_anchor_matches(anchor, normalized_claim) for anchor in anchors)
+        ):
+            dropped["judgement_contract"] += 1
+            continue
+        valid_judgements.append(judgement)
+    if dropped:
+        LOGGER.warning(
+            "Dropped invalid optional memory drafts: %s",
+            ",".join(f"{key}:{value}" for key, value in sorted(dropped.items())),
+        )
+    return output.model_copy(
+        update={"watch_items": valid_watches, "judgements": valid_judgements}
+    )
+
+
 def validate_and_sanitize_brief(
     output: BriefDraft,
     stories: list[Story],
@@ -131,7 +219,8 @@ def validate_and_sanitize_brief(
 ) -> BriefDraft:
     """Validate core references before independently degrading optional fields."""
     validate_brief_references(output, stories)
-    return sanitize_editorial_extensions(output, stories, signals)
+    sanitized = sanitize_editorial_extensions(output, stories, signals)
+    return sanitize_memory_drafts(sanitized, stories)
 
 
 def _reject_brief_references(message: str) -> None:
@@ -248,6 +337,11 @@ def _anchor_matches(anchor: str, narrative: str) -> bool:
     return re.search(rf"(?<![a-z0-9]){re.escape(anchor)}(?![a-z0-9])", narrative) is not None
 
 
+def _is_generic_insight(value: str) -> bool:
+    normalized = " ".join(value.split()).strip()
+    return any(pattern.fullmatch(normalized) for pattern in _GENERIC_INSIGHT_PATTERNS)
+
+
 def _present(values: Iterable[str | None]) -> Iterable[str]:
     return (value for value in values if value)
 
@@ -261,11 +355,26 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         yield from output.uncertainties
     elif isinstance(output, BriefDraft):
         yield from _brief_item_narratives(output)
+        yield from (watch.expectation for watch in output.watch_items)
+        for judgement in output.judgements:
+            yield judgement.claim
+            yield judgement.rationale
+            yield from _present((judgement.uncertainty,))
         yield from output.watch_next
         yield from _present((output.cognitive_extension,))
     elif isinstance(output, DirectionObservation):
         yield from _present((output.observation,))
         yield from output.uncertainties
+    elif isinstance(output, ContinuityResolution):
+        for relation in output.relations:
+            yield relation.rationale
+            yield from _present((relation.what_changed,))
+        for match in output.watch_matches:
+            yield match.rationale
+        for update in output.judgement_updates:
+            yield update.claim
+            yield update.rationale
+            yield from _present((update.uncertainty,))
 
 
 def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:
