@@ -55,6 +55,7 @@ jobs:
           name: morning-radar-preview
           path: |
             .tmp/dry-run/data/briefs/
+            .tmp/dry-run/data/continuity/
             .tmp/dry-run/data/stories/
             .tmp/dry-run/site/
           if-no-files-found: error
