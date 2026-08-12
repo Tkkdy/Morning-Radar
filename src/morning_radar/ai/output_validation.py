@@ -92,6 +92,53 @@ def validate_direction_evidence(
         raise ValueError("Direction evidence must belong to one input Signal")
 
 
+def validate_brief_references(output: BriefDraft, stories: list[Story]) -> None:
+    """Require each Brief item to reference only its actual input Stories."""
+    stories_by_id = {story.id: story for story in stories}
+    for item_index, item in enumerate(output.items):
+        if not item.story_ids:
+            _reject_brief_references(f"item {item_index} has empty story_ids")
+
+        unknown_ids = [
+            story_id for story_id in item.story_ids if story_id not in stories_by_id
+        ]
+        if unknown_ids:
+            _reject_brief_references(
+                f"item {item_index} has unknown Story IDs: {', '.join(unknown_ids)}"
+            )
+
+        if not item.source_urls:
+            _reject_brief_references(f"item {item_index} has empty source_urls")
+
+        referenced_urls = {
+            url
+            for story_id in item.story_ids
+            for url in stories_by_id[story_id].source_urls
+        }
+        mismatched_urls = [url for url in item.source_urls if url not in referenced_urls]
+        if mismatched_urls:
+            _reject_brief_references(
+                "item "
+                f"{item_index} source URLs do not match its Story IDs: "
+                f"{', '.join(mismatched_urls)}"
+            )
+
+
+def validate_and_sanitize_brief(
+    output: BriefDraft,
+    stories: list[Story],
+    signals: list[Signal],
+) -> BriefDraft:
+    """Validate core references before independently degrading optional fields."""
+    validate_brief_references(output, stories)
+    return sanitize_editorial_extensions(output, stories, signals)
+
+
+def _reject_brief_references(message: str) -> None:
+    LOGGER.warning("Rejected invalid Brief references: %s", message)
+    raise ValueError(message)
+
+
 def validate_editorial_grounding(
     output: BriefDraft,
     stories: list[Story],

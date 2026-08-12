@@ -11,6 +11,8 @@ from morning_radar.ai.models import (
 from morning_radar.ai.output_validation import (
     is_suspicious_english_prose,
     sanitize_editorial_extensions,
+    validate_and_sanitize_brief,
+    validate_brief_references,
     validate_direction_evidence,
     validate_editorial_grounding,
     validate_simplified_chinese_output,
@@ -54,6 +56,80 @@ def signal(signal_id: str, story_ids: list[str]) -> Signal:
         created_at=NOW,
         updated_at=NOW,
     )
+
+
+def brief_item(story_ids: list[str], source_urls: list[str]) -> GeneratedBriefItem:
+    return GeneratedBriefItem(
+        story_ids=story_ids,
+        section="top_stories",
+        title="OpenAI 新模型",
+        what_happened="OpenAI 发布了新模型。",
+        why_it_matters="开发者需要评估兼容性。",
+        source_urls=source_urls,
+    )
+
+
+@pytest.mark.parametrize(
+    ("item", "message"),
+    [
+        (brief_item([], ["https://example.com/openai"]), "empty story_ids"),
+        (brief_item(["story-openai"], []), "empty source_urls"),
+    ],
+)
+def test_brief_references_require_nonempty_ids_and_urls(
+    item: GeneratedBriefItem,
+    message: str,
+) -> None:
+    with pytest.raises(ValueError, match=message):
+        validate_brief_references(BriefDraft(items=[item]), [story()])
+
+
+def test_brief_references_reject_unknown_story_ids_with_safe_diagnostic(
+    caplog,
+) -> None:
+    draft = BriefDraft(
+        items=[brief_item(["story-openai", "invented-story"], story().source_urls)]
+    )
+
+    with pytest.raises(ValueError, match="unknown Story IDs: invented-story"):
+        validate_brief_references(draft, [story()])
+
+    assert "item 0 has unknown Story IDs: invented-story" in caplog.text
+
+
+def test_brief_references_reject_url_from_an_unreferenced_story() -> None:
+    first = story()
+    second = first.model_copy(
+        update={
+            "id": "story-claude",
+            "source_urls": ["https://example.com/claude"],
+            "primary_source_url": "https://example.com/claude",
+        }
+    )
+    draft = BriefDraft(items=[brief_item([first.id], second.source_urls)])
+
+    with pytest.raises(ValueError, match="source URLs do not match its Story IDs"):
+        validate_brief_references(draft, [first, second])
+
+
+def test_valid_multi_story_references_and_optional_sanitization_both_work() -> None:
+    first = story()
+    second = first.model_copy(
+        update={
+            "id": "story-claude",
+            "source_urls": ["https://example.com/claude"],
+            "primary_source_url": "https://example.com/claude",
+        }
+    )
+    draft = BriefDraft(
+        items=[brief_item([first.id, second.id], [*first.source_urls, *second.source_urls])],
+        watch_next=["继续关注 AI 行业发展。", "观察 OpenAI 是否更新 API。"],
+    )
+
+    result = validate_and_sanitize_brief(draft, [first, second], [])
+
+    assert result.items == draft.items
+    assert result.watch_next == ["观察 OpenAI 是否更新 API。"]
 
 
 @pytest.mark.parametrize(
