@@ -88,6 +88,7 @@ class MorningRadarPipeline:
         force_notify: bool = False,
         notify: bool = True,
     ) -> DailyBrief:
+        history_root = self.root
         output_root = self.root / ".tmp/dry-run" if dry_run else self.root
         if fixtures:
             raw_items = FixtureCollector(self.root / "fixtures/sample_items.json").collect()
@@ -148,12 +149,12 @@ class MorningRadarPipeline:
         ]
         try:
             historical_story_memory = load_story_memory(
-                output_root,
+                history_root,
                 current_date=brief_date,
                 history_days=self.app.continuity_history_days,
             )
             continuity_history = load_continuity_history(
-                output_root,
+                history_root,
                 current_date=brief_date,
             )
             continuity_result = resolve_daily_continuity(
@@ -184,7 +185,7 @@ class MorningRadarPipeline:
                 daily=DailyContinuity(date=brief_date, generated_at=now),
                 stats={"continuity_unavailable": 1},
             )
-        story_history = self._story_history(output_root, brief_date)
+        story_history = self._story_history(history_root, brief_date)
         story_history[brief_date] = stories
         signals = TrendDetector(
             github_threshold=self.app.github_growth_threshold,

@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import json
+import logging
 import os
 from collections.abc import Callable
+from contextlib import suppress
 from pathlib import Path
 from typing import Any
 
@@ -42,6 +44,8 @@ from morning_radar.ai.output_validation import (
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.models import RawItem, Signal, Story
 from morning_radar.provenance import verified_source_urls_for_items
+
+LOGGER = logging.getLogger(__name__)
 
 
 class DeepSeekProvider:
@@ -123,12 +127,24 @@ class DeepSeekProvider:
             wait=wait_exponential(multiplier=1, min=1, max=8),
             reraise=True,
         )
-        def invoke() -> Any:
+        def invoke(*, structured_attempt: int) -> Any:
             self.budget.record_network_request()
+            retry_instruction = ""
+            if (
+                task == "write_brief"
+                and structured_attempt > 1
+                and isinstance(last_error, json.JSONDecodeError)
+            ):
+                retry_instruction = (
+                    "\n\nThe previous structured response was invalid. Regenerate the "
+                    "entire response from scratch as one complete JSON object. Ensure "
+                    "every string, array, and object is closed. Do not continue or "
+                    "repair the previous response."
+                )
             return self.client.chat.completions.create(
                 model=self.model,
                 messages=[
-                    {"role": "system", "content": system_prompt},
+                    {"role": "system", "content": system_prompt + retry_instruction},
                     {"role": "user", "content": payload},
                 ],
                 response_format={"type": "json_object"},
@@ -136,9 +152,9 @@ class DeepSeekProvider:
             )
 
         last_error: Exception | None = None
-        for _ in range(2):
+        for structured_attempt in range(1, 3):
             try:
-                response = invoke()
+                response = invoke(structured_attempt=structured_attempt)
             except (
                 APIConnectionError,
                 APITimeoutError,
@@ -169,6 +185,17 @@ class DeepSeekProvider:
                 ValueError,
             ) as exc:
                 last_error = exc
+                finish_reason = "unknown"
+                with suppress(AttributeError, IndexError, TypeError):
+                    finish_reason = str(response.choices[0].finish_reason or "unknown")
+                LOGGER.warning(
+                    "Structured AI output rejected: task=%s attempt=%d "
+                    "error_type=%s finish_reason=%s",
+                    task,
+                    structured_attempt,
+                    type(exc).__name__,
+                    finish_reason,
+                )
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:

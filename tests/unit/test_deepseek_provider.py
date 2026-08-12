@@ -1,5 +1,5 @@
 import json
-from datetime import UTC, datetime
+from datetime import UTC, date, datetime
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -22,6 +22,7 @@ from morning_radar.ai.models import (
     GeneratedBriefItem,
     MergedStoryDraft,
 )
+from morning_radar.briefing import BriefLimits, generate_daily_brief
 from morning_radar.models import RawItem, Signal, SignalType, Story
 
 
@@ -87,9 +88,11 @@ class FakeChatCompletions:
         self.results = results
         self.calls = 0
         self.last_request: dict[str, object] = {}
+        self.requests: list[dict[str, object]] = []
 
     def create(self, **kwargs: object) -> SimpleNamespace:
         self.last_request = kwargs
+        self.requests.append(kwargs)
         result = self.results[self.calls]
         self.calls += 1
         if isinstance(result, Exception):
@@ -270,6 +273,62 @@ def test_unknown_brief_story_id_retries_then_accepts_valid_output(caplog) -> Non
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
     assert "unknown Story IDs: invented-story" in caplog.text
+
+
+def test_write_brief_malformed_json_retry_regenerates_complete_output(caplog) -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider(
+        [
+            '{"items":[{"story_ids":["story-openai"],"title":"unterminated',
+            brief_json([source_story.id], source_story.source_urls),
+        ]
+    )
+
+    result = configured.write_brief([source_story], [])
+
+    assert result.items[0].story_ids == [source_story.id]
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+    requests = configured.client.chat.completions.requests
+    assert "previous structured response was invalid" not in requests[0]["messages"][0][
+        "content"
+    ]
+    assert "previous structured response was invalid" in requests[1]["messages"][0][
+        "content"
+    ]
+    assert "task=write_brief attempt=1 error_type=JSONDecodeError" in caplog.text
+
+
+def test_write_brief_repeated_malformed_json_keeps_graceful_fallback() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider(["{not-json", '{"still":"unterminated'])
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        timezone="Asia/Singapore",
+        stories=[source_story],
+        signals=[],
+        provider=configured,
+        limits=BriefLimits(maximum_items=3),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert result.run_stats["ai_brief_fallback"] is True
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_write_brief_schema_violation_is_not_repaired_or_accepted() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider(['{"items":"invalid"}', '{"items":"invalid"}'])
+
+    with pytest.raises(AIOutputError, match="validation error"):
+        configured.write_brief([source_story], [])
+
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
 
 
 def test_repeated_unknown_brief_story_id_becomes_ai_output_error() -> None:
