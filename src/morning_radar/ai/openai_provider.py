@@ -28,7 +28,7 @@ from morning_radar.ai.models import (
     StoryScore,
 )
 from morning_radar.ai.output_validation import (
-    sanitize_editorial_extensions,
+    validate_and_sanitize_brief,
     validate_core_simplified_chinese_output,
     validate_direction_evidence,
 )
@@ -232,7 +232,7 @@ class OpenAIProvider:
             },
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},
-            output_validator=lambda output: sanitize_editorial_extensions(
+            output_validator=lambda output: validate_and_sanitize_brief(
                 output,
                 stories,
                 signals,

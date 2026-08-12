@@ -13,3 +13,8 @@ cognitive_extension 不是预测或结论，只能返回一个值得继续思考
 不得凭空引入输入中没有的新技术、产品、机制或事实；没有可靠问题时返回 null。watch_next
 每一条都必须同样明确锚定输入中的具体对象，并描述未来可以观察和验证的事项；不要输出
 “继续关注 AI 行业发展”一类泛泛建议。
+
+引用完整性是强制约束。story_ids 中的每个值都必须从输入 Story 的 id 字段逐字复制。
+不得创建、猜测、缩写、修改、重新格式化或合并 Story ID。每个输出 item 只能引用实际用于
+生成该 item 的输入 Story。source_urls 中的每个值都必须来自该 item 所引用 Stories 的
+source_urls。

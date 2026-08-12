@@ -50,6 +50,38 @@ def hn_raw_item() -> RawItem:
     )
 
 
+def brief_story(story_id: str, url: str) -> Story:
+    return Story(
+        id=story_id,
+        canonical_title="OpenAI 新模型",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        source_item_ids=[f"item-{story_id}"],
+        source_urls=[url],
+        primary_source_url=url,
+        entity_names=["OpenAI"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+
+
+def brief_json(story_ids: list[str], source_urls: list[str]) -> str:
+    return BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=story_ids,
+                section="top_stories",
+                title="OpenAI 新模型",
+                what_happened="OpenAI 发布了新模型。",
+                why_it_matters="开发者需要评估兼容性。",
+                source_urls=source_urls,
+            )
+        ]
+    ).model_dump_json()
+
+
 class FakeChatCompletions:
     def __init__(self, results: list[object]) -> None:
         self.results = results
@@ -223,6 +255,57 @@ def test_invalid_optional_brief_extensions_are_dropped_without_retry(caplog) -> 
     assert configured.budget.network_requests_used == 1
     assert "watch_next=grounding:1" in caplog.text
     assert "cognitive_extension=question_contract" in caplog.text
+
+
+def test_unknown_brief_story_id_retries_then_accepts_valid_output(caplog) -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    invalid = brief_json(["invented-story"], source_story.source_urls)
+    valid = brief_json([source_story.id], source_story.source_urls)
+    configured = provider([invalid, valid])
+
+    result = configured.write_brief([source_story], [])
+
+    assert result.items[0].story_ids == [source_story.id]
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+    assert "unknown Story IDs: invented-story" in caplog.text
+
+
+def test_repeated_unknown_brief_story_id_becomes_ai_output_error() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    invalid = brief_json(["invented-story"], source_story.source_urls)
+    configured = provider([invalid, invalid])
+
+    with pytest.raises(AIOutputError, match="unknown Story IDs: invented-story"):
+        configured.write_brief([source_story], [])
+
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+
+
+def test_brief_url_must_belong_to_the_item_referenced_stories() -> None:
+    first = brief_story("story-openai", "https://example.com/openai")
+    second = brief_story("story-claude", "https://example.com/claude")
+    invalid = brief_json([first.id], second.source_urls)
+    configured = provider([invalid, invalid])
+
+    with pytest.raises(AIOutputError, match="source URLs do not match its Story IDs"):
+        configured.write_brief([first, second], [])
+
+
+def test_valid_multi_story_brief_item_passes_reference_validation() -> None:
+    first = brief_story("story-openai", "https://example.com/openai")
+    second = brief_story("story-claude", "https://example.com/claude")
+    valid = brief_json([first.id, second.id], [*first.source_urls, *second.source_urls])
+    configured = provider([valid])
+
+    result = configured.write_brief([first, second], [])
+
+    assert result.items[0].story_ids == [first.id, second.id]
+    assert result.items[0].source_urls == [*first.source_urls, *second.source_urls]
+    assert configured.client.chat.completions.calls == 1
 
 
 def test_deepseek_core_brief_url_violation_remains_hard() -> None:

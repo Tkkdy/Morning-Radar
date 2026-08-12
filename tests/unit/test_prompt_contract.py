@@ -35,6 +35,15 @@ def test_user_visible_ai_prompt_requires_simplified_chinese(
         assert field in prompt
 
 
+def test_brief_prompt_forbids_invented_story_references() -> None:
+    prompt = Path("prompts/write_brief.md").read_text(encoding="utf-8")
+
+    assert "story_ids 中的每个值都必须从输入 Story 的 id 字段逐字复制" in prompt
+    assert "不得创建、猜测、缩写、修改、重新格式化或合并 Story ID" in prompt
+    assert "每个输出 item 只能引用实际用于" in prompt
+    assert "该 item 所引用 Stories" in prompt
+
+
 def test_brief_prompt_defines_editorial_hierarchy_and_extension_role() -> None:
     prompt = Path("prompts/write_brief.md").read_text(encoding="utf-8")
 
