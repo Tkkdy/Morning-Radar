@@ -50,6 +50,71 @@
       "update_kind": null,
       "updates_judgement_id": null,
       "watch_ids": []
+    },
+    {
+      "claim": "pydantic-ai 的 GHSA-h4xc-3qfq-jf93 漏洞暴露了本地开发 Web UI 的常见攻击面，修复后开发者将更重视 Content-Type 检查，但该模式可能在其他类似工具中重复出现。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            3
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-c0840ae633b7295efb41"
+          }
+        }
+      ],
+      "judgement_id": "judgement-ab46a3614b35ac7c1756",
+      "rationale": "最新发布说明确认该漏洞通过强制要求 Content-Type: application/json 修复，与判断中强调的 Content-Type 检查一致；未见其他工具中出现同类漏洞的证据，因此支持原判断。",
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "root_judgement_id": "judgement-db70069a09d035c89109",
+      "uncertainty": null,
+      "update_kind": "supported",
+      "updates_judgement_id": "judgement-db70069a09d035c89109",
+      "watch_ids": []
+    },
+    {
+      "claim": "OpenAI Python SDK v3.0.0 的 HTTPX2 默认迁移将导致部分依赖旧 HTTPX 自定义客户端的应用出现兼容性问题，未来几天相关 issue 报告会高于平常。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-f5656f880a798b00bfae"
+          }
+        }
+      ],
+      "judgement_id": "judgement-a535a401436c65ea6ee6",
+      "rationale": "版本说明明确指出使用自定义 HTTPX 客户端、传输或配置对象的应用必须迁移或使用临时逃生舱，这是典型破坏性变更，历史上此类变更通常会引发迁移问题。",
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "root_judgement_id": "judgement-a535a401436c65ea6ee6",
+      "uncertainty": "实际 issue 数量取决于用户基数和迁移速度，可能不会形成显著峰值。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    },
+    {
+      "claim": "亚马逊默认使用 Twitch 内容训练 AI 的政策将引发创作者社区强烈反对，并可能促使部分创作者减少内容产出或寻求离开平台，但不会立即改变政策方向。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-8c946e25af8e9313179b"
+          }
+        }
+      ],
+      "judgement_id": "judgement-9086fb1bdb3f26080ea7",
+      "rationale": "Twitch 高管已经明确表示选择加入模式不会有人参与，说明平台有意坚持默认使用；但社区对隐私和数据权利的敏感度增强，预计会有公开反对或抵制行为。",
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "root_judgement_id": "judgement-9086fb1bdb3f26080ea7",
+      "uncertainty": "是否出现大规模用户流失或法律行动尚不确定。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
     }
   ],
   "relations": [
@@ -89,6 +154,45 @@
       "rationale": "两个 Story 同属 openai-python 仓库的发布序列，当前版本从 v2.54.0 升级到 v3.0.0，构成明确的后续版本发布。",
       "recorded_at": "2026-08-12T20:58:18.539857Z",
       "relation_id": "relation-3d73865713bfb7f24617",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Ollama 发布 v0.32.10-rc1，相比 v0.32.9 调整了 repeat_penalty 默认值从 1.1 到 1.0，并优化 NVFP4 MLX 模型预填充速度约 7-8%，同时修复了 OCI blob 验证问题。",
+      "current_story": {
+        "date": "2026-08-13",
+        "story_id": "story-0b4429b593929634fa4d"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-12",
+            "story_id": "story-4ceeae39cbe855c4dbd8"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-0b4429b593929634fa4d"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-12",
+        "story_id": "story-4ceeae39cbe855c4dbd8"
+      },
+      "rationale": "两个故事属于同一 Ollama 发布序列，版本从 v0.32.9 推进到 v0.32.10 候选版，当前故事包含明确的版本变更内容。",
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "relation_id": "relation-677814fafbe10b62a3a0",
       "relation_type": "follow_up",
       "retracts_relation_id": null
     }
@@ -213,6 +317,136 @@
       ],
       "topic_anchors": [],
       "watch_id": "watch-ca5f2ff5aec56c35f56f"
+    },
+    {
+      "entity_anchors": [
+        "Cognition"
+      ],
+      "event_type": "matched",
+      "expectation": "Cognition 是否正式宣布以 400 亿美元估值完成融资，以及是否披露参与投资的机构和具体条款。",
+      "matched_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-515ae82965da73c93493"
+        }
+      ],
+      "product_anchors": [],
+      "rationale": "候选故事直接回应了 Cognition 融资估值问题，报道称其正洽谈以 400 亿美元估值融资，但仍未正式宣布完成或披露机构条款。",
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-515ae82965da73c93493"
+        }
+      ],
+      "topic_anchors": [
+        "AI",
+        "编程",
+        "融资"
+      ],
+      "watch_id": "watch-cd8edb649bcd9cac6f5a"
+    },
+    {
+      "entity_anchors": [
+        "ollama",
+        "ollama/ollama",
+        "vigneshakaviki"
+      ],
+      "event_type": "opened",
+      "expectation": "Ollama v0.32.10 正式版发布，并确认默认 repeat_penalty 更改为 1.0（关闭）且 NVFP4 MLX 预填充速度提升 7-8% 的改进被保留。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Ollama"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-0b4429b593929634fa4d"
+        }
+      ],
+      "topic_anchors": [
+        "AI 模型",
+        "开源 AI"
+      ],
+      "watch_id": "watch-30677e41af16c380ccbe"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "AWS",
+        "Anysphere",
+        "Microsoft",
+        "OpenAI",
+        "Vercel"
+      ],
+      "event_type": "opened",
+      "expectation": "未来几周内，至少有一家主要 AI 编码工具或平台公开宣布支持 Agent Plugins 1.0 规范，或该规范被提交至标准组织。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Agent Plugins 1.0"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-07e1c99359ffe5809e7c"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-d3cda915acd6106478eb"
+    },
+    {
+      "entity_anchors": [],
+      "event_type": "opened",
+      "expectation": "在未来几天，openai/openai-python 仓库中针对 HTTPX2 迁移导致的兼容性问题报告数量显著增加，并出现维护者发布的修复或迁移指南补充。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "openai-python"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-f5656f880a798b00bfae"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-a8ea159f6ba81f62caf8"
+    },
+    {
+      "entity_anchors": [
+        "Twitch",
+        "Amazon",
+        "Mike Minton"
+      ],
+      "event_type": "opened",
+      "expectation": "未来几天，Twitch 平台出现创作者公开反对或退出内容贡献，或者 Amazon/Twitch 宣布修改默认选择退出政策。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-13T00:42:21.661789Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-13",
+          "story_id": "story-8c946e25af8e9313179b"
+        }
+      ],
+      "topic_anchors": [
+        "AI 训练数据",
+        "用户隐私",
+        "选择退出机制"
+      ],
+      "watch_id": "watch-233689b1c614927a6948"
     }
   ]
 }
