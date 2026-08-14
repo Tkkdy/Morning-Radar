@@ -1,0 +1,1442 @@
+[
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Responses API capabilities.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-6f8368ac763b73731923",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-13T11:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Learn how startups use GPT-5.6 to build faster, more cost-efficient AI agents with smarter model selection and new Responses API capabilities.",
+    "title": "The builder’s guide to GPT‑5.6",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/builders-guide-to-gpt-5-6"
+  },
+  {
+    "author": "stainless-app[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## 0.122.0 (2026-08-13) Full Changelog: [v0.121.0...v0.122.0](https://github.com/anthropics/anthropic-sdk-python/compare/v0.121.0...v0.122.0) ### Features * **api:** add output_behavior to dream creation (create a new memory store or update the input store in place) ([852c4bb](https://github.com/anthropics/anthropic-sdk-python/commit/852c4bbe4a3a425a8780e89ea6c3cae54836e8bb)) ### Bug Fixes * **bedrock,aws:** run SigV4 signing off the event loop in async clients ([#334](https://github.com/anthropics/anthropic-sdk-python/issues/334)) ([2bae6c8](https://github.com/anthropics/anthropic-sdk-python/commit/2bae6c8cb86f693f4e1e3dd13bb64e03b01fe720)) * **bedrock:** expose beta.messages.parse, stream and tool_runner ([#366](https://github.com/anthropics/anthropic-sdk-python/issues/366)) ([6eca7bb](https://github.com/anthropics/anthropic-sdk-python/commit/6eca7bb19f968856b5652d5471e3ca9fc3fe8641)) * **client:** add models ([52e9d94](https://github.com/anthropics/anthropic-sdk-python/commit/52e9d9453a46a281846f9860e742bfc938bafebc)) * **client:** keep token exchange bound per client across copy() ([#388](https://github.com/anthropics/anthropic-sdk-python/issues/388)) ([c13e6e3](https://github.com/anthropics/anthropic-sdk-python/commit/c13e6e30b75d73b9af51468ae0deae6e6aca1ba0)) * **client:** read PathLike contents passed inside a file tuple ([070f953](https://github.com/anthropics/anthropic-sdk-python/commit/070f95332daea9dc3ed19fe91251d6e5285e5560)) * **client:** treat empty ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN as unset ([#341](https://github.com/anthropics/anthropic-sdk-python/issues/341)) ([76a2e68](https://github.com/anthropics/anthropic-sdk-python/commit/76a2e68531d50c9043a5ac58919527287e56a842)) * **streaming:** add context to malformed tool input JSON errors in the non-beta accumulator ([#339](https://github.com/anthropics/anthropic-sdk-python/issues/339)) ([a343e17](https://github.com/anthropics/anthropic-sdk-python/commit/a343e17b7bc970f656fa02a980b0baa2bf8c3b80)) * **streaming:** apply all message_delta fields when accumulating streamed messages ([#380](https://github.com/anthropics/anthropic-sdk-python/issues/380)) ([fc1599b](https://github.com/anthropics/anthropic-sdk-python/commit/fc1599bd4c25ad5550d55f8f1c8f5c5664e19ed1)) * **streaming:** emit input_json events for server tool use blocks ([#336](https://github.com/anthropics/anthropic-sdk-python/issues/336)) ([ccfc8e1](https://github.com/anthropics/anthropic-sdk-python/commit/ccfc8e140e8e6b824e74c8fd9bed2587e60c5b6f)) * **streaming:** keep omitted content block fields unset in accumulated messages ([#346](https://github.com/anthropics/anthropic-sdk-python/issues/346)) ([cd40aab](https://github.com/anthropics/anthropic-sdk-python/commit/cd40aab995181aa44e9fbdb7b6ce1fa82357c18b)) * **streaming:** run the request transform once in messages.stream() ([#347](https://github.com/anthropics/anthropic-sdk-python/issues/347)) ([81a92da](https://github.com/anthropics/anthropic-sdk-python/commit/81a92dafa2efd87c850950d7d84af727d01c2e47)) * **streaming:** silence pydantic serializer warnings on message_stop events ([#338](https://github.com/anthropics/anthropic-sdk-python/issues/338)) ([41f9cdc](https://github.com/anthropics/anthropic-sdk-python/commit/41f9cdcac36d4c6a3d9d2c8becaa632c75a44054)) * **tools:** reject symlink loops in tool paths and skip special skill-archive members ([#322](https://github.com/anthropics/anthropic-sdk-python/issues/322)) ([43e8669](https://github.com/anthropics/anthropic-sdk-python/commit/43e8669d066a1d18ffdbff505fc99ac45aa7492e)) * **vertex:** expose beta.messages.parse and tool_runner ([#367](https://github.com/anthropics/anthropic-sdk-python/issues/367)) ([96723a0](https://github.com/anthropics/anthropic-sdk-python/commit/96723a000b6179f0bee51a0b5aa0129e360dc323)) ### Chores * **ci:** run breaking-change detection as a ci.yml job on every push ([6dfd16e](https://github.com/anthropics/anthropic-sdk-python/commit/6dfd16ea7a650dc65253c72264cbcb14db696c91)",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-d88eb9c722d8c87f451e",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 804,
+      "official": true,
+      "open_issues": 157,
+      "priority": "high",
+      "repository": "anthropics/anthropic-sdk-python",
+      "stars": 3818,
+      "stars_delta_24h": 5,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0013113034356150013,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-13T18:35:49Z",
+    "repository_candidates": [
+      "anthropics/anthropic-sdk-python"
+    ],
+    "source_name": "GitHub · anthropics/anthropic-sdk-python",
+    "source_type": "github",
+    "summary": "## 0.122.0 (2026-08-13) Full Changelog: [v0.121.0...v0.122.0](https://github.com/anthropics/anthropic-sdk-python/compare/v0.121.0...v0.122.0) ### Features * **api:** add output_behavior to dream creation (create a new memory store or update the input store in place) ([852c4bb](https://github.com/anthropics/anthropic-sdk-python/commit/852c4bbe4a3a425a8780e89ea6c3cae54836e8bb)) ### Bug Fixes * **bedrock,aws:** run SigV4 signing off the event loop in async clients ([#334](https://github.com/anthropics/anthropic-sdk-python/issues/334)) ([2bae6c8](https://github.com/anthropics/anthropic-sdk-python/commit/2bae6c8cb86f693f4e1e3dd13bb64e03b01fe720)) * **bedrock:** expose beta.messages.parse, stream and tool_runner ([#366](https://github.com/anthropics/anthropic-sdk-python/issues/366)) ([6eca7bb](https://github.com/anthropics/anthropic-sdk-python/commit/6eca7bb19f968856b5652d5471e3ca9fc3fe8641)) * **client:** add models ([52e9d94](https://github.com/anthropics/anthropic-sdk-python/commit/52e9d9",
+    "title": "anthropics/anthropic-sdk-python: v0.122.0",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.122.0"
+  },
+  {
+    "author": "gmays",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-a9606c7f824eec8d9308",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49293492",
+      "official": false,
+      "original_url": "https://www.wsj.com/tech/ai/openai-jacob-tsimerman-fields-medal-ai-safety-391d0f79",
+      "score": 1,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-14T00:40:56Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "The Math Superstar Who's Terrified of AI–and Just Took a Job at OpenAI",
+    "topic_candidates": [],
+    "url": "https://www.wsj.com/tech/ai/openai-jacob-tsimerman-fields-medal-ai-safety-391d0f79"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "NVIDIA"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-ff7677fe506eee479d27",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.005399646274449028,
+      "close": 225.3000030517578,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 224.08999633789062,
+      "ticker": "NVDA",
+      "trading_date": "2026-08-13",
+      "volume": 93629467.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "NVIDIA 最近交易日收盘上涨 0.54%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/NVDA/"
+  },
+  {
+    "author": "Eric Birnbaum",
+    "company_candidates": [],
+    "content_excerpt": "The video shows Sheets canvas in action.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-e546c9507c4bdece8e78",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "google_ai"
+    },
+    "published_at": "2026-08-13T16:45:00Z",
+    "repository_candidates": [],
+    "source_name": "Google AI",
+    "source_type": "rss",
+    "summary": "The video shows Sheets canvas in action.",
+    "title": "Bring your spreadsheet data to life with Sheets canvas",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/"
+  },
+  {
+    "author": "release-please[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## [2.18.1](https://github.com/googleapis/python-genai/compare/v2.18.0...v2.18.1) (2026-08-13) ### Bug Fixes * Add gemini-3.7-flash ([f898b61](https://github.com/googleapis/python-genai/commit/f898b61089df672818a6f8832646ae82b59ff9a2))",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-e414f7802862d0e0d8b6",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 973,
+      "official": true,
+      "open_issues": 293,
+      "priority": "high",
+      "repository": "googleapis/python-genai",
+      "stars": 3920,
+      "stars_delta_24h": 4,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0010214504596527069,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-13T21:41:00Z",
+    "repository_candidates": [
+      "googleapis/python-genai"
+    ],
+    "source_name": "GitHub · googleapis/python-genai",
+    "source_type": "github",
+    "summary": "## [2.18.1](https://github.com/googleapis/python-genai/compare/v2.18.0...v2.18.1) (2026-08-13) ### Bug Fixes * Add gemini-3.7-flash ([f898b61](https://github.com/googleapis/python-genai/commit/f898b61089df672818a6f8832646ae82b59ff9a2))",
+    "title": "googleapis/python-genai: v2.18.1",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://github.com/googleapis/python-genai/releases/tag/v2.18.1"
+  },
+  {
+    "author": "thisisauserid",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-88d757b341abf8df6aa2",
+    "language": "en",
+    "metadata": {
+      "comments": 330,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49289112",
+      "official": false,
+      "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/",
+      "score": 584,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T17:23:22Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Gemini 3.7 Flash",
+    "topic_candidates": [],
+    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-3-7-flash/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Microsoft"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-4af8dc39f3e301d45700",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.009036842339457507,
+      "close": 496.8800048828125,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 492.42999267578125,
+      "ticker": "MSFT",
+      "trading_date": "2026-08-13",
+      "volume": 22600346.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Microsoft 最近交易日收盘上涨 0.90%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/MSFT/"
+  },
+  {
+    "author": "Allison",
+    "company_candidates": [],
+    "content_excerpt": "GitHub now uses package registries like npmjs.org and PyPI to determine license information for software components in the dependency graph. This improves the accuracy and completeness of the licenses shown… The post License data quality improvements appeared first on The GitHub Blog .",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-b101caf06c002bc5fb05",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "github_changelog"
+    },
+    "published_at": "2026-08-13T19:14:12Z",
+    "repository_candidates": [],
+    "source_name": "GitHub Changelog",
+    "source_type": "rss",
+    "summary": "GitHub now uses package registries like npmjs.org and PyPI to determine license information for software components in the dependency graph. This improves the accuracy and completeness of the licenses shown… The post License data quality improvements appeared first on The GitHub Blog .",
+    "title": "License data quality improvements",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.blog/changelog/2026-08-13-license-data-quality-improvements"
+  },
+  {
+    "author": "release-please[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## [2.18.0](https://github.com/googleapis/python-genai/compare/v2.17.0...v2.18.0) (2026-08-12) ### Features * Add interaction_status to LiveServerContent ([66e224c](https://github.com/googleapis/python-genai/commit/66e224c39c9527e0fef3a4f049ac33ec941e2f99)) * **api:** Make the deferred service tier publicly available on Vertex ([e1f7c40](https://github.com/googleapis/python-genai/commit/e1f7c40f0a831f25ee71294fc8c195576d5fd126)) * Enable json schema in FunctionDeclaration parser ([62d50d6](https://github.com/googleapis/python-genai/commit/62d50d6f172da5d6efa30838ab92da95b1327b5e)) * Make speech_config a structured object. ([cc0d42e](https://github.com/googleapis/python-genai/commit/cc0d42e84583ed927b6c0dfae38da7f5f544b2da)) * Support injecting httpx2 client. ([012804d](https://github.com/googleapis/python-genai/commit/012804d9b649a20da46a6041e37d126b9a0b79e0)), refs [#2680](https://github.com/googleapis/python-genai/issues/2680) ### Bug Fixes * Improve AFC(automatic function calling) in chat including fixing bugs in AFC for generate_content_stream. also log warnings in generate_content, generate_content_stream and their async variants that AFC is meant to be used in chat experience, not directly in models module. ([fe6118e](https://github.com/googleapis/python-genai/commit/fe6118e3c7a9e83406bc722e34b7efca75f1ef13)) ### Performance Improvements * Build model validators on first use instead of at import ([66bfe95](https://github.com/googleapis/python-genai/commit/66bfe956f7a8b6c8d7c7eb949a9b6a499a4e2860)), refs [#2784](https://github.com/googleapis/python-genai/issues/2784) * Lazily import the interactions API to speed up import google.genai ([89dcfe5](https://github.com/googleapis/python-genai/commit/89dcfe5b28f5e794f9a5ac84e2d45e9e7b7bd803)) * Stop importing the requests HTTP stack at module scope ([3a44936](https://github.com/googleapis/python-genai/commit/3a44936ea783363489967bd9d219fb26401585dd))",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-949f1b3d12f08a3f99c8",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 973,
+      "official": true,
+      "open_issues": 293,
+      "priority": "high",
+      "repository": "googleapis/python-genai",
+      "stars": 3920,
+      "stars_delta_24h": 4,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0010214504596527069,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-13T00:00:35Z",
+    "repository_candidates": [
+      "googleapis/python-genai"
+    ],
+    "source_name": "GitHub · googleapis/python-genai",
+    "source_type": "github",
+    "summary": "## [2.18.0](https://github.com/googleapis/python-genai/compare/v2.17.0...v2.18.0) (2026-08-12) ### Features * Add interaction_status to LiveServerContent ([66e224c](https://github.com/googleapis/python-genai/commit/66e224c39c9527e0fef3a4f049ac33ec941e2f99)) * **api:** Make the deferred service tier publicly available on Vertex ([e1f7c40](https://github.com/googleapis/python-genai/commit/e1f7c40f0a831f25ee71294fc8c195576d5fd126)) * Enable json schema in FunctionDeclaration parser ([62d50d6](https://github.com/googleapis/python-genai/commit/62d50d6f172da5d6efa30838ab92da95b1327b5e)) * Make speech_config a structured object. ([cc0d42e](https://github.com/googleapis/python-genai/commit/cc0d42e84583ed927b6c0dfae38da7f5f544b2da)) * Support injecting httpx2 client. ([012804d](https://github.com/googleapis/python-genai/commit/012804d9b649a20da46a6041e37d126b9a0b79e0)), refs [#2680](https://github.com/googleapis/python-genai/issues/2680) ### Bug Fixes * Improve AFC(automatic function calling) i",
+    "title": "googleapis/python-genai: v2.18.0",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://github.com/googleapis/python-genai/releases/tag/v2.18.0"
+  },
+  {
+    "author": "indigodaddy",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-3e1a6bcea55d963cc06b",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49293480",
+      "official": false,
+      "original_url": "https://github.com/Mng-dev-ai/agentrove",
+      "score": 1,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-14T00:38:40Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Agentrove: Self-hosted AI workspace for orchestrating coding agents",
+    "topic_candidates": [],
+    "url": "https://github.com/Mng-dev-ai/agentrove"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Alphabet"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-6be6f4da80c7aed26844",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.008208583386210984,
+      "close": 346.3599853515625,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 343.5400085449219,
+      "ticker": "GOOGL",
+      "trading_date": "2026-08-13",
+      "volume": 17607761.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Alphabet 最近交易日收盘上涨 0.82%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/GOOGL/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-353217afc4f706b5339d",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "hugging_face_blog"
+    },
+    "published_at": "2026-08-13T17:16:04Z",
+    "repository_candidates": [],
+    "source_name": "Hugging Face Blog",
+    "source_type": "rss",
+    "summary": "",
+    "title": "Record, train, and deploy from one place with Strands Agents, LeRobot, and Hugging Face Storage Buckets",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop"
+  },
+  {
+    "author": "github-actions[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## What's Changed - Models that don't set a `repeat_penalty` now default to 1.0 (off) instead of 1.1, matching other engines and speeding up speculative decoding; set a per-model parameter if an older model repeats itself. - Faster prefill on NVFP4 MLX models with a global scale, about 7–8% on Qwen3.6 and Muse Glimmer. - Fixed blob verification being skipped when an OCI manifest's config and layer share a digest. ## New Contributors * @vigneshakaviki made their first contribution in https://github.com/ollama/ollama/pull/15504 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.32.8...v0.32.10-rc1",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-f9cb6f6b59ef0159adbd",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 17394,
+      "official": true,
+      "open_issues": 3672,
+      "priority": "high",
+      "repository": "ollama/ollama",
+      "stars": 178483,
+      "stars_delta_24h": 112,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.000627904760302964,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-12T22:36:49Z",
+    "repository_candidates": [
+      "ollama/ollama"
+    ],
+    "source_name": "GitHub · ollama/ollama",
+    "source_type": "github",
+    "summary": "## What's Changed - Models that don't set a `repeat_penalty` now default to 1.0 (off) instead of 1.1, matching other engines and speeding up speculative decoding; set a per-model parameter if an older model repeats itself. - Faster prefill on NVFP4 MLX models with a global scale, about 7–8% on Qwen3.6 and Muse Glimmer. - Fixed blob verification being skipped when an OCI manifest's config and layer share a digest. ## New Contributors * @vigneshakaviki made their first contribution in https://github.com/ollama/ollama/pull/15504 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.32.8...v0.32.10-rc1",
+    "title": "ollama/ollama: v0.32.10",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/ollama/ollama/releases/tag/v0.32.10"
+  },
+  {
+    "author": "pr337h4m",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-57314b2ca93657dd3d2f",
+    "language": "en",
+    "metadata": {
+      "comments": 168,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49289844",
+      "official": false,
+      "original_url": "https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai",
+      "score": 398,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T18:10:02Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Accelerating GPT-5.6 Sol Ultrafast",
+    "topic_candidates": [],
+    "url": "https://www.cerebras.ai/blog/accelerating-gpt-5-6-sol-ultrafast-with-openai"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Meta"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-9c153bc2146aca820e44",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.0278483126839042,
+      "close": 594.969970703125,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 578.8499755859375,
+      "ticker": "META",
+      "trading_date": "2026-08-13",
+      "volume": 10913215.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Meta 最近交易日收盘上涨 2.78%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/META/"
+  },
+  {
+    "author": "Lai Yi Ohlsen",
+    "company_candidates": [],
+    "content_excerpt": "Cloudflare's data shows a clear impact on Internet traffic from Iceland to Spain and Portugal, following the path of totality of the total solar eclipse that occurred on August 12, 2026.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-942e89faf12a7c00bf9f",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "priority": "medium",
+      "source_id": "cloudflare_blog"
+    },
+    "published_at": "2026-08-13T19:58:01Z",
+    "repository_candidates": [],
+    "source_name": "Cloudflare Blog",
+    "source_type": "rss",
+    "summary": "Cloudflare's data shows a clear impact on Internet traffic from Iceland to Spain and Portugal, following the path of totality of the total solar eclipse that occurred on August 12, 2026.",
+    "title": "Total eclipse of the Internet: traffic impacts in Iceland, Spain, and Portugal",
+    "topic_candidates": [
+      "ai_coding",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.cloudflare.com/total-eclipse-internet-traffic-iceland-spain-portugal/"
+  },
+  {
+    "author": "dsfaccini",
+    "company_candidates": [],
+    "content_excerpt": "<!-- Release notes generated using configuration in .github/release.yml at main --> ## What's Changed ### 🚀 Features * Support FastMCP 4 and MCP SDK v2 in `MCPToolset` alongside FastMCP 3 by @adtyavrdhn in https://github.com/pydantic/pydantic-ai/pull/6738 * Add Azure AI Voice Live via the `azure_voice_live` setting by @DouweM in https://github.com/pydantic/pydantic-ai/pull/6642 ### 🐛 Bug Fixes * Fix silent truncation of gzip response bodies by @ChaoGlenXu in https://github.com/pydantic/pydantic-ai/pull/7388 * Include parameter descriptions in rendered tool signatures by @adtyavrdhn in https://github.com/pydantic/pydantic-ai/pull/6487 * Fix inherited realtime WebRTC and Azure `for_realtime` bugs from `#6676` by @DouweM in https://github.com/pydantic/pydantic-ai/pull/7412 * Fix concurrent provider stream shutdown by @dsfaccini in https://github.com/pydantic/pydantic-ai/pull/7375 ## New Contributors * @ChaoGlenXu made their first contribution in https://github.com/pydantic/pydantic-ai/pull/7388 **Full Changelog**: https://github.com/pydantic/pydantic-ai/compare/v2.28.0...v2.29.0",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-a248aacdb2dc1cc6ab1f",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 2514,
+      "official": true,
+      "open_issues": 688,
+      "priority": "medium",
+      "repository": "pydantic/pydantic-ai",
+      "stars": 19274,
+      "stars_delta_24h": 18,
+      "stars_delta_7d": null,
+      "stars_growth_24h": 0.0009347735770668883,
+      "stars_growth_7d": null
+    },
+    "published_at": "2026-08-13T04:02:53Z",
+    "repository_candidates": [
+      "pydantic/pydantic-ai"
+    ],
+    "source_name": "GitHub · pydantic/pydantic-ai",
+    "source_type": "github",
+    "summary": "<!-- Release notes generated using configuration in .github/release.yml at main --> ## What's Changed ### 🚀 Features * Support FastMCP 4 and MCP SDK v2 in `MCPToolset` alongside FastMCP 3 by @adtyavrdhn in https://github.com/pydantic/pydantic-ai/pull/6738 * Add Azure AI Voice Live via the `azure_voice_live` setting by @DouweM in https://github.com/pydantic/pydantic-ai/pull/6642 ### 🐛 Bug Fixes * Fix silent truncation of gzip response bodies by @ChaoGlenXu in https://github.com/pydantic/pydantic-ai/pull/7388 * Include parameter descriptions in rendered tool signatures by @adtyavrdhn in https://github.com/pydantic/pydantic-ai/pull/6487 * Fix inherited realtime WebRTC and Azure `for_realtime` bugs from `#6676` by @DouweM in https://github.com/pydantic/pydantic-ai/pull/7412 * Fix concurrent provider stream shutdown by @dsfaccini in https://github.com/pydantic/pydantic-ai/pull/7375 ## New Contributors * @ChaoGlenXu made their first contribution in https://github.com/pydantic/pydantic-ai/pul",
+    "title": "pydantic/pydantic-ai: v2.29.0 (2026-08-12)",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.29.0"
+  },
+  {
+    "author": "Kylejeong21",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-5e48a2c466f631b60a2f",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49293468",
+      "official": false,
+      "original_url": "https://kylejeong.com/inference-balls",
+      "score": 1,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-14T00:36:21Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "The programming language speed balls, but for inference (tokens per second)",
+    "topic_candidates": [],
+    "url": "https://kylejeong.com/inference-balls"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Amazon"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-4c714c9e80a58a09681d",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.008043976003829997,
+      "close": 265.1300048828125,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 267.2799987792969,
+      "ticker": "AMZN",
+      "trading_date": "2026-08-13",
+      "volume": 30364977.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Amazon 最近交易日收盘下跌 0.80%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMZN/"
+  },
+  {
+    "author": "Russell Brandom",
+    "company_candidates": [],
+    "content_excerpt": "Built as a post-training variation on Z.ai's open source model GLM-5.2, Writer says the new system should provide deployment-ready capabilities at a much lower price.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-738b25361089d8094578",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T21:13:24Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Built as a post-training variation on Z.ai's open source model GLM-5.2, Writer says the new system should provide deployment-ready capabilities at a much lower price.",
+    "title": "Writer introduces new AI model and upgraded harness to contain token costs",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/"
+  },
+  {
+    "author": "sebg",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-134f83be4d9e217df3a8",
+    "language": "en",
+    "metadata": {
+      "comments": 94,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49290299",
+      "official": false,
+      "original_url": "https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck",
+      "score": 182,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T18:47:19Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Understanding is the new bottleneck",
+    "topic_candidates": [],
+    "url": "https://www.geoffreylitt.com/2026/07/02/understanding-is-the-new-bottleneck"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Apple"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-dc913ab82a0dd5e3553f",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.009958675816790736,
+      "close": 305.260009765625,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 302.25,
+      "ticker": "AAPL",
+      "trading_date": "2026-08-13",
+      "volume": 38492546.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Apple 最近交易日收盘上涨 1.00%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/AAPL/"
+  },
+  {
+    "author": "Emma Roth",
+    "company_candidates": [],
+    "content_excerpt": "Microsoft Copilot will no longer show its emotive yellow blob, Mico, when you use the chatbot's voice mode. In a support page, Microsoft says it's going to move Mico to its Learn Live platform, where the avatar will have \"more to react to,\" as reported earlier by GeekWire. Mico launched in Copilot's voice mode last […]",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-da231860f502f10c9175",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-13T17:42:38-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Microsoft Copilot will no longer show its emotive yellow blob, Mico, when you use the chatbot's voice mode. In a support page, Microsoft says it's going to move Mico to its Learn Live platform, where the avatar will have \"more to react to,\" as reported earlier by GeekWire. Mico launched in Copilot's voice mode last […]",
+    "title": "Microsoft’s Clippy-like Mico character is no longer the face of Copilot",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/tech/979871/microsoft-copilot-mico-retired"
+  },
+  {
+    "author": "jkrauska",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-d0fadceded94010437fb",
+    "language": "en",
+    "metadata": {
+      "comments": 78,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49289465",
+      "official": false,
+      "original_url": "https://donkeybas.com/",
+      "score": 182,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T17:45:50Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Donkey.bas is 45 Years Old – 131 line of Glory",
+    "topic_candidates": [],
+    "url": "https://donkeybas.com/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "AMD"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-c54f1f97f5bbbfce06e0",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.00016569086836043767,
+      "close": 483.010009765625,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 482.92999267578125,
+      "ticker": "AMD",
+      "trading_date": "2026-08-13",
+      "volume": 18194677.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "AMD 最近交易日收盘上涨 0.02%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMD/"
+  },
+  {
+    "author": "Dan Goodin",
+    "company_candidates": [],
+    "content_excerpt": "Trump memo is first time gov't has authorized private sector to perform cyberattacks.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-0831990bfb25f6f5a1c8",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "ars_technology_lab"
+    },
+    "published_at": "2026-08-13T19:38:58Z",
+    "repository_candidates": [],
+    "source_name": "Ars Technica Technology Lab",
+    "source_type": "rss",
+    "summary": "Trump memo is first time gov't has authorized private sector to perform cyberattacks.",
+    "title": "Private security firms will soon be allowed to hack overseas cybercriminals",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://arstechnica.com/security/2026/08/white-house-recruits-security-firms-to-hack-overseas-cybercriminals/"
+  },
+  {
+    "author": "bjin",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-a6378c7aabd93d6feb0e",
+    "language": "en",
+    "metadata": {
+      "comments": 239,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49285244",
+      "official": false,
+      "original_url": "https://deepseek.com/harness/en/",
+      "score": 542,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T12:58:02Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "DeepSeek Harness developer preview",
+    "topic_candidates": [],
+    "url": "https://deepseek.com/harness/en/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "TSMC"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-c24d17c838265a955ba5",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.0031224428683409152,
+      "close": 430.489990234375,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 429.1499938964844,
+      "ticker": "TSM",
+      "trading_date": "2026-08-13",
+      "volume": 8152737.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "TSMC 最近交易日收盘上涨 0.31%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSM/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it delivers up to 750 output tokens per second.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-c0986f6628d189a1ac37",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-13T10:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "Preview Ultrafast, a new OpenAI API service tier that runs GPT-5.6 Sol up to 14× faster. Powered by Cerebras, it delivers up to 750 output tokens per second.",
+    "title": "Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/previewing-ultrafast"
+  },
+  {
+    "author": "spelk",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-4946cb156aa6a6e75327",
+    "language": "en",
+    "metadata": {
+      "comments": 93,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49288889",
+      "official": false,
+      "original_url": "https://docs.mistral.ai/models/ocr-4-1",
+      "score": 242,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T17:05:12Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Mistral OCR 4.1",
+    "topic_candidates": [],
+    "url": "https://docs.mistral.ai/models/ocr-4-1"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Tesla"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-92fdfd9fb274c91af994",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.03801404939764335,
+      "close": 339.9599914550781,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 327.510009765625,
+      "ticker": "TSLA",
+      "trading_date": "2026-08-13",
+      "volume": 33336616.0
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_type": "market",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Tesla 最近交易日收盘上涨 3.80%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSLA/"
+  },
+  {
+    "author": "Allison",
+    "company_candidates": [],
+    "content_excerpt": "You can now block or unblock users directly from comments on pull requests and issues in repositories owned by personal GitHub accounts. To block or unblock a user: Open the… The post Block users from comments in personal repositories appeared first on The GitHub Blog .",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-082abfc49c83269f5c63",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "github_changelog"
+    },
+    "published_at": "2026-08-13T19:02:46Z",
+    "repository_candidates": [],
+    "source_name": "GitHub Changelog",
+    "source_type": "rss",
+    "summary": "You can now block or unblock users directly from comments on pull requests and issues in repositories owned by personal GitHub accounts. To block or unblock a user: Open the… The post Block users from comments in personal repositories appeared first on The GitHub Blog .",
+    "title": "Block users from comments in personal repositories",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.blog/changelog/2026-08-13-block-users-from-comments-in-personal-repositories"
+  },
+  {
+    "author": "padolsey",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-11c2a6f3a3bdeaa2b647",
+    "language": "en",
+    "metadata": {
+      "comments": 12,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49292932",
+      "official": false,
+      "original_url": "https://declaude.org/watermarking/",
+      "score": 30,
+      "selection_reason": "keyword"
+    },
+    "published_at": "2026-08-13T23:16:55Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "How AI text watermarking works",
+    "topic_candidates": [],
+    "url": "https://declaude.org/watermarking/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-57f8b7f378e9c39afee2",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "hugging_face_blog"
+    },
+    "published_at": "2026-08-13T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Hugging Face Blog",
+    "source_type": "rss",
+    "summary": "",
+    "title": "What We Learned by Reproducing 2,200 papers from ICML",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://huggingface.co/blog/icml-2026-open-reproductions"
+  },
+  {
+    "author": "matt_d",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-3d9f62bba435a58150fd",
+    "language": "en",
+    "metadata": {
+      "comments": 138,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49286341",
+      "official": false,
+      "original_url": "https://github.com/xoreaxeaxeax/skitter-creek-bath-salts",
+      "score": 482,
+      "selection_reason": "high_signal_discovery"
+    },
+    "published_at": "2026-08-13T14:17:13Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_type": "hacker_news",
+    "summary": "",
+    "title": "Spaghettifying DRAM",
+    "topic_candidates": [],
+    "url": "https://github.com/xoreaxeaxeax/skitter-creek-bath-salts"
+  },
+  {
+    "author": "Pravallika Nakarikanti",
+    "company_candidates": [],
+    "content_excerpt": "Cloudflare's Certificate Transparency Monitoring is now generally available. The biggest change: we no longer email you about certificates Cloudflare issued for your domain, so when an alert lands in your inbox, it's worth a look.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-ff8e21af745fe4d38a97",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "priority": "medium",
+      "source_id": "cloudflare_blog"
+    },
+    "published_at": "2026-08-13T13:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Cloudflare Blog",
+    "source_type": "rss",
+    "summary": "Cloudflare's Certificate Transparency Monitoring is now generally available. The biggest change: we no longer email you about certificates Cloudflare issued for your domain, so when an alert lands in your inbox, it's worth a look.",
+    "title": "Certificate Transparency Monitoring is now generally available",
+    "topic_candidates": [
+      "ai_coding",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.cloudflare.com/certificate-transparency-monitoring-ga/"
+  },
+  {
+    "author": "Julie Bort",
+    "company_candidates": [],
+    "content_excerpt": "AI is expensive, Ali Ghodsi tells TechCrunch. With so many investors wanting into his latest round, he said yes to more than planned.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-31b6cf628065b1501e93",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T20:14:39Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "AI is expensive, Ali Ghodsi tells TechCrunch. With so many investors wanting into his latest round, he said yes to more than planned.",
+    "title": "Databricks wanted to raise $1B, investors wanted $15B. It settled on $5B at a $190B valuation.",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/"
+  },
+  {
+    "author": "Jay Peters",
+    "company_candidates": [],
+    "content_excerpt": "Another OpenAI executive is departing. Denise Dresser, who joined OpenAI as its chief revenue officer in December after serving as CEO of Slack, will be leaving in the \"coming weeks\" to \"pursue other opportunities,\" she said in a team note posted to LinkedIn. Dali Rajic, president and COO of Wiz, will be taking over the […]",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-32bc4b8d7d79ba6daa57",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-13T15:28:39-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Another OpenAI executive is departing. Denise Dresser, who joined OpenAI as its chief revenue officer in December after serving as CEO of Slack, will be leaving in the \"coming weeks\" to \"pursue other opportunities,\" she said in a team note posted to LinkedIn. Dali Rajic, president and COO of Wiz, will be taking over the […]",
+    "title": "OpenAI is losing its second executive this week",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/ai-artificial-intelligence/979815/openai-denise-dresser-leaving-executive-departure"
+  },
+  {
+    "author": "Dan Goodin",
+    "company_candidates": [],
+    "content_excerpt": "The data was scraped and exfiltrated from 2,500 users of a compromised AI package.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-e0f3cee3b824c175efea",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "ars_technology_lab"
+    },
+    "published_at": "2026-08-12T21:43:21Z",
+    "repository_candidates": [],
+    "source_name": "Ars Technica Technology Lab",
+    "source_type": "rss",
+    "summary": "The data was scraped and exfiltrated from 2,500 users of a compromised AI package.",
+    "title": "Terabytes of credentials leaked in massive supply-chain attack",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://arstechnica.com/security/2026/08/terabytes-of-credentials-leaked-in-massive-supply-chain-attack/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "OpenAI appoints Dali Rajic as Chief Revenue Officer to lead its global revenue organization and help businesses realize the full value of AI.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-6eaab463a55def8752bc",
+    "language": null,
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "openai_news"
+    },
+    "published_at": "2026-08-13T09:00:00Z",
+    "repository_candidates": [],
+    "source_name": "OpenAI News",
+    "source_type": "rss",
+    "summary": "OpenAI appoints Dali Rajic as Chief Revenue Officer to lead its global revenue organization and help businesses realize the full value of AI.",
+    "title": "OpenAI appoints Dali Rajic as Chief Revenue Officer",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://openai.com/index/dali-rajic-chief-revenue-officer"
+  },
+  {
+    "author": "Allison",
+    "company_candidates": [],
+    "content_excerpt": "Gemini 3.7 Flash, Google’s latest Flash model, is now rolling out in GitHub Copilot. From our early testing, the model has made improvements in web and app development and agentic… The post Gemini 3.7 Flash is now available in GitHub Copilot appeared first on The GitHub Blog .",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-9e4b9edc908b992c71de",
+    "language": "en-US",
+    "metadata": {
+      "official": true,
+      "priority": "high",
+      "source_id": "github_changelog"
+    },
+    "published_at": "2026-08-13T14:00:53Z",
+    "repository_candidates": [],
+    "source_name": "GitHub Changelog",
+    "source_type": "rss",
+    "summary": "Gemini 3.7 Flash, Google’s latest Flash model, is now rolling out in GitHub Copilot. From our early testing, the model has made improvements in web and app development and agentic… The post Gemini 3.7 Flash is now available in GitHub Copilot appeared first on The GitHub Blog .",
+    "title": "Gemini 3.7 Flash is now available in GitHub Copilot",
+    "topic_candidates": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot"
+  },
+  {
+    "author": "Lucas Ropek",
+    "company_candidates": [],
+    "content_excerpt": "OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise users.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-d796dd4f41b1239bb3cf",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T19:22:40Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "OpenAI is launching a preview of a sped up version of its latest, most powerful model, in an effort to court enterprise users.",
+    "title": "OpenAI introduces ‘Ultrafast,’ a new mode that makes GPT-5.6 Sol work at 14x the speed",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/openai-introduces-ultrafast-a-new-mode-that-makes-gpt-5-6-sol-work-at-14x-the-speed/"
+  },
+  {
+    "author": "Terrence O’Brien",
+    "company_candidates": [],
+    "content_excerpt": "Suno is releasing Studio 2.0 with significant upgrades that push it closer to an actual digital audio workstation (DAW), rather than a bare-bones audio editor with generative AI features. The biggest addition is undoubtedly MIDI support. Suno says that MIDI was its most requested feature, and it's basically a prerequisite for any modern DAW. Unfortunately, […]",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-5907436efdfd30573bd5",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-13T12:00:00-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Suno is releasing Studio 2.0 with significant upgrades that push it closer to an actual digital audio workstation (DAW), rather than a bare-bones audio editor with generative AI features. The biggest addition is undoubtedly MIDI support. Suno says that MIDI was its most requested feature, and it's basically a prerequisite for any modern DAW. Unfortunately, […]",
+    "title": "Suno is trying to look more like a real music production tool",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/ai-artificial-intelligence/979345/suno-studio-2-0-midi-chatbot-custom-effects"
+  },
+  {
+    "author": "Jagmeet Singh",
+    "company_candidates": [],
+    "content_excerpt": "IBM plans to train and certify tens of thousands of consultants on OpenAI's technologies as part of this deal.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-9a2ddf92ac93318a032c",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T19:19:49Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "IBM plans to train and certify tens of thousands of consultants on OpenAI's technologies as part of this deal.",
+    "title": "IBM partners with OpenAI to bolster enterprise AI push",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/ibm-partners-with-openai-to-bolster-enterprise-ai-push/"
+  },
+  {
+    "author": "Charles Pulliam-Moore",
+    "company_candidates": [],
+    "content_excerpt": "Imagine a trio of bumbling, English lads who fantasize about becoming megastars while knocking back a few pints in a grimy pub somewhere in London. Picture the guys chortling and trying to one-up each other's idealized visions of the future with a series of increasingly glitzy fantasies in which their fame leads to access to […]",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-e5256eb51dcec9283b70",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-13T11:30:00-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Imagine a trio of bumbling, English lads who fantasize about becoming megastars while knocking back a few pints in a grimy pub somewhere in London. Picture the guys chortling and trying to one-up each other's idealized visions of the future with a series of increasingly glitzy fantasies in which their fame leads to access to […]",
+    "title": "I looked inside an AI generated movie, and the best parts were all human",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/entertainment/977994/higgsfield-ai-cully-hill-boys-black-list"
+  },
+  {
+    "author": "Rebecca Bellan",
+    "company_candidates": [],
+    "content_excerpt": "Anthropic researchers found AI agents can clash, collude, and coordinate in unexpected ways, raising new questions about whether today’s safety tests capture the risks of multi-agent systems.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-647c46da607af06e7c2b",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T18:28:14Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Anthropic researchers found AI agents can clash, collude, and coordinate in unexpected ways, raising new questions about whether today’s safety tests capture the risks of multi-agent systems.",
+    "title": "Anthropic set AI agents loose on the same task. They started a turf war.",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/anthropic-set-ai-agents-loose-on-the-same-task-they-started-a-turf-war/"
+  },
+  {
+    "author": "Nilay Patel",
+    "company_candidates": [],
+    "content_excerpt": "Today on Decoder, I’m talking with Hayden Field, The Verge’s senior AI reporter, about a question that’s been rocketing around the tech industry for the past week: Is Google losing the AI race? That’s because last week Google announced a bombshell reorganization of its AI division, Google DeepMind. Jeff Dean, the company’s chief scientist, is […]",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-a7bd9dab3d2a5c892985",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-13T10:10:31-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Today on Decoder, I’m talking with Hayden Field, The Verge’s senior AI reporter, about a question that’s been rocketing around the tech industry for the past week: Is Google losing the AI race? That’s because last week Google announced a bombshell reorganization of its AI division, Google DeepMind. Jeff Dean, the company’s chief scientist, is […]",
+    "title": "Does Google even want to win at AI?",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/podcast/979370/google-deepmind-ai-race-lose-jeff-dean-demis-hassabis"
+  },
+  {
+    "author": "Tim Fernholz",
+    "company_candidates": [],
+    "content_excerpt": "OpenAI has replaced chief revenue officer Denise Dresser after just nine months on the job, tapping Wiz president and chief operating officer Dali Rajic to take on frontier lab's top sales job.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-9ff06a4356e7228441fd",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T17:07:13Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "OpenAI has replaced chief revenue officer Denise Dresser after just nine months on the job, tapping Wiz president and chief operating officer Dali Rajic to take on frontier lab's top sales job.",
+    "title": "OpenAI hires new CRO as executive shake-up continues",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/openai-hires-new-cro-as-executive-shake-up-continues/"
+  },
+  {
+    "author": "Jess Weatherbed",
+    "company_candidates": [],
+    "content_excerpt": "Microsoft is finally beginning to combine its consumer and commercial Copilot AI assistants into a single \"super app\" interface, starting with the Copilot and Microsoft 365 Copilot apps. Both personal and work accounts will be moved to the new unified app, which recycles the \"Microsoft Copilot\" name but features an updated app icon. The single […]",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-6b576d0825326e86984e",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "the_verge_ai"
+    },
+    "published_at": "2026-08-13T09:30:00-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_type": "rss",
+    "summary": "Microsoft is finally beginning to combine its consumer and commercial Copilot AI assistants into a single \"super app\" interface, starting with the Copilot and Microsoft 365 Copilot apps. Both personal and work accounts will be moved to the new unified app, which recycles the \"Microsoft Copilot\" name but features an updated app icon. The single […]",
+    "title": "Microsoft is combining its Copilot apps ahead of a ‘super app’",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/tech/979466/microsoft-copilot-365-app-unified-experience"
+  },
+  {
+    "author": "Sarah Perez",
+    "company_candidates": [],
+    "content_excerpt": "Microsoft is simplifying Copilot by combining its consumer and business apps, and dropping AI-generated podcasts, Group Chats, Deep Research, and its Mico character.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-8e77a85b47ddb894bb26",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T15:30:52Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Microsoft is simplifying Copilot by combining its consumer and business apps, and dropping AI-generated podcasts, Group Chats, Deep Research, and its Mico character.",
+    "title": "Microsoft kills off unsuccessful AI features while merging its separate Copilot apps",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/microsoft-kills-off-unsuccessful-ai-features-while-merging-its-separate-copilot-apps/"
+  },
+  {
+    "author": "Julie Bort",
+    "company_candidates": [],
+    "content_excerpt": "Nvidia has a plan to make sure its GPUs won't lose value. It wants to convince a new crop of financiers to keep lending for AI buildouts.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-6d4e506a28964a47ca54",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T15:08:00Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Nvidia has a plan to make sure its GPUs won't lose value. It wants to convince a new crop of financiers to keep lending for AI buildouts.",
+    "title": "Nvidia’s new $500B plan is risky but brilliant, especially for aging GPUs",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/nvidias-new-500b-plan-is-risky-but-brilliant-especially-for-aging-gpus/"
+  },
+  {
+    "author": "Aisha Malik",
+    "company_candidates": [],
+    "content_excerpt": "The tech giant has considered a nine-figure budget for the payments, according to the WSJ.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-f40d536e546cb3686da4",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-13T14:34:43Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "The tech giant has considered a nine-figure budget for the payments, according to the WSJ.",
+    "title": "Apple in talks to pay publishers to provide Siri with current news: report",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/13/apple-in-talks-to-pay-publishers-to-provide-siri-with-current-news-report/"
+  },
+  {
+    "author": "Lucas Ropek",
+    "company_candidates": [],
+    "content_excerpt": "Is Anthropic's new watermarking system a travesty? Some have taken to social media to complain that it is.",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-23948c6655eb0a12765c",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-12T22:26:37Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "Is Anthropic's new watermarking system a travesty? Some have taken to social media to complain that it is.",
+    "title": "Some Claude users are mad that Anthropic’s new watermarks will catch them using it at their jobs, classes",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/12/some-claude-users-are-mad-that-anthropics-new-watermarks-will-catch-them-cheating-at-their-jobs-classes/"
+  },
+  {
+    "author": "Amanda Silberling",
+    "company_candidates": [],
+    "content_excerpt": "\"If this was opt-in, nobody would opt in,\" Twitch CPO Mike Minton said on a livestream responding to user feedback. \"That's honestly the answer.\"",
+    "fetched_at": "2026-08-14T00:42:09.832704Z",
+    "id": "item-ba17fbe9ce6288a081ec",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "priority": "medium",
+      "source_id": "techcrunch_ai"
+    },
+    "published_at": "2026-08-12T20:10:40Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_type": "rss",
+    "summary": "\"If this was opt-in, nobody would opt in,\" Twitch CPO Mike Minton said on a livestream responding to user feedback. \"That's honestly the answer.\"",
+    "title": "Amazon will train on Twitch streamers’ content by default, unless they opt out",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/12/amazon-will-train-on-twitch-streamers-content-by-default-unless-they-opt-out/"
+  }
+]

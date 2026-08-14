@@ -1,0 +1,38 @@
+[
+  {
+    "created_at": "2026-08-14T00:42:09.832704Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 7 个来源支持。",
+    "id": "signal-360d6c83f46486381aeb",
+    "metric_history": [
+      {
+        "date": "2026-08-12",
+        "story_count": 2
+      },
+      {
+        "date": "2026-08-13",
+        "story_count": 2
+      },
+      {
+        "date": "2026-08-14",
+        "story_count": 3
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 8,
+    "supporting_source_count": 7,
+    "supporting_story_ids": [
+      "story-80e212c2a46739a90a99",
+      "story-4ceeae39cbe855c4dbd8",
+      "story-274e7043135dac9b44d7",
+      "story-2f03973c5f8b96fb6643",
+      "story-6b71efe9915d2a20c9a1",
+      "story-1578c9371f502ad39d03",
+      "story-1ba489c0a3ad1150b9db"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-08-14T00:42:09.832704Z",
+    "window_days": 3
+  }
+]

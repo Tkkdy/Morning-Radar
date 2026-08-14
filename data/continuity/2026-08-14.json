@@ -1,0 +1,158 @@
+{
+  "date": "2026-08-14",
+  "generated_at": "2026-08-14T00:42:09.832704Z",
+  "judgements": [
+    {
+      "claim": "Databricks 以 1900 亿美元估值完成 50 亿美元融资，强化了 AI 数据基础设施的资本热度，并可能推高同类公司的融资估值预期。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-48ecfc8dd9ce345995a3"
+          }
+        }
+      ],
+      "judgement_id": "judgement-12c5e7a7375c4b8046fc",
+      "rationale": "原计划融资 10 亿美元，投资者愿投入 150 亿美元，最终融资 50 亿美元，显示资金供给远大于公司需求；这种供需失衡可能影响后续 AI 基础设施融资事件的估值参照。",
+      "recorded_at": "2026-08-14T00:42:09.832704Z",
+      "root_judgement_id": "judgement-12c5e7a7375c4b8046fc",
+      "uncertainty": "实际影响需由后续同类公司的融资估值事件验证。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "googleapis/python genai 从“googleapis/python-genai v2.18.0 发布”推进到“googleapis/python-genai v2.18.1 发布：新增 gemini-3.7-flash 支持”。",
+      "current_story": {
+        "date": "2026-08-14",
+        "story_id": "story-1ba489c0a3ad1150b9db"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-274e7043135dac9b44d7"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-1ba489c0a3ad1150b9db"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-274e7043135dac9b44d7"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-08-14T00:42:09.832704Z",
+      "relation_id": "relation-8ecc443a9ac2a6ab78d2",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Pydantic-AI 从 v2.28.0 推进到 v2.29.0，新增 FastMCP 4/MCP SDK v2 支持与 Azure AI Voice Live，并修复了 v2.28.0 中引入的实时 WebRTC/Azure for_realtime（#6676）相关 bug。",
+      "current_story": {
+        "date": "2026-08-14",
+        "story_id": "story-a905cd9512d4c46f19f7"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0,
+            5
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-28f72ef6c79098e0648c"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            5
+          ],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-a905cd9512d4c46f19f7"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-28f72ef6c79098e0648c"
+      },
+      "rationale": "前一个 occurrence 记录 v2.28.0 发布并引入 PR #6676 的实时 WebRTC 支持；当前 occurrence 记录 v2.29.0 发布，明确修复从 #6676 继承的实时 WebRTC 和 Azure for_realtime bug，构成同一仓库连续版本跟进关系。",
+      "recorded_at": "2026-08-14T00:42:09.832704Z",
+      "relation_id": "relation-06d14d28c65312acb63a",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "Cerebras"
+      ],
+      "event_type": "opened",
+      "expectation": "OpenAI 是否公布 Ultrafast 模式的正式可用时间、定价和区域覆盖，以及 Cerebras 支持的 750 tokens/秒输出速度是否在开发者实测中达到。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-5.6 Sol",
+        "Ultrafast"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-14T00:42:09.832704Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-14",
+          "story_id": "story-c7cb68e4483cf17cdad4"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-842e2601456109c0ae1c"
+    },
+    {
+      "entity_anchors": [
+        "Writer",
+        "Z.ai",
+        "Anthropic"
+      ],
+      "event_type": "opened",
+      "expectation": "在未来数日，Writer 基于 GLM-5.2 的新模型或 anthropic-sdk-python 后续版本，是否出现新的性能基准、定价或功能细节披露，以验证 ai_models 主题热度持续。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GLM-5.2",
+        "Harness",
+        "anthropic-sdk-python"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-14T00:42:09.832704Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-14",
+          "story_id": "story-6b71efe9915d2a20c9a1"
+        },
+        {
+          "date": "2026-08-14",
+          "story_id": "story-1578c9371f502ad39d03"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-09e4a28675f32c74406f"
+    }
+  ]
+}

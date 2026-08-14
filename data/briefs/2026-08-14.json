@@ -1,0 +1,896 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-ac7fd7ecbec712e79a59",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/dali-rajic-chief-revenue-officer"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "OpenAI 任命 Dali Rajic 为首席营收官",
+          "category": "高管任命",
+          "entity_names": [
+            "OpenAI",
+            "Dali Rajic"
+          ],
+          "facts": [
+            "OpenAI 任命 Dali Rajic 为首席营收官。",
+            "Dali Rajic 将领导 OpenAI 的全球营收组织。",
+            "Dali Rajic 的职责包括帮助企业实现 AI 的全部价值。"
+          ],
+          "primary_source_url": "https://openai.com/index/dali-rajic-chief-revenue-officer",
+          "product_names": [],
+          "published_at": "2026-08-13T09:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T09:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-6eaab463a55def8752bc",
+              "source_name": "OpenAI News",
+              "source_type": "rss",
+              "title": "OpenAI appoints Dali Rajic as Chief Revenue Officer",
+              "url": "https://openai.com/index/dali-rajic-chief-revenue-officer"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-e873e1cf461ba6df5d44",
+          "topic_names": [
+            "高管任命",
+            "营收组织"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-e873e1cf461ba6df5d44"
+      ],
+      "title": "OpenAI 任命 Dali Rajic 为首席营收官",
+      "uncertainty": null,
+      "what_happened": "OpenAI 任命 Dali Rajic 为首席营收官，他将领导 OpenAI 的全球营收组织，职责包括帮助企业实现 AI 的全部价值。",
+      "why_it_matters": "这一任命表明 OpenAI 正在强化企业营收组织建设，以推动其 AI 产品在商业客户中的采用。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-e1551dc0d79d4de97379",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Google Sheets 推出 canvas 功能，将电子表格数据可视化",
+          "category": "产品发布",
+          "entity_names": [
+            "Google",
+            "Eric Birnbaum"
+          ],
+          "facts": [
+            "2026年8月13日，Google 官方博客发布文章，宣布推出 Sheets canvas 功能。",
+            "该功能由 Eric Birnbaum 撰写介绍。"
+          ],
+          "primary_source_url": "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/",
+          "product_names": [
+            "Google Sheets",
+            "Sheets canvas"
+          ],
+          "published_at": "2026-08-13T16:45:00Z",
+          "source_refs": [
+            {
+              "author": "Eric Birnbaum",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T16:45:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-e546c9507c4bdece8e78",
+              "source_name": "Google AI",
+              "source_type": "rss",
+              "title": "Bring your spreadsheet data to life with Sheets canvas",
+              "url": "https://blog.google/products-and-platforms/products/workspace/sheets-canvas-for-google-sheets-spreadsheets/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-6ceaa071b3e53156371b",
+          "topic_names": [
+            "生产力工具",
+            "数据可视化"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-6ceaa071b3e53156371b"
+      ],
+      "title": "Google Sheets 推出 canvas 功能，将电子表格数据可视化",
+      "uncertainty": null,
+      "what_happened": "2026 年 8 月 13 日，Google 官方博客发布文章，宣布推出 Sheets canvas 功能，由 Eric Birnbaum 撰写介绍。",
+      "why_it_matters": "该功能将电子表格数据可视化，可能提升 Google Sheets 作为生产力工具的分析与展示能力。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-735103b66d882fa09d23",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该方案将数据采集、模型训练与部署整合到 Hugging Face 平台，可能简化机器人学习工作流。",
+            "结合 Strands Agents 的交互能力与 LeRobot 的机器人学习框架，或加速具身智能应用开发。"
+          ],
+          "canonical_title": "Strands Agents、LeRobot 与 Hugging Face 存储桶实现一站式记录、训练与部署",
+          "category": "人工智能基础设施",
+          "entity_names": [
+            "Hugging Face",
+            "Strands Agents",
+            "LeRobot"
+          ],
+          "facts": [
+            "2026年8月13日，Hugging Face 博客发布文章，介绍使用 Strands Agents、LeRobot 与 Hugging Face 存储桶实现一站式记录、训练与部署。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop",
+          "product_names": [
+            "Strands Agents",
+            "LeRobot",
+            "Hugging Face Storage Buckets"
+          ],
+          "published_at": "2026-08-13T17:16:04Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T17:16:04Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-353217afc4f706b5339d",
+              "source_name": "Hugging Face Blog",
+              "source_type": "rss",
+              "title": "Record, train, and deploy from one place with Strands Agents, LeRobot, and Hugging Face Storage Buckets",
+              "url": "https://huggingface.co/blog/amazon/strands-lerobot-streaming-data-loop"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-f0583401cfb8b39ed962",
+          "topic_names": [
+            "机器人学习",
+            "数据管理",
+            "云存储"
+          ],
+          "uncertainties": [
+            "文章未提供具体性能数据或用户案例，实际效果待验证。",
+            "Strands Agents 与 LeRobot 的集成细节在摘要中未完全展开，需查看全文。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f0583401cfb8b39ed962"
+      ],
+      "title": "Strands Agents、LeRobot 与 Hugging Face 存储桶实现一站式记录、训练与部署",
+      "uncertainty": "文章未提供具体性能数据或用户案例，实际效果待验证；Strands Agents 与 LeRobot 的集成细节未完全展开。",
+      "what_happened": "Hugging Face 博客发布文章，介绍使用 Strands Agents、LeRobot 与 Hugging Face 存储桶实现一站式记录、训练与部署。",
+      "why_it_matters": "该方案将数据采集、模型训练与部署整合到 Hugging Face 平台，可能简化机器人学习工作流，并加速具身智能应用开发。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-3064d54a2e3776a01438",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Writer利用开源GLM-5.2进行后训练，旨在在保持能力的同时降低部署成本。",
+            "此次发布是Writer持续战略的一部分，旨在提供经济高效的AI解决方案。"
+          ],
+          "canonical_title": "Writer推出新AI模型及升级版Harness以控制token成本",
+          "category": "ai_models",
+          "entity_names": [
+            "Writer",
+            "Z.ai"
+          ],
+          "facts": [
+            "Writer发布新AI模型。",
+            "新模型基于Z.ai的开源模型GLM-5.2进行后训练。",
+            "Writer声称新系统以更低价格提供部署就绪能力。",
+            "Writer升级了Harness以控制token成本。",
+            "新AI模型和Harness升级于2026年8月13日发布。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/",
+          "product_names": [
+            "GLM-5.2",
+            "Harness"
+          ],
+          "published_at": "2026-08-13T21:13:24Z",
+          "source_refs": [
+            {
+              "author": "Russell Brandom",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T21:13:24Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-738b25361089d8094578",
+              "source_name": "TechCrunch AI",
+              "source_type": "rss",
+              "title": "Writer introduces new AI model and upgraded harness to contain token costs",
+              "url": "https://techcrunch.com/2026/08/13/writer-introduces-new-ai-model-and-upgraded-harness-to-contain-token-costs/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-1578c9371f502ad39d03",
+          "topic_names": [
+            "ai_models",
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "新AI模型的具体性能基准未知。",
+            "Writer提及的成本节约幅度未量化。",
+            "基于GLM-5.2的Writer模型与原始GLM-5.2的差异细节不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-1578c9371f502ad39d03"
+      ],
+      "title": "Writer 推出新 AI 模型及升级版 Harness 以控制 token 成本",
+      "uncertainty": "新 AI 模型的具体性能基准未知；成本节约幅度未量化；Writer 模型与原始 GLM-5.2 的差异细节不明确。",
+      "what_happened": "Writer 发布新 AI 模型，该模型基于 Z.ai 的开源模型 GLM-5.2 进行后训练；同时 Writer 升级了 Harness 以控制 token 成本。",
+      "why_it_matters": "Writer 利用开源 GLM-5.2 进行后训练，旨在以更低价格提供部署就绪能力，是提供经济高效 AI 解决方案战略的一部分。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-79fdc3dc5944f8496508",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将 Gemini 3.7 Flash 集成到 GitHub Copilot 表明 Google 与 GitHub 在 AI 辅助开发领域持续合作。",
+            "模型在 Web 和应用程序开发方面的改进可能吸引更多开发者采用。"
+          ],
+          "canonical_title": "Gemini 3.7 Flash 现已在 GitHub Copilot 中提供",
+          "category": "AI 编程工具",
+          "entity_names": [
+            "Google",
+            "GitHub"
+          ],
+          "facts": [
+            "Gemini 3.7 Flash 是 Google 最新的 Flash 模型。",
+            "该模型现已开始在 GitHub Copilot 中推出。",
+            "根据早期测试，该模型在 Web 和应用程序开发以及代理能力方面有所改进。",
+            "该消息于 2026 年 8 月 13 日发布。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot",
+          "product_names": [
+            "Gemini 3.7 Flash",
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-08-13T14:00:53Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T14:00:53Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-9e4b9edc908b992c71de",
+              "source_name": "GitHub Changelog",
+              "source_type": "rss",
+              "title": "Gemini 3.7 Flash is now available in GitHub Copilot",
+              "url": "https://github.blog/changelog/2026-08-13-gemini-3-7-flash-is-now-available-in-github-copilot"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-6893c3e8a8eb95a5ef53",
+          "topic_names": [
+            "AI 编程",
+            "模型发布"
+          ],
+          "uncertainties": [
+            "未提供具体的改进细节或基准数据。",
+            "发布范围未明确，可能为逐步推出。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6893c3e8a8eb95a5ef53"
+      ],
+      "title": "Gemini 3.7 Flash 现已在 GitHub Copilot 中提供",
+      "uncertainty": "未提供具体的改进细节或基准数据；发布范围未明确，可能为逐步推出。",
+      "what_happened": "Gemini 3.7 Flash 是 Google 最新的 Flash 模型，现已在 GitHub Copilot 中推出；早期测试显示其在 Web 和应用程序开发以及代理能力方面有所改进。",
+      "why_it_matters": "将 Gemini 3.7 Flash 集成到 GitHub Copilot 表明 Google 与 GitHub 在 AI 辅助开发领域持续合作；模型在 Web 和应用程序开发方面的改进可能吸引更多开发者采用。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-f7e2571a5147340d59ff",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.122.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "本次版本更新包含多个流式处理相关的 bug 修复，提升了 SDK 在处理流式响应时的稳定性和正确性。",
+            "新增 output_behavior 到 dream creation 表明 Anthropic 正在扩展其记忆相关 API 的能力。",
+            "暴露 beta 功能到 Bedrock 和 Vertex 显示 Anthropic 致力于跨云平台提供一致的功能集。"
+          ],
+          "canonical_title": "anthropic-sdk-python v0.122.0 发布",
+          "category": "sdk_release",
+          "entity_names": [
+            "anthropics/anthropic-sdk-python",
+            "stainless-app[bot]",
+            "Anthropic"
+          ],
+          "facts": [
+            "anthropic-sdk-python v0.122.0 于 2026-08-13 发布。",
+            "新增 API：在 dream creation 中添加 output_behavior，用于创建新记忆存储或就地更新输入存储。",
+            "修复：Bedrock/AWS 异步客户端中的 SigV4 签名移至事件循环外执行。",
+            "修复：Bedrock 和 Vertex 现在暴露 beta.messages.parse、stream 和 tool_runner。",
+            "修复：客户端添加 models 方法。",
+            "修复：客户端处理空 ANTHROPIC_API_KEY / ANTHROPIC_AUTH_TOKEN 视为未设置。",
+            "修复：流式处理中为非 beta 累加器的畸形工具输入 JSON 错误添加上下文。",
+            "修复：流式处理中应用所有 message_delta 字段到累积消息。",
+            "修复：流式处理为服务器工具使用块发出 input_json 事件。",
+            "修复：流式处理中保持累积消息中省略的内容块字段未设置。",
+            "修复：流式处理在 messages.stream() 中只运行一次请求转换。",
+            "修复：流式处理在 message_stop 事件上静默 pydantic 序列化器警告。",
+            "修复：工具拒绝符号链接循环并跳过特殊 skill-archive 成员。",
+            "CI 在每次推送时运行 breaking-change 检测。"
+          ],
+          "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.122.0",
+          "product_names": [
+            "anthropic-sdk-python"
+          ],
+          "published_at": "2026-08-13T18:35:49Z",
+          "source_refs": [
+            {
+              "author": "stainless-app[bot]",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T18:35:49Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-d88eb9c722d8c87f451e",
+              "source_name": "GitHub · anthropics/anthropic-sdk-python",
+              "source_type": "github",
+              "title": "anthropics/anthropic-sdk-python: v0.122.0",
+              "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v0.122.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-6b71efe9915d2a20c9a1",
+          "topic_names": [
+            "ai_models",
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "尚不清楚 output_behavior 参数的具体行为细节，需要查阅 API 文档。",
+            "breaking-change 检测作为 CI 任务运行的具体影响尚未明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6b71efe9915d2a20c9a1"
+      ],
+      "title": "anthropic-sdk-python v0.122.0 发布",
+      "uncertainty": "output_behavior 参数的具体行为细节需查阅 API 文档；breaking-change 检测作为 CI 任务运行的具体影响尚未明确。",
+      "what_happened": "anthropic-sdk-python v0.122.0 发布，新增 dream creation 的 output_behavior 参数，并修复多个流式处理相关 bug，包括 Bedrock/AWS 异步客户端 SigV4 签名、工具输入 JSON 错误上下文等。",
+      "why_it_matters": "本次版本更新包含多个流式处理相关的 bug 修复，提升了 SDK 稳定性和正确性；新增 output_behavior 显示 Anthropic 正在扩展记忆相关 API 能力；暴露 beta 功能到 Bedrock 和 Vertex 显示跨云平台功能一致性。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-a905cd9512d4c46f19f7",
+          "judgement_cues": [],
+          "previous_story_date": "2026-08-13",
+          "previous_story_id": "story-28f72ef6c79098e0648c",
+          "previous_story_title": "Pydantic AI 发布 v2.28.0：修复开发 Web Chat UI 高危安全漏洞并新增实时语音功能",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "Pydantic-AI 从 v2.28.0 推进到 v2.29.0，新增 FastMCP 4/MCP SDK v2 支持与 Azure AI Voice Live，并修复了 v2.28.0 中引入的实时 WebRTC/Azure for_realtime（#6676）相关 bug。"
+        }
+      ],
+      "id": "brief-8d3561ec1e6dcf1950dd",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.29.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本聚焦于提升对 MCP 生态系统的兼容性，支持最新的 FastMCP 4 和 MCP SDK v2，使开发者能利用最新协议特性。",
+            "新增 Azure AI Voice Live 集成表明 Pydantic-AI 正在拓展语音交互能力，向多模态 AI 应用框架演进。",
+            "多项 bug 修复增强了框架的稳定性和数据完整性，尤其是 gzip 响应截断和流关闭问题，对于生产环境可靠性很重要。"
+          ],
+          "canonical_title": "Pydantic-AI v2.29.0 发布：支持 FastMCP 4 与 Azure AI Voice Live",
+          "category": "AI框架发布",
+          "entity_names": [
+            "pydantic",
+            "pydantic-ai",
+            "FastMCP",
+            "MCP SDK",
+            "Azure AI Voice Live"
+          ],
+          "facts": [
+            "Pydantic-AI v2.29.0 于 2026-08-12 发布。",
+            "新增功能：在 MCPToolset 中同时支持 FastMCP 4 和 MCP SDK v2，以及 FastMCP 3。",
+            "新增 Azure AI Voice Live 功能，通过 azure_voice_live 设置启用。",
+            "修复了 gzip 响应体静默截断的问题。",
+            "修复了渲染工具签名时未包含参数描述的问题。",
+            "修复了从 #6676 继承的实时 WebRTC 和 Azure for_realtime 相关 bug。",
+            "修复了并发提供者流关闭的问题。",
+            "新贡献者 ChaoGlenXu 首次贡献代码。"
+          ],
+          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.29.0",
+          "product_names": [
+            "pydantic-ai"
+          ],
+          "published_at": "2026-08-13T04:02:53Z",
+          "source_refs": [
+            {
+              "author": "dsfaccini",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T04:02:53Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-a248aacdb2dc1cc6ab1f",
+              "source_name": "GitHub · pydantic/pydantic-ai",
+              "source_type": "github",
+              "title": "pydantic/pydantic-ai: v2.29.0 (2026-08-12)",
+              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.29.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-a905cd9512d4c46f19f7",
+          "topic_names": [
+            "AI框架",
+            "开源",
+            "模型上下文协议 (MCP)",
+            "语音交互"
+          ],
+          "uncertainties": [
+            "此版本是否完全向后兼容旧版 FastMCP 3 及 MCP SDK v1 需进一步确认。",
+            "Azure AI Voice Live 功能的具体使用限制和稳定性尚未在发布说明中提及。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a905cd9512d4c46f19f7"
+      ],
+      "title": "Pydantic-AI v2.29.0 发布：支持 FastMCP 4 与 Azure AI Voice Live",
+      "uncertainty": "是否完全向后兼容旧版 FastMCP 3 及 MCP SDK v1 需进一步确认；Azure AI Voice Live 功能的具体使用限制和稳定性尚未提及。",
+      "what_happened": "Pydantic-AI v2.29.0 发布，新增在 MCPToolset 中同时支持 FastMCP 4 和 MCP SDK v2，以及 FastMCP 3；新增 Azure AI Voice Live 功能；并修复多个 bug。",
+      "why_it_matters": "该版本聚焦提升对 MCP 生态系统的兼容性，使开发者能利用最新协议特性；新增 Azure AI Voice Live 集成表明 Pydantic-AI 正向多模态 AI 应用框架演进；多项 bug 修复增强了生产环境可靠性。"
+    }
+  ],
+  "cognitive_extension": "OpenAI 的 Ultrafast 模式由 Cerebras 提供支持，其 14 倍速度与 750 tokens/秒输出会如何影响开发者对 API 工作负载和成本的选择？",
+  "date": "2026-08-14",
+  "developer_discussions": [],
+  "direction_observation": "AI 模型主题在过去三天维持热度，最新一天（2026-08-14）报道数量为3篇，高于前两天的2篇，并涉及7个来源和8家公司，显示该领域讨论度有小幅上升。",
+  "generated_at": "2026-08-14T00:42:09.832704Z",
+  "market_and_companies": [],
+  "other_reading": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-19495ca37d0a3731051e",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://openai.com/index/builders-guide-to-gpt-5-6"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该指南旨在帮助开发者充分利用 GPT-5.6 的新特性，提高 AI 智能体的构建效率和成本效益。"
+          ],
+          "canonical_title": "面向开发者的 GPT-5.6 构建指南",
+          "category": "AI 产品发布与指南",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 于 2026 年 8 月 13 日发布了《The builder’s guide to GPT-5.6》。",
+            "该指南介绍了初创公司如何使用 GPT-5.6 构建更快、更具成本效益的 AI 智能体。",
+            "指南提到 GPT-5.6 具备更智能的模型选择能力。",
+            "指南提到了新的 Responses API 功能。"
+          ],
+          "primary_source_url": "https://openai.com/index/builders-guide-to-gpt-5-6",
+          "product_names": [
+            "GPT-5.6",
+            "Responses API"
+          ],
+          "published_at": "2026-08-13T11:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T11:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-6f8368ac763b73731923",
+              "source_name": "OpenAI News",
+              "source_type": "rss",
+              "title": "The builder’s guide to GPT‑5.6",
+              "url": "https://openai.com/index/builders-guide-to-gpt-5-6"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-a4c34e624b64e09cab6d",
+          "topic_names": [
+            "AI 模型",
+            "AI 智能体"
+          ],
+          "uncertainties": [
+            "指南中提到的具体新功能和最佳实践尚未详细披露。",
+            "GPT-5.6 的正式可用状态未明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a4c34e624b64e09cab6d"
+      ],
+      "title": "面向开发者的 GPT-5.6 构建指南",
+      "uncertainty": "指南中提到的具体新功能和最佳实践尚未详细披露。",
+      "what_happened": "OpenAI 于 2026 年 8 月 13 日发布了《The builder’s guide to GPT-5.6》。",
+      "why_it_matters": "该指南旨在帮助开发者充分利用 GPT-5.6 的新特性，提高 AI 智能体的构建效率和成本效益。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-f59979f3302b98e99b38",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://github.blog/changelog/2026-08-13-license-data-quality-improvements"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "通过直接利用包注册中心的元数据，GitHub 减少了依赖图许可证信息中的错误和遗漏，改善了开发者的合规体验。"
+          ],
+          "canonical_title": "GitHub 改进依赖图许可证数据质量",
+          "category": "开发者工具",
+          "entity_names": [],
+          "facts": [
+            "GitHub 现在使用 npmjs.org 和 PyPI 等包注册中心来确定依赖图中软件组件的许可证信息。",
+            "这一变化提高了所显示许可证的准确性和完整性。",
+            "该更新于 2026-08-13 发布。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-08-13-license-data-quality-improvements",
+          "product_names": [
+            "GitHub 依赖图"
+          ],
+          "published_at": "2026-08-13T19:14:12Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T19:14:12Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-b101caf06c002bc5fb05",
+              "source_name": "GitHub Changelog",
+              "source_type": "rss",
+              "title": "License data quality improvements",
+              "url": "https://github.blog/changelog/2026-08-13-license-data-quality-improvements"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-a928b59d8c349f973c27",
+          "topic_names": [
+            "开源许可",
+            "依赖管理",
+            "软件供应链"
+          ],
+          "uncertainties": [
+            "具体的实现细节（例如如何处理缺失或不一致的许可证信息）尚未披露。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a928b59d8c349f973c27"
+      ],
+      "title": "GitHub 改进依赖图许可证数据质量",
+      "uncertainty": "具体的实现细节（例如如何处理缺失或不一致的许可证信息）尚未披露。",
+      "what_happened": "GitHub 现在使用 npmjs.org 和 PyPI 等包注册中心来确定依赖图中软件组件的许可证信息。",
+      "why_it_matters": "通过直接利用包注册中心的元数据，GitHub 减少了依赖图许可证信息中的错误和遗漏，改善了开发者的合规体验。"
+    }
+  ],
+  "run_stats": {
+    "after_global_cap": 55,
+    "ai_brief_story_inputs": 12,
+    "ai_classify_completion_tokens": 1763,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 7389,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 30833,
+    "ai_direction_observation_completion_tokens": 3407,
+    "ai_direction_observation_finish_stop": 2,
+    "ai_direction_observation_prompt_tokens": 1398,
+    "ai_direction_observation_reasoning_tokens": 2958,
+    "ai_merge_story_completion_tokens": 5248,
+    "ai_merge_story_finish_stop": 14,
+    "ai_merge_story_prompt_tokens": 12894,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_prompt_tokens": 53756,
+    "ai_reasoning_tokens": 17978,
+    "ai_resolve_continuity_completion_tokens": 7653,
+    "ai_resolve_continuity_finish_stop": 1,
+    "ai_resolve_continuity_prompt_tokens": 12817,
+    "ai_resolve_continuity_reasoning_tokens": 6842,
+    "ai_score_story_completion_tokens": 1731,
+    "ai_score_story_finish_stop": 14,
+    "ai_score_story_prompt_tokens": 11049,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 11031,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 8209,
+    "ai_write_brief_reasoning_tokens": 8178,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 10,
+    "continuity_character_budget_available": 30000,
+    "continuity_input_chars": 29029,
+    "continuity_judgement_inputs": 2,
+    "continuity_logical_ai_calls": 1,
+    "continuity_network_requests": 1,
+    "continuity_relation_inputs": 9,
+    "continuity_watch_inputs": 6,
+    "direction_signal_inputs": 1,
+    "dry_run": false,
+    "fixture_mode": false,
+    "historical_story_candidates": 145,
+    "judgement_updates": 0,
+    "judgements_created": 1,
+    "logical_ai_calls": 32,
+    "main_brief_items": 10,
+    "needs_review": 0,
+    "network_ai_requests": 34,
+    "open_watches_considered": 8,
+    "other_reading_items": 2,
+    "overturned": 0,
+    "recent_24h": 49,
+    "relations_confirmed": 2,
+    "relations_rejected": 0,
+    "relations_unresolved": 8,
+    "revised": 0,
+    "routine_market_suppressed": 8,
+    "signals": 1,
+    "stories": 14,
+    "story_candidate_input": 41,
+    "structured_watches_opened": 2,
+    "threshold_eligible_stories": 14,
+    "total_displayed_items": 12,
+    "watch_matches": 0
+  },
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-48ecfc8dd9ce345995a3",
+          "judgement_cues": [
+            {
+              "claim": "Databricks 以 1900 亿美元估值完成 50 亿美元融资，强化了 AI 数据基础设施的资本热度，并可能推高同类公司的融资估值预期。",
+              "judgement_id": "judgement-12c5e7a7375c4b8046fc",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-647119b2d0d4771726bc",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "AI 领域的高成本促使 Databricks 接受了超出原计划的融资金额。",
+            "投资者对 Databricks 表现出强烈兴趣，导致融资额上调。"
+          ],
+          "canonical_title": "Databricks 原计划融资 10 亿美元，最终以 1900 亿美元估值完成 50 亿美元融资",
+          "category": "融资",
+          "entity_names": [
+            "Databricks",
+            "Ali Ghodsi"
+          ],
+          "facts": [
+            "Databricks 原计划融资 10 亿美元。",
+            "投资者希望投入 150 亿美元。",
+            "最终以 1900 亿美元估值融资 50 亿美元。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/",
+          "product_names": [],
+          "published_at": "2026-08-13T20:14:39Z",
+          "source_refs": [
+            {
+              "author": "Julie Bort",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T20:14:39Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-31b6cf628065b1501e93",
+              "source_name": "TechCrunch AI",
+              "source_type": "rss",
+              "title": "Databricks wanted to raise $1B, investors wanted $15B. It settled on $5B at a $190B valuation.",
+              "url": "https://techcrunch.com/2026/08/13/databricks-wanted-to-raise-1b-investors-wanted-15b-it-settled-on-5b-at-a-190b-valuation/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-48ecfc8dd9ce345995a3",
+          "topic_names": [
+            "AI",
+            "融资"
+          ],
+          "uncertainties": [
+            "报道中未提及具体的投资者名单。",
+            "融资的具体用途未明确说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-48ecfc8dd9ce345995a3"
+      ],
+      "title": "Databricks 以 1900 亿美元估值完成 50 亿美元融资",
+      "uncertainty": "报道未提及具体投资者名单，融资用途亦未明确。",
+      "what_happened": "Databricks 原计划融资 10 亿美元，但投资者希望投入 150 亿美元，最终以 1900 亿美元估值完成 50 亿美元融资。",
+      "why_it_matters": "AI 领域的高成本促使 Databricks 接受了超出原计划的融资金额；投资者强烈兴趣导致融资额上调。这一规模显示 AI 数据基础设施的资本需求与供给均处高位。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-50d5e77b355e6fac963b",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.wsj.com/tech/ai/openai-jacob-tsimerman-fields-medal-ai-safety-391d0f79",
+        "https://news.ycombinator.com/item?id=49293492"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "顶尖数学家加入AI公司，可能意味着AI安全领域正吸引更多基础科学人才。",
+            "菲尔兹奖得主的加入可能提升OpenAI在理论研究和安全方面的能力。"
+          ],
+          "canonical_title": "数学巨星因担忧AI安全加入OpenAI",
+          "category": "AI安全",
+          "entity_names": [
+            "OpenAI",
+            "Jacob Tsimerman",
+            "Fields Medal"
+          ],
+          "facts": [
+            "Jacob Tsimerman 是一位数学家，曾获得菲尔兹奖。",
+            "他因担忧AI安全而加入OpenAI。"
+          ],
+          "primary_source_url": "https://www.wsj.com/tech/ai/openai-jacob-tsimerman-fields-medal-ai-safety-391d0f79",
+          "product_names": [],
+          "published_at": "2026-08-14T00:40:56Z",
+          "source_refs": [
+            {
+              "author": "gmays",
+              "discussion_url": "https://news.ycombinator.com/item?id=49293492",
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-14T00:40:56Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-a9606c7f824eec8d9308",
+              "source_name": "Hacker News",
+              "source_type": "hacker_news",
+              "title": "The Math Superstar Who's Terrified of AI–and Just Took a Job at OpenAI",
+              "url": "https://www.wsj.com/tech/ai/openai-jacob-tsimerman-fields-medal-ai-safety-391d0f79"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-2a3faab0ed703fd39c0b",
+          "topic_names": [
+            "AI安全",
+            "数学",
+            "人才流动"
+          ],
+          "uncertainties": [
+            "Tsimerman在OpenAI的具体职位和职责尚未明确。",
+            "报道中未提及他的加入时间。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2a3faab0ed703fd39c0b"
+      ],
+      "title": "数学巨星 Jacob Tsimerman 因担忧 AI 安全加入 OpenAI",
+      "uncertainty": "Tsimerman 在 OpenAI 的具体职位和职责尚未明确，报道也未提及加入时间。",
+      "what_happened": "Jacob Tsimerman 是一位曾获菲尔兹奖的数学家，他因担忧 AI 安全而加入 OpenAI。",
+      "why_it_matters": "顶尖数学家加入 AI 公司，可能意味着 AI 安全领域正吸引更多基础科学人才；菲尔兹奖得主的加入可能提升 OpenAI 在理论研究和安全方面的能力。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-09c964e906d546c9eb64",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/previewing-ultrafast"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "结合 Cerebras 的硬件加速能力，OpenAI 意图在高吞吐、低延迟场景中提升竞争力。",
+            "此次预览表明 OpenAI 正与专用 AI 芯片厂商合作，以优化推理性能。"
+          ],
+          "canonical_title": "OpenAI 预览 Ultrafast 模式：GPT-5.6 Sol 速度提升高达 14 倍",
+          "category": "ai_models",
+          "entity_names": [
+            "OpenAI",
+            "Cerebras"
+          ],
+          "facts": [
+            "OpenAI 在 2026 年 8 月 13 日宣布预览新的 API 服务层级 Ultrafast。",
+            "Ultrafast 运行 GPT-5.6 Sol，速度最高可达原来的 14 倍。",
+            "该服务由 Cerebras 提供支持，输出速度最高可达 750 tokens/秒。"
+          ],
+          "primary_source_url": "https://openai.com/index/previewing-ultrafast",
+          "product_names": [
+            "GPT-5.6 Sol",
+            "Ultrafast"
+          ],
+          "published_at": "2026-08-13T10:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T00:42:09.832704Z",
+              "published_at": "2026-08-13T10:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-c0986f6628d189a1ac37",
+              "source_name": "OpenAI News",
+              "source_type": "rss",
+              "title": "Previewing Ultrafast mode: GPT-5.6 Sol at up to 14X the speed",
+              "url": "https://openai.com/index/previewing-ultrafast"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-c7cb68e4483cf17cdad4",
+          "topic_names": [
+            "AI API",
+            "推理性能"
+          ],
+          "uncertainties": [
+            "Ultrafast 模式的正式可用时间、定价以及覆盖区域尚未公布。",
+            "14 倍速度提升的具体基准和适用场景尚未详细说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-c7cb68e4483cf17cdad4"
+      ],
+      "title": "OpenAI 预览 Ultrafast 模式：GPT-5.6 Sol 速度提升高达 14 倍",
+      "uncertainty": "Ultrafast 模式的正式可用时间、定价以及覆盖区域尚未公布；14 倍速度提升的具体基准和适用场景尚未详细说明。",
+      "what_happened": "OpenAI 宣布预览新的 API 服务层级 Ultrafast，运行 GPT-5.6 Sol，速度最高可达原来的 14 倍；该服务由 Cerebras 提供支持，输出速度最高可达 750 tokens/秒。",
+      "why_it_matters": "结合 Cerebras 的硬件加速能力，OpenAI 意图在高吞吐、低延迟场景中提升竞争力；这也表明 OpenAI 正与专用 AI 芯片厂商合作优化推理性能。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "OpenAI 是否公布 Ultrafast 模式的正式可用时间、定价和区域覆盖，以及 Cerebras 支持的 750 tokens/秒输出速度是否在开发者实测中达到。",
+    "在未来数日，Writer 基于 GLM-5.2 的新模型或 anthropic-sdk-python 后续版本，是否出现新的性能基准、定价或功能细节披露，以验证 ai_models 主题热度持续。"
+  ]
+}
