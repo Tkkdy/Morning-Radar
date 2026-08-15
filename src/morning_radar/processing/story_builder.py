@@ -18,10 +18,12 @@ from morning_radar.provenance import verified_source_urls, verified_source_urls_
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
 LANE_ORDER = (
-    "official_editorial",
+    "official_primary",
     "github_release",
+    "trusted_practitioner",
+    "practice_discovery",
     "secondary_editorial",
-    "hacker_news",
+    "hacker_news_ambient",
     "significant_market",
     "other",
 )
@@ -124,6 +126,9 @@ def _source_ref(item: RawItem) -> StorySourceRef:
         ),
         fetched_at=item.fetched_at,
         discussion_url=discussion_url,
+        source_role=item.source_role,
+        statement_type=item.statement_type,
+        practice_signal_kind=item.practice_signal_kind,
     )
 
 
@@ -266,9 +271,10 @@ def preselect_ai_candidates(
     selected.extend(remaining[: max(0, maximum_items - len(selected))])
     selected_counts = Counter(_candidate_lane(item) for item in selected)
     LOGGER.info(
-        "AI candidate lanes: official_editorial=%d github_release=%d "
-        "secondary_editorial=%d hacker_news=%d significant_market=%d "
-        "other=%d selected_total=%d cap=%d",
+        "AI candidate lanes: official_primary=%d github_release=%d "
+        "trusted_practitioner=%d practice_discovery=%d secondary_editorial=%d "
+        "hacker_news_ambient=%d significant_market=%d other=%d "
+        "selected_total=%d cap=%d",
         *(selected_counts[name] for name in LANE_ORDER),
         len(selected),
         maximum_items,
@@ -285,28 +291,48 @@ def preselect_ai_candidates(
 def _candidate_lane(item: RawItem) -> str:
     if item.source_type == "github":
         return "github_release"
+    if item.source_role.value == "practitioner":
+        return "trusted_practitioner"
+    if item.source_role.value == "upstream_discovery":
+        return "practice_discovery"
     if item.source_type == "hacker_news":
-        return "hacker_news"
+        return (
+            "practice_discovery"
+            if item.metadata.get("selection_reason") == "high_signal_discovery"
+            or item.practice_signal_kind is not None
+            else "hacker_news_ambient"
+        )
     if item.source_type == "market":
         return "significant_market"
     if item.source_type in {"rss", "atom"}:
         return (
-            "official_editorial"
-            if item.metadata.get("official")
+            "official_primary"
+            if item.source_role.value == "official_primary"
+            or item.metadata.get("official")
             else "secondary_editorial"
         )
     return "other"
 
 
-def _lane_candidate_key(item: RawItem) -> tuple[int, float, str]:
+def _lane_candidate_key(item: RawItem) -> tuple[int, int, int, float, str]:
     priority = str(item.metadata.get("priority", "low"))
     event_time = item.published_at or item.fetched_at
-    return (PRIORITY_ORDER.get(priority, 3), -event_time.timestamp(), item.id)
+    score = item.metadata.get("score", 0)
+    comments = item.metadata.get("comments", 0)
+    community_score = int(score) if isinstance(score, (int, float)) else 0
+    community_comments = int(comments) if isinstance(comments, (int, float)) else 0
+    return (
+        PRIORITY_ORDER.get(priority, 3),
+        -community_score,
+        -community_comments,
+        -event_time.timestamp(),
+        item.id,
+    )
 
 
-def _global_candidate_key(item: RawItem) -> tuple[int, int, float, str]:
+def _global_candidate_key(item: RawItem) -> tuple[int, int, int, int, float, str]:
     lane_key = _lane_candidate_key(item)
-    return (0 if item.metadata.get("official") else 1, *lane_key)
+    return (0 if _candidate_lane(item) == "official_primary" else 1, *lane_key)
 
 
 class _DraftProvider:

@@ -82,7 +82,10 @@ def collect_available(
         selected = [(name, item) for name, items in batches for item in items]
         result.after_dedup = len(flattened)
     else:
-        deduplicated = deduplicate_items(flattened)
+        deduplicated = deduplicate_items(
+            flattened,
+            preserve_discovery_pairs=True,
+        )
         retained_objects = {id(item) for item in deduplicated}
         deduplicated_batches = [
             (name, [item for item in items if id(item) in retained_objects])

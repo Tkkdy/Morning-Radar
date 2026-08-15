@@ -9,17 +9,26 @@ from morning_radar.ai.models import (
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
+    ResearchResolutionBatch,
+    ResearchResolutionDraft,
 )
 from morning_radar.ai.output_validation import (
     is_suspicious_english_prose,
     sanitize_editorial_extensions,
     validate_and_sanitize_brief,
     validate_brief_references,
+    validate_core_simplified_chinese_output,
     validate_direction_evidence,
     validate_editorial_grounding,
     validate_simplified_chinese_output,
 )
-from morning_radar.models import Signal, SignalType, Story
+from morning_radar.models import (
+    ResearchDisposition,
+    Signal,
+    SignalType,
+    StatementType,
+    Story,
+)
 
 NOW = datetime(2026, 8, 9, tzinfo=UTC)
 
@@ -424,3 +433,24 @@ def test_editorial_grounding_accepts_latin_anchors_next_to_chinese(
         [source_story],
         [],
     )
+
+
+def test_research_user_visible_output_rejects_long_english_prose() -> None:
+    output = ResearchResolutionBatch(
+        cases=[
+            ResearchResolutionDraft(
+                case_id="research-1",
+                disposition=ResearchDisposition.RADAR_SIGNAL,
+                statement_type=StatementType.FIRSTHAND_OBSERVATION,
+                claim=(
+                    "This practitioner report describes a concrete and reproducible "
+                    "workflow regression affecting many software developers"
+                ),
+                why_notable="值得继续验证。",
+                uncertainty="尚未独立确认。",
+            )
+        ]
+    )
+
+    with pytest.raises(ValueError, match="English prose"):
+        validate_core_simplified_chinese_output(output)

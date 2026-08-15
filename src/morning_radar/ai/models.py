@@ -12,7 +12,18 @@ from morning_radar.models.continuity import (
     StoryOccurrenceRef,
     StoryRelationType,
 )
-from morning_radar.models.core import RadarModel, StoryStatus
+from morning_radar.models.core import (
+    PracticeSignalKind,
+    RadarModel,
+    ResearchDisposition,
+    StatementType,
+    StoryStatus,
+)
+from morning_radar.models.tendency import (
+    TendencyAssessment,
+    TendencyStanding,
+    TendencyUpdateKind,
+)
 
 
 class ClassifiedItem(RadarModel):
@@ -91,6 +102,35 @@ class DirectionObservation(RadarModel):
     evidence_story_ids: list[str] = Field(default_factory=list)
     confidence: Literal["low", "medium", "high"] = "low"
     uncertainties: list[str] = Field(default_factory=list)
+
+
+class ResearchResolutionDraft(RadarModel):
+    case_id: str
+    disposition: ResearchDisposition
+    statement_type: StatementType
+    practice_signal_kind: PracticeSignalKind | None = None
+    claim: str = Field(min_length=1, max_length=1000)
+    why_notable: str = Field(default="", max_length=1500)
+    missing_evidence: list[str] = Field(default_factory=list)
+    uncertainty: str = Field(default="", max_length=1000)
+
+
+class ResearchResolutionBatch(RadarModel):
+    cases: list[ResearchResolutionDraft] = Field(default_factory=list)
+
+
+class TendencyDecisionDraft(RadarModel):
+    existing_tendency_id: str | None = None
+    standing_after: TendencyStanding
+    update_kind: TendencyUpdateKind | None = None
+    claim: str = Field(min_length=1, max_length=1500)
+    assessment: TendencyAssessment
+    supporting_cluster_ids: list[str] = Field(default_factory=list)
+    counterevidence_cluster_ids: list[str] = Field(default_factory=list)
+
+
+class TendencyEvaluationBatch(RadarModel):
+    decisions: list[TendencyDecisionDraft] = Field(default_factory=list)
 
 
 class ContinuityStorySummary(RadarModel):

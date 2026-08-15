@@ -4,7 +4,12 @@ import pytest
 
 from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
 from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
-from morning_radar.models import PublishedAtRole, RawItem
+from morning_radar.models import (
+    PublishedAtRole,
+    RawItem,
+    SourceRole,
+    StatementType,
+)
 from morning_radar.processing.story_builder import (
     StoryValidationError,
     build_stories,
@@ -94,7 +99,10 @@ def test_story_source_ref_preserves_rss_collector_context() -> None:
             "published_at": NOW,
             "published_at_role": PublishedAtRole.FEED_ENTRY_TIME,
             "fetched_at": NOW,
-            "discussion_url": None,
+                "discussion_url": None,
+                "source_role": SourceRole.EDITORIAL,
+                "statement_type": StatementType.UNKNOWN,
+                "practice_signal_kind": None,
         }
     ]
 
@@ -421,6 +429,38 @@ def test_preselection_fills_empty_lane_capacity_and_is_deterministic() -> None:
     assert [value.id for value in first] == ["newer-medium", "older-medium"]
     assert [value.id for value in second] == ["newer-medium", "older-medium"]
     assert preselect_ai_candidates(candidates, maximum_items=0) == []
+
+
+def test_deepseek_like_high_signal_hn_item_survives_editorial_pressure() -> None:
+    editorial = [
+        _lane_item(
+            f"editorial-{index}",
+            source_type="rss",
+            priority="medium",
+            hour=index % 4,
+        )
+        for index in range(30)
+    ]
+    deepseek_signal = _lane_item(
+        "deepseek-v4-pro-practice",
+        source_type="hacker_news",
+    ).model_copy(
+        update={
+            "source_role": SourceRole.COMMUNITY_DISCOVERY,
+            "metadata": {
+                "selection_reason": "high_signal_discovery",
+                "score": 320,
+                "comments": 140,
+                "community_signal": True,
+            },
+        }
+    )
+
+    selected = preselect_ai_candidates(
+        [*editorial, deepseek_signal], maximum_items=5
+    )
+
+    assert deepseek_signal in selected
 
 
 class ClassificationFailureProvider(FakeAIProvider):

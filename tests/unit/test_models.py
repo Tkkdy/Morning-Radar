@@ -165,7 +165,10 @@ def test_old_daily_brief_json_without_other_reading_loads_with_an_empty_list() -
         "generated_at": "2026-07-23T00:00:00Z",
     }
 
-    assert DailyBrief.model_validate(legacy).other_reading == []
+    parsed = DailyBrief.model_validate(legacy)
+    assert parsed.other_reading == []
+    assert parsed.radar_signals == []
+    assert parsed.tendencies == []
 
 
 def test_legacy_story_source_ref_without_published_at_role_defaults_to_unknown() -> None:

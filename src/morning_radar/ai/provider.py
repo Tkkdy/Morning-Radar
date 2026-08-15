@@ -11,9 +11,18 @@ from morning_radar.ai.models import (
     ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
+    ResearchResolutionBatch,
     StoryScore,
+    TendencyEvaluationBatch,
 )
-from morning_radar.models import RawItem, Signal, Story
+from morning_radar.models import (
+    RawItem,
+    ResearchCase,
+    Signal,
+    Story,
+    TendencyCurrentView,
+    TendencyEvidenceCluster,
+)
 
 
 class AIProvider(Protocol):
@@ -34,3 +43,14 @@ class AIProvider(Protocol):
         self,
         context: ContinuityResolutionInput,
     ) -> ContinuityResolution: ...
+
+    def resolve_research_cases(
+        self,
+        cases: list[ResearchCase],
+    ) -> ResearchResolutionBatch: ...
+
+    def evaluate_tendencies(
+        self,
+        clusters: list[TendencyEvidenceCluster],
+        current_views: list[TendencyCurrentView],
+    ) -> TendencyEvaluationBatch: ...

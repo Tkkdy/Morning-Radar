@@ -13,7 +13,7 @@ import feedparser
 from dateutil.parser import parse as parse_datetime
 
 from morning_radar.collectors.http import HttpClient
-from morning_radar.models import RawItem
+from morning_radar.models import RawItem, SourceRole, StatementType
 from morning_radar.processing import normalize_url, stable_item_id
 from morning_radar.settings import SourceConfig
 from morning_radar.storage import read_json, write_json
@@ -131,10 +131,30 @@ class RSSCollector:
                     summary=excerpt[:1000],
                     content_excerpt=excerpt,
                     topic_candidates=source.topics,
+                    source_role=(
+                        SourceRole(source.source_role)
+                        if source.source_role
+                        else (
+                            SourceRole.OFFICIAL_PRIMARY
+                            if source.official
+                            else SourceRole.EDITORIAL
+                        )
+                    ),
+                    statement_type=(
+                        StatementType.FIRSTHAND_OBSERVATION
+                        if source.source_role == "practitioner"
+                        else (
+                            StatementType.FACTUAL_ANNOUNCEMENT
+                            if source.official
+                            else StatementType.UNKNOWN
+                        )
+                    ),
                     metadata={
                         "official": source.official,
                         "priority": source.priority,
                         "source_id": source.id,
+                        "source_role": source.source_role,
+                        "practitioner_id": source.practitioner_id,
                     },
                 )
             )

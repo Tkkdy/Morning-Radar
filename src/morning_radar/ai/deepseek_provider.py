@@ -29,7 +29,9 @@ from morning_radar.ai.models import (
     ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
+    ResearchResolutionBatch,
     StoryScore,
+    TendencyEvaluationBatch,
 )
 from morning_radar.ai.openai_provider import (
     AIBudget,
@@ -43,7 +45,14 @@ from morning_radar.ai.output_validation import (
     validate_direction_evidence,
 )
 from morning_radar.continuity.validation import validate_continuity_resolution
-from morning_radar.models import RawItem, Signal, Story
+from morning_radar.models import (
+    RawItem,
+    ResearchCase,
+    Signal,
+    Story,
+    TendencyCurrentView,
+    TendencyEvidenceCluster,
+)
 from morning_radar.provenance import verified_source_urls_for_items
 
 LOGGER = logging.getLogger(__name__)
@@ -64,6 +73,8 @@ TASK_POLICIES = {
     "write_brief": DeepSeekTaskPolicy("enabled", 24576, 32768, "high"),
     "resolve_continuity": DeepSeekTaskPolicy("enabled", 16384, 24576, "high"),
     "direction_observation": DeepSeekTaskPolicy("enabled", 8192, 12288, "high"),
+    "resolve_research_cases": DeepSeekTaskPolicy("enabled", 12288, 16384, "high"),
+    "evaluate_tendencies": DeepSeekTaskPolicy("enabled", 16384, 24576, "high"),
 }
 
 
@@ -348,4 +359,64 @@ class DeepSeekProvider:
             item_count=item_count,
             allowed_urls=set(),
             output_validator=lambda output: validate_continuity_resolution(output, context),
+        )
+
+    def resolve_research_cases(
+        self,
+        cases: list[ResearchCase],
+    ) -> ResearchResolutionBatch:
+        case_ids = {case.id for case in cases}
+
+        def validate(output: ResearchResolutionBatch) -> ResearchResolutionBatch:
+            if len(output.cases) != len({item.case_id for item in output.cases}):
+                raise AIOutputError("Research output contains duplicate case IDs")
+            if any(item.case_id not in case_ids for item in output.cases):
+                raise AIOutputError("Research output references an unknown case ID")
+            return output
+
+        return self._parse(
+            task="resolve_research_cases",
+            schema=ResearchResolutionBatch,
+            payload_data=[case.model_dump(mode="json") for case in cases],
+            item_count=len(cases),
+            allowed_urls={
+                evidence.url
+                for case in cases
+                for evidence in [case.lead, *case.supporting_evidence]
+            },
+            output_validator=validate,
+        )
+
+    def evaluate_tendencies(
+        self,
+        clusters: list[TendencyEvidenceCluster],
+        current_views: list[TendencyCurrentView],
+    ) -> TendencyEvaluationBatch:
+        cluster_ids = {cluster.cluster_id for cluster in clusters}
+        tendency_ids = {view.tendency_id for view in current_views}
+
+        def validate(output: TendencyEvaluationBatch) -> TendencyEvaluationBatch:
+            for decision in output.decisions:
+                if decision.existing_tendency_id not in tendency_ids | {None}:
+                    raise AIOutputError("Tendency output references an unknown tendency")
+                referenced = {
+                    *decision.supporting_cluster_ids,
+                    *decision.counterevidence_cluster_ids,
+                }
+                if not referenced.issubset(cluster_ids):
+                    raise AIOutputError("Tendency output references an unknown cluster")
+            return output
+
+        return self._parse(
+            task="evaluate_tendencies",
+            schema=TendencyEvaluationBatch,
+            payload_data={
+                "evidence_clusters": [
+                    cluster.model_dump(mode="json") for cluster in clusters
+                ],
+                "current_views": [view.model_dump(mode="json") for view in current_views],
+            },
+            item_count=len(clusters),
+            allowed_urls=set(),
+            output_validator=validate,
         )

@@ -13,7 +13,12 @@ from morning_radar.briefing import (
     generate_daily_brief_with_memory,
     ranked_eligible_stories,
 )
-from morning_radar.collectors import CollectionResult, FixtureCollector, collect_available
+from morning_radar.collectors import (
+    AIHOTCollector,
+    CollectionResult,
+    FixtureCollector,
+    collect_available,
+)
 from morning_radar.collectors.github import GitHubCollector
 from morning_radar.collectors.hacker_news import HackerNewsCollector
 from morning_radar.collectors.http import HttpClient
@@ -35,6 +40,7 @@ from morning_radar.continuity.validation import validate_daily_continuity
 from morning_radar.models import (
     DailyBrief,
     DailyContinuity,
+    DailyTendencies,
     GitHubSnapshot,
     MarketSnapshot,
     Story,
@@ -47,21 +53,32 @@ from morning_radar.processing import (
     filter_story_candidate_inputs,
 )
 from morning_radar.publishing import SiteBuilder
+from morning_radar.research import resolve_research
+from morning_radar.research.engine import eligible_story_inputs
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
+    PersonConfig,
     RepositoryConfig,
     SourceConfig,
     TopicConfig,
+    active_practitioner_sources,
     load_model,
     load_model_list,
+    practitioner_coverage_stats,
 )
 from morning_radar.storage import load_model as load_json_model
 from morning_radar.storage import load_models, save_model, save_models
+from morning_radar.tendencies import (
+    TendencyRunResult,
+    evaluate_daily_tendencies,
+    load_tendency_history,
+)
 from morning_radar.time_utils import display_date, utc_now
 from morning_radar.trends import TrendDetector
 
 LOGGER = logging.getLogger(__name__)
+RESERVED_LOGICAL_AI_TASKS = 6
 
 
 def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
@@ -77,6 +94,15 @@ def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
     )
     other_items = len(brief.other_reading)
     return main_items, other_items, main_items + other_items
+
+
+def _call_safe_story_candidate_limit(
+    *,
+    maximum_calls: int,
+    maximum_items: int,
+) -> int:
+    remaining_story_calls = max(0, maximum_calls - RESERVED_LOGICAL_AI_TASKS)
+    return min(maximum_items, remaining_story_calls * 2 // 5)
 
 
 class MorningRadarPipeline:
@@ -104,10 +130,16 @@ class MorningRadarPipeline:
                 after_buffer=len(raw_items),
                 after_dedup=len(raw_items),
             )
+            people = load_model_list(
+                self.root / "config/people.yaml", "people", PersonConfig
+            )
         else:
             now = utc_now()
             collection = self._production_collectors(output_root, history_root, now)
             raw_items = collection.items
+            people = load_model_list(
+                self.root / "config/people.yaml", "people", PersonConfig
+            )
             provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
                     self.app.maximum_ai_calls,
@@ -128,14 +160,25 @@ class MorningRadarPipeline:
                 market_movement_threshold=self.app.market_movement_threshold,
             )
         )
-        # Reserve calls for classification, continuity, brief writing, and direction
-        # observation. A rejected two-item candidate group costs five calls:
+        research_result = resolve_research(
+            recent,
+            provider=provider,
+            maximum_cases=self.app.maximum_research_cases,
+            maximum_radar_signals=self.app.maximum_radar_signals,
+            maximum_input_characters=(
+                self.app.maximum_research_input_characters
+            ),
+        )
+        story_candidate_items = eligible_story_inputs(
+            story_candidate_items,
+            verified_item_ids=research_result.verified_item_ids,
+        )
+        # Reserve calls for classification, continuity, brief, direction, research,
+        # and tendency. A rejected two-item candidate group costs five calls:
         # one group merge plus merge + score for each resulting Story.
-        remaining_story_calls = max(0, self.app.maximum_ai_calls - 4)
-        call_safe_candidate_limit = remaining_story_calls * 2 // 5
-        ai_candidate_limit = min(
-            self.app.maximum_ai_items,
-            call_safe_candidate_limit,
+        ai_candidate_limit = _call_safe_story_candidate_limit(
+            maximum_calls=self.app.maximum_ai_calls,
+            maximum_items=self.app.maximum_ai_items,
         )
         stories = build_stories(
             story_candidate_items,
@@ -247,6 +290,9 @@ class MorningRadarPipeline:
                 "signals": len(signals),
                 "fixture_mode": fixtures,
                 "dry_run": dry_run,
+                "aihot_enabled": self.app.aihot.enabled,
+                **practitioner_coverage_stats(people),
+                **research_result.stats,
                 **continuity_result.stats,
             },
         )
@@ -301,6 +347,31 @@ class MorningRadarPipeline:
             )
             opened_watches = []
             new_judgements = []
+        try:
+            tendency_history = load_tendency_history(
+                history_root,
+                current_date=brief_date,
+            )
+            tendency_result = evaluate_daily_tendencies(
+                current_date=brief_date,
+                generated_at=now,
+                story_memory=[*historical_story_memory, *current_story_memory],
+                continuities=[*continuity_history, daily_continuity],
+                history=tendency_history,
+                provider=provider,
+                maximum_clusters=self.app.maximum_tendency_candidates,
+                maximum_input_characters=(
+                    self.app.maximum_tendency_input_characters
+                ),
+            )
+        except (OSError, ValueError):
+            LOGGER.exception(
+                "Tendency degradation: history could not be loaded or reduced"
+            )
+            tendency_result = TendencyRunResult(
+                daily=DailyTendencies(date=brief_date, generated_at=now),
+                stats={"tendency_unavailable": True},
+            )
         brief = apply_continuity_to_brief(
             brief_result.brief,
             daily_continuity,
@@ -309,8 +380,11 @@ class MorningRadarPipeline:
         )
         brief = brief.model_copy(
             update={
+                "radar_signals": research_result.radar_signals,
+                "tendencies": tendency_result.brief_tendencies,
                 "run_stats": {
                     **brief.run_stats,
+                    **tendency_result.stats,
                     "judgements_created": len(new_judgements),
                     "structured_watches_opened": len(opened_watches),
                 }
@@ -324,6 +398,7 @@ class MorningRadarPipeline:
         budget = getattr(provider, "budget", None)
         logical_ai_calls = getattr(budget, "calls_used", 0)
         network_ai_requests = getattr(budget, "network_requests_used", 0)
+        ai_input_characters = getattr(budget, "input_characters_used", 0)
         usage_stats = (
             budget.usage_run_stats()
             if budget is not None and hasattr(budget, "usage_run_stats")
@@ -338,6 +413,10 @@ class MorningRadarPipeline:
                     "total_displayed_items": total_displayed_items,
                     "logical_ai_calls": logical_ai_calls,
                     "network_ai_requests": network_ai_requests,
+                    "ai_input_characters": ai_input_characters,
+                    "ai_maximum_input_characters": (
+                        self.app.maximum_ai_input_characters
+                    ),
                     **usage_stats,
                 }
             }
@@ -366,6 +445,31 @@ class MorningRadarPipeline:
             total_displayed_items,
             logical_ai_calls,
             network_ai_requests,
+        )
+        LOGGER.info(
+            "AI budget stats: input_characters=%d maximum_input_characters=%d "
+            "logical_calls=%d maximum_logical_calls=%d",
+            ai_input_characters,
+            self.app.maximum_ai_input_characters,
+            logical_ai_calls,
+            self.app.maximum_ai_calls,
+        )
+        LOGGER.info(
+            "v0.35 intelligence stats: configured_seed_count=%s "
+            "active_channel_count=%s practitioners_with_active_channels=%s "
+            "aihot_enabled=%s research_cases=%s radar_signals=%s "
+            "research_logical_ai_calls=%s tendency_clusters=%s "
+            "tendency_decisions=%s tendency_logical_ai_calls=%s",
+            brief.run_stats.get("configured_seed_count", 0),
+            brief.run_stats.get("active_channel_count", 0),
+            brief.run_stats.get("practitioners_with_active_channels", 0),
+            self.app.aihot.enabled,
+            brief.run_stats.get("research_cases", 0),
+            brief.run_stats.get("radar_signals", 0),
+            brief.run_stats.get("research_logical_ai_calls", 0),
+            brief.run_stats.get("tendency_clusters", 0),
+            brief.run_stats.get("tendency_decisions", 0),
+            brief.run_stats.get("tendency_logical_ai_calls", 0),
         )
         LOGGER.info(
             "Continuity stats: historical_story_candidates=%s "
@@ -408,6 +512,8 @@ class MorningRadarPipeline:
             signals,
             brief,
             daily_continuity,
+            research_result.radar_signals,
+            tendency_result.daily,
         )
         self.build_site(output_root=output_root, history_root=history_root)
         if notify and not fixtures and not dry_run:
@@ -428,6 +534,8 @@ class MorningRadarPipeline:
         now,
     ) -> CollectionResult:
         sources = load_model_list(self.root / "config/sources.yaml", "sources", SourceConfig)
+        people = load_model_list(self.root / "config/people.yaml", "people", PersonConfig)
+        sources.extend(active_practitioner_sources(people))
         topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
         repositories = load_model_list(
             self.root / "config/repositories.yaml", "repositories", RepositoryConfig
@@ -462,6 +570,12 @@ class MorningRadarPipeline:
                 snapshot_dir=output_root / "data/snapshots/market",
                 now=now,
             ),
+            AIHOTCollector(
+                self.app.aihot,
+                http=http,
+                state_path=output_root / "data/state/aihot.json",
+                now=now,
+            ),
         ]
         collection_hours = (
             self.app.news_window_hours + self.app.collection_buffer_hours
@@ -485,6 +599,8 @@ class MorningRadarPipeline:
         signals,
         brief,
         continuity,
+        radar_signals,
+        tendencies,
     ) -> None:
         name = f"{brief_date}.json"
         save_models(root / "data/raw" / name, raw)
@@ -492,6 +608,8 @@ class MorningRadarPipeline:
         save_models(root / "data/signals" / name, signals)
         save_model(root / "data/briefs" / name, brief)
         save_model(root / "data/continuity" / name, continuity)
+        save_models(root / "data/radar_signals" / name, radar_signals)
+        save_model(root / "data/tendencies" / name, tendencies)
 
     def _story_history(self, root: Path, current: date) -> dict[date, list[Story]]:
         result = {}

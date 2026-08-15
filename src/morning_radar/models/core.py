@@ -54,6 +54,42 @@ class SignalType(StrEnum):
     MARKET_ATTENTION = "market_attention"
 
 
+class SourceRole(StrEnum):
+    OFFICIAL_PRIMARY = "official_primary"
+    PRACTITIONER = "practitioner"
+    EDITORIAL = "editorial"
+    COMMUNITY_DISCOVERY = "community_discovery"
+    UPSTREAM_DISCOVERY = "upstream_discovery"
+
+
+class StatementType(StrEnum):
+    FACTUAL_ANNOUNCEMENT = "factual_announcement"
+    FIRSTHAND_OBSERVATION = "firsthand_observation"
+    TEST_EXPERIMENT = "test_experiment"
+    ANALYSIS_JUDGEMENT = "analysis_judgement"
+    OPINION = "opinion"
+    MARKETING_SELF_PROMOTION = "marketing_self_promotion"
+    UNVERIFIED_LEAD = "unverified_lead"
+    UNKNOWN = "unknown"
+
+
+class PracticeSignalKind(StrEnum):
+    WORKFLOW_CHANGE = "workflow_change"
+    PRODUCT_BEHAVIOR = "product_behavior"
+    FAILURE_CASE = "failure_case"
+    PRACTICAL_TEST = "practical_test"
+    NEW_USAGE_PATTERN = "new_usage_pattern"
+    IMPLEMENTATION_INSIGHT = "implementation_insight"
+    OTHER = "other"
+
+
+class ResearchDisposition(StrEnum):
+    VERIFIED_STORY_CANDIDATE = "verified_story_candidate"
+    RADAR_SIGNAL = "radar_signal"
+    INTERNAL_ONLY = "internal_only"
+    DROP = "drop"
+
+
 class RawItem(RadarModel):
     id: str = Field(min_length=1)
     title: str = Field(min_length=1, max_length=500)
@@ -68,7 +104,11 @@ class RawItem(RadarModel):
     content_excerpt: str = Field(default="", max_length=4000)
     topic_candidates: list[str] = Field(default_factory=list)
     company_candidates: list[str] = Field(default_factory=list)
+    product_candidates: list[str] = Field(default_factory=list)
     repository_candidates: list[str] = Field(default_factory=list)
+    source_role: SourceRole = SourceRole.EDITORIAL
+    statement_type: StatementType = StatementType.UNKNOWN
+    practice_signal_kind: PracticeSignalKind | None = None
     metadata: dict[str, Any] = Field(default_factory=dict)
 
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
@@ -94,6 +134,9 @@ class StorySourceRef(RadarModel):
     published_at_role: PublishedAtRole = PublishedAtRole.UNKNOWN
     fetched_at: datetime
     discussion_url: str | None = None
+    source_role: SourceRole = SourceRole.EDITORIAL
+    statement_type: StatementType = StatementType.UNKNOWN
+    practice_signal_kind: PracticeSignalKind | None = None
 
     _url_is_http = field_validator("url")(_validate_http_url)
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
@@ -188,6 +231,44 @@ class Signal(RadarModel):
     _updated_is_aware = field_validator("updated_at")(_validate_aware_datetime)
 
 
+class ResearchEvidenceRef(RadarModel):
+    raw_item_id: str = Field(min_length=1)
+    url: str
+    source_role: SourceRole
+
+    _url_is_http = field_validator("url")(_validate_http_url)
+
+
+class ResearchCase(RadarModel):
+    id: str = Field(min_length=1)
+    observed_at: datetime
+    claim: str = Field(min_length=1, max_length=1000)
+    entity_keys: list[str] = Field(default_factory=list)
+    product_keys: list[str] = Field(default_factory=list)
+    topic_keys: list[str] = Field(default_factory=list)
+    statement_type: StatementType
+    practice_signal_kind: PracticeSignalKind | None = None
+    lead: ResearchEvidenceRef
+    supporting_evidence: list[ResearchEvidenceRef] = Field(default_factory=list)
+
+    _observed_is_aware = field_validator("observed_at")(_validate_aware_datetime)
+
+
+class RadarSignal(RadarModel):
+    id: str = Field(min_length=1)
+    observed_at: datetime
+    claim: str = Field(min_length=1, max_length=1000)
+    why_notable: str = Field(min_length=1, max_length=1500)
+    support_refs: list[ResearchEvidenceRef] = Field(min_length=1)
+    source_roles: list[SourceRole] = Field(min_length=1)
+    missing_evidence: list[str] = Field(default_factory=list)
+    uncertainty: str = Field(min_length=1, max_length=1000)
+    statement_type: StatementType
+    research_disposition: ResearchDisposition = ResearchDisposition.RADAR_SIGNAL
+
+    _observed_is_aware = field_validator("observed_at")(_validate_aware_datetime)
+
+
 class BriefStoryContext(RadarModel):
     """Deterministic Story context embedded in a BriefItem for display.
 
@@ -228,6 +309,15 @@ class BriefContinuityContext(RadarModel):
     previous_story_title: str | None = None
     watch_matches: list[str] = Field(default_factory=list)
     judgement_cues: list[BriefJudgementCue] = Field(default_factory=list)
+
+
+class BriefTendency(RadarModel):
+    tendency_id: str = Field(min_length=1)
+    standing: str = Field(min_length=1)
+    latest_update: str | None = None
+    claim: str = Field(min_length=1, max_length=1500)
+    shared_mechanism: str = Field(min_length=1, max_length=1500)
+    decision_rationale: str = Field(min_length=1, max_length=1500)
 
 
 class BriefItem(RadarModel):
@@ -283,6 +373,8 @@ class DailyBrief(RadarModel):
     trend_radar: list[BriefItem] = Field(default_factory=list)
     developer_discussions: list[BriefItem] = Field(default_factory=list)
     other_reading: list[BriefItem] = Field(default_factory=list)
+    radar_signals: list[RadarSignal] = Field(default_factory=list)
+    tendencies: list[BriefTendency] = Field(default_factory=list)
     direction_observation: str | None = None
     cognitive_extension: str | None = None
     watch_next: list[str] = Field(default_factory=list)

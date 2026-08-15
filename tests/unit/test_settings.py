@@ -9,8 +9,10 @@ from morning_radar.settings import (
     RepositoryConfig,
     SourceConfig,
     TopicConfig,
+    active_practitioner_sources,
     load_model,
     load_model_list,
+    practitioner_coverage_stats,
 )
 
 
@@ -28,8 +30,24 @@ def test_repository_configuration_files_are_valid() -> None:
 
     assert app.timezone == "Asia/Singapore"
     assert app.collection_buffer_hours == 6
+    assert app.maximum_ai_calls == 50
+    assert app.maximum_ai_input_characters == 120000
     assert any(source.official for source in sources)
     assert topics and companies and repositories and people
+    assert app.aihot.enabled is False
+    assert len(people) == 10
+    active = active_practitioner_sources(people)
+    assert [(source.practitioner_id, source.type) for source in active] == [
+        ("dotey", "rss"),
+        ("simon-willison", "atom"),
+        ("armin-ronacher", "atom"),
+        ("peter-steinberger", "rss"),
+    ]
+    assert practitioner_coverage_stats(people) == {
+        "configured_seed_count": 10,
+        "active_channel_count": 4,
+        "practitioners_with_active_channels": 4,
+    }
 
 
 def test_configuration_error_names_file_and_field(tmp_path) -> None:

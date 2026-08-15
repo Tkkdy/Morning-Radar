@@ -23,6 +23,7 @@ from morning_radar.ai.models import (
 )
 from morning_radar.briefing import BriefLimits, generate_daily_brief
 from morning_radar.models import RawItem, Story
+from morning_radar.pipeline import _call_safe_story_candidate_limit
 
 
 def raw_item(url: str = "https://example.com/real") -> RawItem:
@@ -402,3 +403,14 @@ def test_fake_provider_works_without_api_configuration() -> None:
     result = FakeAIProvider().classify_items([raw_item()])
 
     assert result.items[0].relevant is True
+
+
+def test_story_candidate_bound_reserves_all_six_daily_batch_tasks() -> None:
+    candidate_limit = _call_safe_story_candidate_limit(
+        maximum_calls=50,
+        maximum_items=40,
+    )
+
+    assert candidate_limit == 17
+    worst_case_story_calls = 1 + (candidate_limit // 2) * 5 + 2
+    assert worst_case_story_calls + 5 <= 50

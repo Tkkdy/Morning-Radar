@@ -7,7 +7,12 @@ import re
 from datetime import UTC, datetime
 
 from morning_radar.collectors.http import HttpClient
-from morning_radar.models import RawItem
+from morning_radar.models import (
+    PracticeSignalKind,
+    RawItem,
+    SourceRole,
+    StatementType,
+)
 from morning_radar.processing import stable_item_id
 from morning_radar.time_utils import utc_now
 
@@ -181,6 +186,11 @@ class HackerNewsCollector:
             language="en",
             summary="",
             content_excerpt="",
+            source_role=SourceRole.COMMUNITY_DISCOVERY,
+            statement_type=StatementType.UNVERIFIED_LEAD,
+            practice_signal_kind=(
+                PracticeSignalKind.IMPLEMENTATION_INSIGHT if show_hn else None
+            ),
             metadata={
                 "official": False,
                 "community_signal": True,

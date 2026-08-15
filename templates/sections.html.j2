@@ -17,6 +17,40 @@
 </section>
 {% endif %}
 {% endfor %}
+{% if brief.tendencies %}
+<section class="tendencies">
+  <h2>结构趋势</h2>
+  <div class="cards">
+  {% for tendency in brief.tendencies %}
+    <article class="tendency-card">
+      <p class="section-label">{{ tendency.standing }}{% if tendency.latest_update %} · {{ tendency.latest_update }}{% endif %}</p>
+      <h3>{{ tendency.claim }}</h3>
+      <p class="why"><strong>共同机制：</strong>{{ tendency.shared_mechanism }}</p>
+      <p>{{ tendency.decision_rationale }}</p>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% if brief.radar_signals %}
+<section class="radar-signals">
+  <h2>雷达信号 · 尚待验证</h2>
+  <div class="cards">
+  {% for signal in brief.radar_signals %}
+    <article class="radar-signal">
+      <p class="section-label">尚待验证</p>
+      <h3>{{ signal.claim }}</h3>
+      <p>{{ signal.why_notable }}</p>
+      <p class="uncertainty"><strong>不确定性：</strong>{{ signal.uncertainty }}</p>
+      {% if signal.missing_evidence %}<p><strong>还缺：</strong>{{ signal.missing_evidence | join("；") }}</p>{% endif %}
+      <div class="sources">
+      {% for ref in signal.support_refs %}<a href="{{ ref.url }}" rel="noopener noreferrer">{{ ref.url | hostname }}</a>{% endfor %}
+      </div>
+    </article>
+  {% endfor %}
+  </div>
+</section>
+{% endif %}
 {% if brief.other_reading %}
 <section class="other-reading">
   <h2>其他值得阅读</h2>
