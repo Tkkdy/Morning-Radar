@@ -1,0 +1,558 @@
+{
+  "date": "2026-08-15",
+  "generated_at": "2026-08-14T23:57:03.047253Z",
+  "judgements": [
+    {
+      "claim": "pydantic-ai 的本地开发 Web UI 漏洞修复实际通过默认验证 Host 头完成，而非强制 Content-Type 检查；该攻击面仍然值得关注，但具体防护机制与先前判断不同。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            1,
+            2
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-dec1f58da8f439cd8077"
+          }
+        },
+        {
+          "fact_indexes": [
+            1,
+            2,
+            4
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-83f75365c9f0266132e0"
+          }
+        }
+      ],
+      "judgement_id": "judgement-724ccefe42cfb618ba44",
+      "rationale": "当前故事显示 pydantic-ai 修复 GHSA-q2xc-rrxj-58x9 时采用 Host 头验证，未提及 Content-Type 检查，这与先前判断中的修复机制相矛盾，因此需要修正解释。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "root_judgement_id": "judgement-db70069a09d035c89109",
+      "uncertainty": null,
+      "update_kind": "revised",
+      "updates_judgement_id": "judgement-ab46a3614b35ac7c1756",
+      "watch_ids": []
+    },
+    {
+      "claim": "Grok 4.6 在 GitHub Copilot 中的可用，将成为衡量 xAI 编码模型在开发者中采用度的首个公开验证点。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-a9e5432363e1c0b7a8a6"
+          }
+        }
+      ],
+      "judgement_id": "judgement-6356a614645a5dab17f9",
+      "rationale": "GitHub Copilot 拥有庞大开发者用户群，xAI 首次通过这一主流 IDE 集成分发其推理模型，后续可观察文档覆盖范围（如订阅层级）和开发者反馈来验证实际采用情况。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "root_judgement_id": "judgement-6356a614645a5dab17f9",
+      "uncertainty": "推出范围未知，且缺少性能对比数据，因此采用度可能受订阅层级和实际编码表现影响。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "pydantic ai 从“pydantic-ai v1.107.4 发布：修复构建问题并回移两个安全修复”推进到“pydantic-ai v1.107.5 修复本地 Web UI 的 DNS 重绑定安全漏洞”。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-83f75365c9f0266132e0"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-c0840ae633b7295efb41"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-83f75365c9f0266132e0"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-c0840ae633b7295efb41"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-76b283cee5eeb6e92d34",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v3.0.0 发布后，OpenAI Python SDK 推出 v3.1.0，新增 WebSocket stream IDs 和工作负载身份令牌事件等功能。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-f5656f880a798b00bfae"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-f5656f880a798b00bfae"
+      },
+      "rationale": "两个来源位于 openai-python 同一 GitHub 发布序列，版本从 v3.0.0 演进到 v3.1.0，且当前故事事实包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-d358662ac45966d71b4a",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v0.32.10-rc1 候选版之后，Ollama 发布 v0.32.12，新增 Qwen 3.8 27B 模型支持。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-aa56aaa8c561ccca7857"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-0b4429b593929634fa4d"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-aa56aaa8c561ccca7857"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-0b4429b593929634fa4d"
+      },
+      "rationale": "同一 Ollama 发布序列中，版本从 v0.32.10-rc1 演进到 v0.32.12，当前故事包含新增模型支持的具体动作。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-2483b0cd0b5f13885f15",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v0.32.10-rc1 之后，Ollama 发布 v0.32.11，新增 DeepSeek Harness、Muse Code 支持和 Responses API 网络搜索。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-24af8058f19a4dc15eed"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-0b4429b593929634fa4d"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-24af8058f19a4dc15eed"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-0b4429b593929634fa4d"
+      },
+      "rationale": "同一 Ollama 发布序列中的后续版本，版本从 v0.32.10-rc1 演进到 v0.32.11，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-39a9e6aec130d12971ae",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v3.0.0 破坏性迁移 HTTPX2 后，OpenAI Python SDK 发布 v3.1.0，新增 WebSocket stream IDs 等功能。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-12",
+            "story_id": "story-f5656f880a798b00bfae"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-12",
+        "story_id": "story-f5656f880a798b00bfae"
+      },
+      "rationale": "同一 openai-python 发布序列中，版本从 v3.0.0 演进到 v3.1.0，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-d411a3f4146a5e6d9d04",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v2.54.0 之后，openai-python 经历 v3.0.0 大版本迁移并发布 v3.1.0，新增 WebSocket stream IDs 等功能。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-12",
+            "story_id": "story-7bc5bcc9615783368091"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-12",
+        "story_id": "story-7bc5bcc9615783368091"
+      },
+      "rationale": "同一 openai-python 发布序列中的后续版本，版本从 v2.54.0 演进到 v3.1.0，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-801bf7aa4b1adff5befe",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "从 v0.32.8-rc0 候选版起，Ollama 后续发布 v0.32.12，新增 Qwen 3.8 27B 支持。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-aa56aaa8c561ccca7857"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-11",
+            "story_id": "story-87c58a5ea7374fbc1a3b"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-aa56aaa8c561ccca7857"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-11",
+        "story_id": "story-87c58a5ea7374fbc1a3b"
+      },
+      "rationale": "同一 Ollama 发布序列中版本向前演进，当前故事包含新增模型支持。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-e8a4362993c25bb09266",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "从 v0.32.8-rc0 起，Ollama 发布 v0.32.11，新增 DeepSeek Harness、Muse Code 等。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-24af8058f19a4dc15eed"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-11",
+            "story_id": "story-87c58a5ea7374fbc1a3b"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-24af8058f19a4dc15eed"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-11",
+        "story_id": "story-87c58a5ea7374fbc1a3b"
+      },
+      "rationale": "同一 Ollama 发布序列中版本向前演进，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-31ef52e7bb656aedca8a",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v2.53.0 之后，openai-python 发布 v3.1.0，新增 WebSocket stream IDs 等功能。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-04",
+            "story_id": "story-cc1bf4cabe1c87db825b"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-04",
+        "story_id": "story-cc1bf4cabe1c87db825b"
+      },
+      "rationale": "同一 openai-python 发布序列中的后续版本，版本从 v2.53.0 演进到 v3.1.0，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-185d17a22ef8750dfc65",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v2.52.1 之后，openai-python 发布 v3.1.0，新增 WebSocket stream IDs 等功能。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-04",
+            "story_id": "story-a757d0be965abf76e6e7"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-04",
+        "story_id": "story-a757d0be965abf76e6e7"
+      },
+      "rationale": "同一 openai-python 发布序列中的后续版本，版本从 v2.52.1 演进到 v3.1.0，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-501fec2092fbadcbc6e6",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "在 v2.52.0 之后，openai-python 发布 v3.1.0，新增 WebSocket stream IDs 等功能。",
+      "current_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-01",
+            "story_id": "story-ab3315911007a9ed8c66"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-01",
+        "story_id": "story-ab3315911007a9ed8c66"
+      },
+      "rationale": "同一 openai-python 发布序列中的后续版本，版本从 v2.52.0 演进到 v3.1.0，当前故事包含具体新增功能。",
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "relation_id": "relation-9763070326773bc6d51b",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "xAI",
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub Copilot 将发布文档或变更说明，明确 Grok 4.6 的具体可用范围（例如是否对所有 Copilot 订阅层级开放）。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Grok 4.6",
+        "GitHub Copilot"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-15",
+          "story_id": "story-a9e5432363e1c0b7a8a6"
+        }
+      ],
+      "topic_anchors": [
+        "AI 编码",
+        "模型发布"
+      ],
+      "watch_id": "watch-6bd49ae1dfeb6f9136db"
+    },
+    {
+      "entity_anchors": [
+        "Cloudflare"
+      ],
+      "event_type": "opened",
+      "expectation": "Cloudflare 将发布更新或文档，说明 MCP 流量检测和 Portal 强制访问功能是否面向所有客户计划，或仅限特定订阅层级。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Cloudflare Gateway",
+        "Cloudflare Portal"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-15",
+          "story_id": "story-320636e82e4a6c27a673"
+        }
+      ],
+      "topic_anchors": [
+        "MCP",
+        "协议检测",
+        "影子流量"
+      ],
+      "watch_id": "watch-37694c16a73ee3c8b02e"
+    },
+    {
+      "entity_anchors": [
+        "Ollama",
+        "DeepSeek",
+        "Meta",
+        "Qwen"
+      ],
+      "event_type": "opened",
+      "expectation": "Ollama 后续版本或文档将说明 Responses API 网络搜索的具体实现方式（如是否使用外部搜索 API）以及 Qwen 3.8 27B 在非 Apple Silicon 平台上的支持情况。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Ollama",
+        "DeepSeek Harness",
+        "Muse Code",
+        "Muse Glimmer",
+        "Qwen 3.8 27B"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-14T23:57:03.047253Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-15",
+          "story_id": "story-24af8058f19a4dc15eed"
+        },
+        {
+          "date": "2026-08-15",
+          "story_id": "story-aa56aaa8c561ccca7857"
+        }
+      ],
+      "topic_anchors": [
+        "AI模型部署",
+        "智能体框架",
+        "编码助手",
+        "开源AI"
+      ],
+      "watch_id": "watch-7f9c9c4e9f1675b08d06"
+    }
+  ]
+}

@@ -59,7 +59,11 @@
 Release 发布于 2026-08-12
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>漏洞是否已被实际利用尚不清楚。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>漏洞是否已被实际利用尚不清楚。</p>    <div class="historical-annotation revised">
+      <strong>后续更新：</strong>该判断已于 2026-08-15被修正。
+      <a href="../briefs/2026-08-15.html">查看后续</a>
+    </div>
+  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
 <div class="detail-block"><h4>已验证事实</h4><ul><li>2026年8月11日，pydantic/pydantic-ai 发布 v2.28.0 版本。</li><li>该版本修复了一个高危安全漏洞（GHSA-h4xc-3qfq-jf93），涉及开发 Web Chat UI 的聊天端点未检查 Content-Type，导致跨源请求可无预检触发本地代理执行工具。</li><li>漏洞在 v2.28.0 和 v1.107.4 中修复。</li><li>新增功能：通过 Agent.realtime() 实现实时语音到语音支持（PR #6324，作者 @DouweM）。</li><li>新增 Crusoe 提供者（PR #6457，作者 @acheamponge）。</li><li>为实时语音到语音添加浏览器 WebRTC + 服务器边带支持（PR #6676，作者 @DouweM）。</li><li>修复 bedrock 中缓存点附件问题（PR #7071，作者 @Diwak4r）。</li><li>修复 safe_download 的 Host 头丢失非默认端口问题（PR #7348，作者 @pydanty[bot]）。</li><li>新增 cerebras 可选依赖组（PR #7387，作者 @dsfaccini）。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>安全漏洞修复是该版本的主要亮点，体现了对开发工具安全性的重视。</li><li>实时语音功能的加入表明项目朝着多模态交互方向发展，可能吸引更多语音相关应用开发者。</li><li>新增多个贡献者表明社区活跃度较高。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>新增功能的具体稳定性和性能表现有待观察。</li></ul></div><div class="detail-tags">
@@ -345,6 +349,10 @@ Release 发布于 2026-08-13
 Release 发布于 2026-08-12
     </span>
   </div>
+    <div class="historical-annotation revised">
+      <strong>后续更新：</strong>该判断已于 2026-08-15被修正。
+      <a href="../briefs/2026-08-15.html">查看后续</a>
+    </div>
   <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">

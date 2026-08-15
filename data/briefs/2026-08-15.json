@@ -1,0 +1,621 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-2d871cc6faeb6f13a87c",
+          "judgement_cues": [],
+          "previous_story_date": "2026-08-01",
+          "previous_story_id": "story-ab3315911007a9ed8c66",
+          "previous_story_title": "openai-python v2.52.0 Release",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "在 v2.52.0 之后，openai-python 发布 v3.1.0，新增 WebSocket stream IDs 等功能。"
+        }
+      ],
+      "id": "brief-3e33479e3704b9dfe4a0",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/openai/openai-python/releases/tag/v3.1.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本通过 API 变更增强了 SDK 的功能，反映了 OpenAI 平台的新特性。",
+            "弃用 Sora video APIs 可能意味着相关功能将转移到其他接口或产品。"
+          ],
+          "canonical_title": "OpenAI Python SDK v3.1.0 发布，新增 WebSocket 流 ID 等功能",
+          "category": "开源动态",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "openai/openai-python v3.1.0 于 2026-08-14 发布。",
+            "新增 WebSocket stream IDs 功能。",
+            "新增 workload identity access token issued event 功能。",
+            "弃用 Sora video APIs。",
+            "新增 Ultrafast tier、structured MCP 和 websocket errors、separate websocket events。",
+            "移除 Stainless attribution 和相关基础设施。"
+          ],
+          "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.1.0",
+          "product_names": [
+            "openai-python"
+          ],
+          "published_at": "2026-08-14T23:48:55Z",
+          "source_refs": [
+            {
+              "author": "openai-sdks[bot]",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T23:48:55Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-6588315eca487ffa81f4",
+              "source_name": "GitHub · openai/openai-python",
+              "source_type": "github",
+              "title": "openai/openai-python: v3.1.0",
+              "url": "https://github.com/openai/openai-python/releases/tag/v3.1.0"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-2d871cc6faeb6f13a87c",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "目前仅有一条输入，无法确认是否存在其他相关条目。",
+            "版本发布时间 2026-08-14 在未来，可能为占位或模拟数据。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2d871cc6faeb6f13a87c"
+      ],
+      "title": "OpenAI Python SDK v3.1.0 发布",
+      "uncertainty": "目前仅有一条输入，无法确认是否存在其他相关条目；Sora video APIs 弃用后的替代方案尚未明确。",
+      "what_happened": "openai-python v3.1.0 发布，新增 WebSocket stream IDs、workload identity access token issued event、Ultrafast tier、structured MCP 和 websocket errors 等功能，同时弃用 Sora video APIs，并移除 Stainless attribution 和相关基础设施。",
+      "why_it_matters": "该版本通过 API 变更反映 OpenAI 平台新特性，为开发者提供更多事件与流处理能力；弃用 Sora video APIs 可能意味着相关功能将转向其他接口或产品。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-24af8058f19a4dc15eed",
+          "judgement_cues": [],
+          "previous_story_date": "2026-08-11",
+          "previous_story_id": "story-87c58a5ea7374fbc1a3b",
+          "previous_story_title": "Ollama 发布 v0.32.8-rc0 版本，新增 Muse Glimmer 模型支持",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "从 v0.32.8-rc0 起，Ollama 发布 v0.32.11，新增 DeepSeek Harness、Muse Code 等。"
+        },
+        {
+          "current_story_id": "story-aa56aaa8c561ccca7857",
+          "judgement_cues": [],
+          "previous_story_date": "2026-08-11",
+          "previous_story_id": "story-87c58a5ea7374fbc1a3b",
+          "previous_story_title": "Ollama 发布 v0.32.8-rc0 版本，新增 Muse Glimmer 模型支持",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "从 v0.32.8-rc0 候选版起，Ollama 后续发布 v0.32.12，新增 Qwen 3.8 27B 支持。"
+        }
+      ],
+      "id": "brief-642745480ba06e8a93ca",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/ollama/ollama/releases/tag/v0.32.11",
+        "https://github.com/ollama/ollama/releases/tag/v0.32.12",
+        "https://github.com/ollama/ollama/releases/tag/v0.32.13"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本通过集成 DeepSeek 和 Meta 的智能体工具，增强了 Ollama 在智能体工作流方面的能力。",
+            "Responses API 加入网络搜索功能，使其与 OpenAI 的服务更加对齐。"
+          ],
+          "canonical_title": "Ollama v0.32.11 发布",
+          "category": "AI 基础设施",
+          "entity_names": [
+            "Ollama",
+            "DeepSeek",
+            "Meta"
+          ],
+          "facts": [
+            "Ollama v0.32.11 已发布。",
+            "`ollama launch dsh` 现在支持 DeepSeek Harness。",
+            "`ollama launch muse` 现在支持 Muse Code。",
+            "OpenAI 兼容的 Responses API 现在支持网络搜索。",
+            "Muse Glimmer 模板有更新。"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.32.11",
+          "product_names": [
+            "Ollama",
+            "DeepSeek Harness",
+            "Muse Code",
+            "Muse Glimmer"
+          ],
+          "published_at": "2026-08-14T01:22:12Z",
+          "source_refs": [
+            {
+              "author": "github-actions[bot]",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T01:22:12Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-dd52f3e1d17e7e0111a6",
+              "source_name": "GitHub · ollama/ollama",
+              "source_type": "github",
+              "title": "ollama/ollama: v0.32.11",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.32.11"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-24af8058f19a4dc15eed",
+          "topic_names": [
+            "AI模型部署",
+            "智能体框架",
+            "编码助手",
+            "开源AI"
+          ],
+          "uncertainties": [
+            "未说明网络搜索功能的实现方式（如是否使用外部搜索 API）。"
+          ]
+        },
+        {
+          "analysis": [
+            "Ollama 持续扩展其支持的模型库，以覆盖更多高性能模型。",
+            "Qwen 3.8 在编码、专业工作、研究和长期代理任务方面有显著提升，可能吸引更多开发者使用。"
+          ],
+          "canonical_title": "Ollama v0.32.12 发布，新增 Qwen 3.8 27B 模型支持",
+          "category": "AI模型发布",
+          "entity_names": [
+            "Ollama",
+            "Qwen"
+          ],
+          "facts": [
+            "Ollama v0.32.12 于 2026-08-14 发布。",
+            "此版本新增了对 Qwen 3.8 27B 模型的支持。",
+            "针对 Apple Silicon 设备，Ollama 对 Qwen 3.8 27B 进行了性能优化，以提升重复任务和编码代理的输出质量。",
+            "Qwen 3.8 模型页面位于 https://ollama.com/library/qwen3.8。"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.32.12",
+          "product_names": [
+            "Ollama",
+            "Qwen 3.8 27B"
+          ],
+          "published_at": "2026-08-14T16:37:00Z",
+          "source_refs": [
+            {
+              "author": "dhiltgen",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T16:37:00Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-15d55fc07a614323d11a",
+              "source_name": "GitHub · ollama/ollama",
+              "source_type": "github",
+              "title": "ollama/ollama: v0.32.12",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.32.12"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-aa56aaa8c561ccca7857",
+          "topic_names": [
+            "AI模型",
+            "AI基础设施",
+            "开源AI"
+          ],
+          "uncertainties": [
+            "未提及除 Apple Silicon 外的其他平台上的性能表现。",
+            "未提供 Qwen 3.8 27B 的具体基准测试数据。"
+          ]
+        },
+        {
+          "analysis": [
+            "此版本为常规迭代发布，新增了对 qwen3.8 模型开发者指令的支持，表明项目在持续改进对特定模型功能覆盖。"
+          ],
+          "canonical_title": "Ollama v0.32.13 发布，新增 qwen3.8 开发者指令支持",
+          "category": "版本发布",
+          "entity_names": [
+            "ollama"
+          ],
+          "facts": [
+            "Ollama v0.32.13 发布于 2026-08-14。",
+            "该版本变更包括：qwen3.8 支持开发者指令（developer instructions）。",
+            "版本变更详情可查阅完整变更日志：https://github.com/ollama/ollama/compare/v0.32.12...v0.32.13"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.32.13",
+          "product_names": [
+            "Ollama",
+            "qwen3.8"
+          ],
+          "published_at": "2026-08-14T19:16:07Z",
+          "source_refs": [
+            {
+              "author": "github-actions[bot]",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T19:16:07Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-27e7ff4b9c40de90e776",
+              "source_name": "GitHub · ollama/ollama",
+              "source_type": "github",
+              "title": "ollama/ollama: v0.32.13",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.32.13"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-f3be120dbe13377e9b0a",
+          "topic_names": [
+            "AI模型",
+            "AI基础设施",
+            "开源AI"
+          ],
+          "uncertainties": [
+            "未明确说明“开发者指令”的具体含义或使用场景。",
+            "未提及是否包含其他修复或变更（但发布说明仅列出此一项）。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-24af8058f19a4dc15eed",
+        "story-aa56aaa8c561ccca7857",
+        "story-f3be120dbe13377e9b0a"
+      ],
+      "title": "Ollama 发布多个版本更新，整合 DeepSeek、Muse 与 Qwen 支持",
+      "uncertainty": "网络搜索功能的具体实现方式（如是否依赖外部搜索 API）未说明；Qwen 3.8 27B 在 Apple Silicon 之外的平台表现未披露；qwen3.8 开发者指令的具体使用场景也未明确。",
+      "what_happened": "Ollama 在 8 月 14 日连续发布 v0.32.11、v0.32.12 和 v0.32.13。v0.32.11 支持 DeepSeek Harness 和 Muse Code，Responses API 支持网络搜索；v0.32.12 新增 Qwen 3.8 27B 模型支持，并针对 Apple Silicon 优化；v0.32.13 为 qwen3.8 增加开发者指令支持。",
+      "why_it_matters": "这些更新显示 Ollama 正在快速扩展多模型和智能体框架支持，特别是对 DeepSeek、Meta 的 Muse 和 Qwen 的集成，增强了本地 AI 工具链在编码和智能体工作流中的能力。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-20fd9aa8201133ec9cc1",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/state-of-open-models-summer-2026"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该博客文章很可能对 2026 年夏季开放模型的格局进行了回顾，可能包括趋势、进展和挑战。"
+          ],
+          "canonical_title": "开放模型现状：2026年夏季观察",
+          "category": "AI 开源生态",
+          "entity_names": [],
+          "facts": [
+            "Hugging Face 于 2026 年 8 月 14 日发布了题为“State of Open Models: Summer 2026 Observations”的博客文章。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/state-of-open-models-summer-2026",
+          "product_names": [],
+          "published_at": "2026-08-14T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-bc290ba394fd0d9149bf",
+              "source_name": "Hugging Face Blog",
+              "source_type": "rss",
+              "title": "State of Open Models: Summer 2026 Observations",
+              "url": "https://huggingface.co/blog/state-of-open-models-summer-2026"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-6575c3e92d4ceac9d2fb",
+          "topic_names": [
+            "开放模型",
+            "开源 AI",
+            "AI 基础设施"
+          ],
+          "uncertainties": [
+            "该文章的具体观察内容、涉及的模型和基础设施细节尚未提供。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6575c3e92d4ceac9d2fb"
+      ],
+      "title": "Hugging Face 发布开放模型现状：2026 年夏季观察",
+      "uncertainty": "文章的具体观察内容、涉及的模型和基础设施细节尚未提供，无法评估其结论。",
+      "what_happened": "Hugging Face 于 2026 年 8 月 14 日发布题为“State of Open Models: Summer 2026 Observations”的博客文章，对 2026 年夏季开放模型格局进行回顾。",
+      "why_it_matters": "作为开放模型生态的重要观察者，Hugging Face 的定期回顾可能提供关于开源 AI 趋势、进展和挑战的全局视角。"
+    }
+  ],
+  "cognitive_extension": "Grok 4.6 进入 GitHub Copilot 后，其智能体编码能力是否会让开发者减少对 Anthropic 或 OpenAI 编码模型的默认依赖？",
+  "date": "2026-08-15",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-08-14T23:57:03.047253Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "run_stats": {
+    "after_global_cap": 58,
+    "ai_brief_story_inputs": 8,
+    "ai_classify_completion_tokens": 1487,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 7821,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 31568,
+    "ai_merge_story_completion_tokens": 5289,
+    "ai_merge_story_finish_stop": 14,
+    "ai_merge_story_prompt_tokens": 13588,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_prompt_tokens": 48694,
+    "ai_reasoning_tokens": 17865,
+    "ai_resolve_continuity_completion_tokens": 15857,
+    "ai_resolve_continuity_finish_stop": 1,
+    "ai_resolve_continuity_prompt_tokens": 12146,
+    "ai_resolve_continuity_reasoning_tokens": 12524,
+    "ai_score_story_completion_tokens": 1356,
+    "ai_score_story_finish_stop": 12,
+    "ai_score_story_prompt_tokens": 9636,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 0,
+    "ai_write_brief_completion_tokens": 7579,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 5503,
+    "ai_write_brief_reasoning_tokens": 5341,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 20,
+    "continuity_character_budget_available": 30000,
+    "continuity_input_chars": 28399,
+    "continuity_judgement_inputs": 2,
+    "continuity_logical_ai_calls": 1,
+    "continuity_network_requests": 1,
+    "continuity_relation_inputs": 10,
+    "continuity_watch_inputs": 8,
+    "direction_signal_inputs": 0,
+    "dry_run": false,
+    "fixture_mode": false,
+    "historical_story_candidates": 148,
+    "judgement_updates": 1,
+    "judgements_created": 1,
+    "logical_ai_calls": 28,
+    "main_brief_items": 6,
+    "needs_review": 0,
+    "network_ai_requests": 29,
+    "open_watches_considered": 10,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "recent_24h": 44,
+    "relations_confirmed": 11,
+    "relations_rejected": 0,
+    "relations_unresolved": 9,
+    "revised": 1,
+    "routine_market_suppressed": 8,
+    "signals": 0,
+    "stories": 12,
+    "story_candidate_input": 36,
+    "structured_watches_opened": 3,
+    "threshold_eligible_stories": 8,
+    "total_displayed_items": 6,
+    "watch_matches": 0
+  },
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-a9e5432363e1c0b7a8a6",
+          "judgement_cues": [
+            {
+              "claim": "Grok 4.6 在 GitHub Copilot 中的可用，将成为衡量 xAI 编码模型在开发者中采用度的首个公开验证点。",
+              "judgement_id": "judgement-6356a614645a5dab17f9",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-2bc313f2d929bca68eb8",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将 Grok 4.6 集成到 GitHub Copilot 中，表明 xAI 在开发者工具领域与 OpenAI、Anthropic 等公司展开直接竞争。"
+          ],
+          "canonical_title": "Grok 4.6 在 GitHub Copilot 中可用",
+          "category": "AI 编码助手",
+          "entity_names": [
+            "xAI",
+            "GitHub"
+          ],
+          "facts": [
+            "Grok 4.6 是 xAI 的最新推理模型。",
+            "Grok 4.6 正在 GitHub Copilot 中推出。",
+            "该模型专为智能体编码和复杂的多步骤工作流设计。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot",
+          "product_names": [
+            "Grok 4.6",
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-08-14T16:17:46Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T16:17:46Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-c41fedd664439b3eb3c0",
+              "source_name": "GitHub Changelog",
+              "source_type": "rss",
+              "title": "Grok 4.6 is now available in GitHub Copilot",
+              "url": "https://github.blog/changelog/2026-08-14-grok-4-6-is-now-available-in-github-copilot"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-a9e5432363e1c0b7a8a6",
+          "topic_names": [
+            "AI 编码",
+            "模型发布"
+          ],
+          "uncertainties": [
+            "推出范围（例如，是否对所有 Copilot 用户可用，或仅限特定订阅层级）未明确说明。",
+            "公告中未详细说明内部测试的具体性能指标或与其他模型的对比结果。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a9e5432363e1c0b7a8a6"
+      ],
+      "title": "Grok 4.6 在 GitHub Copilot 中可用",
+      "uncertainty": "目前未明确推出范围，尚不清楚是否对所有 Copilot 用户或仅限特定订阅层级可用；也缺少与其他模型对比的内部测试性能指标。",
+      "what_happened": "xAI 的最新推理模型 Grok 4.6 已在 GitHub Copilot 中推出，该模型为智能体编码和复杂多步骤工作流设计。",
+      "why_it_matters": "这是 xAI 推理模型首次通过 GitHub Copilot 这一主流开发者工具分发，直接与 OpenAI 和 Anthropic 的编码模型在开发者工作流中竞争，可能影响开发者默认编码助手的选择。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-b5ed64a353c934edfc32",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://blog.cloudflare.com/mcp-security-updates/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Cloudflare Gateway 的检测能力有助于组织发现未经授权的 MCP 流量，从而降低安全风险。",
+            "强制执行 Portal 访问和阻止直接连接可以防止绕过企业安全策略。"
+          ],
+          "canonical_title": "Cloudflare 检测 MCP 流量并帮助保护其安全",
+          "category": "网络与安全",
+          "entity_names": [
+            "Cloudflare"
+          ],
+          "facts": [
+            "Cloudflare Gateway 通过协议级别的启发式方法识别 MCP 请求。",
+            "安全团队可以使用该信号发现影子 MCP 流量。",
+            "安全团队可以强制仅通过 Portal 访问已批准的服务器。",
+            "安全团队可以在受管网络路径上阻止直接连接。",
+            "该文章由 Kenny Johnson 于 2026-08-14 发布在 Cloudflare Blog 上。"
+          ],
+          "primary_source_url": "https://blog.cloudflare.com/mcp-security-updates/",
+          "product_names": [
+            "Cloudflare Gateway",
+            "Cloudflare Portal"
+          ],
+          "published_at": "2026-08-14T13:12:12Z",
+          "source_refs": [
+            {
+              "author": "Kenny Johnson",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T13:12:12Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-25f97e26ea36c89ebde6",
+              "source_name": "Cloudflare Blog",
+              "source_type": "rss",
+              "title": "How Cloudflare detects MCP traffic and helps secure it",
+              "url": "https://blog.cloudflare.com/mcp-security-updates/"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-320636e82e4a6c27a673",
+          "topic_names": [
+            "MCP",
+            "协议检测",
+            "影子流量"
+          ],
+          "uncertainties": [
+            "未说明该功能是否适用于所有 Cloudflare 客户，或仅限于特定订阅计划。",
+            "未说明协议级启发式方法的具体技术细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-320636e82e4a6c27a673"
+      ],
+      "title": "Cloudflare 检测 MCP 流量并帮助保护其安全",
+      "uncertainty": "未说明该功能是否面向所有 Cloudflare 客户或仅限特定订阅计划，协议级启发式方法的具体技术细节也未披露。",
+      "what_happened": "Cloudflare Gateway 通过协议级别的启发式方法识别 MCP 请求，使安全团队能够发现影子 MCP 流量，强制仅通过 Portal 访问已批准的服务器，并在受管网络路径上阻止直接连接。",
+      "why_it_matters": "随着 MCP 在企业中的采用增加，未经授权的 MCP 流量可能成为数据泄露或策略绕过的通道；Cloudflare 提供的检测与强制访问控制为安全团队提供了一层网络侧防护。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-bcdf2df2e3f89494f9e9",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "此更新提高了OAuth应用的安全性，使开发者能够更灵活地管理认证流程。",
+            "支持多个重定向URI可能简化需要多个回调端点的应用配置。"
+          ],
+          "canonical_title": "GitHub发布OAuth应用多项更新：支持多个重定向URI和令牌刷新",
+          "category": "发布公告",
+          "entity_names": [
+            "GitHub"
+          ],
+          "facts": [
+            "GitHub于2026年8月14日发布OAuth应用和GitHub App平台的多项更新。",
+            "OAuth应用可选择启用过期访问令牌和刷新令牌。",
+            "更新支持多个重定向URI。",
+            "更新旨在支持更安全的应用程序开发。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps",
+          "product_names": [
+            "OAuth apps",
+            "GitHub Apps"
+          ],
+          "published_at": "2026-08-14T22:43:44Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-08-14T23:57:03.047253Z",
+              "published_at": "2026-08-14T22:43:44Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-0673baaab539847bbb8e",
+              "source_name": "GitHub Changelog",
+              "source_type": "rss",
+              "title": "Multiple redirect URIs and token refresh for OAuth apps",
+              "url": "https://github.blog/changelog/2026-08-14-multiple-redirect-uris-and-token-refresh-for-oauth-apps"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-21cb1df0c3f04c9b4edd",
+          "topic_names": [
+            "OAuth",
+            "安全",
+            "开发者工具"
+          ],
+          "uncertainties": [
+            "具体支持的多个重定向URI数量未明确。",
+            "未提供更新生效的具体时间范围。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-21cb1df0c3f04c9b4edd"
+      ],
+      "title": "GitHub 发布 OAuth 应用多项更新：支持多个重定向 URI 和令牌刷新",
+      "uncertainty": "具体支持的多个重定向 URI 数量未明确，更新生效的具体时间范围也未提供。",
+      "what_happened": "GitHub 于 2026 年 8 月 14 日更新 OAuth 应用和 GitHub App 平台，OAuth 应用可选择启用过期访问令牌和刷新令牌，并支持多个重定向 URI。",
+      "why_it_matters": "这些更新提高了 OAuth 应用的安全性，使开发者能够更灵活地管理认证流程，并简化需要多个回调端点的应用配置。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "GitHub Copilot 将发布文档或变更说明，明确 Grok 4.6 的具体可用范围（例如是否对所有 Copilot 订阅层级开放）。",
+    "Cloudflare 将发布更新或文档，说明 MCP 流量检测和 Portal 强制访问功能是否面向所有客户计划，或仅限特定订阅层级。",
+    "Ollama 后续版本或文档将说明 Responses API 网络搜索的具体实现方式（如是否使用外部搜索 API）以及 Qwen 3.8 27B 在非 Apple Silicon 平台上的支持情况。"
+  ]
+}
