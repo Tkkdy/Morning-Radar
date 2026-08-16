@@ -10,7 +10,7 @@ from typing import Protocol
 
 import yfinance
 
-from morning_radar.models import MarketSnapshot, RawItem
+from morning_radar.models import MarketSnapshot, RawItem, StatementType
 from morning_radar.processing import stable_item_id
 from morning_radar.settings import CompanyConfig
 from morning_radar.storage import save_models
@@ -120,6 +120,7 @@ class MarketCollector:
             summary="市场价格变化仅作信息展示，不代表可确认单一原因。",
             topic_candidates=company.topics,
             company_candidates=[company.name],
+            statement_type=StatementType.FACTUAL_ANNOUNCEMENT,
             metadata={
                 "official": False,
                 "freshness_policy": "latest_market_trading_day",

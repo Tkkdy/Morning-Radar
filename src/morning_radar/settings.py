@@ -16,6 +16,14 @@ class ConfigModel(BaseModel):
 Priority = Literal["high", "medium", "low"]
 
 
+class AIHOTConfig(ConfigModel):
+    enabled: bool = False
+    url: str = "https://aihot.virxact.com/api/v1/items"
+    mode: Literal["selected"] = "selected"
+    window: Literal["24h"] = "24h"
+    limit: int = Field(default=20, ge=1, le=50)
+
+
 class AppConfig(ConfigModel):
     timezone: str = "Asia/Singapore"
     news_window_hours: int = Field(gt=0)
@@ -30,6 +38,12 @@ class AppConfig(ConfigModel):
     maximum_continuity_candidates: int = Field(default=20, ge=1)
     maximum_continuity_input_characters: int = Field(default=30000, ge=1000)
     maximum_open_watches_considered: int = Field(default=20, ge=1)
+    maximum_research_cases: int = Field(default=8, ge=1, le=20)
+    maximum_research_input_characters: int = Field(default=12000, ge=1000, le=30000)
+    maximum_radar_signals: int = Field(default=3, ge=0, le=3)
+    maximum_tendency_candidates: int = Field(default=12, ge=1, le=30)
+    maximum_tendency_input_characters: int = Field(default=24000, ge=2000, le=50000)
+    aihot: AIHOTConfig = Field(default_factory=AIHOTConfig)
     request_timeout_seconds: float = Field(gt=0)
     request_retry_attempts: int = Field(ge=1, le=5)
     relevance_threshold: float = Field(ge=0, le=1)
@@ -37,8 +51,6 @@ class AppConfig(ConfigModel):
     github_growth_threshold: float = Field(ge=0)
     market_movement_threshold: float = Field(ge=0)
     enabled_sections: dict[str, bool]
-
-
 class TopicConfig(ConfigModel):
     id: str
     name: str
@@ -56,6 +68,14 @@ class SourceConfig(ConfigModel):
     enabled: bool = True
     topics: list[str] = Field(default_factory=list)
     official: bool = False
+    source_role: Literal[
+        "official_primary",
+        "practitioner",
+        "editorial",
+        "community_discovery",
+        "upstream_discovery",
+    ] | None = None
+    practitioner_id: str | None = None
 
 
 class CompanyConfig(ConfigModel):
@@ -77,13 +97,63 @@ class RepositoryConfig(ConfigModel):
         return f"{self.owner}/{self.repo}"
 
 
-class PersonConfig(ConfigModel):
-    name: str
-    feed_type: str
-    url: str
-    role: str
-    priority: Priority
+class PractitionerChannelConfig(ConfigModel):
+    type: Literal["rss", "atom", "github_releases", "x", "blog", "other"]
+    url: str | None = None
     enabled: bool = False
+    availability: Literal["available", "unavailable", "deferred"]
+
+
+class PersonConfig(ConfigModel):
+    id: str
+    display_name: str
+    aliases: list[str] = Field(default_factory=list)
+    roles: list[str] = Field(default_factory=list)
+    topics: list[str] = Field(default_factory=list)
+    enabled: bool = True
+    channels: list[PractitionerChannelConfig] = Field(default_factory=list)
+
+
+def active_practitioner_sources(people: list[PersonConfig]) -> list[SourceConfig]:
+    """Project reliable practitioner feeds into the existing RSS collector contract."""
+    sources: list[SourceConfig] = []
+    for person in people:
+        if not person.enabled:
+            continue
+        for index, channel in enumerate(person.channels):
+            if (
+                not channel.enabled
+                or channel.availability != "available"
+                or channel.type not in {"rss", "atom"}
+                or channel.url is None
+            ):
+                continue
+            sources.append(
+                SourceConfig(
+                    id=f"practitioner_{person.id}_{index}",
+                    name=person.display_name,
+                    type=channel.type,
+                    url=channel.url,
+                    priority="high",
+                    enabled=True,
+                    topics=person.topics,
+                    official=False,
+                    source_role="practitioner",
+                    practitioner_id=person.id,
+                )
+            )
+    return sources
+
+
+def practitioner_coverage_stats(people: list[PersonConfig]) -> dict[str, int]:
+    active = active_practitioner_sources(people)
+    return {
+        "configured_seed_count": len(people),
+        "active_channel_count": len(active),
+        "practitioners_with_active_channels": len(
+            {source.practitioner_id for source in active if source.practitioner_id}
+        ),
+    }
 
 
 def load_yaml(path: Path) -> dict[str, Any]:

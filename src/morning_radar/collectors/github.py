@@ -10,7 +10,12 @@ from typing import Any
 from dateutil.parser import parse as parse_datetime
 
 from morning_radar.collectors.http import HttpClient
-from morning_radar.models import GitHubSnapshot, RawItem
+from morning_radar.models import (
+    GitHubSnapshot,
+    RawItem,
+    SourceRole,
+    StatementType,
+)
 from morning_radar.processing import stable_item_id
 from morning_radar.settings import RepositoryConfig
 from morning_radar.storage import load_models, save_models
@@ -151,6 +156,8 @@ class GitHubCollector:
                     content_excerpt=body,
                     topic_candidates=repository.topics,
                     repository_candidates=[repository.full_name],
+                    source_role=SourceRole.OFFICIAL_PRIMARY,
+                    statement_type=StatementType.FACTUAL_ANNOUNCEMENT,
                     metadata={
                         "official": True,
                         "priority": repository.priority,

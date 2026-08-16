@@ -4,8 +4,13 @@ from pathlib import Path
 from morning_radar.models import (
     BriefItem,
     BriefStoryContext,
+    BriefTendency,
     DailyBrief,
     PublishedAtRole,
+    RadarSignal,
+    ResearchEvidenceRef,
+    SourceRole,
+    StatementType,
     StorySourceRef,
     StoryStatus,
 )
@@ -515,3 +520,70 @@ def test_site_builder_labels_dated_rss_time_as_feed_entry_time(tmp_path) -> None
     html = (output / "index.html").read_text(encoding="utf-8")
     assert "来源条目时间：2026-08-08" in html
     assert "文章发布于" not in html
+
+
+def test_site_builder_labels_radar_signal_as_unverified_and_renders_tendency(
+    tmp_path,
+) -> None:
+    now = datetime(2026, 8, 16, tzinfo=UTC)
+    brief = DailyBrief(
+        date=date(2026, 8, 16),
+        timezone="Asia/Singapore",
+        generated_at=now,
+        radar_signals=[
+            RadarSignal(
+                id="radar-1",
+                observed_at=now,
+                claim="A practitioner observed a concrete workflow regression.",
+                why_notable="The observation affects a widely used workflow.",
+                support_refs=[
+                    ResearchEvidenceRef(
+                        raw_item_id="item-1",
+                        url="https://example.com/observation",
+                        source_role=SourceRole.PRACTITIONER,
+                    )
+                ],
+                source_roles=[SourceRole.PRACTITIONER],
+                missing_evidence=["官方变更说明"],
+                uncertainty="尚无独立复现。",
+                statement_type=StatementType.FIRSTHAND_OBSERVATION,
+            )
+        ],
+        tendencies=[
+            BriefTendency(
+                tendency_id="tendency-1",
+                standing="emerging",
+                claim="Agents are moving into governed workflows.",
+                shared_mechanism="Access to organizational context drives the shift.",
+                decision_rationale="Independent events persisted across dates.",
+            )
+        ],
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [brief], stylesheet=Path("site/assets/style.css")
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert "雷达信号 · 尚待验证" in html
+    assert "不确定性" in html
+    assert "结构趋势" in html
+    assert "emerging" in html
+
+
+def test_site_builder_handles_empty_radar_and_tendency_day(tmp_path) -> None:
+    brief = DailyBrief(
+        date=date(2026, 8, 16),
+        timezone="Asia/Singapore",
+        generated_at=datetime(2026, 8, 16, tzinfo=UTC),
+    )
+    output = tmp_path / "site"
+
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [brief], stylesheet=Path("site/assets/style.css")
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert "雷达信号 · 尚待验证" not in html
+    assert "结构趋势" not in html

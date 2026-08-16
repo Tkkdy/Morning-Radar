@@ -1,6 +1,6 @@
 from datetime import UTC, datetime
 
-from morning_radar.models import RawItem
+from morning_radar.models import RawItem, SourceRole
 from morning_radar.processing import (
     deduplicate_items,
     group_items_by_normalized_title,
@@ -46,6 +46,26 @@ def test_exact_and_tracking_url_duplicates_are_removed() -> None:
     ]
 
     assert [value.id for value in deduplicate_items(items)] == ["1"]
+
+
+def test_collection_can_preserve_one_upstream_lead_beside_original_evidence() -> None:
+    official = item("official", "Launch", "https://example.com/a").model_copy(
+        update={"source_role": SourceRole.OFFICIAL_PRIMARY}
+    )
+    aihot = item("aihot", "Launch", "https://example.com/a#discovery").model_copy(
+        update={"source_role": SourceRole.UPSTREAM_DISCOVERY}
+    )
+    duplicate_editorial = item(
+        "editorial", "Launch coverage", "https://example.com/a?utm_source=rss"
+    )
+
+    preserved = deduplicate_items(
+        [official, aihot, duplicate_editorial],
+        preserve_discovery_pairs=True,
+    )
+
+    assert [value.id for value in preserved] == ["official", "aihot"]
+    assert [value.id for value in deduplicate_items(preserved)] == ["official"]
 
 
 def test_title_case_and_space_duplicates_from_same_source_are_removed() -> None:

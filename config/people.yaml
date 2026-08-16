@@ -1,8 +1,99 @@
 people:
-  - name: Example developer
-    feed_type: rss
-    url: https://example.com/feed.xml
-    role: developer
-    priority: low
-    enabled: false
-
+  - id: digital-life-khazix
+    display_name: 数字生命卡兹克
+    aliases: [数字生命卡兹克]
+    roles: [AI 产品实践者, 内容创作者]
+    topics: [ai_models, ai_coding]
+    enabled: true
+    channels:
+      - {type: x, enabled: false, availability: deferred}
+      - {type: other, enabled: false, availability: deferred}
+  - id: dotey
+    display_name: 宝玉
+    aliases: [宝玉, "@dotey"]
+    roles: [开发者, AI 实践者]
+    topics: [ai_models, ai_coding]
+    enabled: true
+    channels:
+      - type: rss
+        url: https://baoyu.io/feed.xml
+        enabled: true
+        availability: available
+      - {type: x, enabled: false, availability: deferred}
+  - id: guizang
+    display_name: 歸藏
+    aliases: [歸藏]
+    roles: [AI 产品实践者, 内容创作者]
+    topics: [ai_models, ai_coding]
+    enabled: true
+    channels:
+      - {type: x, enabled: false, availability: deferred}
+  - id: simon-willison
+    display_name: Simon Willison
+    aliases: [Simon Willison, simonw]
+    roles: [独立开发者, 开源维护者]
+    topics: [ai_models, ai_coding, open_source_ai]
+    enabled: true
+    channels:
+      - type: atom
+        url: https://simonwillison.net/atom/everything/
+        enabled: true
+        availability: available
+  - id: armin-ronacher
+    display_name: Armin Ronacher
+    aliases: [Armin Ronacher, mitsuhiko]
+    roles: [开源维护者, Infra Builder]
+    topics: [ai_coding, ai_infrastructure, open_source_ai]
+    enabled: true
+    channels:
+      - type: atom
+        url: https://lucumr.pocoo.org/feed.atom
+        enabled: true
+        availability: available
+      - {type: x, enabled: false, availability: deferred}
+  - id: mitchell-hashimoto
+    display_name: Mitchell Hashimoto
+    aliases: [Mitchell Hashimoto, mitchellh]
+    roles: [开发工具 Builder, 开源维护者]
+    topics: [ai_coding, ai_infrastructure]
+    enabled: true
+    channels:
+      - {type: blog, enabled: false, availability: unavailable}
+      - {type: x, enabled: false, availability: deferred}
+  - id: bennett-b-nnett
+    display_name: Bennett
+    aliases: [Bennett, b-nnett, Codex++]
+    roles: [开发工具 Builder]
+    topics: [ai_coding, open_source_ai]
+    enabled: true
+    channels:
+      - {type: github_releases, enabled: false, availability: unavailable}
+      - {type: x, enabled: false, availability: deferred}
+  - id: tibo-sottiaux
+    display_name: Tibo Sottiaux
+    aliases: [Tibo Sottiaux]
+    roles: [AI 产品 Builder]
+    topics: [ai_coding, ai_models]
+    enabled: true
+    channels:
+      - {type: x, enabled: false, availability: deferred}
+  - id: boris-cherny
+    display_name: Boris Cherny
+    aliases: [Boris Cherny]
+    roles: [AI Coding 产品 Builder]
+    topics: [ai_coding]
+    enabled: true
+    channels:
+      - {type: x, enabled: false, availability: deferred}
+  - id: peter-steinberger
+    display_name: Peter Steinberger
+    aliases: [Peter Steinberger, steipete]
+    roles: [独立开发者, Agent Builder]
+    topics: [ai_coding, open_source_ai]
+    enabled: true
+    channels:
+      - type: rss
+        url: https://www.steipete.md/rss.xml
+        enabled: true
+        availability: available
+      - {type: x, enabled: false, availability: deferred}

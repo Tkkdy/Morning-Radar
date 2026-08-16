@@ -20,6 +20,8 @@ footer{color:var(--muted);border-top:1px solid var(--line);padding:28px 0 48px;f
   background: #f5f7ff;
   border-radius: 0 8px 8px 0;
 }
+.radar-signal{border-color:#d8b36a;background:#fffaf0}.radar-signal .section-label{color:#8a4c18}
+.tendency-card{border-color:#9aa5dc;background:#f7f8ff}.tendency-card .section-label{color:#4050a8}
 
 .continuity-note p { margin: 0.45rem 0; }
 .continuity-badge {

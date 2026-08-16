@@ -6,6 +6,7 @@ from pathlib import Path
 from morning_radar.models import (
     DailyBrief,
     DailyContinuity,
+    DailyTendencies,
     GitHubSnapshot,
     MarketSnapshot,
     Story,
@@ -41,6 +42,8 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     assert brief.top_stories
     assert (output / "data/briefs/2026-07-23.json").exists()
     assert (output / "data/continuity/2026-07-23.json").exists()
+    assert (output / "data/radar_signals/2026-07-23.json").exists()
+    assert (output / "data/tendencies/2026-07-23.json").exists()
     assert (output / "site/index.html").exists()
     assert (output / "site/archive.html").exists()
     assert "raw_collected=4" in caplog.text
@@ -54,6 +57,8 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     assert brief.run_stats["main_brief_items"] == 3
     assert brief.run_stats["other_reading_items"] == 0
     assert brief.run_stats["total_displayed_items"] == 3
+    assert brief.run_stats["ai_input_characters"] == 0
+    assert brief.run_stats["ai_maximum_input_characters"] == 120000
     assert brief.watch_next == ["继续观察 OpenAI 的后续官方发布与开发者反馈。"]
     index = (output / "site/index.html").read_text(encoding="utf-8")
     assert '<p class="section-label">top_stories</p>' not in index
@@ -109,11 +114,20 @@ def test_dry_run_reads_production_history_without_mutating_it(
     )
     story_path = project / "data/stories/2026-07-22.json"
     continuity_path = project / "data/continuity/2026-07-22.json"
+    tendency_path = project / "data/tendencies/2026-07-22.json"
     save_models(story_path, [historical_story])
     save_model(continuity_path, historical_continuity)
+    save_model(
+        tendency_path,
+        DailyTendencies(
+            date=date(2026, 7, 22),
+            generated_at=datetime(2026, 7, 22, 2, tzinfo=UTC),
+        ),
+    )
     production_before = {
         story_path: story_path.read_bytes(),
         continuity_path: continuity_path.read_bytes(),
+        tendency_path: tendency_path.read_bytes(),
     }
 
     pipeline = MorningRadarPipeline(project)
@@ -129,6 +143,8 @@ def test_dry_run_reads_production_history_without_mutating_it(
         "data/signals/2026-07-23.json",
         "data/briefs/2026-07-23.json",
         "data/continuity/2026-07-23.json",
+        "data/radar_signals/2026-07-23.json",
+        "data/tendencies/2026-07-23.json",
     ):
         assert (output / relative_path).exists()
         assert not (project / relative_path).exists()

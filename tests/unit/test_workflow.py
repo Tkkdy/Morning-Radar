@@ -30,3 +30,15 @@ def test_notification_runs_only_after_pages_deploy_without_push_loop() -> None:
     assert "python -m morning_radar notify-latest" in workflow
     assert "!(inputs.dry_run || false) && !(inputs.fixtures || false)" in workflow
     assert "\n  push:" not in workflow
+
+
+def test_manual_preview_includes_v035_intelligence_artifacts() -> None:
+    workflow = Path(".github/workflows/manual-preview.yml").read_text(encoding="utf-8")
+
+    assert "workflow_dispatch:" in workflow
+    assert "timeout-minutes: 45" in workflow
+    assert "--dry-run" in workflow
+    assert "--skip-notify" in workflow
+    assert ".tmp/dry-run/data/radar_signals/" in workflow
+    assert ".tmp/dry-run/data/tendencies/" in workflow
+    assert "retention-days: 3" in workflow

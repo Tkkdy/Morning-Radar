@@ -12,16 +12,29 @@ from morning_radar.ai.models import (
     GeneratedBriefItem,
     GeneratedWatchDraft,
     MergedStoryDraft,
+    ResearchResolutionBatch,
+    ResearchResolutionDraft,
     ResolvedRelationDraft,
     ResolvedWatchMatchDraft,
     StoryScore,
+    TendencyDecisionDraft,
+    TendencyEvaluationBatch,
+    TendencyFormationSupportDraft,
 )
 from morning_radar.models import (
     RawItem,
+    ResearchCase,
+    ResearchDisposition,
     Signal,
+    SourceRole,
     Story,
     StoryEvidenceRef,
     StoryRelationType,
+    TendencyAssessment,
+    TendencyCurrentView,
+    TendencyEvidenceCluster,
+    TendencyStanding,
+    TendencyUpdateKind,
 )
 
 
@@ -207,3 +220,109 @@ class FakeAIProvider:
                 )
             )
         return ContinuityResolution(relations=relations, watch_matches=watch_matches)
+
+    def resolve_research_cases(
+        self,
+        cases: list[ResearchCase],
+    ) -> ResearchResolutionBatch:
+        resolved: list[ResearchResolutionDraft] = []
+        for case in cases:
+            corroborated = bool(case.supporting_evidence)
+            disposition = (
+                ResearchDisposition.VERIFIED_STORY_CANDIDATE
+                if corroborated
+                else ResearchDisposition.RADAR_SIGNAL
+            )
+            resolved.append(
+                ResearchResolutionDraft(
+                    case_id=case.id,
+                    in_scope=True,
+                    scope_rationale="该案例直接涉及 AI 产品、模型或开发者实践。",
+                    disposition=disposition,
+                    statement_type=case.statement_type,
+                    practice_signal_kind=case.practice_signal_kind,
+                    claim=case.claim,
+                    why_notable="该观察涉及具体产品或实践变化，值得继续验证。",
+                    missing_evidence=([] if corroborated else ["独立原始来源或复现实验"]),
+                    uncertainty=("" if corroborated else "当前只有发现线索，尚未独立确认。"),
+                )
+            )
+        return ResearchResolutionBatch(cases=resolved)
+
+    def evaluate_tendencies(
+        self,
+        clusters: list[TendencyEvidenceCluster],
+        current_views: list[TendencyCurrentView],
+    ) -> TendencyEvaluationBatch:
+        if current_views:
+            view = current_views[0]
+            new_clusters = [
+                cluster
+                for cluster in clusters
+                if cluster.cluster_id not in view.formation_cluster_ids
+                and view.formed_at is not None
+                and max(cluster.observed_dates) > view.formed_at
+            ]
+            if not new_clusters:
+                return TendencyEvaluationBatch()
+            return TendencyEvaluationBatch(
+                decisions=[
+                    TendencyDecisionDraft(
+                        existing_tendency_id=view.tendency_id,
+                        standing_after=TendencyStanding.PERSISTENT,
+                        update_kind=TendencyUpdateKind.SUPPORTED,
+                        claim=view.claim,
+                        assessment=view.assessment,
+                        supporting_cluster_ids=[new_clusters[0].cluster_id],
+                    )
+                ]
+            )
+        dates = {day for cluster in clusters for day in cluster.observed_dates}
+        actors = {actor for cluster in clusters for actor in cluster.actor_keys}
+        if len(clusters) < 2 or len(dates) < 2 or len(actors) < 2:
+            return TendencyEvaluationBatch()
+        chosen = clusters[:3]
+        two_cluster_exception = len(chosen) == 2
+        return TendencyEvaluationBatch(
+            decisions=[
+                TendencyDecisionDraft(
+                    standing_after=(
+                        TendencyStanding.EMERGING
+                        if len(chosen) >= 3
+                        or all(
+                            SourceRole.OFFICIAL_PRIMARY in cluster.source_roles
+                            for cluster in chosen
+                        )
+                        else TendencyStanding.CANDIDATE
+                    ),
+                    claim="多个独立参与者正在把 AI 能力嵌入真实工作流。",
+                    assessment=TendencyAssessment(
+                        shared_mechanism="组织上下文与工作流集成正成为产品能力的一部分。",
+                        baseline="此前能力主要停留在独立聊天或单点工具。",
+                        falsifier="后续产品持续撤回工作流集成且实际使用没有增加。",
+                        observable_impacts=["多个独立参与者出现可观察的工作流变化。"],
+                        counterevidence_considered=True,
+                        decision_rationale="Fixture 的跨日期独立事件满足形成测试。",
+                        formation_exception_rationale=(
+                            "两个不同 actor 均有 primary evidence 与可观察影响。"
+                            if two_cluster_exception
+                            else None
+                        ),
+                    ),
+                    supporting_cluster_ids=[cluster.cluster_id for cluster in chosen],
+                    formation_support=[
+                        TendencyFormationSupportDraft(
+                            cluster_id=cluster.cluster_id,
+                            directly_supports_direction=True,
+                            rationale="该事件直接体现 AI 能力进入真实工作流。",
+                            evidence_scope="AI 产品和开发者工作流",
+                        )
+                        for cluster in chosen
+                    ],
+                    claim_scope_supported=True,
+                    scope_alignment_rationale=(
+                        "Claim 限定于输入证据覆盖的 AI 产品与工作流。"
+                    ),
+                )
+            ]
+        )

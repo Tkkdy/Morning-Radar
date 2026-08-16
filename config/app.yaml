@@ -11,6 +11,18 @@ continuity_history_days: 14
 maximum_continuity_candidates: 20
 maximum_continuity_input_characters: 30000
 maximum_open_watches_considered: 20
+maximum_research_cases: 8
+maximum_research_input_characters: 12000
+maximum_radar_signals: 3
+maximum_tendency_candidates: 12
+maximum_tendency_input_characters: 24000
+aihot:
+  # Keep disabled until public GitHub Pages usage is covered by written authorization.
+  enabled: false
+  url: https://aihot.virxact.com/api/v1/items
+  mode: selected
+  window: 24h
+  limit: 20
 request_timeout_seconds: 20
 request_retry_attempts: 3
 relevance_threshold: 0.55

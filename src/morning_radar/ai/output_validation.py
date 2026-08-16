@@ -16,6 +16,8 @@ from morning_radar.ai.models import (
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
+    ResearchResolutionBatch,
+    TendencyEvaluationBatch,
 )
 from morning_radar.models import Signal, Story
 
@@ -375,6 +377,20 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
             yield update.claim
             yield update.rationale
             yield from _present((update.uncertainty,))
+    elif isinstance(output, ResearchResolutionBatch):
+        for case in output.cases:
+            yield case.claim
+            yield from _present((case.why_notable, case.uncertainty))
+            yield from case.missing_evidence
+    elif isinstance(output, TendencyEvaluationBatch):
+        for decision in output.decisions:
+            yield decision.claim
+            yield decision.assessment.shared_mechanism
+            yield decision.assessment.baseline
+            yield decision.assessment.falsifier
+            yield from decision.assessment.observable_impacts
+            yield decision.assessment.decision_rationale
+            yield from _present((decision.assessment.formation_exception_rationale,))
 
 
 def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:

@@ -20,6 +20,14 @@ import pytest
             ),
         ),
         ("direction_observation.md", ("observation", "uncertainties")),
+        (
+            "resolve_research_cases.md",
+            ("claim", "why_notable", "missing_evidence", "uncertainty"),
+        ),
+        (
+            "evaluate_tendencies.md",
+            ("shared mechanism", "baseline", "falsifier", "counterevidence"),
+        ),
     ],
 )
 def test_user_visible_ai_prompt_requires_simplified_chinese(
@@ -51,3 +59,15 @@ def test_brief_prompt_defines_editorial_hierarchy_and_extension_role() -> None:
     assert "top_stories 只用于“今天必须知道”" in prompt
     assert "cognitive_extension 不是预测或结论" in prompt
     assert "只能返回一个值得继续思考的问题" in prompt
+
+
+def test_story_prompts_keep_practitioner_and_discovery_evidence_boundaries() -> None:
+    classify = Path("prompts/classify.md").read_text(encoding="utf-8")
+    merge = Path("prompts/merge_story.md").read_text(encoding="utf-8")
+    score = Path("prompts/score_story.md").read_text(encoding="utf-8")
+
+    assert "Trusted Practitioner" in classify
+    assert "AIHOT/upstream discovery lead" in classify
+    assert "marketing、opinion 与 unverified" in merge
+    assert "Community Attention" in score
+    assert "不能提高事实可信度" in score
