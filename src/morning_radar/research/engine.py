@@ -173,6 +173,10 @@ def resolve_research(
         case = cases_by_id.get(resolved.case_id)
         if case is None:
             continue
+        # Scope is decided semantically inside the existing batch. Fail closed so
+        # a discovery lead cannot bypass the normal Story relevance boundary.
+        if not resolved.in_scope or not resolved.scope_rationale.strip():
+            continue
         disposition = resolved.disposition
         if disposition == ResearchDisposition.VERIFIED_STORY_CANDIDATE:
             if case.supporting_evidence:

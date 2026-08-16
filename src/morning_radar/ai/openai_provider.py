@@ -360,6 +360,7 @@ class OpenAIProvider:
                 if not {
                     *decision.supporting_cluster_ids,
                     *decision.counterevidence_cluster_ids,
+                    *(item.cluster_id for item in decision.formation_support),
                 }.issubset(cluster_ids):
                     raise AIOutputError("Tendency output references an unknown cluster")
             return output

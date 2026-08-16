@@ -19,6 +19,7 @@ from morning_radar.ai.models import (
     StoryScore,
     TendencyDecisionDraft,
     TendencyEvaluationBatch,
+    TendencyFormationSupportDraft,
 )
 from morning_radar.models import (
     RawItem,
@@ -235,6 +236,8 @@ class FakeAIProvider:
             resolved.append(
                 ResearchResolutionDraft(
                     case_id=case.id,
+                    in_scope=True,
+                    scope_rationale="该案例直接涉及 AI 产品、模型或开发者实践。",
                     disposition=disposition,
                     statement_type=case.statement_type,
                     practice_signal_kind=case.practice_signal_kind,
@@ -307,6 +310,19 @@ class FakeAIProvider:
                         ),
                     ),
                     supporting_cluster_ids=[cluster.cluster_id for cluster in chosen],
+                    formation_support=[
+                        TendencyFormationSupportDraft(
+                            cluster_id=cluster.cluster_id,
+                            directly_supports_direction=True,
+                            rationale="该事件直接体现 AI 能力进入真实工作流。",
+                            evidence_scope="AI 产品和开发者工作流",
+                        )
+                        for cluster in chosen
+                    ],
+                    claim_scope_supported=True,
+                    scope_alignment_rationale=(
+                        "Claim 限定于输入证据覆盖的 AI 产品与工作流。"
+                    ),
                 )
             ]
         )

@@ -1,9 +1,11 @@
 from datetime import UTC, datetime
 
 from morning_radar.ai import AIOutputError, FakeAIProvider
+from morning_radar.ai.models import ResearchResolutionBatch, ResearchResolutionDraft
 from morning_radar.models import (
     PracticeSignalKind,
     RawItem,
+    ResearchDisposition,
     SourceRole,
     StatementType,
 )
@@ -172,6 +174,142 @@ class CountingResearchProvider(FakeAIProvider):
     def resolve_research_cases(self, cases):
         self.calls += 1
         return super().resolve_research_cases(cases)
+
+
+class SemanticScopeProvider(FakeAIProvider):
+    def __init__(self, *, in_scope: bool) -> None:
+        self.in_scope = in_scope
+        self.calls = 0
+
+    def resolve_research_cases(self, cases):
+        self.calls += 1
+        return ResearchResolutionBatch(
+            cases=[
+                ResearchResolutionDraft(
+                    case_id=case.id,
+                    in_scope=self.in_scope,
+                    scope_rationale=(
+                        "该观察直接涉及 AI 模型或产品行为。"
+                        if self.in_scope
+                        else "该功能没有直接、实质的 AI 关联。"
+                    ),
+                    disposition=(
+                        ResearchDisposition.RADAR_SIGNAL
+                        if self.in_scope
+                        else ResearchDisposition.INTERNAL_ONLY
+                    ),
+                    statement_type=case.statement_type,
+                    practice_signal_kind=case.practice_signal_kind,
+                    claim=case.claim,
+                    why_notable="该观察可能影响 AI 开发者实践。",
+                    missing_evidence=["独立复现"],
+                    uncertainty="当前仍需验证。",
+                )
+                for case in cases
+            ]
+        )
+
+
+def test_firefox_ad_blocker_is_resolved_but_cannot_materialize_radar_signal() -> None:
+    lead = item(
+        "firefox-ad-blocker",
+        role=SourceRole.UPSTREAM_DISCOVERY,
+        title="Firefox for iOS now includes a built-in native ad blocker",
+    ).model_copy(
+        update={
+            "topic_candidates": [],
+            "company_candidates": ["Mozilla"],
+            "product_candidates": ["Firefox"],
+            "practice_signal_kind": None,
+        }
+    )
+    provider = SemanticScopeProvider(in_scope=False)
+
+    result = resolve_research(
+        [lead],
+        provider=provider,
+        maximum_cases=8,
+        maximum_radar_signals=3,
+    )
+
+    assert len(result.cases) == 1
+    assert provider.calls == 1
+    assert result.radar_signals == []
+    assert result.verified_item_ids == set()
+
+
+def test_generic_browser_feature_is_not_a_radar_signal() -> None:
+    lead = item(
+        "browser-tabs",
+        role=SourceRole.PRACTITIONER,
+        title="Mobile browser adds a new tab organization feature",
+    ).model_copy(
+        update={
+            "topic_candidates": [],
+            "company_candidates": [],
+            "product_candidates": ["Browser"],
+            "practice_signal_kind": None,
+        }
+    )
+
+    result = resolve_research(
+        [lead],
+        provider=SemanticScopeProvider(in_scope=False),
+        maximum_cases=8,
+        maximum_radar_signals=3,
+    )
+
+    assert result.radar_signals == []
+
+
+def test_sparse_deepseek_behavior_report_survives_research_scope_resolution() -> None:
+    lead = RawItem(
+        id="deepseek-sparse",
+        title="DeepSeek model behavior changed under long coding sessions",
+        summary="A reproducible report compares output behavior before and after the update.",
+        url="https://example.com/deepseek-behavior",
+        source_name="community",
+        source_type="hacker_news",
+        fetched_at=NOW,
+        source_role=SourceRole.COMMUNITY_DISCOVERY,
+        statement_type=StatementType.FIRSTHAND_OBSERVATION,
+        metadata={"selection_reason": "high_signal_discovery", "score": 420},
+    )
+
+    [case] = build_research_cases([lead], maximum_cases=8)
+    assert case.topic_keys == []
+
+    result = resolve_research(
+        [lead],
+        provider=SemanticScopeProvider(in_scope=True),
+        maximum_cases=8,
+        maximum_radar_signals=3,
+    )
+
+    assert result.radar_signals[0].claim == lead.title
+
+
+def test_codex_workflow_and_material_ai_business_changes_are_in_scope() -> None:
+    leads = [
+        item("codex-workflow", role=SourceRole.PRACTITIONER),
+        item(
+            "ai-business",
+            role=SourceRole.UPSTREAM_DISCOVERY,
+            title="AI company changes model access and commercial terms",
+            url="https://example.com/ai-business",
+        ),
+    ]
+    provider = SemanticScopeProvider(in_scope=True)
+
+    result = resolve_research(
+        leads,
+        provider=provider,
+        maximum_cases=8,
+        maximum_radar_signals=3,
+    )
+
+    assert provider.calls == 1
+    assert len(result.radar_signals) == 2
 
 
 def test_research_failure_omits_unverified_signal_without_breaking_story_inputs() -> None:

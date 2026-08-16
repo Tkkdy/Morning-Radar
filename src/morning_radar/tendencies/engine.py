@@ -53,11 +53,28 @@ def _formation_valid(
     cluster_ids: list[str],
     clusters: dict[str, TendencyEvidenceCluster],
     *,
+    formation_support,
+    claim_scope_supported: bool,
+    scope_alignment_rationale: str,
     exception_rationale: str | None,
 ) -> bool:
     if len(cluster_ids) < 2:
         return False
     selected = [clusters[value] for value in cluster_ids]
+    support_by_id = {item.cluster_id: item for item in formation_support}
+    if (
+        set(support_by_id) != set(cluster_ids)
+        or len(support_by_id) != len(formation_support)
+        or not all(
+            support_by_id[value].directly_supports_direction
+            and support_by_id[value].rationale.strip()
+            and support_by_id[value].evidence_scope.strip()
+            for value in cluster_ids
+        )
+        or not claim_scope_supported
+        or not scope_alignment_rationale.strip()
+    ):
+        return False
     if len({day for cluster in selected for day in cluster.observed_dates}) < 2:
         return False
     if len(selected) >= 3:
@@ -100,6 +117,9 @@ def _materialize(
         if not _formation_valid(
             support_ids,
             clusters,
+            formation_support=draft.formation_support,
+            claim_scope_supported=draft.claim_scope_supported,
+            scope_alignment_rationale=draft.scope_alignment_rationale,
             exception_rationale=draft.assessment.formation_exception_rationale,
         ):
             return None

@@ -402,6 +402,7 @@ class DeepSeekProvider:
                 referenced = {
                     *decision.supporting_cluster_ids,
                     *decision.counterevidence_cluster_ids,
+                    *(item.cluster_id for item in decision.formation_support),
                 }
                 if not referenced.issubset(cluster_ids):
                     raise AIOutputError("Tendency output references an unknown cluster")

@@ -1,7 +1,11 @@
 from datetime import UTC, date, datetime
 
 from morning_radar.ai import AIOutputError, FakeAIProvider
-from morning_radar.ai.models import TendencyDecisionDraft, TendencyEvaluationBatch
+from morning_radar.ai.models import (
+    TendencyDecisionDraft,
+    TendencyEvaluationBatch,
+    TendencyFormationSupportDraft,
+)
 from morning_radar.continuity.candidates import StoryMemory
 from morning_radar.models import (
     DailyContinuity,
@@ -77,6 +81,18 @@ def assessment(**updates) -> TendencyAssessment:
     return TendencyAssessment(**values)
 
 
+def formation_support(clusters, *, direct: bool = True):
+    return [
+        TendencyFormationSupportDraft(
+            cluster_id=cluster.cluster_id,
+            directly_supports_direction=direct,
+            rationale="该事件直接显示一个独立 actor 正在推进相同工作流方向。",
+            evidence_scope="AI agent 产品和开发者工作流",
+        )
+        for cluster in clusters
+    ]
+
+
 class EmergingProvider(FakeAIProvider):
     def __init__(self) -> None:
         self.calls = 0
@@ -84,13 +100,19 @@ class EmergingProvider(FakeAIProvider):
     def evaluate_tendencies(self, clusters, current_views):
         self.calls += 1
         assert not current_views
+        chosen = clusters[:3]
         return TendencyEvaluationBatch(
             decisions=[
                 TendencyDecisionDraft(
                     standing_after=TendencyStanding.EMERGING,
                     claim="Agent competition is shifting toward real workflow integration.",
                     assessment=assessment(),
-                    supporting_cluster_ids=[cluster.cluster_id for cluster in clusters[:3]],
+                    supporting_cluster_ids=[cluster.cluster_id for cluster in chosen],
+                    formation_support=formation_support(chosen),
+                    claim_scope_supported=True,
+                    scope_alignment_rationale=(
+                        "Claim 仅覆盖这些 evidence 中的 AI agent 工作流集成。"
+                    ),
                 )
             ]
         )
@@ -110,6 +132,7 @@ class TwoClusterProvider(FakeAIProvider):
         self.exception = exception
 
     def evaluate_tendencies(self, clusters, current_views):
+        chosen = clusters[:2]
         return TendencyEvaluationBatch(
             decisions=[
                 TendencyDecisionDraft(
@@ -122,7 +145,10 @@ class TwoClusterProvider(FakeAIProvider):
                             else None
                         )
                     ),
-                    supporting_cluster_ids=[cluster.cluster_id for cluster in clusters[:2]],
+                    supporting_cluster_ids=[cluster.cluster_id for cluster in chosen],
+                    formation_support=formation_support(chosen),
+                    claim_scope_supported=True,
+                    scope_alignment_rationale="Claim 与两个输入产品的范围一致。",
                 )
             ]
         )
@@ -264,6 +290,121 @@ def test_same_agent_keyword_without_shared_mechanism_is_not_a_tendency() -> None
     )
 
     assert result.daily.decisions == []
+
+
+class ConsequenceAsFormationProvider(FakeAIProvider):
+    def evaluate_tendencies(self, clusters, current_views):
+        chosen = clusters[:3]
+        support = formation_support(chosen)
+        consequence = next(
+            cluster
+            for cluster in chosen
+            if any("rogue" in title.casefold() for title in cluster.titles)
+        )
+        support = [
+            item.model_copy(
+                update={
+                    "directly_supports_direction": False,
+                    "rationale": (
+                        "该事件只显示安全后果，没有显示另一个产品正在推进该方向。"
+                    ),
+                }
+            )
+            if item.cluster_id == consequence.cluster_id
+            else item
+            for item in support
+        ]
+        return TendencyEvaluationBatch(
+            decisions=[
+                TendencyDecisionDraft(
+                    standing_after=TendencyStanding.EMERGING,
+                    claim=(
+                        "消费级 AI 产品正在从问答工具转向直接操作用户环境的自主代理。"
+                    ),
+                    assessment=assessment(
+                        shared_mechanism="AI 产品正在把环境执行能力作为下一阶段核心能力。",
+                        observable_impacts=["一次 autonomous agent 产生安全事故。"],
+                    ),
+                    supporting_cluster_ids=[cluster.cluster_id for cluster in chosen],
+                    formation_support=support,
+                    claim_scope_supported=True,
+                    scope_alignment_rationale="模型声称范围一致，但包含开发者 runtime。",
+                )
+            ]
+        )
+
+
+class OverbroadClaimProvider(FakeAIProvider):
+    def evaluate_tendencies(self, clusters, current_views):
+        chosen = clusters[:3]
+        return TendencyEvaluationBatch(
+            decisions=[
+                TendencyDecisionDraft(
+                    standing_after=TendencyStanding.EMERGING,
+                    claim="整个消费级 AI 产品类别都在转向自主执行。",
+                    assessment=assessment(),
+                    supporting_cluster_ids=[cluster.cluster_id for cluster in chosen],
+                    formation_support=formation_support(chosen),
+                    claim_scope_supported=False,
+                    scope_alignment_rationale=(
+                        "证据只覆盖一个开发者 runtime 和一个消费产品。"
+                    ),
+                )
+            ]
+        )
+
+
+def preview_agent_formation_memories() -> list[StoryMemory]:
+    return [
+        memory(
+            date(2026, 8, 12),
+            "ollama-runtime",
+            "Ollama",
+            title="Ollama runtime adds agentic execution primitives",
+        ),
+        memory(
+            date(2026, 8, 14),
+            "chatgpt-computer-history",
+            "OpenAI",
+            title="ChatGPT introduces Computer History for executed tasks",
+        ),
+        memory(
+            date(2026, 8, 16),
+            "rogue-agent-incident",
+            "OpenAI",
+            title="Rogue autonomous agent incident exposes a safety consequence",
+        ),
+    ]
+
+
+def test_safety_consequence_cannot_pad_agent_tendency_formation_support() -> None:
+    result = evaluate_daily_tendencies(
+        current_date=date(2026, 8, 16),
+        generated_at=NOW,
+        story_memory=preview_agent_formation_memories(),
+        continuities=[],
+        history=[],
+        provider=ConsequenceAsFormationProvider(),
+        maximum_clusters=12,
+    )
+
+    assert result.daily.decisions == []
+    assert result.brief_tendencies == []
+
+
+def test_claim_scope_broader_than_agent_evidence_cannot_form_emerging() -> None:
+    result = evaluate_daily_tendencies(
+        current_date=date(2026, 8, 16),
+        generated_at=NOW,
+        story_memory=preview_agent_formation_memories(),
+        continuities=[],
+        history=[],
+        provider=OverbroadClaimProvider(),
+        maximum_clusters=12,
+    )
+
+    assert result.daily.decisions == []
+    assert result.brief_tendencies == []
 
 
 def test_persistent_standing_and_weakened_update_are_independent_dimensions() -> None:

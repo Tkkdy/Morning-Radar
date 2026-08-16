@@ -106,6 +106,8 @@ class DirectionObservation(RadarModel):
 
 class ResearchResolutionDraft(RadarModel):
     case_id: str
+    in_scope: bool = False
+    scope_rationale: str = Field(default="", max_length=1000)
     disposition: ResearchDisposition
     statement_type: StatementType
     practice_signal_kind: PracticeSignalKind | None = None
@@ -119,6 +121,13 @@ class ResearchResolutionBatch(RadarModel):
     cases: list[ResearchResolutionDraft] = Field(default_factory=list)
 
 
+class TendencyFormationSupportDraft(RadarModel):
+    cluster_id: str = Field(min_length=1)
+    directly_supports_direction: bool
+    rationale: str = Field(min_length=1, max_length=1000)
+    evidence_scope: str = Field(min_length=1, max_length=1000)
+
+
 class TendencyDecisionDraft(RadarModel):
     existing_tendency_id: str | None = None
     standing_after: TendencyStanding
@@ -127,6 +136,9 @@ class TendencyDecisionDraft(RadarModel):
     assessment: TendencyAssessment
     supporting_cluster_ids: list[str] = Field(default_factory=list)
     counterevidence_cluster_ids: list[str] = Field(default_factory=list)
+    formation_support: list[TendencyFormationSupportDraft] = Field(default_factory=list)
+    claim_scope_supported: bool = False
+    scope_alignment_rationale: str = Field(default="", max_length=1000)
 
 
 class TendencyEvaluationBatch(RadarModel):
