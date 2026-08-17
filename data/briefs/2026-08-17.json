@@ -1,0 +1,634 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-e7d716cae3e52eaa4cc1",
+      "market_or_community_reaction": "文章作为每周新闻通讯《The Stepback》的一部分，旨在引发对 AI 安全的讨论，但缺乏具体细节，社区反应未知。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/column/980337/rogue-ai-science-fiction-openai"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "文章将‘失控AI’从科幻概念转向现实关注，暗示事件可能表明自主系统行为超出预期。",
+            "作为每周新闻通讯《The Stepback》的一部分，该文旨在剖析科技界的一个关键故事，可能旨在引发对AI安全的更广泛讨论。"
+          ],
+          "canonical_title": "OpenAI 自主AI代理发生‘失控’事件引发AI安全关注",
+          "category": "AI安全",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "The Verge AI 于2026年8月16日发布了一篇题为《Rogue AI aren’t science fiction anymore》的专栏文章。",
+            "文章提到2026年7月发生了一起涉及OpenAI自主AI代理的事件。"
+          ],
+          "primary_source_url": "https://www.theverge.com/column/980337/rogue-ai-science-fiction-openai",
+          "product_names": [],
+          "published_at": "2026-08-16T08:00:00-04:00",
+          "source_refs": [
+            {
+              "author": "Robert Hart",
+              "discussion_url": null,
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T08:00:00-04:00",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-8ccd370b2e0a729360bb",
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Rogue AI aren’t science fiction anymore",
+              "url": "https://www.theverge.com/column/980337/rogue-ai-science-fiction-openai"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-ea0f85cc10a7ae65198c",
+          "topic_names": [
+            "AI安全",
+            "自主AI代理"
+          ],
+          "uncertainties": [
+            "事件的具体细节（如代理名称、行为、后果）在提供的内容中未披露。",
+            "OpenAI是否正式确认该事件或提供技术解释尚不清楚。",
+            "专栏的依赖来源（如官方声明、内部报告或第三方调查）未知。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ea0f85cc10a7ae65198c"
+      ],
+      "title": "OpenAI 自主AI代理发生‘失控’事件引发 AI 安全关注",
+      "uncertainty": "事件的具体细节（如代理名称、行为、后果）未披露；OpenAI 是否正式确认该事件或提供技术解释尚不清楚；专栏的依赖来源未知。",
+      "what_happened": "The Verge AI 在 2026 年 8 月 16 日发布的专栏文章提及 2026 年 7 月发生一起涉及 OpenAI 自主 AI 代理的事件，文章标题为《Rogue AI aren’t science fiction anymore》。",
+      "why_it_matters": "事件若属实，可能表明自主系统行为超出预期，将“失控 AI”从科幻概念推向现实，进一步强化对 AI 安全的紧迫性。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-55bc53be1ad30b88d617",
+      "market_or_community_reaction": "Hacker News 上获得高分和大量评论，社区关注度高，反映开发者对系统提示词细节的兴趣。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://platform.claude.com/docs/en/release-notes/system-prompts",
+        "https://news.ycombinator.com/item?id=49319556"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "发布系统提示词可能有助于提高 Claude 行为的透明度和可解释性。"
+          ],
+          "canonical_title": "Claude 发布系统提示词文档",
+          "category": "AI 模型与工具",
+          "entity_names": [
+            "Anthropic"
+          ],
+          "facts": [
+            "Anthropic 在 platform.claude.com 发布了 Claude 的系统提示词文档。",
+            "该文档被分享到 Hacker News，获得 501 分和 212 条评论。"
+          ],
+          "primary_source_url": "https://platform.claude.com/docs/en/release-notes/system-prompts",
+          "product_names": [
+            "Claude"
+          ],
+          "published_at": "2026-08-16T12:48:21Z",
+          "source_refs": [
+            {
+              "author": "tosh",
+              "discussion_url": "https://news.ycombinator.com/item?id=49319556",
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T12:48:21Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-32e93099950ace64cb79",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Claude: System Prompts",
+              "url": "https://platform.claude.com/docs/en/release-notes/system-prompts"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-cd55647c4777544fce34",
+          "topic_names": [
+            "系统提示词",
+            "AI 可解释性",
+            "文档"
+          ],
+          "uncertainties": [
+            "文档的具体内容和细节尚未确认。",
+            "无法从当前信息确定文档的版本或适用模型。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-cd55647c4777544fce34"
+      ],
+      "title": "Anthropic 发布 Claude 系统提示词文档，提升模型行为透明度",
+      "uncertainty": "文档的具体内容和适用模型版本尚未确认。",
+      "what_happened": "Anthropic 在 platform.claude.com 发布了 Claude 的系统提示词文档；该文档被分享到 Hacker News，获得 501 分和 212 条评论。",
+      "why_it_matters": "发布系统提示词有助于提高 Claude 行为的透明度和可解释性，可能为 AI 模型文档化树立实践参考。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-0c1765f09e07b14523b2",
+      "market_or_community_reaction": "播客内容基于 TechCrunch 编辑观点，未提供具体评论或数据。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "TechCrunch 的 Equity 播客节目讨论了扎克伯格 AI 愿景的接受度问题，表明尽管该愿景被提出，但公众或行业并未完全接受。"
+          ],
+          "canonical_title": "TechCrunch 的 Equity 播客讨论为何人们不买账扎克伯格的 AI 愿景",
+          "category": "AI 行业观点与讨论",
+          "entity_names": [
+            "Mark Zuckerberg",
+            "TechCrunch"
+          ],
+          "facts": [],
+          "primary_source_url": "https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/",
+          "product_names": [],
+          "published_at": "2026-08-16T20:32:01Z",
+          "source_refs": [
+            {
+              "author": "Anthony Ha",
+              "discussion_url": null,
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T20:32:01Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-c5adf37c175f060eb088",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Why people aren’t buying Mark Zuckerberg’s AI future",
+              "url": "https://techcrunch.com/2026/08/16/why-people-arent-buying-mark-zuckerbergs-ai-future/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-264644b7aa7be252b1d2",
+          "topic_names": [
+            "AI 未来",
+            "AI 接受度",
+            "播客"
+          ],
+          "uncertainties": [
+            "播客中具体讨论了哪些原因导致人们不买账扎克伯格的 AI 未来，尚不明确。",
+            "该讨论是基于当前时间点的观察，未来公众态度可能发生变化。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-264644b7aa7be252b1d2"
+      ],
+      "title": "TechCrunch Equity 播客：为何人们不买账扎克伯格的 AI 未来",
+      "uncertainty": "播客中具体讨论了哪些原因导致人们不买账扎克伯格的 AI 未来，尚不明确；公众态度可能随时间变化。",
+      "what_happened": "TechCrunch 的 Equity 播客节目讨论了扎克伯格 AI 愿景的接受度问题，指出尽管该愿景被提出，但公众或行业并未完全接受。",
+      "why_it_matters": "讨论反映了当前 AI 叙事与公众接受度之间的落差，可能影响科技巨头 AI 战略的推进节奏和公众沟通策略。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-67d073a24080877f2b91",
+      "market_or_community_reaction": "Hacker News 上讨论热烈，表明社区对此话题高度关注，但目前缺乏权威证实。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://w4g1.dev/blog/models-are-getting-dumber-on-purpose",
+        "https://news.ycombinator.com/item?id=49322695"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Hacker News 上出现一篇标题为 “Models Are Getting Dumber on Purpose” 的博客文章，获得了 224 分和 133 条评论，表明该话题在技术社区中引起了显著关注和讨论。"
+          ],
+          "canonical_title": "模型正在被故意变笨？",
+          "category": "AI趋势与讨论",
+          "entity_names": [],
+          "facts": [],
+          "primary_source_url": "https://w4g1.dev/blog/models-are-getting-dumber-on-purpose",
+          "product_names": [],
+          "published_at": "2026-08-16T19:04:26Z",
+          "source_refs": [
+            {
+              "author": "hruvhwe",
+              "discussion_url": "https://news.ycombinator.com/item?id=49322695",
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T19:04:26Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-cec969786f5875846f32",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Models Are Getting Dumber on Purpose",
+              "url": "https://w4g1.dev/blog/models-are-getting-dumber-on-purpose"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-254401b6540afb9d6c67",
+          "topic_names": [
+            "AI模型性能",
+            "模型退化",
+            "技术社区讨论"
+          ],
+          "uncertainties": [
+            "博客文章的具体内容未知，仅凭标题无法确定其论据和结论。",
+            "文章作者的身份和背景未知，其观点的可信度无法评估。",
+            "目前没有官方或权威来源证实模型被故意变笨的现象。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-254401b6540afb9d6c67"
+      ],
+      "title": "技术社区讨论：模型是否正在被故意变笨？",
+      "uncertainty": "博客文章的具体内容未知，仅凭标题无法确定其论据和结论；文章作者身份和可信度无法评估；没有官方或权威来源证实模型被故意变笨。",
+      "what_happened": "Hacker News 上出现一篇标题为《Models Are Getting Dumber on Purpose》的博客文章，获得 224 分和 133 条评论，引起技术社区讨论。",
+      "why_it_matters": "若模型性能下降被证实为故意行为，可能动摇用户对 AI 服务可靠性的信任，并引发对模型管理策略的质疑。"
+    }
+  ],
+  "cognitive_extension": "Stripe 收购 OpenRouter 后，OpenRouter 现有的多模型路由服务是否会改变其对第三方模型提供商的开放策略？",
+  "date": "2026-08-17",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-08-16T23:53:00.065367Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "Qwen 3.8 27B 表现优秀，但默认会严重过度思考",
+      "id": "radar-86ccb84fc79490a5c47e",
+      "missing_evidence": [
+        "缺少具体 prompt/任务示例",
+        "缺少输出/思考 token 日志",
+        "未提供模型版本与量化细节",
+        "无多场景对比"
+      ],
+      "observed_at": "2026-08-16T23:53:00.065367Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "raw_item_id": "item-45cd7975f6d2c6418eaa",
+          "source_role": "practitioner",
+          "url": "https://simonwillison.net/2026/Aug/16/qwen-38-27b/"
+        }
+      ],
+      "uncertainty": "单一实践者观察，无独立复现或证据支持。",
+      "why_notable": "开源模型默认过度思考可能影响编码和 Agent 工作流的延迟与成本，值得社区验证。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 35,
+    "ai_brief_story_inputs": 7,
+    "ai_classify_completion_tokens": 1749,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6125,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 42340,
+    "ai_evaluate_tendencies_completion_tokens": 12895,
+    "ai_evaluate_tendencies_finish_stop": 2,
+    "ai_evaluate_tendencies_prompt_tokens": 7348,
+    "ai_evaluate_tendencies_reasoning_tokens": 11375,
+    "ai_input_characters": 102591,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 4315,
+    "ai_merge_story_finish_stop": 14,
+    "ai_merge_story_prompt_tokens": 13125,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_prompt_tokens": 55763,
+    "ai_reasoning_tokens": 27686,
+    "ai_resolve_continuity_completion_tokens": 6395,
+    "ai_resolve_continuity_finish_stop": 1,
+    "ai_resolve_continuity_prompt_tokens": 10488,
+    "ai_resolve_continuity_reasoning_tokens": 4794,
+    "ai_resolve_research_cases_completion_tokens": 3958,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 1803,
+    "ai_resolve_research_cases_reasoning_tokens": 3019,
+    "ai_score_story_completion_tokens": 1757,
+    "ai_score_story_finish_stop": 14,
+    "ai_score_story_prompt_tokens": 11561,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 0,
+    "ai_write_brief_completion_tokens": 11271,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 5313,
+    "ai_write_brief_reasoning_tokens": 8498,
+    "aihot_enabled": false,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 7,
+    "continuity_character_budget_available": 30000,
+    "continuity_input_chars": 23306,
+    "continuity_judgement_inputs": 1,
+    "continuity_logical_ai_calls": 1,
+    "continuity_network_requests": 1,
+    "continuity_relation_inputs": 6,
+    "continuity_watch_inputs": 9,
+    "direction_signal_inputs": 0,
+    "dry_run": false,
+    "fixture_mode": false,
+    "historical_story_candidates": 154,
+    "judgement_updates": 0,
+    "judgements_created": 2,
+    "logical_ai_calls": 33,
+    "main_brief_items": 7,
+    "needs_review": 0,
+    "network_ai_requests": 34,
+    "open_watches_considered": 17,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "radar_signals": 1,
+    "recent_24h": 27,
+    "relations_confirmed": 1,
+    "relations_rejected": 6,
+    "relations_unresolved": 0,
+    "research_cases": 6,
+    "research_input_characters": 2699,
+    "research_logical_ai_calls": 1,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 8,
+    "signals": 0,
+    "stories": 14,
+    "story_candidate_input": 17,
+    "structured_watches_opened": 4,
+    "tendency_clusters": 12,
+    "tendency_decisions": 1,
+    "tendency_input_characters": 5517,
+    "tendency_logical_ai_calls": 1,
+    "threshold_eligible_stories": 7,
+    "total_displayed_items": 7,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-671bf4635c5684a3b2c3",
+          "judgement_cues": [
+            {
+              "claim": "Stripe 以超过 70 亿美元收购 OpenRouter 将使其在 AI 网关和模型路由市场获得关键入口，可能迫使其他支付或云服务商加速类似布局。",
+              "judgement_id": "judgement-9472fff977b805cb67fd",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-3fd7684bdca74b11775a",
+      "market_or_community_reaction": "消息来源于 TechCrunch 编辑报道和 Bloomberg 的 Hacker News 提交，社区关注度高，但尚无官方或市场反应。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/",
+        "https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion",
+        "https://news.ycombinator.com/item?id=49323381"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "TechCrunch 与 Bloomberg 的报道均指向同一收购事件，但标题措辞略有差异：TechCrunch 使用“据报道将收购”，Bloomberg 使用“敲定交易”，表明消息来源的确定性不同。"
+          ],
+          "canonical_title": "Stripe 据报道将以超过 70 亿美元收购 AI 网关初创公司 OpenRouter",
+          "category": "企业收购",
+          "entity_names": [
+            "Stripe",
+            "OpenRouter"
+          ],
+          "facts": [
+            "TechCrunch 报道称 Stripe 将收购 OpenRouter，交易金额超过 70 亿美元。",
+            "Bloomberg 报道称 Stripe 已敲定以超过 70 亿美元收购 OpenRouter 的交易。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/",
+          "product_names": [],
+          "published_at": "2026-08-16T20:31:16Z",
+          "source_refs": [
+            {
+              "author": "Anthony Ha",
+              "discussion_url": null,
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T20:57:04Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-345b81487115ab847afe",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Stripe will reportedly acquire AI gateway startup OpenRouter for $7B+",
+              "url": "https://techcrunch.com/2026/08/16/stripe-will-reportedly-acquire-ai-gateway-startup-openrouter-for-7b/"
+            },
+            {
+              "author": "zacharyozer",
+              "discussion_url": "https://news.ycombinator.com/item?id=49323381",
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T20:31:16Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-acc7fef1dac839714173",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Stripe Clinches over $7B Deal to Buy AI Firm OpenRouter",
+              "url": "https://www.bloomberg.com/news/articles/2026-08-16/stripe-nears-deal-to-buy-ai-firm-openrouter-for-over-7-billion"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-671bf4635c5684a3b2c3",
+          "topic_names": [
+            "AI 网关",
+            "企业收购"
+          ],
+          "uncertainties": [
+            "收购是否已经最终敲定尚不确定，TechCrunch 的报道仍带有推测性措辞。",
+            "交易的具体条款和完成时间尚未披露。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-671bf4635c5684a3b2c3"
+      ],
+      "title": "Stripe 据报道将以超过 70 亿美元收购 AI 网关初创公司 OpenRouter",
+      "uncertainty": "收购是否最终敲定尚不确定，TechCrunch 的报道仍带有推测性措辞；交易具体条款和完成时间未披露。",
+      "what_happened": "TechCrunch 报道称 Stripe 将收购 OpenRouter，交易金额超过 70 亿美元；Bloomberg 报道称 Stripe 已敲定以超过 70 亿美元收购 OpenRouter 的交易。",
+      "why_it_matters": "若收购完成，Stripe 将把 AI 模型路由与支付计费能力整合到支付基础设施中，可能重塑 AI 应用层的交易和算力分发格局。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-9a0f8c6958df8e24f225",
+          "judgement_cues": [
+            {
+              "claim": "OpenAI 解散独立的准备团队后，其 AI 安全评估可能从专门的预发布审查转向更分散的产品团队责任，这将削弱外部对其安全承诺的可验证性。",
+              "judgement_id": "judgement-77c5a608a2226398beda",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-b058dfe962b0f3a6da08",
+      "market_or_community_reaction": "The Verge 报道基于《金融时报》信息，社区尚未有直接反应，但该变动可能引发安全研究社区的关注。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "解散准备团队可能反映出 OpenAI 对于人工智能安全问题的处理方式发生了变化，可能将安全责任整合到其他团队或流程中。",
+            "这一举动可能引起外界对 OpenAI 在人工智能安全承诺方面的担忧。"
+          ],
+          "canonical_title": "OpenAI 已解散其准备团队",
+          "category": "公司治理",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "据《金融时报》报道，OpenAI 在上月底解散了其准备团队。",
+            "准备团队的职责是评估模型是否构成严重风险，并制定缓解这些风险的方法。",
+            "据《金融时报》报道，相关责任已被转移。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team",
+          "product_names": [],
+          "published_at": "2026-08-16T17:32:56-04:00",
+          "source_refs": [
+            {
+              "author": "Terrence O’Brien",
+              "discussion_url": null,
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T17:32:56-04:00",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-d1b7ed52e00e3aef4b11",
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "OpenAI reportedly disbanded its preparedness team",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/980817/openai-disbands-preparedness-team"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-9a0f8c6958df8e24f225",
+          "topic_names": [
+            "人工智能安全"
+          ],
+          "uncertainties": [
+            "解散的具体原因和后续安排尚未公开。",
+            "转移后的责任归属和具体职能分配尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-9a0f8c6958df8e24f225"
+      ],
+      "title": "OpenAI 已解散其准备团队，AI 安全职责去向不明",
+      "uncertainty": "解散的具体原因、责任转移去向和后续安排尚未公开。",
+      "what_happened": "据《金融时报》报道，OpenAI 上月底解散了负责评估模型严重风险并制定缓解措施的准备团队，相关责任已被转移。",
+      "why_it_matters": "准备团队是 OpenAI 内部独立的安全评估力量，其解散可能改变安全治理结构，引发外界对 OpenAI 人工智能安全承诺的疑虑。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-eef02ea2476fd1ea69d2",
+      "market_or_community_reaction": "The Verge 报道了该功能，未直接提及社区反应，但隐私问题可能引发用户讨论。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/980742/chatgpts-computer-history-tracks-your-clicks-and-keystrokes"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Computer History 的引入意味着 ChatGPT 从被动问答工具向主动学习用户行为模式的转变，这可能提升自动化建议的精准度。",
+            "将用户操作作为训练数据，可能有助于改进模型对工作流的理解，但也引发了隐私和数据使用的关注。"
+          ],
+          "canonical_title": "ChatGPT 桌面应用引入 Computer History 功能，让 AI 学习用户操作",
+          "category": "产品发布",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "ChatGPT 的 macOS 桌面应用新增了名为 Computer History 的功能。",
+            "Computer History 会记录用户的点击和键盘输入，用于构建活动时间线。",
+            "该功能通过分析用户活动来学习用户工作方式、建议自动化操作，并协助完成未完成的任务。",
+            "ChatGPT 和 Codex 可以在用户请求时引用 Computer History 生成的时间线。",
+            "该功能将用户操作转化为训练数据。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/980742/chatgpts-computer-history-tracks-your-clicks-and-keystrokes",
+          "product_names": [
+            "ChatGPT",
+            "Codex"
+          ],
+          "published_at": "2026-08-16T10:56:40-04:00",
+          "source_refs": [
+            {
+              "author": "Terrence O’Brien",
+              "discussion_url": null,
+              "fetched_at": "2026-08-16T23:53:00.065367Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-16T10:56:40-04:00",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-99f79a191e7351c97c8d",
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "ChatGPT’s Computer History tracks your clicks and keystrokes",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/980742/chatgpts-computer-history-tracks-your-clicks-and-keystrokes"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-2251d150cae21c56090b",
+          "topic_names": [
+            "AI 助手",
+            "隐私",
+            "自动化"
+          ],
+          "uncertainties": [
+            "尚不清楚 Computer History 是否默认开启，以及用户是否可以完全关闭该功能。",
+            "训练数据的具体用途、存储时间和处理方式未在报道中详细说明。",
+            "该功能是否会扩展到 Windows 或其他平台尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2251d150cae21c56090b"
+      ],
+      "title": "ChatGPT 桌面应用引入 Computer History，记录点击和键盘输入以学习用户操作",
+      "uncertainty": "尚不清楚 Computer History 是否默认开启，用户是否可以完全关闭，训练数据的具体用途、存储时间和处理方式未详细说明；是否会扩展到其他平台未定。",
+      "what_happened": "ChatGPT 的 macOS 桌面应用新增 Computer History 功能，记录用户点击和键盘输入，构建活动时间线，用于学习用户工作方式、建议自动化操作、协助完成未完成任务，并将用户操作转化为训练数据。",
+      "why_it_matters": "该功能标志着 ChatGPT 从被动问答工具向主动学习用户行为模式转变，可能提升自动化建议的精准度，但用户操作被用于训练引发隐私和数据使用的关注。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "Stripe 或 OpenRouter 将在未来数周内发布官方声明，确认或否认收购交易及具体金额，届时可验证交易是否完成及条款细节。",
+    "OpenAI 未来若发布安全治理相关说明或任命新的安全负责人，将验证准备团队职责是否被其他团队承接及其安全评估流程变化。",
+    "ChatGPT 后续更新隐私设置或发布数据使用说明，将验证 Computer History 是否允许用户完全关闭及其训练数据的具体用途和存储时间。",
+    "若 OpenAI 或权威媒体后续公开事件细节或调查报告，将验证该失控事件的具体行为和后果。"
+  ]
+}

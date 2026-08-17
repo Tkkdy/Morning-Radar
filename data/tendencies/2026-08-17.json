@@ -1,0 +1,61 @@
+{
+  "date": "2026-08-17",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在本次证据之前，OpenAI 的代理工具缺乏不依赖真实供应商请求的确定性测试手段，ChatGPT 桌面应用也未提供记录用户操作历史并据此建议自动化的功能；代理能力主要停留在对话式交互和手动触发，未形成从测试到行为学习的闭环。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅有两个独立事件簇直接支撑该方向，且二者均来自 OpenAI，未满足 Emerging 通常所需的约三个独立证据簇或两簇例外中不同 actors 的要求；但共享机制清晰，已涉及真实产品变更与工作流影响，因此以 Candidate 保留内部观察。其他簇（如 Stripe/OpenRouter 收购、Anthropic 系统提示、AI 安全事件等）属于主题相邻或评论/安全后果，不构成对同一机制的独立结构性支撑，故未纳入 supporting_cluster_ids。",
+        "falsifier": "如果 openai-agents-python 的确定性测试工具未被开发者广泛采用或很快被弃用，且 ChatGPT Computer History 未导出任何实际的自动化建议或自动化执行能力，或者 OpenAI 后续产品路线转向纯聊天交互而不再投入代理行动能力，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者获得确定性测试工具，降低 Agent、Realtime、Voice 工作流的调试成本，无需真实供应商请求即可验证。",
+          "ChatGPT macOS 用户的操作行为被系统记录并用于建议自动化、协助完成未完成任务，改变用户与 AI 的交互方式。",
+          "OpenAI 的代理能力在开发端和消费端同时推进，形成从可测试、可验证到可学习、可执行的闭环。"
+        ],
+        "shared_mechanism": "OpenAI 正在构建一套从开发测试到用户行为学习的代理能力基础设施：开发者侧通过 openai-agents-python 的确定性测试工具，使 Agent、Sandbox、Realtime、Voice 工作流无需供应商请求即可验证；消费者侧通过 ChatGPT macOS 的 Computer History 捕获用户点击和键盘输入，学习工作方式并建议自动化。两者共同推动 AI 代理从单次对话响应转向可验证、可学习的主动行动执行。"
+      },
+      "claim": "OpenAI 正在持续推进 AI 代理从被动对话向主动执行用户工作流演进：openai-agents-python 发布 v0.21.x，增加确定性测试工具以支撑可验证的代理工作流；ChatGPT macOS 应用新增 Computer History，通过记录用户点击与键盘输入来学习工作方式并建议自动化。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-16",
+            "story_id": "story-78ad6a0748283d4ea99e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-17",
+            "story_id": "story-ae9174b7d84269101c96"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-17",
+            "story_id": "story-2251d150cae21c56090b"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-6c100ffe799defc000fa",
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-0e6f8edf3283c69fab42",
+        "cluster-96b5636a16ea1a2cacf1"
+      ],
+      "tendency_id": "tendency-af451644be30ca5a0609",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-16T23:53:00.065367Z"
+}

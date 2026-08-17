@@ -1,0 +1,177 @@
+{
+  "date": "2026-08-17",
+  "generated_at": "2026-08-16T23:53:00.065367Z",
+  "judgements": [
+    {
+      "claim": "Stripe 以超过 70 亿美元收购 OpenRouter 将使其在 AI 网关和模型路由市场获得关键入口，可能迫使其他支付或云服务商加速类似布局。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-17",
+            "story_id": "story-671bf4635c5684a3b2c3"
+          }
+        }
+      ],
+      "judgement_id": "judgement-9472fff977b805cb67fd",
+      "rationale": "Stripe 作为支付基础设施巨头，收购 OpenRouter 可直接整合 AI 模型调用计费与路由能力，切入快速增长的 AI 应用层交易流。",
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "root_judgement_id": "judgement-9472fff977b805cb67fd",
+      "uncertainty": "收购尚未最终确认，且 OpenRouter 的运营独立性和市场竞争影响需后续观察。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    },
+    {
+      "claim": "OpenAI 解散独立的准备团队后，其 AI 安全评估可能从专门的预发布审查转向更分散的产品团队责任，这将削弱外部对其安全承诺的可验证性。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-17",
+            "story_id": "story-9a0f8c6958df8e24f225"
+          }
+        }
+      ],
+      "judgement_id": "judgement-77c5a608a2226398beda",
+      "rationale": "准备团队原本负责评估模型严重风险并制定缓解措施，其解散且责任转移意味着安全审查流程和独立性可能发生实质性变化。",
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "root_judgement_id": "judgement-77c5a608a2226398beda",
+      "uncertainty": "解散原因和责任归属尚未公开，无法确定安全标准是否降低。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "openai agents python 从“OpenAI Agents Python v0.21.0 发布”推进到“openai-agents-python v0.21.1 发布”。",
+      "current_story": {
+        "date": "2026-08-17",
+        "story_id": "story-ae9174b7d84269101c96"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-16",
+            "story_id": "story-78ad6a0748283d4ea99e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-17",
+            "story_id": "story-ae9174b7d84269101c96"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-16",
+        "story_id": "story-78ad6a0748283d4ea99e"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "relation_id": "relation-4f42278d69d36dd7a772",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Stripe",
+        "OpenRouter"
+      ],
+      "event_type": "opened",
+      "expectation": "Stripe 或 OpenRouter 将在未来数周内发布官方声明，确认或否认收购交易及具体金额，届时可验证交易是否完成及条款细节。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-17",
+          "story_id": "story-671bf4635c5684a3b2c3"
+        }
+      ],
+      "topic_anchors": [
+        "AI 网关",
+        "企业收购"
+      ],
+      "watch_id": "watch-cfa48098d2c200abd32a"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "OpenAI 未来若发布安全治理相关说明或任命新的安全负责人，将验证准备团队职责是否被其他团队承接及其安全评估流程变化。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-17",
+          "story_id": "story-9a0f8c6958df8e24f225"
+        }
+      ],
+      "topic_anchors": [
+        "人工智能安全"
+      ],
+      "watch_id": "watch-3c63a3eb422445093851"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "ChatGPT 后续更新隐私设置或发布数据使用说明，将验证 Computer History 是否允许用户完全关闭及其训练数据的具体用途和存储时间。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ChatGPT",
+        "Codex"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-17",
+          "story_id": "story-2251d150cae21c56090b"
+        }
+      ],
+      "topic_anchors": [
+        "AI 助手",
+        "隐私",
+        "自动化"
+      ],
+      "watch_id": "watch-d493951d9fe15f2b4af2"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "若 OpenAI 或权威媒体后续公开事件细节或调查报告，将验证该失控事件的具体行为和后果。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-16T23:53:00.065367Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-17",
+          "story_id": "story-ea0f85cc10a7ae65198c"
+        }
+      ],
+      "topic_anchors": [
+        "AI安全",
+        "自主AI代理"
+      ],
+      "watch_id": "watch-69943c291c2367d0220d"
+    }
+  ]
+}

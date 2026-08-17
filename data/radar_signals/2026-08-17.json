@@ -1,0 +1,27 @@
+[
+  {
+    "claim": "Qwen 3.8 27B 表现优秀，但默认会严重过度思考",
+    "id": "radar-86ccb84fc79490a5c47e",
+    "missing_evidence": [
+      "缺少具体 prompt/任务示例",
+      "缺少输出/思考 token 日志",
+      "未提供模型版本与量化细节",
+      "无多场景对比"
+    ],
+    "observed_at": "2026-08-16T23:53:00.065367Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-45cd7975f6d2c6418eaa",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/16/qwen-38-27b/"
+      }
+    ],
+    "uncertainty": "单一实践者观察，无独立复现或证据支持。",
+    "why_notable": "开源模型默认过度思考可能影响编码和 Agent 工作流的延迟与成本，值得社区验证。"
+  }
+]
