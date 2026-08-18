@@ -1,0 +1,176 @@
+{
+  "date": "2026-08-18",
+  "generated_at": "2026-08-17T23:55:34.297141Z",
+  "judgements": [
+    {
+      "claim": "Nvidia 正在通过与 SpaceX 和 SoftBank 数据中心开发商的双重投资，将自身芯片锁定为下一代 AI 数据中心的基础设施供应商。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-18",
+            "story_id": "story-c64441733c5b0c5119a5"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-18",
+            "story_id": "story-d7e8bd0ce131589b7d71"
+          }
+        }
+      ],
+      "judgement_id": "judgement-a881276bd6c66fa85e96",
+      "rationale": "同日披露的两笔投资分别涉及 210 亿美元 SpaceX 股份和 15 亿美元 SoftBank 数据中心开发商投资，后者明确确保 Nvidia 芯片为 OpenAI 数据中心提供支持。",
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "root_judgement_id": "judgement-a881276bd6c66fa85e96",
+      "uncertainty": "两笔投资的具体条款和长期战略约束尚未完整披露，后续执行情况可能改变判断。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "从 v3.1.0 的 WebSocket stream IDs 等功能，演进到 v3.2.0 新增 Bedrock Runtime 端点支持、Shell 调用流事件及新服务/图像类型。",
+      "current_story": {
+        "date": "2026-08-18",
+        "story_id": "story-7b3491bc7090ee5623d9"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2
+          ],
+          "story": {
+            "date": "2026-08-18",
+            "story_id": "story-7b3491bc7090ee5623d9"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-15",
+        "story_id": "story-2d871cc6faeb6f13a87c"
+      },
+      "rationale": "这是 openai/openai-python 仓库的连续小版本发布：v3.1.0 于 2026-08-14 发布，v3.2.0 于 2026-08-17 发布，facts 中明确列出从 v3.1.0 到 v3.2.0 的版本递进和新增功能。",
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "relation_id": "relation-f54afae9ebf30ef18ef0",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "未来几周观察 openai-python 的后续版本、发布说明或文档是否明确新增的服务/图像类型名称，并提供 Bedrock Runtime 端点调用的使用示例。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "openai-python"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-18",
+          "story_id": "story-7b3491bc7090ee5623d9"
+        }
+      ],
+      "topic_anchors": [
+        "AI SDK",
+        "Bedrock",
+        "Shell调用"
+      ],
+      "watch_id": "watch-4108f81afcd79f095789"
+    },
+    {
+      "entity_anchors": [
+        "Nvidia",
+        "SpaceX"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Nvidia 或 SpaceX 是否在未来几个月披露 SpaceX 数据中心装备合作的更多规格或合同细节。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-18",
+          "story_id": "story-c64441733c5b0c5119a5"
+        }
+      ],
+      "topic_anchors": [
+        "投资",
+        "太空科技",
+        "数据中心"
+      ],
+      "watch_id": "watch-71da8f2ad6335ea47cfa"
+    },
+    {
+      "entity_anchors": [
+        "Nvidia",
+        "SoftBank",
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 SoftBank 数据中心开发商是否公布 OpenAI 数据中心的建设进度或 Nvidia 芯片采购订单。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-18",
+          "story_id": "story-d7e8bd0ce131589b7d71"
+        }
+      ],
+      "topic_anchors": [
+        "数据中心",
+        "AI芯片",
+        "投资"
+      ],
+      "watch_id": "watch-15393b65928af52ed193"
+    },
+    {
+      "entity_anchors": [
+        "DuckDB"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 DuckDB 是否在后续发布正式 v2.0 版本，并公开性能基准或特性变更列表。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "DuckDB v2.0"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-18",
+          "story_id": "story-9d32226787c5edab201d"
+        }
+      ],
+      "topic_anchors": [
+        "数据库",
+        "分析型数据库",
+        "版本发布"
+      ],
+      "watch_id": "watch-acf933279fcc528b9749"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "claim": "我们追踪了一批珍本书的运输，最终抵达亚马逊的 AI 训练设施。",
+    "id": "radar-2fcd1686e1fe19cc4064",
+    "missing_evidence": [
+      "运输追踪的原始单据或完整报告",
+      "亚马逊或相关方的回应确认",
+      "这些书籍是否实际被用于 AI 训练或数据处理",
+      "训练数据类型与用途"
+    ],
+    "observed_at": "2026-08-17T23:55:34.297141Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-80605906fea60f1ed8c1",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/17/we-tracked-a-shipment-of-rare-books-it-ended-at-an-amazon-ai-tra/"
+      }
+    ],
+    "uncertainty": "仅有 Simon Willison 博客标题，未提供正文或独立佐证，事实仍待核实。",
+    "why_notable": "若属实，可揭示 AI 训练数据的物理采购/数据供应链及版权争议，属于 AI 训练数据治理的重要信号。"
+  }
+]

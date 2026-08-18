@@ -1,0 +1,88 @@
+{
+  "date": "2026-08-18",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v3.0.0 之前，openai-python 默认 HTTP 客户端为旧实现，未提供 Bedrock Runtime 端点支持，流事件与 WebSocket 流 ID 也缺乏相关能力；开发者主要将其作为 OpenAI 专用 API 客户端使用。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "该证据簇由同一产品的多个版本发布组成，虽包含多篇来源，但按事件边界只计一个独立簇。共享机制清晰且直接表现为产品架构与工作流的实质变化，但尚缺乏来自其他 actor 或独立场景的跨事件支撑，不足以达到 Emerging，故保留为 Candidate。",
+        "falsifier": "如果 openai-python 后续版本撤回 HTTPX2 默认或移除 Bedrock Runtime 支持，或者社区/企业使用数据表明这些能力极少被采用且 SDK 仍主要作为 OpenAI API 薄封装，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者需要适配 v3.0.0 的 HTTP 客户端破坏性变更，影响现有 Python 应用的升级路径。",
+          "使用 OpenAI SDK 的开发者可以直接调用 Amazon Bedrock Runtime 端点，扩展了 SDK 的部署场景。",
+          "WebSocket 流 ID 与 Shell 调用流事件提升流式交互的可观测性与调试能力。"
+        ],
+        "shared_mechanism": "OpenAI 正在将官方 openai-python SDK 从一个仅封装 OpenAI API 的客户端，演进为支持多运行时和多提供商的通用 AI 运行时客户端：v3.0.0 默认迁移到 HTTPX2 改变底层 HTTP 栈，v3.1.0 增加 WebSocket 流 ID，v3.2.0 增加 Amazon Bedrock Runtime 端点与 Shell 调用流事件。这些变更共同指向 SDK 架构向模块化、可观测、多后端方向演进，而不仅是常规功能追加。"
+      },
+      "claim": "OpenAI 正在将官方 openai-python SDK 从单一 OpenAI API 客户端演进为支持 HTTPX2 与 Amazon Bedrock Runtime 的多运行时客户端，并增强 WebSocket/Shell 流事件等可观测能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-04",
+            "story_id": "story-a757d0be965abf76e6e7"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-04",
+            "story_id": "story-cc1bf4cabe1c87db825b"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-12",
+            "story_id": "story-7bc5bcc9615783368091"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-12",
+            "story_id": "story-f5656f880a798b00bfae"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-f5656f880a798b00bfae"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-2d871cc6faeb6f13a87c"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-18",
+            "story_id": "story-7b3491bc7090ee5623d9"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-c2434946c226a27b4908",
+      "recorded_at": "2026-08-17T23:55:34.297141Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-cf02b56d3a64db118c4e"
+      ],
+      "tendency_id": "tendency-ca9547f23f47baf824c6",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-17T23:55:34.297141Z"
+}
