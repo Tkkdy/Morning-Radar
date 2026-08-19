@@ -1,0 +1,46 @@
+{
+  "date": "2026-08-19",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v3.0.0 之前，openai-python 默认 HTTP 客户端为旧实现，未提供 Bedrock Runtime 端点支持，也缺乏命名数据驻留端点与 WebSocket 流 ID 等能力；开发者主要将其作为 OpenAI 专用 API 客户端使用。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 v3.3.0 发布构成独立事件边界，但仍是同一 actor（OpenAI）同一产品（openai-python）的版本演进；虽强化了架构方向，但缺乏其他 actor 或产品独立支撑，不足以上升为 Emerging，故保持 Candidate 并修订 claim 以纳入命名数据驻留端点。",
+        "falsifier": "如果 openai-python 后续版本撤回 HTTPX2 默认或移除 Amazon Bedrock Runtime 支持，或命名数据驻留端点被撤回且企业采用率极低，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者需要适配 v3.0.0 的 HTTP 客户端破坏性变更，影响现有 Python 应用的升级路径。",
+          "使用 OpenAI SDK 的开发者可以调用 Amazon Bedrock Runtime 端点，并可通过命名数据驻留端点将请求路由到指定区域，扩展合规部署场景。",
+          "WebSocket 流 ID 与 Shell 调用流事件提升流式交互的可观测性与调试能力。"
+        ],
+        "shared_mechanism": "OpenAI 官方 openai-python SDK 正在从单一 OpenAI API 客户端向多后端、企业合规、可观测的通用 Python 客户端演进：v3.0.0 默认迁移到 HTTPX2 改变底层 HTTP 栈，v3.1.0 增加 WebSocket 流 ID，v3.2.0 增加 Amazon Bedrock Runtime 端点与 Shell 调用流事件，v3.3.0 增加命名数据驻留端点。这些变更共同推动 SDK 架构向模块化、可观测、多端点方向演进，而非普通功能追加。"
+      },
+      "claim": "OpenAI 正在将官方 openai-python SDK 从单一 OpenAI API 客户端演进为支持 HTTPX2、Amazon Bedrock Runtime 与命名数据驻留端点的多后端、企业级 Python 客户端，并增强 WebSocket/Shell 流事件可观测能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-19",
+            "story_id": "story-63d43840894a31775a69"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-c2434946c226a27b4908",
+      "record_id": "tendency-record-8f9c5778797b5b098ae3",
+      "recorded_at": "2026-08-18T23:55:05.688738Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e5ce0cfae13cf33bd9d7"
+      ],
+      "tendency_id": "tendency-ca9547f23f47baf824c6",
+      "update_kind": "revised"
+    }
+  ],
+  "generated_at": "2026-08-18T23:55:05.688738Z"
+}

@@ -1,0 +1,75 @@
+[
+  {
+    "claim": "Mojo🔥 现已开源。",
+    "id": "radar-c1039ad570b1314211cc",
+    "missing_evidence": [
+      "缺少官方开源公告或代码仓库地址",
+      "缺少许可证和开源范围说明",
+      "缺少发布日期或版本细节",
+      "缺少独立于个人博客的佐证"
+    ],
+    "observed_at": "2026-08-18T23:55:05.688738Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-74b7cfe17cd9d5144379",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/18/mojo-is-now-open-source/"
+      }
+    ],
+    "uncertainty": "来源仅为 Simon Willison 的个人观察，supplied evidence 中无引用或原文，无法独立验证。",
+    "why_notable": "若属实，Mojo 开源可能降低 AI 系统开发门槛并改变 AI 编程语言竞争格局。"
+  },
+  {
+    "claim": "Qwen 3.8 27B 在 Artificial Analysis 智能指数中得分为 52。",
+    "id": "radar-b8f7bb77d6669849657e",
+    "missing_evidence": [
+      "缺少 Artificial Analysis 原始页面或截图",
+      "缺少测试设置、对比模型与时间",
+      "缺少 Qwen 官方或基准方确认"
+    ],
+    "observed_at": "2026-08-18T23:55:05.688738Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-4fdeab7a66fc6733dfa4",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/17/qwen-38-27b-scores-52/"
+      }
+    ],
+    "uncertainty": "仅凭 Simon Willison 个人博客条目，无法确认分数计算口径。",
+    "why_notable": "若真实，这一基准分数可反映 Qwen 3.8 27B 在开源模型中的相对能力。"
+  },
+  {
+    "claim": "Google 收购了已倒闭的美国航空公司 Spirit 的数据。",
+    "id": "radar-ac04bb3d48c851419596",
+    "missing_evidence": [
+      "缺少交易细节和用途说明",
+      "缺少声明数据用于 AI 的证据",
+      "缺少 Google 官方或可靠二手确认"
+    ],
+    "observed_at": "2026-08-18T23:55:05.688738Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-a066bfa1a9a7e2b28385",
+        "source_role": "community_discovery",
+        "url": "https://www.theregister.com/ai-and-ml/2026/08/18/google-buys-crashed-airline-spirits-data-at-auction-because-ai/5288962"
+      }
+    ],
+    "uncertainty": "仅有社区发现线索，原始标题暗示与 AI 相关，但具体用途未经证实。",
+    "why_notable": "若收购用于 AI 训练数据，则显示科技公司从非传统渠道获取训练语料的趋势。"
+  }
+]
