@@ -1,0 +1,319 @@
+{
+  "date": "2026-08-20",
+  "generated_at": "2026-08-19T23:55:20.562870Z",
+  "judgements": [
+    {
+      "claim": "OpenAI 的安全监控、国家安全民主监督与青少年产品在同日发布，表明其正在把安全与治理作为前沿模型推广的前置条件，而不是仅在事后响应批评。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-4c508db528d63be60e06"
+          }
+        }
+      ],
+      "judgement_id": "judgement-a2133b7fdb2412ff748d",
+      "rationale": "新的零数据保留政策重申和私密安全处理功能预览进一步补充了 OpenAI 同一日发布的安全相关公告，强化了其将安全能力前置的观点。",
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "root_judgement_id": "judgement-d6ecf33b87cca01baca3",
+      "uncertainty": "仍缺少具体技术细节，但新公告与已有判断方向一致。",
+      "update_kind": "supported",
+      "updates_judgement_id": "judgement-d6ecf33b87cca01baca3",
+      "watch_ids": []
+    },
+    {
+      "claim": "Replit 推出 GPT-5.6 Luna 驱动的免费模式，可能在短期内吸引大量非专业开发者，但会对其付费订阅转化率造成压力。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-71def3a5de66872bea57"
+          }
+        }
+      ],
+      "judgement_id": "judgement-906378d6641bc32f305e",
+      "rationale": "免费模式去除了 token 成本，降低了使用门槛，但具体限制未披露，可能侵蚀付费订阅的价值主张。",
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "root_judgement_id": "judgement-906378d6641bc32f305e",
+      "uncertainty": "具体配额和功能限制未公布，难以量化对订阅的影响。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    },
+    {
+      "claim": "NVIDIA Cosmos 3 Edge 的教程发布表明该技术可能已进入实用阶段，但可能仍处预览状态，未来几天的正式公告或文档将揭示其成熟度。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-651d02ba5df02633d38a"
+          }
+        }
+      ],
+      "judgement_id": "judgement-7a9a02fba5347c18a648",
+      "rationale": "官方博客以教程形式发布，但未明确正式发布状态，需要观察后续信号。",
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "root_judgement_id": "judgement-7a9a02fba5347c18a648",
+      "uncertainty": "未正式确认发布状态，可能仅为开发者预览。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "googleapis/python-genai 从 v2.18.1 的 bug fix 版本（新增 gemini-3.7-flash 支持）演进到 v2.19.0，新增音频转录模式枚举、IDLE 状态、弃用 REQUIRES_ACTION 等多项功能。",
+      "current_story": {
+        "date": "2026-08-20",
+        "story_id": "story-33e74edf4a7b1dd55950"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-1ba489c0a3ad1150b9db"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            3
+          ],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-33e74edf4a7b1dd55950"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-14",
+        "story_id": "story-1ba489c0a3ad1150b9db"
+      },
+      "rationale": "两个 Story 均属于同一 GitHub 仓库 googleapis/python-genai 的连续发布序列，版本号从 v2.18.1 升至 v2.19.0，且当前版本事实显示明确的后续版本发布。",
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "relation_id": "relation-e6467f2d691560628f01",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "googleapis/python-genai 从 v2.18.0 的功能版本演进到 v2.19.0，新增多个 API 字段和实时连接状态变更。",
+      "current_story": {
+        "date": "2026-08-20",
+        "story_id": "story-33e74edf4a7b1dd55950"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-13",
+            "story_id": "story-274e7043135dac9b44d7"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-33e74edf4a7b1dd55950"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-13",
+        "story_id": "story-274e7043135dac9b44d7"
+      },
+      "rationale": "两个 Story 均是同一 GitHub 仓库 googleapis/python-genai 的版本发布，版本号从 v2.18.0 升至 v2.19.0，构成明确的后续版本进展。",
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "relation_id": "relation-e2ab12caf1bf9ce06b40",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "anthropic-sdk-python 从 v0.122.0 的修复版本演进到 v0.125.0，新增托管代理网络搜索配置和自托管沙盒记忆功能。",
+      "current_story": {
+        "date": "2026-08-20",
+        "story_id": "story-310b2f50cd8f6280cd69"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-6b71efe9915d2a20c9a1"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-310b2f50cd8f6280cd69"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-14",
+        "story_id": "story-6b71efe9915d2a20c9a1"
+      },
+      "rationale": "两个 Story 均属于同一 anthropic-sdk-python 发布序列，版本号从 v0.122.0 升至 v0.125.0，且当前事实明确为新版本发布。",
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "relation_id": "relation-1af4d374c061f96e3f30",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Replit",
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Replit 是否在未来几天内公布免费模式的具体 token 配额或功能限制，以及 GPT-5.6 Luna 在 Replit 平台上的用户采用和性能反馈。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-5.6 Luna",
+        "Replit Free Mode"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-20",
+          "story_id": "story-71def3a5de66872bea57"
+        }
+      ],
+      "topic_anchors": [
+        "AI 编程",
+        "AI 模型"
+      ],
+      "watch_id": "watch-dec18c30faf4c2f461f8"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否在后续官方博客或产品页中明确 Cosmos 3 Edge 的正式发布状态、性能指标和受支持的硬件范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Cosmos 3 Edge"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-20",
+          "story_id": "story-651d02ba5df02633d38a"
+        }
+      ],
+      "topic_anchors": [
+        "机器人控制",
+        "边缘计算",
+        "世界模型",
+        "AI模型"
+      ],
+      "watch_id": "watch-a08d7928a10bf3f2b980"
+    },
+    {
+      "entity_anchors": [
+        "Stripe",
+        "OpenRouter"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Stripe 是否在后续公告或财报中进一步披露收购 OpenRouter 的战略动机，以及是否推出整合支付与 AI 模型路由的新产品或服务。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-20",
+          "story_id": "story-514d103602ff6c8f5dc1"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding",
+        "singularity"
+      ],
+      "watch_id": "watch-dc1a17766d829e50ff21"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否在后续发布 SkillEvaluator 的详细文档、评估指标或与其他评估工具的基准测试结果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA SkillEvaluator",
+        "NVIDIA库"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-20",
+          "story_id": "story-0989cd76688bb9b1305d"
+        }
+      ],
+      "topic_anchors": [
+        "AI Agent",
+        "评估工具",
+        "技能表现"
+      ],
+      "watch_id": "watch-6fa640012176239167b8"
+    },
+    {
+      "entity_anchors": [
+        "anthropic"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Anthropic 是否在后续文档或 releases 中提供托管代理网络搜索和自托管沙盒记忆的具体参数说明与使用示例。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "anthropic-sdk-python"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-19T23:55:20.562870Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-20",
+          "story_id": "story-310b2f50cd8f6280cd69"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-f17b44e143540cd603ba"
+    }
+  ]
+}

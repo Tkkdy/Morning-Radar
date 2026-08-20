@@ -1,0 +1,74 @@
+[
+  {
+    "claim": "smolmachines/smolvm 被用作不可信 Python 与 JavaScript 代码的沙箱。",
+    "id": "radar-b76304ba105bc3573231",
+    "missing_evidence": [
+      "需查看 smolvm 文档或源码以确认支持的语言与隔离边界",
+      "缺少隔离性测试或逃逸案例",
+      "需要独立实践者确认其用于 AI 生成代码的实际效果"
+    ],
+    "observed_at": "2026-08-19T23:55:20.562870Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-f7dc95732d84964cc713",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/19/smolmachines-untrusted-sandbox/"
+      }
+    ],
+    "uncertainty": "目前仅有 Simon Willison 的一手观察链接，未提供支持证据或独立佐证。",
+    "why_notable": "若能安全隔离 AI 生成的代码，对运行智能体输出的代码执行场景有直接价值；社区已有关注但证据有限。"
+  },
+  {
+    "claim": "lucumr.pocoo.org 发布《What Is Reasoning》一文，讨论推理概念。",
+    "id": "radar-48e0d43438ea8dc05e6e",
+    "missing_evidence": [
+      "需要原文具体论点和论据",
+      "缺少同行讨论或独立验证",
+      "未确认文章结论对现有 AI 系统的实际影响"
+    ],
+    "observed_at": "2026-08-19T23:55:20.562870Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "analysis_judgement",
+    "support_refs": [
+      {
+        "raw_item_id": "item-88135252b61cfc62a420",
+        "source_role": "practitioner",
+        "url": "https://lucumr.pocoo.org/2026/8/19/what-is-reasoning/"
+      }
+    ],
+    "uncertainty": "仅凭标题和 URL 无法确认具体观点，需阅读全文后才能判断其实际价值。",
+    "why_notable": "关于 LLM 推理能力的定义直接影响模型评估与工程选择，由实践者发布的一手分析值得追踪。"
+  },
+  {
+    "claim": "OpenRouter 宣布将加入 Stripe。",
+    "id": "radar-d8943b780a363422d2db",
+    "missing_evidence": [
+      "需要 Stripe 或独立媒体确认",
+      "缺少交易条款、时间表及监管审批信息",
+      "需要确认对 OpenRouter 平台开发者及 API 定价的具体影响"
+    ],
+    "observed_at": "2026-08-19T23:55:20.562870Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "raw_item_id": "item-23aec1220f6c49846b81",
+        "source_role": "community_discovery",
+        "url": "https://openrouter.ai/blog/announcements/openrouter-is-joining-stripe/"
+      }
+    ],
+    "uncertainty": "目前仅见 OpenRouter 官方博客，尚无独立来源；“joining”的具体交易性质仍需确认。",
+    "why_notable": "若交易完成，可能改变 AI 模型路由与推理服务的接入和收费格局，影响大量开发者和模型调用。"
+  }
+]
