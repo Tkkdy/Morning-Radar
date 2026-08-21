@@ -1,0 +1,85 @@
+{
+  "date": "2026-08-21",
+  "generated_at": "2026-08-20T23:56:23.296125Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "同一 anthropic-sdk-python 仓库从 v0.125.0 推进到 1.0.0，当前版本将底层 HTTP 客户端升级为 httpx2 并引入不兼容变更，同时提供迁移指南。",
+      "current_story": {
+        "date": "2026-08-21",
+        "story_id": "story-da51f23a106aa371c45c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-310b2f50cd8f6280cd69"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            7
+          ],
+          "story": {
+            "date": "2026-08-21",
+            "story_id": "story-da51f23a106aa371c45c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-20",
+        "story_id": "story-310b2f50cd8f6280cd69"
+      },
+      "rationale": "官方 changelog 直接给出 v0.125.0...v1.0.0 比较链接，说明两者属于同一发布序列且版本连续演进。",
+      "recorded_at": "2026-08-20T23:56:23.296125Z",
+      "relation_id": "relation-3eeacc74a833d423820e",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "同一 SDK 从 v0.122.0 继续演进至 1.0.0，当前版本升级到 httpx2 并包含破坏性变更。",
+      "current_story": {
+        "date": "2026-08-21",
+        "story_id": "story-da51f23a106aa371c45c"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-6b71efe9915d2a20c9a1"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-21",
+            "story_id": "story-da51f23a106aa371c45c"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-14",
+        "story_id": "story-6b71efe9915d2a20c9a1"
+      },
+      "rationale": "两个 occurrence 均指向 anthropic-sdk-python 仓库的版本发布，版本号从 v0.122.0 前进到 1.0.0，属于同一发布序列的后续版本。",
+      "recorded_at": "2026-08-20T23:56:23.296125Z",
+      "relation_id": "relation-788e0ad74800d2423c18",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": []
+}

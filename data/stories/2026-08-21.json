@@ -1,0 +1,852 @@
+[
+  {
+    "analysis": [
+      "此更新从“全有或全无”的授权模式转向基于任务的同意流程，符合最小权限原则。"
+    ],
+    "canonical_title": "Cloudflare OAuth 现已支持可选权限范围，让用户能更精细地控制应用访问权限",
+    "category": "安全与身份验证",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Cloudflare"
+    ],
+    "facts": [
+      "Cloudflare OAuth 现已支持可选权限范围（optional scopes）。",
+      "该功能让用户对应用可访问的内容拥有更多控制权。"
+    ],
+    "id": "story-3684fd654ec2e525dc53",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://blog.cloudflare.com/task-based-oauth-consent/",
+    "product_names": [
+      "Cloudflare OAuth"
+    ],
+    "published_at": "2026-08-20T17:03:03Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-5ee85db9a39ca3d926e2"
+    ],
+    "source_refs": [
+      {
+        "author": "José Enrique Rodríguez",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T17:03:03Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5ee85db9a39ca3d926e2",
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "From all-or-nothing to task-based OAuth consent",
+        "url": "https://blog.cloudflare.com/task-based-oauth-consent/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/task-based-oauth-consent/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "OAuth",
+      "权限范围",
+      "同意流程"
+    ],
+    "uncertainties": [
+      "未说明具体支持哪些可选权限范围。",
+      "未提及该功能是否适用于所有现有集成，还是仅限新应用。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该更新为 ARM64 架构的 Windows 平台提供了最新的开发环境，可能提升 ARM64 应用的构建效率与兼容性。"
+    ],
+    "canonical_title": "Windows 11 arm64 VS2026 镜像现已全面可用",
+    "category": "开发者工具",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 宣布 Windows 11 arm64 含 Visual Studio 2026 的镜像已在标准和 larger GitHub-hosted runners 上全面可用。",
+      "用户需更新 GitHub Actions 工作流文件以使用该镜像。"
+    ],
+    "id": "story-0ee63f46e78a80eaf80e",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-08-20-windows-11-arm64-vs2026-image-generally-available",
+    "product_names": [
+      "Windows 11 arm64",
+      "Visual Studio 2026",
+      "GitHub Actions"
+    ],
+    "published_at": "2026-08-20T17:52:38Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-3501b3426269f2d41da0"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T17:52:38Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-3501b3426269f2d41da0",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Windows 11 arm64 VS2026 image generally available",
+        "url": "https://github.blog/changelog/2026-08-20-windows-11-arm64-vs2026-image-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-20-windows-11-arm64-vs2026-image-generally-available"
+    ],
+    "status": "available",
+    "topic_names": [
+      "持续集成",
+      "开发者工具",
+      "开发环境"
+    ],
+    "uncertainties": [
+      "未说明该镜像的具体软件版本列表及后续更新频率。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "Stampli 的案例表明，AI 工具（如 Codex 和 ChatGPT Work）可以显著提升发布准备效率，尤其是在资源受限和截止日期紧迫的情况下。"
+    ],
+    "canonical_title": "Stampli 使用 ChatGPT Work 将发布准备时间缩短 68%",
+    "category": "AI 应用",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Stampli",
+      "OpenAI"
+    ],
+    "facts": [
+      "Stampli 使用 Codex 和 ChatGPT Work 将数周的发布准备工作压缩至数天。",
+      "发布准备时间缩短了 68%。",
+      "Stampli 面临固定截止日期，且设计资源被占用。"
+    ],
+    "id": "story-5908925bfc05426d2042",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/stampli",
+    "product_names": [
+      "ChatGPT Work",
+      "Codex"
+    ],
+    "published_at": "2026-08-20T00:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-ad89fb510e3c78c26282"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-ad89fb510e3c78c26282",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Stampli cuts launch hours by 68% using ChatGPT Work",
+        "url": "https://openai.com/index/stampli"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/stampli"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编码",
+      "AI 模型"
+    ],
+    "uncertainties": [
+      "标题中的“削减 68%”未在摘要中明确提及，需进一步确认该数据来源。",
+      "“发布准备时间缩短 68%”的具体衡量标准（如绝对时长、对比基线）未明确。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该按钮旨在对抗AI搜索带来的点击量下降。",
+      "此举措可能帮助出版商从Google服务中获得更多流量。"
+    ],
+    "canonical_title": "Google推出新按钮，让读者将出版商设为搜索、Discover和Google News的首选来源",
+    "category": "tech",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google正在为出版商推出一个新按钮，允许读者在Search、Discover和Google News中将其设为首选来源。",
+      "该功能可能提升出版商的流量。",
+      "此功能是在AI搜索导致网络点击量减少的背景下推出的。"
+    ],
+    "id": "story-beeac0b3fe1683b28b7c",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/",
+    "product_names": [],
+    "published_at": "2026-08-20T19:18:21Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-cba8417ecebda0991d59"
+    ],
+    "source_refs": [
+      {
+        "author": "Sarah Perez",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T19:18:21Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-cba8417ecebda0991d59",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google gives publishers a new way to fight AI-driven traffic losses",
+        "url": "https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/20/google-gives-publishers-a-new-way-to-fight-ai-driven-traffic-losses/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI",
+      "搜索流量"
+    ],
+    "uncertainties": [
+      "该功能对出版商流量的实际影响尚不明确。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该功能利用 AI 根据用户描述自动调整信息流，有望提升个性化体验和用户参与度。"
+    ],
+    "canonical_title": "Google Discover 推出 AI 聊天机器人调优的个性化信息流功能",
+    "category": "AI产品更新",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 将允许用户通过描述想看到的内容来自定义 Discover 信息流。",
+      "该功能将在未来几天内推出到 Google 应用。",
+      "该功能将使用 AI 自动调整信息流，并记住用户的偏好。",
+      "用户可以在三点菜单中找到该选项。"
+    ],
+    "id": "story-171935c77bdbafae27cf",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/tech/983088/google-discover-ai-chatbot-feed",
+    "product_names": [
+      "Google Discover",
+      "Google app"
+    ],
+    "published_at": "2026-08-20T17:50:22-04:00",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-bdb698ec663c3ddc49e9"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T17:50:22-04:00",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-bdb698ec663c3ddc49e9",
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google Discover is getting an AI chatbot-tuned feed",
+        "url": "https://www.theverge.com/tech/983088/google-discover-ai-chatbot-feed"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/983088/google-discover-ai-chatbot-feed"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI聊天机器人",
+      "个性化信息流"
+    ],
+    "uncertainties": [
+      "具体推出日期尚未确定。",
+      "AI 调整信息流的具体机制和效果尚未公开。",
+      "用户偏好的记忆范围和持续时间未明确。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该博客文章表明 NVIDIA 正在探索生成式模型在推荐系统中的应用，这可能反映了推荐系统领域向生成式方法演进的趋势。"
+    ],
+    "canonical_title": "NVIDIA 发布关于生成式推荐系统如何重新定义大规模推荐系统的博客文章",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "NVIDIA 开发者博客于 2026 年 8 月 20 日发布了一篇题为 \"How Generative Recommenders Are Redefining RecSys at Scale\" 的文章。"
+    ],
+    "id": "story-7809071c23caee436a33",
+    "importance_score": 0.6,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale/",
+    "product_names": [],
+    "published_at": "2026-08-20T16:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-95051ae085b629008cb8"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-95051ae085b629008cb8",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Generative Recommenders Are Redefining RecSys at Scale",
+        "url": "https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-generative-recommenders-are-redefining-recsys-at-scale/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "生成式推荐系统",
+      "推荐系统",
+      "大规模机器学习"
+    ],
+    "uncertainties": [
+      "文章内容摘要未提供具体技术细节，因此无法确认 NVIDIA 是否发布了相关产品或工具。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该条目来源于 Hacker News，是一个社区讨论，标题 'Don't paste the AI, please' 暗示了关于向 AI 粘贴敏感信息的风险。",
+      "讨论热度较高（985 分，535 条评论），表明社区对 AI 交互中的安全问题有浓厚兴趣。"
+    ],
+    "canonical_title": "Don't paste the AI, please",
+    "category": "AI 安全与最佳实践",
+    "credibility_score": 0.5,
+    "entity_names": [],
+    "facts": [],
+    "id": "story-c642a2dbb11f3ca6d55e",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://dontpastetheai.com/",
+    "product_names": [],
+    "published_at": "2026-08-20T08:20:44Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-ae834a56ce4b7f8e7d39"
+    ],
+    "source_refs": [
+      {
+        "author": "pjerem",
+        "discussion_url": "https://news.ycombinator.com/item?id=49371857",
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T08:20:44Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-ae834a56ce4b7f8e7d39",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Don't paste the AI, please",
+        "url": "https://dontpastetheai.com/"
+      }
+    ],
+    "source_urls": [
+      "https://dontpastetheai.com/",
+      "https://news.ycombinator.com/item?id=49371857"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 安全",
+      "提示注入",
+      "数据泄露"
+    ],
+    "uncertainties": [
+      "该条目的具体内容和结论未知，因为只有标题和链接，缺乏详细描述。",
+      "无法确定该讨论是否涉及具体事件、工具或最佳实践。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "此更新增强了存储库管理透明度，使管理员能够追踪代码质量相关设置的变更历史。"
+    ],
+    "canonical_title": "GitHub Code Quality 的启用/禁用/设置更改现在会记录在审计日志中",
+    "category": "技术更新",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "GitHub Code Quality 现在会在存储库上启用、禁用或更改其设置时写入审计日志事件。",
+      "新增了三个审计日志事件：repo.code_quality_enabled、repo.code_quality_disabled 和 repo.code_quality_settings_changed。",
+      "该公告发布于 2026-08-20，来源为 GitHub Changelog。"
+    ],
+    "id": "story-238f5e14ea6d54591110",
+    "importance_score": 0.5,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.blog/changelog/2026-08-20-track-github-code-quality-enablement-changes-in-the-audit-log",
+    "product_names": [
+      "GitHub Code Quality"
+    ],
+    "published_at": "2026-08-20T14:28:41Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-4fc21791bf6ddf292d58"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T14:28:41Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-4fc21791bf6ddf292d58",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Track GitHub Code Quality enablement changes in the audit log",
+        "url": "https://github.blog/changelog/2026-08-20-track-github-code-quality-enablement-changes-in-the-audit-log"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-20-track-github-code-quality-enablement-changes-in-the-audit-log"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "审计日志",
+      "代码质量"
+    ],
+    "uncertainties": [
+      "未提供有关事件可能包含的详细字段信息（如操作者、时间戳等）。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该集成表明 ChatGPT 正在扩展至操作系统层面的通信功能，可能使 AI 助手更深入地融入日常消息场景。"
+    ],
+    "canonical_title": "ChatGPT 现可通过新的 Apple Messages 插件代用户发送短信",
+    "category": "AI 产品更新",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "OpenAI",
+      "Apple"
+    ],
+    "facts": [
+      "TechCrunch 于 2026 年 8 月 20 日报道，ChatGPT 可通过新的 Apple Messages 插件代用户发送短信。"
+    ],
+    "id": "story-98732b88642b8860f2d9",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/",
+    "product_names": [
+      "ChatGPT",
+      "Apple Messages"
+    ],
+    "published_at": "2026-08-20T22:09:51Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-5139cb7756590ae9be32"
+    ],
+    "source_refs": [
+      {
+        "author": "Lucas Ropek",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T22:09:51Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5139cb7756590ae9be32",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "ChatGPT can now send texts for you with new Apple Messages plug-in",
+        "url": "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/20/chatgpt-can-now-send-texts-for-you-with-new-apple-messages-plugin/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 助手",
+      "消息集成"
+    ],
+    "uncertainties": [
+      "该功能的可用性范围、具体操作方式及推出时间表尚未明确。",
+      "报道仅基于 TechCrunch 单一来源，且其角色为编辑性媒体，未提供官方确认或一手测试证据，因此该集成的实际状态与功能细节存在不确定性。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub Code Scanning 新增“已缓解”警报关闭原因",
+    "category": "产品更新",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Code Scanning 现在允许以“已缓解”为原因关闭警报，适用于代码中存在漏洞但外部控制（如 Web 应用防火墙或网络）已缓解风险的情况。"
+    ],
+    "id": "story-57d0de0b7fefb0a99742",
+    "importance_score": 0.3,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-08-20-code-scanning-adds-a-mitigated-alert-dismissal-reason",
+    "product_names": [
+      "GitHub Code Scanning"
+    ],
+    "published_at": "2026-08-20T15:14:31Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-613ce75ddf903076291f"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T15:14:31Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-613ce75ddf903076291f",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Code scanning adds a mitigated alert dismissal reason",
+        "url": "https://github.blog/changelog/2026-08-20-code-scanning-adds-a-mitigated-alert-dismissal-reason"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-20-code-scanning-adds-a-mitigated-alert-dismissal-reason"
+    ],
+    "status": "available",
+    "topic_names": [
+      "代码安全",
+      "漏洞管理"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该博客的推出表明 OpenAI 正积极参与关于 AI 社会影响的讨论，可能旨在塑造公众认知和政策。"
+    ],
+    "canonical_title": "OpenAI 推出 AI Futures 博客",
+    "category": "企业动态",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 推出了名为 AI Futures 的新博客。",
+      "该博客将探讨变革性 AI 如何重塑权力、治理、经济和个人自由。"
+    ],
+    "id": "story-65f73edb52bb08bc02da",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://openai.com/index/introducing-ai-futures",
+    "product_names": [
+      "AI Futures"
+    ],
+    "published_at": "2026-08-20T07:00:00Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-fc1a9abd82b35a9c86d5"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T07:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-fc1a9abd82b35a9c86d5",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing AI Futures",
+        "url": "https://openai.com/index/introducing-ai-futures"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-ai-futures"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "人工智能",
+      "博客",
+      "技术与社会"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "将 Code Quality 的工作流与普通 Actions 分离，有助于用户更清晰地追踪代码质量相关的运行，可能改善使用报告的可读性。"
+    ],
+    "canonical_title": "GitHub Code Quality 的独立 Actions 工作流路径现已全面可用",
+    "category": "产品更新",
+    "credibility_score": 0.0,
+    "entity_names": [],
+    "facts": [
+      "2026年8月20日，GitHub 宣布为 CodeQL 代码质量 Actions 工作流提供独立的路径，现已全面可用。",
+      "工作流运行历史记录和 Actions 使用报告现在可以区分 GitHub Code Quality 的运行。"
+    ],
+    "id": "story-ec33063c8de33dad3dce",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://github.blog/changelog/2026-08-20-separate-github-actions-path-for-github-code-quality",
+    "product_names": [
+      "GitHub Code Quality",
+      "CodeQL"
+    ],
+    "published_at": "2026-08-20T14:29:27Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-a4ff12b9ae120e12841e"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T14:29:27Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-a4ff12b9ae120e12841e",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Separate GitHub Actions path for GitHub Code Quality",
+        "url": "https://github.blog/changelog/2026-08-20-separate-github-actions-path-for-github-code-quality"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-20-separate-github-actions-path-for-github-code-quality"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "DevOps",
+      "代码质量"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "这是一个官方主版本发布（1.0.0），通常标志着 API 稳定性的承诺。",
+      "升级到 httpx2 可能意味着性能改进或对新 HTTP 特性的支持，但也需要用户修改代码。"
+    ],
+    "canonical_title": "Anthropic Python SDK 1.0.0 发布：升级至 httpx2 并引入破坏性变更",
+    "category": "软件开发",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "facts": [
+      "Anthropic 的 Python SDK 仓库（anthropics/anthropic-sdk-python）发布了 1.0.0 版本。",
+      "该版本将底层 HTTP 客户端从 httpx 升级到了 httpx2，并包含一些不兼容的变更。",
+      "发布说明中提供了迁移指南（MIGRATION.md）以帮助用户应对破坏性变更。",
+      "Bug 修复：停止在 parse/stream/tool_runner 辅助函数中发出关于 `output_format=` 的警告。",
+      "变更：恢复了 lib/streaming/_types.py 中原始的事件导入。",
+      "文档：在思维示例中使用了 adaptive thinking。",
+      "发布日期为 2026 年 8 月 20 日。",
+      "完整变更日志链接：https://github.com/anthropics/anthropic-sdk-python/compare/v0.125.0...v1.0.0"
+    ],
+    "id": "story-da51f23a106aa371c45c",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.0.0",
+    "product_names": [
+      "anthropic-sdk-python"
+    ],
+    "published_at": "2026-08-20T19:58:48Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-75ebd816353203a61072"
+    ],
+    "source_refs": [
+      {
+        "author": "stainless-app[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T19:58:48Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-75ebd816353203a61072",
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v1.0.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.0.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.0.0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "Python SDK",
+      "API 客户端",
+      "版本发布"
+    ],
+    "uncertainties": [
+      "迁移到 httpx2 的具体影响范围尚不明确，用户需要参考 MIGRATION.md 评估。",
+      "未提及与之前版本的兼容性细节，社区可能会有进一步反馈。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "企业用户的这种来回切换表明，企业 AI 支出的粘性可能低于投资者预期。",
+      "两家公司投资者的担忧可能加剧，因为企业客户忠诚度不高。"
+    ],
+    "canonical_title": "OpenAI 在企业用户市场追赶 Anthropic，新数据揭示竞争态势",
+    "category": "企业 AI 市场",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "OpenAI",
+      "Anthropic"
+    ],
+    "facts": [
+      "根据 TechCrunch 2026 年 8 月 20 日报道，新数据表明 OpenAI 在企业用户方面正在追赶 Anthropic。",
+      "报道指出，企业用户会随着各实验室发布新模型而在 OpenAI 和 Anthropic 之间切换。"
+    ],
+    "id": "story-8c0c30f670155d9ae73e",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/",
+    "product_names": [],
+    "published_at": "2026-08-20T22:36:37Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-f4be18b46597191058a4"
+    ],
+    "source_refs": [
+      {
+        "author": "Julie Bort",
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T22:36:37Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-f4be18b46597191058a4",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI is gaining on Anthropic with business users, new data indicates",
+        "url": "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/20/openai-is-gaining-on-anthropic-with-business-users-new-data-indicates/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "企业 AI",
+      "AI 模型",
+      "市场竞争"
+    ],
+    "uncertainties": [
+      "报道未提供具体数据来源和统计方法，因此无法验证数据的可靠性。",
+      "报道未说明企业用户切换的具体比例或趋势持续时间。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  },
+  {
+    "analysis": [
+      "该文章由 LiquidAI 在 Hugging Face 官方博客发布，属于官方声明，具有高度可信度。",
+      "3.2 倍的推理加速表明模型在性能优化方面有显著提升，可能涉及底层架构或框架的改进。"
+    ],
+    "canonical_title": "LFM2.5-DSpark 推理加速最高达 3.2 倍",
+    "category": "AI 模型与基础设施",
+    "credibility_score": 0.0,
+    "entity_names": [],
+    "facts": [
+      "Hugging Face 博客于 2026 年 8 月 20 日发布文章，称 LFM2.5-DSpark 可实现最高 3.2 倍的推理加速。"
+    ],
+    "id": "story-5f6dd1e56d3e08515c01",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark",
+    "product_names": [
+      "LFM2.5-DSpark"
+    ],
+    "published_at": "2026-08-20T16:52:57Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-eab5285cfdebeb65a8ef"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-20T23:56:23.296125Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-20T16:52:57Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-eab5285cfdebeb65a8ef",
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Up to 3.2x Faster Inference with LFM2.5-DSpark",
+        "url": "https://huggingface.co/blog/LiquidAI/lfm25-dspark"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/LiquidAI/lfm25-dspark"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 模型",
+      "AI 推理",
+      "开源 AI"
+    ],
+    "uncertainties": [
+      "未提供具体测试环境、基准模型或硬件配置，实际加速效果可能因条件而异。",
+      "文章未说明该加速是在何种任务或负载下测得，因此适用范围尚不明确。"
+    ],
+    "updated_at": "2026-08-20T23:56:23.296125Z"
+  }
+]

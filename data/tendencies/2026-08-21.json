@@ -1,0 +1,60 @@
+{
+  "date": "2026-08-21",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v0.122.0 之前，anthropic-sdk-python 主要作为 Anthropic API 的 Python 封装，未提供托管代理网络搜索、自托管沙盒记忆或 dream creation 记忆存储配置，底层 HTTP 栈也尚未迁移到 httpx2。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "该 cluster 包含同一 actor（Anthropic）同一产品（anthropic-sdk-python）的多个版本发布，构成一个独立事件边界；虽然 source_count 为 3，但按规则仅为 corroboration，不足以上升为 Emerging。然而其共享机制清晰，具备真实产品变更和开发者工作流影响，因此作为 Candidate 保留内部观察。",
+        "falsifier": "如果 Anthropic 后续版本撤回托管代理网络搜索或自托管沙盒记忆，或 httpx2 迁移被回滚且开发者未采用这些代理/记忆能力，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "使用 Anthropic Python SDK 的开发者可以通过托管代理网络搜索配置和自托管沙盒记忆构建具备记忆与搜索能力的代理应用。",
+          "1.0.0 的 httpx2 升级带来破坏性变更，现有 Python 应用需要适配底层 HTTP 栈。",
+          "dream creation 的 output_behavior 允许开发者在创建新记忆存储或就地更新输入存储之间做出选择，改变记忆管理方式。"
+        ],
+        "shared_mechanism": "Anthropic 通过连续的 SDK 版本迭代，将 Python 客户端从单一 API 调用封装升级为具备代理工作流支撑能力的运行时：v0.122.0 在 dream creation 中引入 output_behavior 以创建或更新记忆存储，v0.125.0 增加托管代理网络搜索配置与自托管沙盒记忆，1.0.0 升级到底层 httpx2 并引入破坏性变更。这些变更共同推动 SDK 向代理、记忆、沙盒和现代 HTTP 栈演进，而非普通功能追加。"
+      },
+      "claim": "Anthropic 官方 anthropic-sdk-python 正在从传统 API 客户端演进为支持托管代理网络搜索、自托管沙盒记忆、dream creation 记忆存储更新与 httpx2 的代理型 Python 客户端。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-6b71efe9915d2a20c9a1"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-20",
+            "story_id": "story-310b2f50cd8f6280cd69"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-21",
+            "story_id": "story-da51f23a106aa371c45c"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-d119d28526547540697a",
+      "recorded_at": "2026-08-20T23:56:23.296125Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-32b930598845681abf1e"
+      ],
+      "tendency_id": "tendency-17866ae66b643d74fe6a",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-20T23:56:23.296125Z"
+}
