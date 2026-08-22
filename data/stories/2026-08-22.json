@@ -1,0 +1,723 @@
+[
+  {
+    "analysis": [
+      "该功能将 GitHub Copilot 的代理能力扩展到团队协作环境，可能提高开发团队在讨论中直接获得 AI 辅助的效率。"
+    ],
+    "canonical_title": "在 Microsoft Teams 中与 GitHub Copilot 共享代理工作",
+    "category": "开发工具集成",
+    "credibility_score": 1.0,
+    "entity_names": [],
+    "facts": [
+      "GitHub 于 2026 年 8 月 21 日宣布，用户可在 Microsoft Teams 中通过提及 @GitHub 启动 GitHub Copilot 代理会话，将团队讨论转化为协作文档。"
+    ],
+    "id": "story-006b36b9d1483b09aa8c",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams",
+    "product_names": [
+      "GitHub Copilot",
+      "Microsoft Teams"
+    ],
+    "published_at": "2026-08-21T16:03:36Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-6ef374b8331e635cd82a"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T16:03:36Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-6ef374b8331e635cd82a",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Shared agentic work with GitHub Copilot in Microsoft Teams",
+        "url": "https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-21-shared-agentic-work-with-github-copilot-in-microsoft-teams"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编码",
+      "协作开发"
+    ],
+    "uncertainties": [
+      "官方公告未提供功能的具体细节、适用范围或版本要求，需进一步信息确认。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "AVO在ARC-AGI-3上获得满分，表明其在抽象推理和适应性方面达到了极高水准，可能标志着通用人工智能的重要进展。",
+      "NVIDIA强调架构而非仅仅模型，暗示其关注点在于系统设计，这对于实际应用中的长周期自主智能体至关重要。"
+    ],
+    "canonical_title": "NVIDIA AVO 在 ARC-AGI-3 上达到满分，展示面向长周期自主智能体的前沿通用架构",
+    "category": "AI模型与技术进展",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA官方博客宣布其AVO模型在ARC-AGI-3基准测试上达到100%的得分。",
+      "AVO被描述为面向长周期自主智能体的前沿通用架构。",
+      "博客发布日期为2026年8月21日。"
+    ],
+    "id": "story-7f0f2d88470beb19984f",
+    "importance_score": 0.85,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/",
+    "product_names": [
+      "NVIDIA AVO"
+    ],
+    "published_at": "2026-08-21T13:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-cc6c6cc7a6fd67ce2f93"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-cc6c6cc7a6fd67ce2f93",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "NVIDIA AVO Reaches 100% on ARC-AGI-3, Demonstrating a Frontier-Level General-Purpose Architecture for Long-Horizon Autonomous Agents",
+        "url": "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-avo-reaches-100-on-arc-agi-3-demonstrating-a-frontier-level-general-purpose-architecture-for-long-horizon-autonomous-agents/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI模型",
+      "AI基础设施",
+      "自主智能体"
+    ],
+    "uncertainties": [
+      "公告中未提供ARC-AGI-3的具体任务细节、评估方法或与其他模型的对比数据，因此满分的实际意义需要更多信息来验证。",
+      "博客可能带有营销性质，AVO的实际可用性和性能尚未经独立验证。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "这一发现可能意味着智能体的整体架构和微调过程（即“harness”）比底层模型的能力更为关键。",
+      "这可能对 AI 开发策略产生影响，即更注重智能体框架的优化而非单纯追求更大更强的模型。"
+    ],
+    "canonical_title": "Nvidia 研究表明通过微调，AI 智能体即使底层模型性能不佳也能表现良好",
+    "category": "AI 研究",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Nvidia"
+    ],
+    "facts": [
+      "Nvidia 的研究表明，通过微调，AI 智能体可以表现良好，即使底层 AI 模型并不擅长该任务。",
+      "该研究由 TechCrunch 于 2026 年 8 月 21 日报道。"
+    ],
+    "id": "story-8914b45c3a650752071c",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/",
+    "product_names": [],
+    "published_at": "2026-08-21T19:43:39Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-4ea07101daf1d60ea841"
+    ],
+    "source_refs": [
+      {
+        "author": "Julie Bort",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T19:43:39Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-4ea07101daf1d60ea841",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Nvidia just showed that the harness, not the AI model, is now the real hero",
+        "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 模型",
+      "AI 智能体",
+      "微调"
+    ],
+    "uncertainties": [
+      "Nvidia 研究的具体细节、实验设置和结果尚未披露。",
+      "该研究是否经过同行评审尚不清楚。",
+      "“harness”一词的具体定义在文章中可能未被明确定义。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "该合作延续了 Nvidia 在数据中心领域的投资趋势，并可能与其 AI 芯片业务形成互补。"
+    ],
+    "canonical_title": "Nvidia 与数据中心开发商 Cloverleaf 建立合作关系",
+    "category": "商业合作",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Nvidia",
+      "Cloverleaf"
+    ],
+    "facts": [
+      "Nvidia 正在与数据中心开发商 Cloverleaf 开展合作。"
+    ],
+    "id": "story-4a273817cc955a411b6f",
+    "importance_score": 0.8,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/",
+    "product_names": [],
+    "published_at": "2026-08-21T22:37:38Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-924e05a3179e98e99178"
+    ],
+    "source_refs": [
+      {
+        "author": "Lucas Ropek",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T22:37:38Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-924e05a3179e98e99178",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Nvidia partners with data center developer Cloverleaf",
+        "url": "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "数据中心",
+      "AI基础设施"
+    ],
+    "uncertainties": [
+      "合作的具体细节、投资金额和条款尚未披露。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "该按钮的广泛使用表明用户对 AI 生成的低质量内容越来越关注。",
+      "LinkedIn 正在积极应对平台上 AI 垃圾内容泛滥的问题。"
+    ],
+    "canonical_title": "LinkedIn 的“疑似 AI 垃圾”按钮已被超过一百万人点击",
+    "category": "产品功能",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "LinkedIn",
+      "Hari Srinivasan"
+    ],
+    "facts": [
+      "LinkedIn 于 7 月 30 日宣布推出“Seems like AI slop”按钮。",
+      "首席产品官 Hari Srinivasan 在周四的帖子中称，已有超过一百万人点击了该按钮。",
+      "该按钮可通过帖子右上角的三点菜单访问。"
+    ],
+    "id": "story-d90cf66f744f8e26c61c",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message",
+    "product_names": [
+      "LinkedIn"
+    ],
+    "published_at": "2026-08-21T17:25:50-04:00",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-7c3227e89061b9d288a7"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T17:25:50-04:00",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-7c3227e89061b9d288a7",
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Over 1 million people have clicked LinkedIn’s AI slop button",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 垃圾内容检测"
+    ],
+    "uncertainties": [
+      "尚不清楚一百万人点击的具体统计周期。",
+      "点击按钮后平台采取的具体后续行动尚不明确。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "该文从官方立场强调安全在 AI Agent 技术栈中的必要性，可能预示 NVIDIA 后续会推出相关安全框架或工具。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客：AI Agent 技术栈中安全性的定位",
+    "category": "AI 安全 / AI Agent 基础设施",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "NVIDIA 于 2026 年 8 月 21 日在其开发者博客发布文章《Where Security Fits in an AI Agent Stack》。",
+      "文章指出，随着 AI Agent 能力增强且运行周期变长，在应用中构建安全与信任日益重要。"
+    ],
+    "id": "story-eb2dcf949b9e1d34ebc8",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/where-security-fits-in-an-ai-agent-stack/",
+    "product_names": [],
+    "published_at": "2026-08-21T13:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-d47bf2b3aab10956a514"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-d47bf2b3aab10956a514",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Where Security Fits in an AI Agent Stack",
+        "url": "https://developer.nvidia.com/blog/where-security-fits-in-an-ai-agent-stack/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/where-security-fits-in-an-ai-agent-stack/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "文中未提及具体产品、技术标准或实施细节。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "此版本候选版本表明 Ollama 正在准备下一个重要版本 v0.33.0，测试阶段正在进行中。",
+      "多个变更涉及 MLX 后端、桌面应用功能和模型管理，表明在跨平台兼容性和用户体验方面的持续努力。"
+    ],
+    "canonical_title": "Ollama 发布 v0.33.0-rc0 候选版本",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "ollama/ollama"
+    ],
+    "facts": [
+      "Ollama v0.33.0-rc0 已发布，包含多项变更。",
+      "发布了候选版本 v0.33.0-rc0，从 v0.32.15 变更而来。",
+      "变更包括：mlx 修复 Linux/Windows 上的 Mac 假设、添加 Claude 桌面应用、改进 onboarding 布局并禁用缩放、为 DeepSeek Harness 回退到 npx、mlxrunner 使前缀缓存恢复点在取消和恢复的预填充中存活、添加 Connect your apps 体验、Claude 模型管理。"
+    ],
+    "id": "story-628202a98a8bc40296ef",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.33.0-rc0",
+    "product_names": [
+      "Ollama"
+    ],
+    "published_at": "2026-08-21T22:52:46Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-d17ef008a9cde0fb3021"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T22:52:46Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-d17ef008a9cde0fb3021",
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.33.0",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.33.0-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.33.0-rc0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "RC0 是预发布版本，稳定性和最终功能集可能在正式发布时发生变化。",
+      "发布日期 2026-08-21 可能异常，但数据源标记为高优先级，视为可靠。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "新的 GitHub Copilot 在 Slack 中的体验（公开预览）",
+    "category": "产品发布",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub",
+      "Slack"
+    ],
+    "facts": [
+      "GitHub 集成在 Slack 中现已提供公开预览，引入了 GitHub Copilot CLI 和 GitHub Copilot 应用的代理能力。",
+      "用户可以通过 @GitHub 在 Slack 中与 GitHub Copilot 进行交互。"
+    ],
+    "id": "story-a3e6f24c629d26c03c7e",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack",
+    "product_names": [
+      "GitHub Copilot",
+      "GitHub Copilot CLI",
+      "GitHub Copilot app",
+      "Slack integration"
+    ],
+    "published_at": "2026-08-21T16:07:15Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-eb80560ee1a000d14de3"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T16:07:15Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-eb80560ee1a000d14de3",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The new GitHub Copilot experience in Slack",
+        "url": "https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-21-the-new-github-copilot-experience-in-slack"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编程",
+      "开源 AI"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "测试结果表明 Opus 4.6 的内容过滤机制可能不够健壮，容易被用户诱导。"
+    ],
+    "canonical_title": "TechCrunch 测试发现 Anthropic 的 Opus 4.6 容易绕过色情内容限制",
+    "category": "AI 模型安全与内容政策",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "facts": [
+      "Anthropic 禁止其 Claude 模型生成色情内容。",
+      "TechCrunch 进行了一系列测试，发现不难绕过该限制。"
+    ],
+    "id": "story-0fd13f455ec5383f34a7",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/",
+    "product_names": [
+      "Opus 4.6"
+    ],
+    "published_at": "2026-08-21T23:07:25Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-5c3d76b828a4f01ae470"
+    ],
+    "source_refs": [
+      {
+        "author": "Rebecca Bellan",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T23:07:25Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5c3d76b828a4f01ae470",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Anthropic’s Opus 4.6 is a smut-machine",
+        "url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 模型安全",
+      "内容审核",
+      "绕过限制"
+    ],
+    "uncertainties": [
+      "测试的具体方法、样本数量和绕过成功率未披露。",
+      "Anthropic 官方对此测试结果的态度和后续修复计划未知。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Cloudflare 推出 Bot Preference Sync",
+    "category": "产品发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Cloudflare"
+    ],
+    "facts": [
+      "Cloudflare 推出 Bot Preference Sync，可自动将 robots.txt 文件与 Search、Agent 和 Training 的 AI 机器人策略对齐。"
+    ],
+    "id": "story-c63c4d2eb9ab9c5f7db2",
+    "importance_score": 0.6,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://blog.cloudflare.com/bot-preference-sync/",
+    "product_names": [
+      "Bot Preference Sync"
+    ],
+    "published_at": "2026-08-21T23:19:57Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-c1f616cb61f8979508bf"
+    ],
+    "source_refs": [
+      {
+        "author": "Jin-Hee Lee",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T23:19:57Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-c1f616cb61f8979508bf",
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Say it once: introducing Bot Preference SynC",
+        "url": "https://blog.cloudflare.com/bot-preference-sync/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/bot-preference-sync/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI基础设施"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "利用 NVIDIA DSX MaxLPS 最大化 AI 工厂每瓦性能",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 发布了关于利用 DSX MaxLPS 最大化 AI 工厂每瓦性能的博客文章。",
+      "AI 工厂是受电力约束的工业系统，关键问题已从数据中心可容纳的 GPU 数量转变为每可用电力可实现的 AI 输出量。"
+    ],
+    "id": "story-22d91715672f19308caa",
+    "importance_score": 0.6,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/maximizing-ai-factory-performance-per-watt-with-nvidia-dsx-maxlps/",
+    "product_names": [
+      "NVIDIA DSX MaxLPS"
+    ],
+    "published_at": "2026-08-21T15:00:00Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-aa99f8cfcbdc63c2f643"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-aa99f8cfcbdc63c2f643",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Maximizing AI Factory Performance per Watt with NVIDIA DSX MaxLPS",
+        "url": "https://developer.nvidia.com/blog/maximizing-ai-factory-performance-per-watt-with-nvidia-dsx-maxlps/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/maximizing-ai-factory-performance-per-watt-with-nvidia-dsx-maxlps/"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "AI 工厂",
+      "能效",
+      "GPU"
+    ],
+    "uncertainties": [
+      "DSX MaxLPS 的具体技术细节和性能指标尚未披露。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "单一官方来源，无其他来源交叉验证，因此事件边界限定为博客发布本身。"
+    ],
+    "canonical_title": "语音识别中的基准优化测量",
+    "category": "AI/语音识别",
+    "credibility_score": 0.6,
+    "entity_names": [],
+    "facts": [
+      "Hugging Face 博客于 2026 年 8 月 21 日发布了一篇关于语音识别基准优化测量的文章。"
+    ],
+    "id": "story-0e7ded1847d561ca6738",
+    "importance_score": 0.1,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://huggingface.co/blog/asr-benchmark-optimization",
+    "product_names": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "relevance_score": 0.1,
+    "source_item_ids": [
+      "item-e3ddd7a65cd3a566e91c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-e3ddd7a65cd3a566e91c",
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Measuring benchmark optimization in speech recognition",
+        "url": "https://huggingface.co/blog/asr-benchmark-optimization"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/asr-benchmark-optimization"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "语音识别",
+      "基准测试",
+      "优化"
+    ],
+    "uncertainties": [
+      "文章的具体技术内容、方法论及结论尚不明确，需要进一步阅读原文。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 展示 GPU 加速在金融时间序列聚类中的性能优势，可能吸引金融行业采用 GPU 进行风险管理。",
+      "文章属于官方技术内容，可信度较高。"
+    ],
+    "canonical_title": "NVIDIA 发布使用 GPU 加速的 AdaptGrow 聚类方法，可将金融时间序列建模性能提升最多 10,000 倍",
+    "category": "科技",
+    "credibility_score": 0.0,
+    "entity_names": [],
+    "facts": [
+      "NVIDIA 于 2026-08-21 在官方开发者博客发布文章，介绍 GPU 加速的 AdaptGrow 聚类方法用于金融工具。",
+      "该方法可将滚动相关性矩阵和尾部依赖矩阵转化为硬聚类、软因子等。",
+      "来源为 NVIDIA Developer Blog，作者为 Elizabeth Goodman。"
+    ],
+    "id": "story-5b7e60188786bff1aa89",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://developer.nvidia.com/blog/gpu-accelerated-clustering-for-financial-instruments-at-scale/",
+    "product_names": [],
+    "published_at": "2026-08-21T16:21:04Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-2cd10252971bf80886c5"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "discussion_url": null,
+        "fetched_at": "2026-08-21T23:56:14.225732Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-21T16:21:04Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-2cd10252971bf80886c5",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GPU-Accelerated Clustering for Financial Instruments at Scale",
+        "url": "https://developer.nvidia.com/blog/gpu-accelerated-clustering-for-financial-instruments-at-scale/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/gpu-accelerated-clustering-for-financial-instruments-at-scale/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "未提供具体性能数据（如 10,000 倍）的原始出处，需查看原文确认。"
+    ],
+    "updated_at": "2026-08-21T23:56:14.225732Z"
+  }
+]

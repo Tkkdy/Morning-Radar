@@ -1,0 +1,119 @@
+{
+  "date": "2026-08-22",
+  "generated_at": "2026-08-21T23:56:14.225732Z",
+  "judgements": [
+    {
+      "claim": "NVIDIA AVO 在 ARC-AGI-3 上取得 100% 得分，如果被独立验证，将标志着通用人工智能推理能力的重大突破，并推动长周期自主智能体架构成为主流研究方向。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-7f0f2d88470beb19984f"
+          }
+        }
+      ],
+      "judgement_id": "judgement-a6093d9b002b60340875",
+      "rationale": "官方博客宣称满分，但缺乏具体任务细节和对比数据，且博客可能带营销性质，独立验证是关键。",
+      "recorded_at": "2026-08-21T23:56:14.225732Z",
+      "root_judgement_id": "judgement-a6093d9b002b60340875",
+      "uncertainty": "公告未提供具体任务细节或对比数据，可能被夸大。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    },
+    {
+      "claim": "NVIDIA 的研究表明智能体框架（harness）和微调对智能体表现的影响大于底层模型能力，这一发现若被更多证据支持，将改变 AI 开发中模型规模至上的策略。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-8914b45c3a650752071c"
+          }
+        }
+      ],
+      "judgement_id": "judgement-b2448123e7cfa6b5e845",
+      "rationale": "TechCrunch 报道了 NVIDIA 的研究，但实验细节和同行评审状态未知。",
+      "recorded_at": "2026-08-21T23:56:14.225732Z",
+      "root_judgement_id": "judgement-b2448123e7cfa6b5e845",
+      "uncertainty": "研究未经同行评审，具体定义和实验设置不明确。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "NVIDIA AVO 的 ARC-AGI-3 满分将被独立研究机构或 ARC Prize 官方验证或复现，或者 NVIDIA 公布 ARC-AGI-3 的具体任务和评估细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA AVO"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-21T23:56:14.225732Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-22",
+          "story_id": "story-7f0f2d88470beb19984f"
+        }
+      ],
+      "topic_anchors": [
+        "AI模型"
+      ],
+      "watch_id": "watch-c80224c3f616100ba706"
+    },
+    {
+      "entity_anchors": [
+        "Anthropic"
+      ],
+      "event_type": "opened",
+      "expectation": "Anthropic 将对 TechCrunch 的测试结果做出回应，或发布 Opus 4.6 的过滤机制更新或修复。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Opus 4.6"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-21T23:56:14.225732Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-22",
+          "story_id": "story-0fd13f455ec5383f34a7"
+        }
+      ],
+      "topic_anchors": [
+        "AI 模型安全"
+      ],
+      "watch_id": "watch-94d7abdfd7fc071cc57d"
+    },
+    {
+      "entity_anchors": [
+        "Nvidia"
+      ],
+      "event_type": "opened",
+      "expectation": "NVIDIA 将发表该研究的论文或完整实验细节，或有其他团队复现微调智能体超越底层模型能力的结果。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-21T23:56:14.225732Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-22",
+          "story_id": "story-8914b45c3a650752071c"
+        }
+      ],
+      "topic_anchors": [
+        "AI 智能体",
+        "微调"
+      ],
+      "watch_id": "watch-6a8bfdbf76985a5dbdcd"
+    }
+  ]
+}

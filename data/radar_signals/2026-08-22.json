@@ -1,0 +1,74 @@
+[
+  {
+    "claim": "llm 0.32.1",
+    "id": "radar-b6c57d348a2066a37e70",
+    "missing_evidence": [
+      "具体版本变更内容或 changelog",
+      "官方发布确认",
+      "是否有功能或行为变化"
+    ],
+    "observed_at": "2026-08-21T23:56:14.225732Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-385f654fcfdbef71de29",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/21/llm/"
+      }
+    ],
+    "uncertainty": "当前只有版本号，缺少具体更新信息，重要度难以判断。",
+    "why_notable": "可能是一次 AI CLI 工具的新版本发布，对关注模型调用和自动化工作流的开发者有潜在价值。"
+  },
+  {
+    "claim": "llm-openrouter 0.7",
+    "id": "radar-a6a5cc5066694a825e38",
+    "missing_evidence": [
+      "版本变更内容",
+      "官方发布确认",
+      "与 llm 核心的兼容性说明"
+    ],
+    "observed_at": "2026-08-21T23:56:14.225732Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-d61fc285c7155696bea4",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/21/llm-openrouter/"
+      }
+    ],
+    "uncertainty": "仅有版本号，缺少具体变更，暂不能判断实际影响。",
+    "why_notable": "插件新版本可能影响开发者通过 CLI 调用多模型的方式。"
+  },
+  {
+    "claim": "ChatGPT 搜索现在大规模使用 site: 操作符",
+    "id": "radar-beb5640e6ffb2a9f4556",
+    "missing_evidence": [
+      "可复现的查询示例或截图",
+      "官方功能说明或文档",
+      "该行为是否稳定且非幻觉"
+    ],
+    "observed_at": "2026-08-21T23:56:14.225732Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-ad2b779c2da9702654fc",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/20/chatgpt-search-now-uses-the-siteoperator-at-scale/"
+      }
+    ],
+    "uncertainty": "需要验证观察是否可复现，以及是正式功能还是偶发行为。",
+    "why_notable": "若属实，说明 ChatGPT 搜索能执行站内限定检索，可能改变用户搜索方式并影响网站可见度。"
+  }
+]

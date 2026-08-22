@@ -1,0 +1,53 @@
+{
+  "date": "2026-08-22",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前，LinkedIn 没有面向用户的 AI 垃圾内容标记功能，网站站长需要手动维护 robots.txt 与不同 AI 机器人的策略对齐；用户和站长缺乏直接、流畅的治理手段。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个独立事件簇来自不同 actor（LinkedIn 与 Cloudflare），分别落在社交媒体内容治理和网络基础设施机器人策略，但共享同一机制：将 AI 治理控制权交给用户/站长。虽然方向明确且具备真实产品与可观察影响，但只有两个簇，且 LinkedIn 来源为编辑报道而非官方一手发布；不足以达到 Emerging 通常需约三个簇或两簇例外中 strong primary evidence 的严格要求，故作为 Candidate 保留内部观察。",
+        "falsifier": "如果 LinkedIn 的 AI slop 按钮仅被用于反馈而未实际改变内容分发或内容审核，且 Cloudflare Bot Preference Sync 未被网站采用或不能阻止/允许 AI 爬虫，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "LinkedIn 用户获得直接标记疑似 AI 垃圾的入口，超过一百万人点击，表明用户需求强烈。",
+          "Cloudflare 站点运营者可自动将 robots.txt 与 Search、Agent、Training 的 AI 机器人策略对齐，降低 AI 抓取治理的运维成本。"
+        ],
+        "shared_mechanism": "平台和基础设施供应商通过产品化控制点，将 AI 生成内容与 AI 抓取行为的治理权下放给终端用户和网站运营者：LinkedIn 在帖子菜单中加入用户可点击的“Seems like AI slop”按钮，使普通用户能直接标记疑似 AI 垃圾；Cloudflare 推出 Bot Preference Sync，自动同步 robots.txt 与 AI 机器人策略，降低网站运营者管理 AI 爬虫的运维成本。两者共同推动 AI 内容/抓取从平台被动容忍走向分散化、可操作的治理机制。"
+      },
+      "claim": "LinkedIn 与 Cloudflare 正在分别从用户侧和网站运营者侧增加对 AI 生成内容与 AI 机器人行为的直接治理控制：LinkedIn 提供“疑似 AI 垃圾”标记按钮，Cloudflare 自动将 robots.txt 与 Search、Agent、Training 的 AI 机器人策略对齐。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-d90cf66f744f8e26c61c"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-c63c4d2eb9ab9c5f7db2"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-942cb945b10184f2f7ba",
+      "recorded_at": "2026-08-21T23:56:14.225732Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-fddd96fb66ad5e45aa1b",
+        "cluster-22d6ceb37c49807ebc78"
+      ],
+      "tendency_id": "tendency-6ef21625d2139772f465",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-21T23:56:14.225732Z"
+}
