@@ -37,6 +37,7 @@ from morning_radar.ai.output_validation import (
     validate_direction_evidence,
 )
 from morning_radar.continuity.validation import validate_continuity_resolution
+from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
     RawItem,
     ResearchCase,
@@ -270,13 +271,22 @@ class OpenAIProvider:
             allowed_urls=set(story.source_urls),
         )
 
-    def write_brief(self, stories: list[Story], signals: list[Signal]) -> BriefDraft:
+    def write_brief(
+        self,
+        stories: list[Story],
+        signals: list[Signal],
+        editorial_decisions: list[EditorialDecision] | None = None,
+    ) -> BriefDraft:
         return self._parse(
             task="write_brief",
             schema=BriefDraft,
             payload_data={
                 "stories": [story.model_dump(mode="json") for story in stories],
                 "signals": [signal.model_dump(mode="json") for signal in signals],
+                "editorial_decisions": [
+                    decision.model_dump(mode="json")
+                    for decision in editorial_decisions or []
+                ],
             },
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},
@@ -301,6 +311,26 @@ class OpenAIProvider:
                 output,
                 signals,
             ),
+        )
+
+    def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:
+        editorial_dir = self.prompt_dir / "editorial"
+        return self._parse(
+            task="evaluate_editorial",
+            schema=EditorialDecisionBatch,
+            payload_data={
+                "profile": (editorial_dir / "profile.md").read_text(encoding="utf-8"),
+                "golden_cases": [
+                    json.loads(line)
+                    for line in (editorial_dir / "golden_cases.jsonl")
+                    .read_text(encoding="utf-8")
+                    .splitlines()
+                    if line.strip()
+                ],
+                "stories": [story.model_dump(mode="json") for story in stories],
+            },
+            item_count=len(stories),
+            allowed_urls={url for story in stories for url in story.source_urls},
         )
 
     def resolve_continuity(

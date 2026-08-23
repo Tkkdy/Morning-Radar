@@ -37,6 +37,7 @@ from morning_radar.continuity.materialize import (
 )
 from morning_radar.continuity.projection import apply_continuity_to_brief
 from morning_radar.continuity.validation import validate_daily_continuity
+from morning_radar.editorial.evaluator import evaluate_editorial
 from morning_radar.models import (
     DailyBrief,
     DailyContinuity,
@@ -78,7 +79,7 @@ from morning_radar.time_utils import display_date, utc_now
 from morning_radar.trends import TrendDetector
 
 LOGGER = logging.getLogger(__name__)
-RESERVED_LOGICAL_AI_TASKS = 6
+RESERVED_LOGICAL_AI_TASKS = 7
 
 
 def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
@@ -186,13 +187,33 @@ class MorningRadarPipeline:
             now=now,
             maximum_ai_items=ai_candidate_limit,
         )
-        brief_limits = BriefLimits(maximum_items=self.app.maximum_brief_items)
-        brief_ai_stories = ranked_eligible_stories(
-            stories,
-            relevance_threshold=self.app.relevance_threshold,
-            importance_threshold=self.app.importance_threshold,
-        )[: brief_limits.maximum_items]
         brief_date = display_date(now)
+        editorial_result = evaluate_editorial(
+            stories,
+            provider=provider,
+            current_date=brief_date,
+            generated_at=now,
+            enabled=self.app.editorial.enabled,
+            shadow_mode=self.app.editorial.shadow_mode,
+            profile_version=self.app.editorial.profile_version,
+            maximum_stories=self.app.editorial.maximum_stories,
+        )
+        brief_limits = BriefLimits(maximum_items=self.app.maximum_brief_items)
+        if editorial_result.active:
+            assert editorial_result.selection is not None
+            story_by_id = {story.id: story for story in stories}
+            brief_ai_stories = [
+                story_by_id[story_id]
+                for story_id in editorial_result.selection.visible_story_ids[
+                    : brief_limits.maximum_items
+                ]
+            ]
+        else:
+            brief_ai_stories = ranked_eligible_stories(
+                stories,
+                relevance_threshold=self.app.relevance_threshold,
+                importance_threshold=self.app.importance_threshold,
+            )[: brief_limits.maximum_items]
         current_story_memory = [
             StoryMemory(
                 ref=StoryOccurrenceRef(date=brief_date, story_id=story.id),
@@ -281,6 +302,7 @@ class MorningRadarPipeline:
             relevance_threshold=self.app.relevance_threshold,
             importance_threshold=self.app.importance_threshold,
             maximum_ai_items=self.app.maximum_ai_items,
+            editorial_result=editorial_result,
             run_stats={
                 "after_global_cap": len(raw_items),
                 "recent_24h": len(recent),
@@ -290,6 +312,10 @@ class MorningRadarPipeline:
                 "signals": len(signals),
                 "fixture_mode": fixtures,
                 "dry_run": dry_run,
+                "editorial_enabled": editorial_result.daily.enabled,
+                "editorial_shadow_mode": editorial_result.daily.shadow_mode,
+                "editorial_degraded": editorial_result.daily.degraded,
+                "editorial_decisions": len(editorial_result.daily.decisions),
                 "aihot_enabled": self.app.aihot.enabled,
                 **practitioner_coverage_stats(people),
                 **research_result.stats,
@@ -514,6 +540,7 @@ class MorningRadarPipeline:
             daily_continuity,
             research_result.radar_signals,
             tendency_result.daily,
+            editorial_result.daily,
         )
         self.build_site(output_root=output_root, history_root=history_root)
         if notify and not fixtures and not dry_run:
@@ -601,6 +628,7 @@ class MorningRadarPipeline:
         continuity,
         radar_signals,
         tendencies,
+        editorial,
     ) -> None:
         name = f"{brief_date}.json"
         save_models(root / "data/raw" / name, raw)
@@ -610,6 +638,13 @@ class MorningRadarPipeline:
         save_model(root / "data/continuity" / name, continuity)
         save_models(root / "data/radar_signals" / name, radar_signals)
         save_model(root / "data/tendencies" / name, tendencies)
+        try:
+            save_model(root / "data/editorial" / name, editorial)
+        except (OSError, TypeError, ValueError):
+            LOGGER.exception(
+                "Editorial degradation: decision artifact could not be saved; "
+                "daily brief remains available"
+            )
 
     def _story_history(self, root: Path, current: date) -> dict[date, list[Story]]:
         result = {}

@@ -21,6 +21,14 @@ from morning_radar.ai.models import (
     TendencyEvaluationBatch,
     TendencyFormationSupportDraft,
 )
+from morning_radar.editorial.models import (
+    DecisionReason,
+    EditorialDecision,
+    EditorialDecisionBatch,
+    FactStatus,
+    Placement,
+    Treatment,
+)
 from morning_radar.models import (
     RawItem,
     ResearchCase,
@@ -91,8 +99,14 @@ class FakeAIProvider:
             explanation="Fixture 使用稳定分数以保证测试可重复。",
         )
 
-    def write_brief(self, stories: list[Story], signals: list[Signal]) -> BriefDraft:
+    def write_brief(
+        self,
+        stories: list[Story],
+        signals: list[Signal],
+        editorial_decisions: list[EditorialDecision] | None = None,
+    ) -> BriefDraft:
         del signals
+        del editorial_decisions
         watch_anchor = None
         if stories:
             first = stories[0]
@@ -134,6 +148,28 @@ class FakeAIProvider:
                 for story in stories
             ],
             watch_items=watch_drafts,
+        )
+
+    def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:
+        return EditorialDecisionBatch(
+            decisions=[
+                EditorialDecision(
+                    story_id=story.id,
+                    placement=Placement.TOP,
+                    treatment=Treatment.SHORT_NEWS,
+                    reader_value=4,
+                    evidence_value=2,
+                    fact_status=FactStatus.CLAIM,
+                    editorial_confidence=0.8,
+                    causal_confidence=None,
+                    news_delta=story.facts[0] if story.facts else story.canonical_title,
+                    why_now="Fixture 使用确定性编辑判断验证离线编排。",
+                    decision_reasons=[DecisionReason.DEVELOPER_PRODUCTION_IMPACT],
+                    retain_for_trends=False,
+                    uncertainty="Fixture 不声称存在输入之外的独立验证。",
+                )
+                for story in stories
+            ]
         )
 
     def write_direction_observation(

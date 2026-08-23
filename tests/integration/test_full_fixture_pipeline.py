@@ -44,6 +44,7 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     assert (output / "data/continuity/2026-07-23.json").exists()
     assert (output / "data/radar_signals/2026-07-23.json").exists()
     assert (output / "data/tendencies/2026-07-23.json").exists()
+    assert (output / "data/editorial/2026-07-23.json").exists()
     assert (output / "site/index.html").exists()
     assert (output / "site/archive.html").exists()
     assert "raw_collected=4" in caplog.text
@@ -63,6 +64,26 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     index = (output / "site/index.html").read_text(encoding="utf-8")
     assert '<p class="section-label">top_stories</p>' not in index
     assert '<p class="section-label">今日重点</p>' in index
+
+
+def test_editorial_artifact_save_failure_does_not_block_fixture_brief(
+    monkeypatch,
+) -> None:
+    original_save_model = __import__(
+        "morning_radar.pipeline",
+        fromlist=["save_model"],
+    ).save_model
+
+    def fail_only_editorial(path, model) -> None:
+        if path.parent.name == "editorial":
+            raise OSError("simulated editorial storage failure")
+        original_save_model(path, model)
+
+    monkeypatch.setattr("morning_radar.pipeline.save_model", fail_only_editorial)
+    pipeline = MorningRadarPipeline(Path(".").resolve())
+    brief = pipeline.run(fixtures=True, dry_run=True)
+    assert brief.top_stories
+    assert brief.run_stats["editorial_shadow_mode"] is True
 
 
 def test_dry_run_reads_production_history_without_mutating_it(

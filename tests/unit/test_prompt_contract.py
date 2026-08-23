@@ -71,3 +71,14 @@ def test_story_prompts_keep_practitioner_and_discovery_evidence_boundaries() -> 
     assert "marketing、opinion 与 unverified" in merge
     assert "Community Attention" in score
     assert "不能提高事实可信度" in score
+
+
+def test_editorial_prompt_forbids_invented_verification_and_weighted_master_score() -> None:
+    prompt = Path("prompts/evaluate_editorial.md").read_text(encoding="utf-8")
+    assert "不得使用模型" in prompt
+    assert "补造验证状态" in prompt
+    assert "不得生成一个\n加权总分" in prompt
+    assert "SUPPORT 只补充目标" in prompt
+    assert "修改价格、修改许可证" in prompt
+    assert "market source 可以验证股价、成交量" in prompt
+    assert "厂商不能单独验证自己声称的模型性能" in prompt

@@ -6,6 +6,23 @@ Morning Radar 是一个个人定时情报晨报：聚合 AI 科技、重点公�
 它强调“少而重要”：同一事件只出现一次，事实、分析和不确定性分开，所有链接来自真实
 采集输入。市场变化仅作信息展示，不提供投资建议。
 
+## v0.4 Editorial Layer（Shadow）
+
+项目现在在完整 Story 批次形成后、最终简报生成前运行可移植的 VDVXDV Editorial Layer，
+分别记录读者 placement/treatment 与后台 evidence value。默认 `enabled: true` 且
+`shadow_mode: true`：每天生成 `data/editorial/YYYY-MM-DD.json`，但不改变读者简报。
+
+Editorial 超过 Story 安全上限、Provider 失败、结构校验失败、缺少决策或 SUPPORT 关系非法
+时，整批标记 degraded，并完整沿用旧 relevance/importance 排序路径。它不会截断完整 Story
+批次，也不会影响 Story、趋势或 Tendency 的保存和计算。Active mode 只有在单独的真实
+DeepSeek held-out Eval 达标后才应人工开启。
+
+真实 held-out Eval 只通过 GitHub Actions 的 `Editorial Held-out Eval` 手动工作流运行。
+它从 GitHub Secret 读取 `DEEPSEEK_API_KEY`，优先从 Repository Variables 读取模型与
+Base URL（兼容现有同名 Secrets），只执行冻结 Prompt 的独立评估入口，不运行正式 Pipeline、
+发布或通知。每次运行上传 `raw_model_output.json`、`validated_results.json` 和
+`metrics.json`；单次结果用于报告，不能自动修改 Prompt 或开启 Active mode。
+
 ## v0.1 能做什么
 
 - 采集 RSS/Atom、GitHub Releases/仓库指标、Hacker News 和配置内公司行情；
@@ -125,6 +142,8 @@ Fixture 和无网络测试。核心代码不应因新增观察对象而修改。
 AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日逻辑调用数限制。候选会在首次
 AI 分类前确定性排序和截断；`maximum_ai_calls` 统计逻辑任务，真实 HTTP 请求（含重试）
 另行记录。`relevance_threshold` 控制晨报候选，`importance_threshold` 控制头条资格。
+这两个阈值仍是 Shadow/degraded 时的兼容路径；Active Editorial mode 使用 placement 决定
+读者候选。
 可恢复 AI 输出失败会明确记录降级，只复用已验证的 Story 事实和来源，不生成替代判断。
 先用 Fixture 验证，再逐步增加来源；GitHub Pages 默认公开，晨报不得放个人信息或秘密。
 

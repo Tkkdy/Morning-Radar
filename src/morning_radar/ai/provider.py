@@ -15,6 +15,7 @@ from morning_radar.ai.models import (
     StoryScore,
     TendencyEvaluationBatch,
 )
+from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
     RawItem,
     ResearchCase,
@@ -32,7 +33,14 @@ class AIProvider(Protocol):
 
     def score_story(self, story: Story) -> StoryScore: ...
 
-    def write_brief(self, stories: list[Story], signals: list[Signal]) -> BriefDraft: ...
+    def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch: ...
+
+    def write_brief(
+        self,
+        stories: list[Story],
+        signals: list[Signal],
+        editorial_decisions: list[EditorialDecision] | None = None,
+    ) -> BriefDraft: ...
 
     def write_direction_observation(
         self,

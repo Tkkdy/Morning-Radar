@@ -16,6 +16,8 @@ from morning_radar.ai.models import (
 )
 from morning_radar.ai.output_validation import sanitize_memory_drafts
 from morning_radar.ai.provider import AIProvider
+from morning_radar.editorial.evaluator import EditorialRunResult
+from morning_radar.editorial.models import Placement
 from morning_radar.models import BriefItem, BriefStoryContext, DailyBrief, Signal, Story
 
 SECTION_NAMES = (
@@ -163,15 +165,37 @@ def generate_daily_brief_with_memory(
     relevance_threshold: float = 0,
     importance_threshold: float = 0,
     maximum_ai_items: int | None = None,
+    editorial_result: EditorialRunResult | None = None,
 ) -> BriefGenerationResult:
     stats = dict(run_stats)
-    eligible_stories = ranked_eligible_stories(
-        stories,
-        relevance_threshold=relevance_threshold,
-        importance_threshold=importance_threshold,
-    )
-    ai_stories = eligible_stories[: limits.maximum_items]
-    stats["threshold_eligible_stories"] = len(eligible_stories)
+    editorial_active = bool(editorial_result and editorial_result.active)
+    editorial_decisions = {
+        decision.story_id: decision
+        for decision in (editorial_result.daily.decisions if editorial_active else [])
+    }
+    editorial_selection = editorial_result.selection if editorial_active else None
+    if editorial_selection is not None:
+        stories_by_id = {story.id: story for story in stories}
+        primary_ids = editorial_selection.visible_story_ids[: limits.maximum_items]
+        support_ids = [
+            support_id
+            for primary_id in primary_ids
+            for support_id in editorial_selection.support_by_story_id.get(primary_id, [])
+        ]
+        ai_story_ids = list(dict.fromkeys([*primary_ids, *support_ids]))
+        ai_stories = [stories_by_id[story_id] for story_id in ai_story_ids]
+        eligible_stories = [stories_by_id[story_id] for story_id in primary_ids]
+        stats["threshold_eligible_stories"] = len(eligible_stories)
+        stats["editorial_visible_stories"] = len(editorial_selection.visible_story_ids)
+        stats["editorial_support_stories"] = len(support_ids)
+    else:
+        eligible_stories = ranked_eligible_stories(
+            stories,
+            relevance_threshold=relevance_threshold,
+            importance_threshold=importance_threshold,
+        )
+        ai_stories = eligible_stories[: limits.maximum_items]
+        stats["threshold_eligible_stories"] = len(eligible_stories)
     stats["ai_brief_story_inputs"] = len(ai_stories)
     bounded_signals = sorted(
         signals,
@@ -191,21 +215,32 @@ def generate_daily_brief_with_memory(
 
     if ai_stories:
         try:
-            draft = provider.write_brief(ai_stories, bounded_signals)
+            if editorial_active:
+                draft = provider.write_brief(
+                    ai_stories,
+                    bounded_signals,
+                    [editorial_decisions[story.id] for story in ai_stories],
+                )
+            else:
+                draft = provider.write_brief(ai_stories, bounded_signals)
             draft = sanitize_memory_drafts(draft, ai_stories)
         except AIOutputError:
             LOGGER.exception(
                 "AI degradation: brief generation failed; using verified Story facts"
             )
             stats["ai_brief_fallback"] = True
-            draft = _fallback_brief_draft(ai_stories)
+            draft = _fallback_brief_draft(eligible_stories)
     else:
         LOGGER.info("Skipping AI brief generation: no stories")
         draft = BriefDraft(items=[])
-    story_by_id = {story.id: story for story in eligible_stories}
+    story_by_id = {
+        story.id: story
+        for story in (ai_stories if editorial_active else eligible_stories)
+    }
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
     main_item_count = 0
+    other_reading: list[BriefItem] = []
 
     for generated in draft.items:
         if main_item_count >= limits.maximum_items:
@@ -218,9 +253,40 @@ def generate_daily_brief_with_memory(
             for story_id in generated.story_ids
             if story_id in story_by_id
         ]
-        important = bool(referenced) and any(
-            story.importance_score >= importance_threshold for story in referenced
-        )
+        primary_editorial_ids = [
+            story_id
+            for story_id in generated.story_ids
+            if story_id in editorial_decisions
+            and editorial_decisions[story_id].placement is not Placement.SUPPORT
+        ]
+        if editorial_active:
+            if not primary_editorial_ids:
+                continue
+            if any(
+                editorial_decisions[story_id].placement is Placement.SUPPORT
+                and editorial_decisions[story_id].support_for_story_id
+                not in primary_editorial_ids
+                for story_id in generated.story_ids
+                if story_id in editorial_decisions
+            ):
+                LOGGER.warning("Dropped standalone or misattached Editorial SUPPORT item")
+                continue
+            lead_decision = min(
+                (editorial_decisions[story_id] for story_id in primary_editorial_ids),
+                key=lambda decision: editorial_selection.visible_story_ids.index(
+                    decision.story_id
+                ),
+            )
+            important = lead_decision.placement is Placement.TOP
+            if lead_decision.placement in {Placement.NEWS, Placement.ONE_LINER}:
+                section = "other_reading"
+            elif lead_decision.placement is Placement.STORY:
+                proposed = referenced[0].category if referenced else "ai_and_open_source"
+                section = proposed if proposed in sections else "ai_and_open_source"
+        else:
+            important = bool(referenced) and any(
+                story.importance_score >= importance_threshold for story in referenced
+            )
         top_enabled = enabled_sections.get("top_stories", True)
         if top_enabled and important and len(sections["top_stories"]) < limits.top_story_items:
             section = "top_stories"
@@ -231,21 +297,51 @@ def generate_daily_brief_with_memory(
                 if proposed in sections and proposed != "top_stories"
                 else "ai_and_open_source"
             )
-        if not enabled_sections.get(section, True):
+        if section != "other_reading" and not enabled_sections.get(section, True):
             continue
         item = _validated_item(generated, story_by_id=story_by_id, section=section)
-        sections[section].append(item)
+        if section == "other_reading":
+            if len(other_reading) >= limits.other_reading_items:
+                continue
+            other_reading.append(item)
+        else:
+            sections[section].append(item)
         used_story_ids.update(item.story_ids)
         main_item_count += 1
 
-    other_reading: list[BriefItem] = []
     remaining_capacity = max(0, limits.maximum_items - main_item_count)
-    other_reading_capacity = min(limits.other_reading_items, remaining_capacity)
+    other_reading_capacity = min(
+        limits.other_reading_items,
+        len(other_reading) + remaining_capacity,
+    )
     for story in eligible_stories:
         if len(other_reading) >= other_reading_capacity:
             break
         if story.id in used_story_ids:
             continue
+        if editorial_active:
+            decision = editorial_decisions[story.id]
+            if decision.placement in {Placement.TOP, Placement.STORY}:
+                section = (
+                    "top_stories"
+                    if decision.placement is Placement.TOP
+                    and len(sections["top_stories"]) < limits.top_story_items
+                    else story.category
+                )
+                if section not in sections:
+                    section = "ai_and_open_source"
+                generated = _deterministic_generated_item(story, section=section)
+                sections[section].append(
+                    _validated_item(generated, story_by_id=story_by_id, section=section)
+                )
+                used_story_ids.add(story.id)
+                main_item_count += 1
+                remaining_capacity = max(0, limits.maximum_items - main_item_count)
+                other_reading_capacity = min(
+                    limits.other_reading_items,
+                    len(other_reading) + remaining_capacity,
+                )
+                continue
         generated = _deterministic_generated_item(story, section="other_reading")
         other_reading.append(
             _validated_item(
@@ -272,6 +368,23 @@ def generate_daily_brief_with_memory(
         if enabled_sections.get("cognitive_extension", True)
         else None
     )
+    if editorial_active:
+        assert editorial_selection is not None
+        editorial_order = {
+            story_id: index
+            for index, story_id in enumerate(editorial_selection.visible_story_ids)
+        }
+
+        def editorial_item_order(item: BriefItem) -> tuple[int, str]:
+            primary_ids = [story_id for story_id in item.story_ids if story_id in editorial_order]
+            return (
+                min((editorial_order[story_id] for story_id in primary_ids), default=10**9),
+                item.id,
+            )
+
+        for section_items in sections.values():
+            section_items.sort(key=editorial_item_order)
+        other_reading.sort(key=editorial_item_order)
     return BriefGenerationResult(
         brief=DailyBrief(
             date=brief_date,
@@ -309,6 +422,7 @@ def generate_daily_brief(
     relevance_threshold: float = 0,
     importance_threshold: float = 0,
     maximum_ai_items: int | None = None,
+    editorial_result: EditorialRunResult | None = None,
 ) -> DailyBrief:
     """Compatibility wrapper for callers that only need the display Brief."""
     return generate_daily_brief_with_memory(
@@ -324,6 +438,7 @@ def generate_daily_brief(
         relevance_threshold=relevance_threshold,
         importance_threshold=importance_threshold,
         maximum_ai_items=maximum_ai_items,
+        editorial_result=editorial_result,
     ).brief
 
 
