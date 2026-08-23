@@ -1,0 +1,168 @@
+{
+  "date": "2026-08-23",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前，LinkedIn 没有面向用户的 AI 垃圾内容标记功能，网站站长需要手动维护 robots.txt 与不同 AI 机器人的策略对齐；用户和站长缺乏直接、流畅的治理手段。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-fddd96fb66ad5e45aa1b 显示 LinkedIn AI slop 按钮已有超过一百万次点击，但该证据仍属于 LinkedIn 单一 actor 和产品，未新增独立 structural 证据，因此不足以升级为 Emerging；作为对既有 Candidate 的可观察影响强化更新。",
+        "falsifier": "如果 LinkedIn 的 AI slop 按钮仅被用于反馈而未实际改变内容分发或内容审核，且 Cloudflare Bot Preference Sync 未被网站采用或不能阻止/允许 AI 爬虫，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "LinkedIn 用户获得直接标记疑似 AI 垃圾的入口，超过一百万人点击，表明用户需求强烈。",
+          "Cloudflare 站点运营者可自动将 robots.txt 与 Search、Agent、Training 的 AI 机器人策略对齐，降低 AI 抓取治理的运维成本。"
+        ],
+        "shared_mechanism": "平台和基础设施供应商通过产品化控制点，将 AI 生成内容与 AI 抓取行为的治理权下放给终端用户和网站运营者：LinkedIn 在帖子菜单中加入用户可点击的“Seems like AI slop”按钮，使普通用户能直接标记疑似 AI 垃圾；Cloudflare 推出 Bot Preference Sync，自动同步 robots.txt 与 AI 机器人策略，降低网站运营者管理 AI 爬虫的运维成本。两者共同推动 AI 内容/抓取从平台被动容忍走向分散化、可操作的治理机制。"
+      },
+      "claim": "LinkedIn 与 Cloudflare 正在分别从用户侧和网站运营者侧增加对 AI 生成内容与 AI 机器人行为的直接治理控制：LinkedIn 提供“疑似 AI 垃圾”标记按钮，Cloudflare 自动将 robots.txt 与 Search、Agent、Training 的 AI 机器人策略对齐。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-d90cf66f744f8e26c61c"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-942cb945b10184f2f7ba",
+      "record_id": "tendency-record-86f883e628b0b4e13f43",
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-fddd96fb66ad5e45aa1b"
+      ],
+      "tendency_id": "tendency-6ef21625d2139772f465",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 agent-to-agent 交易缺乏专用市场平台，代理间协作多由开发者直接集成或依赖单点 API，未形成公开可参与的代理市场。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅有一个独立事件簇，且为社区发现、事实较少；但作为公开的 agent-to-agent 市场 Beta，其机制方向明确，符合 Candidate 内部观察标准，暂不升级 Emerging。",
+        "falsifier": "如果 A2G MarketPlace Beta 未能吸引真实 agent 交易、平台关闭或仅为静态演示，或后续未出现其他代理间市场产品，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Hacker News Show HN 发布 Beta 测试，链接公开可访问，潜在用户/开发者可注册参与代理间交易市场。"
+        ],
+        "shared_mechanism": "AI 代理从执行用户任务转向彼此之间的经济协调，需要一个市场层来发现、定价和完成代理间交易；A2G MarketPlace 通过 Beta 平台提供这种基础设施，推动 agent-to-agent 交易从手工集成走向公开市场。"
+      },
+      "claim": "A2G MarketPlace 于 2026-08-22 启动 Beta 测试，试图建立 agent-to-agent 交易市场，让 AI 代理能够相互发现并完成交易。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-23",
+            "story_id": "story-e0dd77dd1dcd2dd361bd"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-3da9190a318fd2c06a10",
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-8ee9d48599c5a6cf192f"
+      ],
+      "tendency_id": "tendency-2aed8e08c349e79b5ade",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI 数据中心建设多以 GPU 数量和总算力为核心指标，电力约束未成为公开宣称的首要优化维度，NVIDIA 也较少高调宣传数据中心开发商合作。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个独立事件簇均来自 NVIDIA 官方或编辑来源，支持同一方向但 actor 单一，且不涉及第三方采用结果，不足以上升为 Emerging；作为 Candidate 内部观察。",
+        "falsifier": "如果 DSX MaxLPS 未被实际采用或仅停留在营销层面，Cloverleaf 合作未落地具体数据中心，且行业仍以 GPU 数量作为主要宣传口径，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "NVIDIA 官方博客明确将关键问题定义为每可用电力可实现的 AI 输出量，可能影响数据中心采购和设计决策。",
+          "NVIDIA 与 Cloverleaf 合作扩大数据中心开发，可能加速 AI 工厂部署。"
+        ],
+        "shared_mechanism": "在 AI 工厂受电力约束背景下，NVIDIA 从提供 GPU 产品转向提供系统级能效方案并绑定数据中心开发合作：DSX MaxLPS 优化每瓦性能，Cloverleaf 合作扩展数据中心容量。两者共同将 AI 基础设施竞争从算力规模转向能效和建设速度。"
+      },
+      "claim": "NVIDIA 正在通过 DSX MaxLPS 等系统级技术和与 Cloverleaf 等数据中心开发商合作，将 AI 工厂的核心优化从 GPU 数量转向每瓦可实现的 AI 输出，以应对电力约束。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-22d91715672f19308caa"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-4a273817cc955a411b6f"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-6c31ed125b8493afd6b0",
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e23f5c2dc315e66b92b6",
+        "cluster-d99e842093b0b4f30149"
+      ],
+      "tendency_id": "tendency-bbe428e6bf47f3c7665a",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前高校创业训练营通常由真人教师提供反馈，未出现以教师 AI 化身为核心反馈来源的低价付费项目。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "单一集群来自编辑来源，但产品已上线且涉及明确付费和 AI 化身反馈功能，符合 Candidate 内部观察标准；未达到 Emerging 所需的多集群/跨 actor 证据。",
+        "falsifier": "如果 HBS Foundry 的 AI 化身反馈质量差导致项目被投诉/取消，或后续无其他高校采用类似模式，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "学生可以花费 699 美元获得 AI 化身在练习演讲和董事会会议中的反馈，改变教育交付方式。"
+        ],
+        "shared_mechanism": "高校开始将教师 AI 化身用于付费创业训练中的演讲和董事会会议反馈，使 AI 从辅助工具变为教学反馈的供给方，降低高质量商业教育成本并扩大规模。"
+      },
+      "claim": "哈佛商学院通过 HBS Foundry 以 699 美元价格提供由教师 AI 化身反馈的创业训练营，将 AI 化身引入正式付费教育场景。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-23",
+            "story_id": "story-16b6bfe8b8d51920cde2"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-8736912ed8490871d81e",
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-7776f34b768228b13292"
+      ],
+      "tendency_id": "tendency-b2e372bc05244616b1c6",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-22T23:54:33.152818Z"
+}

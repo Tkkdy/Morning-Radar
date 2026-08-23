@@ -1,0 +1,100 @@
+{
+  "date": "2026-08-23",
+  "generated_at": "2026-08-22T23:54:33.152818Z",
+  "judgements": [
+    {
+      "claim": "OpenAI 对 SB 53 的立场由反对转为支持加强，可能对加州 AI 安全立法进程产生实质影响。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-23",
+            "story_id": "story-d54582d59f2c28883be0"
+          }
+        }
+      ],
+      "judgement_id": "judgement-6fe24c1f7120aa612a23",
+      "rationale": "OpenAI 此前反对 SB 53，现在呼吁加强，显示其策略从抵制监管转向参与塑造监管，这可能推动法案通过或修改。",
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "root_judgement_id": "judgement-6fe24c1f7120aa612a23",
+      "uncertainty": "OpenAI 具体希望加强的条款不明，且其他科技公司立场未知，立法结果仍不确定。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "加州立法机关在后续版本中是否采纳 OpenAI 对 SB 53 的加强建议，或 OpenAI 公开其具体修改意见。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-23",
+          "story_id": "story-d54582d59f2c28883be0"
+        }
+      ],
+      "topic_anchors": [
+        "AI 安全",
+        "SB 53"
+      ],
+      "watch_id": "watch-3994168c53d18fadb45a"
+    },
+    {
+      "entity_anchors": [],
+      "event_type": "opened",
+      "expectation": "未来是否出现任何领先 AI 实验室公开其控制失控模型的具体计划文档。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-23",
+          "story_id": "story-f9507913d8fe47b72058"
+        }
+      ],
+      "topic_anchors": [
+        "AI安全",
+        "AI治理",
+        "失控模型"
+      ],
+      "watch_id": "watch-c8f0b45a2adb50d0f0c7"
+    },
+    {
+      "entity_anchors": [
+        "Inherent",
+        "DeepMind",
+        "Anthropic",
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "Inherent 是否会发布 Faraday 的详细技术报告或基准测试数据，以供独立验证其超越 Anthropic 和 OpenAI 的声明。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Faraday"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-22T23:54:33.152818Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-23",
+          "story_id": "story-15b250eb1831088df016"
+        }
+      ],
+      "topic_anchors": [
+        "AI模型",
+        "AI编程"
+      ],
+      "watch_id": "watch-d92bc7141ae318e5a067"
+    }
+  ]
+}

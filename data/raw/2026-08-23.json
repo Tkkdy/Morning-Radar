@@ -1,0 +1,944 @@
+[
+  {
+    "author": "Jin-Hee Lee",
+    "company_candidates": [],
+    "content_excerpt": "Cloudflare's new Bot Preference Sync automatically aligns your robots.txt file with your AI bot policies for Search, Agent, and Training. Easily manage which bots access your content without maintaining static files.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-c1f616cb61f8979508bf",
+    "language": "en-us",
+    "metadata": {
+      "official": true,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "cloudflare_blog",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T23:19:57Z",
+    "repository_candidates": [],
+    "source_name": "Cloudflare Blog",
+    "source_role": "official_primary",
+    "source_type": "rss",
+    "statement_type": "factual_announcement",
+    "summary": "Cloudflare's new Bot Preference Sync automatically aligns your robots.txt file with your AI bot policies for Search, Agent, and Training. Easily manage which bots access your content without maintaining static files.",
+    "title": "Say it once: introducing Bot Preference Sync",
+    "topic_candidates": [
+      "ai_coding",
+      "ai_infrastructure"
+    ],
+    "url": "https://blog.cloudflare.com/bot-preference-sync/"
+  },
+  {
+    "author": "github-actions[bot]",
+    "company_candidates": [],
+    "content_excerpt": "## What's Changed ### Claude Desktop * Ollama now integrates with Claude * Turn individual Ollama models on or off for use in Claude, directly from the menu bar * Choose from your available Ollama models from within Claude; cloud models appear only when you're signed in * A new **Apps** view manages app integrations with copyable commands ### Improved caching * Fixed a hang where agent clients that cancel long prefills * Prefill restore points are now trustworthy by construction: a cancelled prefill keeps every restore point it crossed, so retries resume where they stopped instead of restarting from scratch * Resumed prefills no longer record restore points that fail to cover what they claim; on models with recurrent layers this previously forced a request matching 46k of 47k tokens to reprocess from zero * Disabled Claude Code's \"tokens left\" token-countdown system message, which Ollama moved to the front of the prompt and broke the KV cache on every request ### Other improvements * DeepSeek Harness launcher now falls back to `npx` when the global npm install fails, with Windows command-shim support * Onboarding flow has clearer introductory copy, a macOS header aligned with the native traffic-light controls, and Cmd/Ctrl zoom shortcuts disabled during onboarding so the fixed window keeps its intended scale * MLX dependency update (#17886) * Fixed broken default packaging caused by macOS-specific assumptions affecting Linux/Windows builds * Fixed the Apps header overlapping the macOS traffic lights during sidebar open transitions by synchronizing the header padding animation with the sidebar width animation **Full Changelog**: https://github.com/ollama/ollama/compare/v0.32.15...v0.33.0-rc2",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-052e3fe1f1ec246d84d7",
+    "language": "en",
+    "metadata": {
+      "data_anomaly": false,
+      "forks": 17519,
+      "official": true,
+      "open_issues": 3782,
+      "priority": "high",
+      "repository": "ollama/ollama",
+      "stars": 179206,
+      "stars_delta_24h": 79,
+      "stars_delta_7d": 599,
+      "stars_growth_24h": 0.000441027874078168,
+      "stars_growth_7d": 0.0033537319365982295
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T22:52:46Z",
+    "repository_candidates": [
+      "ollama/ollama"
+    ],
+    "source_name": "GitHub · ollama/ollama",
+    "source_role": "official_primary",
+    "source_type": "github",
+    "statement_type": "factual_announcement",
+    "summary": "## What's Changed ### Claude Desktop * Ollama now integrates with Claude * Turn individual Ollama models on or off for use in Claude, directly from the menu bar * Choose from your available Ollama models from within Claude; cloud models appear only when you're signed in * A new **Apps** view manages app integrations with copyable commands ### Improved caching * Fixed a hang where agent clients that cancel long prefills * Prefill restore points are now trustworthy by construction: a cancelled prefill keeps every restore point it crossed, so retries resume where they stopped instead of restarting from scratch * Resumed prefills no longer record restore points that fail to cover what they claim; on models with recurrent layers this previously forced a request matching 46k of 47k tokens to reprocess from zero * Disabled Claude Code's \"tokens left\" token-countdown system message, which Ollama moved to the front of the prompt and broke the KV cache on every request ### Other improvements * D",
+    "title": "ollama/ollama: v0.33.0",
+    "topic_candidates": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://github.com/ollama/ollama/releases/tag/v0.33.0-rc2"
+  },
+  {
+    "author": "tosh",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-cd679be68503c5c79cf5",
+    "language": "en",
+    "metadata": {
+      "comments": 103,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49402189",
+      "official": false,
+      "original_url": "https://twitter.com/moxie/status/2091218652133732491",
+      "score": 259,
+      "selection_reason": "high_signal_discovery"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T18:08:56Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "Scrap",
+    "topic_candidates": [],
+    "url": "https://twitter.com/moxie/status/2091218652133732491"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "NVIDIA"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-80f2fadc0158124125a7",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.009822480160760151,
+      "close": 214.72000122070312,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 216.85000610351562,
+      "ticker": "NVDA",
+      "trading_date": "2026-08-21",
+      "volume": 98545600.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "NVIDIA 最近交易日收盘下跌 0.98%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/NVDA/"
+  },
+  {
+    "author": "Anthony Ha",
+    "company_candidates": [],
+    "content_excerpt": "In the HBS Foundry program, AI avatars provide feedback during practice pitches and board meetings.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-d69d98e58a53054e1467",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T21:46:56Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "In the HBS Foundry program, AI avatars provide feedback during practice pitches and board meetings.",
+    "title": "Harvard’s $699 startup bootcamp offers AI avatars of its instructors",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/22/harvards-699-startup-bootcamp-offers-ai-avatars-of-its-instructors/"
+  },
+  {
+    "author": "felineflock",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-8faad838539822086fae",
+    "language": "en",
+    "metadata": {
+      "comments": 38,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49402232",
+      "official": false,
+      "original_url": "https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917",
+      "score": 151,
+      "selection_reason": "keyword"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T18:14:16Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "Why your local LLM feels dumber than it is",
+    "topic_candidates": [],
+    "url": "https://forum.level1techs.com/t/why-your-local-llm-feels-dumber-than-it-is/253917"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Microsoft"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-a0bddbf11f340d5942de",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.0043437521862263,
+      "close": 483.239990234375,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 481.1499938964844,
+      "ticker": "MSFT",
+      "trading_date": "2026-08-21",
+      "volume": 22489200.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Microsoft 最近交易日收盘上涨 0.43%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/MSFT/"
+  },
+  {
+    "author": "Jay Peters",
+    "company_candidates": [],
+    "content_excerpt": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a […]",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-7c3227e89061b9d288a7",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "the_verge_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T17:25:50-04:00",
+    "repository_candidates": [],
+    "source_name": "The Verge AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "LinkedIn actually announced a \"Seems like AI slop\" button on July 30th, and the company says that a lot of people have already used it. According to a Thursday post from chief product officer Hari Srinivasan, \"over a million people\" have clicked on the button, which is accessible from the three dots menu on a […]",
+    "title": "Over 1 million people have clicked LinkedIn’s AI slop button",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://www.theverge.com/ai-artificial-intelligence/983502/linkedin-ai-slop-button-one-million-people-message"
+  },
+  {
+    "author": "jemoka",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-456109d9e4e44afee5cb",
+    "language": "en",
+    "metadata": {
+      "comments": 93,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49400408",
+      "official": false,
+      "original_url": "https://quantumi.sh/public/labs.html",
+      "score": 286,
+      "selection_reason": "high_signal_discovery"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T14:54:07Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "ElevenLabs, TwelveLabs, ThirteenLabs",
+    "topic_candidates": [],
+    "url": "https://quantumi.sh/public/labs.html"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Alphabet"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-5c73cc3443424dc94321",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.012181858493291498,
+      "close": 344.82000732421875,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 340.6700134277344,
+      "ticker": "GOOGL",
+      "trading_date": "2026-08-21",
+      "volume": 20803700.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Alphabet 最近交易日收盘上涨 1.22%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/GOOGL/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "And this was a debug session from hell, enormously helped by an AI doing much of the grunt-work. I'd like to call it my tireless helper, but the AI several times stated flat out that this was impossible and unsolvable and that we should just write a report about it. I suspect those things have been trained by people who may not be quite as stubborn as I am. But while the AI was ready to give up several times, it did keep adding debug code and analyzing it faithfully when I pushed. So credit where credit is due and I let the AI write the commit message above. — Linus Torvalds , drm/xe: Don't hand out the flat CCS storage as usable VRAM Tags: linus-torvalds , linux , generative-ai , ai-assisted-programming , ai , llms",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-8a1948cc7f7c09c4f31d",
+    "language": "en-us",
+    "metadata": {
+      "official": false,
+      "practitioner_id": "simon-willison",
+      "priority": "high",
+      "source_id": "practitioner_simon-willison_0",
+      "source_role": "practitioner"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T21:04:26Z",
+    "repository_candidates": [],
+    "source_name": "Simon Willison",
+    "source_role": "practitioner",
+    "source_type": "atom",
+    "statement_type": "firsthand_observation",
+    "summary": "And this was a debug session from hell, enormously helped by an AI doing much of the grunt-work. I'd like to call it my tireless helper, but the AI several times stated flat out that this was impossible and unsolvable and that we should just write a report about it. I suspect those things have been trained by people who may not be quite as stubborn as I am. But while the AI was ready to give up several times, it did keep adding debug code and analyzing it faithfully when I pushed. So credit where credit is due and I let the AI write the commit message above. — Linus Torvalds , drm/xe: Don't hand out the flat CCS storage as usable VRAM Tags: linus-torvalds , linux , generative-ai , ai-assisted-programming , ai , llms",
+    "title": "Quoting Linus Torvalds",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://simonwillison.net/2026/Aug/22/linus-torvalds/"
+  },
+  {
+    "author": "backlit4034",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-8fffa730f81a24270250",
+    "language": "en",
+    "metadata": {
+      "comments": 1,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49398304",
+      "official": false,
+      "original_url": "https://www.pm.gc.ca/en/news/statements/2026/08/21/statement-prime-minister-carney-canada-us-trade-negotiations",
+      "score": 672,
+      "selection_reason": "high_signal_discovery"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T10:26:09Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "Statement by Prime Minister Carney on Canada-U.S. trade negotiations",
+    "topic_candidates": [],
+    "url": "https://www.pm.gc.ca/en/news/statements/2026/08/21/statement-prime-minister-carney-canada-us-trade-negotiations"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Meta"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-4af6b52d46bf1a44e260",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.007456547270739099,
+      "close": 549.9000244140625,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 545.8300170898438,
+      "ticker": "META",
+      "trading_date": "2026-08-21",
+      "volume": 13663800.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Meta 最近交易日收盘上涨 0.75%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/META/"
+  },
+  {
+    "author": "Armin Ronacher",
+    "company_candidates": [],
+    "content_excerpt": "One of the memes on Twitter is that “programming is solved now.” I’m not sure to what degree it is, but one thing is pretty clear: the act of familiarizing yourself with a language no longer matters and some of the friction that mattered for humans does not matter for agents. As a result, LLMs make language choice much less consequential than it used to be. If you don’t like the choice, you can seemingly rewrite it in another language and you can make it pick a language that you, as a programmer, are entirely unfamiliar with. Which in turn means that people can, and do, choose based on the marketing of languages much more. As a long-term Rust programmer I found it quite fascinating to see people now ship Rust code who previously might not have chosen it. I attribute at least one part of this to two recent vibe shifts: there is a lot more talk about wanting fast software, and about LLMs being exceptional at optimizing code without regressing behavior. Folks like Mitchell Hashimoto, Charlie Marsh, Jarred Sumner, Daniel Lemire and quite a few others always carried a certain level of obsession with fast and performant software and they also all happen to be receptive to agents writing code. Maybe as a result, or unrelated others are now joining in. That’s because with things like autoresearch you don’t even necessarily need to know all the tricks: you just need to put an agent on it — though knowledge greatly helps! If you look around, there are plenty of projects that want to be fast and small, and they increasingly pick “hard languages”. And it’s not just Rust that is benefiting. Even Zig — despite the fact that the creators and parts of the core community are pretty negative on the whole AI thing — is too. For instance Cloudflare’s new Artifacts service uses a pure-Zig Git-protocol engine, compiled to a roughly 100 KB WebAssembly module and Vercel released fx , a Zig coding agent advertised to be small and fast. From what I can tell, all these projects are largely LLM-assisted. But it’s not just people picking less common languages but also that they are increasingly working with “much harder” technologies. All of a sudden I have seen people do some really impressive stuff with DWARF files, eBPF, custom network drivers, custom crypto and really old computing hardware. Many of these things were previously off-limits for lots of developers. In some cases (eg: crypto) you were even pushed away because those things were intentionally gatekept by the people in the know. So maybe the world will have more slop, but it might also have more developers in it, that want things to be fast and small.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-75660dea522eb2c932ea",
+    "language": "en",
+    "metadata": {
+      "official": false,
+      "practitioner_id": "armin-ronacher",
+      "priority": "high",
+      "source_id": "practitioner_armin-ronacher_0",
+      "source_role": "practitioner"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Armin Ronacher",
+    "source_role": "practitioner",
+    "source_type": "atom",
+    "statement_type": "firsthand_observation",
+    "summary": "One of the memes on Twitter is that “programming is solved now.” I’m not sure to what degree it is, but one thing is pretty clear: the act of familiarizing yourself with a language no longer matters and some of the friction that mattered for humans does not matter for agents. As a result, LLMs make language choice much less consequential than it used to be. If you don’t like the choice, you can seemingly rewrite it in another language and you can make it pick a language that you, as a programmer, are entirely unfamiliar with. Which in turn means that people can, and do, choose based on the marketing of languages much more. As a long-term Rust programmer I found it quite fascinating to see people now ship Rust code who previously might not have chosen it. I attribute at least one part of this to two recent vibe shifts: there is a lot more talk about wanting fast software, and about LLMs being exceptional at optimizing code without regressing behavior. Folks like Mitchell Hashimoto, Char",
+    "title": "Fast and Hard Code",
+    "topic_candidates": [
+      "ai_coding",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "url": "https://lucumr.pocoo.org/2026/8/22/fast-hard-code/"
+  },
+  {
+    "author": "egbert87",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-b2cb305cea931d48301a",
+    "language": "en",
+    "metadata": {
+      "comments": 0,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49404915",
+      "official": false,
+      "original_url": "https://www.a2gmarketplace.com",
+      "score": 1,
+      "selection_reason": "keyword"
+    },
+    "practice_signal_kind": "implementation_insight",
+    "product_candidates": [],
+    "published_at": "2026-08-22T23:39:43Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "Show HN: A2G (Agent to Agent) Marketplace – Beta Test",
+    "topic_candidates": [],
+    "url": "https://www.a2gmarketplace.com"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Amazon"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-b6e6ed280eb1cc021923",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.005689825658748435,
+      "close": 258.6300048828125,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 260.1099853515625,
+      "ticker": "AMZN",
+      "trading_date": "2026-08-21",
+      "volume": 35652900.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Amazon 最近交易日收盘下跌 0.57%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMZN/"
+  },
+  {
+    "author": "Anna Heim",
+    "company_candidates": [],
+    "content_excerpt": "Built by DeepMind alumni, British AI lab Inherent released Faraday, an AI agent whose ability to replicate scientific papers could be a stepping stone for innovation.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-e0cf4087263d4676e050",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T19:00:00Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "Built by DeepMind alumni, British AI lab Inherent released Faraday, an AI agent whose ability to replicate scientific papers could be a stepping stone for innovation.",
+    "title": "Inherent, founded by DeepMind alumni, says its AI ‘teammate’ just outperformed Anthropic and OpenAI at replicating research",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/22/inherent-founded-by-deepmind-alumni-says-its-ai-teammate-just-outperformed-anthropic-and-openai-at-replicating-research/"
+  },
+  {
+    "author": "Jach",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-462373ae65b89be3a741",
+    "language": "en",
+    "metadata": {
+      "comments": 479,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49395628",
+      "official": false,
+      "original_url": "https://danluu.com/perf-opt/",
+      "score": 618,
+      "selection_reason": "high_signal_discovery"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T01:06:17Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "There's no reason for software to be slow anymore",
+    "topic_candidates": [],
+    "url": "https://danluu.com/perf-opt/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Apple"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-d81f45ca16e25fde4add",
+    "language": "en",
+    "metadata": {
+      "change_percent": -0.00626399539324739,
+      "close": 309.3500061035156,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 311.29998779296875,
+      "ticker": "AAPL",
+      "trading_date": "2026-08-21",
+      "volume": 46768100.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Apple 最近交易日收盘下跌 0.63%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/AAPL/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Release: llm 0.33 My highlights from this release: Upgraded to the OpenAI Python library 3.x and switched the HTTP client dependency from httpx to httpx2 . #1608 , #1631 I shipped a quick 0.32.1 fix for this yesterday, but this is the more comprehensive fix. llm embed and llm embed-multi now accept --key . The Python EmbeddingModel.embed() , EmbeddingModel.embed_multi() , Collection.embed() and Collection.embed_multi() methods accept key= too, passing the resolved per-call key to embedding plugins without changing shared model state. Existing plugins that read self.key continue to work through a compatibility fallback. Thanks, ChrisJr404 . #757 , #1620 The embedding models now use the same pattern for keys that regular LLM models do. llm prompt -t/--template can now be repeated to combine templates in order. This allows model configuration and options from one template to be used with a prompt from another. This unlocks a neat pattern where you can create templates that package a model with a set of default options: llm -m gpt-5.6-luna -o reasoning_effort high --save lhigh llm \"Generate an SVG of a pelican riding a bicycle\" --save pelican # Combine and run the templates llm -t lhigh -t pelican Reasoning-capable Responses API models now support a reasoning_summary option with auto , concise , and detailed values. This can be used with llm openai endpoint --responses . #1600 This is particularly useful for exercising different models that provide their own imitation of the OpenAI Responses API. Tags: annotated-release-notes , llm",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-97c4e9cb8b163ddb829e",
+    "language": "en-us",
+    "metadata": {
+      "official": false,
+      "practitioner_id": "simon-willison",
+      "priority": "high",
+      "source_id": "practitioner_simon-willison_0",
+      "source_role": "practitioner"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T17:01:16Z",
+    "repository_candidates": [],
+    "source_name": "Simon Willison",
+    "source_role": "practitioner",
+    "source_type": "atom",
+    "statement_type": "firsthand_observation",
+    "summary": "Release: llm 0.33 My highlights from this release: Upgraded to the OpenAI Python library 3.x and switched the HTTP client dependency from httpx to httpx2 . #1608 , #1631 I shipped a quick 0.32.1 fix for this yesterday, but this is the more comprehensive fix. llm embed and llm embed-multi now accept --key . The Python EmbeddingModel.embed() , EmbeddingModel.embed_multi() , Collection.embed() and Collection.embed_multi() methods accept key= too, passing the resolved per-call key to embedding plugins without changing shared model state. Existing plugins that read self.key continue to work through a compatibility fallback. Thanks, ChrisJr404 . #757 , #1620 The embedding models now use the same pattern for keys that regular LLM models do. llm prompt -t/--template can now be repeated to combine templates in order. This allows model configuration and options from one template to be used with a prompt from another. This unlocks a neat pattern where you can create templates that package a model",
+    "title": "llm 0.33",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://simonwillison.net/2026/Aug/22/llm/"
+  },
+  {
+    "author": "signa11",
+    "company_candidates": [],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-0f99dcdf1ebdfcf2240a",
+    "language": "en",
+    "metadata": {
+      "comments": 84,
+      "community_signal": true,
+      "discussion_url": "https://news.ycombinator.com/item?id=49399898",
+      "official": false,
+      "original_url": "https://geometridae.bearblog.dev/a-friendly-introduction-to-racket/",
+      "score": 178,
+      "selection_reason": "high_signal_discovery"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T14:08:19Z",
+    "repository_candidates": [],
+    "source_name": "Hacker News",
+    "source_role": "community_discovery",
+    "source_type": "hacker_news",
+    "statement_type": "unverified_lead",
+    "summary": "",
+    "title": "A Friendly Introduction to Racket",
+    "topic_candidates": [],
+    "url": "https://geometridae.bearblog.dev/a-friendly-introduction-to-racket/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "AMD"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-3d76669577ff79b10c0a",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.008073123618425607,
+      "close": 473.25,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 469.4599914550781,
+      "ticker": "AMD",
+      "trading_date": "2026-08-21",
+      "volume": 14310600.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "AMD 最近交易日收盘上涨 0.81%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/AMD/"
+  },
+  {
+    "author": "Anthony Ha",
+    "company_candidates": [],
+    "content_excerpt": "OpenAI is calling for California to strengthen SB 53, an AI safety bill that the company previously opposed.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-efbde8355f8fb85d5455",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T16:30:34Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "OpenAI is calling for California to strengthen SB 53, an AI safety bill that the company previously opposed.",
+    "title": "OpenAI says California should strengthen its AI safety bill",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/22/openai-says-california-should-strengthen-its-ai-safety-bill/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "TSMC"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-9716cd92972909b57bfc",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.0070913754976712744,
+      "close": 418.95001220703125,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 416.0,
+      "ticker": "TSM",
+      "trading_date": "2026-08-21",
+      "volume": 8936800.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "TSMC 最近交易日收盘上涨 0.71%",
+    "topic_candidates": [
+      "ai_infrastructure"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSM/"
+  },
+  {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "The key skill required to make productive use of coding agents is being able to confidently instruct them on how to make changes and then confidently verify that those changes have been applied in the correct way. Sometimes this involves reviewing every line of code they have written, but there are other ways to achieve that goal. Eyeballing every line of code has never been the most effective way to validate a chance to a piece of software. Tags: code-review , coding-agents , generative-ai , agentic-engineering , ai , llms",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-3f89e94f44724b318410",
+    "language": "en-us",
+    "metadata": {
+      "official": false,
+      "practitioner_id": "simon-willison",
+      "priority": "high",
+      "source_id": "practitioner_simon-willison_0",
+      "source_role": "practitioner"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T15:56:54Z",
+    "repository_candidates": [],
+    "source_name": "Simon Willison",
+    "source_role": "practitioner",
+    "source_type": "atom",
+    "statement_type": "firsthand_observation",
+    "summary": "The key skill required to make productive use of coding agents is being able to confidently instruct them on how to make changes and then confidently verify that those changes have been applied in the correct way. Sometimes this involves reviewing every line of code they have written, but there are other ways to achieve that goal. Eyeballing every line of code has never been the most effective way to validate a chance to a piece of software. Tags: code-review , coding-agents , generative-ai , agentic-engineering , ai , llms",
+    "title": "More than just code review",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://simonwillison.net/2026/Aug/22/more-than-just-code-review/"
+  },
+  {
+    "author": null,
+    "company_candidates": [
+      "Tesla"
+    ],
+    "content_excerpt": "",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-5f7919d299bc0cb4b2d4",
+    "language": "en",
+    "metadata": {
+      "change_percent": 0.05137188948486279,
+      "close": 362.8599853515625,
+      "freshness_policy": "latest_market_trading_day",
+      "official": false,
+      "previous_close": 345.1300048828125,
+      "ticker": "TSLA",
+      "trading_date": "2026-08-21",
+      "volume": 58979800.0
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T00:00:00Z",
+    "repository_candidates": [],
+    "source_name": "Yahoo Finance via yfinance",
+    "source_role": "editorial",
+    "source_type": "market",
+    "statement_type": "factual_announcement",
+    "summary": "市场价格变化仅作信息展示，不代表可确认单一原因。",
+    "title": "Tesla 最近交易日收盘上涨 5.14%",
+    "topic_candidates": [
+      "ai_models"
+    ],
+    "url": "https://finance.yahoo.com/quote/TSLA/"
+  },
+  {
+    "author": "Rebecca Bellan",
+    "company_candidates": [],
+    "content_excerpt": "A new study finds leading AI labs have few publicly documented plans for containing rogue models, raising questions about preparedness as AI systems increasingly demonstrate unexpected and potentially dangerous behavior.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-058d495cab2c8c26823c",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-22T16:00:00Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "A new study finds leading AI labs have few publicly documented plans for containing rogue models, raising questions about preparedness as AI systems increasingly demonstrate unexpected and potentially dangerous behavior.",
+    "title": "Frontier AI labs still won’t say how they’d contain a rogue model",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/22/frontier-ai-labs-still-wont-say-how-theyd-contain-a-rogue-model/"
+  },
+  {
+    "author": "Rebecca Bellan",
+    "company_candidates": [],
+    "content_excerpt": "Anthropic forbids its Claude models from generating sexually explicit content. But a series of tests conducted by TechCrunch found that it didn't take much to get past the restriction.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-5c3d76b828a4f01ae470",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T23:07:25Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "Anthropic forbids its Claude models from generating sexually explicit content. But a series of tests conducted by TechCrunch found that it didn't take much to get past the restriction.",
+    "title": "Anthropic’s Opus 4.6 is a smut-machine",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/21/anthropics-opus-4-6-is-a-smut-machine/"
+  },
+  {
+    "author": "Lucas Ropek",
+    "company_candidates": [],
+    "content_excerpt": "Nvidia continues to pour money into data center development — just as AI data centers bring lots of money into Nvidia.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-924e05a3179e98e99178",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T22:37:38Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "Nvidia continues to pour money into data center development — just as AI data centers bring lots of money into Nvidia.",
+    "title": "Nvidia partners with data center developer Cloverleaf",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/21/nvidia-partners-with-data-center-developer-cloverleaf/"
+  },
+  {
+    "author": "Julie Bort",
+    "company_candidates": [],
+    "content_excerpt": "Nvidia research shows that AI agents can perform well, and not go off the deep end, through fine-tuning, even if the AI model isn't that great at the task.",
+    "fetched_at": "2026-08-22T23:54:33.152818Z",
+    "id": "item-4ea07101daf1d60ea841",
+    "language": "en-US",
+    "metadata": {
+      "official": false,
+      "practitioner_id": null,
+      "priority": "medium",
+      "source_id": "techcrunch_ai",
+      "source_role": null
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-08-21T19:43:39Z",
+    "repository_candidates": [],
+    "source_name": "TechCrunch AI",
+    "source_role": "editorial",
+    "source_type": "rss",
+    "statement_type": "unknown",
+    "summary": "Nvidia research shows that AI agents can perform well, and not go off the deep end, through fine-tuning, even if the AI model isn't that great at the task.",
+    "title": "Nvidia just showed that the harness, not the AI model, is now the real hero",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "url": "https://techcrunch.com/2026/08/21/nvidia-just-showed-that-the-harness-not-the-ai-model-is-now-the-real-hero/"
+  }
+]
