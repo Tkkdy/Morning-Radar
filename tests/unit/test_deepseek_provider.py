@@ -256,6 +256,7 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
         ("direction_observation", 8192),
         ("resolve_research_cases", 12288),
         ("evaluate_tendencies", 16384),
+        ("evaluate_editorial", 16384),
     ],
 )
 def test_semantic_tasks_enable_bounded_high_effort_thinking(

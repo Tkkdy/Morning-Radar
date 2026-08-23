@@ -4,7 +4,7 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
 清晰职责边界，又避免 v0.1 引入服务编排、数据库和队列的运维成本。
 
 ```text
-采集 → 清洗 → 去重 → 事件合并 → 评分 → 趋势 → 晨报 → 网页 → 推送
+采集 → 清洗 → 研究门禁 → 去重/事件合并 → 评分 → Editorial → 趋势 → 晨报 → 网页 → 推送
 ```
 
 ## 模块职责
@@ -15,6 +15,8 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
   确定性的 Fake。
 - `trends`：读取近 7 天结构化历史并生成有证据的 `Signal`。
 - `briefing`：把事件和信号组织为数量受限的固定结构 `DailyBrief`。
+- `editorial`：对完整且有界的 Story 批次生成独立 placement、treatment、事实状态和趋势证据
+  保留判断；Shadow 或 degraded 时不改变既有简报。
 - `storage`：用 JSON 原子写入原始元数据、事件、信号、快照和幂等状态。
 - `publishing`：用 Jinja2 从 JSON 构建首页、归档页和单日页。
 - `notifications`：只发送短摘要；状态写入 `data/state/` 防止重复发送。
@@ -32,6 +34,10 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
   进入同一候选组，最终是否同一事件仍由 AI 判断。
 - 新闻使用严格小时窗口；带 `latest_market_trading_day` 标记的市场项可保留正常长周末内
   的最近交易日，稳定交易日身份不会重复制造市场趋势。
+- Editorial 的安全上限不是候选截断器。完整 Story 数超过上限时整批降级并回到旧简报路径，
+  不按旧分数选择子集。原始 Story 列表始终原样进入存储、TrendDetector 和 Tendency。
+- Active mode 的同 placement 排序只使用 reader_value 降序、原 Story 顺序和 story_id；不
+  生成新的加权总分。SUPPORT 只能依附本批中的非 SUPPORT、非 DROP 目标。
 - JSON 是 v0.1 的持久化格式；数据量和单用户运行方式不需要 SQLite。
 - Fixture 路径不访问网络、不调用真实 AI、不发送通知。
 
@@ -42,6 +48,15 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
 候选；brief 失败时仅用已验证 Story 的标题、事实和来源生成带明确降级说明的合法简版；
 direction observation 失败则省略。所有降级都会写 warning/error，brief/direction 降级也
 记录在 `DailyBrief.run_stats`。配置错误、预算耗尽和业务校验错误仍会失败。
+
+Editorial Provider/校验失败只标记 `editorial_degraded` 并使用旧简报路径；Editorial 决策
+文件保存失败也不会阻断晨报、建站或通知。
+
+## v0.4 已知限制
+
+当前 `TrendDetector` 仍读取完整 Story 历史，因此 DROP Story 不会因为未刊登而从趋势输入中
+消失；但它尚未直接利用 Editorial 的 `evidence_value` 和 `trend_links`。v0.4 只独立保存这些
+判断，不重写趋势系统。
 
 `maximum_ai_calls` 保持“逻辑 AI 操作”语义；`network_ai_requests` 在每次真实 HTTP 请求
 前增加，因此包含网络及 structured-output 重试。缺少 WxPusher 配置只跳过通知，不影响

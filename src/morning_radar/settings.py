@@ -24,6 +24,13 @@ class AIHOTConfig(ConfigModel):
     limit: int = Field(default=20, ge=1, le=50)
 
 
+class EditorialConfig(ConfigModel):
+    enabled: bool = True
+    shadow_mode: bool = True
+    profile_version: str = Field(default="1.0", min_length=1)
+    maximum_stories: int = Field(default=20, ge=1, le=40)
+
+
 class AppConfig(ConfigModel):
     timezone: str = "Asia/Singapore"
     news_window_hours: int = Field(gt=0)
@@ -44,6 +51,7 @@ class AppConfig(ConfigModel):
     maximum_tendency_candidates: int = Field(default=12, ge=1, le=30)
     maximum_tendency_input_characters: int = Field(default=24000, ge=2000, le=50000)
     aihot: AIHOTConfig = Field(default_factory=AIHOTConfig)
+    editorial: EditorialConfig = Field(default_factory=EditorialConfig)
     request_timeout_seconds: float = Field(gt=0)
     request_retry_attempts: int = Field(ge=1, le=5)
     relevance_threshold: float = Field(ge=0, le=1)

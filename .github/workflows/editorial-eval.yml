@@ -1,0 +1,67 @@
+name: Editorial Held-out Eval
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: editorial-held-out-eval-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install project
+        run: python -m pip install -e .
+
+      - name: Verify isolated Eval configuration
+        shell: bash
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL || secrets.DEEPSEEK_MODEL }}
+          DEEPSEEK_BASE_URL: ${{ vars.DEEPSEEK_BASE_URL || secrets.DEEPSEEK_BASE_URL }}
+        run: |
+          missing=()
+          [[ -n "$DEEPSEEK_API_KEY" ]] || missing+=("DEEPSEEK_API_KEY secret")
+          [[ -n "$DEEPSEEK_MODEL" ]] || missing+=("DEEPSEEK_MODEL variable or existing secret")
+          [[ -n "$DEEPSEEK_BASE_URL" ]] || missing+=("DEEPSEEK_BASE_URL variable or existing secret")
+          if (( ${#missing[@]} > 0 )); then
+            echo "::error::Missing required configuration: ${missing[*]}"
+            exit 1
+          fi
+
+      - name: Run frozen Prompt held-out Eval
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ vars.DEEPSEEK_MODEL || secrets.DEEPSEEK_MODEL }}
+          DEEPSEEK_BASE_URL: ${{ vars.DEEPSEEK_BASE_URL || secrets.DEEPSEEK_BASE_URL }}
+        run: >-
+          python -m morning_radar.editorial.evaluation
+          --project-root .
+          --output-dir .tmp/editorial-eval
+
+      - name: Upload Eval evidence
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: editorial-held-out-eval-${{ github.run_id }}
+          path: |
+            .tmp/editorial-eval/raw_model_output.json
+            .tmp/editorial-eval/validated_results.json
+            .tmp/editorial-eval/metrics.json
+          if-no-files-found: error
+          retention-days: 14

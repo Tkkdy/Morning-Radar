@@ -19,6 +19,7 @@ from morning_radar.ai.models import (
     ResearchResolutionBatch,
     TendencyEvaluationBatch,
 )
+from morning_radar.editorial.models import EditorialDecisionBatch
 from morning_radar.models import Signal, Story
 
 LOGGER = logging.getLogger(__name__)
@@ -391,6 +392,11 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
             yield from decision.assessment.observable_impacts
             yield decision.assessment.decision_rationale
             yield from _present((decision.assessment.formation_exception_rationale,))
+    elif isinstance(output, EditorialDecisionBatch):
+        for decision in output.decisions:
+            yield decision.news_delta
+            yield decision.why_now
+            yield decision.uncertainty
 
 
 def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:

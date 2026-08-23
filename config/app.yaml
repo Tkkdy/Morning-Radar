@@ -23,6 +23,11 @@ aihot:
   mode: selected
   window: 24h
   limit: 20
+editorial:
+  enabled: true
+  shadow_mode: true
+  profile_version: "1.0"
+  maximum_stories: 20
 request_timeout_seconds: 20
 request_retry_attempts: 3
 relevance_threshold: 0.55

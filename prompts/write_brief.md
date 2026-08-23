@@ -28,3 +28,8 @@ product_names 或 topic_names；至少提供一个具体 anchor。expectation �
 不得创建、猜测、缩写、修改、重新格式化或合并 Story ID。每个输出 item 只能引用实际用于
 生成该 item 的输入 Story。source_urls 中的每个值都必须来自该 item 所引用 Stories 的
 source_urls。
+
+如果输入包含 editorial_decisions，必须遵守其 placement 与 treatment：TOP 才进入
+top_stories；STORY 使用对应主题 section；NEWS 与 ONE-LINER 使用简短处理；ONE-LINER 的
+what_happened 与 why_it_matters 合计只表达一个句子级核心变化。SUPPORT 只能与其
+support_for_story_id 指向的主 Story 放在同一 item 中，不得独立输出；DROP 不得输出。

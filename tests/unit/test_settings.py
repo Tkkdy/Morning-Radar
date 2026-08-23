@@ -35,6 +35,9 @@ def test_repository_configuration_files_are_valid() -> None:
     assert any(source.official for source in sources)
     assert topics and companies and repositories and people
     assert app.aihot.enabled is False
+    assert app.editorial.enabled is True
+    assert app.editorial.shadow_mode is True
+    assert app.editorial.profile_version == "1.0"
     assert len(people) == 10
     active = active_practitioner_sources(people)
     assert [(source.practitioner_id, source.type) for source in active] == [

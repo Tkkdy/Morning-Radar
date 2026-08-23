@@ -405,7 +405,7 @@ def test_fake_provider_works_without_api_configuration() -> None:
     assert result.items[0].relevant is True
 
 
-def test_story_candidate_bound_reserves_all_six_daily_batch_tasks() -> None:
+def test_story_candidate_bound_reserves_all_seven_daily_batch_tasks() -> None:
     candidate_limit = _call_safe_story_candidate_limit(
         maximum_calls=50,
         maximum_items=40,
@@ -413,4 +413,4 @@ def test_story_candidate_bound_reserves_all_six_daily_batch_tasks() -> None:
 
     assert candidate_limit == 17
     worst_case_story_calls = 1 + (candidate_limit // 2) * 5 + 2
-    assert worst_case_story_calls + 5 <= 50
+    assert worst_case_story_calls + 6 <= 50
