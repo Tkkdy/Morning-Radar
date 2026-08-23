@@ -38,6 +38,9 @@ Morning Radar 采用模块化单体：一个 Python 包、一个仓库、一条�
   不按旧分数选择子集。原始 Story 列表始终原样进入存储、TrendDetector 和 Tendency。
 - Active mode 的同 placement 排序只使用 reader_value 降序、原 Story 顺序和 story_id；不
   生成新的加权总分。SUPPORT 只能依附本批中的非 SUPPORT、非 DROP 目标。
+- Reader placement 与 evidence retention 是独立轴。`retain_for_trends` 不控制原始 Story
+  保存，只标记是否应作为未来 Trend/Tendency/Prediction Evaluation 的显式证据；TOP 不必然
+  保留，DROP 也可以保留可信 weak signal。
 - JSON 是 v0.1 的持久化格式；数据量和单用户运行方式不需要 SQLite。
 - Fixture 路径不访问网络、不调用真实 AI、不发送通知。
 
@@ -51,6 +54,11 @@ direction observation 失败则省略。所有降级都会写 warning/error，br
 
 Editorial Provider/校验失败只标记 `editorial_degraded` 并使用旧简报路径；Editorial 决策
 文件保存失败也不会阻断晨报、建站或通知。
+
+独立 held-out Eval 只由手动 workflow 运行，不进入正式 Pipeline。它先写 raw、validated 和
+metrics 三份证据，再用整数计数执行 exact-or-adjacent、reason、retention 与 P0 质量 Gate；
+未达标返回非零，但 Artifact 仍通过 `if: always()` 上传。绿色 Job 表示质量 Gate 通过，而不只
+是程序执行完成。
 
 ## v0.4 已知限制
 

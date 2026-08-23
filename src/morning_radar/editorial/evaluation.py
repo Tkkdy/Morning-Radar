@@ -5,12 +5,14 @@ from __future__ import annotations
 import argparse
 import json
 import os
+from collections.abc import Sequence
 from dataclasses import dataclass
 from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
 from morning_radar.ai import AIBudget, DeepSeekProvider
+from morning_radar.ai.provider import AIProvider
 from morning_radar.editorial.evaluator import validate_editorial_batch
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch, Placement
 from morning_radar.models import SourceRole, StatementType, Story, StorySourceRef
@@ -27,6 +29,21 @@ class EvalCase:
     expected_reasons: frozenset[str]
     expected_retain: bool
     p0_rule: str
+
+
+@dataclass(frozen=True, slots=True)
+class RateGate:
+    metric_key: str
+    count_key: str
+    threshold_numerator: int
+    threshold_denominator: int
+
+
+RATE_GATES = (
+    RateGate("exact_or_adjacent_rate", "exact_or_adjacent", 4, 5),
+    RateGate("reason_agreement_rate", "reason_agreement", 3, 4),
+    RateGate("retention_agreement_rate", "retention_agreement", 4, 5),
+)
 
 
 def load_eval_cases(path: Path) -> list[EvalCase]:
@@ -194,17 +211,86 @@ def score_batch(cases: list[EvalCase], batch: EditorialDecisionBatch) -> dict[st
     }
 
 
-def run_eval(project_root: Path, output_dir: Path) -> dict[str, Any]:
+def evaluate_quality_gate(metrics: dict[str, Any]) -> dict[str, Any]:
+    total = int(metrics["total"])
+    if total <= 0:
+        raise ValueError("Editorial Eval quality gate requires at least one case")
+    gates: dict[str, dict[str, Any]] = {}
+    for gate in RATE_GATES:
+        actual_count = int(metrics[gate.count_key])
+        passed = (
+            actual_count * gate.threshold_denominator
+            >= total * gate.threshold_numerator
+        )
+        gates[gate.metric_key] = {
+            "actual": actual_count / total,
+            "actual_count": actual_count,
+            "total": total,
+            "threshold": gate.threshold_numerator / gate.threshold_denominator,
+            "passed": passed,
+        }
+    p0_count = int(metrics["p0_count"])
+    gates["p0_count"] = {
+        "actual": p0_count,
+        "threshold": 0,
+        "passed": p0_count == 0,
+    }
+    return {
+        "passed": all(gate["passed"] for gate in gates.values()),
+        "gates": gates,
+    }
+
+
+def format_quality_gate_summary(metrics: dict[str, Any]) -> str:
+    quality_gate = metrics["quality_gate"]
+    gates = quality_gate["gates"]
+    lines = [
+        "## Editorial held-out Eval quality Gate",
+        "",
+        "| Gate | Actual | Threshold | Result |",
+        "| --- | ---: | ---: | --- |",
+    ]
+    for metric_key in (
+        "exact_or_adjacent_rate",
+        "reason_agreement_rate",
+        "retention_agreement_rate",
+    ):
+        gate = gates[metric_key]
+        lines.append(
+            f"| {metric_key} | {gate['actual']:.1%} | >= {gate['threshold']:.0%} | "
+            f"{'PASS' if gate['passed'] else 'FAIL'} |"
+        )
+    p0_gate = gates["p0_count"]
+    lines.append(
+        f"| p0_count | {p0_gate['actual']} | = 0 | "
+        f"{'PASS' if p0_gate['passed'] else 'FAIL'} |"
+    )
+    lines.extend(
+        [
+            "",
+            f"Overall: {'PASS' if quality_gate['passed'] else 'FAIL'}",
+        ]
+    )
+    return "\n".join(lines)
+
+
+def run_eval(
+    project_root: Path,
+    output_dir: Path,
+    *,
+    provider: AIProvider | None = None,
+) -> dict[str, Any]:
     cases = load_eval_cases(project_root / "tests/fixtures/editorial_eval_cases.jsonl")
     stories = stories_for_cases(cases)
-    provider = DeepSeekProvider.from_environment(
+    active_provider = provider or DeepSeekProvider.from_environment(
         budget=AIBudget(maximum_calls=1, maximum_input_characters=120000, maximum_items=20),
         prompt_dir=project_root / "prompts",
     )
-    batch = provider.evaluate_editorial(stories)
+    batch = active_provider.evaluate_editorial(stories)
     write_json(output_dir / "raw_model_output.json", batch.model_dump(mode="json"))
     validated = validate_editorial_batch(batch, stories)
     metrics = score_batch(cases, validated)
+    metrics["quality_gate"] = evaluate_quality_gate(metrics)
     write_json(
         output_dir / "validated_results.json",
         {
@@ -219,14 +305,21 @@ def run_eval(project_root: Path, output_dir: Path) -> dict[str, Any]:
     return metrics
 
 
-def main() -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Run one frozen held-out Editorial Eval")
     parser.add_argument("--project-root", type=Path, default=Path("."))
     parser.add_argument("--output-dir", type=Path, required=True)
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
     metrics = run_eval(args.project_root.resolve(), args.output_dir.resolve())
     print(json.dumps(metrics, ensure_ascii=False, indent=2))
-    return 0
+    summary = format_quality_gate_summary(metrics)
+    print(summary)
+    github_summary = os.getenv("GITHUB_STEP_SUMMARY")
+    if github_summary:
+        with Path(github_summary).open("a", encoding="utf-8", newline="\n") as handle:
+            handle.write(summary)
+            handle.write("\n")
+    return 0 if metrics["quality_gate"]["passed"] else 1
 
 
 if __name__ == "__main__":

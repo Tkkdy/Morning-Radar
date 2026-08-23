@@ -108,6 +108,17 @@ class EditorialDecision(RadarModel):
             raise ValueError("support_for_story_id is only valid for SUPPORT")
         if self.retain_for_trends and not self.trend_links:
             raise ValueError("retained editorial evidence requires a trend link")
+        if not self.retain_for_trends and self.trend_links:
+            raise ValueError("non-retained editorial evidence cannot have trend links")
+        if self.evidence_value >= 3 and not self.retain_for_trends:
+            raise ValueError("evidence_value >= 3 must be retained for trends")
+        if self.evidence_value <= 1 and self.retain_for_trends:
+            raise ValueError("evidence_value <= 1 cannot be retained for trends")
+        if (
+            DecisionReason.TREND_CONFIRMATION in self.decision_reasons
+            and not self.retain_for_trends
+        ):
+            raise ValueError("trend_confirmation must be retained for trends")
         return self
 
 

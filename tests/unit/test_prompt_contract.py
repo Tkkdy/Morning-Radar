@@ -1,3 +1,4 @@
+import json
 from pathlib import Path
 
 import pytest
@@ -82,3 +83,65 @@ def test_editorial_prompt_forbids_invented_verification_and_weighted_master_scor
     assert "修改价格、修改许可证" in prompt
     assert "market source 可以验证股价、成交量" in prompt
     assert "厂商不能单独验证自己声称的模型性能" in prompt
+
+
+def test_editorial_prompt_defines_independent_evidence_retention_semantics() -> None:
+    prompt = Path("prompts/evaluate_editorial.md").read_text(encoding="utf-8")
+    profile = Path("prompts/editorial/profile.md").read_text(encoding="utf-8")
+
+    for content in (prompt, profile):
+        assert "Reader placement" in content or "reader placement" in content
+        assert "所有 Story" in content
+        assert "Trend" in content
+        assert "weak signal" in content
+        assert "装饰性更新" in content
+        assert "短暂故障" in content
+        assert "行业趋势" in content
+    assert "evidence_value 为 3 或 4 时必须保留" in prompt
+    assert "false 时 trend_links 必须为空" in prompt
+    assert "trend_confirmation 时必须保留" in prompt
+    assert "TOP 不必然保留，DROP 也不必然丢弃后台证据" in prompt
+
+
+def test_editorial_golden_cases_cover_frontstage_and_evidence_boundaries() -> None:
+    golden_path = Path("prompts/editorial/golden_cases.jsonl")
+    cases = [json.loads(line) for line in golden_path.read_text(encoding="utf-8").splitlines()]
+
+    required = {
+        "placement",
+        "treatment",
+        "evidence_value",
+        "retain_for_trends",
+        "trend_links",
+        "reason",
+    }
+    assert all(required <= case.keys() for case in cases)
+    assert any(
+        case["placement"] in {"ONE-LINER", "DROP"} and case["evidence_value"] >= 3
+        for case in cases
+    )
+    assert any(
+        case["placement"] in {"TOP", "STORY"} and case["retain_for_trends"]
+        for case in cases
+    )
+    assert any(
+        case["placement"] in {"ONE-LINER", "DROP"} and not case["retain_for_trends"]
+        for case in cases
+    )
+    assert any(
+        case["placement"] == "TOP" and not case["retain_for_trends"] for case in cases
+    )
+    for case in cases:
+        assert bool(case["trend_links"]) is case["retain_for_trends"]
+
+
+def test_golden_cases_do_not_copy_held_out_scenarios() -> None:
+    golden = Path("prompts/editorial/golden_cases.jsonl").read_text(encoding="utf-8").casefold()
+    held_out = [
+        json.loads(line)["scenario"]
+        for line in Path("tests/fixtures/editorial_eval_cases.jsonl")
+        .read_text(encoding="utf-8")
+        .splitlines()
+    ]
+
+    assert all(scenario.casefold() not in golden for scenario in held_out)

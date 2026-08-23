@@ -70,3 +70,4 @@ def test_editorial_eval_uses_safe_configuration_and_uploads_evidence() -> None:
     assert "metrics.json" in workflow
     assert "actions/upload-artifact@v4" in workflow
     assert "if: ${{ always() }}" in workflow
+    assert "enforce quality Gate" in workflow
