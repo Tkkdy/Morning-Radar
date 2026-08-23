@@ -129,6 +129,80 @@ def test_retained_evidence_requires_named_trend_link() -> None:
     assert retained.evidence_value == 4
 
 
+def test_high_evidence_value_must_be_retained() -> None:
+    with pytest.raises(ValidationError, match="evidence_value >= 3"):
+        decision("story", evidence_value=4, retain_for_trends=False)
+
+
+def test_low_evidence_value_cannot_be_retained() -> None:
+    with pytest.raises(ValidationError, match="evidence_value <= 1"):
+        decision(
+            "story",
+            evidence_value=0,
+            retain_for_trends=True,
+            trend_links=["agent-reliability-evolution"],
+        )
+
+
+def test_non_retained_evidence_cannot_have_trend_links() -> None:
+    with pytest.raises(ValidationError, match="cannot have trend links"):
+        decision(
+            "story",
+            retain_for_trends=False,
+            trend_links=["local-deployment-cost-curve"],
+        )
+
+
+def test_trend_confirmation_must_be_retained() -> None:
+    with pytest.raises(ValidationError, match="trend_confirmation"):
+        decision(
+            "story",
+            evidence_value=2,
+            decision_reasons=["trend_confirmation"],
+            retain_for_trends=False,
+        )
+
+
+def test_placement_and_evidence_retention_remain_independent_axes() -> None:
+    retained_drop = decision(
+        "weak-signal",
+        Placement.DROP,
+        Treatment.HIDDEN,
+        evidence_value=4,
+        retain_for_trends=True,
+        trend_links=["open-protocol-adoption"],
+    )
+    non_retained_top = decision(
+        "attention-only",
+        Placement.TOP,
+        Treatment.SHORT_NEWS,
+        evidence_value=1,
+        retain_for_trends=False,
+    )
+
+    assert retained_drop.placement is Placement.DROP
+    assert retained_drop.retain_for_trends is True
+    assert non_retained_top.placement is Placement.TOP
+    assert non_retained_top.retain_for_trends is False
+
+
+def test_middle_evidence_value_allows_contextual_retention_choice() -> None:
+    retained = decision(
+        "retained",
+        evidence_value=2,
+        retain_for_trends=True,
+        trend_links=["developer-tool-convergence"],
+    )
+    not_retained = decision(
+        "not-retained",
+        evidence_value=2,
+        retain_for_trends=False,
+    )
+
+    assert retained.retain_for_trends is True
+    assert not_retained.retain_for_trends is False
+
+
 def test_verified_fact_requires_input_evidence_but_not_independent_reproduction() -> None:
     source_story = story("story").model_copy(update={"source_refs": []})
     batch = EditorialDecisionBatch(

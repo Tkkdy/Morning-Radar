@@ -1,5 +1,14 @@
 # Morning Radar Project Status
 
+## v0.4.1 Editorial Evidence Retention Hardening
+
+Baseline: v0.4 merge commit `f83d56ac70ff1670810ba223d563b66a4df6ce97` (PR #5).
+
+Current work is a Shadow-only hardening patch for evidence retention semantics and the independent
+held-out Eval quality Gate. It does not change Placement mapping, the legacy fallback, TrendDetector,
+Tendency, publishing, notifications, or the production pipeline. Active mode remains disabled until a
+single frozen DeepSeek Eval passes all reader-selection, reason, retention, and P0 thresholds.
+
 ## Current Stage
 
 Version: v0.35

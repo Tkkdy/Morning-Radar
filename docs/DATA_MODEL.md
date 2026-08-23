@@ -43,6 +43,11 @@ degraded，以及每个 Story 的 placement、treatment、reader/evidence value�
 Editorial 决策不嵌入或改写 Story。DROP 仍可通过 `retain_for_trends` 保留证据，SUPPORT 只能
 指向同批存在的非 DROP、非 SUPPORT Story。
 
+`retain_for_trends` 不表示 Story 是否持久化；所有 Story 仍进入原有历史。它表示是否将该判断
+作为未来趋势或预测评估的显式证据。跨字段约束为：保留时 `trend_links` 非空，不保留时为空；
+`evidence_value >= 3` 必须保留，`evidence_value <= 1` 不得保留，值为 2 时按语境判断；包含
+`trend_confirmation` 的判断必须保留。Placement 不由这些约束自动推导。
+
 ## 存储布局
 
 - `data/raw/YYYY-MM-DD.json`：必要采集元数据。

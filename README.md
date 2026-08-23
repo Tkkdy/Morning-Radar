@@ -21,7 +21,14 @@ DeepSeek held-out Eval 达标后才应人工开启。
 它从 GitHub Secret 读取 `DEEPSEEK_API_KEY`，优先从 Repository Variables 读取模型与
 Base URL（兼容现有同名 Secrets），只执行冻结 Prompt 的独立评估入口，不运行正式 Pipeline、
 发布或通知。每次运行上传 `raw_model_output.json`、`validated_results.json` 和
-`metrics.json`；单次结果用于报告，不能自动修改 Prompt 或开启 Active mode。
+`metrics.json`。只有 exact-or-adjacent ≥ 80%、reason agreement ≥ 75%、retention agreement
+≥ 80% 且 P0 = 0 时 Job 才成功；失败时 Artifact 仍会上传。单次结果用于报告，不能自动修改
+Prompt 或开启 Active mode。
+
+`retain_for_trends` 与读者 placement 独立：它不决定 Story 是否保存，表示该 Story 是否值得
+成为未来 Trend、Tendency 或 Prediction Evaluation 的显式证据。高 evidence value 必须保留并
+提供具体 `trend_links`，低 evidence value 不得保留；因此 TOP 可以不保留，DROP/ONE-LINER 也
+可以保存为可信 weak signal。当前趋势系统仍读取完整 Story 历史，尚不直接消费这些字段。
 
 ## v0.1 能做什么
 
