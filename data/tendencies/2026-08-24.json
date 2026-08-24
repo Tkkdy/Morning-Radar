@@ -1,0 +1,151 @@
+{
+  "date": "2026-08-24",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前，设备完全自主控制和逆向工程等复杂任务通常被认为需要昂贵的前沿大模型或大量人工，低成本开源模型较少被公开报道完成此类端到端任务。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个独立事件簇展示不同 actor 的低成本模型完成复杂任务，共享机制清晰；但其中一个簇事实信息仅来自标题，且未出现第三方采用或跨更多 actor 证据，因此保持 Candidate，不升级 Emerging。",
+        "falsifier": "如果后续发布的低成本/开源模型在自主控制或逆向工程中频繁失败、成本优势不再或这些案例被证明只是宣传而无法复现，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "平板完全自主控制由价值 266 美元的四模型组合完成，改变了个人设备自动化的成本预期。",
+          "Qwen 3.8 27B 在 30 分钟内完成逆向工程任务，显示小模型可承担安全研究中的快速分析。"
+        ],
+        "shared_mechanism": "成本与时间压力促使开源/低成本模型被用于复杂任务：GLM-5.3 在四模型协作下以 266 美元完成平板完全自主控制，Qwen 3.8 27B 在 30 分钟内完成逆向工程。两者共同表明复杂任务执行正从单一昂贵前沿模型转向便宜的小模型或多模型组合，改变了任务经济性和可操作性。"
+      },
+      "claim": "低成本/开源模型（如 GLM-5.3 和 Qwen 3.8 27B）正在以显著更低的成本和时间完成设备自主控制与逆向工程等复杂任务，推动这些任务从依赖昂贵前沿模型转向小模型与多模型协作。",
+      "counterevidence_cluster_ids": [
+        "cluster-3f00fb52b0811298193b"
+      ],
+      "counterevidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-23",
+            "story_id": "story-406688aeb1f9c991d542"
+          }
+        }
+      ],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-24",
+            "story_id": "story-7064e95431781c370f43"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-24",
+            "story_id": "story-f3ec60380b4350dd1b9e"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-71639d33e9b88857d1b4",
+      "recorded_at": "2026-08-23T23:54:24.414734Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-eab2bd00d8d1bac557cd",
+        "cluster-5e58b728df4aaf4b3743"
+      ],
+      "tendency_id": "tendency-2c74db47a9d342878de1",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 LLM 辅助编码多依赖开发者个人临时编写提示词或系统指令，缺乏广泛共享的标准化 agent 配置模板，代码质量参差不齐。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "单一独立事件簇，但展示明确的开发者工作流变化（共享标准化模板）且社区互动活跃，符合 Candidate 内部观察标准；缺乏其他独立产品/actor 支撑，暂不升级 Emerging。",
+        "falsifier": "如果 agent.md 模板未被实际采用、未改善代码质量或该帖子仅为一次性分享而无后续传播/工具集成，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "HN 上 agent.md 模板获得 117 分和 60 条评论，显示开发者对该实践有较高关注和讨论。",
+          "模板链接公开，开发者可以复用该 agent.md 改善 LLM 辅助代码质量。"
+        ],
+        "shared_mechanism": "通过共享 agent.md 模板，开发者将 LLM 代理的指令、上下文和约束标准化，减少每次编码任务的提示词变异，使 LLM 辅助代码质量更可控、可复用。这种模板化实践改变了开发工作流，将个人经验转化为社区共享的基础设施。"
+      },
+      "claim": "开发者开始共享和采用 agent.md 模板等标准化指令文件，以提高 LLM 辅助代码质量，显示 LLM 编码辅助从临时提示词转向可复用、可共享的工程实践。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-24",
+            "story_id": "story-61e0e6e22e16d674f1ac"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-47742227f417cd34edfe",
+      "recorded_at": "2026-08-23T23:54:24.414734Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-2f7ce10d226d0123c584"
+      ],
+      "tendency_id": "tendency-0e269a4e5cc84c2c43b2",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 OpenAI 反对 SB 53，前沿实验室通常对可能增加合规成本的 AI 安全法案持抵制或谨慎态度，较少公开呼吁加强。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "单一编辑来源事件簇显示 OpenAI 政策立场转变，属于机构行为变化，符合 Candidate 内部观察；另一研究发现实验室仍缺乏失控控制计划，构成背景性反差而非方向性推翻，故保持 Candidate 且纳入 counterevidence。",
+        "falsifier": "如果 OpenAI 对 SB 53 的支持仅停留在声明、未伴随实际安全措施或后续又撤回支持，且其他实验室未出现类似立场转变，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 公开呼吁加强 SB 53，可能影响加州立法进程和其他 AI 公司的立场。",
+          "媒体报道揭示前沿实验室缺乏失控控制计划，可能加剧监管者和公众对 AI 安全透明度的关注。"
+        ],
+        "shared_mechanism": "前沿 AI 实验室在面临监管压力时开始改变公开政策立场：OpenAI 呼吁加强其此前反对的 SB 53。这种立场转变可能被其他实验室效仿，推动 AI 安全从纯技术讨论进入立法协商阶段，但同期研究发现实验室仍未公布具体失控模型控制计划，说明公开立场与实际安全准备之间存在差距。"
+      },
+      "claim": "OpenAI 正在公开转变其对加州 AI 安全法案 SB 53 的立场，从反对转为呼吁加强该法案，表明前沿 AI 实验室在监管压力下开始主动调整安全政策立场。",
+      "counterevidence_cluster_ids": [
+        "cluster-96c2ed0e29536ba6d65f"
+      ],
+      "counterevidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-23",
+            "story_id": "story-f9507913d8fe47b72058"
+          }
+        }
+      ],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-23",
+            "story_id": "story-d54582d59f2c28883be0"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-f018c9a13bfaa78905b9",
+      "recorded_at": "2026-08-23T23:54:24.414734Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-cdb6ef8253be708dde8b"
+      ],
+      "tendency_id": "tendency-b14e24201d52b408e148",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-23T23:54:24.414734Z"
+}

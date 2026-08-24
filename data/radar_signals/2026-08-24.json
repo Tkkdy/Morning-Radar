@@ -1,0 +1,50 @@
+[
+  {
+    "claim": "Anthropic 的最强 AI 模型难以吸引用户，而更便宜的工具更受欢迎。",
+    "id": "radar-f22db1474f5f3d1b2d17",
+    "missing_evidence": [
+      "需要独立使用数据、收入或用户指标来佐证“难以吸引用户”",
+      "需要明确具体模型、时间范围和对比对象",
+      "需要排除单一博主观点或标题归纳"
+    ],
+    "observed_at": "2026-08-23T23:54:24.414734Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "analysis_judgement",
+    "support_refs": [
+      {
+        "raw_item_id": "item-afd300f326ca249dcd20",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/23/anthropics-best-ai-model-struggles-to-attract-users-as-cheaper-t/"
+      }
+    ],
+    "uncertainty": "现有证据只有一条 Simon Willison 的链接，无具体数据；“最强”和“更便宜的工具”未定义。",
+    "why_notable": "若属实，反映前沿高质量模型面临低价开源或轻量竞品的采用压力，对 AI 商业模式和模型选型有参考意义。"
+  },
+  {
+    "claim": "我让 Qwen 3.8 27B 完成一个逆向工程任务，它 30 分钟就完成了。",
+    "id": "radar-71049afa9fb59af511a1",
+    "missing_evidence": [
+      "需要原始任务细节、复现步骤和结果",
+      "需要确认模型版本、推理环境和评测标准",
+      "需要排除单次演示或营销性内容"
+    ],
+    "observed_at": "2026-08-23T23:54:24.414734Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-399fa91a2eea3f481f3a",
+        "source_role": "community_discovery",
+        "url": "https://www.xda-developers.com/qwen-3-8-27b-reverse-engineering-job-frontier-model/"
+      }
+    ],
+    "uncertainty": "仅有一条社区发现链接，未提供任务难度、环境或可复现证据。",
+    "why_notable": "若属实，说明较小参数模型在特定逆向工程任务上可能接近前沿模型效率，对模型选型和成本有参考价值。"
+  }
+]
