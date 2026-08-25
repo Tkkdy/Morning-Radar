@@ -1,0 +1,101 @@
+{
+  "date": "2026-08-25",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 GPT 系列主要作为通用语言模型提供，OpenAI 未针对开发者发布专门的 GPT-5.6 构建指南，Kiro 也未集成 GPT-5.6；开发者构建智能体缺少官方成本效益和模型选择指导。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "单个事件簇包含 OpenAI 官方来源和编辑来源，但同属 OpenAI 一个 actor 和一个产品发布/集成动作，未形成跨 actor 的结构性证据；共享机制清晰，属于内部候选观察，暂不升级 Emerging。",
+        "falsifier": "如果 GPT-5.6 在 Kiro 中的使用未产生真实开发者采用，构建指南未带来新的智能体开发实践，或 OpenAI 后续不再将 GPT-5.6 作为开发者性价比卖点，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者可在 Kiro 中直接使用 GPT-5.6 完成软件规划、构建、审查和测试，降低端到端开发成本。",
+          "官方构建指南提供更智能的模型选择策略，帮助初创公司构建更快、更具成本效益的 AI 智能体。",
+          "GPT-5.6 被明确置于开发者工具链中，表明 OpenAI 的重心从原始模型能力转向开发者工作流集成。"
+        ],
+        "shared_mechanism": "OpenAI 通过官方构建指南和 Kiro 产品集成两条产品化路径，将 GPT-5.6 的能力从通用模型输出重新定位为面向开发者的智能体构建基础设施：指南提供成本与速度优化方法，Kiro 集成使其进入软件规划、构建、审查和测试的具体工作流。两者共同降低开发者使用前沿模型构建 AI 智能体的成本与门槛，使 AI 编码从试验性聊天转向可复用的工程工具。"
+      },
+      "claim": "OpenAI 正在将 GPT-5.6 定位为面向开发者的高性价比 AI 智能体构建工具，并通过官方构建指南与 Kiro 开发工具集成，推动 AI 编码和智能体开发从通用对话走向工程化工作流。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-a4c34e624b64e09cab6d"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-25",
+            "story_id": "story-1aba5a8f2da5e63f1760"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-29aafb5692c9f16dbdb5",
+      "recorded_at": "2026-08-24T23:54:36.713854Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-f61dc4b2933bce814dd6"
+      ],
+      "tendency_id": "tendency-edc7c2a52ae5167bbef5",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "在 v2.1.0 之前，MCP Python SDK 的 Client 不直接接受 StdioServerParameters，提示消息不支持 Image 和 Audio，FastMCP Settings 模型导入也未完成；开发者需要额外封装和处理。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个独立发布簇来自同一开源项目（modelcontextprotocol/python-sdk），属于同一 actor 的不同版本迭代；不满足 Emerging 两簇例外所需的不同 actors，但产品变化真实、机制清晰，作为 Candidate 保留内部观察。",
+        "falsifier": "如果后续版本撤回 StdioServerParameters 直连或 Image/Audio 支持，开发者未采用这些 API，或 SDK 迭代停滞/方向逆转，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者可以用一行 Client(StdioServerParameters(...)) 启动本地标准 I/O MCP 服务器，减少样板代码。",
+          "提示消息接受 Image 和 Audio，使 MCP 提示可以传递多模态内容，扩展 MCP 在视觉/音频场景的可用性。",
+          "FastMCP Settings 模型在导入时完成，改善配置类型提示和开发体验。"
+        ],
+        "shared_mechanism": "MCP Python SDK 通过连续版本更新将开发者体验和协议扩展纳入同一产品迭代：v1.29.1 完成 FastMCP Settings 模型，v2.1.0 让 Client 直接接受 StdioServerParameters 并支持 Image/Audio 提示消息。两者共同降低 MCP 客户端启动、配置和消息处理的样板代码，使开发者能更轻松地构建本地和多模态 MCP 服务器/客户端，推动 MCP 从实验性协议向生产级开发工具演进。"
+      },
+      "claim": "MCP Python SDK 正在快速迭代，从基础协议封装演进为面向开发者的多模态、标准 I/O 直连和易配置的 MCP 开发工具。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-25",
+            "story_id": "story-6699636ffddbc2db7572"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-25",
+            "story_id": "story-882939f5422d71f64570"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-0b38b46635c2edb0b086",
+      "recorded_at": "2026-08-24T23:54:36.713854Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-bf57c901a475cb254d68",
+        "cluster-3854f5ff7fd3f473098c"
+      ],
+      "tendency_id": "tendency-e635852788cbddf62deb",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-08-24T23:54:36.713854Z"
+}

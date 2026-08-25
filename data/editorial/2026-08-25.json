@@ -1,0 +1,147 @@
+{
+  "date": "2026-08-25",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": {
+        "evaluated_at": "2026-08-24T23:54:36.713854Z",
+        "hours_since_event": 11.9,
+        "independently_verified": false,
+        "likely_already_known": false
+      },
+      "decision_reasons": [
+        "relative_magnitude",
+        "unverified_claim",
+        "trend_confirmation"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "news_delta": "OpenAI 官方宣布 GPT-5.6 已在 Kiro 中可用，目标是为软件开发规划、构建、审查和测试提供更好的性价比。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": true,
+      "story_id": "story-1aba5a8f2da5e63f1760",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "openai-coding-model-release",
+        "vendor-capability-claim-validation-gap"
+      ],
+      "uncertainty": "官方仅宣称更好的性价比，未提供可复现的 benchmark 或独立测试；实际开发收益和定价影响需后续验证。",
+      "why_now": "这是 OpenAI 今天面向开发者发布的新模型版本，直接涉及 AI Coding 工具，可能影响开发者生产工作流。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": {
+        "evaluated_at": "2026-08-24T23:54:36.713854Z",
+        "hours_since_event": 5.5,
+        "independently_verified": false,
+        "likely_already_known": false
+      },
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "news_delta": "MCP Python SDK 发布补丁版本 v1.29.1，包含 FastMCP Settings 导入、SSE/OAuth 请求体大小限制和递归工具输出模式等小修复。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-6699636ffddbc2db7572",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "未提供详细技术说明或社区反馈，无法判断对最终用户的具体影响。",
+      "why_now": "例行补丁发布，无重大功能变化，不占用开发者注意力。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": {
+        "evaluated_at": "2026-08-24T23:54:36.713854Z",
+        "hours_since_event": 4.0,
+        "independently_verified": false,
+        "likely_already_known": false
+      },
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "Replit CEO Amjad Masad 将出席 TechCrunch Disrupt 2026 舞台，具体演讲内容未披露。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-f65ed9798e4b6dbdcdaf",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "可能包含未来产品愿景，但目前无实际信息可验证。",
+      "why_now": "活动公告本身无开发能力或产品变化，不构成新闻 delta。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": {
+        "evaluated_at": "2026-08-24T23:54:36.713854Z",
+        "hours_since_event": 4.9,
+        "independently_verified": false,
+        "likely_already_known": false
+      },
+      "decision_reasons": [
+        "developer_production_impact",
+        "trend_confirmation"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "MCP Python SDK v2.1.0 发布，新增 StdioServerParameters 直传、多模态内容提示、请求体限制扩展到 SSE/OAuth，并调整工具输出 schema 与异常处理行为。",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-882939f5422d71f64570",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "mcp-python-sdk-api-evolution",
+        "mcp-protocol-multimodal-support"
+      ],
+      "uncertainty": "发布说明未提供完整迁移指南，部分行为变更可能影响现有代码，需开发者适配。",
+      "why_now": "该次要版本包含多个开发者可感知的行为变更和安全性改进，影响使用 MCP 构建 Agent 的开发者。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": {
+        "evaluated_at": "2026-08-24T23:54:36.713854Z",
+        "hours_since_event": 5.8,
+        "independently_verified": false,
+        "likely_already_known": false
+      },
+      "decision_reasons": [
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "TechCrunch 报道 Instinct AI 助手因其广泛权限、宽松条款和代用户行事能力引发隐私与安全担忧。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-f0a19909d20c32ff8743",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "ai-assistant-over-permission-privacy-security-risk"
+      ],
+      "uncertainty": "报道缺乏具体隐私泄露或安全事件细节，公司/团队身份未披露，无法验证严重性。",
+      "why_now": "该报道提出 AI 助手权限过度和潜在安全风险，但目前尚无具体事件或复现证据。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-08-24T23:54:36.713854Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

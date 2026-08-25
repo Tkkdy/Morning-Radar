@@ -1,0 +1,27 @@
+[
+  {
+    "claim": "llm-anthropic 0.27 版本发布或更新",
+    "id": "radar-e8c2cb1d30af12f2801a",
+    "missing_evidence": [
+      "0.27 版本的具体变更内容与发布说明",
+      "是否适配最新 Anthropic API/模型",
+      "与之前版本的兼容性或破坏性变更",
+      "是否有实际用户或测试反馈"
+    ],
+    "observed_at": "2026-08-24T23:54:36.713854Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "raw_item_id": "item-1be978947e68d1f26fec",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/24/llm-anthropic/"
+      }
+    ],
+    "uncertainty": "仅提供标题，无正文或独立证据，无法确认更新的实际范围与重要性。",
+    "why_notable": "llm-anthropic 是面向 LLM 的 CLI 插件，版本更新可能影响 Anthropic 模型调用、AI 编码与自动化工作流。"
+  }
+]

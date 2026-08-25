@@ -1,0 +1,99 @@
+{
+  "date": "2026-08-25",
+  "generated_at": "2026-08-24T23:54:36.713854Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "GPT-5.6 从官方构建指南/预告，过渡到在 Kiro 中实际可用；能力定位从面向初创公司构建 AI 智能体扩展到软件规划、构建、审查和测试场景。",
+      "current_story": {
+        "date": "2026-08-25",
+        "story_id": "story-1aba5a8f2da5e63f1760"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-14",
+            "story_id": "story-a4c34e624b64e09cab6d"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-08-25",
+            "story_id": "story-1aba5a8f2da5e63f1760"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-14",
+        "story_id": "story-a4c34e624b64e09cab6d"
+      },
+      "rationale": "前一个 Story 是 GPT-5.6 的官方预热指南，后一个 Story 宣布 GPT-5.6 已在 Kiro 中可用，构成同一产品从预告到实际产品落地的状态推进。",
+      "recorded_at": "2026-08-24T23:54:36.713854Z",
+      "relation_id": "relation-7d965b9cbe67bff7443d",
+      "relation_type": "status_transition",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "未来可观察到 OpenAI 或第三方发布 GPT-5.6 在 Kiro 中的具体性能基准或用户采用数据，以验证其性价比提升效果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-5.6",
+        "Kiro"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-24T23:54:36.713854Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-25",
+          "story_id": "story-1aba5a8f2da5e63f1760"
+        }
+      ],
+      "topic_anchors": [
+        "AI模型",
+        "AI编程"
+      ],
+      "watch_id": "watch-927195978b33891f40b7"
+    },
+    {
+      "entity_anchors": [
+        "modelcontextprotocol",
+        "maxisbey"
+      ],
+      "event_type": "opened",
+      "expectation": "未来可观察 python-sdk 仓库中针对 v1.29.1 的 issue 报告或后续补丁版本发布，以评估稳定性和安全性改进的实际效果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "python-sdk",
+        "FastMCP"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-24T23:54:36.713854Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-25",
+          "story_id": "story-6699636ffddbc2db7572"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-d616daf5ffbea9ebb74f"
+    }
+  ]
+}
