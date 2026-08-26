@@ -18,6 +18,17 @@ from morning_radar.pipeline import MorningRadarPipeline
 from morning_radar.storage import save_model, save_models
 
 
+def _copy_fixture_project(source: Path, destination: Path) -> None:
+    shutil.copytree(source / "config", destination / "config")
+    shutil.copytree(source / "fixtures", destination / "fixtures")
+    shutil.copytree(source / "templates", destination / "templates")
+    (destination / "site/assets").mkdir(parents=True)
+    shutil.copy2(
+        source / "site/assets/style.css",
+        destination / "site/assets/style.css",
+    )
+
+
 def test_full_fixture_pipeline_has_no_network_or_real_ai(
     tmp_path,
     monkeypatch,
@@ -29,18 +40,17 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
         raise AssertionError("fixture pipeline must not access the network")
 
     monkeypatch.setattr("socket.create_connection", fail_network)
-    project = Path(".").resolve()
+    source_project = Path(".").resolve()
+    project = tmp_path / "project"
+    _copy_fixture_project(source_project, project)
     pipeline = MorningRadarPipeline(project)
-    pipeline.root = project
-    # Dry-run keeps generated data out of production paths.
-    pipeline.root = project
-    monkeypatch.setattr(pipeline, "root", project)
     brief = pipeline.run(fixtures=True, dry_run=True)
 
     output = project / ".tmp/dry-run"
     assert brief.run_stats["fixture_mode"] is True
     assert brief.top_stories
     assert (output / "data/briefs/2026-07-23.json").exists()
+    assert not (project / "data/briefs/2026-07-23.json").exists()
     assert (output / "data/continuity/2026-07-23.json").exists()
     assert (output / "data/radar_signals/2026-07-23.json").exists()
     assert (output / "data/tendencies/2026-07-23.json").exists()
@@ -67,6 +77,7 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
 
 
 def test_editorial_artifact_save_failure_does_not_block_fixture_brief(
+    tmp_path,
     monkeypatch,
 ) -> None:
     original_save_model = __import__(
@@ -80,7 +91,10 @@ def test_editorial_artifact_save_failure_does_not_block_fixture_brief(
         original_save_model(path, model)
 
     monkeypatch.setattr("morning_radar.pipeline.save_model", fail_only_editorial)
-    pipeline = MorningRadarPipeline(Path(".").resolve())
+    source_project = Path(".").resolve()
+    project = tmp_path / "project"
+    _copy_fixture_project(source_project, project)
+    pipeline = MorningRadarPipeline(project)
     brief = pipeline.run(fixtures=True, dry_run=True)
     assert brief.top_stories
     assert brief.run_stats["editorial_shadow_mode"] is True
