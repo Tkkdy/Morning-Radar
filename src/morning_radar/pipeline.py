@@ -7,7 +7,7 @@ import os
 from datetime import date, timedelta
 from pathlib import Path
 
-from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
+from morning_radar.ai import AIBudget, FakeAIProvider, production_provider_from_environment
 from morning_radar.briefing import (
     BriefLimits,
     generate_daily_brief_with_memory,
@@ -141,7 +141,7 @@ class MorningRadarPipeline:
             people = load_model_list(
                 self.root / "config/people.yaml", "people", PersonConfig
             )
-            provider = DeepSeekProvider.from_environment(
+            provider = production_provider_from_environment(
                 budget=AIBudget(
                     self.app.maximum_ai_calls,
                     self.app.maximum_ai_input_characters,
