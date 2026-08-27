@@ -22,8 +22,12 @@ import pytest
         ),
         ("direction_observation.md", ("observation", "uncertainties")),
         (
-            "resolve_research_cases.md",
-            ("claim", "why_notable", "missing_evidence", "uncertainty"),
+            "candidate_triage.md",
+            ("hypothesis", "potential impact", "missing_evidence", "verification_path"),
+        ),
+        (
+            "construct_story.md",
+            ("facts", "analysis", "uncertainties", "fact_supports"),
         ),
         (
             "evaluate_tendencies.md",

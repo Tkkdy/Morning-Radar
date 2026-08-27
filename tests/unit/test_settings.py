@@ -5,6 +5,7 @@ import pytest
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
+    OfficialSurfaceSeedConfig,
     PersonConfig,
     RepositoryConfig,
     SourceConfig,
@@ -27,13 +28,21 @@ def test_repository_configuration_files_are_valid() -> None:
         RepositoryConfig,
     )
     people = load_model_list(Path("config/people.yaml"), "people", PersonConfig)
+    surfaces = load_model_list(
+        Path("config/official_surfaces.yaml"),
+        "surfaces",
+        OfficialSurfaceSeedConfig,
+    )
 
     assert app.timezone == "Asia/Singapore"
     assert app.collection_buffer_hours == 6
     assert app.maximum_ai_calls == 50
     assert app.maximum_ai_input_characters == 120000
+    assert app.maximum_story_candidates == 17
+    assert app.maximum_investigations == 4
     assert any(source.official for source in sources)
     assert topics and companies and repositories and people
+    assert {surface.entity for surface in surfaces} >= {"DeepSeek", "OpenAI"}
     assert app.aihot.enabled is False
     assert app.editorial.enabled is True
     assert app.editorial.shadow_mode is True

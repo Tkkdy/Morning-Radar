@@ -11,12 +11,12 @@ from pydantic import BaseModel
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
     ContinuityResolution,
     DirectionObservation,
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
-    ResearchResolutionBatch,
     TendencyEvaluationBatch,
 )
 from morning_radar.editorial.models import EditorialDecisionBatch
@@ -378,11 +378,21 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
             yield update.claim
             yield update.rationale
             yield from _present((update.uncertainty,))
-    elif isinstance(output, ResearchResolutionBatch):
-        for case in output.cases:
-            yield case.claim
-            yield from _present((case.why_notable, case.uncertainty))
-            yield from case.missing_evidence
+    elif isinstance(output, CandidateTriageBatch):
+        for candidate in output.candidates:
+            yield candidate.hypothesis
+            yield candidate.potential_novelty
+            yield candidate.potential_impact
+            yield candidate.impact_mechanism
+            yield from _present(
+                (
+                    candidate.alternative_explanation,
+                    candidate.rationale,
+                    candidate.verification_target,
+                    candidate.verification_path,
+                )
+            )
+            yield from candidate.missing_evidence
     elif isinstance(output, TendencyEvaluationBatch):
         for decision in output.decisions:
             yield decision.claim

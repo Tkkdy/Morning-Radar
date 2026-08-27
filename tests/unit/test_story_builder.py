@@ -4,6 +4,7 @@ import pytest
 
 from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
 from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
+from morning_radar.evaluation.legacy import build_stories, preselect_ai_candidates
 from morning_radar.models import (
     PublishedAtRole,
     RawItem,
@@ -12,11 +13,9 @@ from morning_radar.models import (
 )
 from morning_radar.processing.story_builder import (
     StoryValidationError,
-    build_stories,
     build_story,
     choose_primary_source,
     filter_story_candidate_inputs,
-    preselect_ai_candidates,
     ranking_score,
 )
 

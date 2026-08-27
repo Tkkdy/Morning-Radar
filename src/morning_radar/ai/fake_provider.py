@@ -4,16 +4,17 @@ from __future__ import annotations
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
+    CandidateTriageDraft,
     ClassificationBatch,
     ClassifiedItem,
     ContinuityResolution,
     ContinuityResolutionInput,
     DirectionObservation,
+    DraftClaimSupport,
     GeneratedBriefItem,
     GeneratedWatchDraft,
     MergedStoryDraft,
-    ResearchResolutionBatch,
-    ResearchResolutionDraft,
     ResolvedRelationDraft,
     ResolvedWatchMatchDraft,
     StoryScore,
@@ -30,9 +31,12 @@ from morning_radar.editorial.models import (
     Treatment,
 )
 from morning_radar.models import (
+    Candidate,
+    CandidateReasonCode,
+    ClaimType,
+    EvidenceState,
     RawItem,
-    ResearchCase,
-    ResearchDisposition,
+    SemanticDisposition,
     Signal,
     SourceRole,
     Story,
@@ -47,6 +51,56 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
+    def triage_candidates(self, candidates: list[Candidate]) -> CandidateTriageBatch:
+        return CandidateTriageBatch(
+            candidates=[
+                CandidateTriageDraft(
+                    candidate_id=candidate.id,
+                    hypothesis=candidate.hypothesis,
+                    potential_novelty="输入可能描述一个产品或能力变化。",
+                    potential_impact="若成立，可能影响开发者工作流。",
+                    affected_audiences=["AI 开发者"],
+                    impact_mechanism="能力或接口变化会改变开发者的实现选择。",
+                    semantic_disposition=SemanticDisposition.BUILD,
+                    evidence_state=EvidenceState.SUFFICIENT,
+                    reason_codes=[CandidateReasonCode.DEVELOPER_IMPACT],
+                    rationale="Fixture 证据足以尝试构建 Story。",
+                )
+                for candidate in candidates
+            ]
+        )
+
+    def construct_story(self, candidate: Candidate) -> MergedStoryDraft:
+        evidence = [
+            item
+            for item in candidate.evidence
+            if item.authority.value != "discovery_only"
+        ] or candidate.evidence
+        fact = evidence[0].scope or candidate.hypothesis
+        return MergedStoryDraft(
+            same_event=True,
+            canonical_title=candidate.hypothesis,
+            category="ai_and_open_source",
+            entity_names=candidate.entity_names,
+            product_names=candidate.product_names,
+            topic_names=candidate.topic_names,
+            facts=[fact],
+            fact_supports=[
+                DraftClaimSupport(
+                    claim=fact,
+                    claim_type=ClaimType.OTHER,
+                    evidence_ids=[evidence[0].evidence_id],
+                    evidence_scope=evidence[0].scope or fact,
+                    claim_scope=fact,
+                    scope_supported=True,
+                )
+            ],
+            analysis=([candidate.potential_impact] if candidate.potential_impact else []),
+            uncertainties=candidate.missing_evidence,
+            source_urls=[item.url for item in candidate.evidence],
+            primary_source_url=evidence[0].url,
+        )
+
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
         return ClassificationBatch(
             items=[
@@ -256,34 +310,6 @@ class FakeAIProvider:
                 )
             )
         return ContinuityResolution(relations=relations, watch_matches=watch_matches)
-
-    def resolve_research_cases(
-        self,
-        cases: list[ResearchCase],
-    ) -> ResearchResolutionBatch:
-        resolved: list[ResearchResolutionDraft] = []
-        for case in cases:
-            corroborated = bool(case.supporting_evidence)
-            disposition = (
-                ResearchDisposition.VERIFIED_STORY_CANDIDATE
-                if corroborated
-                else ResearchDisposition.RADAR_SIGNAL
-            )
-            resolved.append(
-                ResearchResolutionDraft(
-                    case_id=case.id,
-                    in_scope=True,
-                    scope_rationale="该案例直接涉及 AI 产品、模型或开发者实践。",
-                    disposition=disposition,
-                    statement_type=case.statement_type,
-                    practice_signal_kind=case.practice_signal_kind,
-                    claim=case.claim,
-                    why_notable="该观察涉及具体产品或实践变化，值得继续验证。",
-                    missing_evidence=([] if corroborated else ["独立原始来源或复现实验"]),
-                    uncertainty=("" if corroborated else "当前只有发现线索，尚未独立确认。"),
-                )
-            )
-        return ResearchResolutionBatch(cases=resolved)
 
     def evaluate_tendencies(
         self,

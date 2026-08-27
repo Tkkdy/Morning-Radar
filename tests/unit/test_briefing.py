@@ -6,8 +6,8 @@ import pytest
 from morning_radar.ai import AIOutputError, FakeAIProvider
 from morning_radar.ai.models import BriefDraft, ClassificationBatch, GeneratedBriefItem
 from morning_radar.briefing import BriefLimits, BriefValidationError, generate_daily_brief
+from morning_radar.evaluation.legacy import build_stories
 from morning_radar.models import Signal, SignalType, Story, StorySourceRef
-from morning_radar.processing import build_stories
 
 NOW = datetime(2026, 7, 23, 1, tzinfo=UTC)
 

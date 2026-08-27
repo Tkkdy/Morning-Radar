@@ -22,12 +22,12 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
     ClassificationBatch,
     ContinuityResolution,
     ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
-    ResearchResolutionBatch,
     StoryScore,
     TendencyEvaluationBatch,
 )
@@ -39,8 +39,8 @@ from morning_radar.ai.output_validation import (
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
+    Candidate,
     RawItem,
-    ResearchCase,
     Signal,
     Story,
     TendencyCurrentView,
@@ -61,6 +61,20 @@ class AIBudgetExceeded(RuntimeError):
     pass
 
 
+def _budget_stage(task: str) -> str:
+    return {
+        "candidate_triage": "triage",
+        "construct_story": "story",
+        "merge_story": "story",
+        "score_story": "story",
+        "evaluate_editorial": "editorial",
+        "resolve_continuity": "continuity",
+        "evaluate_tendencies": "tendency",
+        "write_brief": "brief",
+        "direction_observation": "brief",
+    }.get(task, task)
+
+
 @dataclass(slots=True)
 class AIBudget:
     maximum_calls: int
@@ -71,18 +85,43 @@ class AIBudget:
     network_requests_used: int = 0
     task_usage: dict[str, dict[str, int]] = field(default_factory=dict)
     task_finish_reasons: dict[str, dict[str, int]] = field(default_factory=dict)
+    protected_minimums: dict[str, int] = field(default_factory=dict)
+    stage_calls: dict[str, int] = field(default_factory=dict)
+    completed_stages: set[str] = field(default_factory=set)
 
-    def consume(self, payload: str, *, item_count: int) -> None:
+    def consume(
+        self,
+        payload: str,
+        *,
+        item_count: int,
+        stage: str | None = None,
+    ) -> None:
         if item_count > self.maximum_items:
             raise AIBudgetExceeded(
                 f"AI item limit exceeded: {item_count} > {self.maximum_items}"
             )
         if self.calls_used + 1 > self.maximum_calls:
             raise AIBudgetExceeded("AI daily call limit exceeded")
+        if stage is not None and self.protected_minimums:
+            reserved_for_others = sum(
+                max(0, minimum - self.stage_calls.get(other_stage, 0))
+                for other_stage, minimum in self.protected_minimums.items()
+                if other_stage != stage and other_stage not in self.completed_stages
+            )
+            if self.calls_used + 1 > self.maximum_calls - reserved_for_others:
+                raise AIBudgetExceeded(
+                    f"AI shared pool unavailable while protecting later stages: {stage}"
+                )
         if self.input_characters_used + len(payload) > self.maximum_input_characters:
             raise AIBudgetExceeded("AI daily input character limit exceeded")
         self.calls_used += 1
         self.input_characters_used += len(payload)
+        if stage is not None:
+            self.stage_calls[stage] = self.stage_calls.get(stage, 0) + 1
+
+    def complete_stage(self, stage: str) -> None:
+        """Release an unused protected minimum into the shared pool."""
+        self.completed_stages.add(stage)
 
     def record_network_request(self) -> None:
         """Record an actual outbound AI API request, including retries."""
@@ -120,6 +159,9 @@ class AIBudget:
         for task, reasons in sorted(self.task_finish_reasons.items()):
             for reason, count in sorted(reasons.items()):
                 stats[f"ai_{task}_finish_{reason}"] = count
+        if self.protected_minimums:
+            for stage, value in sorted(self.stage_calls.items()):
+                stats[f"ai_stage_{stage}_calls"] = value
         return stats
 
 
@@ -196,7 +238,7 @@ class OpenAIProvider:
         output_validator: Callable[[OutputT], OutputT | None] | None = None,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
-        self.budget.consume(payload, item_count=item_count)
+        self.budget.consume(payload, item_count=item_count, stage=_budget_stage(task))
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
 
         @retry(
@@ -243,6 +285,35 @@ class OpenAIProvider:
             except (AIOutputError, ValidationError, TypeError, ValueError) as exc:
                 last_error = exc
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
+
+    def triage_candidates(self, candidates: list[Candidate]) -> CandidateTriageBatch:
+        candidate_ids = {candidate.id for candidate in candidates}
+
+        def validate(output: CandidateTriageBatch) -> CandidateTriageBatch:
+            returned = [candidate.candidate_id for candidate in output.candidates]
+            if len(returned) != len(set(returned)) or set(returned) != candidate_ids:
+                raise AIOutputError("Candidate triage must return every input exactly once")
+            return output
+
+        return self._parse(
+            task="candidate_triage",
+            schema=CandidateTriageBatch,
+            payload_data=[candidate.model_dump(mode="json") for candidate in candidates],
+            item_count=len(candidates),
+            allowed_urls={
+                evidence.url for candidate in candidates for evidence in candidate.evidence
+            },
+            output_validator=validate,
+        )
+
+    def construct_story(self, candidate: Candidate) -> MergedStoryDraft:
+        return self._parse(
+            task="construct_story",
+            schema=MergedStoryDraft,
+            payload_data=candidate.model_dump(mode="json"),
+            item_count=1,
+            allowed_urls={evidence.url for evidence in candidate.evidence},
+        )
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
         return self._parse(
@@ -349,30 +420,6 @@ class OpenAIProvider:
             item_count=item_count,
             allowed_urls=set(),
             output_validator=lambda output: validate_continuity_resolution(output, context),
-        )
-
-    def resolve_research_cases(
-        self,
-        cases: list[ResearchCase],
-    ) -> ResearchResolutionBatch:
-        case_ids = {case.id for case in cases}
-
-        def validate(output: ResearchResolutionBatch) -> ResearchResolutionBatch:
-            if any(item.case_id not in case_ids for item in output.cases):
-                raise AIOutputError("Research output references an unknown case ID")
-            return output
-
-        return self._parse(
-            task="resolve_research_cases",
-            schema=ResearchResolutionBatch,
-            payload_data=[case.model_dump(mode="json") for case in cases],
-            item_count=len(cases),
-            allowed_urls={
-                evidence.url
-                for case in cases
-                for evidence in [case.lead, *case.supporting_evidence]
-            },
-            output_validator=validate,
         )
 
     def evaluate_tendencies(

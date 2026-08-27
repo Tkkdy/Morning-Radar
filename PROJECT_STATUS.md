@@ -1,5 +1,31 @@
 # Morning Radar Project Status
 
+## B0.5 Retrieval-to-Story Intelligence Pipeline
+
+Status: implemented locally; production activation intentionally not performed.
+
+B0.5 replaces the pre-Story `ResearchCase` side path and the Story-cost-derived 17-item semantic
+cap with one `RawItem → Candidate → Story` lifecycle:
+
+- every eligible RawItem forms or joins a Candidate before resource selection;
+- Semantic Triage returns DROP, BUILD, or INVESTIGATE;
+- Evidence, semantic, and execution states are stored separately;
+- High-Recall Guardrail means MUST_TRIAGE only;
+- bounded Evidence Resolution supports safe destination fetch and deterministic Official Surface
+  trust with a JSON cache;
+- Story facts require Claim × Evidence support and preserve discovery/evidence provenance;
+- Protected Minimum + Shared Pool prevents early AI stages from starving downstream work;
+- Candidate and compact Decision Trace artifacts are persisted daily;
+- DeepSeek Vision 2026-08-22 is a frozen Golden Failure replay;
+- offline same-budget comparison and Budget Sweep are available through
+  `python -m morning_radar.evaluation.b05`.
+
+Production defaults remain bounded at 50 logical AI calls and 120000 input characters. Editorial
+remains enabled in Shadow mode and `maximum_brief_items` remains 12. No production workflow,
+notification, push, merge, or Editorial activation is part of B0.5 implementation validation.
+
+The sections below describe the pre-B0.5 historical milestones and are retained as project history.
+
 ## v0.4.1 Editorial Evidence Retention Hardening
 
 Baseline: v0.4 merge commit `f83d56ac70ff1670810ba223d563b66a4df6ce97` (PR #5).

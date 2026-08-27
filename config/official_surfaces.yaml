@@ -1,0 +1,13 @@
+surfaces:
+  # Small deterministic trust seeds. Subdomains are accepted only through the
+  # resolver's verified-subdomain relationship; model output cannot add trust.
+  - entity: DeepSeek
+    surface: deepseek.com
+  - entity: OpenAI
+    surface: openai.com
+  - entity: Anthropic
+    surface: anthropic.com
+  - entity: NVIDIA
+    surface: nvidia.com
+  - entity: GitHub
+    surface: github.com

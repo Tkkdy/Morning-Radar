@@ -4,13 +4,13 @@ import pytest
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
+    CandidateTriageDraft,
     DirectionObservation,
     GeneratedBriefItem,
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
-    ResearchResolutionBatch,
-    ResearchResolutionDraft,
 )
 from morning_radar.ai.output_validation import (
     is_suspicious_english_prose,
@@ -23,10 +23,11 @@ from morning_radar.ai.output_validation import (
     validate_simplified_chinese_output,
 )
 from morning_radar.models import (
-    ResearchDisposition,
+    CandidateReasonCode,
+    EvidenceState,
+    SemanticDisposition,
     Signal,
     SignalType,
-    StatementType,
     Story,
 )
 
@@ -435,19 +436,19 @@ def test_editorial_grounding_accepts_latin_anchors_next_to_chinese(
     )
 
 
-def test_research_user_visible_output_rejects_long_english_prose() -> None:
-    output = ResearchResolutionBatch(
-        cases=[
-            ResearchResolutionDraft(
-                case_id="research-1",
-                disposition=ResearchDisposition.RADAR_SIGNAL,
-                statement_type=StatementType.FIRSTHAND_OBSERVATION,
-                claim=(
+def test_candidate_triage_user_visible_output_rejects_long_english_prose() -> None:
+    output = CandidateTriageBatch(
+        candidates=[
+            CandidateTriageDraft(
+                candidate_id="candidate-1",
+                hypothesis=(
                     "This practitioner report describes a concrete and reproducible "
                     "workflow regression affecting many software developers"
                 ),
-                why_notable="值得继续验证。",
-                uncertainty="尚未独立确认。",
+                potential_impact="值得继续验证。",
+                semantic_disposition=SemanticDisposition.DROP,
+                evidence_state=EvidenceState.INSUFFICIENT,
+                reason_codes=[CandidateReasonCode.LOW_IMPACT],
             )
         ]
     )

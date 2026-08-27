@@ -6,6 +6,18 @@ Morning Radar 是一个个人定时情报晨报：聚合 AI 科技、重点公�
 它强调“少而重要”：同一事件只出现一次，事实、分析和不确定性分开，所有链接来自真实
 采集输入。市场变化仅作信息展示，不提供投资建议。
 
+## B0.5 Intelligence Pipeline
+
+前半段流水线采用 `RawItem → Candidate → Story`。便宜的 Semantic Triage 先理解 Candidate，
+再给出 `DROP / BUILD / INVESTIGATE`；Story Construction 容量与 Triage 容量独立，预算不足或
+网络失败不会变成语义 DROP。INVESTIGATE 只对一个具体 Evidence gap 做有界 destination fetch，
+并遵守 SSRF、redirect、timeout、响应大小和 Official Surface trust 边界。
+
+只有逐条满足 Claim–Evidence support 的 facts 才能进入 Story。HN 等 discovery provenance 与
+official/practitioner evidence provenance 分开保存，模型 prior 不能作为 Evidence。每天新增
+`data/candidates/` 和 `data/diagnostics/`，可以直接回答一条 Raw 为什么没有形成 Story 或 Brief。
+Editorial 仍处于 Shadow，最终 Brief 数量上限不变。
+
 ## v0.4 Editorial Layer（Shadow）
 
 项目现在在完整 Story 批次形成后、最终简报生成前运行可移植的 VDVXDV Editorial Layer，
@@ -49,10 +61,10 @@ v0.1 不做用户系统、后台、App、搜索、实时监控、全市场扫描
 
 ```text
 config/              关注范围和运行阈值（YAML）
-data/                原始元数据、Story、Signal、快照、晨报与幂等状态
+data/                Raw、Candidate、Trace、Story、Signal、快照、晨报与幂等状态
 docs/                产品、架构、数据模型、来源规范、Roadmap
 fixtures/            完全离线的演示和测试输入
-prompts/             五类可版本化 AI 任务提示
+prompts/             可版本化的 Triage、Story、Brief 与下游 AI 任务提示
 src/morning_radar/   采集、处理、AI、趋势、建站、通知和 CLI
 templates/           Jinja2 页面模板
 site/                GitHub Pages 输出
@@ -146,9 +158,10 @@ Fixture 和无网络测试。核心代码不应因新增观察对象而修改。
 
 ## 费用、隐私与故障排查
 
-AI 调用受 `config/app.yaml` 的候选数、输入字符数和每日逻辑调用数限制。候选会在首次
-AI 分类前确定性排序和截断；`maximum_ai_calls` 统计逻辑任务，真实 HTTP 请求（含重试）
-另行记录。`relevance_threshold` 控制晨报候选，`importance_threshold` 控制头条资格。
+AI 调用受 `config/app.yaml` 的 Triage batch、Story、输入字符数和每日逻辑调用数限制。
+Protected Minimum + Shared Pool 为后续必要阶段保留最低资源，未使用余额可被真正高价值的阶段
+借用。`maximum_ai_calls` 统计逻辑任务，真实 AI HTTP 请求、Evidence fetch 与 token usage 分开
+记录。`relevance_threshold` 控制兼容晨报候选，`importance_threshold` 控制头条资格。
 这两个阈值仍是 Shadow/degraded 时的兼容路径；Active Editorial mode 使用 placement 决定
 读者候选。
 可恢复 AI 输出失败会明确记录降级，只复用已验证的 Story 事实和来源，不生成替代判断。

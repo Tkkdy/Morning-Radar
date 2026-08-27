@@ -7,11 +7,17 @@ import os
 from datetime import date, timedelta
 from pathlib import Path
 
-from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
+from morning_radar.ai import AIBudget, FakeAIProvider, production_provider_from_environment
 from morning_radar.briefing import (
     BriefLimits,
     generate_daily_brief_with_memory,
     ranked_eligible_stories,
+)
+from morning_radar.candidates import (
+    admit_candidates,
+    apply_freshness_guard,
+    radar_signals_from_candidates,
+    triage_candidates,
 )
 from morning_radar.collectors import (
     AIHOTCollector,
@@ -37,7 +43,17 @@ from morning_radar.continuity.materialize import (
 )
 from morning_radar.continuity.projection import apply_continuity_to_brief
 from morning_radar.continuity.validation import validate_daily_continuity
+from morning_radar.diagnostics import (
+    DecisionStage,
+    DecisionTraceBuilder,
+    SystemReasonCode,
+)
 from morning_radar.editorial.evaluator import evaluate_editorial
+from morning_radar.evidence import (
+    OfficialSurfaceResolver,
+    SafeEvidenceFetcher,
+    resolve_evidence,
+)
 from morning_radar.models import (
     DailyBrief,
     DailyContinuity,
@@ -49,16 +65,15 @@ from morning_radar.models import (
 )
 from morning_radar.notifications import WxPusherConfig, WxPusherNotifier
 from morning_radar.processing import (
-    build_stories,
+    build_candidate_stories,
     filter_news_window,
     filter_story_candidate_inputs,
 )
 from morning_radar.publishing import SiteBuilder
-from morning_radar.research import resolve_research
-from morning_radar.research.engine import eligible_story_inputs
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
+    OfficialSurfaceSeedConfig,
     PersonConfig,
     RepositoryConfig,
     SourceConfig,
@@ -79,7 +94,6 @@ from morning_radar.time_utils import display_date, utc_now
 from morning_radar.trends import TrendDetector
 
 LOGGER = logging.getLogger(__name__)
-RESERVED_LOGICAL_AI_TASKS = 7
 
 
 def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
@@ -95,15 +109,6 @@ def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
     )
     other_items = len(brief.other_reading)
     return main_items, other_items, main_items + other_items
-
-
-def _call_safe_story_candidate_limit(
-    *,
-    maximum_calls: int,
-    maximum_items: int,
-) -> int:
-    remaining_story_calls = max(0, maximum_calls - RESERVED_LOGICAL_AI_TASKS)
-    return min(maximum_items, remaining_story_calls * 2 // 5)
 
 
 class MorningRadarPipeline:
@@ -141,19 +146,40 @@ class MorningRadarPipeline:
             people = load_model_list(
                 self.root / "config/people.yaml", "people", PersonConfig
             )
-            provider = DeepSeekProvider.from_environment(
+            provider = production_provider_from_environment(
                 budget=AIBudget(
                     self.app.maximum_ai_calls,
                     self.app.maximum_ai_input_characters,
                     self.app.maximum_ai_items,
+                    protected_minimums={
+                        "triage": 1,
+                        "story": 4,
+                        "editorial": 1,
+                        "continuity": 1,
+                        "tendency": 1,
+                        "brief": 1,
+                    },
                 ),
                 prompt_dir=self.root / "prompts",
             )
 
+        trace_builder = DecisionTraceBuilder(raw_items)
         recent = filter_news_window(
             raw_items,
             now=now,
             hours=self.app.news_window_hours,
+        )
+        recent_ids = {item.id for item in recent}
+        trace_builder.add(
+            [item.id for item in raw_items if item.id in recent_ids],
+            stage=DecisionStage.FRESHNESS_WINDOW,
+            decision="WITHIN_WINDOW",
+        )
+        trace_builder.add(
+            [item.id for item in raw_items if item.id not in recent_ids],
+            stage=DecisionStage.FRESHNESS_WINDOW,
+            decision="OUTSIDE_WINDOW",
+            reason_codes=[SystemReasonCode.OUTSIDE_FRESHNESS_WINDOW],
         )
         story_candidate_items, routine_market_suppressed = (
             filter_story_candidate_inputs(
@@ -161,31 +187,68 @@ class MorningRadarPipeline:
                 market_movement_threshold=self.app.market_movement_threshold,
             )
         )
-        research_result = resolve_research(
-            recent,
+        story_candidate_ids = {item.id for item in story_candidate_items}
+        trace_builder.add(
+            [item.id for item in recent if item.id not in story_candidate_ids],
+            stage=DecisionStage.ROUTINE_FILTER,
+            decision="SUPPRESSED",
+            reason_codes=[SystemReasonCode.ROUTINE_MARKET_MOVEMENT],
+        )
+        trace_builder.add(
+            [item.id for item in story_candidate_items],
+            stage=DecisionStage.ROUTINE_FILTER,
+            decision="ELIGIBLE",
+        )
+        admitted = admit_candidates(story_candidate_items, now=now)
+        candidate_result = triage_candidates(
+            admitted,
             provider=provider,
-            maximum_cases=self.app.maximum_research_cases,
-            maximum_radar_signals=self.app.maximum_radar_signals,
-            maximum_input_characters=(
-                self.app.maximum_research_input_characters
+            maximum_batch_items=self.app.maximum_triage_batch_items,
+            maximum_input_characters=self.app.maximum_triage_input_characters,
+        )
+        triaged_candidates = apply_freshness_guard(candidate_result.candidates)
+        surface_seeds = load_model_list(
+            self.root / "config/official_surfaces.yaml",
+            "surfaces",
+            OfficialSurfaceSeedConfig,
+        )
+        evidence_result = resolve_evidence(
+            triaged_candidates,
+            provider=provider,
+            fetcher=SafeEvidenceFetcher(
+                timeout_seconds=self.app.request_timeout_seconds,
+                attempts=self.app.request_retry_attempts,
+                maximum_response_bytes=self.app.maximum_evidence_response_bytes,
+                maximum_redirects=self.app.maximum_evidence_redirects,
             ),
+            official_resolver=OfficialSurfaceResolver(
+                cache_path=output_root / "data/state/official_surfaces.json",
+                seeds={seed.surface: seed.entity for seed in surface_seeds},
+                now=now,
+                stale_after_days=self.app.official_surface_stale_days,
+            ),
+            now=now,
+            maximum_investigations=self.app.maximum_investigations,
+            maximum_triage_input_characters=self.app.maximum_triage_input_characters,
         )
-        story_candidate_items = eligible_story_inputs(
-            story_candidate_items,
-            verified_item_ids=research_result.verified_item_ids,
-        )
-        # Reserve calls for classification, continuity, brief, direction, research,
-        # and tendency. A rejected two-item candidate group costs five calls:
-        # one group merge plus merge + score for each resulting Story.
-        ai_candidate_limit = _call_safe_story_candidate_limit(
-            maximum_calls=self.app.maximum_ai_calls,
-            maximum_items=self.app.maximum_ai_items,
-        )
-        stories = build_stories(
-            story_candidate_items,
+        candidates = evidence_result.candidates
+        budget = getattr(provider, "budget", None)
+        if budget is not None and hasattr(budget, "complete_stage"):
+            budget.complete_stage("triage")
+        trace_builder.add_candidates(candidates)
+        stories, story_dispositions = build_candidate_stories(
+            candidates,
+            raw_items=story_candidate_items,
             provider=provider,
             now=now,
-            maximum_ai_items=ai_candidate_limit,
+            maximum_candidates=self.app.maximum_story_candidates,
+        )
+        if budget is not None and hasattr(budget, "complete_stage"):
+            budget.complete_stage("story")
+        trace_builder.add_story_results(candidates, stories, story_dispositions)
+        radar_signals = radar_signals_from_candidates(
+            candidates,
+            maximum_signals=self.app.maximum_radar_signals,
         )
         brief_date = display_date(now)
         editorial_result = evaluate_editorial(
@@ -198,6 +261,8 @@ class MorningRadarPipeline:
             profile_version=self.app.editorial.profile_version,
             maximum_stories=self.app.editorial.maximum_stories,
         )
+        if budget is not None and hasattr(budget, "complete_stage"):
+            budget.complete_stage("editorial")
         brief_limits = BriefLimits(maximum_items=self.app.maximum_brief_items)
         if editorial_result.active:
             assert editorial_result.selection is not None
@@ -260,6 +325,8 @@ class MorningRadarPipeline:
                 daily=DailyContinuity(date=brief_date, generated_at=now),
                 stats={"continuity_unavailable": 1},
             )
+        if budget is not None and hasattr(budget, "complete_stage"):
+            budget.complete_stage("continuity")
         story_history = self._story_history(history_root, brief_date)
         story_history[brief_date] = stories
         signals = TrendDetector(
@@ -318,10 +385,14 @@ class MorningRadarPipeline:
                 "editorial_decisions": len(editorial_result.daily.decisions),
                 "aihot_enabled": self.app.aihot.enabled,
                 **practitioner_coverage_stats(people),
-                **research_result.stats,
+                **candidate_result.stats,
+                **evidence_result.stats,
+                "radar_signals": len(radar_signals),
                 **continuity_result.stats,
             },
         )
+        if budget is not None and hasattr(budget, "complete_stage"):
+            budget.complete_stage("brief")
         opened_watches = materialize_open_watches(
             brief_result.watch_drafts,
             brief_date=brief_date,
@@ -398,6 +469,8 @@ class MorningRadarPipeline:
                 daily=DailyTendencies(date=brief_date, generated_at=now),
                 stats={"tendency_unavailable": True},
             )
+        if budget is not None and hasattr(budget, "complete_stage"):
+            budget.complete_stage("tendency")
         brief = apply_continuity_to_brief(
             brief_result.brief,
             daily_continuity,
@@ -406,7 +479,7 @@ class MorningRadarPipeline:
         )
         brief = brief.model_copy(
             update={
-                "radar_signals": research_result.radar_signals,
+                "radar_signals": radar_signals,
                 "tendencies": tendency_result.brief_tendencies,
                 "run_stats": {
                     **brief.run_stats,
@@ -415,6 +488,36 @@ class MorningRadarPipeline:
                     "structured_watches_opened": len(opened_watches),
                 }
             }
+        )
+        brief_story_ids = {
+            story_id
+            for items in (
+                brief.top_stories,
+                brief.market_and_companies,
+                brief.ai_and_open_source,
+                brief.trend_radar,
+                brief.developer_discussions,
+                brief.other_reading,
+            )
+            for item in items
+            for story_id in item.story_ids
+        }
+        for story in stories:
+            trace_builder.add(
+                story.source_item_ids,
+                stage=DecisionStage.READER_SELECTION,
+                decision=(
+                    "SELECTED_FOR_BRIEF"
+                    if story.id in brief_story_ids
+                    else "NOT_SELECTED_FOR_BRIEF"
+                ),
+                story_id=story.id,
+            )
+        decision_trace = trace_builder.finish(
+            trace_date=brief_date,
+            generated_at=now,
+            stories=stories,
+            brief_story_ids=brief_story_ids,
         )
         (
             main_brief_items,
@@ -481,18 +584,20 @@ class MorningRadarPipeline:
             self.app.maximum_ai_calls,
         )
         LOGGER.info(
-            "v0.35 intelligence stats: configured_seed_count=%s "
+            "B0.5 intelligence stats: configured_seed_count=%s "
             "active_channel_count=%s practitioners_with_active_channels=%s "
-            "aihot_enabled=%s research_cases=%s radar_signals=%s "
-            "research_logical_ai_calls=%s tendency_clusters=%s "
+            "aihot_enabled=%s candidates=%s triaged=%s investigate=%s "
+            "investigation_executed=%s radar_signals=%s tendency_clusters=%s "
             "tendency_decisions=%s tendency_logical_ai_calls=%s",
             brief.run_stats.get("configured_seed_count", 0),
             brief.run_stats.get("active_channel_count", 0),
             brief.run_stats.get("practitioners_with_active_channels", 0),
             self.app.aihot.enabled,
-            brief.run_stats.get("research_cases", 0),
+            brief.run_stats.get("candidate_admitted", 0),
+            brief.run_stats.get("candidate_triaged", 0),
+            brief.run_stats.get("candidate_investigate", 0),
+            brief.run_stats.get("investigation_executed", 0),
             brief.run_stats.get("radar_signals", 0),
-            brief.run_stats.get("research_logical_ai_calls", 0),
             brief.run_stats.get("tendency_clusters", 0),
             brief.run_stats.get("tendency_decisions", 0),
             brief.run_stats.get("tendency_logical_ai_calls", 0),
@@ -535,12 +640,14 @@ class MorningRadarPipeline:
             brief_date,
             raw_items,
             stories,
+            candidates,
             signals,
             brief,
             daily_continuity,
-            research_result.radar_signals,
+            radar_signals,
             tendency_result.daily,
             editorial_result.daily,
+            decision_trace,
         )
         self.build_site(output_root=output_root, history_root=history_root)
         if notify and not fixtures and not dry_run:
@@ -623,21 +730,25 @@ class MorningRadarPipeline:
         brief_date,
         raw,
         stories,
+        candidates,
         signals,
         brief,
         continuity,
         radar_signals,
         tendencies,
         editorial,
+        decision_trace,
     ) -> None:
         name = f"{brief_date}.json"
         save_models(root / "data/raw" / name, raw)
         save_models(root / "data/stories" / name, stories)
+        save_models(root / "data/candidates" / name, candidates)
         save_models(root / "data/signals" / name, signals)
         save_model(root / "data/briefs" / name, brief)
         save_model(root / "data/continuity" / name, continuity)
         save_models(root / "data/radar_signals" / name, radar_signals)
         save_model(root / "data/tendencies" / name, tendencies)
+        save_model(root / "data/diagnostics" / name, decision_trace)
         try:
             save_model(root / "data/editorial" / name, editorial)
         except (OSError, TypeError, ValueError):

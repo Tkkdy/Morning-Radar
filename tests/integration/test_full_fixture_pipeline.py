@@ -55,6 +55,8 @@ def test_full_fixture_pipeline_has_no_network_or_real_ai(
     assert (output / "data/radar_signals/2026-07-23.json").exists()
     assert (output / "data/tendencies/2026-07-23.json").exists()
     assert (output / "data/editorial/2026-07-23.json").exists()
+    assert (output / "data/candidates/2026-07-23.json").exists()
+    assert (output / "data/diagnostics/2026-07-23.json").exists()
     assert (output / "site/index.html").exists()
     assert (output / "site/archive.html").exists()
     assert "raw_collected=4" in caplog.text
@@ -180,6 +182,8 @@ def test_dry_run_reads_production_history_without_mutating_it(
         "data/continuity/2026-07-23.json",
         "data/radar_signals/2026-07-23.json",
         "data/tendencies/2026-07-23.json",
+        "data/candidates/2026-07-23.json",
+        "data/diagnostics/2026-07-23.json",
     ):
         assert (output / relative_path).exists()
         assert not (project / relative_path).exists()

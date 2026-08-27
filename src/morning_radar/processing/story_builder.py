@@ -5,28 +5,27 @@ from __future__ import annotations
 import hashlib
 import logging
 import math
-from collections import Counter
+import re
 from datetime import datetime
+from typing import Protocol
 
-from morning_radar.ai import AIOutputError
+from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
-from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
-from morning_radar.processing.deduplicate import deduplicate_items
-from morning_radar.processing.grouping import group_items_by_normalized_title
+from morning_radar.models import (
+    Candidate,
+    ClaimType,
+    EvidenceAuthority,
+    EvidenceState,
+    PublishedAtRole,
+    RawItem,
+    SemanticDisposition,
+    Story,
+    StorySourceRef,
+)
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
-LANE_ORDER = (
-    "official_primary",
-    "github_release",
-    "trusted_practitioner",
-    "practice_discovery",
-    "secondary_editorial",
-    "hacker_news_ambient",
-    "significant_market",
-    "other",
-)
 PUBLISHED_AT_ROLE_BY_SOURCE_TYPE = {
     "rss": PublishedAtRole.FEED_ENTRY_TIME,
     "atom": PublishedAtRole.FEED_ENTRY_TIME,
@@ -39,6 +38,77 @@ LOGGER = logging.getLogger(__name__)
 
 class StoryValidationError(ValueError):
     pass
+
+
+class LegacyStoryProvider(Protocol):
+    """Narrow compatibility contract for evaluation-only legacy Story tests."""
+
+    def merge_story(self, items: list[RawItem]) -> MergedStoryDraft: ...
+
+    def score_story(self, story: Story): ...
+
+
+def _effective_claim_type(claim: str, declared: ClaimType) -> ClaimType:
+    lowered = claim.casefold()
+    if re.search(r"(?:\bfirst\b|全球首次|世界首次|行业首次|首个)", lowered):
+        return ClaimType.NOVELTY_FIRST
+    if re.search(r"(?:\d+(?:\.\d+)?\s*[×x]|倍|benchmark|性能|更快)", lowered):
+        return ClaimType.PERFORMANCE
+    if re.search(r"(?:\bga\b|general availability|正式发布|全球发布)", lowered):
+        return ClaimType.RELEASE_GA
+    return declared
+
+
+def _validate_candidate_story_draft(
+    candidate: Candidate, draft: MergedStoryDraft
+) -> None:
+    if not draft.facts:
+        raise StoryValidationError("Story Construction returned no supported facts")
+    evidence_by_id = {item.evidence_id: item for item in candidate.evidence}
+    support_by_claim = {support.claim: support for support in draft.fact_supports}
+    if (
+        len(draft.fact_supports) != len(draft.facts)
+        or len(set(draft.facts)) != len(draft.facts)
+        or set(support_by_claim) != set(draft.facts)
+    ):
+        raise StoryValidationError("every Story fact requires one exact claim support")
+    if candidate.evidence_state is EvidenceState.CONTRADICTED and not all(
+        any(marker in fact for marker in ("但", "冲突", "不一致", "部分", "尚未明确"))
+        and len(support_by_claim[fact].evidence_ids) >= 2
+        for fact in draft.facts
+    ):
+        raise StoryValidationError(
+            "contradicted Evidence may only support an explicitly bounded conflict Story"
+        )
+    for fact in draft.facts:
+        support = support_by_claim[fact]
+        if not support.scope_supported:
+            raise StoryValidationError("Claim Scope exceeds Evidence Scope")
+        if not set(support.evidence_ids).issubset(evidence_by_id):
+            raise StoryValidationError("claim support references unknown Evidence")
+        evidence = [evidence_by_id[item_id] for item_id in support.evidence_ids]
+        if any(item.authority is EvidenceAuthority.DISCOVERY_ONLY for item in evidence):
+            raise StoryValidationError("discovery-only input cannot support a Story fact")
+        claim_type = _effective_claim_type(fact, support.claim_type)
+        if claim_type is ClaimType.RELEASE_GA and all(
+            item.authority is EvidenceAuthority.FIRSTHAND_OBSERVATION for item in evidence
+        ):
+            raise StoryValidationError("firsthand observation cannot prove official release/GA")
+        if claim_type is ClaimType.NOVELTY_FIRST and not any(
+            item.authority is EvidenceAuthority.INDEPENDENT_REPORTING for item in evidence
+        ):
+            raise StoryValidationError("novelty/first claim requires independent Evidence")
+        if claim_type is ClaimType.PERFORMANCE and all(
+            item.authority is EvidenceAuthority.SELF_AUTHORITATIVE for item in evidence
+        ) and not any(marker in fact for marker in ("宣称", "官方称", "表示", "声称")):
+            raise StoryValidationError(
+                "self-reported performance must be attributed as an official claim"
+            )
+    allowed_urls = {item.url for item in candidate.evidence}
+    if not draft.source_urls or not set(draft.source_urls).issubset(allowed_urls):
+        raise StoryValidationError("Story URLs must come from Candidate Evidence")
+    if draft.primary_source_url not in draft.source_urls:
+        raise StoryValidationError("Story primary URL must be one of its Evidence URLs")
 
 
 def filter_story_candidate_inputs(
@@ -135,7 +205,7 @@ def _source_ref(item: RawItem) -> StorySourceRef:
 def build_story(
     items: list[RawItem],
     *,
-    provider: AIProvider,
+    provider: LegacyStoryProvider,
     now: datetime,
 ) -> Story:
     draft = provider.merge_story(items)
@@ -176,178 +246,122 @@ def build_story(
     )
 
 
-def build_stories(
-    items: list[RawItem],
+def build_candidate_story(
+    candidate: Candidate,
     *,
+    raw_items: list[RawItem],
     provider: AIProvider,
     now: datetime,
-    maximum_ai_items: int | None = None,
-) -> list[Story]:
+) -> Story:
+    """Construct a Story only after validating Claim × Evidence support."""
+    if candidate.semantic_disposition is not SemanticDisposition.BUILD:
+        raise StoryValidationError("only BUILD Candidates may attempt Story Construction")
+    items_by_id = {item.id: item for item in raw_items}
+    items = [items_by_id[item_id] for item_id in candidate.raw_item_ids if item_id in items_by_id]
     if not items:
-        LOGGER.info("Skipping AI classification: no recent items")
-        return []
+        raise StoryValidationError("Candidate has no available RawItem provenance")
+    draft = provider.construct_story(candidate)
+    _validate_candidate_story_draft(candidate, draft)
+    published_values = [item.published_at for item in items if item.published_at is not None]
+    provisional = Story(
+        id=f"story-{hashlib.sha256(candidate.id.encode()).hexdigest()[:20]}",
+        canonical_title=draft.canonical_title,
+        category=draft.category,
+        entity_names=draft.entity_names,
+        product_names=draft.product_names,
+        topic_names=draft.topic_names,
+        published_at=min(published_values) if published_values else None,
+        updated_at=now,
+        source_item_ids=[item.id for item in items],
+        source_urls=list(
+            dict.fromkeys([*draft.source_urls, *verified_source_urls_for_items(items)])
+        ),
+        primary_source_url=draft.primary_source_url or draft.source_urls[0],
+        source_refs=[_source_ref(item) for item in items],
+        candidate_ids=[candidate.id],
+        evidence_refs=candidate.evidence,
+        claim_supports=[
+            {
+                "claim": item.claim,
+                "claim_type": item.claim_type,
+                "evidence_ids": item.evidence_ids,
+                "evidence_scope": item.evidence_scope,
+                "claim_scope": item.claim_scope,
+                "scope_supported": item.scope_supported,
+            }
+            for item in draft.fact_supports
+        ],
+        facts=draft.facts,
+        analysis=draft.analysis,
+        uncertainties=draft.uncertainties,
+        relevance_score=0,
+        importance_score=0,
+        novelty_score=0,
+        credibility_score=0,
+        status=draft.status,
+    )
+    score = provider.score_story(provisional)
+    return provisional.model_copy(
+        update={
+            "relevance_score": score.relevance_score,
+            "importance_score": score.importance_score,
+            "novelty_score": score.novelty_score,
+            "credibility_score": score.credibility_score,
+        }
+    )
 
-    unique = deduplicate_items(items)
-    candidates = preselect_ai_candidates(unique, maximum_items=maximum_ai_items)
-    if not candidates:
-        LOGGER.warning("AI candidate budget left no items for classification")
-        return []
-    classifications = provider.classify_items(candidates)
-    relevant_ids = {item.item_id for item in classifications.items if item.relevant}
-    relevant = [item for item in candidates if item.id in relevant_ids]
 
-    stories: list[Story] = []
-    for group in group_items_by_normalized_title(relevant):
-        try:
-            draft = provider.merge_story(group)
-        except AIOutputError:
-            LOGGER.exception(
-                "AI degradation: merge failed; skipping candidate group with %d item(s)",
-                len(group),
-            )
-            continue
-        if draft.same_event or len(group) == 1:
-            # Reuse a tiny adapter to avoid changing the provider contract.
-            try:
-                stories.append(
-                    build_story(group, provider=_DraftProvider(provider, draft), now=now)
-                )
-            except AIOutputError:
-                LOGGER.exception(
-                    "AI degradation: scoring failed; skipping candidate group with %d item(s)",
-                    len(group),
-                )
-        else:
-            for item in group:
-                try:
-                    stories.append(build_story([item], provider=provider, now=now))
-                except AIOutputError:
-                    LOGGER.exception(
-                        "AI degradation: single-item story generation failed; "
-                        "skipping item %s",
-                        item.id,
-                    )
-    return rank_stories(stories)
-
-
-def preselect_ai_candidates(
-    items: list[RawItem],
+def build_candidate_stories(
+    candidates: list[Candidate],
     *,
-    maximum_items: int | None,
-) -> list[RawItem]:
-    """Deterministically prioritize candidates before the first AI call."""
-    if maximum_items is None:
-        return list(items)
-    maximum_items = max(0, maximum_items)
-
-    lanes: dict[str, list[RawItem]] = {name: [] for name in LANE_ORDER}
-    for item in items:
-        lanes[_candidate_lane(item)].append(item)
-    for lane_items in lanes.values():
-        lane_items.sort(key=_lane_candidate_key)
-
-    nonempty_lanes = [name for name in LANE_ORDER if lanes[name]]
-    selected: list[RawItem] = []
-    selected_ids: set[str] = set()
-    if maximum_items >= len(nonempty_lanes):
-        reserved_lanes = nonempty_lanes
-    else:
-        reserved_lanes = sorted(
-            nonempty_lanes,
-            key=lambda name: (
-                _global_candidate_key(lanes[name][0]),
-                LANE_ORDER.index(name),
-            ),
-        )[:maximum_items]
-    for lane_name in reserved_lanes:
-        item = lanes[lane_name][0]
-        selected.append(item)
-        selected_ids.add(item.id)
-
-    remaining = sorted(
-        (item for item in items if item.id not in selected_ids),
-        key=_global_candidate_key,
-    )
-    selected.extend(remaining[: max(0, maximum_items - len(selected))])
-    selected_counts = Counter(_candidate_lane(item) for item in selected)
-    LOGGER.info(
-        "AI candidate lanes: official_primary=%d github_release=%d "
-        "trusted_practitioner=%d practice_discovery=%d secondary_editorial=%d "
-        "hacker_news_ambient=%d significant_market=%d other=%d "
-        "selected_total=%d cap=%d",
-        *(selected_counts[name] for name in LANE_ORDER),
-        len(selected),
-        maximum_items,
-    )
-    if len(selected) < len(items):
-        LOGGER.info(
-            "AI candidate cap applied: candidates=%d selected=%d",
-            len(items),
-            len(selected),
+    raw_items: list[RawItem],
+    provider: AIProvider,
+    now: datetime,
+    maximum_candidates: int,
+) -> tuple[list[Story], dict[str, str]]:
+    """Spend Story resources independently from Triage capacity."""
+    build_candidates = [
+        candidate
+        for candidate in candidates
+        if candidate.semantic_disposition is SemanticDisposition.BUILD
+    ]
+    build_candidates.sort(
+        key=lambda candidate: (
+            candidate.evidence_state.value != "sufficient",
+            not candidate.must_triage,
+            -candidate.investigation_priority,
+            candidate.id,
         )
-    return selected
-
-
-def _candidate_lane(item: RawItem) -> str:
-    if item.source_type == "github":
-        return "github_release"
-    if item.source_role.value == "practitioner":
-        return "trusted_practitioner"
-    if item.source_role.value == "upstream_discovery":
-        return "practice_discovery"
-    if item.source_type == "hacker_news":
-        return (
-            "practice_discovery"
-            if item.metadata.get("selection_reason") == "high_signal_discovery"
-            or item.practice_signal_kind is not None
-            else "hacker_news_ambient"
-        )
-    if item.source_type == "market":
-        return "significant_market"
-    if item.source_type in {"rss", "atom"}:
-        return (
-            "official_primary"
-            if item.source_role.value == "official_primary"
-            or item.metadata.get("official")
-            else "secondary_editorial"
-        )
-    return "other"
-
-
-def _lane_candidate_key(item: RawItem) -> tuple[int, int, int, float, str]:
-    priority = str(item.metadata.get("priority", "low"))
-    event_time = item.published_at or item.fetched_at
-    score = item.metadata.get("score", 0)
-    comments = item.metadata.get("comments", 0)
-    community_score = int(score) if isinstance(score, (int, float)) else 0
-    community_comments = int(comments) if isinstance(comments, (int, float)) else 0
-    return (
-        PRIORITY_ORDER.get(priority, 3),
-        -community_score,
-        -community_comments,
-        -event_time.timestamp(),
-        item.id,
     )
-
-
-def _global_candidate_key(item: RawItem) -> tuple[int, int, int, int, float, str]:
-    lane_key = _lane_candidate_key(item)
-    return (0 if _candidate_lane(item) == "official_primary" else 1, *lane_key)
-
-
-class _DraftProvider:
-    """Delegate every task except one already-computed merge result."""
-
-    def __init__(self, provider: AIProvider, draft: MergedStoryDraft) -> None:
-        self.provider = provider
-        self.draft = draft
-
-    def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
-        del items
-        return self.draft
-
-    def score_story(self, story: Story):
-        return self.provider.score_story(story)
+    stories: list[Story] = []
+    dispositions: dict[str, str] = {}
+    bounded = build_candidates[:maximum_candidates]
+    for index, candidate in enumerate(bounded):
+        try:
+            stories.append(
+                build_candidate_story(
+                    candidate,
+                    raw_items=raw_items,
+                    provider=provider,
+                    now=now,
+                )
+            )
+        except AIBudgetExceeded:
+            LOGGER.warning("Story budget deferred Candidate %s", candidate.id)
+            for deferred in bounded[index:]:
+                dispositions[deferred.id] = "STORY_DEFERRED_BY_BUDGET"
+            break
+        except (AIOutputError, OSError):
+            LOGGER.exception("Story Construction AI failed for Candidate %s", candidate.id)
+            dispositions[candidate.id] = "STORY_FAILED_AI"
+        except (StoryValidationError, ValueError):
+            LOGGER.exception("Story Construction rejected Candidate %s", candidate.id)
+            dispositions[candidate.id] = "STORY_REJECTED"
+        else:
+            dispositions[candidate.id] = "STORY_BUILT"
+    for candidate in build_candidates[maximum_candidates:]:
+        dispositions[candidate.id] = "STORY_DEFERRED_BY_BUDGET"
+    return rank_stories(stories), dispositions
 
 
 def ranking_score(story: Story) -> float:

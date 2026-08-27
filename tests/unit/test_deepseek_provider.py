@@ -254,7 +254,6 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
         ("write_brief", 24576),
         ("resolve_continuity", 16384),
         ("direction_observation", 8192),
-        ("resolve_research_cases", 12288),
         ("evaluate_tendencies", 16384),
         ("evaluate_editorial", 16384),
     ],
