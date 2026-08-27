@@ -1,0 +1,51 @@
+[
+  {
+    "claim": "Simon Willison 博客提及名为 Qwen3.8-Flash-Next 的 AI 模型（具体内容未提供）。",
+    "id": "radar-3e9f935e5018cab20740",
+    "missing_evidence": [
+      "模型能力、基准或发布公告",
+      "是否可下载或开源权重",
+      "与既有 Qwen 系列的关系",
+      "来源文章的具体观察内容"
+    ],
+    "observed_at": "2026-08-27T05:00:24.503837Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-8e2bea08b7f2937cbcfe",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/26/qwen38-flash-next/"
+      }
+    ],
+    "uncertainty": "仅提供文章标题和 practitioner 来源，没有正文、模型能力、发布方等证据。",
+    "why_notable": "若为新的开源 AI 编码/模型版本，可能影响开发者工具和模型采用。"
+  },
+  {
+    "claim": "据称 Nvidia 已同意以 130 亿美元收购 Hugging Face。",
+    "id": "radar-5fe3dfe6f738b96e533c",
+    "missing_evidence": [
+      "官方公告或监管文件",
+      "交易条款与是否已最终达成",
+      "Hugging Face 后续运营独立性"
+    ],
+    "observed_at": "2026-08-27T05:00:24.503837Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-319f858a7c1e5432507d",
+        "source_role": "community_discovery",
+        "url": "https://www.businessinsider.com/nvidia-in-talks-to-buy-hugging-face-13-billion-dollars-2026-8"
+      }
+    ],
+    "uncertainty": "单条未证实消息；Business Insider 标题可能为“在谈”而非已同意，需官方信息确认。",
+    "why_notable": "若属实，将显著改变开源 AI 模型托管和数据集的竞争格局，并影响 AI 生态权力分布。"
+  }
+]

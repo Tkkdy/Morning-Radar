@@ -1,0 +1,1021 @@
+[
+  {
+    "analysis": [
+      "NVLink Fusion 可能通过整合互连与内存技术来提升 AI 系统的数据吞吐效率。",
+      "NVHBM 的引入可能代表了 NVIDIA 在内存架构上的新方向，以应对大模型训练和推理的带宽瓶颈。"
+    ],
+    "canonical_title": "NVIDIA NVLink Fusion 为下一代 AI 基础设施引入 NVHBM",
+    "category": "AI 基础设施",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 宣布推出 NVLink Fusion，旨在为下一代 AI 基础设施提供支持。",
+      "NVLink Fusion 引入了 NVHBM（高带宽内存）技术。",
+      "该技术旨在满足日益增长的 AI 工作负载对计算能力的需求。"
+    ],
+    "id": "story-46902e4f0e7dc269b245",
+    "importance_score": 0.9,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-nvlink-fusion-brings-nvhbm-to-next-generation-ai-infrastructure/",
+    "product_names": [
+      "NVLink Fusion",
+      "NVHBM"
+    ],
+    "published_at": "2026-08-26T21:06:58Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-676f90ee5f88ebab3b50"
+    ],
+    "source_refs": [
+      {
+        "author": "Farshad Ghodsian",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T21:06:58Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-676f90ee5f88ebab3b50",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "NVIDIA NVLink Fusion Brings NVHBM to Next-Generation AI Infrastructure",
+        "url": "https://developer.nvidia.com/blog/nvidia-nvlink-fusion-brings-nvhbm-to-next-generation-ai-infrastructure/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-nvlink-fusion-brings-nvhbm-to-next-generation-ai-infrastructure/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 基础设施",
+      "互连技术",
+      "高带宽内存"
+    ],
+    "uncertainties": [
+      "NVLink Fusion 和 NVHBM 的具体技术规格、性能提升幅度以及发布时间未在来源中披露。",
+      "该技术将首先应用于哪些产品线或客户群体尚不明确。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "Transformers 库的更新反映了当前大模型领域对高效长上下文推理、多模态能力和轻量级语音模型的关注。"
+    ],
+    "canonical_title": "Hugging Face Transformers v5.16.0 发布，新增 Qwen4-Exp、GraniteSpeech5 与 Step3p7 模型支持",
+    "category": "开源模型发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Hugging Face",
+      "Qwen",
+      "StepFun",
+      "IBM"
+    ],
+    "facts": [
+      "Hugging Face Transformers v5.16.0 于 2026-08-26 发布。",
+      "该版本新增 Qwen4-Exp 模型支持，Qwen4-Exp 基于 Qwen3.5 的混合文本与多模态架构，包含 GatedResidual、Qwen Sparse Attention 和 Per-Layer Embedding 三个关键组件。"
+    ],
+    "id": "story-80ee3f8d453689abc52d",
+    "importance_score": 0.85,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.16.0",
+    "product_names": [
+      "Transformers",
+      "Qwen4-Exp",
+      "GraniteSpeech5",
+      "Step-3.7-Flash"
+    ],
+    "published_at": "2026-08-26T12:35:15Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-05e49555d6885421fdc1"
+    ],
+    "source_refs": [
+      {
+        "author": "Cyrilvallez",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T12:35:15Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-05e49555d6885421fdc1",
+        "source_name": "GitHub · huggingface/transformers",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "huggingface/transformers: Release: v5.16.0",
+        "url": "https://github.com/huggingface/transformers/releases/tag/v5.16.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/huggingface/transformers/releases/tag/v5.16.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "自然语言处理",
+      "语音识别",
+      "多模态模型"
+    ],
+    "uncertainties": [
+      "关于 GraniteSpeech5 和 Step3p7 的详细技术细节在摘要中未完全展开，可能需要查阅官方文档获取完整信息。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "这是 OpenAI 在教育领域扩大市场覆盖的战略举措，旨在通过大规模推广其 AI 工具来增强在教育行业的影响力。",
+      "为教育工作者提供培训和支持表明 OpenAI 不仅关注工具分发，还重视用户赋能和有效采用。"
+    ],
+    "canonical_title": "OpenAI 将 ChatGPT for Teachers 扩展至 55 个美国学区",
+    "category": "教育科技",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 宣布 ChatGPT for Teachers 正在扩展至 55 个美国学区。",
+      "该扩展将为超过 100,000 名教育工作者和工作人员提供安全的 AI 工具、培训和支持。"
+    ],
+    "id": "story-7e99dde5135467917aa7",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts",
+    "product_names": [
+      "ChatGPT for Teachers"
+    ],
+    "published_at": "2026-08-26T10:00:00Z",
+    "relevance_score": 1.0,
+    "source_item_ids": [
+      "item-fa2791fbc9af008fbec5"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-fa2791fbc9af008fbec5",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Bringing ChatGPT for Teachers to more U.S. school districts",
+        "url": "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/bringing-chatgpt-for-teachers-to-more-us-school-districts"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 教育应用",
+      "教育科技"
+    ],
+    "uncertainties": [
+      "未提供 55 个学区的具体名单或地理分布。",
+      "未说明工具的安全特性细节或与现有系统的集成方式。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "该版本是 anthropic-sdk-python 的一个次要版本更新，主要聚焦于 API 功能扩展和错误修复。",
+      "新增的 `updates` thinking display mode 和 Organization API 支持表明 Anthropic 正在扩展其 API 的能力，可能面向企业级用户。",
+      "文档和工具相关的修复表明 SDK 的稳定性和开发者体验在持续改进。"
+    ],
+    "canonical_title": "Anthropic Python SDK v1.1.0 发布：新增 updates 思考显示模式与 Organization API 支持",
+    "category": "ai_models",
+    "credibility_score": 1.0,
+    "entity_names": [],
+    "facts": [
+      "Anthropic 的 Python SDK 发布了 v1.1.0 版本。",
+      "新版本添加了 `updates` thinking display mode（beta）功能。",
+      "新版本添加了对 Organization API 端点的支持。",
+      "修复了 long requests error 的文档链接错误。",
+      "修复了工具运行器在 pause_turn 时保持运行的问题。"
+    ],
+    "id": "story-fefbdbb46450496d7b01",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.1.0",
+    "product_names": [
+      "anthropic-sdk-python"
+    ],
+    "published_at": "2026-08-26T17:14:40Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-5496065ef70fadaf302a"
+    ],
+    "source_refs": [
+      {
+        "author": "stainless-app[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T17:14:40Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-5496065ef70fadaf302a",
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v1.1.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.1.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.1.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "`updates` thinking display mode 的具体行为和使用场景在发布说明中未详细描述。",
+      "Organization API 的具体端点和权限模型未在发布说明中展开。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "GLM-5.3-Flash 的加入标志着 Transformers 库扩展了对新型高效多模态模型的支持，可能推动社区采用。",
+      "GLM-5.3-Flash 声称在编码和智能体基准测试中接近 Claude Opus 4.8，若属实则具有较大竞争力。",
+      "版本更新中包含对 ESMFold2 的安全修复，显示 Hugging Face 对依赖安全性的重视。"
+    ],
+    "canonical_title": "Hugging Face Transformers 发布 v5.16.1：支持 GLM-5.3-Flash 多模态模型",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face Transformers 发布 v5.16.1 版本，发布时间为 2026-08-26。",
+      "v5.16.1 包含对 GLM-5.3-Flash 模型的支持，该模型由 PR #48342 实现。",
+      "GLM-5.3-Flash 是 GLM-5 系列中首个原生多模态模型，总参数 320B，活跃参数 18B。",
+      "据发布说明，GLM-5.3-Flash 在基准测试中表现优于 GLM-5.2，价格仅为十分之一。",
+      "GLM-5.3-Flash 采用混合稀疏与线性注意力架构，并使用 Manifold-Constrained Hyper-Connections (mHC) 提升扩展效率。",
+      "GLM-5.3-Flash 使用 30T token 的多模态预训练语料。",
+      "v5.16.1 还修复了张量并行 API 的向后兼容性问题（PR #48300），并固定了 ESMFold2 的内核提交和仓库路径（PR #48186）。"
+    ],
+    "id": "story-a3714e1985a0e21733c9",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.16.1",
+    "product_names": [
+      "Transformers",
+      "GLM-5.3-Flash"
+    ],
+    "published_at": "2026-08-26T14:50:01Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-d4b5c908f621053b7272"
+    ],
+    "source_refs": [
+      {
+        "author": "vasqu",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T14:50:01Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-d4b5c908f621053b7272",
+        "source_name": "GitHub · huggingface/transformers",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "huggingface/transformers: Release v5.16.1",
+        "url": "https://github.com/huggingface/transformers/releases/tag/v5.16.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/huggingface/transformers/releases/tag/v5.16.1"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "open_source_ai",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "GLM-5.3-Flash 宣称的性能（如超越 GLM-5.2、接近 Claude Opus 4.8）未在发布说明中提供第三方验证或独立基准测试数据。",
+      "GLM-5.3-Flash 的模型权重、许可证和具体发布渠道在本文档中未明确说明。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "此公告表明 GitHub 正在将模型策略从可选功能转变为默认行为，强化对 Copilot 模型使用的治理。"
+    ],
+    "canonical_title": "GitHub Copilot 全局模型策略现已全面可用",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "2026年7月，GitHub 宣布为 Copilot Business 和 Copilot Enterprise 计划上的通用 GitHub Copilot 模型引入默认模型策略。",
+      "自2026年8月26日起，GitHub 开始逐步推出该默认模型策略的执行。"
+    ],
+    "id": "story-e2bf270dd422e4ea5430",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-08-26-global-model-policy-generally-available",
+    "product_names": [
+      "GitHub Copilot",
+      "Copilot Business",
+      "Copilot Enterprise"
+    ],
+    "published_at": "2026-08-26T22:08:38Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-686544d2311555baa74d"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T22:08:38Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-686544d2311555baa74d",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Global model policy generally available",
+        "url": "https://github.blog/changelog/2026-08-26-global-model-policy-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-26-global-model-policy-generally-available"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "未提供逐步推出的具体时间表和范围。",
+      "未说明是否为所有模型或仅部分模型强制执行该策略。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "该技术文章聚焦于利用AI智能体训练跨不同机器人实体的导航策略，表明NVIDIA在推动机器人导航技术的泛化能力。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍如何用AI智能体训练跨实体机器人导航策略",
+    "category": "AI机器人",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA开发者博客于2026年8月26日发布了一篇技术文章，标题为《How to Train a Cross-Embodiment Robot Navigation Policy with AI Agents》。"
+    ],
+    "id": "story-c1274cd976dcb2911dcb",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-train-a-cross-embodiment-robot-navigation-policy-with-ai-agents/",
+    "product_names": [
+      "NVIDIA Isaac Sim"
+    ],
+    "published_at": "2026-08-26T20:05:06Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-f7238dd0888d16619831"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T20:05:06Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-f7238dd0888d16619831",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Train a Cross-Embodiment Robot Navigation Policy with AI Agents",
+        "url": "https://developer.nvidia.com/blog/how-to-train-a-cross-embodiment-robot-navigation-policy-with-ai-agents/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-train-a-cross-embodiment-robot-navigation-policy-with-ai-agents/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "机器人导航",
+      "AI智能体",
+      "跨实体策略",
+      "模拟训练"
+    ],
+    "uncertainties": [
+      "文章内容摘要未提供完整的实验细节、性能指标或具体使用的AI智能体框架，因此无法评估其方法的有效性与实用性。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "Qwen3.8-Flash-Next 作为 Qwen4 的预览版，可能旨在收集开发者反馈并为 Qwen4 正式发布做准备。",
+      "NVIDIA 开发者博客发布此消息，表明 NVIDIA 与阿里巴巴在 AI 基础设施和模型优化方面存在合作或技术支持关系。"
+    ],
+    "canonical_title": "阿里巴巴发布 Qwen3.8-Flash-Next 模型权重作为 Qwen4 架构预览，可在 NVIDIA GB300 NVL72 上实验",
+    "category": "AI 模型发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "阿里巴巴",
+      "NVIDIA"
+    ],
+    "facts": [
+      "阿里巴巴发布了 Qwen3.8-Flash-Next 的模型权重。",
+      "Qwen3.8-Flash-Next 是即将推出的 Qwen4 架构的预览版本。",
+      "该模型可在 NVIDIA GB300 NVL72 上用于代理编码（agentic coding）实验。"
+    ],
+    "id": "story-847d0e768467145ecf47",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://developer.nvidia.com/blog/experiment-with-qwen3-8-flash-next-on-nvidia-gb300-nvl72-for-agentic-coding/",
+    "product_names": [
+      "Qwen3.8-Flash-Next",
+      "Qwen4",
+      "NVIDIA GB300 NVL72"
+    ],
+    "published_at": "2026-08-26T17:07:12Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-f1b061f3a3d454f635e9"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T17:07:12Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-f1b061f3a3d454f635e9",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Experiment with Qwen3.8-Flash-Next on NVIDIA GB300 NVL72 for Agentic Coding",
+        "url": "https://developer.nvidia.com/blog/experiment-with-qwen3-8-flash-next-on-nvidia-gb300-nvl72-for-agentic-coding/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/experiment-with-qwen3-8-flash-next-on-nvidia-gb300-nvl72-for-agentic-coding/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 模型",
+      "AI 基础设施"
+    ],
+    "uncertainties": [
+      "Qwen4 架构的具体细节和正式发布时间尚未公布。",
+      "Qwen3.8-Flash-Next 在 NVIDIA GB300 NVL72 上的性能表现和适用场景仍需进一步验证。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "该报告表明，AI 工具正被整合到教育环境中，以支持正式课堂时间之外的学习。"
+    ],
+    "canonical_title": "OpenAI 发布报告：AI 如何让学习持续不断",
+    "category": "教育科技",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了一份新报告，探讨学生和教育工作者如何使用 ChatGPT 让学习更加持续，并延伸到课堂之外。"
+    ],
+    "id": "story-0d9ffd2c09b81eab87bc",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/learning-never-stops",
+    "product_names": [
+      "ChatGPT"
+    ],
+    "published_at": "2026-08-26T10:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-832a12c8f33a104e2b49"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-832a12c8f33a104e2b49",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Learning never stops: How AI makes learning continuous",
+        "url": "https://openai.com/index/learning-never-stops"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/learning-never-stops"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 在教育中的应用",
+      "持续学习"
+    ],
+    "uncertainties": [
+      "报告中的具体发现和详细数据尚不可得。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "此变更可能简化处理函数调用响应的代码，因为开发者无需处理 call ID 缺失的情况。"
+    ],
+    "canonical_title": "openai-python 发布 v3.5.0：函数调用输出中的 call ID 变为可选",
+    "category": "开源项目发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "openai"
+    ],
+    "facts": [
+      "openai-python 于 2026-08-27 发布了 v3.5.0 版本。",
+      "该版本将函数调用输出中的 call ID 改为可选（#3738）。"
+    ],
+    "id": "story-e9132aa030302d9edc01",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.5.0",
+    "product_names": [
+      "openai-python"
+    ],
+    "published_at": "2026-08-27T01:00:03Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-ac83c2cf54bccbc9417b"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-27T01:00:03Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-ac83c2cf54bccbc9417b",
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.5.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.5.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.5.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "尚不清楚此变更是否会影响与依赖 call ID 的现有代码的兼容性。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "此更新简化了企业环境中插件市场的维护流程，减少了手动操作。",
+      "该功能可能提升企业管理插件市场的效率，尤其适用于需要频繁更新插件的场景。"
+    ],
+    "canonical_title": "企业托管设置现支持插件市场的自动更新",
+    "category": "产品更新",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "企业托管设置中的 extraKnownMarketplaces 条目支持设置 autoUpdate: true，以启用自动更新。",
+      "支持的客户端会自动检查市场并更新。"
+    ],
+    "id": "story-2b368e030f44b31265b0",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-08-26-enterprise-managed-settings-now-support-autoupdate-for-plugin-marketplaces",
+    "product_names": [],
+    "published_at": "2026-08-27T01:52:19Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-dd0077e6a007fa5fc890"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-27T01:52:19Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-dd0077e6a007fa5fc890",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Enterprise-managed settings now support autoUpdate for plugin marketplaces",
+        "url": "https://github.blog/changelog/2026-08-26-enterprise-managed-settings-now-support-autoupdate-for-plugin-marketplaces"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-26-enterprise-managed-settings-now-support-autoupdate-for-plugin-marketplaces"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "插件市场",
+      "企业托管设置",
+      "autoUpdate",
+      "extraKnownMarketplaces"
+    ],
+    "uncertainties": [
+      "支持的客户端具体指哪些客户端类型尚未明确。",
+      "自动更新是否对市场中的所有插件生效，还是仅对符合特定条件的插件生效，未详细说明。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "该更新为企业所有者提供了更精细的权限控制，使 GitHub Apps 能够集成账单数据。",
+      "GitHub 官方在 2026 年 8 月 26 日通过其变更日志宣布了这一功能。"
+    ],
+    "canonical_title": "GitHub Apps 现可访问企业账单数据",
+    "category": "开发平台",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "企业所有者现在可以授予 GitHub App 访问企业账单数据的权限。",
+      "在创建或配置 GitHub App 时，可以选择企业账单权限并选择访问级别。"
+    ],
+    "id": "story-e1c92dc16a1e89527906",
+    "importance_score": 0.5,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-08-26-github-apps-can-now-access-enterprise-billing-data",
+    "product_names": [
+      "GitHub Apps"
+    ],
+    "published_at": "2026-08-26T12:18:59Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-fa99a43f6b395f73f5e9"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T12:18:59Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-fa99a43f6b395f73f5e9",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Apps can now access enterprise billing data",
+        "url": "https://github.blog/changelog/2026-08-26-github-apps-can-now-access-enterprise-billing-data"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-08-26-github-apps-can-now-access-enterprise-billing-data"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "企业账单",
+      "权限管理"
+    ],
+    "uncertainties": [
+      "新闻来源未说明企业账单权限的具体访问级别细节。",
+      "未提及该功能是否适用于所有企业计划或仅限特定订阅。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "该事件反映了部分开发者对管理层用 AI 替代人工的应对方式：通过开源项目进行技术反制或讽刺。",
+      "Hacker News 上的高关注度（239 分、153 评论）表明技术社区对此类话题有强烈兴趣和讨论意愿。"
+    ],
+    "canonical_title": "CEO解雇开发者以引入AI，开发者创建开源AI CEO",
+    "category": "开源项目",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "SenteLabsAI"
+    ],
+    "facts": [
+      "开发者创建了名为 OpenExecutive 的开源项目。",
+      "该项目托管在 GitHub 上的 SenteLabsAI 组织下。",
+      "Hacker News 上有一篇关于该项目的讨论帖，获得了 239 分和 153 条评论。",
+      "帖子标题称 CEO 解雇了开发者以为 AI 腾出空间，开发者随后创建了开源的 AI CEO。"
+    ],
+    "id": "story-ad1bc6565a4bcd2217f9",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/SenteLabsAI/OpenExecutive",
+    "product_names": [
+      "OpenExecutive"
+    ],
+    "published_at": "2026-08-27T01:46:22Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-55412da5303cf73c3b41"
+    ],
+    "source_refs": [
+      {
+        "author": "GrumpySciGuy",
+        "discussion_url": "https://news.ycombinator.com/item?id=49458418",
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-27T01:46:22Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-55412da5303cf73c3b41",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "CEO fired developers to make room for AI. Developers create open source AI CEO",
+        "url": "https://github.com/SenteLabsAI/OpenExecutive"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/SenteLabsAI/OpenExecutive",
+      "https://news.ycombinator.com/item?id=49458418"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI治理",
+      "开源",
+      "职场自动化"
+    ],
+    "uncertainties": [
+      "无法确认“CEO 解雇开发者”这一事件是否真实发生，或仅为项目背景故事。",
+      "OpenExecutive 项目的功能、成熟度和实际效果尚不明确。",
+      "缺乏来自项目作者或相关公司的官方声明。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "此版本为小版本更新，主要集中在对 Apple 芯片的 MLX 后端改进，包括 Qwen3.8 Flash Next 模型支持与结构化输出能力，强化了 Ollama 在 macOS 上的推理体验。",
+      "将兼容补丁幂等化有助于重复构建和自动化流水线的可靠性；更新 llama.cpp 与 MLX 子模块可能引入新的模型兼容性和性能提升。",
+      "避免 Metal GPU 超时提升了从较慢存储（如外接磁盘或网络卷）加载大模型时的稳定性。"
+    ],
+    "canonical_title": "Ollama v0.33.1 发布：支持 MLX Qwen3.8 Flash Next、结构化输出等",
+    "category": "开源 AI 基础设施",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "ollama",
+      "pd95"
+    ],
+    "facts": [
+      "Ollama v0.33.1 发布，官方 GitHub release 时间 2026-08-26T18:09:57Z。",
+      "新增 MLX 对 Qwen3.8 Flash Next 的支持。",
+      "cmake 外部兼容补丁现在是幂等的。",
+      "更新了 MLX 和 llama.cpp 子模块。",
+      "mlxrunner 添加了结构化输出支持。",
+      "mlxrunner 避免了从慢速存储加载模型时的 Metal GPU 超时。",
+      "新贡献者 @pd95 提交了第一个 PR (#17948)。",
+      "完整变更日志对比 v0.33.0...v0.33.1。"
+    ],
+    "id": "story-c80736a3dd6580277378",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.33.1",
+    "product_names": [
+      "Ollama",
+      "MLX",
+      "llama.cpp"
+    ],
+    "published_at": "2026-08-26T18:09:57Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-b5859fee29c1bc49f9db"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T18:09:57Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-b5859fee29c1bc49f9db",
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.33.1",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.33.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.33.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 模型",
+      "AI 基础设施",
+      "开源 AI"
+    ],
+    "uncertainties": [
+      "未提供性能对比数据，无法判断 MLX 更新对推理速度的确切影响。",
+      "未说明 Qwen3.8 Flash Next 的具体模型规模或上下文长度限制。",
+      "未提及结构化输出功能的具体 API 变化或使用方式，可能影响兼容性。",
+      "未披露修复的 Metal GPU 超时问题之前的影响范围或用户报告数量。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "AWS 将收购 DuckLabs",
+    "category": "企业并购",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "AWS",
+      "DuckLabs"
+    ],
+    "facts": [
+      "DuckLabs 发布的新闻稿标题为“DuckLabs to join AWS”，发布时间为 2026-08-26"
+    ],
+    "id": "story-e338607f1224a4ffc575",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws",
+    "product_names": [],
+    "published_at": "2026-08-26T12:59:26Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-2506833958a22f2d4e6b"
+    ],
+    "source_refs": [
+      {
+        "author": "onderkalaci",
+        "discussion_url": "https://news.ycombinator.com/item?id=49448321",
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T12:59:26Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-2506833958a22f2d4e6b",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "AWS Acquires DuckLabs",
+        "url": "https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws"
+      }
+    ],
+    "source_urls": [
+      "https://ducklabs.com/news/2026/08/26/ducklabs-to-join-aws",
+      "https://news.ycombinator.com/item?id=49448321"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "收购"
+    ],
+    "uncertainties": [
+      "该报道仅基于未经验证的线索，尚未有官方确认"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "Instinct 在短时间内获得巨额融资和高估值，反映了当前 AI 投资热潮。",
+      "隐私担忧可能会影响其未来的发展和用户信任。"
+    ],
+    "canonical_title": "AI 初创公司 Instinct 以 25 亿美元估值融资 3.5 亿美元",
+    "category": "融资",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "Instinct"
+    ],
+    "facts": [
+      "AI 初创公司 Instinct 已融资 3.5 亿美元，估值达 25 亿美元（来源：TechCrunch）。",
+      "该公司成立仅一年（来源：TechCrunch）。",
+      "该公司已引发隐私担忧（来源：TechCrunch）。"
+    ],
+    "id": "story-8aae6b321e238e2caeb0",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/",
+    "product_names": [],
+    "published_at": "2026-08-27T00:24:57Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-6050aa46cf9e60a287ba"
+    ],
+    "source_refs": [
+      {
+        "author": "Lucas Ropek",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-27T00:24:57Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-6050aa46cf9e60a287ba",
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Viral AI startup Instinct has raised $350 million at a $2.5 billion valuation",
+        "url": "https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/08/26/viral-ai-startup-instinct-has-raised-350-million-at-a-2-5-billion-valuation/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 初创公司融资",
+      "隐私问题"
+    ],
+    "uncertainties": [
+      "报道未提及本轮融资的具体投资方和资金用途。",
+      "隐私担忧的具体细节尚不明确。"
+    ],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  },
+  {
+    "analysis": [
+      "该版本包含多项 API 功能增强和大量错误修复，显示 SDK 在持续迭代。",
+      "Azure 相关修复占比较高，表明对多平台支持的重视。"
+    ],
+    "canonical_title": "openai-python v3.4.0 发布",
+    "category": "开源软件发布",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "openai-python v3.4.0 于 2026-08-25 发布。",
+      "新增 ChatCompletionChunk 的 obfuscation 字段。",
+      "新增项目驻留配置和成本数量单位支持。",
+      "修复 Realtime 通话报价和会话配置的编码问题。",
+      "修复 WebSocket 重定向的源检查一致性。",
+      "修复 Azure 部署名称编码一致性问题。",
+      "修复 Azure 提供方验证错误值泄漏问题。",
+      "修复 Azure 单一认证模式解析问题。",
+      "修复自定义代码摘要从可信工作流代码计算问题。",
+      "修复上传示例夹具创建在私有目录问题。",
+      "修复 SSE 增量解码事件大小限制问题。",
+      "保持 Python SDK 诊断仅元数据。",
+      "保持 Azure 认证边界跨传输。",
+      "保持配置的 TLS 主机名。",
+      "保持 WebSocket 发送队列字节计费。"
+    ],
+    "id": "story-1b4a18abb138e316119a",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.4.0",
+    "product_names": [
+      "openai-python"
+    ],
+    "published_at": "2026-08-26T21:48:40Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-061d8f848ebfdfae85dd"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-08-27T05:00:24.503837Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-08-26T21:48:40Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-061d8f848ebfdfae85dd",
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.4.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.4.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.4.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-08-27T05:00:24.503837Z"
+  }
+]
