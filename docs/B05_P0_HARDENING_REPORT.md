@@ -24,9 +24,9 @@ as `DEFERRED_BY_BUDGET`, not `FAILED_AI` or semantic `DROP`.
 The full offline replay directly invoked `MorningRadarPipeline.run` with the frozen historical Raw
 workload. Measured result:
 
-- Triage serialized payload: 75,690 characters (Candidate stat, excluding JSON list punctuation:
-  75,651);
-- total serialized AI input: 118,008 / 120,000 characters;
+- Triage serialized payload: 75,540 characters (Candidate stat, excluding JSON list punctuation:
+  75,501);
+- total serialized AI input: 117,858 / 120,000 characters;
 - logical calls: 11 / 50;
 - stage calls observed: Triage, Story, Editorial, Continuity, Brief, and Tendency;
 - persisted Stories: 2;
@@ -47,6 +47,11 @@ Final Story admission now uses deterministic structured compatibility across:
 - assertion scope (`OBSERVED`, `OFFICIALLY_ANNOUNCED`, `INDEPENDENTLY_VERIFIED`);
 - practitioner Observation Quality for firsthand availability/behavior claims.
 
+Final claim subject is no longer accepted from AI output. `DraftClaimSupport` has no
+`claim_subject`; Story Construction derives one subject from Candidate/Evidence entities plus the
+fact text (or an exact Evidence statement), then persists that deterministic result. Persisted Story
+integrity replay derives it again and rejects a mismatch.
+
 High-risk scope is also inferred deterministically from English and Chinese claim text, so a model
 cannot under-declare a visible GA, first, new-release, or performance claim in structured output.
 
@@ -61,6 +66,12 @@ The Story Boundary has non-model-bypassable rules:
 - official performance claims must remain explicitly attributed;
 - independent current-existence reporting does not prove a new release;
 - novelty/first claims require independent Evidence and matching temporal scope.
+
+`INDEPENDENT_REPORTING` now means only that the publisher is independent from the subject. It no
+longer receives `INDEPENDENTLY_VERIFIED` assertion scope by default. Performance/first claims that
+require independent verification remain blocked unless Evidence carries that stronger scope from a
+separate deterministic verification path. Current editorial Candidate admission does not assign
+that stronger scope.
 
 ### 5. `scope_supported`
 

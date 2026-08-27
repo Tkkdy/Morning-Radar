@@ -75,6 +75,61 @@ def _entity_matches(subject: str, candidates: list[str]) -> bool:
     )
 
 
+def _deterministic_claim_subject(
+    claim: str,
+    *,
+    candidate_entities: list[str],
+    evidence: list[CandidateEvidence],
+) -> str | None:
+    """Derive one grounded subject without trusting model-proposed metadata."""
+    evidence_entities = [
+        entity
+        for item in evidence
+        for entity in (
+            item.authoritative_for
+            if item.authority is EvidenceAuthority.SELF_AUTHORITATIVE
+            else item.subject_entities
+        )
+    ]
+    known_entities = list(dict.fromkeys([*candidate_entities, *evidence_entities]))
+    normalized_claim = _normalized_entity(claim)
+    mentioned = [
+        entity
+        for entity in known_entities
+        if (normalized := _normalized_entity(entity)) and normalized in normalized_claim
+    ]
+    most_specific = [
+        entity
+        for entity in mentioned
+        if not any(
+            _normalized_entity(entity) != _normalized_entity(other)
+            and _normalized_entity(entity) in _normalized_entity(other)
+            for other in mentioned
+        )
+    ]
+    normalized_matches = {
+        _normalized_entity(entity): entity for entity in most_specific
+    }
+    if len(normalized_matches) == 1:
+        return next(iter(normalized_matches.values()))
+
+    claim_is_verbatim_evidence = any(
+        normalized_claim
+        and normalized_claim
+        in {
+            _normalized_entity(item.scope),
+            _normalized_entity(item.excerpt),
+        }
+        for item in evidence
+    )
+    selected_evidence_entities = {
+        _normalized_entity(entity): entity for entity in evidence_entities
+    }
+    if claim_is_verbatim_evidence and len(selected_evidence_entities) == 1:
+        return next(iter(selected_evidence_entities.values()))
+    return None
+
+
 def _inferred_claim_scope(claim: str, claim_type: ClaimType) -> ClaimScopeDimensions:
     lowered = claim.casefold()
     availability = AvailabilityScope.UNKNOWN
@@ -250,7 +305,7 @@ def _evidence_supports_claim(
 
 def _validate_candidate_story_draft(
     candidate: Candidate, draft: MergedStoryDraft
-) -> None:
+) -> dict[str, str]:
     if not draft.facts:
         raise StoryValidationError("Story Construction returned no supported facts")
     evidence_by_id = {item.evidence_id: item for item in candidate.evidence}
@@ -269,6 +324,7 @@ def _validate_candidate_story_draft(
         raise StoryValidationError(
             "contradicted Evidence may only support an explicitly bounded conflict Story"
         )
+    claim_subjects: dict[str, str] = {}
     for fact in draft.facts:
         support = support_by_claim[fact]
         if not set(support.evidence_ids).issubset(evidence_by_id):
@@ -276,12 +332,15 @@ def _validate_candidate_story_draft(
         evidence = [evidence_by_id[item_id] for item_id in support.evidence_ids]
         claim_type = _effective_claim_type(fact, support.claim_type)
         requested = _requested_scope(fact, claim_type, support.requested_scope)
-        subject_candidates = [*draft.entity_names, *candidate.entity_names]
-        claim_subject = support.claim_subject or (
-            subject_candidates[0]
-            if len(set(subject_candidates)) == 1
-            else None
+        claim_subject = _deterministic_claim_subject(
+            fact,
+            candidate_entities=candidate.entity_names,
+            evidence=evidence,
         )
+        if claim_subject is None:
+            raise StoryValidationError(
+                "Claim subject could not be derived from Candidate/Evidence"
+            )
         if not any(
             _evidence_supports_claim(
                 item,
@@ -294,6 +353,7 @@ def _validate_candidate_story_draft(
             raise StoryValidationError(
                 "Claim Scope or authority is incompatible with Evidence support"
             )
+        claim_subjects[fact] = claim_subject
         if claim_type is ClaimType.RELEASE_GA and all(
             item.authority is EvidenceAuthority.FIRSTHAND_OBSERVATION for item in evidence
         ):
@@ -313,6 +373,7 @@ def _validate_candidate_story_draft(
         raise StoryValidationError("Story URLs must come from Candidate Evidence")
     if draft.primary_source_url not in draft.source_urls:
         raise StoryValidationError("Story primary URL must be one of its Evidence URLs")
+    return claim_subjects
 
 
 def story_evidence_integrity_violations(story: Story) -> list[str]:
@@ -330,10 +391,19 @@ def story_evidence_integrity_violations(story: Story) -> list[str]:
             claim_type,
             support.requested_scope,
         )
+        selected_evidence = [evidence_by_id[evidence_id] for evidence_id in evidence_ids]
+        claim_subject = _deterministic_claim_subject(
+            support.claim,
+            candidate_entities=[],
+            evidence=selected_evidence,
+        )
+        if claim_subject != support.claim_subject:
+            violations.append(f"{support.claim}: non-deterministic Claim subject")
+            continue
         if not any(
             _evidence_supports_claim(
                 evidence_by_id[evidence_id],
-                claim_subject=support.claim_subject,
+                claim_subject=claim_subject,
                 claim_type=claim_type,
                 requested=requested,
             )
@@ -496,7 +566,7 @@ def build_candidate_story(
     if not items:
         raise StoryValidationError("Candidate has no available RawItem provenance")
     draft = provider.construct_story(candidate)
-    _validate_candidate_story_draft(candidate, draft)
+    claim_subjects = _validate_candidate_story_draft(candidate, draft)
     published_values = [item.published_at for item in items if item.published_at is not None]
     provisional = Story(
         id=f"story-{hashlib.sha256(candidate.id.encode()).hexdigest()[:20]}",
@@ -518,7 +588,7 @@ def build_candidate_story(
         claim_supports=[
             {
                 "claim": item.claim,
-                "claim_subject": item.claim_subject,
+                "claim_subject": claim_subjects[item.claim],
                 "claim_type": item.claim_type,
                 "evidence_ids": item.evidence_ids,
                 "requested_scope": item.requested_scope,

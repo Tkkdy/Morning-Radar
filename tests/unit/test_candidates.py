@@ -4,6 +4,7 @@ from morning_radar.ai import AIBudgetExceeded, FakeAIProvider
 from morning_radar.ai.models import CandidateTriageBatch, CandidateTriageDraft
 from morning_radar.candidates import admit_candidates, triage_candidates
 from morning_radar.models import (
+    AssertionScope,
     CandidateReasonCode,
     EvidenceAuthority,
     EvidenceState,
@@ -157,3 +158,22 @@ def test_github_authority_is_limited_to_verified_repository_scope() -> None:
     assert repo_candidate.evidence[0].authority is EvidenceAuthority.SELF_AUTHORITATIVE
     assert repo_candidate.evidence[0].authoritative_for == ["example/project"]
     assert root_candidate.evidence[0].authority is EvidenceAuthority.DISCOVERY_ONLY
+
+
+def test_independent_reporting_is_not_independent_verification() -> None:
+    report = RawItem(
+        id="report",
+        title="Example capability report",
+        url="https://publisher.example/report",
+        source_name="Independent Publisher",
+        source_type="rss",
+        fetched_at=NOW,
+        source_role=SourceRole.EDITORIAL,
+        company_candidates=["Example"],
+    )
+
+    [candidate] = admit_candidates([report], now=NOW)
+    evidence = candidate.evidence[0]
+
+    assert evidence.authority is EvidenceAuthority.INDEPENDENT_REPORTING
+    assert evidence.support_scope.assertion is AssertionScope.UNKNOWN

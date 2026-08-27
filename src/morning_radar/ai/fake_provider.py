@@ -115,16 +115,6 @@ class FakeAIProvider:
             }
         ] or candidate.evidence
         fact = evidence[0].scope or candidate.hypothesis
-        claim_subject = next(
-            iter(
-                [
-                    *evidence[0].authoritative_for,
-                    *evidence[0].subject_entities,
-                    *candidate.entity_names,
-                ]
-            ),
-            None,
-        )
         return MergedStoryDraft(
             same_event=True,
             canonical_title=candidate.hypothesis,
@@ -136,7 +126,6 @@ class FakeAIProvider:
             fact_supports=[
                 DraftClaimSupport(
                     claim=fact,
-                    claim_subject=claim_subject,
                     claim_type=ClaimType.OTHER,
                     evidence_ids=[evidence[0].evidence_id],
                     requested_scope=evidence[0].support_scope,

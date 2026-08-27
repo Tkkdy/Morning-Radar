@@ -64,7 +64,6 @@ class ClassificationBatch(RadarModel):
 
 class DraftClaimSupport(RadarModel):
     claim: str = Field(min_length=1, max_length=2000)
-    claim_subject: str | None = Field(default=None, max_length=300)
     claim_type: ClaimType = ClaimType.OTHER
     evidence_ids: list[str] = Field(min_length=1)
     requested_scope: ClaimScopeDimensions = Field(default_factory=ClaimScopeDimensions)

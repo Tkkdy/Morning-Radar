@@ -105,8 +105,9 @@ egress，不能把该 fetcher 视为对 DNS rebinding 的完整防护。
 
 Discovery provenance 与 Evidence provenance 分开保存：HN source/discussion 说明“如何发现”，
 Candidate Evidence 说明“谁能证明”。Story 每条 fact 必须有一条同文 claim support，绑定真实
-Evidence ID、claim subject、claim type、requested structured scope、evidence scope 和 claim
-scope。`scope_supported` 只保存为 model proposal/diagnostic，绝不参与最终放行。
+Evidence ID、deterministically derived claim subject、claim type、requested structured scope、
+evidence scope 和 claim scope。AI Draft 不包含 `claim_subject`；持久化 subject 由 Candidate、
+Evidence 和 fact 文本推导。`scope_supported` 只保存为 model proposal/diagnostic，绝不参与最终放行。
 
 硬边界：`Claim Scope ≤ Evidence Scope`。
 
@@ -114,7 +115,8 @@ scope。`scope_supported` 只保存为 model proposal/diagnostic，绝不参与�
 - practitioner observation 可以支持该观察者/部分账户的具体现象，不能扩大为正式 GA；
 - verified official primary 可以证明主体自己的发布、能力、价格和 rollout 声明；
 - 官方性能数字必须保持“官方宣称”归因；
-- novelty/first claim 需要独立 Evidence；
+- independent reporting 默认不获得 independently-verified assertion scope；
+- novelty/first claim 需要明确的 independently-verified Evidence scope；
 - Evidence 冲突或核心 claim 不闭环时，Story Construction 可以拒绝 BUILD。
 
 Story 继续隔离 `facts / analysis / uncertainties`。只有 Story 能进入事实型下游。

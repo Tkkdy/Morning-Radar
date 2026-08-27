@@ -144,7 +144,9 @@ def _support_scope(
     if authority is EvidenceAuthority.INDEPENDENT_REPORTING:
         return ClaimScopeDimensions(
             temporal=TemporalScope.CURRENTLY_EXISTS,
-            assertion=AssertionScope.INDEPENDENTLY_VERIFIED,
+            # A publisher independent from the subject is not proof that the
+            # reported assertion was independently verified.
+            assertion=AssertionScope.UNKNOWN,
         )
     return ClaimScopeDimensions()
 

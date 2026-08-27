@@ -171,7 +171,7 @@ def test_unknown_fetched_url_remains_unverified_and_cannot_support_story(tmp_pat
     ]
 
     assert fetched[0].authority is EvidenceAuthority.UNVERIFIED_EXTERNAL
-    with pytest.raises(ValueError, match="Claim Scope"):
+    with pytest.raises(ValueError, match="Claim"):
         build_candidate_story(
             result.candidates[0],
             raw_items=[raw()],

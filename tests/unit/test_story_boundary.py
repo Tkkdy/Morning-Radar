@@ -1,6 +1,7 @@
 from datetime import UTC, datetime
 
 import pytest
+from pydantic import ValidationError
 
 from morning_radar.ai import FakeAIProvider
 from morning_radar.ai.models import DraftClaimSupport, MergedStoryDraft
@@ -46,7 +47,7 @@ def candidate(
         ),
         EvidenceAuthority.INDEPENDENT_REPORTING: ClaimScopeDimensions(
             temporal=TemporalScope.CURRENTLY_EXISTS,
-            assertion=AssertionScope.INDEPENDENTLY_VERIFIED,
+            assertion=AssertionScope.UNKNOWN,
         ),
     }
     return Candidate(
@@ -115,13 +116,11 @@ class DraftProvider(FakeAIProvider):
         claim_type: ClaimType,
         *,
         scope_supported: bool = True,
-        claim_subject: str = "Example",
         requested_scope: ClaimScopeDimensions | None = None,
     ):
         self.fact = fact
         self.claim_type = claim_type
         self.scope_supported = scope_supported
-        self.claim_subject = claim_subject
         self.requested_scope = requested_scope or ClaimScopeDimensions()
 
     def construct_story(self, candidate):
@@ -133,7 +132,6 @@ class DraftProvider(FakeAIProvider):
             fact_supports=[
                 DraftClaimSupport(
                     claim=self.fact,
-                    claim_subject=self.claim_subject,
                     claim_type=self.claim_type,
                     evidence_ids=["evidence-one"],
                     requested_scope=self.requested_scope,
@@ -224,17 +222,55 @@ def test_independent_current_existence_does_not_prove_new_release() -> None:
 
 
 def test_independent_reporting_cannot_authorize_an_unrelated_subject() -> None:
-    with pytest.raises(StoryValidationError, match="Claim Scope"):
+    with pytest.raises(StoryValidationError, match="Claim subject"):
         build_candidate_story(
             candidate(EvidenceAuthority.INDEPENDENT_REPORTING),
             raw_items=[raw()],
             provider=DraftProvider(
                 "Other Corp 当前存在该功能",
                 ClaimType.OTHER,
-                claim_subject="Other Corp",
             ),
             now=NOW,
         )
+
+
+def test_model_draft_cannot_supply_claim_subject() -> None:
+    with pytest.raises(ValidationError, match="claim_subject"):
+        DraftClaimSupport(
+            claim="Other Corp 当前存在该功能",
+            claim_subject="Example",
+            evidence_ids=["evidence-one"],
+            evidence_scope="Example Evidence",
+            claim_scope="Other Corp claim",
+        )
+
+
+def test_independent_reporting_does_not_prove_performance_by_default() -> None:
+    with pytest.raises(StoryValidationError, match="Claim Scope"):
+        build_candidate_story(
+            candidate(EvidenceAuthority.INDEPENDENT_REPORTING),
+            raw_items=[raw()],
+            provider=DraftProvider("Example 性能提升 100×", ClaimType.PERFORMANCE),
+            now=NOW,
+        )
+
+
+def test_explicit_independent_verification_can_support_performance() -> None:
+    verified_scope = ClaimScopeDimensions(
+        temporal=TemporalScope.CURRENTLY_EXISTS,
+        assertion=AssertionScope.INDEPENDENTLY_VERIFIED,
+    )
+    story = build_candidate_story(
+        candidate(
+            EvidenceAuthority.INDEPENDENT_REPORTING,
+            support_scope=verified_scope,
+        ),
+        raw_items=[raw()],
+        provider=DraftProvider("Example 性能提升 100×", ClaimType.PERFORMANCE),
+        now=NOW,
+    )
+
+    assert story.claim_supports[0].claim_subject == "Example"
 
 
 def test_low_quality_practitioner_observation_cannot_cross_boundary() -> None:
