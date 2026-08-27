@@ -8,6 +8,7 @@ from pydantic import Field
 
 from morning_radar.models.candidate import (
     CandidateReasonCode,
+    ClaimScopeDimensions,
     ClaimType,
     EvidenceState,
     SemanticDisposition,
@@ -63,10 +64,13 @@ class ClassificationBatch(RadarModel):
 
 class DraftClaimSupport(RadarModel):
     claim: str = Field(min_length=1, max_length=2000)
+    claim_subject: str | None = Field(default=None, max_length=300)
     claim_type: ClaimType = ClaimType.OTHER
     evidence_ids: list[str] = Field(min_length=1)
+    requested_scope: ClaimScopeDimensions = Field(default_factory=ClaimScopeDimensions)
     evidence_scope: str = Field(min_length=1, max_length=1500)
     claim_scope: str = Field(min_length=1, max_length=1500)
+    # Model proposal retained for diagnostics; deterministic validation ignores it.
     scope_supported: bool = False
 
 

@@ -11,10 +11,10 @@ cap with one `RawItem → Candidate → Story` lifecycle:
 - Semantic Triage returns DROP, BUILD, or INVESTIGATE;
 - Evidence, semantic, and execution states are stored separately;
 - High-Recall Guardrail means MUST_TRIAGE only;
-- bounded Evidence Resolution supports safe destination fetch and deterministic Official Surface
-  trust with a JSON cache;
+- bounded Evidence Resolution supports existing-destination fetch and deterministic Official Surface
+  trust with a JSON cache; Level 3 Targeted Official Lookup is not implemented and is deferred;
 - Story facts require Claim × Evidence support and preserve discovery/evidence provenance;
-- Protected Minimum + Shared Pool prevents early AI stages from starving downstream work;
+- dual-dimension Protected Minimum + Shared Pool protects downstream logical calls and input characters;
 - Candidate and compact Decision Trace artifacts are persisted daily;
 - DeepSeek Vision 2026-08-22 is a frozen Golden Failure replay;
 - offline same-budget comparison and Budget Sweep are available through

@@ -57,7 +57,39 @@ class EvidenceAuthority(StrEnum):
     SELF_AUTHORITATIVE = "self_authoritative"
     FIRSTHAND_OBSERVATION = "firsthand_observation"
     INDEPENDENT_REPORTING = "independent_reporting"
+    UNVERIFIED_EXTERNAL = "unverified_external"
     DISCOVERY_ONLY = "discovery_only"
+
+
+class AvailabilityScope(StrEnum):
+    UNKNOWN = "unknown"
+    ONE_ACCOUNT = "one_account"
+    SOME_USERS = "some_users"
+    BROAD = "broad"
+    GA = "ga"
+
+
+class TemporalScope(StrEnum):
+    UNKNOWN = "unknown"
+    OBSERVED_NOW = "observed_now"
+    CURRENTLY_EXISTS = "currently_exists"
+    NEWLY_RELEASED = "newly_released"
+    FIRST_EVER = "first_ever"
+
+
+class AssertionScope(StrEnum):
+    UNKNOWN = "unknown"
+    OBSERVED = "observed"
+    OFFICIALLY_ANNOUNCED = "officially_announced"
+    INDEPENDENTLY_VERIFIED = "independently_verified"
+
+
+class ClaimScopeDimensions(RadarModel):
+    """Small deterministic scope lattice shared by Evidence and Claim support."""
+
+    availability: AvailabilityScope = AvailabilityScope.UNKNOWN
+    temporal: TemporalScope = TemporalScope.UNKNOWN
+    assertion: AssertionScope = AssertionScope.UNKNOWN
 
 
 class CandidateReasonCode(StrEnum):
@@ -95,7 +127,10 @@ class CandidateEvidence(RadarModel):
     source_role: SourceRole
     statement_type: StatementType = StatementType.UNKNOWN
     authority: EvidenceAuthority
+    authoritative_for: list[str] = Field(default_factory=list)
+    subject_entities: list[str] = Field(default_factory=list)
     claim_types: list[ClaimType] = Field(default_factory=list)
+    support_scope: ClaimScopeDimensions = Field(default_factory=ClaimScopeDimensions)
     scope: str = Field(default="", max_length=1000)
     excerpt: str = Field(default="", max_length=4000)
     official_surface_verified: bool = False
@@ -156,8 +191,11 @@ class Candidate(RadarModel):
 
 class StoryClaimSupport(RadarModel):
     claim: str = Field(min_length=1, max_length=2000)
+    claim_subject: str | None = Field(default=None, max_length=300)
     claim_type: ClaimType = ClaimType.OTHER
     evidence_ids: list[str] = Field(min_length=1)
+    requested_scope: ClaimScopeDimensions = Field(default_factory=ClaimScopeDimensions)
     evidence_scope: str = Field(min_length=1, max_length=1500)
     claim_scope: str = Field(min_length=1, max_length=1500)
+    # Diagnostic/model proposal only. Story admission never trusts this value.
     scope_supported: bool = False

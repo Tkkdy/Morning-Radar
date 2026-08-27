@@ -1,5 +1,7 @@
 from datetime import UTC, datetime
 
+import pytest
+
 from morning_radar.ai import FakeAIProvider
 from morning_radar.ai.models import CandidateTriageBatch, CandidateTriageDraft
 from morning_radar.candidates import admit_candidates, triage_candidates
@@ -11,6 +13,7 @@ from morning_radar.evidence import (
 )
 from morning_radar.models import (
     CandidateReasonCode,
+    EvidenceAuthority,
     EvidenceState,
     ExecutionState,
     RawItem,
@@ -146,3 +149,32 @@ def test_network_failure_preserves_investigate_semantics(tmp_path) -> None:
 
     assert candidate.semantic_disposition is SemanticDisposition.INVESTIGATE
     assert candidate.execution_state is ExecutionState.FAILED_NETWORK
+
+
+def test_unknown_fetched_url_remains_unverified_and_cannot_support_story(tmp_path) -> None:
+    provider = InvestigateProvider()
+    result = resolve_evidence(
+        investigated_candidate(provider),
+        provider=provider,
+        fetcher=Fetcher(),
+        official_resolver=OfficialSurfaceResolver(
+            cache_path=tmp_path / "trust.json", seeds={}, now=NOW
+        ),
+        now=NOW,
+        maximum_investigations=1,
+        maximum_triage_input_characters=20_000,
+    )
+    fetched = [
+        evidence
+        for evidence in result.candidates[0].evidence
+        if evidence.evidence_id.startswith("evidence-fetch-")
+    ]
+
+    assert fetched[0].authority is EvidenceAuthority.UNVERIFIED_EXTERNAL
+    with pytest.raises(ValueError, match="Claim Scope"):
+        build_candidate_story(
+            result.candidates[0],
+            raw_items=[raw()],
+            provider=FakeAIProvider(),
+            now=NOW,
+        )

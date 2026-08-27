@@ -77,20 +77,36 @@ Evidence Resolution 按一个具体 claim gap 工作，并受 `maximum_investiga
 3. 使用配置内 Known Official Surface 做 deterministic trust verification。
 4. 当前 claim 得到有权限的 Evidence 后停止；不执行开放式 Web Search 或自由 follow-links。
 
+本轮能力止于 Level 2 的 known-surface / existing-destination direct fetch。Level 3 Targeted
+Official Lookup 尚未实现并明确延期；系统不会按 claim 主动搜索新的官方页面。
+
 Official Surface 身份来自 `config/official_surfaces.yaml` 的小型可信 seed、确定性子域关系和
 `data/state/official_surfaces.json` trust cache。缓存记录 entity、relationship、verified_via、
 verified_at、status 和 confidence，并在失效期后重新验证。AI 没有认证权。
+`github.com` 这类多租户根域不能成为全站 self-authority；GitHub Evidence 只有在 collector
+metadata 与 URL 中的 owner/repository 精确一致时，才对该 repository scope 具有 authority。
+
+新 URL 的 provenance 只有两条确定性入口：Collector 保存的 Raw URL/已验证 discussion URL，
+或 Evidence Resolver 从既有 destination 发起 bounded fetch 后得到的 HTTP final redirect URL。
+canonical link 只保存为 metadata，不自动成为 Evidence URL；未知 final host 标记为
+`UNVERIFIED_EXTERNAL`，不能支持 Story fact。Provider 输出 URL 只能从调用前构造的 allowed set
+中选择，结构校验会拒绝集合外 URL，因此 AI 没有注入或扩展 verified URL set 的路径。
 
 Evidence fetch 独立于 Collector HTTP：拒绝 IP literal、`.local`、任意端口，以及解析到
 loopback/private/link-local/multicast/reserved/unspecified 地址的目标；每次 redirect 重新验证。
-请求有 timeout、有限 retry 和明确 UA，不发送 Cookie/Authorization，不执行 JavaScript，只接受
+请求禁用环境代理继承（`trust_env=False`），有 timeout、有限 retry 和明确 UA，不发送
+Cookie/Authorization，不执行 JavaScript，只接受
 明确文本/HTML/JSON 类型并限制响应大小。单个失败只更新 execution state。
+当前实现会在每次请求/redirect 前解析并拒绝非公网 DNS 结果，但没有把通过校验的 IP 固定到
+实际 socket；因此 DNS 校验到连接之间仍存在 rebinding/TOCTOU 残余边界。部署侧必须继续限制
+egress，不能把该 fetcher 视为对 DNS rebinding 的完整防护。
 
 ## Story Boundary
 
 Discovery provenance 与 Evidence provenance 分开保存：HN source/discussion 说明“如何发现”，
 Candidate Evidence 说明“谁能证明”。Story 每条 fact 必须有一条同文 claim support，绑定真实
-Evidence ID、claim type、evidence scope、claim scope 和 scope-supported 结果。
+Evidence ID、claim subject、claim type、requested structured scope、evidence scope 和 claim
+scope。`scope_supported` 只保存为 model proposal/diagnostic，绝不参与最终放行。
 
 硬边界：`Claim Scope ≤ Evidence Scope`。
 
@@ -106,8 +122,8 @@ Story 继续隔离 `facts / analysis / uncertainties`。只有 Story 能进入�
 ## Budget
 
 `maximum_ai_calls` 仍表示逻辑 AI 操作，输入字符和 Provider token usage 分开记录。B0.5 使用
-Protected Minimum + Shared Pool：Triage、Story、Editorial、Continuity、Tendency、Brief 各有
-最低保障；阶段完成后未使用资源回到共享池，阶段可以借用不会威胁后续最低运行的余额。
+双维度 Protected Minimum + Shared Pool：logical calls 与 input characters 都为后续阶段保留
+最低额度；阶段完成后两类未使用资源都回到共享池，阶段只能借用不会威胁后续最低运行的余额。
 
 Budget Sweep 同时记录 logical calls、input characters、actual token usage（Provider 支持时）、
 proxy cost、HTTP fetch、investigation workload 和 runtime。当前不实现 autonomous optimizer。
@@ -142,6 +158,11 @@ semantic disposition；Story 失败留下拒绝 Trace；Brief 失败只复用已
 - Legacy vs B0.5 same-budget architecture comparison；
 - B0.5 多档 Budget Sweep；
 - Major-event Recall、Evidence Integrity、资源成本、runtime 与 marginal cost proxy。
+
+Full offline replay 直接调用生产 `MorningRadarPipeline.run` 以及相同 Candidate、Evidence、Story、
+Continuity、Tendency、Brief、Trace 和持久化函数；Fake/Mock 只替代外部 AI/HTTP，并强制 dry-run、
+禁用通知。Evidence Integrity 由 persisted Story 的 deterministic checker 实算。未由冻结标签覆盖的
+reader precision / invalid-candidate workload 明确报告 `NOT_EVALUATED`，不以 0 冒充通过。
 
 FakeAI replay 用于确定性 routing/cost 回归，不替代真实 Provider 的 Potential Impact、Potential
 Novelty、false-positive 和 claim wording 语义评估。真实语义评估必须作为独立手动任务运行，且

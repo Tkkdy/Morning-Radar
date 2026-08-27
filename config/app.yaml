@@ -7,6 +7,19 @@ maximum_ai_items: 40
 maximum_brief_items: 12
 maximum_ai_calls: 50
 maximum_ai_input_characters: 120000
+protected_ai_calls:
+  triage: 1
+  story: 4
+  editorial: 1
+  continuity: 1
+  tendency: 1
+  brief: 1
+protected_ai_input_characters:
+  story: 14000
+  editorial: 6000
+  continuity: 6000
+  tendency: 11000
+  brief: 7000
 maximum_triage_batch_items: 40
 maximum_triage_input_characters: 80000
 maximum_story_candidates: 17

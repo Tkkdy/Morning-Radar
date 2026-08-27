@@ -4,10 +4,15 @@ from __future__ import annotations
 
 import logging
 import os
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 from pathlib import Path
 
-from morning_radar.ai import AIBudget, FakeAIProvider, production_provider_from_environment
+from morning_radar.ai import (
+    AIBudget,
+    AIProvider,
+    FakeAIProvider,
+    production_provider_from_environment,
+)
 from morning_radar.briefing import (
     BriefLimits,
     generate_daily_brief_with_memory,
@@ -60,6 +65,7 @@ from morning_radar.models import (
     DailyTendencies,
     GitHubSnapshot,
     MarketSnapshot,
+    RawItem,
     Story,
     StoryOccurrenceRef,
 )
@@ -123,10 +129,47 @@ class MorningRadarPipeline:
         dry_run: bool = False,
         force_notify: bool = False,
         notify: bool = True,
+        offline_raw_items: list[RawItem] | None = None,
+        offline_provider: AIProvider | None = None,
+        offline_now: datetime | None = None,
+        offline_evidence_fetcher: SafeEvidenceFetcher | None = None,
+        offline_output_root: Path | None = None,
+        offline_history_root: Path | None = None,
     ) -> DailyBrief:
-        history_root = self.root
-        output_root = self.root / ".tmp/dry-run" if dry_run else self.root
-        if fixtures:
+        if offline_raw_items is None and any(
+            value is not None
+            for value in (
+                offline_provider,
+                offline_now,
+                offline_evidence_fetcher,
+                offline_output_root,
+                offline_history_root,
+            )
+        ):
+            raise ValueError("offline dependency overrides require offline_raw_items")
+        history_root = (offline_history_root or self.root).resolve()
+        output_root = (
+            offline_output_root
+            or (self.root / ".tmp/dry-run" if dry_run else self.root)
+        ).resolve()
+        if offline_raw_items is not None:
+            if not dry_run or notify:
+                raise ValueError("offline replay requires dry_run=True and notify=False")
+            if offline_provider is None or offline_now is None:
+                raise ValueError("offline replay requires provider and frozen now")
+            raw_items = offline_raw_items
+            now = offline_now
+            provider = offline_provider
+            collection = CollectionResult(
+                items=raw_items,
+                raw_collected=len(raw_items),
+                after_buffer=len(raw_items),
+                after_dedup=len(raw_items),
+            )
+            people = load_model_list(
+                self.root / "config/people.yaml", "people", PersonConfig
+            )
+        elif fixtures:
             raw_items = FixtureCollector(self.root / "fixtures/sample_items.json").collect()
             now = max(item.fetched_at for item in raw_items)
             provider = FakeAIProvider()
@@ -151,14 +194,10 @@ class MorningRadarPipeline:
                     self.app.maximum_ai_calls,
                     self.app.maximum_ai_input_characters,
                     self.app.maximum_ai_items,
-                    protected_minimums={
-                        "triage": 1,
-                        "story": 4,
-                        "editorial": 1,
-                        "continuity": 1,
-                        "tendency": 1,
-                        "brief": 1,
-                    },
+                    protected_minimums=self.app.protected_ai_calls,
+                    protected_input_minimums=(
+                        self.app.protected_ai_input_characters
+                    ),
                 ),
                 prompt_dir=self.root / "prompts",
             )
@@ -200,13 +239,19 @@ class MorningRadarPipeline:
             decision="ELIGIBLE",
         )
         admitted = admit_candidates(story_candidate_items, now=now)
+        trace_builder.add_candidate_admissions(admitted)
         candidate_result = triage_candidates(
             admitted,
             provider=provider,
             maximum_batch_items=self.app.maximum_triage_batch_items,
             maximum_input_characters=self.app.maximum_triage_input_characters,
         )
+        trace_builder.add_candidate_triage(candidate_result.candidates)
         triaged_candidates = apply_freshness_guard(candidate_result.candidates)
+        trace_builder.add_freshness_results(
+            candidate_result.candidates,
+            triaged_candidates,
+        )
         surface_seeds = load_model_list(
             self.root / "config/official_surfaces.yaml",
             "surfaces",
@@ -215,11 +260,14 @@ class MorningRadarPipeline:
         evidence_result = resolve_evidence(
             triaged_candidates,
             provider=provider,
-            fetcher=SafeEvidenceFetcher(
-                timeout_seconds=self.app.request_timeout_seconds,
-                attempts=self.app.request_retry_attempts,
-                maximum_response_bytes=self.app.maximum_evidence_response_bytes,
-                maximum_redirects=self.app.maximum_evidence_redirects,
+            fetcher=(
+                offline_evidence_fetcher
+                or SafeEvidenceFetcher(
+                    timeout_seconds=self.app.request_timeout_seconds,
+                    attempts=self.app.request_retry_attempts,
+                    maximum_response_bytes=self.app.maximum_evidence_response_bytes,
+                    maximum_redirects=self.app.maximum_evidence_redirects,
+                )
             ),
             official_resolver=OfficialSurfaceResolver(
                 cache_path=output_root / "data/state/official_surfaces.json",
@@ -235,7 +283,33 @@ class MorningRadarPipeline:
         budget = getattr(provider, "budget", None)
         if budget is not None and hasattr(budget, "complete_stage"):
             budget.complete_stage("triage")
-        trace_builder.add_candidates(candidates)
+        candidate_by_id = {candidate.id: candidate for candidate in candidates}
+        for event in evidence_result.events:
+            candidate = candidate_by_id[event.candidate_id]
+            if event.decision in {"BUILD", "INVESTIGATE", "DROP", "UNRESOLVED"}:
+                trace_builder.add(
+                    candidate.raw_item_ids,
+                    stage=DecisionStage.SEMANTIC_RETRIAGE,
+                    decision=event.decision,
+                    reason_codes=list(event.reason_codes),
+                    rationale=event.rationale,
+                    candidate_id=candidate.id,
+                )
+                trace_builder.add(
+                    candidate.raw_item_ids,
+                    stage=DecisionStage.EVIDENCE_STATE,
+                    decision=candidate.evidence_state.value.upper(),
+                    candidate_id=candidate.id,
+                )
+            else:
+                trace_builder.add_investigation_event(
+                    candidate.raw_item_ids,
+                    candidate_id=candidate.id,
+                    decision=event.decision,
+                    evidence_id=event.evidence_id,
+                    reason_codes=list(event.reason_codes),
+                    rationale=event.rationale,
+                )
         stories, story_dispositions = build_candidate_stories(
             candidates,
             raw_items=story_candidate_items,
@@ -378,6 +452,7 @@ class MorningRadarPipeline:
                 "stories": len(stories),
                 "signals": len(signals),
                 "fixture_mode": fixtures,
+                "offline_replay": offline_raw_items is not None,
                 "dry_run": dry_run,
                 "editorial_enabled": editorial_result.daily.enabled,
                 "editorial_shadow_mode": editorial_result.daily.shadow_mode,

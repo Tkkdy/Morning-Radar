@@ -19,8 +19,10 @@ class DecisionStage(StrEnum):
     CANDIDATE_ADMISSION = "candidate_admission"
     HIGH_RECALL_GUARDRAIL = "high_recall_guardrail"
     SEMANTIC_TRIAGE = "semantic_triage"
+    CLAIM_FRESHNESS = "claim_freshness"
     INVESTIGATION = "investigation"
     EVIDENCE_STATE = "evidence_state"
+    SEMANTIC_RETRIAGE = "semantic_retriage"
     STORY_CONSTRUCTION = "story_construction"
     READER_SELECTION = "reader_selection"
     FINAL_DISPOSITION = "final_disposition"
@@ -42,6 +44,7 @@ class DecisionTransition(RadarModel):
     reason_codes: list[str] = Field(default_factory=list)
     rationale: str = Field(default="", max_length=1000)
     candidate_id: str | None = None
+    evidence_id: str | None = None
     story_id: str | None = None
 
 
@@ -86,6 +89,7 @@ class DecisionTraceBuilder:
         reason_codes: list[str] | None = None,
         rationale: str = "",
         candidate_id: str | None = None,
+        evidence_id: str | None = None,
         story_id: str | None = None,
     ) -> None:
         transition = DecisionTransition(
@@ -94,6 +98,7 @@ class DecisionTraceBuilder:
             reason_codes=reason_codes or [],
             rationale=rationale,
             candidate_id=candidate_id,
+            evidence_id=evidence_id,
             story_id=story_id,
         )
         for raw_item_id in raw_item_ids:
@@ -103,8 +108,14 @@ class DecisionTraceBuilder:
                     update={"transitions": [*record.transitions, transition]}
                 )
 
-    def add_candidates(self, candidates: list[Candidate]) -> None:
+    def add_candidate_admissions(self, candidates: list[Candidate]) -> None:
         for candidate in candidates:
+            self.add(
+                candidate.raw_item_ids,
+                stage=DecisionStage.DEDUPLICATION,
+                decision=("GROUPED" if len(candidate.raw_item_ids) > 1 else "UNIQUE"),
+                candidate_id=candidate.id,
+            )
             self.add(
                 candidate.raw_item_ids,
                 stage=DecisionStage.CANDIDATE_ADMISSION,
@@ -119,9 +130,17 @@ class DecisionTraceBuilder:
                     reason_codes=["HIGH_RECALL_GUARDRAIL"],
                     candidate_id=candidate.id,
                 )
+
+    def add_candidate_triage(
+        self,
+        candidates: list[Candidate],
+        *,
+        stage: DecisionStage = DecisionStage.SEMANTIC_TRIAGE,
+    ) -> None:
+        for candidate in candidates:
             self.add(
                 candidate.raw_item_ids,
-                stage=DecisionStage.SEMANTIC_TRIAGE,
+                stage=stage,
                 decision=(
                     candidate.semantic_disposition.value.upper()
                     if candidate.semantic_disposition
@@ -150,6 +169,52 @@ class DecisionTraceBuilder:
                     rationale="; ".join(candidate.missing_evidence),
                     candidate_id=candidate.id,
                 )
+
+    def add_freshness_results(
+        self,
+        before: list[Candidate],
+        after: list[Candidate],
+    ) -> None:
+        before_by_id = {candidate.id: candidate for candidate in before}
+        for candidate in after:
+            previous = before_by_id[candidate.id]
+            changed = (
+                previous.semantic_disposition is not candidate.semantic_disposition
+            )
+            self.add(
+                candidate.raw_item_ids,
+                stage=DecisionStage.CLAIM_FRESHNESS,
+                decision="ROUTED_TO_INVESTIGATION" if changed else "RETAINED",
+                reason_codes=(
+                    ["CORE_CLAIM_UNSUPPORTED"] if changed else []
+                ),
+                candidate_id=candidate.id,
+            )
+
+    def add_investigation_event(
+        self,
+        raw_item_ids: list[str],
+        *,
+        candidate_id: str,
+        decision: str,
+        evidence_id: str | None = None,
+        reason_codes: list[str] | None = None,
+        rationale: str = "",
+    ) -> None:
+        self.add(
+            raw_item_ids,
+            stage=DecisionStage.INVESTIGATION,
+            decision=decision,
+            evidence_id=evidence_id,
+            reason_codes=reason_codes,
+            rationale=rationale,
+            candidate_id=candidate_id,
+        )
+
+    def add_candidates(self, candidates: list[Candidate]) -> None:
+        """Compatibility helper for callers that do not emit phase-accurate trace."""
+        self.add_candidate_admissions(candidates)
+        self.add_candidate_triage(candidates)
 
     def add_story_results(
         self,

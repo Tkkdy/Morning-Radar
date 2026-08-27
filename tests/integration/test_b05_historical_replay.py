@@ -23,6 +23,20 @@ def test_deepseek_golden_failure_gets_semantic_triage_before_story_budget() -> N
     assert deepseek_id in report["b05"]["must_triage_raw_ids"]
     assert report["legacy"]["major_event_recall"] == 0
     assert report["b05"]["major_event_recall"] == 1
+    full = report["b05"]["full_pipeline"]
+    assert full["pipeline"] == "MorningRadarPipeline.run"
+    assert full["within_hard_cap"] is True
+    assert full["input_characters"] <= 120_000
+    assert full["run_stats"]["candidate_triage_input_characters"] >= 68_000
+    assert {
+        "triage",
+        "story",
+        "editorial",
+        "continuity",
+        "tendency",
+        "brief",
+    }.issubset(full["stage_calls"])
+    assert full["evidence_integrity_violations"] == 0
 
 
 def test_budget_sweep_is_repeatable_and_tracks_resource_dimensions() -> None:
@@ -34,3 +48,4 @@ def test_budget_sweep_is_repeatable_and_tracks_resource_dimensions() -> None:
     )
     assert all(row["evidence_integrity_violations"] == 0 for row in rows)
     assert all("proxy_cost" in row and "runtime_seconds" in row for row in rows)
+    assert all(row["reader_precision"] == "NOT_EVALUATED" for row in rows)

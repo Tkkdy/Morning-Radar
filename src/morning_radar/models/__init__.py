@@ -1,9 +1,12 @@
 """Core data models."""
 
 from morning_radar.models.candidate import (
+    AssertionScope,
+    AvailabilityScope,
     Candidate,
     CandidateEvidence,
     CandidateReasonCode,
+    ClaimScopeDimensions,
     ClaimType,
     EvidenceAuthority,
     EvidenceState,
@@ -11,6 +14,7 @@ from morning_radar.models.candidate import (
     ObservationQuality,
     SemanticDisposition,
     StoryClaimSupport,
+    TemporalScope,
 )
 from morning_radar.models.continuity import (
     CurrentJudgement,
@@ -67,9 +71,12 @@ Story.model_rebuild(
 )
 
 __all__ = [
+    "AssertionScope",
+    "AvailabilityScope",
     "Candidate",
     "CandidateEvidence",
     "CandidateReasonCode",
+    "ClaimScopeDimensions",
     "BriefContinuityContext",
     "BriefItem",
     "BriefJudgementCue",
@@ -116,6 +123,7 @@ __all__ = [
     "TendencyEvidenceCluster",
     "TendencyStanding",
     "TendencyUpdateKind",
+    "TemporalScope",
     "WatchEvent",
     "WatchEventType",
 ]

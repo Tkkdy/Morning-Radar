@@ -12,13 +12,16 @@ from morning_radar.candidates.engine import triage_candidates
 from morning_radar.evidence.http import EvidenceFetchError, SafeEvidenceFetcher
 from morning_radar.evidence.official import OfficialSurfaceResolver
 from morning_radar.models import (
+    AssertionScope,
     Candidate,
     CandidateEvidence,
+    ClaimScopeDimensions,
     EvidenceAuthority,
     ExecutionState,
     SemanticDisposition,
     SourceRole,
     StatementType,
+    TemporalScope,
 )
 
 LOGGER = logging.getLogger(__name__)
@@ -28,6 +31,16 @@ LOGGER = logging.getLogger(__name__)
 class EvidenceResolutionResult:
     candidates: list[Candidate] = field(default_factory=list)
     stats: dict[str, int] = field(default_factory=dict)
+    events: list[EvidenceResolutionEvent] = field(default_factory=list)
+
+
+@dataclass(frozen=True, slots=True)
+class EvidenceResolutionEvent:
+    candidate_id: str
+    decision: str
+    evidence_id: str | None = None
+    reason_codes: tuple[str, ...] = ()
+    rationale: str = ""
 
 
 def _destination(candidate: Candidate) -> str | None:
@@ -64,9 +77,17 @@ def resolve_evidence(
     fetch_count = 0
     network_failed = 0
     parse_failed = 0
+    events: list[EvidenceResolutionEvent] = []
     for candidate in investigations[maximum_investigations:]:
         resolved[candidate.id] = candidate.model_copy(
             update={"execution_state": ExecutionState.DEFERRED_BY_BUDGET}
+        )
+        events.append(
+            EvidenceResolutionEvent(
+                candidate_id=candidate.id,
+                decision="DEFERRED_BY_BUDGET",
+                reason_codes=("DEFERRED_BY_BUDGET",),
+            )
         )
     for candidate in selected:
         target = _destination(candidate)
@@ -75,6 +96,14 @@ def resolve_evidence(
                 update={"execution_state": ExecutionState.FAILED_PARSE}
             )
             parse_failed += 1
+            events.append(
+                EvidenceResolutionEvent(
+                    candidate_id=candidate.id,
+                    decision="FAILED_PARSE",
+                    reason_codes=("PARSE_FAILED",),
+                    rationale="No eligible destination URL",
+                )
+            )
             continue
         try:
             result = fetcher.fetch(target)
@@ -90,6 +119,13 @@ def resolve_evidence(
             else:
                 network_failed += 1
             LOGGER.warning("Evidence fetch failed candidate=%s reason=%s", candidate.id, exc.reason)
+            events.append(
+                EvidenceResolutionEvent(
+                    candidate_id=candidate.id,
+                    decision=state.value.upper(),
+                    reason_codes=(exc.reason,),
+                )
+            )
             continue
         fetch_count += 1
         trust = official_resolver.verify(result.final_url)
@@ -99,7 +135,9 @@ def resolve_evidence(
             url=result.final_url,
             publisher=trust.entity if trust else result.final_url,
             source_role=(
-                SourceRole.OFFICIAL_PRIMARY if trust else SourceRole.EDITORIAL
+                SourceRole.OFFICIAL_PRIMARY
+                if trust
+                else SourceRole.UPSTREAM_DISCOVERY
             ),
             statement_type=(
                 StatementType.FACTUAL_ANNOUNCEMENT
@@ -109,7 +147,17 @@ def resolve_evidence(
             authority=(
                 EvidenceAuthority.SELF_AUTHORITATIVE
                 if trust
-                else EvidenceAuthority.INDEPENDENT_REPORTING
+                else EvidenceAuthority.UNVERIFIED_EXTERNAL
+            ),
+            authoritative_for=[trust.entity] if trust else [],
+            subject_entities=[trust.entity] if trust else [],
+            support_scope=(
+                ClaimScopeDimensions(
+                    temporal=TemporalScope.CURRENTLY_EXISTS,
+                    assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+                )
+                if trust
+                else ClaimScopeDimensions()
             ),
             scope=result.text[:1000],
             excerpt=result.text[:2000],
@@ -130,6 +178,14 @@ def resolve_evidence(
         )
         fetched.append(updated)
         resolved[candidate.id] = updated
+        events.append(
+            EvidenceResolutionEvent(
+                candidate_id=candidate.id,
+                decision="EVIDENCE_ADDED",
+                evidence_id=evidence.evidence_id,
+                rationale=result.final_url,
+            )
+        )
     if fetched:
         retriaged = triage_candidates(
             fetched,
@@ -140,9 +196,25 @@ def resolve_evidence(
         for candidate in retriaged:
             resolved[candidate.id] = (
                 candidate
-                if candidate.execution_state is ExecutionState.FAILED_AI
+                if candidate.execution_state
+                in {
+                    ExecutionState.FAILED_AI,
+                    ExecutionState.DEFERRED_BY_BUDGET,
+                }
                 else candidate.model_copy(
                     update={"execution_state": ExecutionState.EXECUTED}
+                )
+            )
+            events.append(
+                EvidenceResolutionEvent(
+                    candidate_id=candidate.id,
+                    decision=(
+                        candidate.semantic_disposition.value.upper()
+                        if candidate.semantic_disposition
+                        else "UNRESOLVED"
+                    ),
+                    reason_codes=tuple(code.value for code in candidate.reason_codes),
+                    rationale=candidate.rationale,
                 )
             )
     final = [resolved[candidate.id] for candidate in candidates]
@@ -156,4 +228,5 @@ def resolve_evidence(
             "investigation_failed_network": network_failed,
             "investigation_failed_parse": parse_failed,
         },
+        events=events,
     )

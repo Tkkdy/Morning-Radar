@@ -13,7 +13,11 @@ from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
 from morning_radar.models import (
+    AssertionScope,
+    AvailabilityScope,
     Candidate,
+    CandidateEvidence,
+    ClaimScopeDimensions,
     ClaimType,
     EvidenceAuthority,
     EvidenceState,
@@ -22,6 +26,7 @@ from morning_radar.models import (
     SemanticDisposition,
     Story,
     StorySourceRef,
+    TemporalScope,
 )
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
@@ -59,6 +64,190 @@ def _effective_claim_type(claim: str, declared: ClaimType) -> ClaimType:
     return declared
 
 
+def _normalized_entity(value: str) -> str:
+    return re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "", value.casefold())
+
+
+def _entity_matches(subject: str, candidates: list[str]) -> bool:
+    expected = _normalized_entity(subject)
+    return bool(expected) and any(
+        _normalized_entity(candidate) == expected for candidate in candidates
+    )
+
+
+def _inferred_claim_scope(claim: str, claim_type: ClaimType) -> ClaimScopeDimensions:
+    lowered = claim.casefold()
+    availability = AvailabilityScope.UNKNOWN
+    temporal = TemporalScope.UNKNOWN
+    assertion = AssertionScope.UNKNOWN
+    if re.search(r"(?:\bga\b|general availability|全球可用|全面开放|正式可用)", lowered):
+        availability = AvailabilityScope.GA
+    elif re.search(r"(?:所有用户|全部用户|广泛可用|broad availability)", lowered):
+        availability = AvailabilityScope.BROAD
+    elif re.search(r"(?:部分用户|部分账户|some users|limited rollout)", lowered):
+        availability = AvailabilityScope.SOME_USERS
+    elif re.search(r"(?:我的账户|单个账户|one account)", lowered):
+        availability = AvailabilityScope.ONE_ACCOUNT
+
+    if re.search(r"(?:全球首次|世界首次|行业首次|首个|\bfirst ever\b)", lowered):
+        temporal = TemporalScope.FIRST_EVER
+    elif re.search(r"(?:今天.*(?:发布|推出|上线)|新发布|刚刚发布|newly released)", lowered):
+        temporal = TemporalScope.NEWLY_RELEASED
+    elif re.search(r"(?:当前存在|现已支持|现在支持|currently exists|now supports)", lowered):
+        temporal = TemporalScope.CURRENTLY_EXISTS
+    elif re.search(r"(?:观察到|已看到|observed)", lowered):
+        temporal = TemporalScope.OBSERVED_NOW
+
+    if any(marker in claim for marker in ("官方宣称", "官方称", "官方表示", "声称")):
+        assertion = AssertionScope.OFFICIALLY_ANNOUNCED
+    elif claim_type in {ClaimType.PERFORMANCE, ClaimType.NOVELTY_FIRST}:
+        assertion = AssertionScope.INDEPENDENTLY_VERIFIED
+    elif claim_type is ClaimType.RELEASE_GA:
+        assertion = AssertionScope.OFFICIALLY_ANNOUNCED
+    elif re.search(r"(?:观察到|已看到|我的账户|部分用户)", claim):
+        assertion = AssertionScope.OBSERVED
+    return ClaimScopeDimensions(
+        availability=availability,
+        temporal=temporal,
+        assertion=assertion,
+    )
+
+
+def _requested_scope(
+    claim: str,
+    declared: ClaimType,
+    proposed: ClaimScopeDimensions,
+) -> ClaimScopeDimensions:
+    inferred = _inferred_claim_scope(claim, declared)
+    return ClaimScopeDimensions(
+        availability=(
+            inferred.availability
+            if inferred.availability is not AvailabilityScope.UNKNOWN
+            else proposed.availability
+        ),
+        temporal=(
+            inferred.temporal
+            if inferred.temporal is not TemporalScope.UNKNOWN
+            else proposed.temporal
+        ),
+        assertion=(
+            inferred.assertion
+            if inferred.assertion is not AssertionScope.UNKNOWN
+            else proposed.assertion
+        ),
+    )
+
+
+def _availability_supports(evidence: AvailabilityScope, claim: AvailabilityScope) -> bool:
+    if claim is AvailabilityScope.UNKNOWN:
+        return True
+    allowed = {
+        AvailabilityScope.UNKNOWN: set(),
+        AvailabilityScope.ONE_ACCOUNT: {
+            AvailabilityScope.ONE_ACCOUNT,
+            AvailabilityScope.SOME_USERS,
+        },
+        AvailabilityScope.SOME_USERS: {
+            AvailabilityScope.ONE_ACCOUNT,
+            AvailabilityScope.SOME_USERS,
+        },
+        AvailabilityScope.BROAD: {
+            AvailabilityScope.ONE_ACCOUNT,
+            AvailabilityScope.SOME_USERS,
+            AvailabilityScope.BROAD,
+        },
+        AvailabilityScope.GA: set(AvailabilityScope) - {AvailabilityScope.UNKNOWN},
+    }
+    return claim in allowed[evidence]
+
+
+def _temporal_supports(evidence: TemporalScope, claim: TemporalScope) -> bool:
+    if claim is TemporalScope.UNKNOWN:
+        return True
+    allowed = {
+        TemporalScope.UNKNOWN: set(),
+        TemporalScope.OBSERVED_NOW: {TemporalScope.OBSERVED_NOW},
+        TemporalScope.CURRENTLY_EXISTS: {
+            TemporalScope.OBSERVED_NOW,
+            TemporalScope.CURRENTLY_EXISTS,
+        },
+        TemporalScope.NEWLY_RELEASED: {
+            TemporalScope.OBSERVED_NOW,
+            TemporalScope.CURRENTLY_EXISTS,
+            TemporalScope.NEWLY_RELEASED,
+        },
+        TemporalScope.FIRST_EVER: set(TemporalScope) - {TemporalScope.UNKNOWN},
+    }
+    return claim in allowed[evidence]
+
+
+def _assertion_supports(evidence: AssertionScope, claim: AssertionScope) -> bool:
+    if claim is AssertionScope.UNKNOWN:
+        return True
+    return claim in {
+        AssertionScope.UNKNOWN: set(),
+        AssertionScope.OBSERVED: {AssertionScope.OBSERVED},
+        AssertionScope.OFFICIALLY_ANNOUNCED: {
+            AssertionScope.OBSERVED,
+            AssertionScope.OFFICIALLY_ANNOUNCED,
+        },
+        AssertionScope.INDEPENDENTLY_VERIFIED: {
+            AssertionScope.OBSERVED,
+            AssertionScope.INDEPENDENTLY_VERIFIED,
+        },
+    }[evidence]
+
+
+def _firsthand_quality_is_sufficient(evidence: CandidateEvidence) -> bool:
+    quality = evidence.observation_quality
+    return bool(
+        quality
+        and quality.firsthandness
+        and quality.specificity
+        and quality.artifact_support
+    )
+
+
+def _evidence_supports_claim(
+    evidence: CandidateEvidence,
+    *,
+    claim_subject: str | None,
+    claim_type: ClaimType,
+    requested: ClaimScopeDimensions,
+) -> bool:
+    if evidence.authority in {
+        EvidenceAuthority.DISCOVERY_ONLY,
+        EvidenceAuthority.UNVERIFIED_EXTERNAL,
+    }:
+        return False
+    if evidence.authority is EvidenceAuthority.SELF_AUTHORITATIVE:
+        if not claim_subject or not _entity_matches(
+            claim_subject, evidence.authoritative_for
+        ):
+            return False
+    elif evidence.authority is EvidenceAuthority.INDEPENDENT_REPORTING:
+        if not claim_subject or not _entity_matches(
+            claim_subject, evidence.subject_entities
+        ):
+            return False
+    elif claim_subject and evidence.subject_entities and not _entity_matches(
+        claim_subject, evidence.subject_entities
+    ):
+        return False
+    if evidence.authority is EvidenceAuthority.FIRSTHAND_OBSERVATION and (
+        claim_type in {ClaimType.AVAILABILITY, ClaimType.FIRSTHAND_BEHAVIOR}
+        or requested.availability is not AvailabilityScope.UNKNOWN
+        or requested.assertion is AssertionScope.OBSERVED
+    ) and not _firsthand_quality_is_sufficient(evidence):
+        return False
+    support = evidence.support_scope
+    return (
+        _availability_supports(support.availability, requested.availability)
+        and _temporal_supports(support.temporal, requested.temporal)
+        and _assertion_supports(support.assertion, requested.assertion)
+    )
+
+
 def _validate_candidate_story_draft(
     candidate: Candidate, draft: MergedStoryDraft
 ) -> None:
@@ -82,14 +271,29 @@ def _validate_candidate_story_draft(
         )
     for fact in draft.facts:
         support = support_by_claim[fact]
-        if not support.scope_supported:
-            raise StoryValidationError("Claim Scope exceeds Evidence Scope")
         if not set(support.evidence_ids).issubset(evidence_by_id):
             raise StoryValidationError("claim support references unknown Evidence")
         evidence = [evidence_by_id[item_id] for item_id in support.evidence_ids]
-        if any(item.authority is EvidenceAuthority.DISCOVERY_ONLY for item in evidence):
-            raise StoryValidationError("discovery-only input cannot support a Story fact")
         claim_type = _effective_claim_type(fact, support.claim_type)
+        requested = _requested_scope(fact, claim_type, support.requested_scope)
+        subject_candidates = [*draft.entity_names, *candidate.entity_names]
+        claim_subject = support.claim_subject or (
+            subject_candidates[0]
+            if len(set(subject_candidates)) == 1
+            else None
+        )
+        if not any(
+            _evidence_supports_claim(
+                item,
+                claim_subject=claim_subject,
+                claim_type=claim_type,
+                requested=requested,
+            )
+            for item in evidence
+        ):
+            raise StoryValidationError(
+                "Claim Scope or authority is incompatible with Evidence support"
+            )
         if claim_type is ClaimType.RELEASE_GA and all(
             item.authority is EvidenceAuthority.FIRSTHAND_OBSERVATION for item in evidence
         ):
@@ -109,6 +313,37 @@ def _validate_candidate_story_draft(
         raise StoryValidationError("Story URLs must come from Candidate Evidence")
     if draft.primary_source_url not in draft.source_urls:
         raise StoryValidationError("Story primary URL must be one of its Evidence URLs")
+
+
+def story_evidence_integrity_violations(story: Story) -> list[str]:
+    """Recheck persisted Story claims with the production deterministic boundary."""
+    violations: list[str] = []
+    evidence_by_id = {item.evidence_id: item for item in story.evidence_refs}
+    for support in story.claim_supports:
+        evidence_ids = set(support.evidence_ids)
+        if not evidence_ids or not evidence_ids.issubset(evidence_by_id):
+            violations.append(f"{support.claim}: unknown Evidence reference")
+            continue
+        claim_type = _effective_claim_type(support.claim, support.claim_type)
+        requested = _requested_scope(
+            support.claim,
+            claim_type,
+            support.requested_scope,
+        )
+        if not any(
+            _evidence_supports_claim(
+                evidence_by_id[evidence_id],
+                claim_subject=support.claim_subject,
+                claim_type=claim_type,
+                requested=requested,
+            )
+            for evidence_id in evidence_ids
+        ):
+            violations.append(f"{support.claim}: incompatible Claim/Evidence scope")
+    evidence_urls = {item.url for item in story.evidence_refs}
+    if not set(story.source_urls).issubset(evidence_urls):
+        violations.append("Story contains URL outside persisted Evidence set")
+    return violations
 
 
 def filter_story_candidate_inputs(
@@ -283,8 +518,10 @@ def build_candidate_story(
         claim_supports=[
             {
                 "claim": item.claim,
+                "claim_subject": item.claim_subject,
                 "claim_type": item.claim_type,
                 "evidence_ids": item.evidence_ids,
+                "requested_scope": item.requested_scope,
                 "evidence_scope": item.evidence_scope,
                 "claim_scope": item.claim_scope,
                 "scope_supported": item.scope_supported,

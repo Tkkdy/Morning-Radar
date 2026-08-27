@@ -94,6 +94,7 @@ class SafeEvidenceFetcher:
             headers={"User-Agent": USER_AGENT, "Accept": "text/html,text/plain,application/json"},
             follow_redirects=False,
             cookies=None,
+            trust_env=False,
         )
 
     def _validate_target(self, url: str) -> None:

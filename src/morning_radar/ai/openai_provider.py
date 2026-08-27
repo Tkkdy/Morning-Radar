@@ -86,7 +86,9 @@ class AIBudget:
     task_usage: dict[str, dict[str, int]] = field(default_factory=dict)
     task_finish_reasons: dict[str, dict[str, int]] = field(default_factory=dict)
     protected_minimums: dict[str, int] = field(default_factory=dict)
+    protected_input_minimums: dict[str, int] = field(default_factory=dict)
     stage_calls: dict[str, int] = field(default_factory=dict)
+    stage_input_characters: dict[str, int] = field(default_factory=dict)
     completed_stages: set[str] = field(default_factory=set)
 
     def consume(
@@ -112,12 +114,33 @@ class AIBudget:
                 raise AIBudgetExceeded(
                     f"AI shared pool unavailable while protecting later stages: {stage}"
                 )
-        if self.input_characters_used + len(payload) > self.maximum_input_characters:
+        payload_characters = len(payload)
+        if self.input_characters_used + payload_characters > self.maximum_input_characters:
             raise AIBudgetExceeded("AI daily input character limit exceeded")
+        if stage is not None and self.protected_input_minimums:
+            reserved_for_others = sum(
+                max(
+                    0,
+                    minimum - self.stage_input_characters.get(other_stage, 0),
+                )
+                for other_stage, minimum in self.protected_input_minimums.items()
+                if other_stage != stage and other_stage not in self.completed_stages
+            )
+            if (
+                self.input_characters_used + payload_characters
+                > self.maximum_input_characters - reserved_for_others
+            ):
+                raise AIBudgetExceeded(
+                    "AI character pool unavailable while protecting later stages: "
+                    f"{stage}"
+                )
         self.calls_used += 1
-        self.input_characters_used += len(payload)
+        self.input_characters_used += payload_characters
         if stage is not None:
             self.stage_calls[stage] = self.stage_calls.get(stage, 0) + 1
+            self.stage_input_characters[stage] = (
+                self.stage_input_characters.get(stage, 0) + payload_characters
+            )
 
     def complete_stage(self, stage: str) -> None:
         """Release an unused protected minimum into the shared pool."""
@@ -159,9 +182,11 @@ class AIBudget:
         for task, reasons in sorted(self.task_finish_reasons.items()):
             for reason, count in sorted(reasons.items()):
                 stats[f"ai_{task}_finish_{reason}"] = count
-        if self.protected_minimums:
+        if self.protected_minimums or self.protected_input_minimums:
             for stage, value in sorted(self.stage_calls.items()):
                 stats[f"ai_stage_{stage}_calls"] = value
+            for stage, value in sorted(self.stage_input_characters.items()):
+                stats[f"ai_stage_{stage}_input_characters"] = value
         return stats
 
 

@@ -2,6 +2,9 @@
 
 from __future__ import annotations
 
+import json
+from typing import Any
+
 from morning_radar.ai.models import (
     BriefDraft,
     CandidateTriageBatch,
@@ -34,6 +37,7 @@ from morning_radar.models import (
     Candidate,
     CandidateReasonCode,
     ClaimType,
+    EvidenceAuthority,
     EvidenceState,
     RawItem,
     SemanticDisposition,
@@ -51,7 +55,36 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
+    def __init__(self, *, budget: Any | None = None) -> None:
+        self.budget = budget
+        self._account_fake_calls = budget is not None
+
+    def _consume(self, task: str, payload: Any, item_count: int) -> None:
+        budget = getattr(self, "budget", None)
+        if budget is None or not getattr(self, "_account_fake_calls", False):
+            return
+        stages = {
+            "candidate_triage": "triage",
+            "construct_story": "story",
+            "score_story": "story",
+            "evaluate_editorial": "editorial",
+            "resolve_continuity": "continuity",
+            "evaluate_tendencies": "tendency",
+            "write_brief": "brief",
+            "direction_observation": "brief",
+        }
+        budget.consume(
+            json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+            item_count=item_count,
+            stage=stages.get(task, task),
+        )
+
     def triage_candidates(self, candidates: list[Candidate]) -> CandidateTriageBatch:
+        self._consume(
+            "candidate_triage",
+            [candidate.model_dump(mode="json") for candidate in candidates],
+            len(candidates),
+        )
         return CandidateTriageBatch(
             candidates=[
                 CandidateTriageDraft(
@@ -71,12 +104,27 @@ class FakeAIProvider:
         )
 
     def construct_story(self, candidate: Candidate) -> MergedStoryDraft:
+        self._consume("construct_story", candidate.model_dump(mode="json"), 1)
         evidence = [
             item
             for item in candidate.evidence
-            if item.authority.value != "discovery_only"
+            if item.authority
+            not in {
+                EvidenceAuthority.DISCOVERY_ONLY,
+                EvidenceAuthority.UNVERIFIED_EXTERNAL,
+            }
         ] or candidate.evidence
         fact = evidence[0].scope or candidate.hypothesis
+        claim_subject = next(
+            iter(
+                [
+                    *evidence[0].authoritative_for,
+                    *evidence[0].subject_entities,
+                    *candidate.entity_names,
+                ]
+            ),
+            None,
+        )
         return MergedStoryDraft(
             same_event=True,
             canonical_title=candidate.hypothesis,
@@ -88,8 +136,10 @@ class FakeAIProvider:
             fact_supports=[
                 DraftClaimSupport(
                     claim=fact,
+                    claim_subject=claim_subject,
                     claim_type=ClaimType.OTHER,
                     evidence_ids=[evidence[0].evidence_id],
+                    requested_scope=evidence[0].support_scope,
                     evidence_scope=evidence[0].scope or fact,
                     claim_scope=fact,
                     scope_supported=True,
@@ -102,6 +152,11 @@ class FakeAIProvider:
         )
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
+        self._consume(
+            "classify",
+            [item.model_dump(mode="json") for item in items],
+            len(items),
+        )
         return ClassificationBatch(
             items=[
                 ClassifiedItem(
@@ -121,6 +176,11 @@ class FakeAIProvider:
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
+        self._consume(
+            "merge_story",
+            [item.model_dump(mode="json") for item in items],
+            len(items),
+        )
         first = items[0]
         return MergedStoryDraft(
             same_event=True,
@@ -145,6 +205,7 @@ class FakeAIProvider:
         )
 
     def score_story(self, story: Story) -> StoryScore:
+        self._consume("score_story", story.model_dump(mode="json"), 1)
         return StoryScore(
             relevance_score=0.9,
             importance_score=0.8,
@@ -159,6 +220,18 @@ class FakeAIProvider:
         signals: list[Signal],
         editorial_decisions: list[EditorialDecision] | None = None,
     ) -> BriefDraft:
+        self._consume(
+            "write_brief",
+            {
+                "stories": [story.model_dump(mode="json") for story in stories],
+                "signals": [signal.model_dump(mode="json") for signal in signals],
+                "editorial_decisions": [
+                    decision.model_dump(mode="json")
+                    for decision in editorial_decisions or []
+                ],
+            },
+            len(stories),
+        )
         del signals
         del editorial_decisions
         watch_anchor = None
@@ -205,6 +278,11 @@ class FakeAIProvider:
         )
 
     def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:
+        self._consume(
+            "evaluate_editorial",
+            [story.model_dump(mode="json") for story in stories],
+            len(stories),
+        )
         return EditorialDecisionBatch(
             decisions=[
                 EditorialDecision(
@@ -230,6 +308,11 @@ class FakeAIProvider:
         self,
         signals: list[Signal],
     ) -> DirectionObservation:
+        self._consume(
+            "direction_observation",
+            [signal.model_dump(mode="json") for signal in signals],
+            len(signals),
+        )
         if not signals:
             return DirectionObservation()
         return DirectionObservation(
@@ -246,6 +329,15 @@ class FakeAIProvider:
         self,
         context: ContinuityResolutionInput,
     ) -> ContinuityResolution:
+        self._consume(
+            "resolve_continuity",
+            context.model_dump(mode="json"),
+            (
+                len(context.relation_candidates)
+                + len(context.watch_candidates)
+                + len(context.prior_hypotheses)
+            ),
+        )
         relations: list[ResolvedRelationDraft] = []
         for candidate in context.relation_candidates:
             confirmed = (
@@ -316,6 +408,18 @@ class FakeAIProvider:
         clusters: list[TendencyEvidenceCluster],
         current_views: list[TendencyCurrentView],
     ) -> TendencyEvaluationBatch:
+        self._consume(
+            "evaluate_tendencies",
+            {
+                "evidence_clusters": [
+                    cluster.model_dump(mode="json") for cluster in clusters
+                ],
+                "current_views": [
+                    view.model_dump(mode="json") for view in current_views
+                ],
+            },
+            len(clusters),
+        )
         if current_views:
             view = current_views[0]
             new_clusters = [

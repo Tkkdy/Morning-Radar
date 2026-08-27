@@ -7,13 +7,17 @@ import logging
 import re
 from dataclasses import dataclass, field
 from datetime import datetime
+from urllib.parse import urlsplit
 
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.provider import AIProvider
 from morning_radar.models import (
+    AssertionScope,
+    AvailabilityScope,
     Candidate,
     CandidateEvidence,
     CandidateReasonCode,
+    ClaimScopeDimensions,
     EvidenceAuthority,
     ExecutionState,
     ObservationQuality,
@@ -24,6 +28,7 @@ from morning_radar.models import (
     SemanticDisposition,
     SourceRole,
     StatementType,
+    TemporalScope,
 )
 from morning_radar.processing.grouping import group_items_by_normalized_title
 from morning_radar.provenance import verified_source_urls
@@ -31,9 +36,15 @@ from morning_radar.provenance import verified_source_urls
 LOGGER = logging.getLogger(__name__)
 RELEASE_PATTERN = re.compile(
     r"\b(release[ds]?|launch(?:ed)?|introduc(?:e[ds]?|ing)|preview|ga|"
-    r"v\d+(?:\.\d+)*|model|api|endpoint|support(?:s|ed|ing)?|capabilit(?:y|ies))\b",
+    r"v\d+(?:\.\d+)*)\b|发布|推出|上线|预览|正式可用",
     re.IGNORECASE,
 )
+TEMPORAL_RELEASE_PATTERN = re.compile(
+    r"\b(new|release[ds]?|launch(?:ed)?|introduced?|first|preview|ga)\b|"
+    r"新发布|首次|发布|推出|上线|预览|正式可用",
+    re.IGNORECASE,
+)
+GA_PATTERN = re.compile(r"\b(ga|general availability)\b|全面开放|正式可用", re.IGNORECASE)
 DEVELOPER_PATTERN = re.compile(
     r"\b(api|sdk|model|agent|mcp|github|repository|endpoint|inference|developer|coding)\b",
     re.IGNORECASE,
@@ -56,8 +67,41 @@ def _evidence_id(item: RawItem, url: str) -> str:
     return f"evidence-{hashlib.sha256(identity.encode()).hexdigest()[:20]}"
 
 
-def _authority(item: RawItem) -> EvidenceAuthority:
-    if item.source_role is SourceRole.OFFICIAL_PRIMARY or item.metadata.get("official"):
+def _verified_github_repository(item: RawItem, url: str) -> str | None:
+    repository = item.metadata.get("repository")
+    if not isinstance(repository, str) and len(item.repository_candidates) == 1:
+        repository = item.repository_candidates[0]
+    if item.source_type not in {"github", "fixture_github"} or not isinstance(
+        repository, str
+    ):
+        return None
+    parsed = urlsplit(url)
+    path_parts = [part for part in parsed.path.split("/") if part]
+    if parsed.hostname != "github.com" or len(path_parts) < 2:
+        return None
+    path_repository = "/".join(path_parts[:2])
+    return repository if path_repository.casefold() == repository.casefold() else None
+
+
+def _official_entities(item: RawItem, url: str) -> list[str]:
+    repository = _verified_github_repository(item, url)
+    if repository:
+        return [repository]
+    values = [*item.company_candidates]
+    configured_entity = item.metadata.get("entity")
+    if isinstance(configured_entity, str) and configured_entity.strip():
+        values.append(configured_entity.strip())
+    if not values and item.source_role is SourceRole.OFFICIAL_PRIMARY:
+        values.append(item.source_name)
+    return list(dict.fromkeys(values))
+
+
+def _authority(item: RawItem, url: str) -> EvidenceAuthority:
+    github_repository = _verified_github_repository(item, url)
+    if github_repository or (
+        item.source_type != "github"
+        and (item.source_role is SourceRole.OFFICIAL_PRIMARY or item.metadata.get("official"))
+    ):
         return EvidenceAuthority.SELF_AUTHORITATIVE
     if item.statement_type in {
         StatementType.FIRSTHAND_OBSERVATION,
@@ -67,6 +111,42 @@ def _authority(item: RawItem) -> EvidenceAuthority:
     if item.source_role is SourceRole.EDITORIAL:
         return EvidenceAuthority.INDEPENDENT_REPORTING
     return EvidenceAuthority.DISCOVERY_ONLY
+
+
+def _support_scope(
+    item: RawItem,
+    *,
+    authority: EvidenceAuthority,
+) -> ClaimScopeDimensions:
+    text = " ".join((item.title, item.summary, item.content_excerpt))
+    if authority is EvidenceAuthority.SELF_AUTHORITATIVE:
+        return ClaimScopeDimensions(
+            availability=(
+                AvailabilityScope.GA if GA_PATTERN.search(text) else AvailabilityScope.UNKNOWN
+            ),
+            temporal=(
+                TemporalScope.NEWLY_RELEASED
+                if item.published_at is not None and TEMPORAL_RELEASE_PATTERN.search(text)
+                else TemporalScope.CURRENTLY_EXISTS
+            ),
+            assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+        )
+    if authority is EvidenceAuthority.FIRSTHAND_OBSERVATION:
+        return ClaimScopeDimensions(
+            availability=AvailabilityScope.ONE_ACCOUNT,
+            temporal=(
+                TemporalScope.OBSERVED_NOW
+                if item.published_at is not None
+                else TemporalScope.UNKNOWN
+            ),
+            assertion=AssertionScope.OBSERVED,
+        )
+    if authority is EvidenceAuthority.INDEPENDENT_REPORTING:
+        return ClaimScopeDimensions(
+            temporal=TemporalScope.CURRENTLY_EXISTS,
+            assertion=AssertionScope.INDEPENDENTLY_VERIFIED,
+        )
+    return ClaimScopeDimensions()
 
 
 def _candidate_evidence(item: RawItem) -> list[CandidateEvidence]:
@@ -101,13 +181,19 @@ def _candidate_evidence(item: RawItem) -> list[CandidateEvidence]:
                 else item.source_role
             ),
             statement_type=item.statement_type,
-            authority=_authority(item),
+            authority=(authority := _authority(item, url)),
+            authoritative_for=(
+                _official_entities(item, url)
+                if authority is EvidenceAuthority.SELF_AUTHORITATIVE
+                else []
+            ),
+            subject_entities=list(
+                dict.fromkeys([*item.company_candidates, *_official_entities(item, url)])
+            ),
+            support_scope=_support_scope(item, authority=authority),
             scope=item.title,
             excerpt=(item.content_excerpt or item.summary)[:1000],
-            official_surface_verified=(
-                item.source_role is SourceRole.OFFICIAL_PRIMARY
-                or bool(item.metadata.get("official"))
-            ),
+            official_surface_verified=authority is EvidenceAuthority.SELF_AUTHORITATIVE,
             retrieved_at=item.fetched_at,
             metadata={
                 "source_type": item.source_type,
@@ -219,7 +305,17 @@ def triage_candidates(
             break
         try:
             output = provider.triage_candidates(batch)
-        except (AIOutputError, AIBudgetExceeded, OSError, ValueError):
+        except AIBudgetExceeded:
+            LOGGER.warning("Candidate triage deferred: shared AI budget unavailable")
+            budget_deferred = [*batch, *ordered[cursor:]]
+            deferred += len(budget_deferred)
+            for candidate in budget_deferred:
+                results[candidate.id] = candidate.model_copy(
+                    update={"execution_state": ExecutionState.DEFERRED_BY_BUDGET}
+                )
+            cursor = len(ordered)
+            break
+        except (AIOutputError, OSError, ValueError):
             LOGGER.exception("Candidate triage degradation: batch retained as unresolved")
             failed += len(batch)
             for candidate in batch:
@@ -309,11 +405,45 @@ def radar_signals_from_candidates(
     candidates: list[Candidate], *, maximum_signals: int
 ) -> list[RadarSignal]:
     """Retain valuable unresolved Candidates without weakening the Story boundary."""
+    notable_reasons = {
+        CandidateReasonCode.POTENTIAL_CAPABILITY_CHANGE,
+        CandidateReasonCode.POTENTIAL_WORKFLOW_CHANGE,
+        CandidateReasonCode.POTENTIAL_ECOSYSTEM_CHANGE,
+        CandidateReasonCode.DEVELOPER_IMPACT,
+        CandidateReasonCode.FIRSTHAND_OBSERVATION,
+    }
+
+    def evidence_is_radar_grade(candidate: Candidate) -> bool:
+        for evidence in candidate.evidence:
+            if evidence.authority in {
+                EvidenceAuthority.SELF_AUTHORITATIVE,
+                EvidenceAuthority.INDEPENDENT_REPORTING,
+            }:
+                return True
+            quality = evidence.observation_quality
+            if (
+                evidence.authority is EvidenceAuthority.FIRSTHAND_OBSERVATION
+                and quality
+                and quality.firsthandness
+                and quality.specificity
+                and quality.artifact_support
+            ):
+                return True
+            if (
+                evidence.source_role is SourceRole.COMMUNITY_DISCOVERY
+                and float(evidence.metadata.get("score", 0) or 0) >= 150
+            ):
+                return True
+        return False
+
     unresolved = [
         candidate
         for candidate in candidates
         if candidate.semantic_disposition is SemanticDisposition.INVESTIGATE
         and candidate.potential_impact
+        and candidate.investigation_priority >= 0.7
+        and bool(set(candidate.reason_codes) & notable_reasons)
+        and evidence_is_radar_grade(candidate)
     ]
     unresolved.sort(key=lambda item: (-item.investigation_priority, item.id))
     signals: list[RadarSignal] = []

@@ -11,13 +11,17 @@ from morning_radar.models import (
     EvidenceState,
     ExecutionState,
     SemanticDisposition,
+    TemporalScope,
 )
 
 TEMPORAL_CLAIM_PATTERN = re.compile(
     r"\b(new|launch(?:ed|es)?|release[ds]?|introduced?|first|now supports?|"
-    r"preview|ga|new model|new version|v\d+(?:\.\d+)*)\b",
+    r"preview|ga|new model|new version|v\d+(?:\.\d+)*)\b|"
+    r"新发布|刚刚发布|今天(?:发布|推出|上线)|首次|首个|现已支持|正式发布|全面开放",
     re.IGNORECASE,
 )
+
+FIRST_CLAIM_PATTERN = re.compile(r"\bfirst(?: ever)?\b|首次|首个", re.IGNORECASE)
 
 
 def apply_freshness_guard(candidates: list[Candidate]) -> list[Candidate]:
@@ -25,8 +29,20 @@ def apply_freshness_guard(candidates: list[Candidate]) -> list[Candidate]:
     guarded: list[Candidate] = []
     for candidate in candidates:
         has_temporal_claim = bool(TEMPORAL_CLAIM_PATTERN.search(candidate.hypothesis))
+        required_temporal_scope = (
+            TemporalScope.FIRST_EVER
+            if FIRST_CLAIM_PATTERN.search(candidate.hypothesis)
+            else TemporalScope.NEWLY_RELEASED
+        )
         has_authoritative_evidence = any(
             evidence.authority is EvidenceAuthority.SELF_AUTHORITATIVE
+            and (
+                evidence.support_scope.temporal is required_temporal_scope
+                or (
+                    required_temporal_scope is TemporalScope.NEWLY_RELEASED
+                    and evidence.support_scope.temporal is TemporalScope.FIRST_EVER
+                )
+            )
             for evidence in candidate.evidence
         )
         if (

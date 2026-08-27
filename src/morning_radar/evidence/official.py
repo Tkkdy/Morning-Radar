@@ -14,6 +14,7 @@ from morning_radar.models.core import RadarModel, _validate_aware_datetime
 from morning_radar.storage import read_json, write_json
 
 LOGGER = logging.getLogger(__name__)
+MULTI_TENANT_ROOTS = {"github.com"}
 
 
 class SurfaceTrustStatus(StrEnum):
@@ -44,7 +45,11 @@ class OfficialSurfaceResolver:
         stale_after_days: int = 90,
     ) -> None:
         self.cache_path = cache_path
-        self.seeds = {surface.casefold().rstrip("."): entity for surface, entity in seeds.items()}
+        self.seeds = {
+            surface.casefold().rstrip("."): entity
+            for surface, entity in seeds.items()
+            if surface.casefold().rstrip(".") not in MULTI_TENANT_ROOTS
+        }
         self.now = now or datetime.now(UTC)
         self.stale_after = timedelta(days=stale_after_days)
         self.records = self._load()

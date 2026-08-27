@@ -4,11 +4,13 @@ from morning_radar.candidates import apply_freshness_guard
 from morning_radar.models import (
     Candidate,
     CandidateEvidence,
+    ClaimScopeDimensions,
     EvidenceAuthority,
     EvidenceState,
     ExecutionState,
     SemanticDisposition,
     SourceRole,
+    TemporalScope,
 )
 
 NOW = datetime(2026, 8, 22, tzinfo=UTC)
@@ -32,6 +34,18 @@ def build_candidate(authority: EvidenceAuthority) -> Candidate:
                 publisher="Example",
                 source_role=SourceRole.COMMUNITY_DISCOVERY,
                 authority=authority,
+                authoritative_for=(
+                    ["Example"]
+                    if authority is EvidenceAuthority.SELF_AUTHORITATIVE
+                    else []
+                ),
+                support_scope=ClaimScopeDimensions(
+                    temporal=(
+                        TemporalScope.NEWLY_RELEASED
+                        if authority is EvidenceAuthority.SELF_AUTHORITATIVE
+                        else TemporalScope.UNKNOWN
+                    )
+                ),
                 scope="Vision documentation exists.",
             )
         ],
@@ -53,3 +67,16 @@ def test_official_self_authoritative_temporal_claim_keeps_fast_path() -> None:
     candidate = build_candidate(EvidenceAuthority.SELF_AUTHORITATIVE)
 
     assert apply_freshness_guard([candidate]) == [candidate]
+
+
+def test_chinese_temporal_claim_requires_matching_release_time_scope() -> None:
+    candidate = build_candidate(EvidenceAuthority.SELF_AUTHORITATIVE).model_copy(
+        update={"hypothesis": "Example 今天新发布视觉模型"}
+    )
+    candidate.evidence[0].support_scope = ClaimScopeDimensions(
+        temporal=TemporalScope.CURRENTLY_EXISTS
+    )
+
+    [guarded] = apply_freshness_guard([candidate])
+
+    assert guarded.semantic_disposition is SemanticDisposition.INVESTIGATE

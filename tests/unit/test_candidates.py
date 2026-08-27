@@ -1,10 +1,11 @@
 from datetime import UTC, datetime
 
-from morning_radar.ai import FakeAIProvider
+from morning_radar.ai import AIBudgetExceeded, FakeAIProvider
 from morning_radar.ai.models import CandidateTriageBatch, CandidateTriageDraft
 from morning_radar.candidates import admit_candidates, triage_candidates
 from morning_radar.models import (
     CandidateReasonCode,
+    EvidenceAuthority,
     EvidenceState,
     ExecutionState,
     RawItem,
@@ -107,3 +108,52 @@ def test_character_budget_defer_is_not_drop() -> None:
 
     assert deferred.semantic_disposition is None
     assert deferred.execution_state is ExecutionState.DEFERRED_BY_BUDGET
+
+
+class ExhaustedProvider(FakeAIProvider):
+    def triage_candidates(self, candidates):
+        raise AIBudgetExceeded("reserved for later stages")
+
+
+def test_shared_budget_exhaustion_is_deferred_not_failed_ai() -> None:
+    candidates = admit_candidates(
+        [item("one", "AI model release"), item("two", "AI agent release")],
+        now=NOW,
+    )
+
+    result = triage_candidates(
+        candidates,
+        provider=ExhaustedProvider(),
+        maximum_batch_items=1,
+        maximum_input_characters=100_000,
+    )
+
+    assert result.stats["candidate_triage_failed"] == 0
+    assert result.stats["candidate_triage_deferred"] == 2
+    assert all(
+        candidate.execution_state is ExecutionState.DEFERRED_BY_BUDGET
+        for candidate in result.candidates
+    )
+
+
+def test_github_authority_is_limited_to_verified_repository_scope() -> None:
+    repository_release = RawItem(
+        id="repo-release",
+        title="Example v1 released",
+        url="https://github.com/example/project/releases/tag/v1",
+        source_name="example/project",
+        source_type="github",
+        fetched_at=NOW,
+        source_role=SourceRole.OFFICIAL_PRIMARY,
+        metadata={"repository": "example/project", "official": True},
+    )
+    github_root = repository_release.model_copy(
+        update={"id": "root", "url": "https://github.com/"}
+    )
+
+    [repo_candidate] = admit_candidates([repository_release], now=NOW)
+    [root_candidate] = admit_candidates([github_root], now=NOW)
+
+    assert repo_candidate.evidence[0].authority is EvidenceAuthority.SELF_AUTHORITATIVE
+    assert repo_candidate.evidence[0].authoritative_for == ["example/project"]
+    assert root_candidate.evidence[0].authority is EvidenceAuthority.DISCOVERY_ONLY

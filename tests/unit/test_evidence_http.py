@@ -142,3 +142,12 @@ def test_unknown_surface_is_not_authenticated_by_name_guess(tmp_path) -> None:
     )
 
     assert resolver.verify("https://deepseek-news.example.com/post") is None
+
+
+def test_github_root_cannot_be_configured_as_global_self_authority(tmp_path) -> None:
+    resolver = OfficialSurfaceResolver(
+        cache_path=tmp_path / "cache.json",
+        seeds={"github.com": "GitHub"},
+    )
+
+    assert resolver.verify("https://github.com/unrelated/project") is None

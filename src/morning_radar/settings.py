@@ -41,6 +41,8 @@ class AppConfig(ConfigModel):
     maximum_brief_items: int = Field(gt=0)
     maximum_ai_calls: int = Field(gt=0)
     maximum_ai_input_characters: int = Field(gt=0)
+    protected_ai_calls: dict[str, int] = Field(default_factory=dict)
+    protected_ai_input_characters: dict[str, int] = Field(default_factory=dict)
     maximum_triage_batch_items: int = Field(default=40, ge=1, le=100)
     maximum_triage_input_characters: int = Field(default=80000, ge=1000)
     maximum_story_candidates: int = Field(default=17, ge=1, le=40)
@@ -69,6 +71,22 @@ class AppConfig(ConfigModel):
     def triage_batch_fits_provider_item_limit(self) -> AppConfig:
         if self.maximum_triage_batch_items > self.maximum_ai_items:
             raise ValueError("maximum_triage_batch_items cannot exceed maximum_ai_items")
+        if any(value < 0 for value in self.protected_ai_calls.values()):
+            raise ValueError("protected_ai_calls values must be non-negative")
+        if sum(self.protected_ai_calls.values()) > self.maximum_ai_calls:
+            raise ValueError("protected_ai_calls cannot exceed maximum_ai_calls")
+        if any(value < 0 for value in self.protected_ai_input_characters.values()):
+            raise ValueError(
+                "protected_ai_input_characters values must be non-negative"
+            )
+        if (
+            sum(self.protected_ai_input_characters.values())
+            > self.maximum_ai_input_characters
+        ):
+            raise ValueError(
+                "protected_ai_input_characters cannot exceed "
+                "maximum_ai_input_characters"
+            )
         return self
 
 

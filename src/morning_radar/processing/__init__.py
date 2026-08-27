@@ -13,6 +13,7 @@ from morning_radar.processing.story_builder import (
     filter_story_candidate_inputs,
     rank_stories,
     ranking_score,
+    story_evidence_integrity_violations,
 )
 
 __all__ = [
@@ -29,5 +30,6 @@ __all__ = [
     "normalize_url",
     "rank_stories",
     "ranking_score",
+    "story_evidence_integrity_violations",
     "stable_item_id",
 ]

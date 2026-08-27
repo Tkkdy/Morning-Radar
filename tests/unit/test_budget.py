@@ -34,3 +34,35 @@ def test_completed_stage_releases_unused_minimum_to_shared_pool() -> None:
     budget.consume("brief", item_count=1, stage="brief")
 
     assert budget.stage_calls == {"triage": 2, "brief": 1}
+
+
+def test_character_reserve_prevents_triage_from_starving_later_work() -> None:
+    budget = AIBudget(
+        maximum_calls=10,
+        maximum_input_characters=100,
+        maximum_items=40,
+        protected_input_minimums={"story": 20, "brief": 20},
+    )
+
+    budget.consume("t" * 60, item_count=1, stage="triage")
+    with pytest.raises(AIBudgetExceeded, match="character pool"):
+        budget.consume("x", item_count=1, stage="triage")
+
+    budget.consume("s" * 20, item_count=1, stage="story")
+    budget.consume("b" * 20, item_count=1, stage="brief")
+
+
+def test_completed_stage_releases_unused_character_reserve() -> None:
+    budget = AIBudget(
+        maximum_calls=10,
+        maximum_input_characters=100,
+        maximum_items=40,
+        protected_input_minimums={"story": 30, "brief": 20},
+    )
+
+    budget.consume("t" * 50, item_count=1, stage="triage")
+    budget.complete_stage("story")
+    budget.consume("x" * 30, item_count=1, stage="triage")
+    budget.consume("b" * 20, item_count=1, stage="brief")
+
+    assert budget.stage_input_characters == {"triage": 80, "brief": 20}
