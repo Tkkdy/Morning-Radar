@@ -17,13 +17,15 @@ from morning_radar.ai import (
 )
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
+    CandidateTriageDraft,
     ClassificationBatch,
     ClassifiedItem,
     GeneratedBriefItem,
     MergedStoryDraft,
 )
 from morning_radar.briefing import BriefLimits, generate_daily_brief
-from morning_radar.models import RawItem, Story
+from morning_radar.models import Candidate, EvidenceState, RawItem, SemanticDisposition, Story
 
 
 def raw_item(url: str = "https://example.com/real") -> RawItem:
@@ -118,6 +120,42 @@ def test_invalid_output_after_retry_is_skipped_with_error() -> None:
 
     with pytest.raises(AIOutputError, match="after retry"):
         configured.classify_items([raw_item()])
+
+
+def test_candidate_triage_english_diagnostic_does_not_reject_semantic_output(
+    caplog,
+) -> None:
+    candidate = Candidate(
+        id="candidate-1",
+        created_at=datetime(2026, 7, 23, tzinfo=UTC),
+        updated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        raw_item_ids=["item-1"],
+        hypothesis="某开发者工作流可能出现了值得验证的变化。",
+    )
+    english_verification_path = (
+        "Check the official release notes and compare the documented behavior "
+        "with a reproducible developer workflow before making a final decision."
+    )
+    expected = CandidateTriageBatch(
+        candidates=[
+            CandidateTriageDraft(
+                candidate_id=candidate.id,
+                hypothesis=candidate.hypothesis,
+                semantic_disposition=SemanticDisposition.INVESTIGATE,
+                evidence_state=EvidenceState.INSUFFICIENT,
+                missing_evidence=["缺少官方发布说明。"],
+                verification_target="确认官方是否记录了该行为变化。",
+                verification_path=english_verification_path,
+            )
+        ]
+    )
+    configured = provider([expected])
+
+    assert configured.triage_candidates([candidate]) == expected
+    assert configured.client.responses.calls == 1
+    assert "candidate_id=candidate-1" in caplog.text
+    assert "field_path=candidates[0].verification_path" in caplog.text
+    assert english_verification_path not in caplog.text
 
 
 def test_english_story_narrative_retries_without_extra_logical_call() -> None:

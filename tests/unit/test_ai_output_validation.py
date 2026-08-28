@@ -23,7 +23,6 @@ from morning_radar.ai.output_validation import (
     validate_simplified_chinese_output,
 )
 from morning_radar.models import (
-    CandidateReasonCode,
     EvidenceState,
     SemanticDisposition,
     Signal,
@@ -436,22 +435,30 @@ def test_editorial_grounding_accepts_latin_anchors_next_to_chinese(
     )
 
 
-def test_candidate_triage_user_visible_output_rejects_long_english_prose() -> None:
+def test_candidate_triage_records_language_diagnostic_without_rejecting(
+    caplog,
+) -> None:
+    english_verification_path = (
+        "Check the official release notes and compare the documented behavior "
+        "with a reproducible developer workflow before making a final decision."
+    )
     output = CandidateTriageBatch(
         candidates=[
             CandidateTriageDraft(
                 candidate_id="candidate-1",
-                hypothesis=(
-                    "This practitioner report describes a concrete and reproducible "
-                    "workflow regression affecting many software developers"
-                ),
+                hypothesis="某开发者工作流可能出现了值得验证的变化。",
                 potential_impact="值得继续验证。",
-                semantic_disposition=SemanticDisposition.DROP,
+                semantic_disposition=SemanticDisposition.INVESTIGATE,
                 evidence_state=EvidenceState.INSUFFICIENT,
-                reason_codes=[CandidateReasonCode.LOW_IMPACT],
+                missing_evidence=["缺少官方发布说明。"],
+                verification_target="确认官方是否记录了该行为变化。",
+                verification_path=english_verification_path,
             )
         ]
     )
 
-    with pytest.raises(ValueError, match="English prose"):
-        validate_core_simplified_chinese_output(output)
+    validate_core_simplified_chinese_output(output)
+
+    assert "candidate_id=candidate-1" in caplog.text
+    assert "field_path=candidates[0].verification_path" in caplog.text
+    assert english_verification_path not in caplog.text
