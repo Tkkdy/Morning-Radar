@@ -107,6 +107,7 @@ class SourceConfig(ConfigModel):
     enabled: bool = True
     topics: list[str] = Field(default_factory=list)
     official: bool = False
+    entity: str | None = None
     source_role: Literal[
         "official_primary",
         "practitioner",

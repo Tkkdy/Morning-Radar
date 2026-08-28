@@ -21,6 +21,7 @@ from morning_radar.briefing import (
 from morning_radar.candidates import (
     admit_candidates,
     apply_freshness_guard,
+    attach_official_source_entities,
     radar_signals_from_candidates,
     triage_candidates,
 )
@@ -202,6 +203,14 @@ class MorningRadarPipeline:
                 prompt_dir=self.root / "prompts",
             )
 
+        source_entities = {
+            source.id: source.entity
+            for source in load_model_list(
+                self.root / "config/sources.yaml", "sources", SourceConfig
+            )
+            if source.official and source.entity
+        }
+        raw_items = attach_official_source_entities(raw_items, source_entities)
         trace_builder = DecisionTraceBuilder(raw_items)
         recent = filter_news_window(
             raw_items,

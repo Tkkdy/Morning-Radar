@@ -129,7 +129,9 @@ def test_hn_discovery_and_official_evidence_provenance_remain_separate(tmp_path)
     assert story.source_refs[0].source_name == "Hacker News"
     assert story.source_refs[0].discussion_url == DISCUSSION
     official = [item for item in story.evidence_refs if item.official_surface_verified]
-    assert official[0].publisher == "DeepSeek"
+    assert official[0].publisher == "api-docs.deepseek.com"
+    assert official[0].authoritative_for == ["DeepSeek"]
+    assert candidate.entity_names == ["DeepSeek"]
     assert story.claim_supports[0].evidence_ids == [official[0].evidence_id]
 
 
@@ -171,7 +173,7 @@ def test_unknown_fetched_url_remains_unverified_and_cannot_support_story(tmp_pat
     ]
 
     assert fetched[0].authority is EvidenceAuthority.UNVERIFIED_EXTERNAL
-    with pytest.raises(ValueError, match="Claim"):
+    with pytest.raises(ValueError, match="only BUILD"):
         build_candidate_story(
             result.candidates[0],
             raw_items=[raw()],

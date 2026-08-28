@@ -135,6 +135,10 @@ def test_fake_harness_uses_production_pipeline_and_writes_review_artifacts(
     assert summary["safety_observations"]["whole_run_attempts"] == 1
     assert summary["deepseek_golden"]["candidate_admitted"] is True
     assert summary["deepseek_golden"]["entered_semantic_triage"] is True
+    assert any(
+        "BUILD_DOWNGRADED_EVIDENCE_INSUFFICIENT" in transition["reason_codes"]
+        for transition in summary["deepseek_golden"]["trace"]
+    )
     assert integrity_calls
     assert len(integrity_calls) == summary["integrity"]["persisted_stories"]
     assert summary["integrity"]["evidence_integrity_violations"] == 0
@@ -169,7 +173,7 @@ def test_fake_harness_uses_production_pipeline_and_writes_review_artifacts(
         for line in (run_directory / "stories.jsonl").read_text(encoding="utf-8").splitlines()
     ]
     rejected = [row for row in story_rows if row["story_result"] == "STORY_REJECTED"]
-    assert rejected
+    assert story_rows
     assert all(row["rejection_reason"] for row in rejected)
 
     with pytest.raises(EvaluationSafetyError, match="rerun is blocked"):

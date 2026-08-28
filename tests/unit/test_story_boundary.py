@@ -198,6 +198,59 @@ def test_discovery_only_input_cannot_cross_story_boundary() -> None:
         )
 
 
+@pytest.mark.parametrize(
+    ("fact", "entities", "authoritative_for"),
+    [
+        (
+            "Ollama 发布了 v0.33.0-rc0 版本。",
+            ["ollama/ollama", "ollama"],
+            ["ollama/ollama", "ollama", "Ollama"],
+        ),
+        (
+            "pydantic-ai 发布了 v2.33.0 版本。",
+            ["pydantic/pydantic-ai", "pydantic-ai"],
+            ["pydantic/pydantic-ai", "pydantic-ai", "Pydantic Ai"],
+        ),
+        (
+            "Cloudflare 宣布推出 Bot Preference Sync。",
+            ["Cloudflare"],
+            ["Cloudflare"],
+        ),
+        (
+            "GitHub 宣布 Copilot 集成进入公开预览。",
+            ["GitHub"],
+            ["GitHub"],
+        ),
+    ],
+)
+def test_grounded_entity_metadata_crosses_subject_boundary(
+    fact: str, entities: list[str], authoritative_for: list[str]
+) -> None:
+    grounded = candidate(
+        EvidenceAuthority.SELF_AUTHORITATIVE,
+        authoritative_for=authoritative_for,
+    ).model_copy(
+        update={
+            "entity_names": entities,
+            "evidence": [
+                candidate(
+                    EvidenceAuthority.SELF_AUTHORITATIVE,
+                    authoritative_for=authoritative_for,
+                ).evidence[0].model_copy(update={"excerpt": fact})
+            ],
+        }
+    )
+
+    story = build_candidate_story(
+        grounded,
+        raw_items=[raw()],
+        provider=DraftProvider(fact, ClaimType.OTHER),
+        now=NOW,
+    )
+
+    assert story.claim_supports[0].claim_subject in authoritative_for
+
+
 def test_official_authority_is_entity_scoped() -> None:
     with pytest.raises(StoryValidationError, match="Claim Scope"):
         build_candidate_story(

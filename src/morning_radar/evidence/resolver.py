@@ -133,7 +133,7 @@ def resolve_evidence(
         evidence = CandidateEvidence(
             evidence_id=f"evidence-fetch-{identity}",
             url=result.final_url,
-            publisher=trust.entity if trust else result.final_url,
+            publisher=trust.surface if trust else result.final_url,
             source_role=(
                 SourceRole.OFFICIAL_PRIMARY
                 if trust
@@ -172,6 +172,14 @@ def resolve_evidence(
         updated = candidate.model_copy(
             update={
                 "evidence": [*candidate.evidence, evidence],
+                "entity_names": list(
+                    dict.fromkeys(
+                        [
+                            *candidate.entity_names,
+                            *(evidence.authoritative_for if trust else []),
+                        ]
+                    )
+                ),
                 "execution_state": ExecutionState.EXECUTED,
                 "updated_at": now,
             }

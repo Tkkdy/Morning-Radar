@@ -11,6 +11,7 @@ from urllib.parse import urlsplit
 
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.provider import AIProvider
+from morning_radar.candidates.eligibility import apply_build_eligibility_guard
 from morning_radar.models import (
     AssertionScope,
     AvailabilityScope,
@@ -83,17 +84,54 @@ def _verified_github_repository(item: RawItem, url: str) -> str | None:
     return repository if path_repository.casefold() == repository.casefold() else None
 
 
-def _official_entities(item: RawItem, url: str) -> list[str]:
+def _deduplicated_entities(values: list[str]) -> list[str]:
+    seen: set[str] = set()
+    result: list[str] = []
+    for value in values:
+        normalized = re.sub(r"[^a-z0-9\u4e00-\u9fff]+", "", value.casefold())
+        if not normalized or normalized in seen:
+            continue
+        seen.add(normalized)
+        result.append(value)
+    return result
+
+
+def _repository_identity(repository: str) -> tuple[str, list[str]]:
+    name = repository.rsplit("/", 1)[-1]
+    display_name = re.sub(r"[-_]+", " ", name).title()
+    aliases = list(dict.fromkeys([name, display_name]))
+    return repository, [alias for alias in aliases if alias.casefold() != repository.casefold()]
+
+
+def _official_identity(item: RawItem, url: str) -> tuple[str | None, list[str]]:
     repository = _verified_github_repository(item, url)
     if repository:
-        return [repository]
+        return _repository_identity(repository)
     values = [*item.company_candidates]
     configured_entity = item.metadata.get("entity")
     if isinstance(configured_entity, str) and configured_entity.strip():
         values.append(configured_entity.strip())
     if not values and item.source_role is SourceRole.OFFICIAL_PRIMARY:
         values.append(item.source_name)
-    return list(dict.fromkeys(values))
+    entities = _deduplicated_entities(values)
+    return (entities[0], entities[1:]) if entities else (None, [])
+
+
+def attach_official_source_entities(
+    items: list[RawItem], source_entities: dict[str, str]
+) -> list[RawItem]:
+    """Attach configured official identity without trusting destination domains."""
+    attached: list[RawItem] = []
+    for item in items:
+        source_id = item.metadata.get("source_id")
+        entity = source_entities.get(source_id) if isinstance(source_id, str) else None
+        if not entity or item.source_role is not SourceRole.OFFICIAL_PRIMARY:
+            attached.append(item)
+            continue
+        attached.append(
+            item.model_copy(update={"metadata": {**item.metadata, "entity": entity}})
+        )
+    return attached
 
 
 def _authority(item: RawItem, url: str) -> EvidenceAuthority:
@@ -171,8 +209,17 @@ def _candidate_evidence(item: RawItem) -> list[CandidateEvidence]:
         if item.source_role is SourceRole.PRACTITIONER
         else None
     )
-    return [
-        CandidateEvidence(
+    evidence: list[CandidateEvidence] = []
+    for url in verified_source_urls(item):
+        authority = _authority(item, url)
+        canonical_entity, entity_aliases = _official_identity(item, url)
+        authoritative_entities = (
+            [canonical_entity, *entity_aliases]
+            if authority is EvidenceAuthority.SELF_AUTHORITATIVE and canonical_entity
+            else []
+        )
+        evidence.append(
+            CandidateEvidence(
             evidence_id=_evidence_id(item, url),
             raw_item_id=item.id,
             url=url,
@@ -183,14 +230,10 @@ def _candidate_evidence(item: RawItem) -> list[CandidateEvidence]:
                 else item.source_role
             ),
             statement_type=item.statement_type,
-            authority=(authority := _authority(item, url)),
-            authoritative_for=(
-                _official_entities(item, url)
-                if authority is EvidenceAuthority.SELF_AUTHORITATIVE
-                else []
-            ),
-            subject_entities=list(
-                dict.fromkeys([*item.company_candidates, *_official_entities(item, url)])
+            authority=authority,
+            authoritative_for=authoritative_entities,
+            subject_entities=_deduplicated_entities(
+                [*item.company_candidates, *authoritative_entities]
             ),
             support_scope=_support_scope(item, authority=authority),
             scope=item.title,
@@ -205,8 +248,8 @@ def _candidate_evidence(item: RawItem) -> list[CandidateEvidence]:
             },
             observation_quality=observation_quality,
         )
-        for url in verified_source_urls(item)
-    ]
+        )
+    return evidence
 
 
 def _must_triage(items: list[RawItem]) -> bool:
@@ -234,6 +277,13 @@ def admit_candidates(items: list[RawItem], *, now: datetime) -> list[Candidate]:
     for group in group_items_by_normalized_title(items):
         raw_ids = [item.id for item in group]
         evidence = [ref for item in group for ref in _candidate_evidence(item)]
+        evidence_entities = [
+            entity
+            for ref in evidence
+            if ref.authority is EvidenceAuthority.SELF_AUTHORITATIVE
+            and ref.official_surface_verified
+            for entity in ref.authoritative_for
+        ]
         must_triage = _must_triage(group)
         candidates.append(
             Candidate(
@@ -242,8 +292,11 @@ def admit_candidates(items: list[RawItem], *, now: datetime) -> list[Candidate]:
                 updated_at=now,
                 raw_item_ids=raw_ids,
                 hypothesis=group[0].title,
-                entity_names=list(
-                    dict.fromkeys(name for item in group for name in item.company_candidates)
+                entity_names=_deduplicated_entities(
+                    [
+                        *(name for item in group for name in item.company_candidates),
+                        *evidence_entities,
+                    ]
                 ),
                 product_names=list(
                     dict.fromkeys(name for item in group for name in item.product_candidates)
@@ -369,7 +422,9 @@ def triage_candidates(
         results[candidate.id] = candidate.model_copy(
             update={"execution_state": ExecutionState.DEFERRED_BY_BUDGET}
         )
-    final = [results[candidate.id] for candidate in candidates]
+    final = apply_build_eligibility_guard(
+        [results[candidate.id] for candidate in candidates]
+    )
     return CandidateRunResult(
         candidates=final,
         stats={
