@@ -175,11 +175,9 @@ def _requested_scope(
 ) -> ClaimScopeDimensions:
     inferred = _inferred_claim_scope(claim, declared)
     return ClaimScopeDimensions(
-        availability=(
-            inferred.availability
-            if inferred.availability is not AvailabilityScope.UNKNOWN
-            else proposed.availability
-        ),
+        # Availability breadth must be stated by the final fact. The model's
+        # proposed scope remains diagnostic and cannot expand an unstated claim.
+        availability=inferred.availability,
         temporal=(
             inferred.temporal
             if inferred.temporal is not TemporalScope.UNKNOWN

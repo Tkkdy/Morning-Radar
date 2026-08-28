@@ -22,7 +22,11 @@ from morning_radar.models import (
     StatementType,
     TemporalScope,
 )
-from morning_radar.processing.story_builder import StoryValidationError, build_candidate_story
+from morning_radar.processing.story_builder import (
+    StoryValidationError,
+    _requested_scope,
+    build_candidate_story,
+)
 
 NOW = datetime(2026, 8, 22, tzinfo=UTC)
 URL = "https://docs.example.com/release"
@@ -158,6 +162,103 @@ def test_scope_supported_false_is_diagnostic_and_does_not_veto_valid_scope() -> 
     )
 
     assert story.facts == ["Example 官方表示新版本已发布"]
+
+
+def test_model_proposed_broad_does_not_expand_unstated_availability() -> None:
+    unknown_availability = ClaimScopeDimensions(
+        availability=AvailabilityScope.UNKNOWN,
+        temporal=TemporalScope.NEWLY_RELEASED,
+        assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+    )
+    proposed_broad = ClaimScopeDimensions(
+        availability=AvailabilityScope.BROAD,
+        temporal=TemporalScope.NEWLY_RELEASED,
+        assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+    )
+
+    story = build_candidate_story(
+        candidate(
+            EvidenceAuthority.SELF_AUTHORITATIVE,
+            support_scope=unknown_availability,
+        ),
+        raw_items=[raw()],
+        provider=DraftProvider(
+            "Example 官方发布了 v0.33.0-rc0 变更日志。",
+            ClaimType.OTHER,
+            requested_scope=proposed_broad,
+        ),
+        now=NOW,
+    )
+
+    assert story.facts == ["Example 官方发布了 v0.33.0-rc0 变更日志。"]
+
+
+@pytest.mark.parametrize(
+    "proposed_availability",
+    [AvailabilityScope.BROAD, AvailabilityScope.SOME_USERS, AvailabilityScope.GA],
+)
+def test_model_proposal_is_diagnostic_when_fact_has_no_availability_claim(
+    proposed_availability: AvailabilityScope,
+) -> None:
+    requested = _requested_scope(
+        "Example 官方发布了变更日志。",
+        ClaimType.OTHER,
+        ClaimScopeDimensions(availability=proposed_availability),
+    )
+
+    assert requested.availability is AvailabilityScope.UNKNOWN
+
+
+@pytest.mark.parametrize(
+    "fact",
+    [
+        "Example 该功能现已向所有用户开放。",
+        "Example 该功能目前仅部分用户可用。",
+        "Example 该功能已经 GA 正式可用。",
+    ],
+)
+def test_explicit_availability_claim_rejects_unknown_evidence(fact: str) -> None:
+    unknown_availability = ClaimScopeDimensions(
+        availability=AvailabilityScope.UNKNOWN,
+        temporal=TemporalScope.NEWLY_RELEASED,
+        assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+    )
+
+    with pytest.raises(StoryValidationError, match="Claim Scope"):
+        build_candidate_story(
+            candidate(
+                EvidenceAuthority.SELF_AUTHORITATIVE,
+                support_scope=unknown_availability,
+            ),
+            raw_items=[raw()],
+            provider=DraftProvider(
+                fact,
+                ClaimType.OTHER,
+                requested_scope=ClaimScopeDimensions(
+                    temporal=TemporalScope.NEWLY_RELEASED,
+                    assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+                ),
+            ),
+            now=NOW,
+        )
+
+
+def test_ga_evidence_supports_explicit_ga_claim() -> None:
+    story = build_candidate_story(
+        candidate(EvidenceAuthority.SELF_AUTHORITATIVE),
+        raw_items=[raw()],
+        provider=DraftProvider(
+            "Example 该功能已经 GA 正式可用。",
+            ClaimType.OTHER,
+            requested_scope=ClaimScopeDimensions(
+                temporal=TemporalScope.NEWLY_RELEASED,
+                assertion=AssertionScope.OFFICIALLY_ANNOUNCED,
+            ),
+        ),
+        now=NOW,
+    )
+
+    assert story.facts == ["Example 该功能已经 GA 正式可用。"]
 
 
 def test_scope_supported_true_cannot_expand_practitioner_observation_to_ga() -> None:
