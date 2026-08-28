@@ -680,8 +680,8 @@ def build_candidate_stories(
     build_candidates.sort(
         key=lambda candidate: (
             candidate.evidence_state.value != "sufficient",
-            not candidate.must_triage,
             -candidate.investigation_priority,
+            not candidate.must_triage,
             candidate.id,
         )
     )

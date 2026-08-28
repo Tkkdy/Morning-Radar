@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 import pytest
 from pydantic import ValidationError
 
-from morning_radar.ai import FakeAIProvider
+from morning_radar.ai import AIBudgetExceeded, FakeAIProvider
 from morning_radar.ai.models import DraftClaimSupport, MergedStoryDraft
 from morning_radar.models import (
     AssertionScope,
@@ -26,6 +26,7 @@ from morning_radar.processing.story_builder import (
     StoryValidationError,
     _deterministic_claim_subject,
     _requested_scope,
+    build_candidate_stories,
     build_candidate_story,
     story_evidence_integrity_violations,
 )
@@ -151,6 +152,149 @@ class DraftProvider(FakeAIProvider):
             source_urls=[URL],
             primary_source_url=URL,
         )
+
+
+class SchedulingProvider(DraftProvider):
+    def __init__(self, *, fail_on: str | None = None) -> None:
+        super().__init__("Example published the release page.", ClaimType.OTHER)
+        self.fail_on = fail_on
+        self.constructed: list[str] = []
+
+    def construct_story(self, candidate):
+        self.constructed.append(candidate.id)
+        if candidate.id == self.fail_on:
+            raise AIBudgetExceeded("fixture Story budget exhausted")
+        return super().construct_story(candidate)
+
+
+def scheduling_candidate(
+    candidate_id: str,
+    *,
+    priority: float,
+    must_triage: bool,
+    evidence_state: EvidenceState = EvidenceState.SUFFICIENT,
+    disposition: SemanticDisposition = SemanticDisposition.BUILD,
+) -> Candidate:
+    return candidate(EvidenceAuthority.SELF_AUTHORITATIVE).model_copy(
+        update={
+            "id": candidate_id,
+            "hypothesis": candidate_id,
+            "investigation_priority": priority,
+            "must_triage": must_triage,
+            "evidence_state": evidence_state,
+            "semantic_disposition": disposition,
+        }
+    )
+
+
+def scheduled_ids(candidates: list[Candidate], *, maximum_candidates: int = 17) -> list[str]:
+    provider = SchedulingProvider()
+    build_candidate_stories(
+        candidates,
+        raw_items=[raw()],
+        provider=provider,
+        now=NOW,
+        maximum_candidates=maximum_candidates,
+    )
+    return provider.constructed
+
+
+def test_story_scheduler_prioritizes_sufficient_evidence() -> None:
+    assert scheduled_ids(
+        [
+            scheduling_candidate(
+                "insufficient-high",
+                priority=1.0,
+                must_triage=True,
+                evidence_state=EvidenceState.INSUFFICIENT,
+            ),
+            scheduling_candidate("sufficient-low", priority=0.1, must_triage=False),
+        ]
+    ) == ["sufficient-low", "insufficient-high"]
+
+
+def test_story_scheduler_prioritizes_impact_over_triage_guardrail() -> None:
+    assert scheduled_ids(
+        [
+            scheduling_candidate("must-low", priority=0.4, must_triage=True),
+            scheduling_candidate("non-must-high", priority=0.8, must_triage=False),
+        ]
+    ) == ["non-must-high", "must-low"]
+
+
+def test_story_scheduler_uses_triage_guardrail_only_as_priority_tiebreak() -> None:
+    assert scheduled_ids(
+        [
+            scheduling_candidate("non-must", priority=0.8, must_triage=False),
+            scheduling_candidate("must", priority=0.8, must_triage=True),
+        ]
+    ) == ["must", "non-must"]
+
+
+def test_story_scheduler_uses_candidate_id_as_stable_final_tiebreak() -> None:
+    candidates = [
+        scheduling_candidate("candidate-z", priority=0.5, must_triage=False),
+        scheduling_candidate("candidate-a", priority=0.5, must_triage=False),
+    ]
+
+    assert scheduled_ids(candidates) == ["candidate-a", "candidate-z"]
+    assert scheduled_ids(list(reversed(candidates))) == ["candidate-a", "candidate-z"]
+
+
+def test_story_scheduler_excludes_non_build_candidates() -> None:
+    assert scheduled_ids(
+        [
+            scheduling_candidate("build", priority=0.1, must_triage=False),
+            scheduling_candidate(
+                "investigate",
+                priority=1.0,
+                must_triage=True,
+                disposition=SemanticDisposition.INVESTIGATE,
+            ),
+        ]
+    ) == ["build"]
+
+
+def test_story_scheduler_preserves_maximum_candidate_cap() -> None:
+    provider = SchedulingProvider()
+    _, dispositions = build_candidate_stories(
+        [
+            scheduling_candidate("first", priority=0.8, must_triage=False),
+            scheduling_candidate("second", priority=0.7, must_triage=False),
+        ],
+        raw_items=[raw()],
+        provider=provider,
+        now=NOW,
+        maximum_candidates=1,
+    )
+
+    assert provider.constructed == ["first"]
+    assert dispositions == {
+        "first": "STORY_BUILT",
+        "second": "STORY_DEFERRED_BY_BUDGET",
+    }
+
+
+def test_story_scheduler_preserves_global_break_after_budget_exhaustion() -> None:
+    provider = SchedulingProvider(fail_on="second")
+    _, dispositions = build_candidate_stories(
+        [
+            scheduling_candidate("first", priority=0.9, must_triage=False),
+            scheduling_candidate("second", priority=0.8, must_triage=False),
+            scheduling_candidate("third", priority=0.7, must_triage=False),
+        ],
+        raw_items=[raw()],
+        provider=provider,
+        now=NOW,
+        maximum_candidates=17,
+    )
+
+    assert provider.constructed == ["first", "second"]
+    assert dispositions == {
+        "first": "STORY_BUILT",
+        "second": "STORY_DEFERRED_BY_BUDGET",
+        "third": "STORY_DEFERRED_BY_BUDGET",
+    }
 
 
 def test_scope_supported_false_is_diagnostic_and_does_not_veto_valid_scope() -> None:
