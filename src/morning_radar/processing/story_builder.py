@@ -39,6 +39,9 @@ PUBLISHED_AT_ROLE_BY_SOURCE_TYPE = {
     "market": PublishedAtRole.MARKET_TRADING_DAY,
 }
 LOGGER = logging.getLogger(__name__)
+BOUNDED_ANAPHORA_PATTERN = re.compile(
+    r"^\s*(?:该|此)(?:版本|功能|模型|产品|工具|插件|服务|项目)"
+)
 
 
 class StoryValidationError(ValueError):
@@ -72,6 +75,48 @@ def _entity_matches(subject: str, candidates: list[str]) -> bool:
     expected = _normalized_entity(subject)
     return bool(expected) and any(
         _normalized_entity(candidate) == expected for candidate in candidates
+    )
+
+
+def _unique_evidence_subject_family(
+    evidence: list[CandidateEvidence],
+) -> str | None:
+    """Return one stable Evidence subject without merging unrelated families."""
+    families: list[tuple[set[str], set[str]]] = []
+    for item in evidence:
+        if item.authority is EvidenceAuthority.SELF_AUTHORITATIVE:
+            aliases = item.authoritative_for
+        elif item.authority is EvidenceAuthority.INDEPENDENT_REPORTING:
+            normalized_subjects = {
+                _normalized_entity(entity): entity
+                for entity in item.subject_entities
+                if _normalized_entity(entity)
+            }
+            if len(normalized_subjects) != 1:
+                return None
+            aliases = list(normalized_subjects.values())
+        else:
+            continue
+        valid_aliases = [alias for alias in aliases if _normalized_entity(alias)]
+        if not valid_aliases:
+            continue
+        normalized_aliases = {_normalized_entity(alias) for alias in valid_aliases}
+        representatives = {valid_aliases[0]}
+        overlapping = [
+            index
+            for index, (family_aliases, _) in enumerate(families)
+            if family_aliases & normalized_aliases
+        ]
+        for index in reversed(overlapping):
+            family_aliases, family_representatives = families.pop(index)
+            normalized_aliases.update(family_aliases)
+            representatives.update(family_representatives)
+        families.append((normalized_aliases, representatives))
+    if len(families) != 1:
+        return None
+    return min(
+        families[0][1],
+        key=lambda value: (_normalized_entity(value), value.casefold(), value),
     )
 
 
@@ -127,6 +172,8 @@ def _deterministic_claim_subject(
     }
     if claim_is_verbatim_evidence and len(selected_evidence_entities) == 1:
         return next(iter(selected_evidence_entities.values()))
+    if BOUNDED_ANAPHORA_PATTERN.search(claim):
+        return _unique_evidence_subject_family(evidence)
     return None
 
 

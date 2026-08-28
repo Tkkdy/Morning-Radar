@@ -24,8 +24,10 @@ from morning_radar.models import (
 )
 from morning_radar.processing.story_builder import (
     StoryValidationError,
+    _deterministic_claim_subject,
     _requested_scope,
     build_candidate_story,
+    story_evidence_integrity_violations,
 )
 
 NOW = datetime(2026, 8, 22, tzinfo=UTC)
@@ -121,11 +123,13 @@ class DraftProvider(FakeAIProvider):
         *,
         scope_supported: bool = True,
         requested_scope: ClaimScopeDimensions | None = None,
+        evidence_ids: list[str] | None = None,
     ):
         self.fact = fact
         self.claim_type = claim_type
         self.scope_supported = scope_supported
         self.requested_scope = requested_scope or ClaimScopeDimensions()
+        self.evidence_ids = evidence_ids or ["evidence-one"]
 
     def construct_story(self, candidate):
         return MergedStoryDraft(
@@ -137,7 +141,7 @@ class DraftProvider(FakeAIProvider):
                 DraftClaimSupport(
                     claim=self.fact,
                     claim_type=self.claim_type,
-                    evidence_ids=["evidence-one"],
+                    evidence_ids=self.evidence_ids,
                     requested_scope=self.requested_scope,
                     evidence_scope="仅覆盖输入证据明确陈述的范围",
                     claim_scope="输入事实范围",
@@ -350,6 +354,98 @@ def test_grounded_entity_metadata_crosses_subject_boundary(
     )
 
     assert story.claim_supports[0].claim_subject in authoritative_for
+
+
+@pytest.mark.parametrize("fact", ["该版本修复了依赖问题。", "此版本修复了依赖问题。"])
+def test_bounded_version_anaphora_uses_one_verified_repository_family(fact: str) -> None:
+    aliases = ["pydantic/pydantic-ai", "pydantic-ai", "Pydantic Ai"]
+    grounded = candidate(
+        EvidenceAuthority.SELF_AUTHORITATIVE,
+        authoritative_for=aliases,
+    ).model_copy(update={"entity_names": aliases[:2]})
+
+    story = build_candidate_story(
+        grounded,
+        raw_items=[raw()],
+        provider=DraftProvider(fact, ClaimType.OTHER),
+        now=NOW,
+    )
+
+    assert story.claim_supports[0].claim_subject == "pydantic/pydantic-ai"
+    assert story_evidence_integrity_violations(story) == []
+
+
+def test_bounded_anaphora_rejects_two_authoritative_subject_families() -> None:
+    first = candidate(
+        EvidenceAuthority.SELF_AUTHORITATIVE,
+        authoritative_for=["OpenAI"],
+    ).evidence[0]
+    second = first.model_copy(
+        update={
+            "evidence_id": "evidence-two",
+            "authoritative_for": ["Anthropic"],
+            "subject_entities": ["Anthropic"],
+        }
+    )
+    ambiguous = candidate(EvidenceAuthority.SELF_AUTHORITATIVE).model_copy(
+        update={"entity_names": ["OpenAI", "Anthropic"], "evidence": [first, second]}
+    )
+
+    with pytest.raises(StoryValidationError, match="Claim subject"):
+        build_candidate_story(
+            ambiguous,
+            raw_items=[raw()],
+            provider=DraftProvider(
+                "该版本性能提升 100%。",
+                ClaimType.OTHER,
+                evidence_ids=["evidence-one", "evidence-two"],
+            ),
+            now=NOW,
+        )
+
+
+def test_unbounded_pronoun_does_not_inherit_evidence_subject() -> None:
+    evidence = candidate(
+        EvidenceAuthority.SELF_AUTHORITATIVE,
+        authoritative_for=["pydantic/pydantic-ai", "pydantic-ai", "Pydantic Ai"],
+    ).evidence
+
+    assert (
+        _deterministic_claim_subject(
+            "它修复了依赖问题。",
+            candidate_entities=[],
+            evidence=evidence,
+        )
+        is None
+    )
+
+
+def test_discovery_only_evidence_cannot_resolve_bounded_anaphora() -> None:
+    evidence = candidate(EvidenceAuthority.DISCOVERY_ONLY).evidence
+
+    assert (
+        _deterministic_claim_subject(
+            "该版本修复了依赖问题。",
+            candidate_entities=[],
+            evidence=evidence,
+        )
+        is None
+    )
+
+
+def test_independent_reporting_subject_ambiguity_remains_fail_closed() -> None:
+    evidence = candidate(EvidenceAuthority.INDEPENDENT_REPORTING).evidence[0].model_copy(
+        update={"subject_entities": ["OpenAI", "Anthropic"]}
+    )
+
+    assert (
+        _deterministic_claim_subject(
+            "该模型性能提升 100%。",
+            candidate_entities=[],
+            evidence=[evidence],
+        )
+        is None
+    )
 
 
 def test_official_authority_is_entity_scoped() -> None:
