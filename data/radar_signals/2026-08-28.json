@@ -1,0 +1,27 @@
+[
+  {
+    "claim": "Simon Willison 的实践记录标题为“Breaking Claude Code Opus 5 Auto Mode”，疑似展示对 Claude Code Opus 5 自动模式的破解或越狱。",
+    "id": "radar-a666a3a3cbc3461703a2",
+    "missing_evidence": [
+      "文章具体内容、破解方法与复现步骤",
+      "该行为属于预期功能、漏洞还是越狱",
+      "使用的 Claude Code Opus 5 版本与测试环境",
+      "是否存在独立验证或 Anthropic 回应"
+    ],
+    "observed_at": "2026-08-28T07:04:13.384062Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-86c9015dd55dff65a654",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/27/breaking-claude-code-opus-5-auto-mode/"
+      }
+    ],
+    "uncertainty": "数据集中仅有标题和链接，没有文章摘要或支持性证据；无法确认具体发现、严重性或真实性。",
+    "why_notable": "若属实，可能揭示 Claude Code Opus 5 自动模式下的安全边界、提示注入或越狱方法，对 AI 编码代理和智能体工作流具有实践参考价值。"
+  }
+]

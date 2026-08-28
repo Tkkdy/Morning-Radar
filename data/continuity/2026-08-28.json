@@ -1,0 +1,338 @@
+{
+  "date": "2026-08-28",
+  "generated_at": "2026-08-28T07:04:13.384062Z",
+  "judgements": [
+    {
+      "claim": "Google 通过将 Google Play Books 集成到 Gemini Notebook，正在把用户购买书籍转化为可交互的知识库，可能强化其 AI 生态对阅读用户的锁定。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-294cded1b8321b931e86"
+          }
+        }
+      ],
+      "judgement_id": "judgement-422ac6400298601a7de5",
+      "rationale": "输入显示 Expert Intelligence 允许从 Google Play Books 导入书籍并提问、生成多种内容，The Verge 报道指出该功能增强了笔记应用实用性并可能吸引用户使用 Google AI 生态。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "root_judgement_id": "judgement-422ac6400298601a7de5",
+      "uncertainty": "尚不清楚功能的实际覆盖范围和用户采用率。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "ollama 从“Ollama v0.33.1 发布：支持 MLX Qwen3.8 Flash Next、结构化输出等”推进到“Ollama v0.33.2 发布候选版发布”。",
+      "current_story": {
+        "date": "2026-08-28",
+        "story_id": "story-69f94b5946f15ef6e797"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-27",
+            "story_id": "story-c80736a3dd6580277378"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-69f94b5946f15ef6e797"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-27",
+        "story_id": "story-c80736a3dd6580277378"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "relation_id": "relation-cfada2487155ea58e8d5",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Ollama 从 v0.32.14-rc0 推进至 v0.33.2-rc0，当前候选版新增系统深色模式恢复、模型目录变化时继续处理请求、同步 macOS 应用交接。",
+      "current_story": {
+        "date": "2026-08-28",
+        "story_id": "story-69f94b5946f15ef6e797"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-16",
+            "story_id": "story-bf512d13532d78e29887"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-69f94b5946f15ef6e797"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-16",
+        "story_id": "story-bf512d13532d78e29887"
+      },
+      "rationale": "两个来源均为 Ollama 同一 GitHub 仓库的发布事件，版本号从 v0.32.14-rc0 演进到 v0.33.2-rc0，当前故事给出了新的候选版本变更事实，构成后续发布。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "relation_id": "relation-5cc15ed9c00a2e163214",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Ollama 从 v0.32.13 推进到 v0.33.2-rc0，当前候选版包含多项修复，包括恢复系统深色模式、处理模型目录变化、同步 macOS 应用交接。",
+      "current_story": {
+        "date": "2026-08-28",
+        "story_id": "story-69f94b5946f15ef6e797"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-f3be120dbe13377e9b0a"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-69f94b5946f15ef6e797"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-15",
+        "story_id": "story-f3be120dbe13377e9b0a"
+      },
+      "rationale": "同属 Ollama 仓库发布序列，版本号从 v0.32.13 演进到 v0.33.2-rc0，当前故事提供新的候选版本变更，构成后续发布。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "relation_id": "relation-0dcdf60765a92476a6ef",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "pydantic-ai 从 v1.107.5 演进到 v2.35.3，当前版本修复了 Heroku GLM 路由、cookie 作用域、DeferredToolRequests 等多项缺陷。",
+      "current_story": {
+        "date": "2026-08-28",
+        "story_id": "story-03a7f879e664b8054651"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-15",
+            "story_id": "story-83f75365c9f0266132e0"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-03a7f879e664b8054651"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-15",
+        "story_id": "story-83f75365c9f0266132e0"
+      },
+      "rationale": "双方均为 pydantic-ai 发布事件，版本号从 v1.107.5 推进到 v2.35.3，当前故事给出新的缺陷修复版本，构成后续发布。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "relation_id": "relation-7a5fba94ba8bb0a580e6",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Ollama 从 v0.33.0-rc0 推进到 v0.33.2-rc0，当前候选版恢复了系统深色模式、在模型目录变化时继续处理请求、同步 macOS 应用交接。",
+      "current_story": {
+        "date": "2026-08-28",
+        "story_id": "story-69f94b5946f15ef6e797"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-22",
+            "story_id": "story-628202a98a8bc40296ef"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-69f94b5946f15ef6e797"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-22",
+        "story_id": "story-628202a98a8bc40296ef"
+      },
+      "rationale": "同属 Ollama 仓库 v0.33 发布序列，候选版本号从 v0.33.0-rc0 演进到 v0.33.2-rc0，当前故事给出新的候选版变更，构成后续发布。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "relation_id": "relation-118162c63be8af508218",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "pydantic-ai 从 v2.31.0 推进到 v2.35.3，当前版本修复了 Heroku GLM 路由、cookie 作用域、DeferredToolRequests 等缺陷。",
+      "current_story": {
+        "date": "2026-08-28",
+        "story_id": "story-03a7f879e664b8054651"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-16",
+            "story_id": "story-975fcebd3bcfff5abfd2"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "story": {
+            "date": "2026-08-28",
+            "story_id": "story-03a7f879e664b8054651"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-16",
+        "story_id": "story-975fcebd3bcfff5abfd2"
+      },
+      "rationale": "双方均为 pydantic-ai 发布事件，版本号从 v2.31.0 演进到 v2.35.3，当前故事提供新的 bug 修复版本，构成后续发布。",
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "relation_id": "relation-7416a3fd9ae0e7ab8d6e",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "Google 将在未来数周内通过官方渠道说明 Gemini Notebook Expert Intelligence 的可用地区和用户范围，或该功能将出现在 Google Play Books 的更新说明中。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Gemini Notebook",
+        "Google Play Books"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-28",
+          "story_id": "story-294cded1b8321b931e86"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-7847c3963e5da2511c2a"
+    },
+    {
+      "entity_anchors": [
+        "Barret Zoph",
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "Barret Zoph 在 Google 的具体职位与团队归属将通过 Google 官方公告或公开职业资料得到明确。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-28",
+          "story_id": "story-35108b753b87c3db9ed5"
+        }
+      ],
+      "topic_anchors": [
+        "AI 人才",
+        "AI 公司动态"
+      ],
+      "watch_id": "watch-444cccdd57ed54d0e2e3"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "OpenAI 将发布该研究的完整报告或预印本，提供方法、数据与统计结果，从而验证 ChatGPT 加批判性思维训练的效果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ChatGPT"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-28T07:04:13.384062Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-28",
+          "story_id": "story-dad9b80949007ef8c2f8"
+        }
+      ],
+      "topic_anchors": [
+        "AI 教育",
+        "批判性思维",
+        "学生表现"
+      ],
+      "watch_id": "watch-0ba2a535e3bb74dcf7f0"
+    }
+  ]
+}
