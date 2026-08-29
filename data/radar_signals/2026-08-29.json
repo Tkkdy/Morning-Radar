@@ -1,0 +1,50 @@
+[
+  {
+    "claim": "仅凭一个 bug 传闻就足以发现安全漏洞。",
+    "id": "radar-b6e23325ff98c2462bde",
+    "missing_evidence": [
+      "缺少具体漏洞名称或 CVE",
+      "未说明是否使用了 AI 模型及具体工具",
+      "无法访问原文正文，难以确认陈述语境"
+    ],
+    "observed_at": "2026-08-29T04:18:48.985507Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-2e3db918b26c4e7f4d0f",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Aug/28/just-a-rumour-of-a-bug/"
+      }
+    ],
+    "uncertainty": "来源为从业者观察，但无附带证据；不清楚是否确指 AI 辅助的漏洞挖掘，还是传统安全研究方法。",
+    "why_notable": "若与 AI 辅助漏洞挖掘相关，可能说明安全研究门槛或方法正在改变，值得验证。"
+  },
+  {
+    "claim": "GLM-5.3 现为开放权重模型。",
+    "id": "radar-f59d1021c4c420485930",
+    "missing_evidence": [
+      "尚无独立来源或公告佐证",
+      "未提供权重下载、许可证及性能对比等关键信息",
+      "HuggingFace 链接可能是 placeholder 或未完成仓库"
+    ],
+    "observed_at": "2026-08-29T04:18:48.985507Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-4f75306ae8bffbe3017e",
+        "source_role": "community_discovery",
+        "url": "https://huggingface.co/zai-org/GLM-5.3"
+      }
+    ],
+    "uncertainty": "仅凭 HuggingFace 链接，无法确认模型是否真实可用、是否正式发布。",
+    "why_notable": "开源权重模型发布可能影响 AI 开源采用与下游微调/部署，值得确认。"
+  }
+]

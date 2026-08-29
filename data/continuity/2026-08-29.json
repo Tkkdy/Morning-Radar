@@ -1,0 +1,132 @@
+{
+  "date": "2026-08-29",
+  "generated_at": "2026-08-29T04:18:48.985507Z",
+  "judgements": [
+    {
+      "claim": "OpenAI 终止向 Cursor 提供模型合同，很可能由 Cursor 被 SpaceX 收购后与 xAI 的竞争关系驱动。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-29",
+            "story_id": "story-dd18facc10cf55a3b8f7"
+          }
+        }
+      ],
+      "judgement_id": "judgement-ef8b4d0a3554b14821ff",
+      "rationale": "公告在 Cursor 被 SpaceX 收购后发布；输入分析指出 SpaceX 创始人 Elon Musk 同时是 xAI 创始人，而 xAI 是 OpenAI 的竞争对手，OpenAI 可能因此重新评估合作风险。",
+      "recorded_at": "2026-08-29T04:18:48.985507Z",
+      "root_judgement_id": "judgement-ef8b4d0a3554b14821ff",
+      "uncertainty": "OpenAI 未明确说明具体原因，无法完全排除商业、合规或过渡安排等其他因素。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "Cursor",
+        "SpaceX"
+      ],
+      "event_type": "opened",
+      "expectation": "未来数周内，OpenAI 或 Cursor/SpaceX 是否正式说明合同终止原因，或 Cursor 是否宣布替代模型供应商（如 xAI 或开源模型），以验证竞争关系假设。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "OpenAI models",
+        "Cursor"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-29T04:18:48.985507Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-29",
+          "story_id": "story-dd18facc10cf55a3b8f7"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-be6863575ba2bf0c7e36"
+    },
+    {
+      "entity_anchors": [
+        "Anthropic"
+      ],
+      "event_type": "opened",
+      "expectation": "Anthropic 是否发布更正式的论文、基准定义或复现细节，以验证 10 项错位基准提升的可靠性和泛化性。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-29T04:18:48.985507Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-29",
+          "story_id": "story-2687bb685f423a4005ef"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-78db9488a9130804ceb4"
+    },
+    {
+      "entity_anchors": [
+        "Lambda",
+        "Microsoft",
+        "Nvidia"
+      ],
+      "event_type": "opened",
+      "expectation": "Lambda 是否公开债务融资条款、Nvidia 芯片型号与数量，以及 Microsoft 租赁协议后续执行情况。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Nvidia AI 芯片"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-29T04:18:48.985507Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-29",
+          "story_id": "story-01f99fba1624a4fd2f08"
+        }
+      ],
+      "topic_anchors": [
+        "AI 基础设施",
+        "债务融资",
+        "云计算"
+      ],
+      "watch_id": "watch-2bbc57c414ccae478092"
+    },
+    {
+      "entity_anchors": [
+        "Anthropic",
+        "美国国防部",
+        "特朗普政府",
+        "联邦法官"
+      ],
+      "event_type": "opened",
+      "expectation": "美国国防部或特朗普政府是否就供应链风险标签裁决提出上诉，以及 Anthropic 针对五角大楼的第二起诉讼是否出现进展。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-29T04:18:48.985507Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-29",
+          "story_id": "story-bdf5162792939c29041c"
+        }
+      ],
+      "topic_anchors": [
+        "AI 监管",
+        "供应链安全",
+        "法律诉讼"
+      ],
+      "watch_id": "watch-f59a6079d8ceabb86a87"
+    }
+  ]
+}

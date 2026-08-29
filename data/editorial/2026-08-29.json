@@ -1,0 +1,328 @@
+{
+  "date": "2026-08-29",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "structural_business_change",
+        "large_user_impact",
+        "ai_ecosystem_landmark"
+      ],
+      "editorial_confidence": 0.95,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "OpenAI 官方宣布决定终止向 Cursor 提供模型的合同，发生在 Cursor 被 SpaceX 收购之后。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": true,
+      "story_id": "story-dd18facc10cf55a3b8f7",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "ai-model-provider-contract-termination-impact",
+        "cursor-spacex-acquisition-supplier-politics"
+      ],
+      "uncertainty": "OpenAI 未披露终止合同的具体原因、时间表和过渡安排，对现有 Cursor 用户的实际影响范围尚不清楚。",
+      "why_now": "这是一项直接改变 Cursor 用户可用模型后端的官方行动，可能引发对供应商中立性和竞争关系的重新评估。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.5,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "一名未具名的 Anthropic 研究员展示了自我改进式 AI，在 10 项错位行为基准上均获提升且整体性能未下降，但报道缺乏论文、方法和身份信息。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-2687bb685f423a4005ef",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "self-improving-ai-misalignment-benchmark-claim"
+      ],
+      "uncertainty": "未披露研究员姓名、基准定义、实验方法、自动化系统实现方式及评估范围，无法验证性能提升的真实性。",
+      "why_now": "今天 TechCrunch 发布，但仅是对演示的转述，没有可复现工件或同行评审。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "structural_business_change",
+        "ai_ecosystem_landmark"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "Lambda 获得 10 亿美元私人债务融资，用于购买 Nvidia AI 芯片并租赁给 Microsoft。",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-01f99fba1624a4fd2f08",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "neocloud-debt-financing-gpu-capacity-expansion"
+      ],
+      "uncertainty": "债务条款、利率、芯片型号和数量、与 Microsoft 的租赁协议细节均未披露。",
+      "why_now": "该融资是 AI 基础设施扩张的最新一笔债务，显示 Neocloud 仍通过杠杆增加 GPU 产能。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub Copilot 在 Visual Studio 的八月更新增加了对推理方式、模型选择、团队共享专用代理和代码审查时机的控制。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-9a321cf5f6f7a56d894f",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "具体机制和功能细节在摘要中未完全展开，实际生产影响未知。",
+      "why_now": "这是一次常规产品更新，未显示结构性变化或广泛影响。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "lower_technical_barrier",
+        "developer_production_impact"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "NVIDIA 发布 TensorRT Model Connect，声称仅需两条命令即可完成开放模型从检查点到推理的部署。",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-37bc7b97123b3ef8f62a",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "nvidia-tensorrt-open-model-deployment-simplification"
+      ],
+      "uncertainty": "未披露支持的具体模型框架、硬件要求、命令格式及与现有 TensorRT 工具链的兼容性；实际易用性未独立验证。",
+      "why_now": "新工具今天发布，可能降低 NVIDIA 推理生态的部署门槛，直接面向开发者。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "extreme_market_move"
+      ],
+      "editorial_confidence": 1.0,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "NVIDIA 股价在 2026 年 8 月 27 日交易日收盘上涨 8.74%，从前一交易日的 209.66 美元升至 227.98 美元，成交量 298,909,800 股。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": false,
+      "story_id": "story-376ce5b623a1a78c479e",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [],
+      "uncertainty": "上涨原因未确认，可能只是市场情绪、传闻或短期资金流动，不能作为长期趋势证据。",
+      "why_now": "一日大幅波动具有高即时关注度，但缺少结构性解释。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "demonstrated_policy_impact"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "一名联邦法官裁定特朗普政府非法将 Anthropic 标记为供应链风险，这是 Anthropic 的首场法庭胜利。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-bdf5162792939c29041c",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "ai-vendor-government-supply-chain-risk-label-litigation"
+      ],
+      "uncertainty": "裁决是否上诉未知，第二起诉讼仍在进行，对开发者供应链和采购流程的实际影响尚未显现。",
+      "why_now": "该裁决可能对美国政府标记 AI 供应商的方式产生先例性影响，并鼓励更多企业挑战此类标签。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "news_delta": "openai-python v3.6.0 发布，新增 compute_units 使用统计字段，加强 X.509 负载身份集成，并升级多项开发依赖。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-6c31cdbe80d40788361c",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "无显著不确定性。",
+      "why_now": "常规库维护，不改变开发者工作流或产生持久影响。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "pydantic-ai v2.36.0 发布，新增 --mcp-config、clai 工具调用流式传输、@durable_operation 装饰器等，并包含多项修复。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-33e827d3caa29d43cf7b",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "部分新特性影响尚待使用者验证。",
+      "why_now": "这是常规开源项目版本迭代，提供增量功能改进，而不构成重大突破。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.4,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "据 TechCrunch 报道，Meta 高管 Sandhya Devanathan 离职加入 OpenAI，负责东南亚和澳大利亚部分业务，但公司均未证实。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-905bdf0b235cd2541ae8",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "具体职位、汇报线和官方确认缺失，消息可信度较低。",
+      "why_now": "这是一条人员流动传闻，对开发者工具和生态没有直接影响。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub 宣布即将对 Copilot 策略与计费进行三项独立变更，但未公布具体内容、时间和影响范围。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-e20cc6c6743082d81c8d",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "变更细节和生效日期未知，无法评估具体用户影响。",
+      "why_now": "这是一则官方预告，尚无实际变化，暂时只值一句提醒。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.2,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "Hacker News 帖子声称有人意外将 LLM 记忆转化为程序分析，但缺少摘要、技术细节和可验证内容。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-93c47186590f403e84fd",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "没有可核实的作者、方法或结果，不能作为趋势证据。",
+      "why_now": "社区发现但无法确认价值，也没有可跟踪的具体方法或结论。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "Cloudflare 发布 BotBase for Operators，在仪表板中提供 bot 提交管理、状态跟踪、编辑和行为模型。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-a0ba7977ef916c34fb91",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "功能上线时间和审核标准未明确。",
+      "why_now": "这是一个面向 bot 运营者的产品更新，便利性有限，不属于结构性改变。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.75,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub Copilot 每周更新（8 月 24 日）包含 Slack/Teams 团队会话以及跨应用、CLI 和 IDE 的自定义功能。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-82d1dbf6d485795d106d",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "具体功能范围和团队会话能力未详细说明。",
+      "why_now": "本周例行发布，延续 Copilot 的迭代节奏，但未出现重大能力变化。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "trend_confirmation"
+      ],
+      "editorial_confidence": 0.5,
+      "evidence_value": 2,
+      "fact_status": "inference",
+      "news_delta": "TechCrunch 发表分析称开源权重 AI 公司正成为硅谷的热门收购目标。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-1565c364d7db54eff54b",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "open-weight-ai-acquisition-market-demand"
+      ],
+      "uncertainty": "没有具体交易细节或数据来源，属于编辑观察而非已证实的事件，只能作为弱信号。",
+      "why_now": "该分析反映了资本对开源权重模型战略价值的关注，但未提供具体公司或交易。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-08-29T04:18:48.985507Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
