@@ -10,6 +10,7 @@ from morning_radar.ai import AIBudget, FakeAIProvider
 from morning_radar.evaluation import semantic
 from morning_radar.evaluation.semantic import (
     EvaluationSafetyError,
+    SemanticEvaluationMode,
     SemanticShadowProvider,
     deepseek_configuration_from_environment,
     run_semantic_evaluation,
@@ -18,6 +19,7 @@ from morning_radar.pipeline import MorningRadarPipeline
 
 ROOT = Path(__file__).resolve().parents[2]
 EVALUATION_DATE = date(2026, 8, 22)
+HOLDOUT_DATE = date(2026, 8, 23)
 
 
 class SpyFakeProvider(FakeAIProvider):
@@ -84,6 +86,46 @@ def test_real_provider_requires_explicit_confirmation_before_env_or_output(
     assert not (tmp_path / str(EVALUATION_DATE)).exists()
 
 
+def test_regression_mode_requires_known_date_and_golden_raw(tmp_path: Path) -> None:
+    with pytest.raises(EvaluationSafetyError, match="Regression mode requires"):
+        semantic._load_frozen_workload(
+            ROOT,
+            HOLDOUT_DATE,
+            evaluation_mode=SemanticEvaluationMode.REGRESSION,
+        )
+
+    raw_root = tmp_path / "data/raw"
+    brief_root = tmp_path / "data/briefs"
+    raw_root.mkdir(parents=True)
+    brief_root.mkdir(parents=True)
+    (raw_root / f"{EVALUATION_DATE}.json").write_text(
+        (ROOT / f"data/raw/{HOLDOUT_DATE}.json").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    (brief_root / f"{EVALUATION_DATE}.json").write_text(
+        (ROOT / f"data/briefs/{HOLDOUT_DATE}.json").read_text(encoding="utf-8"),
+        encoding="utf-8",
+    )
+    with pytest.raises(EvaluationSafetyError, match="DeepSeek golden Raw ID not found"):
+        semantic._load_frozen_workload(
+            tmp_path,
+            EVALUATION_DATE,
+            evaluation_mode=SemanticEvaluationMode.REGRESSION,
+        )
+
+
+def test_holdout_mode_loads_non_golden_frozen_date() -> None:
+    raw, frozen_now = semantic._load_frozen_workload(
+        ROOT,
+        HOLDOUT_DATE,
+        evaluation_mode=SemanticEvaluationMode.HOLDOUT,
+    )
+
+    assert raw
+    assert all(item.id != semantic.GOLDEN_RAW_ID for item in raw)
+    assert frozen_now.isoformat() == "2026-08-22T23:54:33.152818+00:00"
+
+
 def test_secret_is_redacted_from_diagnostics() -> None:
     secret = "test-secret-value"
 
@@ -120,6 +162,7 @@ def test_fake_harness_uses_production_pipeline_and_writes_review_artifacts(
     run_directory = tmp_path / str(EVALUATION_DATE)
 
     assert summary["status"] == "COMPLETED"
+    assert summary["environment"]["evaluation_mode"] == "regression"
     assert len(pipeline_calls) == 1
     call = pipeline_calls[0]
     assert call["dry_run"] is True
@@ -184,3 +227,47 @@ def test_fake_harness_uses_production_pipeline_and_writes_review_artifacts(
             output_root=tmp_path,
         )
     assert len(pipeline_calls) == 1
+
+
+def test_fake_holdout_uses_production_pipeline_without_golden_assertion(
+    tmp_path: Path,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    pipeline_calls: list[dict[str, object]] = []
+    original_run = MorningRadarPipeline.run
+
+    def observed_run(self, **kwargs):
+        pipeline_calls.append(kwargs)
+        return original_run(self, **kwargs)
+
+    def forbidden_golden_summary(*args, **kwargs):
+        del args, kwargs
+        raise AssertionError("holdout mode must not evaluate the 08-22 golden case")
+
+    monkeypatch.setattr(MorningRadarPipeline, "run", observed_run)
+    monkeypatch.setattr(semantic, "_golden_summary", forbidden_golden_summary)
+
+    summary = run_semantic_evaluation(
+        root=ROOT,
+        evaluation_date=HOLDOUT_DATE,
+        evaluation_mode=SemanticEvaluationMode.HOLDOUT,
+        provider_kind="fake",
+        output_root=tmp_path,
+    )
+
+    assert summary["status"] == "COMPLETED"
+    assert summary["environment"]["evaluation_mode"] == "holdout"
+    assert summary["environment"]["pipeline"] == "MorningRadarPipeline.run"
+    assert summary["deepseek_golden"]["status"] == "NOT_APPLICABLE"
+    assert summary["quality_status"]["major_golden_recall"] == "NOT_APPLICABLE"
+    assert summary["resource_envelope"]["network_requests_total"] == 0
+    assert summary["safety_observations"]["evidence_fetch_calls"] == 0
+    assert summary["safety_observations"]["whole_run_attempts"] == 1
+    assert len(pipeline_calls) == 1
+    call = pipeline_calls[0]
+    assert call["dry_run"] is True
+    assert call["notify"] is False
+    assert call["offline_raw_items"]
+    assert call["offline_evidence_fetcher"] is not None
+    assert Path(call["offline_output_root"]) == tmp_path / str(HOLDOUT_DATE)
+    assert not Path(call["offline_history_root"]).is_relative_to(ROOT / "data")

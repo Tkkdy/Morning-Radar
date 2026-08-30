@@ -12,6 +12,7 @@ import time
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 from datetime import date, datetime
+from enum import StrEnum
 from pathlib import Path
 from typing import Any, Literal
 from urllib.parse import urlsplit
@@ -55,6 +56,7 @@ from morning_radar.processing.story_builder import (
 from morning_radar.storage import load_model, load_models, write_json
 
 GOLDEN_RAW_ID = "item-4d7b9f9d11a89fb3b930"
+REGRESSION_DATE = date(2026, 8, 22)
 REAL_SEMANTIC_TASKS = ("candidate_triage", "construct_story", "score_story")
 FAKE_DOWNSTREAM_TASKS = (
     "evaluate_editorial",
@@ -84,6 +86,13 @@ class EvidenceIntegrityViolation(EvaluationSafetyError):
 
 class SemanticProviderStopped(EvaluationSafetyError):
     """A real semantic task exhausted its built-in retries or returned invalid output."""
+
+
+class SemanticEvaluationMode(StrEnum):
+    """Explicit safety boundary between a known regression and a clean holdout."""
+
+    REGRESSION = "regression"
+    HOLDOUT = "holdout"
 
 
 @dataclass(frozen=True, slots=True)
@@ -235,14 +244,28 @@ def deepseek_configuration_from_environment() -> DeepSeekEvaluationConfig:
     )
 
 
-def _load_frozen_workload(root: Path, evaluation_date: date) -> tuple[list[RawItem], datetime]:
+def _load_frozen_workload(
+    root: Path,
+    evaluation_date: date,
+    *,
+    evaluation_mode: SemanticEvaluationMode = SemanticEvaluationMode.REGRESSION,
+) -> tuple[list[RawItem], datetime]:
     raw_path = root / "data/raw" / f"{evaluation_date}.json"
     brief_path = root / "data/briefs" / f"{evaluation_date}.json"
+    if not raw_path.is_file() or not brief_path.is_file():
+        raise EvaluationSafetyError(
+            f"Frozen Raw and Brief artifacts are required for {evaluation_date}"
+        )
     raw = TypeAdapter(list[RawItem]).validate_json(raw_path.read_text(encoding="utf-8"))
     brief = json.loads(brief_path.read_text(encoding="utf-8"))
     frozen_now = datetime.fromisoformat(str(brief["generated_at"]).replace("Z", "+00:00"))
-    if not any(item.id == GOLDEN_RAW_ID for item in raw):
-        raise EvaluationSafetyError(f"DeepSeek golden Raw ID not found: {GOLDEN_RAW_ID}")
+    if evaluation_mode is SemanticEvaluationMode.REGRESSION:
+        if evaluation_date != REGRESSION_DATE:
+            raise EvaluationSafetyError(
+                f"Regression mode requires the frozen {REGRESSION_DATE} workload"
+            )
+        if not any(item.id == GOLDEN_RAW_ID for item in raw):
+            raise EvaluationSafetyError(f"DeepSeek golden Raw ID not found: {GOLDEN_RAW_ID}")
     return raw, frozen_now
 
 
@@ -719,6 +742,7 @@ def _build_summary(
     *,
     root: Path,
     evaluation_date: date,
+    evaluation_mode: SemanticEvaluationMode,
     provider_kind: str,
     model_name: str,
     base_host: str,
@@ -745,11 +769,20 @@ def _build_summary(
     story_results = Counter(row["story_result"] for row in story_rows)
     must_rows = [row for row in candidate_rows if row["must_triage"]]
     non_must = [row for row in candidate_rows if not row["must_triage"]]
+    golden = (
+        _golden_summary(candidate_rows, trace)
+        if evaluation_mode is SemanticEvaluationMode.REGRESSION
+        else {
+            "status": "NOT_APPLICABLE",
+            "reason": "Holdout mode does not evaluate the 2026-08-22 golden case",
+        }
+    )
     return {
         "status": status,
         "environment": {
             "git_sha": _git_sha(root),
             "date": str(evaluation_date),
+            "evaluation_mode": evaluation_mode.value,
             "frozen_now": frozen_now.isoformat(),
             "provider": provider_kind,
             "model": model_name,
@@ -814,7 +847,7 @@ def _build_summary(
                 row["semantic_disposition"] in {"build", "investigate"} for row in non_must
             ),
         },
-        "deepseek_golden": _golden_summary(candidate_rows, trace),
+        "deepseek_golden": golden,
         "story_funnel": {
             "build_candidates": dispositions["build"],
             "attempted": sum(
@@ -851,9 +884,13 @@ def _build_summary(
         },
         "quality_status": {
             "major_golden_recall": (
-                "SEMANTIC_RECALL_CONCERN"
-                if _golden_summary(candidate_rows, trace)["semantic_recall_concern"]
-                else "NO_DROP_OBSERVED"
+                (
+                    "SEMANTIC_RECALL_CONCERN"
+                    if golden["semantic_recall_concern"]
+                    else "NO_DROP_OBSERVED"
+                )
+                if evaluation_mode is SemanticEvaluationMode.REGRESSION
+                else "NOT_APPLICABLE"
             ),
             "reader_precision": "NOT_EVALUATED",
             "false_positive_rate": "NOT_EVALUATED",
@@ -904,6 +941,7 @@ def run_semantic_evaluation(
     evaluation_date: date,
     provider_kind: Literal["fake", "deepseek"],
     output_root: Path,
+    evaluation_mode: SemanticEvaluationMode = SemanticEvaluationMode.REGRESSION,
     confirm_real_provider_eval: bool = False,
 ) -> dict[str, Any]:
     root = root.resolve()
@@ -914,7 +952,11 @@ def run_semantic_evaluation(
                 "Real Provider evaluation requires --confirm-real-provider-eval"
             )
         config = deepseek_configuration_from_environment()
-    raw, frozen_now = _load_frozen_workload(root, evaluation_date)
+    raw, frozen_now = _load_frozen_workload(
+        root,
+        evaluation_date,
+        evaluation_mode=evaluation_mode,
+    )
     run_directory = _safe_run_directory(root, output_root, evaluation_date)
     raw_by_id = {item.id: item for item in raw}
     pipeline = MorningRadarPipeline(root)
@@ -1001,9 +1043,12 @@ def run_semantic_evaluation(
         ]
         if fetcher.calls:
             raise EvidenceNetworkAttempted(f"Evidence fetcher was invoked {fetcher.calls} time(s)")
-        golden = _golden_summary(candidate_rows, trace)
-        if not golden["regression_passed"]:
-            raise EvaluationSafetyError("DeepSeek golden candidate did not reach Semantic Triage")
+        if evaluation_mode is SemanticEvaluationMode.REGRESSION:
+            golden = _golden_summary(candidate_rows, trace)
+            if not golden["regression_passed"]:
+                raise EvaluationSafetyError(
+                    "DeepSeek golden candidate did not reach Semantic Triage"
+                )
         if violations:
             raise EvidenceIntegrityViolation(
                 f"{len(violations)} persisted Story integrity violation(s)"
@@ -1024,6 +1069,7 @@ def run_semantic_evaluation(
     summary = _build_summary(
         root=root,
         evaluation_date=evaluation_date,
+        evaluation_mode=evaluation_mode,
         provider_kind=provider_kind,
         model_name=model_name,
         base_host=base_host,
@@ -1053,6 +1099,12 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--root", type=Path, default=Path("."))
     parser.add_argument("--date", type=date.fromisoformat, default=date(2026, 8, 22))
+    parser.add_argument(
+        "--mode",
+        type=SemanticEvaluationMode,
+        choices=tuple(SemanticEvaluationMode),
+        default=SemanticEvaluationMode.REGRESSION,
+    )
     parser.add_argument("--provider", choices=("fake", "deepseek"), default="fake")
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--confirm-real-provider-eval", action="store_true")
@@ -1061,6 +1113,7 @@ def main() -> int:
         summary = run_semantic_evaluation(
             root=args.root,
             evaluation_date=args.date,
+            evaluation_mode=args.mode,
             provider_kind=args.provider,
             output_root=args.output,
             confirm_real_provider_eval=args.confirm_real_provider_eval,
