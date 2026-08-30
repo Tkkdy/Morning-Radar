@@ -52,6 +52,21 @@ def test_character_reserve_prevents_triage_from_starving_later_work() -> None:
     budget.consume("b" * 20, item_count=1, stage="brief")
 
 
+def test_available_input_characters_reflects_live_stage_reservations() -> None:
+    budget = AIBudget(
+        maximum_calls=10,
+        maximum_input_characters=100,
+        maximum_items=40,
+        protected_input_minimums={"story": 20, "brief": 20},
+    )
+
+    assert budget.available_input_characters(stage="triage") == 60
+    budget.consume("t" * 25, item_count=1, stage="triage")
+    assert budget.available_input_characters(stage="triage") == 35
+    budget.complete_stage("story")
+    assert budget.available_input_characters(stage="triage") == 55
+
+
 def test_completed_stage_releases_unused_character_reserve() -> None:
     budget = AIBudget(
         maximum_calls=10,

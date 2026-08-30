@@ -9,6 +9,11 @@ from morning_radar.evaluation.holdout import (
     build_holdout_selection_report,
     select_holdout_set,
 )
+from morning_radar.evaluation.semantic import (
+    SemanticEvaluationMode,
+    run_semantic_evaluation,
+)
+from morning_radar.pipeline import MorningRadarPipeline
 
 ROOT = Path(__file__).resolve().parents[2]
 
@@ -133,3 +138,29 @@ def test_preflight_requires_safe_pipeline_and_actual_semantic_triage() -> None:
     blocked = assess_holdout_preflight(summary)
     assert blocked["status"] == "NOT_READY"
     assert "ALL_CANDIDATES_DEFERRED_BEFORE_SEMANTIC_TRIAGE" in blocked["blockers"]
+
+
+def test_heavy_regression_makes_bounded_triage_progress(tmp_path: Path) -> None:
+    summary = run_semantic_evaluation(
+        root=ROOT,
+        evaluation_date=date(2026, 8, 20),
+        evaluation_mode=SemanticEvaluationMode.HOLDOUT,
+        provider_kind="fake",
+        output_root=tmp_path,
+    )
+
+    funnel = summary["candidate_funnel"]
+    assert funnel["admitted"] == 55
+    assert funnel["must_triage"] == 20
+    assert funnel["triaged"] > 0
+    assert funnel["budget_deferred"] < funnel["admitted"]
+    assert sum(summary["guardrail_dependence"]["must_triage_model_dispositions"].values()) == 20
+    app = MorningRadarPipeline(ROOT).app
+    available_triage_characters = app.maximum_ai_input_characters - sum(
+        app.protected_ai_input_characters.values()
+    )
+    assert (
+        summary["resource_envelope"]["stage_input_characters"]["triage"]
+        <= available_triage_characters
+    )
+    assert summary["resource_envelope"]["network_requests_total"] == 0

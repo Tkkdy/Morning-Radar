@@ -91,6 +91,26 @@ class AIBudget:
     stage_input_characters: dict[str, int] = field(default_factory=dict)
     completed_stages: set[str] = field(default_factory=set)
 
+    def available_input_characters(self, *, stage: str | None = None) -> int:
+        """Return the characters currently available without consuming reservations."""
+        available = self.maximum_input_characters - self.input_characters_used
+        if stage is not None and self.protected_input_minimums:
+            reserved_for_others = sum(
+                max(
+                    0,
+                    minimum - self.stage_input_characters.get(other_stage, 0),
+                )
+                for other_stage, minimum in self.protected_input_minimums.items()
+                if other_stage != stage and other_stage not in self.completed_stages
+            )
+            available = min(
+                available,
+                self.maximum_input_characters
+                - self.input_characters_used
+                - reserved_for_others,
+            )
+        return max(0, available)
+
     def consume(
         self,
         payload: str,
@@ -117,23 +137,15 @@ class AIBudget:
         payload_characters = len(payload)
         if self.input_characters_used + payload_characters > self.maximum_input_characters:
             raise AIBudgetExceeded("AI daily input character limit exceeded")
-        if stage is not None and self.protected_input_minimums:
-            reserved_for_others = sum(
-                max(
-                    0,
-                    minimum - self.stage_input_characters.get(other_stage, 0),
-                )
-                for other_stage, minimum in self.protected_input_minimums.items()
-                if other_stage != stage and other_stage not in self.completed_stages
+        if (
+            stage is not None
+            and self.protected_input_minimums
+            and payload_characters > self.available_input_characters(stage=stage)
+        ):
+            raise AIBudgetExceeded(
+                "AI character pool unavailable while protecting later stages: "
+                f"{stage}"
             )
-            if (
-                self.input_characters_used + payload_characters
-                > self.maximum_input_characters - reserved_for_others
-            ):
-                raise AIBudgetExceeded(
-                    "AI character pool unavailable while protecting later stages: "
-                    f"{stage}"
-                )
         self.calls_used += 1
         self.input_characters_used += payload_characters
         if stage is not None:

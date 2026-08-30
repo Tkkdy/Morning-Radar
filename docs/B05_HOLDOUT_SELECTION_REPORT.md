@@ -1,6 +1,6 @@
 # B0.5 Generic Holdout Harness and Corrected Selection Report
 
-Status: `HARNESS_WORKING — PRODUCTION_HOLDOUT_BLOCKED`
+Status: `DEVELOPMENT_CONTAMINATED — CAPACITY_CLIFF_REGRESSION_FIXED`
 
 ## Environment
 
@@ -87,12 +87,12 @@ nearest lower-index unused date if the median collides with Heavy or Sparse. Spa
 | Normal | `2026-07-31` | 17 | 16 | 13 | 13 | `(13,13,16)` |
 | Sparse | `2026-07-27` | 2 | 2 | 2 | 2 | `(2,2,2)` |
 
-These dates become the selected diagnostic holdout set when this report is recorded. If the
-2026-08-20 Heavy finding is used to modify B0.5 production semantics, the complete current
-Heavy/Normal/Sparse trio becomes development-contaminated for final generalization proof. A
-new fresh trio must then be selected; this checkpoint does not reselect or run one.
+The 2026-08-20 Heavy finding has now been used to repair production batching behavior.
+Therefore the complete current Heavy/Normal/Sparse trio is `DEVELOPMENT_CONTAMINATED` and
+cannot serve as final generalization proof. No fresh replacement trio is selected or run here;
+that must wait until the semantic router contract and any approved migration are frozen.
 
-## Offline preflight
+## Original offline preflight
 
 | Role | Date | Pipeline completed | Fake triaged | External requests | Readiness |
 |---|---|---|---:|---:|---|
@@ -110,6 +110,18 @@ all remaining Candidates: 0/55 triaged and 55/55 `DEFERRED_BY_BUDGET`, including
 harness failure. It is not used to replace the selected date, and this evaluation-infrastructure
 checkpoint does not alter Budget values, batch sizing, or production behavior. Fake dispositions
 and Story results are not semantic quality evidence.
+
+## Post-fix Heavy structural replay
+
+The general Budget-aware batching repair was replayed once with the same frozen Heavy fixture:
+
+| Admitted | MUST_TRIAGE | First batch | Triaged | Deferred | Triage chars | External requests |
+|---:|---:|---:|---:|---:|---:|---:|
+| 55 | 20 | 37 | 37 | 18 | 75,210 | 0 |
+
+All 20 `MUST_TRIAGE` Candidates received semantic processing. The remaining 18 Candidates stayed
+explicitly `DEFERRED_BY_BUDGET`; none became semantic DROP. The 0/55 capacity cliff is eliminated
+without changing Budget values or downstream reservations.
 
 ## Evidence classification
 

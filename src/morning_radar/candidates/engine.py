@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import logging
 import re
 from dataclasses import dataclass, field
@@ -327,6 +328,24 @@ def _triage_order(candidate: Candidate) -> tuple[int, float, str]:
     return (0 if candidate.must_triage else 1, -community, candidate.id)
 
 
+def _triage_payload_characters(candidates: list[Candidate]) -> int:
+    return len(
+        json.dumps(
+            [candidate.model_dump(mode="json") for candidate in candidates],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+    )
+
+
+def _available_triage_characters(provider: AIProvider) -> int | None:
+    budget = getattr(provider, "budget", None)
+    available = getattr(budget, "available_input_characters", None)
+    if not callable(available):
+        return None
+    return int(available(stage="triage"))
+
+
 def triage_candidates(
     candidates: list[Candidate],
     *,
@@ -345,16 +364,23 @@ def triage_candidates(
     deferred_candidates: list[Candidate] = []
     while cursor < len(ordered):
         batch: list[Candidate] = []
+        batch_characters = 0
+        available_characters = max(0, maximum_input_characters - input_used)
+        budget_characters = _available_triage_characters(provider)
+        if budget_characters is not None:
+            available_characters = min(available_characters, budget_characters)
         while cursor < len(ordered) and len(batch) < maximum_batch_items:
             candidate = ordered[cursor]
-            encoded = candidate.model_dump_json()
-            if input_used + len(encoded) > maximum_input_characters:
-                deferred_candidates = ordered[cursor:]
-                deferred += len(deferred_candidates)
-                cursor = len(ordered)
+            proposed = [*batch, candidate]
+            proposed_characters = _triage_payload_characters(proposed)
+            if proposed_characters > available_characters:
+                if not batch:
+                    deferred_candidates = ordered[cursor:]
+                    deferred += len(deferred_candidates)
+                    cursor = len(ordered)
                 break
             batch.append(candidate)
-            input_used += len(encoded)
+            batch_characters = proposed_characters
             cursor += 1
         if not batch:
             break
@@ -378,6 +404,7 @@ def triage_candidates(
                     update={"execution_state": ExecutionState.FAILED_AI}
                 )
             continue
+        input_used += batch_characters
         drafts = {draft.candidate_id: draft for draft in output.candidates}
         for candidate in batch:
             draft = drafts[candidate.id]

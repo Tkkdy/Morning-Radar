@@ -1,8 +1,9 @@
+import json
 from datetime import UTC, datetime
 
 import pytest
 
-from morning_radar.ai import AIBudgetExceeded, FakeAIProvider
+from morning_radar.ai import AIBudget, AIBudgetExceeded, FakeAIProvider
 from morning_radar.ai.models import CandidateTriageBatch, CandidateTriageDraft
 from morning_radar.candidates import admit_candidates, triage_candidates
 from morning_radar.models import (
@@ -231,6 +232,52 @@ def test_shared_budget_exhaustion_is_deferred_not_failed_ai() -> None:
         candidate.execution_state is ExecutionState.DEFERRED_BY_BUDGET
         for candidate in result.candidates
     )
+
+
+def test_triage_makes_bounded_progress_with_live_character_reservations() -> None:
+    candidates = admit_candidates(
+        [
+            item("must-one", "AI model release", score=500),
+            item("must-two", "AI agent release", score=400),
+            item("ordinary", "AI developer discussion"),
+        ],
+        now=NOW,
+    )
+    ordered = sorted(
+        candidates,
+        key=lambda candidate: (0 if candidate.must_triage else 1, candidate.id),
+    )
+    first_two_characters = len(
+        json.dumps(
+            [candidate.model_dump(mode="json") for candidate in ordered[:2]],
+            ensure_ascii=False,
+            separators=(",", ":"),
+        )
+    )
+    budget = AIBudget(
+        maximum_calls=10,
+        maximum_input_characters=first_two_characters + 100,
+        maximum_items=40,
+        protected_input_minimums={"story": 100},
+    )
+    provider = FakeAIProvider(budget=budget)
+
+    result = triage_candidates(
+        candidates,
+        provider=provider,
+        maximum_batch_items=40,
+        maximum_input_characters=100_000,
+    )
+
+    resolved = {candidate.id: candidate for candidate in result.candidates}
+    assert result.stats["candidate_triaged"] == 2
+    assert result.stats["candidate_triage_deferred"] == 1
+    assert all(
+        resolved[candidate.id].semantic_disposition is not None for candidate in ordered[:2]
+    )
+    assert all(candidate.must_triage for candidate in ordered[:2])
+    assert resolved[ordered[2].id].execution_state is ExecutionState.DEFERRED_BY_BUDGET
+    assert budget.stage_input_characters["triage"] == first_two_characters
 
 
 def test_github_authority_is_limited_to_verified_repository_scope() -> None:
