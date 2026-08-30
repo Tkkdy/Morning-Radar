@@ -102,6 +102,8 @@ class DeepSeekProvider:
         client: Any | None = None,
         network_attempts: int = 3,
         timeout_seconds: float = 60,
+        candidate_triage_temperature: float | None = None,
+        response_observer: Callable[[dict[str, Any]], None] | None = None,
     ) -> None:
         if not model:
             raise AIConfigurationError("DEEPSEEK_MODEL is required for production AI")
@@ -113,6 +115,8 @@ class DeepSeekProvider:
         self.budget = budget
         self.prompt_dir = prompt_dir
         self.network_attempts = network_attempts
+        self.candidate_triage_temperature = candidate_triage_temperature
+        self.response_observer = response_observer
         self.client = client or OpenAI(
             api_key=api_key,
             base_url=base_url,
@@ -200,12 +204,22 @@ class DeepSeekProvider:
                 "max_tokens": max_tokens,
                 "extra_body": {"thinking": {"type": policy.thinking}},
             }
+            if task == "candidate_triage" and self.candidate_triage_temperature is not None:
+                request["temperature"] = self.candidate_triage_temperature
             if policy.reasoning_effort is not None:
                 request["reasoning_effort"] = policy.reasoning_effort
             return self.client.chat.completions.create(**request)
 
         last_error: Exception | None = None
         for structured_attempt in range(1, 3):
+            if self.response_observer is not None:
+                self.response_observer(
+                    {
+                        "event": "structured_attempt_started",
+                        "task": task,
+                        "structured_attempt": structured_attempt,
+                    }
+                )
             try:
                 response = invoke(structured_attempt=structured_attempt)
             except (
@@ -222,6 +236,25 @@ class DeepSeekProvider:
                 finish_reason = str(getattr(choice, "finish_reason", None) or "unknown")
                 usage = getattr(response, "usage", None)
                 details = getattr(usage, "completion_tokens_details", None)
+                if self.response_observer is not None:
+                    self.response_observer(
+                        {
+                            "event": "response_received",
+                            "task": task,
+                            "structured_attempt": structured_attempt,
+                            "system_fingerprint": getattr(
+                                response, "system_fingerprint", None
+                            ),
+                            "finish_reason": finish_reason,
+                            "prompt_tokens": _usage_value(usage, "prompt_tokens"),
+                            "completion_tokens": _usage_value(
+                                usage, "completion_tokens"
+                            ),
+                            "reasoning_tokens": _usage_value(
+                                details, "reasoning_tokens"
+                            ),
+                        }
+                    )
                 self.budget.record_response_usage(
                     task,
                     prompt_tokens=_usage_value(usage, "prompt_tokens"),
