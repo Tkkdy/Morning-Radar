@@ -54,6 +54,12 @@ HISTORICAL_COMPARATORS = {
     "CURRENT": {"mean_route_agreement": 0.614, "stable_3_of_3": 16},
     "ATOMIC_V1": {"mean_route_agreement": 0.807, "stable_3_of_3": 27},
     "ATOMIC_V2": {"mean_route_agreement": 0.667, "stable_3_of_3": 19},
+    "MINIMAL_ATOMIC_V1": {
+        "mean_route_agreement": 0.8771929824561404,
+        "stable_3_of_3": 31,
+        "investigate_occurrences": 3,
+        "unresolved_occurrences": 70,
+    },
 }
 
 ANCHOR_IDS = {
@@ -142,7 +148,7 @@ def build_gate_manifest(root: Path) -> dict[str, Any]:
     if prompt_sha != EXPECTED_PROMPT_SHA256 or schema_sha != EXPECTED_SCHEMA_SHA256:
         raise MinimalAtomicEvaluationSafetyError("Frozen prompt or schema hash changed")
     return {
-        "status": "READY_FOR_REAL_SEMANTIC_EVAL",
+        "status": "READY_FOR_MINIMAL_ATOMIC_REAL_REEVAL",
         "frozen_date": str(FROZEN_DATE),
         "frozen_now": FROZEN_NOW.isoformat(),
         "candidate_count": len(candidates),
@@ -187,6 +193,7 @@ def build_gate_manifest(root: Path) -> dict[str, Any]:
             "UTILITY_COLLAPSE_INTO_UNRESOLVED",
             "LOSS_OF_KNOWN_EVIDENCE_BACKED_BUILD_ANCHORS",
             "MATERIAL_STABILITY_REGRESSION_VERSUS_V1_DIRECTION",
+            "INVESTIGATE_UTILITY_NOT_MATERIALLY_RESTORED",
         ],
     }
 

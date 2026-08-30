@@ -19,7 +19,7 @@ from morning_radar.models import Candidate, SemanticDisposition
 from morning_radar.models.core import RadarModel
 
 ASSESSMENT_SCHEMA_VERSION = "candidate-semantic-assessment-minimal-v1"
-ROUTER_VERSION = "deterministic-resource-router-minimal-v1"
+ROUTER_VERSION = "deterministic-resource-router-minimal-v2-bounded-uncertainty"
 
 
 class ScopeRelevance(StrEnum):
@@ -234,12 +234,17 @@ def validate_assessment(
 
 
 def semantic_investigation_warranted(
+    candidate: Candidate,
     assessment: MinimalCandidateSemanticAssessment,
 ) -> bool:
+    impact_warrants_bounded_investigation = assessment.impact_level in {
+        ImpactLevel.HIGH,
+        ImpactLevel.MEDIUM,
+    } or (candidate.must_triage and assessment.impact_level is ImpactLevel.UNKNOWN)
     return (
         assessment.core_claim_evidence_relation is CoreClaimEvidenceRelation.CRITICAL_GAP
         and assessment.scope_relevance is ScopeRelevance.IN_SCOPE
-        and assessment.impact_level in {ImpactLevel.HIGH, ImpactLevel.MEDIUM}
+        and impact_warrants_bounded_investigation
     )
 
 
@@ -318,7 +323,11 @@ def _freshness_allows_build(candidate: Candidate) -> bool:
 
 
 def _investigation_priority(impact: ImpactLevel) -> float | None:
-    return {ImpactLevel.HIGH: 0.9, ImpactLevel.MEDIUM: 0.6}.get(impact)
+    return {
+        ImpactLevel.HIGH: 0.9,
+        ImpactLevel.MEDIUM: 0.6,
+        ImpactLevel.UNKNOWN: 0.5,
+    }.get(impact)
 
 
 def invalid_assessment_decision(
@@ -369,6 +378,18 @@ def route_assessment(
         is CoreClaimEvidenceRelation.COUNTEREVIDENCE_PRESENT
     ):
         return decision(ProposedRoute.UNRESOLVED, RouteReason.COUNTEREVIDENCE_UNRESOLVED)
+    routeability = derive_routeability(
+        candidate, profile, assessment, validation, context
+    )
+    if (
+        semantic_investigation_warranted(candidate, assessment)
+        and routeability.routeability is VerificationRouteability.EXECUTABLE
+    ):
+        return decision(
+            ProposedRoute.INVESTIGATE,
+            RouteReason.CRITICAL_GAP_EXECUTABLE,
+            _investigation_priority(assessment.impact_level),
+        )
     if any(
         value.value == "unknown"
         for value in (
@@ -389,18 +410,6 @@ def route_assessment(
                 RouteReason.DETERMINISTIC_FRESHNESS_CONSTRAINT,
             )
         return decision(ProposedRoute.BUILD, RouteReason.EVIDENCE_DIRECT_SUPPORT)
-    routeability = derive_routeability(
-        candidate, profile, assessment, validation, context
-    )
-    if (
-        semantic_investigation_warranted(assessment)
-        and routeability.routeability is VerificationRouteability.EXECUTABLE
-    ):
-        return decision(
-            ProposedRoute.INVESTIGATE,
-            RouteReason.CRITICAL_GAP_EXECUTABLE,
-            _investigation_priority(assessment.impact_level),
-        )
     if routeability.routeability is VerificationRouteability.INCOMPLETE:
         return decision(ProposedRoute.UNRESOLVED, RouteReason.CRITICAL_GAP_INCOMPLETE)
     if routeability.routeability is VerificationRouteability.UNSUPPORTED:
@@ -449,7 +458,9 @@ def assessment_artifact(
         "verification_routeability": routeability.routeability.value,
         "routeability_reason": routeability.reason.value,
         "destination_evidence_id": routeability.destination_evidence_id,
-        "semantic_investigation_warranted": semantic_investigation_warranted(assessment),
+        "semantic_investigation_warranted": semantic_investigation_warranted(
+            candidate, assessment
+        ),
         "derived_route": decision.route.value,
         "derived_route_reason": decision.reason.value,
         "investigation_priority": decision.investigation_priority,

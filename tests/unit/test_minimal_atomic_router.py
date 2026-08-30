@@ -63,6 +63,7 @@ def _candidate(
     candidate_id: str = "candidate-1",
     *,
     evidence: list[CandidateEvidence] | None = None,
+    must_triage: bool = False,
 ) -> Candidate:
     now = datetime(2026, 8, 22, tzinfo=UTC)
     return Candidate(
@@ -72,6 +73,7 @@ def _candidate(
         raw_item_ids=[f"raw-{candidate_id}"],
         hypothesis="Example adds a supported AI feature",
         evidence=evidence if evidence is not None else [_evidence()],
+        must_triage=must_triage,
     )
 
 
@@ -148,6 +150,64 @@ def test_system_derives_executable_gap_without_model_action_or_source() -> None:
     assert routeability.routeability is VerificationRouteability.EXECUTABLE
     assert routeability.destination_evidence_id == "evidence-1"
     assert _decision(candidate, assessment).route is ProposedRoute.INVESTIGATE
+
+
+def test_recall_priority_allows_bounded_investigation_when_impact_is_unknown() -> None:
+    candidate = _candidate(must_triage=True)
+    assessment = _assessment(
+        impact=ImpactLevel.UNKNOWN,
+        relation=CoreClaimEvidenceRelation.CRITICAL_GAP,
+        evidence_ids=[],
+        complete_contract=True,
+    )
+
+    decision = _decision(candidate, assessment)
+
+    assert decision.route is ProposedRoute.INVESTIGATE
+    assert decision.reason == "CRITICAL_GAP_EXECUTABLE"
+    assert decision.investigation_priority == 0.5
+
+
+def test_unknown_impact_without_recall_priority_remains_unresolved() -> None:
+    assessment = _assessment(
+        impact=ImpactLevel.UNKNOWN,
+        relation=CoreClaimEvidenceRelation.CRITICAL_GAP,
+        evidence_ids=[],
+        complete_contract=True,
+    )
+
+    assert _decision(_candidate(), assessment).route is ProposedRoute.UNRESOLVED
+
+
+def test_recall_priority_does_not_bypass_unsupported_capability() -> None:
+    assessment = _assessment(
+        impact=ImpactLevel.UNKNOWN,
+        relation=CoreClaimEvidenceRelation.CRITICAL_GAP,
+        evidence_ids=[],
+        complete_contract=True,
+    )
+
+    decision = _decision(
+        _candidate(must_triage=True),
+        assessment,
+        context=SystemRoutingContext(bounded_direct_fetch_supported=False),
+    )
+
+    assert decision.route is ProposedRoute.UNRESOLVED
+
+
+def test_recall_priority_does_not_bypass_incomplete_contract() -> None:
+    assessment = _assessment(
+        impact=ImpactLevel.UNKNOWN,
+        relation=CoreClaimEvidenceRelation.CRITICAL_GAP,
+        evidence_ids=[],
+        complete_contract=False,
+    )
+
+    assert (
+        _decision(_candidate(must_triage=True), assessment).route
+        is ProposedRoute.UNRESOLVED
+    )
 
 
 @pytest.mark.parametrize(

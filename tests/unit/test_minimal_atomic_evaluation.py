@@ -20,7 +20,7 @@ from morning_radar.evaluation.minimal_atomic_evaluation import (
 def test_frozen_gate_manifest_matches_precommitted_identity() -> None:
     manifest = build_gate_manifest(Path("."))
 
-    assert manifest["status"] == "READY_FOR_REAL_SEMANTIC_EVAL"
+    assert manifest["status"] == "READY_FOR_MINIMAL_ATOMIC_REAL_REEVAL"
     assert manifest["candidate_count"] == EXPECTED_CANDIDATES
     assert manifest["candidate_payload_sha256"] == EXPECTED_PAYLOAD_SHA256
     assert manifest["prompt_sha256"] == EXPECTED_PROMPT_SHA256
