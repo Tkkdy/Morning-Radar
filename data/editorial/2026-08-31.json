@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-31",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "demonstrated_policy_impact"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "得州州长阿博特冻结了对 Flock 摄像头的州级支出；此前该州已花费超 3000 万美元，资金来自保险单 1 美元附加费。行动发生在得州论坛报调查发布前。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-e1bb000915ff63e907d0",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "state-ai-surveillance-procurement-policy"
+      ],
+      "uncertainty": "冻结范围与持续时间尚不明确，尚不清楚是否影响已有合同或仅阻止新支出。",
+      "why_now": "政策在调查曝光前落地，显示 AI 监控公共采购正面临政治与隐私压力，可能影响 Flock 的州级收入。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.5,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "马斯克称 SpaceX 一处未公开新铸造厂将自行铸造涡轮叶片，并比其他人快 18 个月实现燃气发电。该说法来自 TechCrunch，尚未独立证实。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-0f50bae9975b87c9fea4",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "datacenter-energy-gas-turbine-supply"
+      ],
+      "uncertainty": "铸造厂位置、规模、技术细节及部署时间表均未披露；污染与健康挑战可能影响可行性。",
+      "why_now": "AI 数据中心电力紧张背景下，更快燃气轮机产能可能缓解能源瓶颈，但污染与法律风险同时浮现。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.5,
+      "evidence_value": 0,
+      "fact_status": "inference",
+      "news_delta": "卡特彼勒声称将把数十年的采矿自动化经验应用于 AI 部署，但报道仅给出摘要，无具体方法或案例。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-a75deabf80cbb9726b1a",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "卡特彼勒如何具体应用经验、是否已有生产系统均未说明。",
+      "why_now": "工业自动化与 AI 部署的交叉被讨论，但缺少可核验的部署细节或结果。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.3,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "Hacker News 社区线索称 Cursor 推出名为 Origin 的代码托管平台，并猜测其瞄准 GitHub 故障带来的机会；尚无官方确认。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-f3c06c7784ab658a6f0e",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "ai-native-code-hosting-competition"
+      ],
+      "uncertainty": "Origin 是否由 Cursor 官方推出、功能范围及发布时间均未证实；与 GitHub 故障的因果关联为推测。",
+      "why_now": "若属实，将加剧 AI 编程工具与代码托管平台的竞争，但消息仍处于传闻阶段。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "niche_penetration"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "Meta 正在数据中心测试机器人执行技术人员任务，探索自动化运维；目前未披露供应商、规模或时间表。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-5416a733102aabe256a2",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "data-center-robotics-automation"
+      ],
+      "uncertainty": "测试处于早期，机器人供应商、部署规模及正式采用时间均未知。",
+      "why_now": "若测试推进，可能降低数据中心人力成本并影响基础设施运营模式。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "extreme_market_move"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "NVIDIA 在 2026-08-28 交易日收报 217.55 美元，下跌 4.57%，成交 1.945 亿股；单一价格波动，无已确认原因。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": false,
+      "story_id": "story-155e811e10171dbe4fb2",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [],
+      "uncertainty": "下跌原因未在数据中体现，可能受宏观、板块轮动或消息面等多因素影响。",
+      "why_now": "作为 AI 基础设施核心标的的大幅下跌吸引市场关注，但缺乏结构解释。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.2,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "开源项目 Clips Kitty 自称提供本地 AI 视频剪辑与编辑，但 Hacker News 仅 1 分，社区关注度极低。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-b62582bc7fe3216eb7e3",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "功能稳定性与维护情况不明，可能过早。",
+      "why_now": "项目刚出现，无差异化证据或采用信号。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "macro_market_regime"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "Amazon 在 2026-08-28 交易日收报 266.43 美元，上涨 3.97%，成交 4947.55 万股；无已确认原因。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-b0a26f571ab775dc9690",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [],
+      "uncertainty": "上涨原因多元，数据未提供因果。",
+      "why_now": "股价上涨但缺少结构解释，仅作为市场情绪参考。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-08-31T01:35:30.647707Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

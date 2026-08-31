@@ -1,0 +1,103 @@
+{
+  "date": "2026-08-31",
+  "generated_at": "2026-08-31T01:35:30.647707Z",
+  "judgements": [
+    {
+      "claim": "阿博特冻结 Flock 摄像头资金可能是先发制人的政治操作，意在得州论坛报调查公开前降低公众对监控支出的反弹。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-31",
+            "story_id": "story-e1bb000915ff63e907d0"
+          }
+        }
+      ],
+      "judgement_id": "judgement-640232d2a21e2bef0978",
+      "rationale": "冻结发生在得州论坛报调查公布之前，且得州已通过保险单加收1美元为 Flock 摄像头投入超过3000万美元，政策敏感点明确。",
+      "recorded_at": "2026-08-31T01:35:30.647707Z",
+      "root_judgement_id": "judgement-640232d2a21e2bef0978",
+      "uncertainty": "官方未证实先发制人动机；冻结范围和持续时间仍不明。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Elon Musk",
+        "SpaceX"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 SpaceX 或马斯克是否披露该铸造厂的位置、规模与技术细节，或公布燃气轮机部署时间表，以及是否出现污染、法律或健康方面的挑战报道。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-31T01:35:30.647707Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-31",
+          "story_id": "story-0f50bae9975b87c9fea4"
+        }
+      ],
+      "topic_anchors": [
+        "燃气轮机",
+        "污染",
+        "铸造"
+      ],
+      "watch_id": "watch-324afa675b1305e639c9"
+    },
+    {
+      "entity_anchors": [
+        "Cursor",
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Cursor 是否官方发布或否认名为 Origin 的代码托管平台，以及 GitHub 故障与 Origin 推出之间的关联能否得到确认或否定。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Origin"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-08-31T01:35:30.647707Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-31",
+          "story_id": "story-f3c06c7784ab658a6f0e"
+        }
+      ],
+      "topic_anchors": [
+        "代码托管",
+        "AI 编程",
+        "开发者工具"
+      ],
+      "watch_id": "watch-5b560364e5dc6287d3f5"
+    },
+    {
+      "entity_anchors": [
+        "Caterpillar"
+      ],
+      "event_type": "opened",
+      "expectation": "观察卡特彼勒是否公布将采矿自动化经验应用于 AI 部署的具体案例、行业或效果数据。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-08-31T01:35:30.647707Z",
+      "source_story_refs": [
+        {
+          "date": "2026-08-31",
+          "story_id": "story-a75deabf80cbb9726b1a"
+        }
+      ],
+      "topic_anchors": [
+        "AI部署",
+        "自动化",
+        "采矿"
+      ],
+      "watch_id": "watch-cbb9e654785574d5a84f"
+    }
+  ]
+}
