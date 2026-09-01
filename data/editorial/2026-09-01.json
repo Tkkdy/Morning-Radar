@@ -1,0 +1,322 @@
+{
+  "date": "2026-09-01",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "lower_technical_barrier"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub Copilot 在 VS Code 中发布 2026 年 8 月版本 v1.132-v1.135，引入 Agent Host 功能，用于组织代理会话、审查更改和浏览长对话。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-8669e002595ad97570c3",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "github-copilot-vscode-agent-host-orchestration"
+      ],
+      "uncertainty": "Agent Host 的具体行为和操作细节尚未完全说明；此更新可能是增量发布而非架构级变化。",
+      "why_now": "官方 changelog 在今天发布，给 VS Code 用户带来代理会话管理的新功能。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "structural_business_change",
+        "large_user_impact",
+        "ai_ecosystem_landmark"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "OpenAI 官方宣布 ChatGPT Ads 达到 10 亿美元年化收入运行率，并开始全球扩展。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": true,
+      "story_id": "story-f5c77e80711b692c7b78",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "chatgpt-ads-monetization-scale"
+      ],
+      "uncertainty": "年化收入运行率是基于当前收入的推算，并非已确认年收入；全球扩展的具体国家和地区未披露。",
+      "why_now": "这一里程碑标志着 AI 广告变现进入规模化阶段，是重要的商业化信号。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "lower_technical_barrier",
+        "niche_penetration"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "NVIDIA 发布 BioNeMo NIM 微服务，可在 Claude Science 中运行用于蛋白质结构预测。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-6fefe94d81ff1f7f79d0",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "scientific-ai-nim-integration"
+      ],
+      "uncertainty": "具体模型版本、性能数据和 Claude Science 的平台归属未说明。",
+      "why_now": "官方开发者博客发布整合消息，为生命科学研究者降低 AI 模型使用门槛。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "large_user_impact",
+        "structural_business_change",
+        "demonstrated_policy_impact"
+      ],
+      "editorial_confidence": 0.75,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "五角大楼已将 OpenAI ChatGPT 和 Grok 版本纳入其 AI 工具中央门户；Google Gemini 此前已可用。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": true,
+      "story_id": "story-fcd6c1c06b54050f757b",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "government-ai-adoption-military"
+      ],
+      "uncertainty": "报道中 'SpaceXAI' 可能指 xAI；ChatGPT 和 Grok 的具体部署时间、功能范围与安全验证尚未明确。",
+      "why_now": "TechCrunch 报道显示美国国防部快速采用商业 AI 工具，影响 AI 军事应用格局。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "lower_technical_barrier"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "pydantic-ai v2.37.0 发布，新增 glm-5.3-flash 模型支持，并修复剪枝跨度查询、finish_reason 映射等 bug。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-2a7f12b88979a5df4bcc",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "pydantic-ai-model-support-evolution"
+      ],
+      "uncertainty": "glm-5.3-flash 的特性与来源未详细说明。",
+      "why_now": "官方 GitHub 发布，影响使用 pydantic-ai 的开发者和 AI 编码工作流。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.5,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "苹果指控一名前员工在调查前销毁了为 OpenAI 窃取公司数据的证据。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-1339f73de434233e35e3",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "指控仍属单方面说法，尚无司法裁决或独立证据。",
+      "why_now": "TechCrunch 报道了苹果在诉讼中的新指控，但尚未经法院裁定。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "demonstrated_policy_impact",
+        "niche_penetration"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "Instagram 开始限制未公开 AI 账号的覆盖范围，以提高平台透明度。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-cf3acaad21f676b3f584",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "social-media-ai-content-disclosure-policy"
+      ],
+      "uncertainty": "具体限制机制、执行尺度及对 AI 影响者生态的长期影响尚不明确。",
+      "why_now": "TechCrunch 报道平台政策变化，影响 AI 影响者内容和社交媒体治理。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "ai_ecosystem_landmark",
+        "demonstrated_policy_impact",
+        "structural_business_change"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "Debian 投票决定允许开发者在其发行版的开发、维护和文档贡献中使用 AI 工具，不禁止 AI 代码。",
+      "placement": "STORY",
+      "reader_value": 4,
+      "retain_for_trends": true,
+      "story_id": "story-93a3a6fa7f1ea4192b62",
+      "support_for_story_id": null,
+      "treatment": "deep_story",
+      "trend_links": [
+        "open-source-ai-code-policy-linux"
+      ],
+      "uncertainty": "投票具体人数、比例及“已有标准”的细节未在报道中提供。",
+      "why_now": "这一决定明确了主流开源社区对 AI 辅助开发的政策立场，影响 Linux 生态。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta",
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "mixed",
+      "news_delta": "Clipto 以 2.5 亿美元估值完成 1500 万美元融资，宣称 ARR 达到 1500 万美元并实现盈利。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-24bda1a77a2acbaf6ef2",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "财务数据由公司自行披露，未经独立审计；投资方和融资细节未公开。",
+      "why_now": "TechCrunch 报道了该 AI 媒体搜索初创公司的里程碑。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "policy_background_only"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "OpenAI 发布客户故事，称 Polimill 使用 OpenAI GPT 模型和 Codex 为日本市政当局建设公共 AI 基础设施。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-ca4abe24cb354abe3087",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "合作范围、实施细节和实际成效均由 OpenAI 单方披露。",
+      "why_now": "OpenAI 官方宣传公共部门采用案例，但缺乏独立验证。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta",
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "Blue Voice 获 600 万美元融资，为警察打造基于专有法律和规程数据的 AI 助手。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-073e499e6bfa7a2d6603",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "融资细节、估值及产品实际部署效果未公开。",
+      "why_now": "TechCrunch 报道垂直领域 AI 助手融资事件。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "googleapis/python-genai 发布 v2.21.0，新增文件流式下载、audio/webm 支持和视频理解等特性。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-7ece289b17d2401ddca2",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "GEAP 是指什么未明确；该版本没有结构性变化。",
+      "why_now": "官方 GitHub 发布，但属于常规 SDK 迭代。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.3,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "NVIDIA Developer Blog 发布了一篇关于 Omniverse NuRec 的文章，但未提供产品功能、可用性或版本的实质细节。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-8853d32c205f75e61855",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "文章摘要缺乏具体技术内容，无法评估影响。",
+      "why_now": "文章发布但内容不完整，不足以形成新闻事件。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "large_user_impact"
+      ],
+      "editorial_confidence": 0.75,
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "news_delta": "Cloudflare 推出 Adaptive Intelligence 引擎，旨在通过自主学习和一次性规则提高机器人攻击成本。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-0cb51c44e261da4466ef",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "cloudflare-adaptive-bot-defense"
+      ],
+      "uncertainty": "具体模型架构、训练数据、误报率和有效性未经独立测试。",
+      "why_now": "官方博客发布新安全引擎，可能影响大量网站和应用的基础防护。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-01T02:02:10.782983Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

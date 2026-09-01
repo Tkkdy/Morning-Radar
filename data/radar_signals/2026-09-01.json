@@ -1,0 +1,50 @@
+[
+  {
+    "claim": "博主将家用安防摄像头与 BirdNET-GO 结合，改造为自动鸟类识别系统",
+    "id": "radar-ce70475a1914b4675263",
+    "missing_evidence": [
+      "原文中的部署细节与硬件/软件链路",
+      "BirdNET-GO 的实际识别效果、误报与计算资源消耗",
+      "是否提供可复现步骤或代码"
+    ],
+    "observed_at": "2026-09-01T02:02:10.782983Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-edeb9dcecaf7ecd7f18c",
+        "source_role": "community_discovery",
+        "url": "https://jasontucker.blog/how-i-turned-my-security-cameras-into-an-automatic-bird-identification-system-with-birdnet-go/"
+      }
+    ],
+    "uncertainty": "仅有社区发现链接，未独立核实项目真实性、技术准确性与实用价值。",
+    "why_notable": "展示了 BirdNET-GO 在安防摄像头/家用边缘场景的 AI 音频识别应用，可能对边缘部署或非典型 AI 采用有参考价值。"
+  },
+  {
+    "claim": "Embracethered 博客披露 Breaking Claude Code Opus 5 Auto Mode，暗示存在可破坏/绕过其自动模式的方法",
+    "id": "radar-7bb181941736fe6f00e5",
+    "missing_evidence": [
+      "具体漏洞或绕过技术细节与复现步骤",
+      "影响范围、触发条件和可利用性",
+      "Anthropic 是否已确认、缓解或修复"
+    ],
+    "observed_at": "2026-09-01T02:02:10.782983Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-d32a0d9b7ef4962486ab",
+        "source_role": "community_discovery",
+        "url": "https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/"
+      }
+    ],
+    "uncertainty": "目前仅有安全研究博客标题，且为 unverified_lead，未独立验证技术结论。",
+    "why_notable": "Claude Code 的自动模式用于自主编码代理流程，若存在安全绕过可能涉及提示注入、权限滥用或未预期行为，对依赖 AI 编码代理的团队有风险参考价值。"
+  }
+]

@@ -1,0 +1,161 @@
+{
+  "date": "2026-09-01",
+  "generated_at": "2026-09-01T02:02:10.782983Z",
+  "judgements": [
+    {
+      "claim": "ChatGPT Ads 达到 10 亿美元年化收入运行率，表明对话式 AI 广告变现模式已具备规模化可行性，将推动 OpenAI 扩大广告业务并影响其他 AI 平台的商业化策略。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-01",
+            "story_id": "story-f5c77e80711b692c7b78"
+          }
+        }
+      ],
+      "judgement_id": "judgement-b4e0078d60e334c447cd",
+      "rationale": "该年化运行率基于 OpenAI 官方公告，且伴随全球扩展计划，显示广告已成为 ChatGPT 实现规模化收入的重要途径。",
+      "recorded_at": "2026-09-01T02:02:10.782983Z",
+      "root_judgement_id": "judgement-b4e0078d60e334c447cd",
+      "uncertainty": "年化运行率并非实际收入确认，扩展地区的具体范围未披露，可能高估实际收入贡献。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    },
+    {
+      "claim": "五角大楼同时将 ChatGPT 和 Grok 纳入其 AI 工具门户，表明其在商用大模型采购上采取多供应商策略，可能促使更多 AI 公司争夺国防合同并加强安全合规。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-01",
+            "story_id": "story-fcd6c1c06b54050f757b"
+          }
+        }
+      ],
+      "judgement_id": "judgement-e926fdb7fcd8dc695f1a",
+      "rationale": "TechCrunch 报道确认五角大楼正在整合多个商用 AI 模型，且 Gemini 已可用，显示多供应商架构。",
+      "recorded_at": "2026-09-01T02:02:10.782983Z",
+      "root_judgement_id": "judgement-e926fdb7fcd8dc695f1a",
+      "uncertainty": "'SpaceXAI' 名称可能不准确，且模型部署的具体时间和安全要求尚未披露。",
+      "update_kind": null,
+      "updates_judgement_id": null,
+      "watch_ids": []
+    }
+  ],
+  "relations": [
+    {
+      "change_summary": "pydantic-ai 由 v2.36.0 更新到 v2.37.0，新增 glm-5.3-flash 模型支持，并修复剪枝跨度查询条件保留、Z.AI 非标准 finish_reason 映射等 bug。",
+      "current_story": {
+        "date": "2026-09-01",
+        "story_id": "story-2a7f12b88979a5df4bcc"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-08-29",
+            "story_id": "story-33e827d3caa29d43cf7b"
+          }
+        },
+        {
+          "fact_indexes": [
+            0,
+            1,
+            2
+          ],
+          "story": {
+            "date": "2026-09-01",
+            "story_id": "story-2a7f12b88979a5df4bcc"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-29",
+        "story_id": "story-33e827d3caa29d43cf7b"
+      },
+      "rationale": "两个故事分别报告同一产品 pydantic-ai 的连续版本发布：前一个为 v2.36.0，当前为 v2.37.0；当前版本在前一版本之后发布，包含新增模型支持和若干修复，构成明确的版本跟进事实。",
+      "recorded_at": "2026-09-01T02:02:10.782983Z",
+      "relation_id": "relation-6687687df3d7fbcfa1be",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "在 OpenAI 下一次财报或官方公告中，是否披露 ChatGPT Ads 的实际季度收入或具体扩展国家/地区列表，以验证 10 亿美元年化收入运行率的可持续性。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ChatGPT Ads"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-01T02:02:10.782983Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-01",
+          "story_id": "story-f5c77e80711b692c7b78"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-1d9aa370395f3641a11f"
+    },
+    {
+      "entity_anchors": [
+        "五角大楼",
+        "美国国防部"
+      ],
+      "event_type": "opened",
+      "expectation": "五角大楼是否发布 ChatGPT 和 Grok 在 AI 工具门户中的正式部署时间、使用范围或安全评估报告，以验证商用模型在国防场景中的落地进度。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ChatGPT",
+        "Grok"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-01T02:02:10.782983Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-01",
+          "story_id": "story-fcd6c1c06b54050f757b"
+        }
+      ],
+      "topic_anchors": [
+        "军事 AI 应用"
+      ],
+      "watch_id": "watch-2bd3135f6c05ec7c8766"
+    },
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub 是否在后续版本日志或官方说明中公布 'Agent Host' 功能的详细操作方式和能力边界，以确认多代理会话管理在 VS Code 中的实际进展。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot",
+        "VS Code"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-01T02:02:10.782983Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-01",
+          "story_id": "story-8669e002595ad97570c3"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding"
+      ],
+      "watch_id": "watch-4512158ad4d62470449e"
+    }
+  ]
+}

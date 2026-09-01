@@ -1,0 +1,862 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-d110c5b77710b957dc5e",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/run-nvidia-bionemo-nim-microservices-for-protein-structure-prediction-in-claude-science/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "NVIDIA 将 BioNeMo 框架以 NIM 微服务形式集成到 Claude Science 环境，可能降低研究人员使用蛋白质结构预测模型的门槛。",
+            "该举措反映了 AI 基础设施与科学计算工具的融合趋势。"
+          ],
+          "canonical_title": "NVIDIA 发布 BioNeMo NIM 微服务：在 Claude Science 中进行蛋白质结构预测",
+          "category": "AI 模型与基础设施",
+          "entity_names": [
+            "NVIDIA",
+            "Claude Science"
+          ],
+          "facts": [
+            "NVIDIA BioNeMo NIM 微服务可用于蛋白质结构预测。",
+            "该微服务可在 Claude Science 中运行。",
+            "NVIDIA 开发者博客于 2026-08-31 发布了相关文章。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/run-nvidia-bionemo-nim-microservices-for-protein-structure-prediction-in-claude-science/",
+          "product_names": [
+            "BioNeMo NIM",
+            "Claude Science"
+          ],
+          "published_at": "2026-08-31T16:30:00Z",
+          "source_refs": [
+            {
+              "author": "Michelle Horton",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T16:30:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-14f0239837ee285381a1",
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Run NVIDIA BioNeMo NIM Microservices for Protein Structure Prediction in Claude Science",
+              "url": "https://developer.nvidia.com/blog/run-nvidia-bionemo-nim-microservices-for-protein-structure-prediction-in-claude-science/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-6fefe94d81ff1f7f79d0",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure"
+          ],
+          "uncertainties": [
+            "文章摘要提到 AI 科学家可以阅读论文、提出假设等，但未明确这些是 BioNeMo NIM 的直接功能还是 Claude Science 的整体能力。",
+            "未提供 BioNeMo NIM 具体版本、模型参数或性能数据。",
+            "未明确 Claude Science 是 NVIDIA 产品还是第三方平台。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6fefe94d81ff1f7f79d0"
+      ],
+      "title": "NVIDIA 发布 BioNeMo NIM 微服务，可在 Claude Science 中进行蛋白质结构预测",
+      "uncertainty": "未明确 Claude Science 是 NVIDIA 产品还是第三方平台；未提供具体版本、模型参数或性能数据。",
+      "what_happened": "NVIDIA BioNeMo NIM 微服务可用于蛋白质结构预测，并可在 Claude Science 中运行，相关文章于 2026-08-31 在开发者博客发布。",
+      "why_it_matters": "将 BioNeMo 框架以 NIM 微服务形式集成到 Claude Science 环境，可能降低研究人员使用蛋白质结构预测模型的门槛，反映 AI 基础设施与科学计算工具的融合趋势。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-eab6b2f9f54c23b2b183",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/31/instagram-puts-new-limits-on-undisclosed-ai-profiles/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "此举可能是为了应对用户对 AI 影响者日益增长的不满，并提高平台透明度。"
+          ],
+          "canonical_title": "Instagram 限制未公开 AI 账号的覆盖范围",
+          "category": "社交媒体 / AI 治理",
+          "entity_names": [
+            "Instagram",
+            "Meta"
+          ],
+          "facts": [
+            "Instagram 正在限制未公开的 AI 账号的覆盖范围。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/31/instagram-puts-new-limits-on-undisclosed-ai-profiles/",
+          "product_names": [],
+          "published_at": "2026-08-31T19:16:59Z",
+          "source_refs": [
+            {
+              "author": "Lauren Forristal",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T19:16:59Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-e89f617879e7196700cc",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Instagram puts new limits on undisclosed AI profiles",
+              "url": "https://techcrunch.com/2026/08/31/instagram-puts-new-limits-on-undisclosed-ai-profiles/"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-cf3acaad21f676b3f584",
+          "topic_names": [
+            "AI 影响者",
+            "内容审核",
+            "平台政策"
+          ],
+          "uncertainties": [
+            "具体限制措施、执行机制以及对 AI 影响者生态的长期影响尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-cf3acaad21f676b3f584"
+      ],
+      "title": "Instagram 限制未公开 AI 账号的覆盖范围",
+      "uncertainty": "具体限制措施、执行机制以及对 AI 影响者生态的长期影响尚不明确。",
+      "what_happened": "Instagram 正在限制未公开的 AI 账号的覆盖范围。",
+      "why_it_matters": "此举可能是为了应对用户对 AI 影响者日益增长的不满，并提高平台透明度，可能影响 AI 生成内容的商业模式。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-2bc8633a68de01f2b5a6",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/tech/986789/linux-debian-generative-ai-policy"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Debian 的决定反映了开源社区对 AI 辅助开发的态度趋于务实，在保持现有标准的同时接受 AI 作为提高效率的工具。"
+          ],
+          "canonical_title": "Debian 将不会禁止在其 Linux 发行版中使用 AI 代码",
+          "category": "AI 政策",
+          "entity_names": [
+            "Debian"
+          ],
+          "facts": [
+            "Debian 投票允许开发者在 Linux 发行版的“开发、维护和文档”贡献中使用 AI 工具。",
+            "新政策承认“负责任地”使用 AI 可以提高开发者生产力，并指出“生成式 AI 既不豁免也不受超出已有标准的特殊规则约束”。"
+          ],
+          "primary_source_url": "https://www.theverge.com/tech/986789/linux-debian-generative-ai-policy",
+          "product_names": [
+            "Debian Linux 发行版"
+          ],
+          "published_at": "2026-08-31T11:34:58-04:00",
+          "source_refs": [
+            {
+              "author": "Stevie Bonifield",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T11:34:58-04:00",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-35875a421ff9d602dce5",
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Debian won’t ban AI code from its Linux distribution",
+              "url": "https://www.theverge.com/tech/986789/linux-debian-generative-ai-policy"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-93a3a6fa7f1ea4192b62",
+          "topic_names": [
+            "生成式 AI 政策",
+            "开源社区"
+          ],
+          "uncertainties": [
+            "报道中未提供投票的具体细节（如投票人数、比例或日期）。",
+            "“已有标准”的具体内容未在摘要中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-93a3a6fa7f1ea4192b62"
+      ],
+      "title": "Debian 投票允许开发者在其 Linux 发行版中使用 AI 代码",
+      "uncertainty": "报道未提供投票的具体细节（如投票人数、比例或日期）；“已有标准”的具体内容未说明。",
+      "what_happened": "Debian 投票允许开发者在 Linux 发行版的“开发、维护和文档”贡献中使用 AI 工具，并指出生成式 AI 既不豁免也不受超出已有标准的特殊规则约束。",
+      "why_it_matters": "该决定反映了开源社区对 AI 辅助开发的态度趋于务实，在保持现有标准的同时接受 AI 作为提高效率的工具。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-2a7f12b88979a5df4bcc",
+          "judgement_cues": [],
+          "previous_story_date": "2026-08-29",
+          "previous_story_id": "story-33e827d3caa29d43cf7b",
+          "previous_story_title": "pydantic-ai v2.36.0 发布",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "pydantic-ai 由 v2.36.0 更新到 v2.37.0，新增 glm-5.3-flash 模型支持，并修复剪枝跨度查询条件保留、Z.AI 非标准 finish_reason 映射等 bug。"
+        }
+      ],
+      "id": "brief-0ba69b9046c16b5d6aef",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.37.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本包含多项 bug 修复和新功能，表明项目维护活跃。",
+            "引入了多位新贡献者，显示社区参与度提升。"
+          ],
+          "canonical_title": "pydantic-ai v2.37.0 发布",
+          "category": "软件发布",
+          "entity_names": [
+            "pydantic",
+            "Z.AI"
+          ],
+          "facts": [
+            "pydantic-ai v2.37.0 于 2026-08-31 发布。",
+            "该版本新增了模型 glm-5.3-flash 的支持。",
+            "该版本修复了多个 bug，包括保留剪枝跨度查询中的所有条件、接受并映射 Z.AI 的非标准 finish_reason 值等。"
+          ],
+          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.37.0",
+          "product_names": [
+            "pydantic-ai"
+          ],
+          "published_at": "2026-09-01T01:48:28Z",
+          "source_refs": [
+            {
+              "author": "dsfaccini",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-01T01:48:28Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-06289f2763bd6f7faa4a",
+              "source_name": "GitHub · pydantic/pydantic-ai",
+              "source_role": "official_primary",
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "pydantic/pydantic-ai: v2.37.0 (2026-08-31)",
+              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.37.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-2a7f12b88979a5df4bcc",
+          "topic_names": [
+            "AI 编程",
+            "开源 AI"
+          ],
+          "uncertainties": [
+            "未提供该版本的具体发布日期（仅以标签 v2.37.0 标记，发布日期为 2026-08-31 来自输入）。",
+            "未说明 glm-5.3-flash 模型的详细来源或特性。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2a7f12b88979a5df4bcc"
+      ],
+      "title": "pydantic-ai v2.37.0 发布，新增 glm-5.3-flash 模型支持",
+      "uncertainty": "未说明 glm-5.3-flash 模型的详细来源或特性。",
+      "what_happened": "pydantic-ai v2.37.0 于 2026-08-31 发布，新增模型 glm-5.3-flash 支持，并修复多个 bug，包括保留剪枝跨度查询中的所有条件、接受并映射 Z.AI 的非标准 finish_reason 值等。",
+      "why_it_matters": "该版本包含多项 bug 修复和新功能，表明项目维护活跃，并引入了多位新贡献者，显示社区参与度提升。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-0002f56b2b45aed3507b",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "TechCrunch 报道了苹果的指控，该报道基于苹果提供的证据。"
+          ],
+          "canonical_title": "苹果指控前员工窃取公司数据给 OpenAI，并销毁证据",
+          "category": "legal",
+          "entity_names": [
+            "Apple",
+            "OpenAI"
+          ],
+          "facts": [
+            "苹果声称有证据表明一名前员工在得知自己正在接受调查后销毁了数据窃取的证据。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/",
+          "product_names": [],
+          "published_at": "2026-09-01T00:13:00Z",
+          "source_refs": [
+            {
+              "author": "Amanda Silberling",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-01T00:13:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-19e797d504230c2e1874",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Apple shares ‘shocking evidence’ against former employee accused of stealing company data for OpenAI",
+              "url": "https://techcrunch.com/2026/08/31/apple-shares-shocking-evidence-against-former-employee-accused-of-stealing-company-data-for-openai/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-1339f73de434233e35e3",
+          "topic_names": [
+            "数据窃取",
+            "商业秘密",
+            "员工诉讼"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-1339f73de434233e35e3"
+      ],
+      "title": "苹果指控前员工窃取公司数据给 OpenAI，并销毁证据",
+      "uncertainty": "TechCrunch 报道基于苹果提供的证据，尚未有法院裁决或其他方回应。",
+      "what_happened": "苹果指控一名前员工窃取公司数据提供给 OpenAI，并声称该员工在得知调查后销毁证据。",
+      "why_it_matters": "该诉讼涉及科技巨头之间的数据安全和商业秘密保护，可能影响 OpenAI 的声誉与合规审查。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-73c964d297cad2f778a1",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/31/three-year-old-ai-media-search-startup-clipto-hits-a-250m-valuation/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "TechCrunch 报道了 Clipto 的融资和财务里程碑，这些数据均由公司自行披露。",
+            "成立三年即实现 1500 万美元 ARR 并盈利，表明其在 AI 媒体搜索领域有较强的商业化能力。"
+          ],
+          "canonical_title": "Clipto 以 2.5 亿美元估值完成 1500 万美元融资，ARR 达 1500 万美元并实现盈利",
+          "category": "融资与估值",
+          "entity_names": [
+            "Clipto"
+          ],
+          "facts": [
+            "Clipto 是一家成立三年的 AI 媒体搜索初创公司。",
+            "Clipto 的估值达到 2.5 亿美元。",
+            "Clipto 的 ARR 达到 1500 万美元。",
+            "Clipto 实现了盈利。",
+            "Clipto 完成了最新一轮 1500 万美元的融资。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/31/three-year-old-ai-media-search-startup-clipto-hits-a-250m-valuation/",
+          "product_names": [],
+          "published_at": "2026-08-31T16:00:00Z",
+          "source_refs": [
+            {
+              "author": "Kate Park",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T16:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-94560be8c6139247c2b8",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Clipto uses AI to search terabytes of video and is now valued at $250M",
+              "url": "https://techcrunch.com/2026/08/31/three-year-old-ai-media-search-startup-clipto-hits-a-250m-valuation/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-24bda1a77a2acbaf6ef2",
+          "topic_names": [
+            "AI 视频搜索",
+            "AI 创业公司"
+          ],
+          "uncertainties": [
+            "融资轮次的具体投资方和领投方未在摘要中披露。",
+            "公司声称的财务数据未经独立审计，可能存在偏差。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-24bda1a77a2acbaf6ef2"
+      ],
+      "title": "Clipto 完成 1500 万美元融资，估值达 2.5 亿美元，ARR 1500 万美元并实现盈利",
+      "uncertainty": "融资轮次的具体投资方和领投方未披露；财务数据未经独立审计，可能存在偏差。",
+      "what_happened": "AI 媒体搜索初创公司 Clipto 完成最新一轮 1500 万美元融资，估值达到 2.5 亿美元；公司 ARR 达到 1500 万美元并实现盈利。",
+      "why_it_matters": "成立三年即实现 1500 万美元 ARR 并盈利，表明 AI 视频搜索领域存在可行的商业模式，可能吸引更多资本关注。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-f29ced62d1f925f52e6a",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/polimill"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Polimill 将 AI 能力应用于日本公共部门，可能提升行政效率和知识管理。"
+          ],
+          "canonical_title": "Polimill 利用 OpenAI GPT 模型和 Codex 建设日本下一代公共 AI 基础设施",
+          "category": "AI 应用 / 公共部门",
+          "entity_names": [
+            "Polimill",
+            "OpenAI",
+            "日本 municipalities"
+          ],
+          "facts": [
+            "Polimill 使用 OpenAI GPT 模型和 Codex 帮助 municipalities 搜索和利用行政知识，并加速开发。"
+          ],
+          "primary_source_url": "https://openai.com/index/polimill",
+          "product_names": [
+            "OpenAI GPT 模型",
+            "Codex"
+          ],
+          "published_at": "2026-08-31T07:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T07:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-0b5a688ac44522d68511",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Polimill builds Japan's next-generation public AI infrastructure",
+              "url": "https://openai.com/index/polimill"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-ca4abe24cb354abe3087",
+          "topic_names": [
+            "行政知识搜索与利用",
+            "AI 辅助开发",
+            "公共部门 AI 基础设施"
+          ],
+          "uncertainties": [
+            "Polimill 与 OpenAI 之间的具体合作范围、实施细节和成效尚未披露。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ca4abe24cb354abe3087"
+      ],
+      "title": "Polimill 使用 OpenAI GPT 模型和 Codex 帮助日本地方政府搜索和利用行政知识",
+      "uncertainty": "Polimill 与 OpenAI 之间的具体合作范围、实施细节和成效尚未披露。",
+      "what_happened": "Polimill 使用 OpenAI GPT 模型和 Codex 帮助日本地方政府搜索和利用行政知识，并加速开发。",
+      "why_it_matters": "将 AI 能力应用于日本公共部门，可能提升行政效率和知识管理，是 AI 在公共部门落地的一个案例。"
+    }
+  ],
+  "cognitive_extension": "OpenAI 在同一天宣布 ChatGPT Ads 达到 10 亿美元年化收入运行率并全球扩展，同时报道五角大楼将 ChatGPT 和 Grok 纳入其 AI 工具门户，这是否意味着 OpenAI 需要重新权衡军事部署、广告变现与 AI 安全责任之间的边界？",
+  "date": "2026-09-01",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-09-01T02:02:10.782983Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "博主将家用安防摄像头与 BirdNET-GO 结合，改造为自动鸟类识别系统",
+      "id": "radar-ce70475a1914b4675263",
+      "missing_evidence": [
+        "原文中的部署细节与硬件/软件链路",
+        "BirdNET-GO 的实际识别效果、误报与计算资源消耗",
+        "是否提供可复现步骤或代码"
+      ],
+      "observed_at": "2026-09-01T02:02:10.782983Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "community_discovery"
+      ],
+      "statement_type": "unverified_lead",
+      "support_refs": [
+        {
+          "raw_item_id": "item-edeb9dcecaf7ecd7f18c",
+          "source_role": "community_discovery",
+          "url": "https://jasontucker.blog/how-i-turned-my-security-cameras-into-an-automatic-bird-identification-system-with-birdnet-go/"
+        }
+      ],
+      "uncertainty": "仅有社区发现链接，未独立核实项目真实性、技术准确性与实用价值。",
+      "why_notable": "展示了 BirdNET-GO 在安防摄像头/家用边缘场景的 AI 音频识别应用，可能对边缘部署或非典型 AI 采用有参考价值。"
+    },
+    {
+      "claim": "Embracethered 博客披露 Breaking Claude Code Opus 5 Auto Mode，暗示存在可破坏/绕过其自动模式的方法",
+      "id": "radar-7bb181941736fe6f00e5",
+      "missing_evidence": [
+        "具体漏洞或绕过技术细节与复现步骤",
+        "影响范围、触发条件和可利用性",
+        "Anthropic 是否已确认、缓解或修复"
+      ],
+      "observed_at": "2026-09-01T02:02:10.782983Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "community_discovery"
+      ],
+      "statement_type": "unverified_lead",
+      "support_refs": [
+        {
+          "raw_item_id": "item-d32a0d9b7ef4962486ab",
+          "source_role": "community_discovery",
+          "url": "https://embracethered.com/blog/posts/2026/breaking-claude-code-opus-5-and-automode/"
+        }
+      ],
+      "uncertainty": "目前仅有安全研究博客标题，且为 unverified_lead，未独立验证技术结论。",
+      "why_notable": "Claude Code 的自动模式用于自主编码代理流程，若存在安全绕过可能涉及提示注入、权限滥用或未预期行为，对依赖 AI 编码代理的团队有风险参考价值。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 42,
+    "ai_brief_story_inputs": 10,
+    "ai_classify_completion_tokens": 1564,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6761,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 42657,
+    "ai_evaluate_editorial_completion_tokens": 14192,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 10537,
+    "ai_evaluate_editorial_reasoning_tokens": 11105,
+    "ai_input_characters": 113574,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 4649,
+    "ai_merge_story_finish_stop": 14,
+    "ai_merge_story_prompt_tokens": 13474,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_prompt_tokens": 54589,
+    "ai_reasoning_tokens": 26698,
+    "ai_resolve_continuity_completion_tokens": 2309,
+    "ai_resolve_continuity_finish_stop": 1,
+    "ai_resolve_continuity_prompt_tokens": 3169,
+    "ai_resolve_continuity_reasoning_tokens": 1816,
+    "ai_resolve_research_cases_completion_tokens": 8083,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2124,
+    "ai_resolve_research_cases_reasoning_tokens": 6656,
+    "ai_score_story_completion_tokens": 1776,
+    "ai_score_story_finish_stop": 14,
+    "ai_score_story_prompt_tokens": 11684,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 0,
+    "ai_write_brief_completion_tokens": 10084,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 6840,
+    "ai_write_brief_reasoning_tokens": 7121,
+    "aihot_enabled": false,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 15,
+    "continuity_character_budget_available": 6070,
+    "continuity_input_chars": 4583,
+    "continuity_judgement_inputs": 2,
+    "continuity_logical_ai_calls": 1,
+    "continuity_network_requests": 1,
+    "continuity_relation_inputs": 1,
+    "continuity_watch_inputs": 1,
+    "direction_signal_inputs": 0,
+    "dry_run": false,
+    "editorial_decisions": 14,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 146,
+    "judgement_updates": 0,
+    "judgements_created": 2,
+    "logical_ai_calls": 33,
+    "main_brief_items": 10,
+    "needs_review": 0,
+    "network_ai_requests": 33,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "radar_signals": 2,
+    "recent_24h": 39,
+    "relations_confirmed": 1,
+    "relations_rejected": 0,
+    "relations_unresolved": 14,
+    "research_cases": 8,
+    "research_input_characters": 3729,
+    "research_logical_ai_calls": 1,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 8,
+    "signals": 0,
+    "stories": 14,
+    "story_candidate_input": 29,
+    "structured_watches_opened": 3,
+    "tendency_clusters": 12,
+    "tendency_input_characters": 20563,
+    "tendency_logical_ai_calls": 0,
+    "tendency_unavailable": true,
+    "threshold_eligible_stories": 10,
+    "total_displayed_items": 10,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-f5c77e80711b692c7b78",
+          "judgement_cues": [
+            {
+              "claim": "ChatGPT Ads 达到 10 亿美元年化收入运行率，表明对话式 AI 广告变现模式已具备规模化可行性，将推动 OpenAI 扩大广告业务并影响其他 AI 平台的商业化策略。",
+              "judgement_id": "judgement-b4e0078d60e334c447cd",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-12fd7470f8e5e8737385",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "这一里程碑表明 AI 产品的广告变现模式已具备规模化潜力。",
+            "全球扩展可能增加 ChatGPT 在更多地区的用户触达和收入来源。"
+          ],
+          "canonical_title": "ChatGPT Ads 达到 10 亿美元年化收入运行率并全球扩展",
+          "category": "AI 商业化",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "2026年8月31日，OpenAI 官方宣布 ChatGPT Ads 达到 10 亿美元年化收入运行率。",
+            "ChatGPT Ads 正在全球范围扩展。",
+            "该扩展旨在通过免费和可负担的选项支持更广泛的 AI 访问。"
+          ],
+          "primary_source_url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads",
+          "product_names": [
+            "ChatGPT Ads"
+          ],
+          "published_at": "2026-08-31T04:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T04:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-8a7cdd78fd48385994a8",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "A milestone in expanding access to AI",
+              "url": "https://openai.com/index/expanding-access-to-ai-with-chatgpt-ads"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-f5c77e80711b692c7b78",
+          "topic_names": [
+            "AI 模型",
+            "AI 编码"
+          ],
+          "uncertainties": [
+            "10 亿美元年化收入运行率是基于当前收入的推算，并非实际年收入确认。",
+            "公告未披露具体扩展的国家或地区列表。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f5c77e80711b692c7b78"
+      ],
+      "title": "OpenAI 宣布 ChatGPT Ads 达到 10 亿美元年化收入运行率并全球扩展",
+      "uncertainty": "10 亿美元年化收入运行率是基于当前收入的推算，并非实际年收入确认；公告未披露具体扩展的国家或地区列表。",
+      "what_happened": "2026 年 8 月 31 日，OpenAI 官方宣布 ChatGPT Ads 达到 10 亿美元年化收入运行率，并正在全球范围扩展，以通过免费和可负担的选项支持更广泛的 AI 访问。",
+      "why_it_matters": "这一里程碑表明对话式 AI 的广告变现模式已具备规模化潜力，全球扩展可能增加 ChatGPT 的用户触达和收入来源。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-fcd6c1c06b54050f757b",
+          "judgement_cues": [
+            {
+              "claim": "五角大楼同时将 ChatGPT 和 Grok 纳入其 AI 工具门户，表明其在商用大模型采购上采取多供应商策略，可能促使更多 AI 公司争夺国防合同并加强安全合规。",
+              "judgement_id": "judgement-e926fdb7fcd8dc695f1a",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-3052e1aee30e9d52bcdf",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "五角大楼集成多种商用 AI 模型，表明其正积极采用外部先进技术来提升国防能力。",
+            "将商业 AI 工具引入军事领域可能引发对安全性和伦理的关切。"
+          ],
+          "canonical_title": "五角大楼将 ChatGPT 和 Grok 版本纳入其 AI 工具门户",
+          "category": "AI 政策与军事应用",
+          "entity_names": [
+            "五角大楼",
+            "美国国防部"
+          ],
+          "facts": [
+            "据 TechCrunch 报道，五角大楼将把 OpenAI 的 ChatGPT 和 SpaceXAI 的 Grok 版本纳入其 AI 工具中央门户。",
+            "Google 的 Gemini 已在五角大楼的 AI 工具门户上可用。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/",
+          "product_names": [
+            "ChatGPT",
+            "Grok",
+            "Gemini"
+          ],
+          "published_at": "2026-08-31T20:13:45Z",
+          "source_refs": [
+            {
+              "author": "Kirsten Korosec",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T20:13:45Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-cf3d8ead7771d3292228",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "The Pentagon now has its own version of ChatGPT and Grok",
+              "url": "https://techcrunch.com/2026/08/31/the-pentagon-now-has-its-own-version-of-chatgpt-and-grok/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-fcd6c1c06b54050f757b",
+          "topic_names": [
+            "军事 AI 应用",
+            "AI 工具集成",
+            "国防技术"
+          ],
+          "uncertainties": [
+            "ChatGPT 和 Grok 的具体部署时间与功能范围尚不明确。",
+            "这些商用 AI 模型在军事场景中的安全性和可靠性有待验证。",
+            "报道中提到的 'SpaceXAI' 是否为准确的公司名称需要进一步证实。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-fcd6c1c06b54050f757b"
+      ],
+      "title": "五角大楼将 ChatGPT 和 Grok 版本纳入其 AI 工具门户",
+      "uncertainty": "ChatGPT 和 Grok 的具体部署时间与功能范围尚不明确；报道中提到的 'SpaceXAI' 是否为准确公司名称需要进一步证实。",
+      "what_happened": "据 TechCrunch 报道，五角大楼将把 OpenAI 的 ChatGPT 和 SpaceXAI 的 Grok 版本纳入其 AI 工具中央门户；Google 的 Gemini 已在门户上可用。",
+      "why_it_matters": "此举表明美国国防部正在整合多家商用大模型，以提升国防能力，同时引发对军事 AI 安全性和伦理的关切。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-5a2023a4501252886c6a",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "GitHub Copilot 在 VS Code 中的更新重点在于改进代理会话管理和代码审查体验。",
+            "'Agent Host' 功能的引入可能标志着 Copilot 在 VS Code 中向更复杂的多代理协作能力演进。"
+          ],
+          "canonical_title": "GitHub Copilot 在 VS Code 中 2026 年 8 月版本发布",
+          "category": "Developer Tools",
+          "entity_names": [
+            "GitHub"
+          ],
+          "facts": [
+            "2026 年 8 月期间，GitHub Copilot 在 VS Code 中发布了 v1.132 至 v1.135 版本。",
+            "这些版本旨在帮助用户组织代理会话、审查更改以及浏览长对话。",
+            "该更新中包含了名为 'Agent Host' 的功能。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases",
+          "product_names": [
+            "GitHub Copilot",
+            "VS Code"
+          ],
+          "published_at": "2026-08-31T08:39:54Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-09-01T02:02:10.782983Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-08-31T08:39:54Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-144fda9a32c74290b707",
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GitHub Copilot in VS Code, August 2026 releases",
+              "url": "https://github.blog/changelog/2026-08-31-github-copilot-in-vs-code-august-2026-releases"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-8669e002595ad97570c3",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "'Agent Host' 功能的具体细节和操作方式尚未在摘要中完整说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8669e002595ad97570c3"
+      ],
+      "title": "GitHub Copilot 在 VS Code 发布 2026 年 8 月版本（v1.132-v1.135）",
+      "uncertainty": "'Agent Host' 功能的具体细节和操作方式尚未在摘要中完整说明。",
+      "what_happened": "GitHub Copilot 在 VS Code 中发布了 v1.132 至 v1.135 版本，引入名为 'Agent Host' 的功能，帮助用户组织代理会话、审查更改以及浏览长对话。",
+      "why_it_matters": "更新重点改进代理会话管理和代码审查体验，'Agent Host' 的引入可能标志着 Copilot 在 VS Code 中向更复杂的多代理协作能力演进。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "在 OpenAI 下一次财报或官方公告中，是否披露 ChatGPT Ads 的实际季度收入或具体扩展国家/地区列表，以验证 10 亿美元年化收入运行率的可持续性。",
+    "五角大楼是否发布 ChatGPT 和 Grok 在 AI 工具门户中的正式部署时间、使用范围或安全评估报告，以验证商用模型在国防场景中的落地进度。",
+    "GitHub 是否在后续版本日志或官方说明中公布 'Agent Host' 功能的详细操作方式和能力边界，以确认多代理会话管理在 VS Code 中的实际进展。"
+  ]
+}
