@@ -1,0 +1,754 @@
+[
+  {
+    "analysis": [
+      "Google Pics 的推出表明 Google 正在将 AI 图像生成和编辑功能整合到其生产力套件中，以增强 Workspace 的竞争力。"
+    ],
+    "canonical_title": "Google 推出 Google Pics：在 Workspace 中轻松创建和编辑图像",
+    "category": "产品发布",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 发布了一款名为 Google Pics 的工具，用于在 Google Workspace 中创建和编辑图像。",
+      "该公告于 2026 年 9 月 1 日发布，作者为 Meg Whittenberger。",
+      "官方博客文章标题为 \"Try Google Pics: Easy image creation and editing in Google Workspace\"。"
+    ],
+    "id": "story-a55c79ac41627b1f50eb",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://blog.google/products-and-platforms/products/workspace/google-pics/",
+    "product_names": [
+      "Google Pics",
+      "Google Workspace"
+    ],
+    "published_at": "2026-09-01T16:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-ab46a267f212840f55ce"
+    ],
+    "source_refs": [
+      {
+        "author": "Meg Whittenberger",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-ab46a267f212840f55ce",
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Try Google Pics: Easy image creation and editing in Google Workspace",
+        "url": "https://blog.google/products-and-platforms/products/workspace/google-pics/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products-and-platforms/products/workspace/google-pics/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 图像生成",
+      "AI 图像编辑",
+      "生产力工具"
+    ],
+    "uncertainties": [
+      "目前尚不清楚 Google Pics 的功能范围、支持的图像编辑操作类型以及其背后的 AI 模型详情。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "该功能将自动化扩展到代码审查的最后阶段，可能提高开发工作流效率。",
+      "允许 AI 自动批准 Pull Request 可能引发对代码质量和安全性的担忧。"
+    ],
+    "canonical_title": "GitHub Copilot 代码审查现可批准 Pull Request",
+    "category": "AI 编程工具",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Copilot 现在可以告知用户某个 Pull Request 已准备好批准。",
+      "管理员可以授权 Copilot 代表其批准 Pull Request。",
+      "Copilot 的批准功能默认关闭，需要管理员启用。"
+    ],
+    "id": "story-8edcbe63f020ab114916",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests",
+    "product_names": [
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-01T19:25:57Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-a5af7099832f3f1fdece"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T19:25:57Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-a5af7099832f3f1fdece",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Copilot code review can now approve pull requests",
+        "url": "https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编码",
+      "代码审查",
+      "Pull Request 审批"
+    ],
+    "uncertainties": [
+      "新闻稿未说明 Copilot 做出批准决定的准确率或误报率。",
+      "目前尚不清楚该功能在复杂审查场景下的表现。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "这是 Anthropic 模型在 GitHub Copilot 中的一次重大集成，可能增强 Copilot 的自主编码能力。",
+      "作为 Mythos 类模型，Claude Fable 5.1 可能侧重复杂、多步骤任务的执行。"
+    ],
+    "canonical_title": "Claude Fable 5.1 在 GitHub Copilot 中正式可用",
+    "category": "AI 模型发布",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "Anthropic",
+      "GitHub"
+    ],
+    "facts": [
+      "Claude Fable 5.1 是 Anthropic 的 Mythos 类模型，专为长时程、自主编码和知识工作任务设计。",
+      "Claude Fable 5.1 现在在 GitHub Copilot 中提供。"
+    ],
+    "id": "story-c8392690fe4e2f6f2971",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot",
+    "product_names": [
+      "Claude Fable 5.1",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-01T14:29:23Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-fe2ffe194622a50cb936"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T14:29:23Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-fe2ffe194622a50cb936",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Claude Fable 5.1 is generally available in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 编程",
+      "AI 模型发布"
+    ],
+    "uncertainties": [
+      "Claude Fable 5.1 的具体性能指标和与其他模型的对比尚未提及。",
+      "该模型在 GitHub Copilot 中的具体使用方式和功能范围未详细说明。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "该功能使企业能够以近乎不间断的服务将仓库迁移到云端，可能降低迁移风险和运维成本。"
+    ],
+    "canonical_title": "Enterprise Live Migrations 从 GHES 到 ghe.com 现已正式可用",
+    "category": "技术",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "Enterprise Live Migrations (ELM) 现已正式可用。",
+      "ELM 支持从 GitHub Enterprise Server (GHES) 迁移到 GitHub Enterprise Cloud with Data Residency (GHEC DR)。",
+      "迁移过程实现近零停机。",
+      "迁移目标是 ghe.com。"
+    ],
+    "id": "story-e998753ceb4d20f4f2fe",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-09-01-enterprise-live-migrations-from-ghes-to-ghe-com-generally-available",
+    "product_names": [
+      "GitHub Enterprise Server",
+      "GitHub Enterprise Cloud with Data Residency",
+      "Enterprise Live Migrations"
+    ],
+    "published_at": "2026-09-01T22:24:27Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-3a9877364b71fe6f02c4"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T22:24:27Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-3a9877364b71fe6f02c4",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Enterprise Live Migrations from GHES to ghe.com generally available",
+        "url": "https://github.blog/changelog/2026-09-01-enterprise-live-migrations-from-ghes-to-ghe-com-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-01-enterprise-live-migrations-from-ghes-to-ghe-com-generally-available"
+    ],
+    "status": "available",
+    "topic_names": [
+      "迁移",
+      "零停机",
+      "数据驻留"
+    ],
+    "uncertainties": [
+      "未提供有关迁移持续时间、支持规模或任何限制的具体信息。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "AI 原生公司通过将 AI 智能体嵌入关键工作流，能够将技术优势转化为可扩展的运营能力。"
+    ],
+    "canonical_title": "AI 原生公司如何将工作流转化为运营能力",
+    "category": "AI 应用",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Basis",
+      "Clay",
+      "Exa Labs"
+    ],
+    "facts": [
+      "OpenAI 发布文章，介绍 Basis、Clay 和 Exa Labs 使用 AI 智能体改进入职、账户管理和开发者集成。"
+    ],
+    "id": "story-85ab9aa6cdfb4d40a765",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/ai-native-company-workflows",
+    "product_names": [],
+    "published_at": "2026-09-01T17:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-b0cbef382238cdd5b88d"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-b0cbef382238cdd5b88d",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How AI-native companies turn workflows into operating capability",
+        "url": "https://openai.com/index/ai-native-company-workflows"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/ai-native-company-workflows"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "AI 智能体",
+      "企业工作流"
+    ],
+    "uncertainties": [
+      "文章未披露 AI 智能体落地的具体技术细节、量化收益或实施成本。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "该版本为候选发布版本（rc0），非正式版本。",
+      "更新涉及多个底层库，可能影响模型兼容性。"
+    ],
+    "canonical_title": "Ollama 发布 v0.33.3-rc0 候选版本",
+    "category": "软件发布",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "ollama/ollama",
+      "marcelpetrick",
+      "github-actions[bot]"
+    ],
+    "facts": [
+      "Ollama 于 2026-09-02 发布了 v0.33.3-rc0 版本。",
+      "该版本包含对 GGUF 模型默认参数的支持。",
+      "该版本更新了 MLX、MLX-C 和 llama.cpp。",
+      "新贡献者 marcelpetrick 在 PR #17579 中做出了首次贡献。",
+      "完整变更日志可从 v0.33.2 比较至 v0.33.3-rc0。"
+    ],
+    "id": "story-6f82e94fdf644fbb4773",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.33.3-rc0",
+    "product_names": [
+      "Ollama"
+    ],
+    "published_at": "2026-09-02T00:11:33Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-ea3403d10e05a1078b0f"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-02T00:11:33Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-ea3403d10e05a1078b0f",
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.33.3",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.33.3-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.33.3-rc0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "v0.33.3 正式版的发布日期尚未公布。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Google 宣布 2026 年 8 月 AI 更新，包括 Gemini 3.7 Flash",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 在 2026 年 8 月发布了 AI 更新。",
+      "更新包括 Gemini 3.7 Flash。",
+      "Google 为学生提供一年免费计划。"
+    ],
+    "id": "story-b719df82270b277ca939",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/",
+    "product_names": [
+      "Gemini 3.7 Flash"
+    ],
+    "published_at": "2026-09-01T20:45:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-e6646933ca959a5fc8d1"
+    ],
+    "source_refs": [
+      {
+        "author": "News from Google Team",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T20:45:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-e6646933ca959a5fc8d1",
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The latest AI news we announced in August 2026",
+        "url": "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "摘要中的具体细节（如 Pixel 手机照片与学生计划）之间的关系不明确。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 通过官方开发者博客发布技术内容，表明其在推动 AI 在网络安全领域的应用。",
+      "博客主题围绕智能体系统与网络安全结合，可能展示 Nemotron 模型在安全场景中的能力。"
+    ],
+    "canonical_title": "NVIDIA 发布使用 Nemotron 构建自适应智能体网络安全系统的开发者博客",
+    "category": "技术博客/官方发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 于 2026 年 9 月 1 日发布了题为 \"Building an Adaptive Agentic Cybersecurity System with NVIDIA Nemotron\" 的开发者博客。",
+      "该博客由 Michelle Horton 撰写。",
+      "博客探讨了使用 NVIDIA Nemotron 构建自适应智能体网络安全系统。",
+      "博客提到 AI 正在改变网络安全的速度，智能体系统可以协调工作并追求长期复杂目标。"
+    ],
+    "id": "story-27ff407c711059579135",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/building-an-adaptive-agentic-cybersecurity-system-with-nvidia-nemotron/",
+    "product_names": [
+      "NVIDIA Nemotron"
+    ],
+    "published_at": "2026-09-01T17:00:04Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-95d1f43d3070d60a0f7d"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T17:00:04Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-95d1f43d3070d60a0f7d",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Building an Adaptive Agentic Cybersecurity System with NVIDIA Nemotron",
+        "url": "https://developer.nvidia.com/blog/building-an-adaptive-agentic-cybersecurity-system-with-nvidia-nemotron/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/building-an-adaptive-agentic-cybersecurity-system-with-nvidia-nemotron/"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "网络安全",
+      "智能体系统",
+      "AI 模型"
+    ],
+    "uncertainties": [
+      "博客内容的具体技术细节和实施方案未在输入中提供。",
+      "该博客是否代表 NVIDIA 的产品发布或仅为技术探讨尚不明确。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "该功能为组织管理员提供了更精细的成本控制手段，适用于临时项目或合同工场景。",
+      "与不设期限的预算相比，到期自动移除减少了手动清理工作，降低了预算遗忘导致超额支出的风险。"
+    ],
+    "canonical_title": "GitHub 为个人用户预算引入可选到期日期，到期后自动移除",
+    "category": "产品更新",
+    "credibility_score": 1.0,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 现已允许为个人用户预算设置可选的到期日期。",
+      "预算到期后，GitHub 会自动移除该预算。",
+      "该功能已全面可用（generally available）。",
+      "预算被移除后，该用户将回退到默认行为（无个人预算）。"
+    ],
+    "id": "story-d9b9294383660981771e",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-09-01-set-an-expiration-date-for-individual-user-budgets",
+    "product_names": [
+      "GitHub 用户预算"
+    ],
+    "published_at": "2026-09-01T20:23:13Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-0d6eb03d66a432408c84"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T20:23:13Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-0d6eb03d66a432408c84",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Set an expiration date for individual user budgets",
+        "url": "https://github.blog/changelog/2026-09-01-set-an-expiration-date-for-individual-user-budgets"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-01-set-an-expiration-date-for-individual-user-budgets"
+    ],
+    "status": "available",
+    "topic_names": [
+      "费用管理",
+      "预算控制"
+    ],
+    "uncertainties": [
+      "官方公告未说明个人预算到期后是否可配置宽限期或通知机制。",
+      "公告未明确该功能是否适用于所有 GitHub 计划（如 Free、Team、Enterprise Cloud/Server）。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "如何在不超支的情况下为 AI 推理和总体拥有成本（TCO）选择合适的 GPU 规模",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [],
+    "facts": [
+      "NVIDIA 开发者博客于 2026 年 9 月 1 日发布了一篇题为《How to Size GPUs for AI Inference and TCO Without Overspending》的文章。",
+      "文章作者为 Elizabeth Goodman。"
+    ],
+    "id": "story-a141fd88b35354b42d0c",
+    "importance_score": 0.4,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-size-gpus-for-ai-inference-and-tco-without-overspending/",
+    "product_names": [],
+    "published_at": "2026-09-01T15:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-2a4fc549ba157ed0f333"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-2a4fc549ba157ed0f333",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Size GPUs for AI Inference and TCO Without Overspending",
+        "url": "https://developer.nvidia.com/blog/how-to-size-gpus-for-ai-inference-and-tco-without-overspending/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-size-gpus-for-ai-inference-and-tco-without-overspending/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "BenchMIRT 旨在解决传统基准测试在评估模型能力时的局限性。"
+    ],
+    "canonical_title": "BenchMIRT：LLM 基准测试实际在测量什么？",
+    "category": "ai_models",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "Allen Institute for AI"
+    ],
+    "facts": [
+      "Hugging Face 博客于 2026-09-01 发布了一篇关于 BenchMIRT 的文章，作者为 Allen Institute for AI。",
+      "BenchMIRT 是一种基于项目反应理论（IRT）的 LLM 基准测试方法。"
+    ],
+    "id": "story-3050281729872c3d125c",
+    "importance_score": 0.3,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/allenai/benchmirt",
+    "product_names": [
+      "BenchMIRT"
+    ],
+    "published_at": "2026-09-01T21:39:07Z",
+    "relevance_score": 0.2,
+    "source_item_ids": [
+      "item-ad90e6779ea3045b3b9f"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T21:39:07Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-ad90e6779ea3045b3b9f",
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "BenchMIRT: What are LLM benchmarks actually measuring?",
+        "url": "https://huggingface.co/blog/allenai/benchmirt"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/benchmirt"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "LLM 基准测试",
+      "项目反应理论",
+      "模型评估"
+    ],
+    "uncertainties": [
+      "文章未提供 BenchMIRT 的具体技术细节和实验结果。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "OpenAI 正在推进其模型能力边界，同时在发布前加强安全防护，体现了能力与安全并重的策略。"
+    ],
+    "canonical_title": "Path to Astra: 关键能力与前沿防护",
+    "category": "AI 安全",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "Astra 是 OpenAI 首个在 Preparedness Framework 下达到 Critical 网络安全能力阈值的模型。",
+      "Astra 在发布时具有更强的防护措施。"
+    ],
+    "id": "story-d4fd8270a97b149701df",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://openai.com/index/path-to-astra",
+    "product_names": [
+      "Astra"
+    ],
+    "published_at": "2026-09-01T13:00:00Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-f2694bfa96c49e91da59"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-f2694bfa96c49e91da59",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Path to Astra: critical capabilities and frontier safeguards",
+        "url": "https://openai.com/index/path-to-astra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/path-to-astra"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "AI 模型",
+      "网络安全能力",
+      "Preparedness Framework",
+      "模型发布安全"
+    ],
+    "uncertainties": [
+      "Astra 的具体发布时间和技术细节尚未披露。",
+      "Critical 阈值的具体标准及 Astra 的评估细节未在本次公告中说明。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  },
+  {
+    "analysis": [
+      "Hacker News 上的一条高信号发现提及 Anthropic 发布了 Claude Fable 5.1 和 Claude Mythos 5.1，但缺乏官方细节。"
+    ],
+    "canonical_title": "Anthropic 发布 Claude Fable 5.1 和 Claude Mythos 5.1",
+    "category": "AI/ML",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "facts": [],
+    "id": "story-b65f30553bc9c2850734",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+    "product_names": [
+      "Claude Fable 5.1",
+      "Claude Mythos 5.1"
+    ],
+    "published_at": "2026-09-01T17:53:53Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-b1b6308c3a243348c481"
+    ],
+    "source_refs": [
+      {
+        "author": "denysvitali",
+        "discussion_url": "https://news.ycombinator.com/item?id=49525378",
+        "fetched_at": "2026-09-02T01:22:34.022056Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-01T17:53:53Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-b1b6308c3a243348c481",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude Fable 5.1 and Claude Mythos 5.1",
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+      }
+    ],
+    "source_urls": [
+      "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "https://news.ycombinator.com/item?id=49525378"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI模型发布",
+      "Claude",
+      "Anthropic"
+    ],
+    "uncertainties": [
+      "由于该信息来自社区发现，且未提供官方公告或具体细节，Claude Fable 5.1 和 Claude Mythos 5.1 的真实性、发布日期和功能尚未得到证实。"
+    ],
+    "updated_at": "2026-09-02T01:22:34.022056Z"
+  }
+]

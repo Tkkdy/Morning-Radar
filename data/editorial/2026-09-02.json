@@ -1,0 +1,305 @@
+{
+  "date": "2026-09-02",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "Google 官方发布 Google Pics，将 AI 图像生成与编辑功能直接集成到 Workspace。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-a55c79ac41627b1f50eb",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "google-workspace-ai-image-tools"
+      ],
+      "uncertainty": "功能范围、底层模型及实际效果尚未披露，无法判断是否真的改变创作工作流。",
+      "why_now": "官方博客于 9 月 1 日发布，标志 Workspace 新增原生 AI 图像能力，但尚无用户规模或效果数据。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "trend_confirmation"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub Copilot 新增代码审查批准功能，管理员可授权其自动批准 PR，默认关闭。",
+      "placement": "STORY",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-8edcbe63f020ab114916",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "ai-code-review-automation",
+        "github-copilot-pull-request-approval"
+      ],
+      "uncertainty": "官方未公布批准的准确率、误报率或安全护栏，复杂代码审查场景下的可靠性未知。",
+      "why_now": "自动批准是代码审查从辅助到代理的关键一步，直接影响开发者日常合并流程，但误批风险尚未量化。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "ai_ecosystem_landmark",
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "news_delta": "Anthropic 的 Claude Fable 5.1 已在 GitHub Copilot 中正式可用，官方称其为长时程、自主编码设计的 Mythos 类模型。",
+      "placement": "STORY",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-c8392690fe4e2f6f2971",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "anthropic-models-in-github-copilot",
+        "claude-fable-5-1-distribution"
+      ],
+      "uncertainty": "Claude Fable 5.1 的具体性能、与 Copilot 其他模型的实际对比及自主编码能力均未经过独立验证。",
+      "why_now": "新模型进入 Copilot 是开发者可直接体验的模型集成，但除官方描述外没有任何独立评估。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "structural_business_change"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub 宣布 Enterprise Live Migrations 正式可用，支持从 GHES 到 GHEC DR 的近零停机迁移。",
+      "placement": "STORY",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-e998753ceb4d20f4f2fe",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "github-enterprise-cloud-migration",
+        "zero-downtime-live-migration"
+      ],
+      "uncertainty": "未提供迁移持续时间、支持仓库规模或限制条件，实际大规模迁移可能会受网络与数据量影响。",
+      "why_now": "零停机迁移降低了企业上云门槛，对数据驻留与基础设施管理有实际影响，但官方未披露规模限制。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.4,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "OpenAI 发文介绍 Basis、Clay 和 Exa Labs 使用 AI 智能体改进入职、账户管理与开发者集成。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-85ab9aa6cdfb4d40a765",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "ai-agent-enterprise-workflow-adoption"
+      ],
+      "uncertainty": "文中未提供具体技术细节、量化收益或独立验证，可能存在选择性宣传。",
+      "why_now": "这是官方发布的企业案例叙事，无量化收益或可复现指标，仅可作为 AI agent 落地趋势的弱信号。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "news_delta": "Ollama 发布候选版本 v0.33.3-rc0，包含 GGUF 默认参数支持和底层库更新。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-6f82e94fdf644fbb4773",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "正式版尚未发布，目前无法判断该候选版本是否会影响模型加载或兼容性。",
+      "why_now": "该更新为发布候选版本，主要涉及依赖同步与一个参数支持，无重大用户可见行为变化。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "Google 月度 AI 更新摘要提及 Gemini 3.7 Flash 及学生一年免费计划。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-b719df82270b277ca939",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "google-gemini-flash-model-updates",
+        "ai-student-access-pricing"
+      ],
+      "uncertainty": "文章为综述，缺乏 Gemini 3.7 Flash 的具体性能、可用范围和学生计划条款，可能已包含在之前发布中。",
+      "why_now": "该文章是官方发布汇总，新模型 Gemini 3.7 Flash 可能存在，但细节极少且无独立评估。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.4,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "NVIDIA 开发者博客介绍使用 Nemotron 构建自适应智能体网络安全系统。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-27ff407c711059579135",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "nemotron-agentic-cybersecurity-capability"
+      ],
+      "uncertainty": "博客为教学/宣传性质，未提供真实生产环境的数据、复现方法或客户案例。",
+      "why_now": "这是厂商技术内容，没有独立部署或量化结果，只是展示 Nemotron 在安全方向的潜在应用。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub 为个人用户预算新增可选到期日期，到期后自动移除预算并回退到默认无预算行为。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-d9b9294383660981771e",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "未说明该功能是否适用于所有计划，以及是否有到期前通知机制。",
+      "why_now": "这是成本管理的小幅功能增强，适用于临时项目或合同工，但影响范围有限。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.4,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "NVIDIA 开发者博客发布关于调整 AI 推理 GPU 规模与 TCO 的指导文章。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-a141fd88b35354b42d0c",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "文章为建议性内容，可能有利于成本意识但缺乏具体基准或新信息。",
+      "why_now": "这是通用成本优化指南，没有新的产品、数据或可验证事件，不构成新闻。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "Allen Institute for AI 发布 BenchMIRT，一种基于项目反应理论的 LLM 基准测试方法。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-3050281729872c3d125c",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "llm-benchmark-validity-methodology"
+      ],
+      "uncertainty": "博客未提供 BenchMIRT 的具体技术细节、实验结果或与传统基准的对比，实际有效性未知。",
+      "why_now": "该方法可能改善对 LLM 基准测试有效性的理解，但目前只有博客介绍，无评估结果。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.3,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "OpenAI 声称 Astra 是首个在 Preparedness Framework 下达到 Critical 网络安全能力阈值的模型，并配有更强防护。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-d4fd8270a97b149701df",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "openai-preparedness-framework-critical-capabilities",
+        "ai-cybersecurity-capability-safety"
+      ],
+      "uncertainty": "OpenAI 未披露 Astra 的具体发布时间、评估细节或第三方验证，该阈值声明目前无法证实。",
+      "why_now": "这是关于前沿模型安全阈值的重大单一来源声明，但未经独立验证，只能作为弱信号追踪。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.2,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "Hacker News 社区发现指向 Anthropic 页面，声称发布 Claude Fable 5.1 和 Claude Mythos 5.1，但输入事实为空且来源标记为未验证线索。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": true,
+      "story_id": "story-b65f30553bc9c2850734",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "anthropic-claude-mythos-release",
+        "anthropic-model-release-cadence"
+      ],
+      "uncertainty": "HN 提交的 primary_source_url 虽指向 Anthropic，但源角色为 community_discovery，事实为空，无法确认 Mythos 5.1 的真实性。",
+      "why_now": "该线索可能指向官方模型发布，但无官方细节，且与已有 GitHub Changelog 中 Fable 5.1 进入 Copilot 的部分信息重叠。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-02T01:22:34.022056Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

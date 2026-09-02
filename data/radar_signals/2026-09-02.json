@@ -1,0 +1,74 @@
+[
+  {
+    "claim": "Codex 捆绑了 LibreOffice。",
+    "id": "radar-22f6875964c0897ef816",
+    "missing_evidence": [
+      "独立来源或官方说明",
+      "具体 Codex 版本与平台",
+      "捆绑方式（默认/可选）及文件清单"
+    ],
+    "observed_at": "2026-09-02T01:22:34.022056Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-0b5495377a7ef6420968",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Sep/1/codex-libreoffice/"
+      }
+    ],
+    "uncertainty": "目前仅有一个从业者观察，缺少截图或可复核证据。",
+    "why_notable": "若属实可能影响 AI 编码工具的安装体积、依赖和分发方式，开发者会关心。"
+  },
+  {
+    "claim": "Anthropic 出现 Claude Fable 5.1 和 Claude Mythos 5.1 两个模型名称/版本。",
+    "id": "radar-b1b650be5fa5d46b9e4b",
+    "missing_evidence": [
+      "官方公告全文或截图",
+      "两个模型的能力、区别与可用性",
+      "是否已正式发布"
+    ],
+    "observed_at": "2026-09-02T01:22:34.022056Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-b1b6308c3a243348c481",
+        "source_role": "community_discovery",
+        "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1"
+      }
+    ],
+    "uncertainty": "仅有 URL 和名称，没有页面内容或第三方佐证。",
+    "why_notable": "若为真实发布，可能代表新模型或产品线更新，对 AI 生态有影响。"
+  },
+  {
+    "claim": "我训练了一个小型 transformer，耗时 1.5 小时，并声称它在某些方面超过许多 LLM。",
+    "id": "radar-3e3255f9efc2af501498",
+    "missing_evidence": [
+      "基准/数据集和对比 LLM 列表",
+      "模型参数、训练代码与数据",
+      "可复现结果或独立验证"
+    ],
+    "observed_at": "2026-09-02T01:22:34.022056Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-4b4eb016922d5e05b9da",
+        "source_role": "community_discovery",
+        "url": "https://mvakde.github.io/blog/44-on-arc-1/"
+      }
+    ],
+    "uncertainty": "“超过许多 LLM”缺乏具体定义，可能是单一基准或主观判断。",
+    "why_notable": "如果可复现，说明低成本小模型可能有竞争力，对高效训练和开源微调有参考价值。"
+  }
+]
