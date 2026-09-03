@@ -1,0 +1,75 @@
+[
+  {
+    "claim": "llm-gemini 0.34 版本被记录/发布",
+    "id": "radar-1097e3af6c0115f1ef92",
+    "missing_evidence": [
+      "版本更新内容或 release notes",
+      "功能变化、兼容性影响",
+      "独立来源验证"
+    ],
+    "observed_at": "2026-09-03T01:25:59.820664Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-fc8ba1244954cc968203",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Sep/2/llm-gemini/"
+      }
+    ],
+    "uncertainty": "仅有标题/URL，缺少具体发布说明和独立证据。",
+    "why_notable": "若属实，可能影响使用 llm 命令和 Gemini 模型的开发者工作流或插件功能。"
+  },
+  {
+    "claim": "Claude 的新 system prompt 非常不愿意重现歌词",
+    "id": "radar-b1a9f5b3ef3d8f86f35a",
+    "missing_evidence": [
+      "实际 system prompt 文本",
+      "具体测试案例或输入输出",
+      "模型版本及生效范围",
+      "独立复现"
+    ],
+    "observed_at": "2026-09-03T01:25:59.820664Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "raw_item_id": "item-8f194314e0d00e23c931",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/"
+      }
+    ],
+    "uncertainty": "仅来自单一实践者观察，未提供完整 prompt 或独立验证。",
+    "why_notable": "系统提示词变化可能影响模型创造力、版权合规及用户预期，是模型行为层面的具体观察。"
+  },
+  {
+    "claim": "Gemini 3.8 Flash 与 3.8 Flash Cyber 模型出现/发布",
+    "id": "radar-04faaf02d8921d5702d8",
+    "missing_evidence": [
+      "官方公告具体内容和能力指标",
+      "可用性、定价与访问方式",
+      "独立评测或基准"
+    ],
+    "observed_at": "2026-09-03T01:25:59.820664Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-d4e68fef43a6cb2f11f9",
+        "source_role": "community_discovery",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+      }
+    ],
+    "uncertainty": "仅凭博客标题/URL 的社区发现，缺乏官方正文细节与独立证据。",
+    "why_notable": "若为官方新模型发布，可能涉及模型能力、安全/网络变体及开发者采用。"
+  }
+]

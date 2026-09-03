@@ -1,0 +1,923 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-e0d6e84041afa63c77a5",
+          "judgement_cues": [
+            {
+              "claim": "GitHub Copilot 内容排除功能的全面可用将强化企业对代码助手的信任，并可能加速 Copilot 在受监管行业的采用。",
+              "judgement_id": "judgement-e46cb47b51da97263d48",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-139256fdf394ac500abd",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "此项更新使企业用户能够更好地控制敏感数据，防止其被用于代码补全和聊天等场景。",
+            "该功能与 GitHub Enterprise Cloud 中的现有内容排除功能保持一致，为管理员提供统一的管理体验。"
+          ],
+          "canonical_title": "GitHub Copilot 应用与 CLI 现已全面支持内容排除策略",
+          "category": "ai_coding",
+          "entity_names": [],
+          "facts": [
+            "2026年9月2日，GitHub Copilot 应用和 Copilot CLI 开始遵守企业、组织和仓库管理员配置的内容排除策略。",
+            "Copilot 不会将被排除的文件用作上下文。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli",
+          "product_names": [
+            "GitHub Copilot",
+            "Copilot CLI"
+          ],
+          "published_at": "2026-09-02T18:14:23Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T18:14:23Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-9350ba76cc97501c6529",
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Content exclusions generally available in Copilot app and CLI",
+              "url": "https://github.blog/changelog/2026-09-02-content-exclusions-generally-available-in-copilot-app-and-cli"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-e0d6e84041afa63c77a5",
+          "topic_names": [
+            "内容排除",
+            "安全",
+            "代码助手"
+          ],
+          "uncertainties": [
+            "未说明可排除的文件类型、路径模式或大小限制等具体细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-e0d6e84041afa63c77a5"
+      ],
+      "title": "GitHub Copilot 应用与 CLI 现已全面支持内容排除策略",
+      "uncertainty": "公告未说明可排除的文件类型、路径模式或大小限制，以及该功能是否在所有 Copilot 计划中可用。",
+      "what_happened": "2026年9月2日，GitHub 宣布 Copilot 应用和 Copilot CLI 开始遵守企业、组织和仓库管理员配置的内容排除策略，被排除的文件不会作为上下文使用。",
+      "why_it_matters": "企业用户现在可以阻止敏感文件被用于代码补全和聊天，增强了对机密代码和数据的控制，与 GitHub Enterprise Cloud 的现有功能保持一致。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-f1c0b471d83d9ff37a90",
+      "market_or_community_reaction": "HN 讨论热烈，社区普遍关注数据退出选项和默认训练政策。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training",
+        "https://news.ycombinator.com/item?id=49535284"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该 Hacker News 讨论指向 Mistral AI 官方帮助中心文章，询问用户是否可以退出将输入/输出数据用于训练。",
+            "讨论热度较高（369 分，163 评论），表明社区对 AI 数据使用政策关注度较高。"
+          ],
+          "canonical_title": "Mistral AI 用户询问是否可以退出输入输出数据用于训练",
+          "category": "AI 数据隐私",
+          "entity_names": [
+            "Mistral AI"
+          ],
+          "facts": [],
+          "primary_source_url": "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training",
+          "product_names": [],
+          "published_at": "2026-09-02T12:30:39Z",
+          "source_refs": [
+            {
+              "author": "teekert",
+              "discussion_url": "https://news.ycombinator.com/item?id=49535284",
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T12:30:39Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-82bc6a5801935a8a6c42",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Can I opt out of my input or output data being used for training?",
+              "url": "https://help.mistral.ai/en/articles/455207-can-i-opt-out-of-my-input-or-output-data-being-used-for-training"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-f451363a9dba31cf5e48",
+          "topic_names": [
+            "数据隐私",
+            "训练数据",
+            "退出机制"
+          ],
+          "uncertainties": [
+            "Mistral AI 是否提供退出选项尚不明确，需要查看官方文档或公告确认。",
+            "该讨论可能反映了用户对数据隐私的普遍担忧，但并未提供官方立场的直接证据。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f451363a9dba31cf5e48"
+      ],
+      "title": "Mistral AI 用户呼吁明确是否可以退出训练数据使用",
+      "uncertainty": "Mistral AI 是否提供正式退出选项、适用范围和具体做法尚未确认，当前 HN 帖子仅指向帮助中心文章，官方立场需进一步核实。",
+      "what_happened": "Hacker News 上出现关于 Mistral AI 官方帮助中心文章“Can I opt out of my input or output data being used for training?”的讨论，获得369分和163条评论。",
+      "why_it_matters": "用户对 AI 服务使用输入输出数据训练的担忧持续升温，Mistral AI 的回应将影响用户信任，并可能成为欧洲 AI 隐私实践的参照。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-a0c7205bbca899ec0449",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该功能提升了企业对 Copilot 模型选择的控制力，有助于统一团队使用的模型版本。",
+            "这是 GitHub Copilot 企业级管理能力的一次增强。"
+          ],
+          "canonical_title": "企业托管设置支持为 Copilot 新对话设置任意默认模型",
+          "category": "Product Update",
+          "entity_names": [
+            "GitHub"
+          ],
+          "facts": [
+            "GitHub 宣布现在可以通过企业托管设置为新的 GitHub Copilot 对话设置默认模型。",
+            "该功能允许企业选择最适合其工作流程的默认模型。",
+            "公告发布于 2026 年 9 月 2 日。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model",
+          "product_names": [
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-09-02T18:51:12Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T18:51:12Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-d5d9d182f472f35fa917",
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Enterprise-managed settings support any default model",
+              "url": "https://github.blog/changelog/2026-09-02-enterprise-managed-settings-support-any-default-model"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-0b3bc0c75d3304ca267b",
+          "topic_names": [
+            "Enterprise-managed settings",
+            "Default model",
+            "AI coding assistant"
+          ],
+          "uncertainties": [
+            "未说明是否对所有 Copilot 计划（如 Free、Pro、Business）均可用，或仅限于 Enterprise 计划。",
+            "未提及支持哪些具体模型（如 GPT-4o、Claude 等）以及未来是否会扩展。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-0b3bc0c75d3304ca267b"
+      ],
+      "title": "GitHub Copilot 企业托管设置支持任意默认模型",
+      "uncertainty": "公告未明确支持的模型列表、是否对所有计划可用，以及该设置是否影响已有对话。",
+      "what_happened": "GitHub 宣布企业现在可以通过托管设置为新的 Copilot 对话指定任意默认模型，帮助团队统一使用最适合其工作流程的模型。",
+      "why_it_matters": "该功能增强企业对 Copilot 模型选择的控制，便于统一版本和合规管理，是 Copilot 企业级能力的重要补充。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-1655f456dd16d6acd9e6",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/atv-big-air-tour"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "这展示了 ChatGPT Work 在小型企业运营中的实际应用，尤其侧重营销和库存管理。",
+            "效率提升幅度显著，从三天到三小时意味着节省约 87.5% 的时间。",
+            "15 分钟生成网站表明 ChatGPT Work 可能具备图像识别和网页自动生成能力。"
+          ],
+          "canonical_title": "ATV Big Air Tour 利用 ChatGPT Work 将营销、商品等工作提速：三天工作量缩至三小时，15 分钟生成库存网站",
+          "category": "AI 应用案例",
+          "entity_names": [
+            "ATV Big Air Tour",
+            "OpenAI"
+          ],
+          "facts": [
+            "ATV Big Air Tour 使用 ChatGPT Work 加速营销和商品销售工作。",
+            "使用 ChatGPT Work 后，原本需要三天的工作缩短为三小时。",
+            "将商品照片转化为库存网站仅用时 15 分钟。",
+            "该信息由 OpenAI 官方新闻发布，日期为 2026 年 9 月 2 日。"
+          ],
+          "primary_source_url": "https://openai.com/index/atv-big-air-tour",
+          "product_names": [
+            "ChatGPT Work"
+          ],
+          "published_at": "2026-09-02T12:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T12:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-3bda12e16fd31e0e48f8",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "ATV Big Air Tour turned 3 days of work into 3 hours with ChatGPT",
+              "url": "https://openai.com/index/atv-big-air-tour"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-1fa4ac46fd12ad6f6698",
+          "topic_names": [
+            "人工智能",
+            "自动化",
+            "效率提升",
+            "营销"
+          ],
+          "uncertainties": [
+            "未提供具体的工作流程细节，如用户如何与 ChatGPT Work 交互。",
+            "未提及生成的库存网站功能是否完整，如支付、库存管理等。",
+            "未说明该效率是否可复制到其他类似企业。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-1fa4ac46fd12ad6f6698"
+      ],
+      "title": "ATV Big Air Tour 使用 ChatGPT Work 将三天工作缩短至三小时",
+      "uncertainty": "未提供具体操作流程、生成网站的功能完整度，以及该效率是否可复制到其他企业。",
+      "what_happened": "OpenAI 官方新闻显示，ATV Big Air Tour 使用 ChatGPT Work 加速营销和商品销售，三天的工作量缩短到三小时，并在 15 分钟内生成库存网站。",
+      "why_it_matters": "该案例展示了 ChatGPT Work 在小型企业中的实际效率提升，特别是从商品照片到网站的快速转化，为营销和库存管理自动化提供了参考。"
+    }
+  ],
+  "cognitive_extension": "谷歌同日发布 Fairwind 计划与 Gemini 3.8 Flash Cyber 模型，两者之间是否存在技术或战略协同，是否意味着谷歌正将 AI 安全从通用模型能力提升为独立产品线？",
+  "date": "2026-09-03",
+  "developer_discussions": [],
+  "direction_observation": "观察到开源人工智能（open_source_ai）主题热度在近 3 天持续上升，共有 3 个相关事件、3 个来源涉及 5 家公司，表明该领域关注度增强。",
+  "generated_at": "2026-09-03T01:25:59.820664Z",
+  "market_and_companies": [],
+  "other_reading": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-fbf12570812656756770",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/the-modern-cuda-toolbox-in-practice-a-step-by-step-optimization-walkthrough/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该博客旨在通过逐步优化指南，帮助开发者掌握现代 CUDA 工具集，提升 CUDA 编程效率。",
+            "NVIDIA 持续通过官方博客输出技术内容，巩固其在 GPU 计算领域的领导地位。"
+          ],
+          "canonical_title": "NVIDIA 发布《现代 CUDA 工具箱实战：逐步优化指南》",
+          "category": "技术博客",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA 于 2026 年 9 月 2 日发布博客《The Modern CUDA Toolbox in Practice: A Step-by-Step Optimization Walkthrough》。",
+            "该博客由 Elizabeth Goodman 撰写，发布在 NVIDIA Developer Blog。",
+            "博客摘要指出 CUDA 是 GPU 加速计算的基础，支持从科学模拟到大规模 AI 训练。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/the-modern-cuda-toolbox-in-practice-a-step-by-step-optimization-walkthrough/",
+          "product_names": [
+            "CUDA"
+          ],
+          "published_at": "2026-09-02T17:15:57Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T17:15:57Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-18edfec44847ab6e953e",
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "The Modern CUDA Toolbox in Practice: A Step-by-Step Optimization Walkthrough",
+              "url": "https://developer.nvidia.com/blog/the-modern-cuda-toolbox-in-practice-a-step-by-step-optimization-walkthrough/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-91f8c11d1850fcd6a1fd",
+          "topic_names": [
+            "GPU 加速计算",
+            "CUDA 优化",
+            "AI 基础设施"
+          ],
+          "uncertainties": [
+            "博客全文尚未公开，仅提供摘要和开头，具体优化步骤和工具细节未知。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-91f8c11d1850fcd6a1fd"
+      ],
+      "title": "NVIDIA 发布《现代 CUDA 工具箱实战：逐步优化指南》",
+      "uncertainty": "博客全文尚未公开，仅提供摘要和开头，具体优化步骤和工具细节未知。",
+      "what_happened": "NVIDIA 于 2026 年 9 月 2 日发布博客《The Modern CUDA Toolbox in Practice: A Step-by-Step Optimization Walkthrough》。",
+      "why_it_matters": "该博客旨在通过逐步优化指南，帮助开发者掌握现代 CUDA 工具集，提升 CUDA 编程效率。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-608651ed97d89c96caf0",
+          "judgement_cues": [],
+          "previous_story_date": "2026-09-01",
+          "previous_story_id": "story-7ece289b17d2401ddca2",
+          "previous_story_title": "googleapis/python-genai 发布 v2.21.0",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "googleapis/python-genai 从 v2.21.0 升级到 v2.22.0，新增 Gemini 3.8 Flash 模型支持并更新 Flash 描述。"
+        }
+      ],
+      "id": "brief-b57a9d9485170c27eba1",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://github.com/googleapis/python-genai/releases/tag/v2.22.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "这是 Google 官方 Python SDK 的例行更新，表明 Gemini 3.8 Flash 模型已纳入 SDK 支持范围，开发者可以开始使用该模型进行开发。"
+          ],
+          "canonical_title": "googleapis/python-genai v2.22.0 发布，新增 Gemini 3.8 Flash 模型支持",
+          "category": "AI模型发布",
+          "entity_names": [
+            "Google",
+            "googleapis"
+          ],
+          "facts": [
+            "googleapis/python-genai 发布了 v2.22.0 版本。",
+            "该版本新增了对 Gemini 3.8 Flash 模型的支持。",
+            "该版本更新了 Flash 模型的描述。"
+          ],
+          "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v2.22.0",
+          "product_names": [
+            "python-genai",
+            "Gemini 3.8 Flash"
+          ],
+          "published_at": "2026-09-02T17:47:57Z",
+          "source_refs": [
+            {
+              "author": "release-please[bot]",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T17:47:57Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-6b9a1fc1d602b5fd9ac2",
+              "source_name": "GitHub · googleapis/python-genai",
+              "source_role": "official_primary",
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "googleapis/python-genai: v2.22.0",
+              "url": "https://github.com/googleapis/python-genai/releases/tag/v2.22.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-608651ed97d89c96caf0",
+          "topic_names": [
+            "AI模型",
+            "SDK"
+          ],
+          "uncertainties": [
+            "Gemini 3.8 Flash 模型的具体发布时间和特性细节尚未公布。",
+            "该版本是否包含其他未提及的改动或修复尚未明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-608651ed97d89c96caf0"
+      ],
+      "title": "googleapis/python-genai v2.22.0 发布，新增 Gemini 3.8 Flash 模型支持",
+      "uncertainty": "Gemini 3.8 Flash 模型的具体发布时间和特性细节尚未公布。",
+      "what_happened": "googleapis/python-genai 发布了 v2.22.0 版本。",
+      "why_it_matters": "这是 Google 官方 Python SDK 的例行更新，表明 Gemini 3.8 Flash 模型已纳入 SDK 支持范围，开发者可以开始使用该模型进行开发。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-b1749dd72f582b04d424",
+          "judgement_cues": [],
+          "previous_story_date": "2026-08-27",
+          "previous_story_id": "story-1b4a18abb138e316119a",
+          "previous_story_title": "openai-python v3.4.0 发布",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "openai-python 从 v3.4.0 后续发布到 v3.7.0，当前包含 usage APIs 文档更新和 embeddings numpy 修复。"
+        }
+      ],
+      "id": "brief-d21a13d199f8b6fcd671",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://github.com/openai/openai-python/releases/tag/v3.7.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本更新集中在 API 使用和文档上，属于常规维护。",
+            "修复了嵌入功能中可能影响性能的重复 numpy 检查。"
+          ],
+          "canonical_title": "openai-python v3.7.0 发布",
+          "category": "版本发布",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "openai-python v3.7.0 于 2026-09-02 发布。",
+            "包含特性：更新 usage APIs 和文档（PR #3779）。",
+            "包含错误修复：避免 embeddings 中重复的 numpy 检查（PR #3757）。"
+          ],
+          "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.7.0",
+          "product_names": [
+            "openai-python"
+          ],
+          "published_at": "2026-09-02T01:30:12Z",
+          "source_refs": [
+            {
+              "author": "openai-sdks[bot]",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T01:30:12Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-da05d30dd59f4d782749",
+              "source_name": "GitHub · openai/openai-python",
+              "source_role": "official_primary",
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "openai/openai-python: v3.7.0",
+              "url": "https://github.com/openai/openai-python/releases/tag/v3.7.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-b1749dd72f582b04d424",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-b1749dd72f582b04d424"
+      ],
+      "title": "openai-python v3.7.0 发布",
+      "uncertainty": null,
+      "what_happened": "openai-python v3.7.0 于 2026-09-02 发布。",
+      "why_it_matters": "该版本更新集中在 API 使用和文档上，属于常规维护。"
+    }
+  ],
+  "radar_signals": [
+    {
+      "claim": "llm-gemini 0.34 版本被记录/发布",
+      "id": "radar-1097e3af6c0115f1ef92",
+      "missing_evidence": [
+        "版本更新内容或 release notes",
+        "功能变化、兼容性影响",
+        "独立来源验证"
+      ],
+      "observed_at": "2026-09-03T01:25:59.820664Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "raw_item_id": "item-fc8ba1244954cc968203",
+          "source_role": "practitioner",
+          "url": "https://simonwillison.net/2026/Sep/2/llm-gemini/"
+        }
+      ],
+      "uncertainty": "仅有标题/URL，缺少具体发布说明和独立证据。",
+      "why_notable": "若属实，可能影响使用 llm 命令和 Gemini 模型的开发者工作流或插件功能。"
+    },
+    {
+      "claim": "Claude 的新 system prompt 非常不愿意重现歌词",
+      "id": "radar-b1a9f5b3ef3d8f86f35a",
+      "missing_evidence": [
+        "实际 system prompt 文本",
+        "具体测试案例或输入输出",
+        "模型版本及生效范围",
+        "独立复现"
+      ],
+      "observed_at": "2026-09-03T01:25:59.820664Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "raw_item_id": "item-8f194314e0d00e23c931",
+          "source_role": "practitioner",
+          "url": "https://simonwillison.net/2026/Sep/2/claudes-new-system-prompt/"
+        }
+      ],
+      "uncertainty": "仅来自单一实践者观察，未提供完整 prompt 或独立验证。",
+      "why_notable": "系统提示词变化可能影响模型创造力、版权合规及用户预期，是模型行为层面的具体观察。"
+    },
+    {
+      "claim": "Gemini 3.8 Flash 与 3.8 Flash Cyber 模型出现/发布",
+      "id": "radar-04faaf02d8921d5702d8",
+      "missing_evidence": [
+        "官方公告具体内容和能力指标",
+        "可用性、定价与访问方式",
+        "独立评测或基准"
+      ],
+      "observed_at": "2026-09-03T01:25:59.820664Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "community_discovery"
+      ],
+      "statement_type": "unverified_lead",
+      "support_refs": [
+        {
+          "raw_item_id": "item-d4e68fef43a6cb2f11f9",
+          "source_role": "community_discovery",
+          "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+        }
+      ],
+      "uncertainty": "仅凭博客标题/URL 的社区发现，缺乏官方正文细节与独立证据。",
+      "why_notable": "若为官方新模型发布，可能涉及模型能力、安全/网络变体及开发者采用。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 65,
+    "ai_brief_story_inputs": 10,
+    "ai_classify_completion_tokens": 1574,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 5746,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 44693,
+    "ai_direction_observation_completion_tokens": 1061,
+    "ai_direction_observation_finish_stop": 1,
+    "ai_direction_observation_prompt_tokens": 630,
+    "ai_direction_observation_reasoning_tokens": 915,
+    "ai_evaluate_editorial_completion_tokens": 12563,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9306,
+    "ai_evaluate_editorial_reasoning_tokens": 9996,
+    "ai_input_characters": 115920,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3842,
+    "ai_merge_story_finish_stop": 12,
+    "ai_merge_story_prompt_tokens": 10682,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_prompt_tokens": 55134,
+    "ai_reasoning_tokens": 29195,
+    "ai_resolve_continuity_completion_tokens": 9836,
+    "ai_resolve_continuity_finish_stop": 1,
+    "ai_resolve_continuity_prompt_tokens": 10064,
+    "ai_resolve_continuity_reasoning_tokens": 7546,
+    "ai_resolve_research_cases_completion_tokens": 6045,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 1817,
+    "ai_resolve_research_cases_reasoning_tokens": 4934,
+    "ai_score_story_completion_tokens": 1489,
+    "ai_score_story_finish_stop": 12,
+    "ai_score_story_prompt_tokens": 9867,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 8283,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 7022,
+    "ai_write_brief_reasoning_tokens": 5804,
+    "aihot_enabled": false,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 20,
+    "continuity_character_budget_available": 23407,
+    "continuity_input_chars": 23090,
+    "continuity_judgement_inputs": 5,
+    "continuity_logical_ai_calls": 1,
+    "continuity_network_requests": 1,
+    "continuity_relation_inputs": 7,
+    "continuity_watch_inputs": 7,
+    "direction_signal_inputs": 1,
+    "dry_run": false,
+    "editorial_decisions": 12,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 145,
+    "judgement_updates": 0,
+    "judgements_created": 2,
+    "logical_ai_calls": 30,
+    "main_brief_items": 7,
+    "needs_review": 0,
+    "network_ai_requests": 30,
+    "open_watches_considered": 20,
+    "other_reading_items": 3,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "radar_signals": 3,
+    "recent_24h": 50,
+    "relations_confirmed": 4,
+    "relations_rejected": 3,
+    "relations_unresolved": 13,
+    "research_cases": 6,
+    "research_input_characters": 2691,
+    "research_logical_ai_calls": 1,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 8,
+    "signals": 1,
+    "stories": 12,
+    "story_candidate_input": 39,
+    "structured_watches_opened": 3,
+    "tendency_clusters": 12,
+    "tendency_input_characters": 20855,
+    "tendency_logical_ai_calls": 0,
+    "tendency_unavailable": true,
+    "threshold_eligible_stories": 10,
+    "total_displayed_items": 10,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-8f9d805cb5f022061be2",
+          "judgement_cues": [
+            {
+              "claim": "谷歌正在将主动网络安全能力作为其 AI 战略的新支柱，Fairwind 计划与 Gemini 3.8 Flash Cyber 同日发布，显示出安全专用模型和服务的整合意图。",
+              "judgement_id": "judgement-fb4101df00601601bf23",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-cc322a65b429698eef58",
+      "market_or_community_reaction": "Hacker News 讨论帖获得较高分数和评论，开发者对模型发布时间和细节表示关注。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+        "https://news.ycombinator.com/item?id=49537553"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "这是谷歌在AI模型领域的最新发布，可能面向开发者或企业用户。",
+            "Hacker News上的高讨论度和分数表明社区对该发布有较大兴趣。"
+          ],
+          "canonical_title": "谷歌发布 Gemini 3.8 Flash 和 3.8 Flash Cyber 模型",
+          "category": "AI/模型发布",
+          "entity_names": [
+            "Google"
+          ],
+          "facts": [
+            "谷歌官方博客于2026年9月2日发布文章，介绍Gemini 3.8 Flash和3.8 Flash Cyber模型。",
+            "模型名称为Gemini 3.8 Flash和Gemini 3.8 Flash Cyber。"
+          ],
+          "primary_source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/",
+          "product_names": [
+            "Gemini 3.8 Flash",
+            "Gemini 3.8 Flash Cyber"
+          ],
+          "published_at": "2026-09-02T15:12:40Z",
+          "source_refs": [
+            {
+              "author": "bratao",
+              "discussion_url": "https://news.ycombinator.com/item?id=49537553",
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T15:12:40Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-d4e68fef43a6cb2f11f9",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Gemini 3.8 Flash and 3.8 Flash Cyber",
+              "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-8f9d805cb5f022061be2",
+          "topic_names": [
+            "AI模型",
+            "Gemini",
+            "Google"
+          ],
+          "uncertainties": [
+            "模型的详细技术规格、可用性和定价未在输入中提供。",
+            "文章的具体内容（如性能指标、应用场景）未知。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8f9d805cb5f022061be2"
+      ],
+      "title": "谷歌发布 Gemini 3.8 Flash 与 3.8 Flash Cyber 模型",
+      "uncertainty": "目前仅有官方博客链接和 HN 讨论，模型的具体技术参数、可用地区、定价和 API 端点尚未公开。",
+      "what_happened": "谷歌官方博客于2026年9月2日发布文章，宣布推出 Gemini 3.8 Flash 和 Gemini 3.8 Flash Cyber 模型。文章发布后，Hacker News 上讨论热烈，社区关注度较高。",
+      "why_it_matters": "这是谷歌在 AI 模型领域的最新迭代，Flash 系列通常面向低延迟和高性价比场景；新增的 Flash Cyber 变体可能针对网络安全应用，延续谷歌近期在主动防御领域的布局。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-31e5a978eba69de9bc04",
+          "judgement_cues": [
+            {
+              "claim": "谷歌正在将主动网络安全能力作为其 AI 战略的新支柱，Fairwind 计划与 Gemini 3.8 Flash Cyber 同日发布，显示出安全专用模型和服务的整合意图。",
+              "judgement_id": "judgement-fb4101df00601601bf23",
+              "update_kind": "new"
+            }
+          ],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [],
+          "what_changed": null
+        }
+      ],
+      "id": "brief-ab97fea9bd1647fb98e2",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Fairwind 计划可能利用 AI 技术提供主动网络防御能力。"
+          ],
+          "canonical_title": "谷歌推出 Fairwind 计划：面向政府与企业的主动网络防御",
+          "category": "网络安全",
+          "entity_names": [
+            "Google"
+          ],
+          "facts": [
+            "谷歌宣布推出 Fairwind 计划。"
+          ],
+          "primary_source_url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/",
+          "product_names": [
+            "Fairwind Program"
+          ],
+          "published_at": "2026-09-02T15:40:00Z",
+          "source_refs": [
+            {
+              "author": "Four Flynn",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T15:40:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-445c9f3e3d31d26692ad",
+              "source_name": "Google AI",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Proactive cyber defense for governments and enterprises",
+              "url": "https://blog.google/innovation-and-ai/technology/safety-security/fairwind-program/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-31e5a978eba69de9bc04",
+          "topic_names": [
+            "主动网络防御",
+            "网络安全",
+            "AI"
+          ],
+          "uncertainties": [
+            "Fairwind 计划的具体功能、技术细节和发布时间尚未披露。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-31e5a978eba69de9bc04"
+      ],
+      "title": "谷歌推出 Fairwind 计划：面向政府与企业的主动网络防御",
+      "uncertainty": "Fairwind 计划的具体功能、技术实现、目标客户和发布时间均未披露，目前只有官方公告标题和摘要。",
+      "what_happened": "谷歌宣布推出 Fairwind 计划，为政府和企业提供主动网络防御能力。官方博客文章于2026年9月2日发布，但披露的具体信息有限。",
+      "why_it_matters": "谷歌将 AI 技术引入主动网络防御，进入高价值的安全市场；该计划可能整合谷歌现有基础设施和 AI 模型，影响政府网络安全采购格局。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-99bf1c964f45c0c028ce",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "“循环深度”可能改变模型推理的透明度和可审计性，从而引发安全方面的担忧。",
+            "非顺序思维模式可能使模型行为更难预测，增加潜在风险。"
+          ],
+          "canonical_title": "OpenAI 的新推理技术引发 AI 安全专家担忧",
+          "category": "AI 模型与安全",
+          "entity_names": [
+            "OpenAI",
+            "Astra"
+          ],
+          "facts": [
+            "OpenAI 的新模型 Astra 将使用“循环深度”（recurrent depth）技术。",
+            "该技术允许模型跳出大多数推理模型所采用的顺序思维模式。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+          "product_names": [
+            "Astra"
+          ],
+          "published_at": "2026-09-02T20:19:14Z",
+          "source_refs": [
+            {
+              "author": "Russell Brandom",
+              "discussion_url": null,
+              "fetched_at": "2026-09-03T01:25:59.820664Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-02T20:19:14Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-b5008ebffacf4d58ec96",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "OpenAI’s new reasoning technique alarms AI safety experts",
+              "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-a82368ea20773203c9b5",
+          "topic_names": [
+            "AI推理模型",
+            "AI安全"
+          ],
+          "uncertainties": [
+            "报道未提供具体的安全专家评论或担忧细节。",
+            "“循环深度”技术的具体实现和潜在影响尚不明确。",
+            "该技术是否已经部署或仍处于研发阶段未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a82368ea20773203c9b5"
+      ],
+      "title": "OpenAI 新推理技术“循环深度”引发 AI 安全专家担忧",
+      "uncertainty": "报道未提供具体专家评论或官方回应，循环深度的实现细节、是否已部署、以及潜在风险范围均不明确。",
+      "what_happened": "TechCrunch 报道 OpenAI 新模型 Astra 将采用“循环深度”（recurrent depth）技术，该技术允许模型跳出大多数推理模型的顺序思维模式。",
+      "why_it_matters": "非顺序推理可能提高模型能力，但也可能削弱透明度和可审计性，引发对模型行为预测和安全的担忧；OpenAI 的推理模型路线对行业有标杆意义。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "未来 1-2 周内，谷歌将公布 Gemini 3.8 Flash 和 Gemini 3.8 Flash Cyber 的 API 可用性、定价、支持地区和详细技术指标。",
+    "Mistral AI 将在官方帮助中心或公告中澄清用户是否可以退出输入/输出数据用于训练，以及具体退出机制和适用范围。",
+    "OpenAI 或第三方将公布 Astra 循环深度技术的更多实现细节、安全评估结果或专家评论，以阐明该推理方法的可审计性和风险。"
+  ]
+}

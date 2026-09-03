@@ -1,0 +1,265 @@
+{
+  "date": "2026-09-03",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "structural_business_change",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "谷歌官方博客宣布 Fairwind 计划，面向政府与企业提供主动网络防御。公告未披露具体功能、技术细节或发布时间。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-31e5a978eba69de9bc04",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "google-ai-proactive-cyber-defense"
+      ],
+      "uncertainty": "Fairwind 的具体能力、是否依赖 AI、可用性和实际效果均未披露。",
+      "why_now": "该公告今日发布，是谷歌在 AI 安全领域的一次官方战略动作；但缺少可评估的机制，当前主要价值是记录厂商进入该方向。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "news_delta": "NVIDIA 发布了一篇 CUDA 优化技术博客，属常规开发者教育内容，无新产品、功能或版本变化。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-91f8c11d1850fcd6a1fd",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "无。",
+      "why_now": "博客今天发布，但对开发者工作流无直接影响，也无后续验证价值。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact"
+      ],
+      "editorial_confidence": 0.95,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub Copilot 应用与 CLI 开始遵守企业/组织/仓库管理员配置的内容排除策略，被排除文件不会用作上下文。",
+      "placement": "STORY",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-e0d6e84041afa63c77a5",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "copilot-content-exclusion-enterprise-governance"
+      ],
+      "uncertainty": "未披露支持的文件类型、路径模式或大小限制等细节。",
+      "why_now": "该功能从部分服务扩展至应用和 CLI，直接改善企业数据治理与合规，今日起对开发者可用。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "developer_production_impact",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.95,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "GitHub 企业托管设置现可为新的 Copilot 对话设置任意默认模型，管理员可统一团队模型选择。",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-0b3bc0c75d3304ca267b",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [],
+      "uncertainty": "未说明是否适用于所有 Copilot 计划及支持的具体模型范围。",
+      "why_now": "今日生效的企业管理增强，提升模型版本控制力，但影响范围限于企业策略配置。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "ai_ecosystem_landmark",
+        "developer_production_impact"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "news_delta": "谷歌官方博客发布 Gemini 3.8 Flash 与 Gemini 3.8 Flash Cyber 模型，Hacker News 同步出现高热度讨论。",
+      "placement": "TOP",
+      "reader_value": 4,
+      "retain_for_trends": true,
+      "story_id": "story-8f9d805cb5f022061be2",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "gemini-flash-model-releases"
+      ],
+      "uncertainty": "官方公告仅确认发布，未提供性能、定价或与旧模型对比的独立验证数据。",
+      "why_now": "新模型发布直接影响开发者可选模型与后续 SDK/服务集成，属于当日重要模型更新。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.7,
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "news_delta": "OpenAI 发布客户案例，称 ATV Big Air Tour 使用 ChatGPT Work 将三天工作缩短至三小时、15 分钟生成库存网站。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-1fa4ac46fd12ad6f6698",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "vendor-customer-efficiency-claim-validation-gap"
+      ],
+      "uncertainty": "工作流细节、生成网站功能完整性以及可复制性均未提供。",
+      "why_now": "今日发布的案例声称显著效率提升，但仅为厂商单方叙述，缺乏独立复现或第三方验证。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "HN 讨论指向 Mistral AI 帮助中心文章，询问是否可以退出将输入/输出数据用于训练；官方立场未确认。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-f451363a9dba31cf5e48",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "Mistral AI 是否提供退出选项不明确，需官方文档确认。",
+      "why_now": "社区对数据隐私关注度高，但无官方政策变化或可验证事实。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "TechCrunch 报道 OpenAI 新模型 Astra 将使用“循环深度”技术，并称 AI 安全专家担忧；但未提供具体专家评论或技术细节。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-a82368ea20773203c9b5",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "报道未给出安全专家具体观点，循环深度实现及是否部署均未知。",
+      "why_now": "报道今日发布，但关键安全担忧与推理机制均未获官方或独立验证，属于早期传闻。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "supporting_evidence_only"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "googleapis/python-genai v2.22.0 发布，新增 Gemini 3.8 Flash 模型支持，并更新 Flash 模型描述。",
+      "placement": "SUPPORT",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-608651ed97d89c96caf0",
+      "support_for_story_id": "story-8f9d805cb5f022061be2",
+      "treatment": "support_only",
+      "trend_links": [],
+      "uncertainty": "无。",
+      "why_now": "该 SDK 版本为 Gemini 3.8 Flash 提供官方 Python 接入，是模型发布的配套动作，不构成独立新闻。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.95,
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "news_delta": "openai-python v3.7.0 发布，更新 usage APIs 和文档，修复 embeddings 中重复 numpy 检查。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-b1749dd72f582b04d424",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "无。",
+      "why_now": "常规维护版本，无用户可见行为变化或结构性影响。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "news_delta": "NVIDIA 开发者博客发布关于推测解码加速 LLM 推理的系列文章第三篇，属教育内容。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-787b7fe72f93151834ab",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "未提供实现细节或性能数据。",
+      "why_now": "无新产品或可复现性能数据，仅技术介绍。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.8,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "IBM 在 Hugging Face 博客宣布其时间序列模型与 Confluent 集成，用于实时智能应用。",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-b5538edb5410db581f6a",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "未提供集成细节、模型版本或发布时间表。",
+      "why_now": "合作公告今日发布，但未给出具体集成方式、模型版本或效果，实际影响有限。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-03T01:25:59.820664Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
