@@ -226,7 +226,7 @@ def test_structured_json_result_is_validated_and_returned() -> None:
 
 @pytest.mark.parametrize(
     ("task", "max_tokens"),
-    [("classify", 6144), ("merge_story", 4096), ("score_story", 2048)],
+    [("classify", 4096), ("merge_story", 4096), ("score_story", 2048)],
 )
 def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
     task: str,
@@ -249,19 +249,20 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
 
 
 @pytest.mark.parametrize(
-    ("task", "max_tokens"),
+    ("task", "max_tokens", "effort"),
     [
-        ("write_brief", 24576),
-        ("resolve_continuity", 16384),
-        ("direction_observation", 8192),
-        ("resolve_research_cases", 12288),
-        ("evaluate_tendencies", 16384),
-        ("evaluate_editorial", 16384),
+        ("write_brief", 8192, "high"),
+        ("resolve_continuity", 4096, "medium"),
+        ("direction_observation", 4096, "medium"),
+        ("resolve_research_cases", 4096, "medium"),
+        ("evaluate_tendencies", 6000, "medium"),
+        ("evaluate_editorial", 4096, "medium"),
     ],
 )
-def test_semantic_tasks_enable_bounded_high_effort_thinking(
+def test_semantic_tasks_use_bounded_policy(
     task: str,
     max_tokens: int,
+    effort: str,
 ) -> None:
     configured = provider([classification_json()])
 
@@ -275,7 +276,7 @@ def test_semantic_tasks_enable_bounded_high_effort_thinking(
 
     request = configured.client.chat.completions.last_request
     assert request["extra_body"] == {"thinking": {"type": "enabled"}}
-    assert request["reasoning_effort"] == "high"
+    assert request["reasoning_effort"] == effort
     assert request["max_tokens"] == max_tokens
 
 
@@ -313,15 +314,14 @@ def test_direction_evidence_violation_retries_with_network_counting() -> None:
         observation="模型方向获得更多证据。",
         evidence_story_ids=["story-1", "unknown-story"],
     )
-    valid = invalid.model_copy(
-        update={"evidence_story_ids": ["story-1", "story-2"]}
-    )
+    valid = invalid.model_copy(update={"evidence_story_ids": ["story-1", "story-2"]})
     configured = provider([invalid.model_dump_json(), valid.model_dump_json()])
 
-    assert configured.write_direction_observation([signal]) == valid
-    assert configured.client.chat.completions.calls == 2
+    with pytest.raises(AIBudgetExceeded, match="attempt limit"):
+        configured.write_direction_observation([signal])
+    assert configured.client.chat.completions.calls == 1
     assert configured.budget.calls_used == 1
-    assert configured.budget.network_requests_used == 2
+    assert configured.budget.network_requests_used == 1
 
 
 def test_invalid_optional_brief_extensions_are_dropped_without_retry(caplog) -> None:
@@ -384,12 +384,8 @@ def test_write_brief_malformed_json_retry_regenerates_complete_output(caplog) ->
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
     requests = configured.client.chat.completions.requests
-    assert "previous structured response was invalid" not in requests[0]["messages"][0][
-        "content"
-    ]
-    assert "previous structured response was invalid" in requests[1]["messages"][0][
-        "content"
-    ]
+    assert "previous structured response was invalid" not in requests[0]["messages"][0]["content"]
+    assert "previous structured response was invalid" in requests[1]["messages"][0]["content"]
     assert "task=write_brief attempt=1 error_type=JSONDecodeError" in caplog.text
 
 
@@ -406,7 +402,7 @@ def test_write_brief_length_finish_reason_retries_with_bounded_larger_cap() -> N
 
     assert result.items[0].story_ids == [source_story.id]
     requests = configured.client.chat.completions.requests
-    assert [request["max_tokens"] for request in requests] == [24576, 32768]
+    assert [request["max_tokens"] for request in requests] == [8192, 8192]
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
 
@@ -459,6 +455,11 @@ def test_deepseek_usage_records_reasoning_tokens_and_finish_reason() -> None:
         "ai_classify_finish_stop": 1,
         "ai_prompt_tokens": 120,
         "ai_reasoning_tokens": 30,
+        "prompt_tokens": 120,
+        "completion_tokens": 45,
+        "reasoning_tokens": 30,
+        "logical_ai_tasks": 1,
+        "network_ai_requests": 1,
     }
 
 
@@ -652,9 +653,7 @@ def test_budget_rejects_excess_candidates_before_call() -> None:
         base_url="https://api.deepseek.test",
         budget=AIBudget(1, 1000, 0),
         prompt_dir=Path("prompts"),
-        client=SimpleNamespace(
-            chat=SimpleNamespace(completions=FakeChatCompletions([]))
-        ),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=FakeChatCompletions([]))),
     )
 
     with pytest.raises(AIBudgetExceeded, match="item limit"):

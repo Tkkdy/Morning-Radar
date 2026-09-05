@@ -35,6 +35,8 @@ class HttpClient:
         )
         def request() -> httpx.Response:
             response = self.client.get(url, **kwargs)
+            if response.status_code == 304:
+                return response
             response.raise_for_status()
             return response
 

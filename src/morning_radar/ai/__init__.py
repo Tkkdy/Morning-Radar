@@ -1,21 +1,29 @@
 """AI provider interfaces and implementations."""
 
+from morning_radar.ai.budget import AIBudget, AIBudgetExceeded, AITaskPriority
 from morning_radar.ai.deepseek_provider import DeepSeekProvider
-from morning_radar.ai.fake_provider import FakeAIProvider
-from morning_radar.ai.openai_provider import (
-    AIBudget,
-    AIBudgetExceeded,
+from morning_radar.ai.errors import (
+    AIAuthenticationError,
+    AIBillingUnavailable,
     AIConfigurationError,
     AIOutputError,
-    OpenAIProvider,
+    AIProviderUnavailable,
+    AIRetryableTransportError,
 )
+from morning_radar.ai.fake_provider import FakeAIProvider
+from morning_radar.ai.openai_provider import OpenAIProvider
 from morning_radar.ai.provider import AIProvider
 
 __all__ = [
     "AIBudget",
     "AIBudgetExceeded",
+    "AITaskPriority",
+    "AIAuthenticationError",
+    "AIBillingUnavailable",
     "AIConfigurationError",
     "AIOutputError",
+    "AIProviderUnavailable",
+    "AIRetryableTransportError",
     "AIProvider",
     "DeepSeekProvider",
     "FakeAIProvider",

@@ -22,12 +22,10 @@ from morning_radar.ai.models import (
     TendencyFormationSupportDraft,
 )
 from morning_radar.editorial.models import (
-    DecisionReason,
     EditorialDecision,
     EditorialDecisionBatch,
     FactStatus,
     Placement,
-    Treatment,
 )
 from morning_radar.models import (
     RawItem,
@@ -125,9 +123,7 @@ class FakeAIProvider:
             if any(anchors.values()):
                 watch_drafts.append(
                     GeneratedWatchDraft(
-                        expectation=(
-                            f"继续观察 {watch_anchor} 的后续官方发布与开发者反馈。"
-                        ),
+                        expectation=(f"继续观察 {watch_anchor} 的后续官方发布与开发者反馈。"),
                         source_story_ids=[first.id],
                         **anchors,
                     )
@@ -156,17 +152,11 @@ class FakeAIProvider:
                 EditorialDecision(
                     story_id=story.id,
                     placement=Placement.TOP,
-                    treatment=Treatment.SHORT_NEWS,
                     reader_value=4,
                     evidence_value=2,
                     fact_status=FactStatus.CLAIM,
-                    editorial_confidence=0.8,
-                    causal_confidence=None,
-                    news_delta=story.facts[0] if story.facts else story.canonical_title,
-                    why_now="Fixture 使用确定性编辑判断验证离线编排。",
-                    decision_reasons=[DecisionReason.DEVELOPER_PRODUCTION_IMPACT],
+                    reason="Fixture 使用确定性编辑判断验证离线编排。",
                     retain_for_trends=False,
-                    uncertainty="Fixture 不声称存在输入之外的独立验证。",
                 )
                 for story in stories
             ]
@@ -356,9 +346,7 @@ class FakeAIProvider:
                         for cluster in chosen
                     ],
                     claim_scope_supported=True,
-                    scope_alignment_rationale=(
-                        "Claim 限定于输入证据覆盖的 AI 产品与工作流。"
-                    ),
+                    scope_alignment_rationale=("Claim 限定于输入证据覆盖的 AI 产品与工作流。"),
                 )
             ]
         )

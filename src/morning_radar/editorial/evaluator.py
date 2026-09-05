@@ -80,15 +80,8 @@ def validate_editorial_batch(
 
     for decision in batch.decisions:
         story = story_by_id[decision.story_id]
-        independently_verified = _has_independent_verification(story)
         if decision.fact_status is FactStatus.VERIFIED_FACT and not story.source_refs:
             raise ValueError("verified_fact requires explicit input source evidence")
-        if (
-            decision.context_snapshot is not None
-            and decision.context_snapshot.independently_verified is True
-            and not independently_verified
-        ):
-            raise ValueError("context cannot claim independent verification without evidence")
         if decision.placement is not Placement.SUPPORT:
             continue
         target_id = decision.support_for_story_id
@@ -123,9 +116,7 @@ def select_reader_stories(
     support_by_story_id: dict[str, list[str]] = {}
     for decision in by_placement[Placement.SUPPORT]:
         assert decision.support_for_story_id is not None
-        support_by_story_id.setdefault(decision.support_for_story_id, []).append(
-            decision.story_id
-        )
+        support_by_story_id.setdefault(decision.support_for_story_id, []).append(decision.story_id)
     return ReaderSelection(
         top_story_ids=[item.story_id for item in by_placement[Placement.TOP]],
         main_story_ids=[item.story_id for item in by_placement[Placement.STORY]],

@@ -3,7 +3,6 @@
 from morning_radar.editorial.models import (
     DailyEditorialDecisions,
     DecisionReason,
-    EditorialContextSnapshot,
     EditorialDecision,
     EditorialDecisionBatch,
     FactStatus,
@@ -14,7 +13,6 @@ from morning_radar.editorial.models import (
 __all__ = [
     "DailyEditorialDecisions",
     "DecisionReason",
-    "EditorialContextSnapshot",
     "EditorialDecision",
     "EditorialDecisionBatch",
     "FactStatus",
