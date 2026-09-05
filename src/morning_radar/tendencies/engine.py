@@ -35,7 +35,7 @@ class TendencyRunResult:
     daily: DailyTendencies
     current_views: list[TendencyCurrentView] = field(default_factory=list)
     brief_tendencies: list[BriefTendency] = field(default_factory=list)
-    stats: dict[str, int | bool] = field(default_factory=dict)
+    stats: dict[str, int | bool | str] = field(default_factory=dict)
 
 
 def _refs_for(
@@ -142,13 +142,8 @@ def _materialize(
         and draft.claim.strip() == previous.claim.strip()
     ):
         return None
-    if (
-        draft.standing_after is TendencyStanding.OVERTURNED
-        and (
-            previous is None
-            or not draft.assessment.core_claim_invalidated
-            or not counter_ids
-        )
+    if draft.standing_after is TendencyStanding.OVERTURNED and (
+        previous is None or not draft.assessment.core_claim_invalidated or not counter_ids
     ):
         return None
 
@@ -205,16 +200,13 @@ def evaluate_daily_tendencies(
         reverse=True,
     )[:maximum_clusters]
     clusters = build_evidence_clusters(story_memory, continuities)[:maximum_clusters]
+
     def context_characters() -> int:
         return len(
             json.dumps(
                 {
-                    "evidence_clusters": [
-                        cluster.model_dump(mode="json") for cluster in clusters
-                    ],
-                    "current_views": [
-                        view.model_dump(mode="json") for view in evaluation_views
-                    ],
+                    "evidence_clusters": [cluster.model_dump(mode="json") for cluster in clusters],
+                    "current_views": [view.model_dump(mode="json") for view in evaluation_views],
                 },
                 ensure_ascii=False,
                 separators=(",", ":"),
@@ -239,14 +231,12 @@ def evaluate_daily_tendencies(
         return TendencyRunResult(
             daily=daily,
             current_views=current_views,
-            brief_tendencies=_brief_views(current_views),
+            brief_tendencies=project_tendencies(current_views),
             stats={
                 "tendency_clusters": len(clusters),
                 "tendency_input_characters": tendency_input_characters,
                 "tendency_logical_ai_calls": 0,
-                "tendency_budget_skipped": (
-                    tendency_input_characters > maximum_input_characters
-                ),
+                "tendency_budget_skipped": (tendency_input_characters > maximum_input_characters),
             },
         )
     budget = getattr(provider, "budget", None)
@@ -259,7 +249,7 @@ def evaluate_daily_tendencies(
         return TendencyRunResult(
             daily=daily,
             current_views=current_views,
-            brief_tendencies=_brief_views(current_views),
+            brief_tendencies=project_tendencies(current_views),
             stats={
                 "tendency_clusters": len(clusters),
                 "tendency_input_characters": tendency_input_characters,
@@ -274,9 +264,7 @@ def evaluate_daily_tendencies(
     used_tendency_ids: set[str] = set()
     for draft in output.decisions:
         previous = (
-            view_by_id.get(draft.existing_tendency_id)
-            if draft.existing_tendency_id
-            else None
+            view_by_id.get(draft.existing_tendency_id) if draft.existing_tendency_id else None
         )
         if draft.existing_tendency_id and draft.existing_tendency_id in used_existing:
             continue
@@ -289,9 +277,8 @@ def evaluate_daily_tendencies(
         )
         if record is None:
             continue
-        if (
-            record.tendency_id in used_tendency_ids
-            or (previous is None and record.tendency_id in view_by_id)
+        if record.tendency_id in used_tendency_ids or (
+            previous is None and record.tendency_id in view_by_id
         ):
             continue
         decisions.append(record)
@@ -303,7 +290,7 @@ def evaluate_daily_tendencies(
     return TendencyRunResult(
         daily=daily,
         current_views=updated_views,
-        brief_tendencies=_brief_views(updated_views),
+        brief_tendencies=project_tendencies(updated_views),
         stats={
             "tendency_clusters": len(clusters),
             "tendency_input_characters": tendency_input_characters,
@@ -313,7 +300,7 @@ def evaluate_daily_tendencies(
     )
 
 
-def _brief_views(views: list[TendencyCurrentView]) -> list[BriefTendency]:
+def project_tendencies(views: list[TendencyCurrentView]) -> list[BriefTendency]:
     return [
         BriefTendency(
             tendency_id=view.tendency_id,

@@ -29,9 +29,7 @@ _CODE_SPAN = re.compile(r"`[^`]*`", re.DOTALL)
 _ENGLISH_WORD = re.compile(r"[A-Za-z]+(?:[-'][A-Za-z]+)*")
 _CJK = re.compile(r"[\u3400-\u4dbf\u4e00-\u9fff]")
 _LATIN = re.compile(r"[A-Za-z]")
-_CODE_STRUCTURE = re.compile(
-    r"(?:\w+\[[^\]]+\]|[A-Za-z_]\w*\([^)]*\)\s*(?:->|:))"
-)
+_CODE_STRUCTURE = re.compile(r"(?:\w+\[[^\]]+\]|[A-Za-z_]\w*\([^)]*\)\s*(?:->|:))")
 _CODE_DECLARATION = re.compile(
     r"(?:\b(?:def|function)\s+[A-Za-z_$]\w*\s*\([^)]*\)\s*(?:\{|:)"
     r"|\bclass\s+[A-Za-z_$]\w*(?:\([^)]*\))?\s*(?:\{|:)"
@@ -100,10 +98,7 @@ def validate_direction_evidence(
         return
     if len(evidence_ids) < 2:
         raise ValueError("Direction observation requires at least two evidence stories")
-    if not any(
-        evidence_ids.issubset(set(signal.supporting_story_ids))
-        for signal in signals
-    ):
+    if not any(evidence_ids.issubset(set(signal.supporting_story_ids)) for signal in signals):
         raise ValueError("Direction evidence must belong to one input Signal")
 
 
@@ -114,9 +109,7 @@ def validate_brief_references(output: BriefDraft, stories: list[Story]) -> None:
         if not item.story_ids:
             _reject_brief_references(f"item {item_index} has empty story_ids")
 
-        unknown_ids = [
-            story_id for story_id in item.story_ids if story_id not in stories_by_id
-        ]
+        unknown_ids = [story_id for story_id in item.story_ids if story_id not in stories_by_id]
         if unknown_ids:
             _reject_brief_references(
                 f"item {item_index} has unknown Story IDs: {', '.join(unknown_ids)}"
@@ -126,9 +119,7 @@ def validate_brief_references(output: BriefDraft, stories: list[Story]) -> None:
             _reject_brief_references(f"item {item_index} has empty source_urls")
 
         referenced_urls = {
-            url
-            for story_id in item.story_ids
-            for url in stories_by_id[story_id].source_urls
+            url for story_id in item.story_ids for url in stories_by_id[story_id].source_urls
         }
         mismatched_urls = [url for url in item.source_urls if url not in referenced_urls]
         if mismatched_urls:
@@ -176,8 +167,7 @@ def sanitize_memory_drafts(output: BriefDraft, stories: list[Story]) -> BriefDra
             is_suspicious_english_prose(watch.expectation)
             or _is_generic_insight(watch.expectation)
             or not any(
-                _anchor_matches(anchor, normalized_expectation)
-                for anchor in normalized_anchors
+                _anchor_matches(anchor, normalized_expectation) for anchor in normalized_anchors
             )
         ):
             dropped["watch_platitude"] += 1
@@ -194,8 +184,16 @@ def sanitize_memory_drafts(output: BriefDraft, stories: list[Story]) -> BriefDra
             if len(_normalize_anchor(value)) >= 3
         }
         normalized_claim = _normalize_anchor(judgement.claim)
+        explicit_gate = (
+            judgement.falsifiable is True
+            and judgement.changes_future_interpretation is True
+            and judgement.correction_required_if_false is True
+            and judgement.expected_lifetime_days >= 2
+            and bool(judgement.loss_if_unmentioned_30d.strip())
+        )
         if (
-            any(story_id not in stories_by_id for story_id in judgement.evidence_story_ids)
+            not explicit_gate
+            or any(story_id not in stories_by_id for story_id in judgement.evidence_story_ids)
             or len(judgement.claim.strip()) < 20
             or is_suspicious_english_prose(judgement.claim)
             or is_suspicious_english_prose(judgement.rationale)
@@ -210,9 +208,7 @@ def sanitize_memory_drafts(output: BriefDraft, stories: list[Story]) -> BriefDra
             "Dropped invalid optional memory drafts: %s",
             ",".join(f"{key}:{value}" for key, value in sorted(dropped.items())),
         )
-    return output.model_copy(
-        update={"watch_items": valid_watches, "judgements": valid_judgements}
-    )
+    return output.model_copy(update={"watch_items": valid_watches, "judgements": valid_judgements})
 
 
 def validate_and_sanitize_brief(
@@ -246,9 +242,7 @@ def validate_editorial_grounding(
             raise ValueError(
                 "Editorial extension must name a concrete input entity, product, or topic"
             )
-    if output.cognitive_extension and not output.cognitive_extension.rstrip().endswith(
-        ("?", "？")
-    ):
+    if output.cognitive_extension and not output.cognitive_extension.rstrip().endswith(("?", "？")):
         raise ValueError("Cognitive extension must be framed as a question")
 
 
@@ -279,9 +273,7 @@ def sanitize_editorial_extensions(
 
     diagnostics: list[str] = []
     if watch_reasons:
-        reasons = ",".join(
-            f"{reason}:{count}" for reason, count in sorted(watch_reasons.items())
-        )
+        reasons = ",".join(f"{reason}:{count}" for reason, count in sorted(watch_reasons.items()))
         diagnostics.append(f"watch_next={reasons}")
     if cognitive_reason is not None:
         diagnostics.append(f"cognitive_extension={cognitive_reason}")
@@ -323,11 +315,7 @@ def _grounding_anchors(stories: list[Story], signals: list[Signal]) -> set[str]:
     }
     values.update(signal.topic for signal in signals)
     anchors = {_normalize_anchor(value) for value in values}
-    return {
-        anchor
-        for anchor in anchors
-        if len(anchor) >= 3 and anchor not in _GENERIC_ANCHORS
-    }
+    return {anchor for anchor in anchors if len(anchor) >= 3 and anchor not in _GENERIC_ANCHORS}
 
 
 def _normalize_anchor(value: str) -> str:
@@ -394,9 +382,7 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
             yield from _present((decision.assessment.formation_exception_rationale,))
     elif isinstance(output, EditorialDecisionBatch):
         for decision in output.decisions:
-            yield decision.news_delta
-            yield decision.why_now
-            yield decision.uncertainty
+            yield decision.reason
 
 
 def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:

@@ -7,6 +7,8 @@ maximum_ai_items: 40
 maximum_brief_items: 12
 maximum_ai_calls: 50
 maximum_ai_input_characters: 120000
+maximum_ai_network_requests: 60
+fast_continuity_join_timeout_seconds: 60
 continuity_history_days: 14
 maximum_continuity_candidates: 20
 maximum_continuity_input_characters: 30000
@@ -16,6 +18,12 @@ maximum_research_input_characters: 12000
 maximum_radar_signals: 3
 maximum_tendency_candidates: 12
 maximum_tendency_input_characters: 24000
+tendency_maximum_ai_calls: 3
+tendency_maximum_network_requests: 4
+deep_review_window_days: 21
+deep_review_minimum_stories: 4
+deep_review_minimum_dates: 3
+deep_review_minimum_sources: 3
 aihot:
   # Keep disabled until public GitHub Pages usage is covered by written authorization.
   enabled: false

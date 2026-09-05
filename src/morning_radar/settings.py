@@ -41,6 +41,8 @@ class AppConfig(ConfigModel):
     maximum_brief_items: int = Field(gt=0)
     maximum_ai_calls: int = Field(gt=0)
     maximum_ai_input_characters: int = Field(gt=0)
+    maximum_ai_network_requests: int = Field(default=60, ge=1)
+    fast_continuity_join_timeout_seconds: float = Field(default=60, gt=0)
     continuity_history_days: int = Field(default=14, ge=1, le=90)
     maximum_continuity_candidates: int = Field(default=20, ge=1)
     maximum_continuity_input_characters: int = Field(default=30000, ge=1000)
@@ -50,6 +52,12 @@ class AppConfig(ConfigModel):
     maximum_radar_signals: int = Field(default=3, ge=0, le=3)
     maximum_tendency_candidates: int = Field(default=12, ge=1, le=30)
     maximum_tendency_input_characters: int = Field(default=24000, ge=2000, le=50000)
+    tendency_maximum_ai_calls: int = Field(default=3, ge=1, le=10)
+    tendency_maximum_network_requests: int = Field(default=4, ge=1, le=10)
+    deep_review_window_days: int = Field(default=21, ge=7, le=90)
+    deep_review_minimum_stories: int = Field(default=4, ge=2, le=20)
+    deep_review_minimum_dates: int = Field(default=3, ge=2, le=10)
+    deep_review_minimum_sources: int = Field(default=3, ge=2, le=10)
     aihot: AIHOTConfig = Field(default_factory=AIHOTConfig)
     editorial: EditorialConfig = Field(default_factory=EditorialConfig)
     request_timeout_seconds: float = Field(gt=0)
@@ -59,6 +67,8 @@ class AppConfig(ConfigModel):
     github_growth_threshold: float = Field(ge=0)
     market_movement_threshold: float = Field(ge=0)
     enabled_sections: dict[str, bool]
+
+
 class TopicConfig(ConfigModel):
     id: str
     name: str
@@ -76,13 +86,16 @@ class SourceConfig(ConfigModel):
     enabled: bool = True
     topics: list[str] = Field(default_factory=list)
     official: bool = False
-    source_role: Literal[
-        "official_primary",
-        "practitioner",
-        "editorial",
-        "community_discovery",
-        "upstream_discovery",
-    ] | None = None
+    source_role: (
+        Literal[
+            "official_primary",
+            "practitioner",
+            "editorial",
+            "community_discovery",
+            "upstream_discovery",
+        ]
+        | None
+    ) = None
     practitioner_id: str | None = None
 
 

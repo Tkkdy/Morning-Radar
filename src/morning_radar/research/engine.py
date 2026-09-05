@@ -148,6 +148,7 @@ def resolve_research(
                 "research_logical_ai_calls": 0,
                 "research_input_characters": research_input_characters,
                 "research_budget_skipped": had_cases,
+                "research_unresolved": 0,
             }
         )
     budget = getattr(provider, "budget", None)
@@ -163,6 +164,7 @@ def resolve_research(
                 "research_input_characters": research_input_characters,
                 "research_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
                 "research_unavailable": True,
+                "research_unresolved": len(cases),
             },
         )
 
@@ -211,6 +213,7 @@ def resolve_research(
             "research_cases": len(cases),
             "research_input_characters": research_input_characters,
             "research_verified_story_candidates": len(verified),
+            "research_unresolved": max(0, len(cases) - len(verified) - len(signals)),
             "radar_signals": len(signals),
             "research_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
         },

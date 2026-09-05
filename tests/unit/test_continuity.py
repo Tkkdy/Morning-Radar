@@ -1,4 +1,5 @@
 import json
+import time
 from datetime import UTC, date, datetime
 from pathlib import Path
 
@@ -8,6 +9,7 @@ from pydantic import ValidationError
 from morning_radar.ai import AIBudget, AIOutputError, FakeAIProvider
 from morning_radar.ai.models import (
     ContinuityRelationCandidate,
+    ContinuityResolution,
     ContinuityResolutionInput,
     ContinuityStorySummary,
     ContinuityWatchInput,
@@ -634,6 +636,11 @@ def test_brief_memory_materialization_uses_structured_source() -> None:
                 claim="Example SDK 的部署瓶颈正在转向完整执行环境控制能力。",
                 rationale="当前版本新增了明确的部署控制能力。",
                 evidence_story_ids=[source.id],
+                falsifiable=True,
+                changes_future_interpretation=True,
+                expected_lifetime_days=30,
+                loss_if_unmentioned_30d="未来解释将失去该迁移成本基线。",
+                correction_required_if_false=True,
             )
         ],
         brief_date=date(2026, 8, 12),
@@ -680,3 +687,115 @@ def test_golden_fixture_is_real_history_not_synthetic_only() -> None:
         "kimi_safety_is_not_vllm_release",
         "claude_code_rumor_is_not_ollama_release",
     }
+
+
+def _valid_judgement_draft(source_id: str):
+    from morning_radar.ai.models import GeneratedJudgementDraft
+
+    return GeneratedJudgementDraft(
+        claim="Example SDK 的长期部署策略将转向完整执行环境控制能力。",
+        rationale="当前版本新增了明确且可复查的部署控制能力。",
+        evidence_story_ids=[source_id],
+        falsifiable=True,
+        changes_future_interpretation=True,
+        expected_lifetime_days=30,
+        loss_if_unmentioned_30d="未来版本解释会失去这一部署策略基线。",
+        correction_required_if_false=True,
+    )
+
+
+def test_new_judgement_missing_all_creation_gate_fields_is_rejected() -> None:
+    from morning_radar.ai.models import GeneratedJudgementDraft
+
+    with pytest.raises(ValidationError):
+        GeneratedJudgementDraft.model_validate(
+            {
+                "claim": "Example SDK 的长期部署策略将转向完整执行环境控制能力。",
+                "rationale": "当前版本新增了明确且可复查的部署控制能力。",
+                "evidence_story_ids": ["source"],
+            }
+        )
+
+
+@pytest.mark.parametrize(
+    "update",
+    [
+        {"falsifiable": False},
+        {"changes_future_interpretation": False},
+        {"correction_required_if_false": False},
+        {"loss_if_unmentioned_30d": "   "},
+    ],
+)
+def test_new_judgement_failing_any_creation_gate_is_dropped(update) -> None:
+    source = story("source", "Example SDK deployment controls")
+    draft = _valid_judgement_draft(source.id).model_copy(update=update)
+
+    assert materialize_judgements(
+        [draft], brief_date=date(2026, 8, 12), recorded_at=NOW, stories=[source]
+    ) == []
+
+
+def test_new_judgement_passing_every_creation_gate_can_persist() -> None:
+    source = story("source", "Example SDK deployment controls")
+
+    records = materialize_judgements(
+        [_valid_judgement_draft(source.id)],
+        brief_date=date(2026, 8, 12),
+        recorded_at=NOW,
+        stories=[source],
+    )
+
+    assert len(records) == 1
+
+
+class DeadlineProvider:
+    def __init__(self) -> None:
+        self.calls = []
+        self.budget = AIBudget(10, 100_000, 40)
+
+    def resolve_continuity(self, context, *, deadline_monotonic=None):
+        lane = (
+            "relation" if context.relation_candidates else
+            "watch" if context.watch_candidates else "judgement"
+        )
+        self.calls.append(lane)
+        if deadline_monotonic is not None:
+            time.sleep(max(0, deadline_monotonic - time.monotonic()) + 0.01)
+        return ContinuityResolution()
+
+
+def test_deadline_prevents_later_continuity_lanes_from_starting() -> None:
+    provider = DeadlineProvider()
+    opened = WatchEvent(
+        watch_id="watch-example",
+        recorded_at=datetime(2026, 8, 11, tzinfo=UTC),
+        event_type=WatchEventType.OPENED,
+        expectation="观察 Example SDK 是否增加部署控制。",
+        product_anchors=["Example SDK"],
+        source_story_refs=[StoryOccurrenceRef(date=date(2026, 8, 11), story_id="old")],
+    )
+
+    result = resolve_daily_continuity(
+        current_date=date(2026, 8, 12),
+        generated_at=NOW,
+        current_stories=[story("new", "Example SDK gains deployment controls")],
+        historical_stories=[
+            memory(date(2026, 8, 11), story("old", "Example SDK announcement"))
+        ],
+        continuity_history=[DailyContinuity(
+            date=date(2026, 8, 11), generated_at=opened.recorded_at, watch_events=[opened]
+        )],
+        provider=provider,
+        history_days=14,
+        maximum_candidates=20,
+        maximum_open_watches=20,
+        maximum_ai_items=40,
+        maximum_input_characters=30_000,
+        deadline_monotonic=time.monotonic() + 0.03,
+        deadline_safe_minimum_seconds=0.001,
+    )
+
+    assert provider.calls == ["relation"]
+    assert result.stats["fast_continuity_timeout"] == 1
+    assert result.stats["continuity_deadline_skipped_lanes"] == 1
+    assert result.daily.watch_events == []

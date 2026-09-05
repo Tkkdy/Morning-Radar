@@ -70,8 +70,7 @@ def validate_continuity_resolution(
     context: ContinuityResolutionInput,
 ) -> None:
     relation_pairs = {
-        (candidate.previous.ref, candidate.current.ref)
-        for candidate in context.relation_candidates
+        (candidate.previous.ref, candidate.current.ref) for candidate in context.relation_candidates
     }
     watch_candidates = {
         item.watch_id: {story.ref for story in item.current_story_candidates}
@@ -93,12 +92,23 @@ def validate_continuity_resolution(
         if pair not in relation_pairs:
             raise ValueError("AI relation is outside the deterministic candidate set")
         if relation.confirmed:
-            if relation.relation_type is None or not relation.what_changed:
-                raise ValueError("confirmed relation requires type and what_changed")
+            if (
+                relation.relation_type is None
+                or not relation.what_changed
+                or not relation.rationale
+                or not relation.evidence_refs
+            ):
+                raise ValueError(
+                    "confirmed relation requires evidence, change, type, and rationale"
+                )
             refs = {item.story for item in relation.evidence_refs}
             if not set(pair).issubset(refs):
                 raise ValueError("confirmed relation evidence must include both Stories")
-        elif relation.relation_type is not None or relation.what_changed is not None:
+        elif (
+            relation.relation_type is not None
+            or relation.what_changed is not None
+            or relation.evidence_refs
+        ):
             raise ValueError("rejected relation cannot claim relation semantics")
         _validate_summary_evidence(relation.evidence_refs, story_summaries)
 
@@ -107,12 +117,18 @@ def validate_continuity_resolution(
         if allowed is None:
             raise ValueError("AI Watch match references an unknown open Watch")
         if match.matched:
-            if not match.matched_story_refs or not set(match.matched_story_refs).issubset(allowed):
+            if (
+                not match.matched_story_refs
+                or not match.rationale
+                or not set(match.matched_story_refs).issubset(allowed)
+            ):
                 raise ValueError("Watch match is outside its deterministic candidate set")
         elif match.matched_story_refs:
             raise ValueError("unmatched Watch cannot claim matched Stories")
 
     for update in output.judgement_updates:
+        if not update.claim.strip() or not update.rationale.strip():
+            raise ValueError("Judgement state change requires claim and rationale")
         prior = prior_by_id.get(update.prior_judgement_id)
         if prior is None:
             raise ValueError("AI Judgement update references an unknown prior hypothesis")

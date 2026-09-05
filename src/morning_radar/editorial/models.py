@@ -5,7 +5,7 @@ from __future__ import annotations
 from datetime import date, datetime
 from enum import StrEnum
 
-from pydantic import Field, field_validator, model_validator
+from pydantic import Field, PrivateAttr, field_validator, model_validator
 
 from morning_radar.models.core import RadarModel, _validate_aware_datetime
 
@@ -68,39 +68,77 @@ _ALLOWED_TREATMENTS = {
 }
 
 
-class EditorialContextSnapshot(RadarModel):
-    evaluated_at: datetime
-    hours_since_event: float | None = Field(default=None, ge=0)
-    independently_verified: bool | None = None
-    likely_already_known: bool | None = None
-
-    _evaluated_is_aware = field_validator("evaluated_at")(_validate_aware_datetime)
-
-
 class EditorialDecision(RadarModel):
+    _legacy_treatment: Treatment | None = PrivateAttr(default=None)
+
+    def __init__(self, **data: object) -> None:
+        treatment = data.get("treatment")
+        super().__init__(**data)
+        self._legacy_treatment = Treatment(treatment) if treatment is not None else None
+
+    @property
+    def treatment(self) -> Treatment:
+        if self._legacy_treatment is not None:
+            return self._legacy_treatment
+        return {
+            Placement.TOP: Treatment.DEEP_STORY,
+            Placement.STORY: Treatment.DEEP_STORY,
+            Placement.NEWS: Treatment.SHORT_NEWS,
+            Placement.ONE_LINER: Treatment.ONE_LINER,
+            Placement.SUPPORT: Treatment.SUPPORT_ONLY,
+            Placement.DROP: Treatment.HIDDEN,
+        }[self.placement]
+
     story_id: str = Field(min_length=1)
     placement: Placement
-    treatment: Treatment
     reader_value: int = Field(ge=0, le=4)
     evidence_value: int = Field(ge=0, le=4)
     fact_status: FactStatus
-    editorial_confidence: float = Field(ge=0, le=1)
-    causal_confidence: float | None = Field(default=None, ge=0, le=1)
-    news_delta: str = Field(min_length=1, max_length=1500)
-    why_now: str = Field(min_length=1, max_length=1500)
-    decision_reasons: list[DecisionReason] = Field(min_length=1)
     retain_for_trends: bool
     trend_links: list[str] = Field(default_factory=list)
+    reason: str = Field(min_length=1, max_length=240)
     support_for_story_id: str | None = None
-    uncertainty: str = Field(max_length=1000)
-    context_snapshot: EditorialContextSnapshot | None = None
+
+    @model_validator(mode="before")
+    @classmethod
+    def absorb_legacy_runtime_fields(cls, value: object) -> object:
+        if not isinstance(value, dict):
+            return value
+        data = dict(value)
+        treatment = data.pop("treatment", None)
+        placement = data.get("placement")
+        if treatment is not None and placement is not None:
+            try:
+                if Treatment(treatment) not in _ALLOWED_TREATMENTS[Placement(placement)]:
+                    raise ValueError(f"treatment {treatment} is invalid for placement {placement}")
+            except KeyError:
+                pass
+        reasons = data.get("decision_reasons", [])
+        if "trend_confirmation" in [str(reason) for reason in reasons] and not data.get(
+            "retain_for_trends"
+        ):
+            raise ValueError("trend_confirmation must be retained for trends")
+        if not data.get("reason"):
+            reasons = data.pop("decision_reasons", [])
+            data["reason"] = (
+                data.get("why_now")
+                or data.get("news_delta")
+                or (str(reasons[0]) if reasons else "兼容历史编辑判断。")
+            )
+        for name in (
+            "causal_confidence",
+            "context_snapshot",
+            "news_delta",
+            "why_now",
+            "uncertainty",
+            "editorial_confidence",
+            "decision_reasons",
+        ):
+            data.pop(name, None)
+        return data
 
     @model_validator(mode="after")
     def validate_placement_contract(self) -> EditorialDecision:
-        if self.treatment not in _ALLOWED_TREATMENTS[self.placement]:
-            raise ValueError(
-                f"treatment {self.treatment} is invalid for placement {self.placement}"
-            )
         if self.placement is Placement.SUPPORT:
             if self.support_for_story_id is None:
                 raise ValueError("SUPPORT requires support_for_story_id")
@@ -114,11 +152,6 @@ class EditorialDecision(RadarModel):
             raise ValueError("evidence_value >= 3 must be retained for trends")
         if self.evidence_value <= 1 and self.retain_for_trends:
             raise ValueError("evidence_value <= 1 cannot be retained for trends")
-        if (
-            DecisionReason.TREND_CONFIRMATION in self.decision_reasons
-            and not self.retain_for_trends
-        ):
-            raise ValueError("trend_confirmation must be retained for trends")
         return self
 
 

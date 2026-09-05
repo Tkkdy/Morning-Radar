@@ -75,10 +75,16 @@ def materialize_judgements(
     result: list[JudgementRecord] = []
     seen_ids: set[str] = set()
     for draft in drafts[:maximum_judgements]:
+        if not (
+            draft.falsifiable is True
+            and draft.changes_future_interpretation is True
+            and draft.correction_required_if_false is True
+            and draft.expected_lifetime_days >= 2
+            and bool(draft.loss_if_unmentioned_30d.strip())
+        ):
+            continue
         evidence = [
-            StoryEvidenceRef(
-                story=StoryOccurrenceRef(date=brief_date, story_id=story_id)
-            )
+            StoryEvidenceRef(story=StoryOccurrenceRef(date=brief_date, story_id=story_id))
             for story_id in draft.evidence_story_ids
             if story_id in story_ids
         ]

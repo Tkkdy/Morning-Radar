@@ -58,9 +58,7 @@ def load_eval_cases(path: Path) -> list[EvalCase]:
                 scenario=raw["scenario"],
                 evidence_kind=raw["evidence_kind"],
                 exact_placements=tuple(Placement(value) for value in raw["exact_placements"]),
-                adjacent_placements=tuple(
-                    Placement(value) for value in raw["adjacent_placements"]
-                ),
+                adjacent_placements=tuple(Placement(value) for value in raw["adjacent_placements"]),
                 expected_reasons=frozenset(raw["expected_reasons"]),
                 expected_retain=raw["expected_retain"],
                 p0_rule=raw["p0_rule"],
@@ -173,9 +171,7 @@ def score_batch(cases: list[EvalCase], batch: EditorialDecisionBatch) -> dict[st
         decision = decisions[case.id]
         exact = decision.placement in case.exact_placements
         adjacent = not exact and decision.placement in case.adjacent_placements
-        reason_agreement = bool(
-            {reason.value for reason in decision.decision_reasons} & case.expected_reasons
-        )
+        reason_agreement = any(reason in decision.reason for reason in case.expected_reasons)
         retention_agreement = decision.retain_for_trends is case.expected_retain
         p0 = _is_p0(case, decision)
         rows.append(
@@ -218,10 +214,7 @@ def evaluate_quality_gate(metrics: dict[str, Any]) -> dict[str, Any]:
     gates: dict[str, dict[str, Any]] = {}
     for gate in RATE_GATES:
         actual_count = int(metrics[gate.count_key])
-        passed = (
-            actual_count * gate.threshold_denominator
-            >= total * gate.threshold_numerator
-        )
+        passed = actual_count * gate.threshold_denominator >= total * gate.threshold_numerator
         gates[gate.metric_key] = {
             "actual": actual_count / total,
             "actual_count": actual_count,
@@ -262,8 +255,7 @@ def format_quality_gate_summary(metrics: dict[str, Any]) -> str:
         )
     p0_gate = gates["p0_count"]
     lines.append(
-        f"| p0_count | {p0_gate['actual']} | = 0 | "
-        f"{'PASS' if p0_gate['passed'] else 'FAIL'} |"
+        f"| p0_count | {p0_gate['actual']} | = 0 | {'PASS' if p0_gate['passed'] else 'FAIL'} |"
     )
     lines.extend(
         [

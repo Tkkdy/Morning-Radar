@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from morning_radar.logging_config import configure_logging
@@ -19,6 +20,9 @@ def build_parser() -> argparse.ArgumentParser:
     run.add_argument("--force-notify", action="store_true")
     run.add_argument("--skip-notify", action="store_true")
     commands.add_parser("build-site", help="rebuild pages from saved brief JSON")
+    commands.add_parser("run-tendency", help="run standalone Tendency evaluation")
+    commands.add_parser("run-deep-continuity", help="run triggered deep Judgement review")
+    commands.add_parser("run-model-ab", help="run frozen-input model A/B experiment")
     commands.add_parser("collect", help="collect and process data without notification")
     commands.add_parser("test-notification", help="send a safe WxPusher test")
     notify = commands.add_parser(
@@ -42,12 +46,26 @@ def main(argv: list[str] | None = None) -> int:
         )
     elif args.command == "build-site":
         pipeline.build_site()
+    elif args.command == "run-tendency":
+        from morning_radar.tendencies import run_tendency_workflow
+
+        run_tendency_workflow(pipeline.root)
+        pipeline.build_site()
+    elif args.command == "run-deep-continuity":
+        from morning_radar.continuity.deep_workflow import (
+            run_deep_continuity_workflow,
+        )
+
+        run_deep_continuity_workflow(pipeline.root)
+        pipeline.build_site()
+    elif args.command == "run-model-ab":
+        from morning_radar.evaluation import run_model_ab_experiment
+
+        result = run_model_ab_experiment(pipeline.root)
+        print(json.dumps(result, ensure_ascii=False, sort_keys=True))
     elif args.command == "collect":
         pipeline.run(dry_run=True)
-    elif (
-        args.command == "test-notification"
-        and not pipeline._notifier(pipeline.root).send_test()
-    ):
+    elif args.command == "test-notification" and not pipeline._notifier(pipeline.root).send_test():
         raise SystemExit("WxPusher test failed or configuration is missing")
     elif args.command == "notify-latest":
         pipeline.notify_latest(force=args.force)
