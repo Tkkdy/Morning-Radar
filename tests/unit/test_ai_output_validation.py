@@ -4,13 +4,13 @@ import pytest
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
+    CandidateTriageDraft,
     DirectionObservation,
     GeneratedBriefItem,
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
-    ResearchResolutionBatch,
-    ResearchResolutionDraft,
 )
 from morning_radar.ai.output_validation import (
     is_suspicious_english_prose,
@@ -23,10 +23,10 @@ from morning_radar.ai.output_validation import (
     validate_simplified_chinese_output,
 )
 from morning_radar.models import (
-    ResearchDisposition,
+    EvidenceState,
+    SemanticDisposition,
     Signal,
     SignalType,
-    StatementType,
     Story,
 )
 
@@ -435,22 +435,30 @@ def test_editorial_grounding_accepts_latin_anchors_next_to_chinese(
     )
 
 
-def test_research_user_visible_output_rejects_long_english_prose() -> None:
-    output = ResearchResolutionBatch(
-        cases=[
-            ResearchResolutionDraft(
-                case_id="research-1",
-                disposition=ResearchDisposition.RADAR_SIGNAL,
-                statement_type=StatementType.FIRSTHAND_OBSERVATION,
-                claim=(
-                    "This practitioner report describes a concrete and reproducible "
-                    "workflow regression affecting many software developers"
-                ),
-                why_notable="值得继续验证。",
-                uncertainty="尚未独立确认。",
+def test_candidate_triage_records_language_diagnostic_without_rejecting(
+    caplog,
+) -> None:
+    english_verification_path = (
+        "Check the official release notes and compare the documented behavior "
+        "with a reproducible developer workflow before making a final decision."
+    )
+    output = CandidateTriageBatch(
+        candidates=[
+            CandidateTriageDraft(
+                candidate_id="candidate-1",
+                hypothesis="某开发者工作流可能出现了值得验证的变化。",
+                potential_impact="值得继续验证。",
+                semantic_disposition=SemanticDisposition.INVESTIGATE,
+                evidence_state=EvidenceState.INSUFFICIENT,
+                missing_evidence=["缺少官方发布说明。"],
+                verification_target="确认官方是否记录了该行为变化。",
+                verification_path=english_verification_path,
             )
         ]
     )
 
-    with pytest.raises(ValueError, match="English prose"):
-        validate_core_simplified_chinese_output(output)
+    validate_core_simplified_chinese_output(output)
+
+    assert "candidate_id=candidate-1" in caplog.text
+    assert "field_path=candidates[0].verification_path" in caplog.text
+    assert english_verification_path not in caplog.text

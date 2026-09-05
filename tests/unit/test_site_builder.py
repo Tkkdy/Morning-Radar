@@ -7,8 +7,8 @@ from morning_radar.models import (
     BriefTendency,
     DailyBrief,
     PublishedAtRole,
+    RadarEvidenceRef,
     RadarSignal,
-    ResearchEvidenceRef,
     SourceRole,
     StatementType,
     StorySourceRef,
@@ -537,7 +537,7 @@ def test_site_builder_labels_radar_signal_as_unverified_and_renders_tendency(
                 claim="A practitioner observed a concrete workflow regression.",
                 why_notable="The observation affects a widely used workflow.",
                 support_refs=[
-                    ResearchEvidenceRef(
+                    RadarEvidenceRef(
                         raw_item_id="item-1",
                         url="https://example.com/observation",
                         source_role=SourceRole.PRACTITIONER,

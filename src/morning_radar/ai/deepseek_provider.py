@@ -24,12 +24,12 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
     ClassificationBatch,
     ContinuityResolution,
     ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
-    ResearchResolutionBatch,
     StoryScore,
     TendencyEvaluationBatch,
 )
@@ -37,6 +37,7 @@ from morning_radar.ai.openai_provider import (
     AIBudget,
     AIConfigurationError,
     AIOutputError,
+    _budget_stage,
     validate_output_urls,
 )
 from morning_radar.ai.output_validation import (
@@ -47,8 +48,8 @@ from morning_radar.ai.output_validation import (
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
+    Candidate,
     RawItem,
-    ResearchCase,
     Signal,
     Story,
     TendencyCurrentView,
@@ -68,13 +69,14 @@ class DeepSeekTaskPolicy:
 
 
 TASK_POLICIES = {
+    "candidate_triage": DeepSeekTaskPolicy("disabled", 12288, 16384),
+    "construct_story": DeepSeekTaskPolicy("disabled", 6144, 8192),
     "classify": DeepSeekTaskPolicy("disabled", 6144, 6144),
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
     "write_brief": DeepSeekTaskPolicy("enabled", 24576, 32768, "high"),
     "resolve_continuity": DeepSeekTaskPolicy("enabled", 16384, 24576, "high"),
     "direction_observation": DeepSeekTaskPolicy("enabled", 8192, 12288, "high"),
-    "resolve_research_cases": DeepSeekTaskPolicy("enabled", 12288, 16384, "high"),
     "evaluate_tendencies": DeepSeekTaskPolicy("enabled", 16384, 24576, "high"),
     "evaluate_editorial": DeepSeekTaskPolicy("enabled", 16384, 24576, "high"),
 }
@@ -100,6 +102,8 @@ class DeepSeekProvider:
         client: Any | None = None,
         network_attempts: int = 3,
         timeout_seconds: float = 60,
+        candidate_triage_temperature: float | None = None,
+        response_observer: Callable[[dict[str, Any]], None] | None = None,
     ) -> None:
         if not model:
             raise AIConfigurationError("DEEPSEEK_MODEL is required for production AI")
@@ -111,6 +115,8 @@ class DeepSeekProvider:
         self.budget = budget
         self.prompt_dir = prompt_dir
         self.network_attempts = network_attempts
+        self.candidate_triage_temperature = candidate_triage_temperature
+        self.response_observer = response_observer
         self.client = client or OpenAI(
             api_key=api_key,
             base_url=base_url,
@@ -145,7 +151,7 @@ class DeepSeekProvider:
         output_validator: Callable[[OutputT], OutputT | None] | None = None,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
-        self.budget.consume(payload, item_count=item_count)
+        self.budget.consume(payload, item_count=item_count, stage=_budget_stage(task))
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
         schema_json = json.dumps(
             schema.model_json_schema(),
@@ -198,12 +204,22 @@ class DeepSeekProvider:
                 "max_tokens": max_tokens,
                 "extra_body": {"thinking": {"type": policy.thinking}},
             }
+            if task == "candidate_triage" and self.candidate_triage_temperature is not None:
+                request["temperature"] = self.candidate_triage_temperature
             if policy.reasoning_effort is not None:
                 request["reasoning_effort"] = policy.reasoning_effort
             return self.client.chat.completions.create(**request)
 
         last_error: Exception | None = None
         for structured_attempt in range(1, 3):
+            if self.response_observer is not None:
+                self.response_observer(
+                    {
+                        "event": "structured_attempt_started",
+                        "task": task,
+                        "structured_attempt": structured_attempt,
+                    }
+                )
             try:
                 response = invoke(structured_attempt=structured_attempt)
             except (
@@ -220,6 +236,25 @@ class DeepSeekProvider:
                 finish_reason = str(getattr(choice, "finish_reason", None) or "unknown")
                 usage = getattr(response, "usage", None)
                 details = getattr(usage, "completion_tokens_details", None)
+                if self.response_observer is not None:
+                    self.response_observer(
+                        {
+                            "event": "response_received",
+                            "task": task,
+                            "structured_attempt": structured_attempt,
+                            "system_fingerprint": getattr(
+                                response, "system_fingerprint", None
+                            ),
+                            "finish_reason": finish_reason,
+                            "prompt_tokens": _usage_value(usage, "prompt_tokens"),
+                            "completion_tokens": _usage_value(
+                                usage, "completion_tokens"
+                            ),
+                            "reasoning_tokens": _usage_value(
+                                details, "reasoning_tokens"
+                            ),
+                        }
+                    )
                 self.budget.record_response_usage(
                     task,
                     prompt_tokens=_usage_value(usage, "prompt_tokens"),
@@ -284,6 +319,35 @@ class DeepSeekProvider:
                     rejected_finish_reason,
                 )
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
+
+    def triage_candidates(self, candidates: list[Candidate]) -> CandidateTriageBatch:
+        candidate_ids = {candidate.id for candidate in candidates}
+
+        def validate(output: CandidateTriageBatch) -> CandidateTriageBatch:
+            returned = [candidate.candidate_id for candidate in output.candidates]
+            if len(returned) != len(set(returned)) or set(returned) != candidate_ids:
+                raise AIOutputError("Candidate triage must return every input exactly once")
+            return output
+
+        return self._parse(
+            task="candidate_triage",
+            schema=CandidateTriageBatch,
+            payload_data=[candidate.model_dump(mode="json") for candidate in candidates],
+            item_count=len(candidates),
+            allowed_urls={
+                evidence.url for candidate in candidates for evidence in candidate.evidence
+            },
+            output_validator=validate,
+        )
+
+    def construct_story(self, candidate: Candidate) -> MergedStoryDraft:
+        return self._parse(
+            task="construct_story",
+            schema=MergedStoryDraft,
+            payload_data=candidate.model_dump(mode="json"),
+            item_count=1,
+            allowed_urls={evidence.url for evidence in candidate.evidence},
+        )
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
         return self._parse(
@@ -390,32 +454,6 @@ class DeepSeekProvider:
             item_count=item_count,
             allowed_urls=set(),
             output_validator=lambda output: validate_continuity_resolution(output, context),
-        )
-
-    def resolve_research_cases(
-        self,
-        cases: list[ResearchCase],
-    ) -> ResearchResolutionBatch:
-        case_ids = {case.id for case in cases}
-
-        def validate(output: ResearchResolutionBatch) -> ResearchResolutionBatch:
-            if len(output.cases) != len({item.case_id for item in output.cases}):
-                raise AIOutputError("Research output contains duplicate case IDs")
-            if any(item.case_id not in case_ids for item in output.cases):
-                raise AIOutputError("Research output references an unknown case ID")
-            return output
-
-        return self._parse(
-            task="resolve_research_cases",
-            schema=ResearchResolutionBatch,
-            payload_data=[case.model_dump(mode="json") for case in cases],
-            item_count=len(cases),
-            allowed_urls={
-                evidence.url
-                for case in cases
-                for evidence in [case.lead, *case.supporting_evidence]
-            },
-            output_validator=validate,
         )
 
     def evaluate_tendencies(

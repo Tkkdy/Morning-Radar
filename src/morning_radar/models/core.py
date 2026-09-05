@@ -4,10 +4,13 @@ from __future__ import annotations
 
 from datetime import date, datetime
 from enum import StrEnum
-from typing import Any
+from typing import TYPE_CHECKING, Any
 from urllib.parse import urlsplit
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator
+
+if TYPE_CHECKING:
+    from morning_radar.models.candidate import CandidateEvidence, StoryClaimSupport
 
 
 def _validate_aware_datetime(value: datetime | None) -> datetime | None:
@@ -83,11 +86,8 @@ class PracticeSignalKind(StrEnum):
     OTHER = "other"
 
 
-class ResearchDisposition(StrEnum):
-    VERIFIED_STORY_CANDIDATE = "verified_story_candidate"
+class RadarDisposition(StrEnum):
     RADAR_SIGNAL = "radar_signal"
-    INTERNAL_ONLY = "internal_only"
-    DROP = "drop"
 
 
 class RawItem(RadarModel):
@@ -165,6 +165,9 @@ class Story(RadarModel):
     source_urls: list[str] = Field(min_length=1)
     primary_source_url: str
     source_refs: list[StorySourceRef] = Field(default_factory=list)
+    candidate_ids: list[str] = Field(default_factory=list)
+    evidence_refs: list[CandidateEvidence] = Field(default_factory=list)
+    claim_supports: list[StoryClaimSupport] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
     analysis: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)
@@ -231,7 +234,7 @@ class Signal(RadarModel):
     _updated_is_aware = field_validator("updated_at")(_validate_aware_datetime)
 
 
-class ResearchEvidenceRef(RadarModel):
+class RadarEvidenceRef(RadarModel):
     raw_item_id: str = Field(min_length=1)
     url: str
     source_role: SourceRole
@@ -239,32 +242,17 @@ class ResearchEvidenceRef(RadarModel):
     _url_is_http = field_validator("url")(_validate_http_url)
 
 
-class ResearchCase(RadarModel):
-    id: str = Field(min_length=1)
-    observed_at: datetime
-    claim: str = Field(min_length=1, max_length=1000)
-    entity_keys: list[str] = Field(default_factory=list)
-    product_keys: list[str] = Field(default_factory=list)
-    topic_keys: list[str] = Field(default_factory=list)
-    statement_type: StatementType
-    practice_signal_kind: PracticeSignalKind | None = None
-    lead: ResearchEvidenceRef
-    supporting_evidence: list[ResearchEvidenceRef] = Field(default_factory=list)
-
-    _observed_is_aware = field_validator("observed_at")(_validate_aware_datetime)
-
-
 class RadarSignal(RadarModel):
     id: str = Field(min_length=1)
     observed_at: datetime
     claim: str = Field(min_length=1, max_length=1000)
     why_notable: str = Field(min_length=1, max_length=1500)
-    support_refs: list[ResearchEvidenceRef] = Field(min_length=1)
+    support_refs: list[RadarEvidenceRef] = Field(min_length=1)
     source_roles: list[SourceRole] = Field(min_length=1)
     missing_evidence: list[str] = Field(default_factory=list)
     uncertainty: str = Field(min_length=1, max_length=1000)
     statement_type: StatementType
-    research_disposition: ResearchDisposition = ResearchDisposition.RADAR_SIGNAL
+    research_disposition: RadarDisposition = RadarDisposition.RADAR_SIGNAL
 
     _observed_is_aware = field_validator("observed_at")(_validate_aware_datetime)
 

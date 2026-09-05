@@ -2,18 +2,22 @@
 
 from __future__ import annotations
 
+import json
+from typing import Any
+
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
+    CandidateTriageDraft,
     ClassificationBatch,
     ClassifiedItem,
     ContinuityResolution,
     ContinuityResolutionInput,
     DirectionObservation,
+    DraftClaimSupport,
     GeneratedBriefItem,
     GeneratedWatchDraft,
     MergedStoryDraft,
-    ResearchResolutionBatch,
-    ResearchResolutionDraft,
     ResolvedRelationDraft,
     ResolvedWatchMatchDraft,
     StoryScore,
@@ -30,9 +34,13 @@ from morning_radar.editorial.models import (
     Treatment,
 )
 from morning_radar.models import (
+    Candidate,
+    CandidateReasonCode,
+    ClaimType,
+    EvidenceAuthority,
+    EvidenceState,
     RawItem,
-    ResearchCase,
-    ResearchDisposition,
+    SemanticDisposition,
     Signal,
     SourceRole,
     Story,
@@ -47,7 +55,97 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
+    def __init__(self, *, budget: Any | None = None) -> None:
+        self.budget = budget
+        self._account_fake_calls = budget is not None
+
+    def _consume(self, task: str, payload: Any, item_count: int) -> None:
+        budget = getattr(self, "budget", None)
+        if budget is None or not getattr(self, "_account_fake_calls", False):
+            return
+        stages = {
+            "candidate_triage": "triage",
+            "construct_story": "story",
+            "score_story": "story",
+            "evaluate_editorial": "editorial",
+            "resolve_continuity": "continuity",
+            "evaluate_tendencies": "tendency",
+            "write_brief": "brief",
+            "direction_observation": "brief",
+        }
+        budget.consume(
+            json.dumps(payload, ensure_ascii=False, separators=(",", ":")),
+            item_count=item_count,
+            stage=stages.get(task, task),
+        )
+
+    def triage_candidates(self, candidates: list[Candidate]) -> CandidateTriageBatch:
+        self._consume(
+            "candidate_triage",
+            [candidate.model_dump(mode="json") for candidate in candidates],
+            len(candidates),
+        )
+        return CandidateTriageBatch(
+            candidates=[
+                CandidateTriageDraft(
+                    candidate_id=candidate.id,
+                    hypothesis=candidate.hypothesis,
+                    potential_novelty="输入可能描述一个产品或能力变化。",
+                    potential_impact="若成立，可能影响开发者工作流。",
+                    affected_audiences=["AI 开发者"],
+                    impact_mechanism="能力或接口变化会改变开发者的实现选择。",
+                    semantic_disposition=SemanticDisposition.BUILD,
+                    evidence_state=EvidenceState.SUFFICIENT,
+                    reason_codes=[CandidateReasonCode.DEVELOPER_IMPACT],
+                    rationale="Fixture 证据足以尝试构建 Story。",
+                )
+                for candidate in candidates
+            ]
+        )
+
+    def construct_story(self, candidate: Candidate) -> MergedStoryDraft:
+        self._consume("construct_story", candidate.model_dump(mode="json"), 1)
+        evidence = [
+            item
+            for item in candidate.evidence
+            if item.authority
+            not in {
+                EvidenceAuthority.DISCOVERY_ONLY,
+                EvidenceAuthority.UNVERIFIED_EXTERNAL,
+            }
+        ] or candidate.evidence
+        fact = evidence[0].scope or candidate.hypothesis
+        return MergedStoryDraft(
+            same_event=True,
+            canonical_title=candidate.hypothesis,
+            category="ai_and_open_source",
+            entity_names=candidate.entity_names,
+            product_names=candidate.product_names,
+            topic_names=candidate.topic_names,
+            facts=[fact],
+            fact_supports=[
+                DraftClaimSupport(
+                    claim=fact,
+                    claim_type=ClaimType.OTHER,
+                    evidence_ids=[evidence[0].evidence_id],
+                    requested_scope=evidence[0].support_scope,
+                    evidence_scope=evidence[0].scope or fact,
+                    claim_scope=fact,
+                    scope_supported=True,
+                )
+            ],
+            analysis=([candidate.potential_impact] if candidate.potential_impact else []),
+            uncertainties=candidate.missing_evidence,
+            source_urls=[item.url for item in candidate.evidence],
+            primary_source_url=evidence[0].url,
+        )
+
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
+        self._consume(
+            "classify",
+            [item.model_dump(mode="json") for item in items],
+            len(items),
+        )
         return ClassificationBatch(
             items=[
                 ClassifiedItem(
@@ -67,6 +165,11 @@ class FakeAIProvider:
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
+        self._consume(
+            "merge_story",
+            [item.model_dump(mode="json") for item in items],
+            len(items),
+        )
         first = items[0]
         return MergedStoryDraft(
             same_event=True,
@@ -91,6 +194,7 @@ class FakeAIProvider:
         )
 
     def score_story(self, story: Story) -> StoryScore:
+        self._consume("score_story", story.model_dump(mode="json"), 1)
         return StoryScore(
             relevance_score=0.9,
             importance_score=0.8,
@@ -105,6 +209,18 @@ class FakeAIProvider:
         signals: list[Signal],
         editorial_decisions: list[EditorialDecision] | None = None,
     ) -> BriefDraft:
+        self._consume(
+            "write_brief",
+            {
+                "stories": [story.model_dump(mode="json") for story in stories],
+                "signals": [signal.model_dump(mode="json") for signal in signals],
+                "editorial_decisions": [
+                    decision.model_dump(mode="json")
+                    for decision in editorial_decisions or []
+                ],
+            },
+            len(stories),
+        )
         del signals
         del editorial_decisions
         watch_anchor = None
@@ -151,6 +267,11 @@ class FakeAIProvider:
         )
 
     def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:
+        self._consume(
+            "evaluate_editorial",
+            [story.model_dump(mode="json") for story in stories],
+            len(stories),
+        )
         return EditorialDecisionBatch(
             decisions=[
                 EditorialDecision(
@@ -176,6 +297,11 @@ class FakeAIProvider:
         self,
         signals: list[Signal],
     ) -> DirectionObservation:
+        self._consume(
+            "direction_observation",
+            [signal.model_dump(mode="json") for signal in signals],
+            len(signals),
+        )
         if not signals:
             return DirectionObservation()
         return DirectionObservation(
@@ -192,6 +318,15 @@ class FakeAIProvider:
         self,
         context: ContinuityResolutionInput,
     ) -> ContinuityResolution:
+        self._consume(
+            "resolve_continuity",
+            context.model_dump(mode="json"),
+            (
+                len(context.relation_candidates)
+                + len(context.watch_candidates)
+                + len(context.prior_hypotheses)
+            ),
+        )
         relations: list[ResolvedRelationDraft] = []
         for candidate in context.relation_candidates:
             confirmed = (
@@ -257,39 +392,23 @@ class FakeAIProvider:
             )
         return ContinuityResolution(relations=relations, watch_matches=watch_matches)
 
-    def resolve_research_cases(
-        self,
-        cases: list[ResearchCase],
-    ) -> ResearchResolutionBatch:
-        resolved: list[ResearchResolutionDraft] = []
-        for case in cases:
-            corroborated = bool(case.supporting_evidence)
-            disposition = (
-                ResearchDisposition.VERIFIED_STORY_CANDIDATE
-                if corroborated
-                else ResearchDisposition.RADAR_SIGNAL
-            )
-            resolved.append(
-                ResearchResolutionDraft(
-                    case_id=case.id,
-                    in_scope=True,
-                    scope_rationale="该案例直接涉及 AI 产品、模型或开发者实践。",
-                    disposition=disposition,
-                    statement_type=case.statement_type,
-                    practice_signal_kind=case.practice_signal_kind,
-                    claim=case.claim,
-                    why_notable="该观察涉及具体产品或实践变化，值得继续验证。",
-                    missing_evidence=([] if corroborated else ["独立原始来源或复现实验"]),
-                    uncertainty=("" if corroborated else "当前只有发现线索，尚未独立确认。"),
-                )
-            )
-        return ResearchResolutionBatch(cases=resolved)
-
     def evaluate_tendencies(
         self,
         clusters: list[TendencyEvidenceCluster],
         current_views: list[TendencyCurrentView],
     ) -> TendencyEvaluationBatch:
+        self._consume(
+            "evaluate_tendencies",
+            {
+                "evidence_clusters": [
+                    cluster.model_dump(mode="json") for cluster in clusters
+                ],
+                "current_views": [
+                    view.model_dump(mode="json") for view in current_views
+                ],
+            },
+            len(clusters),
+        )
         if current_views:
             view = current_views[0]
             new_clusters = [

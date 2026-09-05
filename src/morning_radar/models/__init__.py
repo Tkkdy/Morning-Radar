@@ -1,5 +1,21 @@
 """Core data models."""
 
+from morning_radar.models.candidate import (
+    AssertionScope,
+    AvailabilityScope,
+    Candidate,
+    CandidateEvidence,
+    CandidateReasonCode,
+    ClaimScopeDimensions,
+    ClaimType,
+    EvidenceAuthority,
+    EvidenceState,
+    ExecutionState,
+    ObservationQuality,
+    SemanticDisposition,
+    StoryClaimSupport,
+    TemporalScope,
+)
 from morning_radar.models.continuity import (
     CurrentJudgement,
     CurrentWatch,
@@ -24,11 +40,10 @@ from morning_radar.models.core import (
     DailyBrief,
     PracticeSignalKind,
     PublishedAtRole,
+    RadarDisposition,
+    RadarEvidenceRef,
     RadarSignal,
     RawItem,
-    ResearchCase,
-    ResearchDisposition,
-    ResearchEvidenceRef,
     Signal,
     SignalType,
     SourceRole,
@@ -48,7 +63,20 @@ from morning_radar.models.tendency import (
     TendencyUpdateKind,
 )
 
+Story.model_rebuild(
+    _types_namespace={
+        "CandidateEvidence": CandidateEvidence,
+        "StoryClaimSupport": StoryClaimSupport,
+    }
+)
+
 __all__ = [
+    "AssertionScope",
+    "AvailabilityScope",
+    "Candidate",
+    "CandidateEvidence",
+    "CandidateReasonCode",
+    "ClaimScopeDimensions",
     "BriefContinuityContext",
     "BriefItem",
     "BriefJudgementCue",
@@ -56,10 +84,15 @@ __all__ = [
     "BriefTendency",
     "CurrentJudgement",
     "CurrentWatch",
+    "ClaimType",
     "DailyBrief",
     "DailyContinuity",
     "DailyTendencies",
     "GitHubSnapshot",
+    "EvidenceAuthority",
+    "EvidenceState",
+    "ExecutionState",
+    "ObservationQuality",
     "JudgementRecord",
     "JudgementUpdateKind",
     "JudgementViewState",
@@ -67,14 +100,15 @@ __all__ = [
     "PublishedAtRole",
     "PracticeSignalKind",
     "RadarSignal",
+    "RadarDisposition",
+    "RadarEvidenceRef",
     "RawItem",
-    "ResearchCase",
-    "ResearchDisposition",
-    "ResearchEvidenceRef",
     "RelationDisposition",
     "Signal",
     "SignalType",
+    "SemanticDisposition",
     "Story",
+    "StoryClaimSupport",
     "StoryEvidenceRef",
     "StoryOccurrenceRef",
     "StoryRelationRecord",
@@ -89,6 +123,7 @@ __all__ = [
     "TendencyEvidenceCluster",
     "TendencyStanding",
     "TendencyUpdateKind",
+    "TemporalScope",
     "WatchEvent",
     "WatchEventType",
 ]

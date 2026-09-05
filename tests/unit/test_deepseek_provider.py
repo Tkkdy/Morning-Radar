@@ -117,6 +117,7 @@ def chat_response(
     prompt_tokens: int | None = None,
     completion_tokens: int | None = None,
     reasoning_tokens: int | None = None,
+    system_fingerprint: str | None = None,
 ) -> SimpleNamespace:
     usage = None
     if prompt_tokens is not None or completion_tokens is not None:
@@ -138,10 +139,17 @@ def chat_response(
             )
         ],
         usage=usage,
+        system_fingerprint=system_fingerprint,
     )
 
 
-def provider(results: list[object], *, calls: int = 10) -> DeepSeekProvider:
+def provider(
+    results: list[object],
+    *,
+    calls: int = 10,
+    candidate_triage_temperature: float | None = None,
+    response_observer=None,
+) -> DeepSeekProvider:
     completions = FakeChatCompletions(results)
     return DeepSeekProvider(
         model="configured-test-model",
@@ -151,6 +159,8 @@ def provider(results: list[object], *, calls: int = 10) -> DeepSeekProvider:
         prompt_dir=Path("prompts"),
         client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
         network_attempts=2,
+        candidate_triage_temperature=candidate_triage_temperature,
+        response_observer=response_observer,
     )
 
 
@@ -224,6 +234,76 @@ def test_structured_json_result_is_validated_and_returned() -> None:
     assert "json schema" in request["messages"][0]["content"]
 
 
+def test_candidate_triage_temperature_is_omitted_by_default() -> None:
+    configured = provider([classification_json()])
+
+    configured._parse(
+        task="candidate_triage",
+        schema=ClassificationBatch,
+        payload_data={},
+        item_count=1,
+        allowed_urls=set(),
+    )
+
+    assert "temperature" not in configured.client.chat.completions.last_request
+
+
+def test_candidate_triage_temperature_and_response_observation_are_evaluation_only() -> None:
+    observations: list[dict[str, object]] = []
+    configured = provider(
+        [
+            chat_response(
+                classification_json(),
+                prompt_tokens=12,
+                completion_tokens=7,
+                system_fingerprint="fixture-fingerprint",
+            )
+        ],
+        candidate_triage_temperature=0.2,
+        response_observer=observations.append,
+    )
+
+    configured._parse(
+        task="candidate_triage",
+        schema=ClassificationBatch,
+        payload_data={},
+        item_count=1,
+        allowed_urls=set(),
+    )
+
+    request = configured.client.chat.completions.last_request
+    assert request["temperature"] == 0.2
+    assert "top_p" not in request
+    assert "seed" not in request
+    assert observations == [
+        {
+            "event": "structured_attempt_started",
+            "task": "candidate_triage",
+            "structured_attempt": 1,
+        },
+        {
+            "event": "response_received",
+            "task": "candidate_triage",
+            "structured_attempt": 1,
+            "system_fingerprint": "fixture-fingerprint",
+            "finish_reason": "stop",
+            "prompt_tokens": 12,
+            "completion_tokens": 7,
+            "reasoning_tokens": 0,
+        },
+    ]
+
+    configured = provider([classification_json()], candidate_triage_temperature=0.2)
+    configured._parse(
+        task="classify",
+        schema=ClassificationBatch,
+        payload_data={},
+        item_count=1,
+        allowed_urls=set(),
+    )
+    assert "temperature" not in configured.client.chat.completions.last_request
+
+
 @pytest.mark.parametrize(
     ("task", "max_tokens"),
     [("classify", 6144), ("merge_story", 4096), ("score_story", 2048)],
@@ -254,7 +334,6 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
         ("write_brief", 24576),
         ("resolve_continuity", 16384),
         ("direction_observation", 8192),
-        ("resolve_research_cases", 12288),
         ("evaluate_tendencies", 16384),
         ("evaluate_editorial", 16384),
     ],

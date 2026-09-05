@@ -1,9 +1,10 @@
 from datetime import UTC, date, datetime
 
 from morning_radar.ai import AIBudget, FakeAIProvider
+from morning_radar.evaluation.legacy import build_stories
 from morning_radar.models import BriefItem, DailyBrief, RawItem
 from morning_radar.pipeline import _displayed_item_counts
-from morning_radar.processing import build_stories, filter_story_candidate_inputs
+from morning_radar.processing import filter_story_candidate_inputs
 
 NOW = datetime(2026, 8, 9, tzinfo=UTC)
 

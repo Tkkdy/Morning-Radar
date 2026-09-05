@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Literal
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
 
 
 class ConfigModel(BaseModel):
@@ -41,12 +41,19 @@ class AppConfig(ConfigModel):
     maximum_brief_items: int = Field(gt=0)
     maximum_ai_calls: int = Field(gt=0)
     maximum_ai_input_characters: int = Field(gt=0)
+    protected_ai_calls: dict[str, int] = Field(default_factory=dict)
+    protected_ai_input_characters: dict[str, int] = Field(default_factory=dict)
+    maximum_triage_batch_items: int = Field(default=40, ge=1, le=100)
+    maximum_triage_input_characters: int = Field(default=80000, ge=1000)
+    maximum_story_candidates: int = Field(default=17, ge=1, le=40)
+    maximum_investigations: int = Field(default=4, ge=0, le=20)
+    maximum_evidence_response_bytes: int = Field(default=1000000, ge=10000)
+    maximum_evidence_redirects: int = Field(default=3, ge=0, le=5)
+    official_surface_stale_days: int = Field(default=90, ge=1, le=365)
     continuity_history_days: int = Field(default=14, ge=1, le=90)
     maximum_continuity_candidates: int = Field(default=20, ge=1)
     maximum_continuity_input_characters: int = Field(default=30000, ge=1000)
     maximum_open_watches_considered: int = Field(default=20, ge=1)
-    maximum_research_cases: int = Field(default=8, ge=1, le=20)
-    maximum_research_input_characters: int = Field(default=12000, ge=1000, le=30000)
     maximum_radar_signals: int = Field(default=3, ge=0, le=3)
     maximum_tendency_candidates: int = Field(default=12, ge=1, le=30)
     maximum_tendency_input_characters: int = Field(default=24000, ge=2000, le=50000)
@@ -59,6 +66,30 @@ class AppConfig(ConfigModel):
     github_growth_threshold: float = Field(ge=0)
     market_movement_threshold: float = Field(ge=0)
     enabled_sections: dict[str, bool]
+
+    @model_validator(mode="after")
+    def triage_batch_fits_provider_item_limit(self) -> AppConfig:
+        if self.maximum_triage_batch_items > self.maximum_ai_items:
+            raise ValueError("maximum_triage_batch_items cannot exceed maximum_ai_items")
+        if any(value < 0 for value in self.protected_ai_calls.values()):
+            raise ValueError("protected_ai_calls values must be non-negative")
+        if sum(self.protected_ai_calls.values()) > self.maximum_ai_calls:
+            raise ValueError("protected_ai_calls cannot exceed maximum_ai_calls")
+        if any(value < 0 for value in self.protected_ai_input_characters.values()):
+            raise ValueError(
+                "protected_ai_input_characters values must be non-negative"
+            )
+        if (
+            sum(self.protected_ai_input_characters.values())
+            > self.maximum_ai_input_characters
+        ):
+            raise ValueError(
+                "protected_ai_input_characters cannot exceed "
+                "maximum_ai_input_characters"
+            )
+        return self
+
+
 class TopicConfig(ConfigModel):
     id: str
     name: str
@@ -76,6 +107,7 @@ class SourceConfig(ConfigModel):
     enabled: bool = True
     topics: list[str] = Field(default_factory=list)
     official: bool = False
+    entity: str | None = None
     source_role: Literal[
         "official_primary",
         "practitioner",
@@ -120,6 +152,19 @@ class PersonConfig(ConfigModel):
     topics: list[str] = Field(default_factory=list)
     enabled: bool = True
     channels: list[PractitionerChannelConfig] = Field(default_factory=list)
+
+
+class OfficialSurfaceSeedConfig(ConfigModel):
+    entity: str = Field(min_length=1)
+    surface: str = Field(min_length=1)
+
+    @field_validator("surface")
+    @classmethod
+    def surface_must_be_a_hostname(cls, value: str) -> str:
+        normalized = value.casefold().rstrip(".")
+        if "://" in normalized or "/" in normalized or "." not in normalized:
+            raise ValueError("surface must be a DNS hostname without scheme or path")
+        return normalized
 
 
 def active_practitioner_sources(people: list[PersonConfig]) -> list[SourceConfig]:

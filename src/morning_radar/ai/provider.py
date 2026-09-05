@@ -6,19 +6,17 @@ from typing import Protocol
 
 from morning_radar.ai.models import (
     BriefDraft,
-    ClassificationBatch,
+    CandidateTriageBatch,
     ContinuityResolution,
     ContinuityResolutionInput,
     DirectionObservation,
     MergedStoryDraft,
-    ResearchResolutionBatch,
     StoryScore,
     TendencyEvaluationBatch,
 )
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
-    RawItem,
-    ResearchCase,
+    Candidate,
     Signal,
     Story,
     TendencyCurrentView,
@@ -27,9 +25,9 @@ from morning_radar.models import (
 
 
 class AIProvider(Protocol):
-    def classify_items(self, items: list[RawItem]) -> ClassificationBatch: ...
+    def triage_candidates(self, candidates: list[Candidate]) -> CandidateTriageBatch: ...
 
-    def merge_story(self, items: list[RawItem]) -> MergedStoryDraft: ...
+    def construct_story(self, candidate: Candidate) -> MergedStoryDraft: ...
 
     def score_story(self, story: Story) -> StoryScore: ...
 
@@ -51,11 +49,6 @@ class AIProvider(Protocol):
         self,
         context: ContinuityResolutionInput,
     ) -> ContinuityResolution: ...
-
-    def resolve_research_cases(
-        self,
-        cases: list[ResearchCase],
-    ) -> ResearchResolutionBatch: ...
 
     def evaluate_tendencies(
         self,

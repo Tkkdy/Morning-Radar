@@ -6,24 +6,47 @@ from typing import Literal
 
 from pydantic import Field
 
+from morning_radar.models.candidate import (
+    CandidateReasonCode,
+    ClaimScopeDimensions,
+    ClaimType,
+    EvidenceState,
+    SemanticDisposition,
+)
 from morning_radar.models.continuity import (
     JudgementUpdateKind,
     StoryEvidenceRef,
     StoryOccurrenceRef,
     StoryRelationType,
 )
-from morning_radar.models.core import (
-    PracticeSignalKind,
-    RadarModel,
-    ResearchDisposition,
-    StatementType,
-    StoryStatus,
-)
+from morning_radar.models.core import RadarModel, StoryStatus
 from morning_radar.models.tendency import (
     TendencyAssessment,
     TendencyStanding,
     TendencyUpdateKind,
 )
+
+
+class CandidateTriageDraft(RadarModel):
+    candidate_id: str
+    hypothesis: str = Field(min_length=1, max_length=1500)
+    potential_novelty: str = Field(default="", max_length=1500)
+    potential_impact: str = Field(default="", max_length=1500)
+    affected_audiences: list[str] = Field(default_factory=list)
+    impact_mechanism: str = Field(default="", max_length=1500)
+    alternative_explanation: str | None = Field(default=None, max_length=1500)
+    semantic_disposition: SemanticDisposition
+    evidence_state: EvidenceState
+    reason_codes: list[CandidateReasonCode] = Field(default_factory=list)
+    rationale: str = Field(default="", max_length=1500)
+    missing_evidence: list[str] = Field(default_factory=list)
+    verification_target: str | None = Field(default=None, max_length=1000)
+    verification_path: str | None = Field(default=None, max_length=1500)
+    investigation_priority: float = Field(default=0, ge=0, le=1)
+
+
+class CandidateTriageBatch(RadarModel):
+    candidates: list[CandidateTriageDraft] = Field(default_factory=list)
 
 
 class ClassifiedItem(RadarModel):
@@ -39,6 +62,17 @@ class ClassificationBatch(RadarModel):
     items: list[ClassifiedItem]
 
 
+class DraftClaimSupport(RadarModel):
+    claim: str = Field(min_length=1, max_length=2000)
+    claim_type: ClaimType = ClaimType.OTHER
+    evidence_ids: list[str] = Field(min_length=1)
+    requested_scope: ClaimScopeDimensions = Field(default_factory=ClaimScopeDimensions)
+    evidence_scope: str = Field(min_length=1, max_length=1500)
+    claim_scope: str = Field(min_length=1, max_length=1500)
+    # Model proposal retained for diagnostics; deterministic validation ignores it.
+    scope_supported: bool = False
+
+
 class MergedStoryDraft(RadarModel):
     same_event: bool
     canonical_title: str
@@ -47,6 +81,7 @@ class MergedStoryDraft(RadarModel):
     product_names: list[str] = Field(default_factory=list)
     topic_names: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
+    fact_supports: list[DraftClaimSupport] = Field(default_factory=list)
     analysis: list[str] = Field(default_factory=list)
     opinions: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)
@@ -102,23 +137,6 @@ class DirectionObservation(RadarModel):
     evidence_story_ids: list[str] = Field(default_factory=list)
     confidence: Literal["low", "medium", "high"] = "low"
     uncertainties: list[str] = Field(default_factory=list)
-
-
-class ResearchResolutionDraft(RadarModel):
-    case_id: str
-    in_scope: bool = False
-    scope_rationale: str = Field(default="", max_length=1000)
-    disposition: ResearchDisposition
-    statement_type: StatementType
-    practice_signal_kind: PracticeSignalKind | None = None
-    claim: str = Field(min_length=1, max_length=1000)
-    why_notable: str = Field(default="", max_length=1500)
-    missing_evidence: list[str] = Field(default_factory=list)
-    uncertainty: str = Field(default="", max_length=1000)
-
-
-class ResearchResolutionBatch(RadarModel):
-    cases: list[ResearchResolutionDraft] = Field(default_factory=list)
 
 
 class TendencyFormationSupportDraft(RadarModel):

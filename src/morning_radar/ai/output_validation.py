@@ -11,12 +11,12 @@ from pydantic import BaseModel
 
 from morning_radar.ai.models import (
     BriefDraft,
+    CandidateTriageBatch,
     ContinuityResolution,
     DirectionObservation,
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
-    ResearchResolutionBatch,
     TendencyEvaluationBatch,
 )
 from morning_radar.editorial.models import EditorialDecisionBatch
@@ -73,12 +73,18 @@ def is_suspicious_english_prose(value: str) -> bool:
 
 
 def validate_simplified_chinese_output(output: BaseModel) -> None:
+    if isinstance(output, CandidateTriageBatch):
+        _record_candidate_triage_language_diagnostics(output)
+        return
     for value in _user_visible_narratives(output):
         if is_suspicious_english_prose(value):
             raise ValueError("User-visible AI narrative contains obvious English prose")
 
 
 def validate_core_simplified_chinese_output(output: BaseModel) -> None:
+    if isinstance(output, CandidateTriageBatch):
+        _record_candidate_triage_language_diagnostics(output)
+        return
     narratives = (
         _brief_item_narratives(output)
         if isinstance(output, BriefDraft)
@@ -349,6 +355,50 @@ def _present(values: Iterable[str | None]) -> Iterable[str]:
     return (value for value in values if value)
 
 
+def _record_candidate_triage_language_diagnostics(
+    output: CandidateTriageBatch,
+) -> None:
+    for candidate_id, field_path, value in _candidate_triage_narratives(output):
+        if is_suspicious_english_prose(value):
+            LOGGER.warning(
+                "Candidate triage language diagnostic: candidate_id=%s field_path=%s",
+                candidate_id,
+                field_path,
+            )
+
+
+def _candidate_triage_narratives(
+    output: CandidateTriageBatch,
+) -> Iterable[tuple[str, str, str]]:
+    scalar_fields = (
+        "hypothesis",
+        "potential_novelty",
+        "potential_impact",
+        "impact_mechanism",
+        "alternative_explanation",
+        "rationale",
+        "verification_target",
+        "verification_path",
+    )
+    list_fields = ("affected_audiences", "missing_evidence")
+    for candidate_index, candidate in enumerate(output.candidates):
+        for field_name in scalar_fields:
+            value = getattr(candidate, field_name)
+            if value:
+                yield (
+                    candidate.candidate_id,
+                    f"candidates[{candidate_index}].{field_name}",
+                    value,
+                )
+        for field_name in list_fields:
+            for value_index, value in enumerate(getattr(candidate, field_name)):
+                yield (
+                    candidate.candidate_id,
+                    f"candidates[{candidate_index}].{field_name}[{value_index}]",
+                    value,
+                )
+
+
 def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
     if isinstance(output, MergedStoryDraft):
         yield output.canonical_title
@@ -378,11 +428,6 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
             yield update.claim
             yield update.rationale
             yield from _present((update.uncertainty,))
-    elif isinstance(output, ResearchResolutionBatch):
-        for case in output.cases:
-            yield case.claim
-            yield from _present((case.why_notable, case.uncertainty))
-            yield from case.missing_evidence
     elif isinstance(output, TendencyEvaluationBatch):
         for decision in output.decisions:
             yield decision.claim

@@ -1,6 +1,7 @@
 sources:
   - id: openai_news
     name: OpenAI News
+    entity: OpenAI
     type: rss
     url: https://openai.com/news/rss.xml
     priority: high
@@ -9,6 +10,7 @@ sources:
     official: true
   - id: google_ai
     name: Google AI
+    entity: Google
     type: rss
     url: https://blog.google/innovation-and-ai/technology/ai/rss/
     priority: high
@@ -17,6 +19,7 @@ sources:
     official: true
   - id: github_changelog
     name: GitHub Changelog
+    entity: GitHub
     type: rss
     url: https://github.blog/changelog/feed/
     priority: high
@@ -25,6 +28,7 @@ sources:
     official: true
   - id: hugging_face_blog
     name: Hugging Face Blog
+    entity: Hugging Face
     type: rss
     url: https://huggingface.co/blog/feed.xml
     priority: high
@@ -33,6 +37,7 @@ sources:
     official: true
   - id: nvidia_developer_blog
     name: NVIDIA Developer Blog
+    entity: NVIDIA
     type: rss
     url: https://developer.nvidia.com/blog/feed/
     priority: high
@@ -41,6 +46,7 @@ sources:
     official: true
   - id: cloudflare_blog
     name: Cloudflare Blog
+    entity: Cloudflare
     type: rss
     url: https://blog.cloudflare.com/rss/
     priority: medium
