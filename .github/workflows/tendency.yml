@@ -1,0 +1,41 @@
+name: Standalone Tendency
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "45 0 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: morning-radar-generated-data
+  cancel-in-progress: false
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: python -m pip install -e ".[dev]"
+      - run: python -m pytest tests/unit/test_tendency_intelligence.py
+      - name: Evaluate Tendency with isolated budget
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          DEEPSEEK_MODEL: ${{ secrets.DEEPSEEK_MODEL }}
+          DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
+        run: python -m morning_radar run-tendency
+      - name: Commit Tendency state and site projection
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/tendencies site
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: update standalone tendency state"
+            git push
+          fi

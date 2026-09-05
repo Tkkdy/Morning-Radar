@@ -87,6 +87,11 @@ class GeneratedJudgementDraft(RadarModel):
     rationale: str = Field(min_length=1, max_length=1500)
     evidence_story_ids: list[str] = Field(min_length=1)
     uncertainty: str | None = Field(default=None, max_length=1000)
+    falsifiable: bool | None = None
+    changes_future_interpretation: bool | None = None
+    expected_lifetime_days: int | None = Field(default=None, ge=2)
+    loss_if_unmentioned_30d: str | None = Field(default=None, max_length=300)
+    correction_required_if_false: bool | None = None
 
 
 class BriefDraft(RadarModel):
@@ -201,20 +206,37 @@ class ResolvedRelationDraft(RadarModel):
     current_story: StoryOccurrenceRef
     relation_type: StoryRelationType | None = None
     what_changed: str | None = None
-    rationale: str
     evidence_refs: list[StoryEvidenceRef] = Field(default_factory=list)
+    rationale: str | None = Field(default=None, max_length=500)
+    reason_code: (
+        Literal[
+            "SAME_PRODUCT_DIFFERENT_EVENT",
+            "TOPIC_OVERLAP_ONLY",
+            "NO_STATUS_PROGRESSION",
+            "NO_DIRECT_FOLLOW_UP",
+            "INSUFFICIENT_EVIDENCE",
+        ]
+        | None
+    ) = None
 
 
 class ResolvedWatchMatchDraft(RadarModel):
     matched: bool
     watch_id: str
     matched_story_refs: list[StoryOccurrenceRef] = Field(default_factory=list)
-    rationale: str
+    rationale: str | None = Field(default=None, max_length=500)
+    reason_code: (
+        Literal["NO_DIRECT_RESPONSE", "TOPIC_OVERLAP_ONLY", "INSUFFICIENT_EVIDENCE"] | None
+    ) = None
 
 
 class ResolvedJudgementUpdateDraft(RadarModel):
     prior_judgement_id: str
-    update_kind: JudgementUpdateKind
+    update_kind: Literal[
+        JudgementUpdateKind.WEAKENED,
+        JudgementUpdateKind.REVISED,
+        JudgementUpdateKind.OVERTURNED,
+    ]
     claim: str
     rationale: str
     evidence_refs: list[StoryEvidenceRef] = Field(min_length=1)

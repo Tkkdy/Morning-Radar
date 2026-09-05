@@ -11,6 +11,7 @@ from datetime import date, datetime, timedelta
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.models import (
     ContinuityRelationCandidate,
+    ContinuityResolution,
     ContinuityResolutionInput,
     ContinuityStorySummary,
     ContinuityWatchInput,
@@ -189,8 +190,9 @@ def resolve_daily_continuity(
     maximum_ai_items: int,
     maximum_input_characters: int,
     reserved_input_characters: int = 0,
+    enable_ai: bool = True,
 ) -> ContinuityRunResult:
-    """Resolve one day with at most one new logical AI call."""
+    """Resolve deterministic work plus bounded, isolated AI lanes for one day."""
     current_memory = [
         StoryMemory(
             ref=StoryOccurrenceRef(date=current_date, story_id=story.id),
@@ -220,10 +222,7 @@ def resolve_daily_continuity(
     open_watches = [
         watch
         for watch in current_watches.values()
-        if (
-            watch.is_open
-            and oldest_considered <= watch.opened_at.date() < current_date
-        )
+        if (watch.is_open and oldest_considered <= watch.opened_at.date() < current_date)
     ]
     open_watches.sort(key=lambda item: (item.opened_at, item.watch_id), reverse=True)
     watch_inputs: list[ContinuityWatchInput] = []
@@ -311,9 +310,13 @@ def resolve_daily_continuity(
         "continuity_logical_ai_calls": 0,
         "continuity_network_requests": 0,
         "continuity_budget_skipped": int(full_input_items > 0 and input_items == 0),
+        "relation_deterministic": len(deterministic_relations),
+        "relation_ai_inputs": len(context.relation_candidates),
+        "watch_inputs": len(context.watch_candidates),
+        "judgement_candidates": len(context.prior_hypotheses),
     }
-    if input_items == 0:
-        if full_input_items:
+    if input_items == 0 or not enable_ai:
+        if full_input_items and enable_ai:
             LOGGER.warning(
                 "Skipping continuity AI: no candidate fits remaining character budget=%d",
                 effective_character_cap,
@@ -321,15 +324,18 @@ def resolve_daily_continuity(
         stats.update(
             {
                 "relations_confirmed": len(deterministic_relations),
+                "relation_confirmed": len(deterministic_relations),
                 "relations_rejected": 0,
+                "relation_rejected": 0,
                 "relations_unresolved": len(unresolved_relations),
+                "relation_unresolved": len(unresolved_relations),
                 "watch_matches": 0,
                 "judgement_updates": 0,
+                "judgement_direct_revisions": 0,
                 "revised": 0,
                 "overturned": 0,
                 "needs_review": sum(
-                    view.state.value == "needs_review"
-                    for view in current_judgements.values()
+                    view.state.value == "needs_review" for view in current_judgements.values()
                 ),
             }
         )
@@ -346,16 +352,37 @@ def resolve_daily_continuity(
 
     calls_before = getattr(budget, "calls_used", 0)
     requests_before = getattr(budget, "network_requests_used", 0)
-    try:
-        resolution = provider.resolve_continuity(context)
-        validate_continuity_resolution(resolution, context)
-    except AIBudgetExceeded:
-        LOGGER.exception("AI degradation: continuity budget unavailable; continuity omitted")
-        stats["continuity_budget_skipped"] = 1
-        resolution = None
-    except (AIOutputError, ValueError):
-        LOGGER.exception("AI degradation: continuity resolution failed; continuity omitted")
-        resolution = None
+    lane_contexts = [
+        ContinuityResolutionInput(relation_candidates=context.relation_candidates),
+        ContinuityResolutionInput(watch_candidates=context.watch_candidates),
+        ContinuityResolutionInput(prior_hypotheses=context.prior_hypotheses),
+    ]
+    lane_results: list[ContinuityResolution] = []
+    degraded_lanes = 0
+    for lane_context in lane_contexts:
+        if not (
+            lane_context.relation_candidates
+            or lane_context.watch_candidates
+            or lane_context.prior_hypotheses
+        ):
+            continue
+        try:
+            lane_result = provider.resolve_continuity(lane_context)
+            validate_continuity_resolution(lane_result, lane_context)
+            lane_results.append(lane_result)
+        except AIBudgetExceeded:
+            LOGGER.warning("Continuity lane skipped: AI budget unavailable")
+            stats["continuity_budget_skipped"] = 1
+            degraded_lanes += 1
+        except (AIOutputError, ValueError):
+            LOGGER.exception("AI degradation: continuity lane failed; deterministic result kept")
+            degraded_lanes += 1
+    resolution = ContinuityResolution(
+        relations=[item for result in lane_results for item in result.relations],
+        watch_matches=[item for result in lane_results for item in result.watch_matches],
+        judgement_updates=[item for result in lane_results for item in result.judgement_updates],
+    )
+    stats["fast_continuity_degraded"] = int(degraded_lanes > 0)
     stats["continuity_logical_ai_calls"] = (
         getattr(budget, "calls_used", calls_before) - calls_before
     )
@@ -370,8 +397,7 @@ def resolve_daily_continuity(
     if resolution is not None:
         for draft in resolution.relations:
             LOGGER.info(
-                "Continuity AI relation: previous=%s current=%s confirmed=%s "
-                "type=%s rationale=%s",
+                "Continuity AI relation: previous=%s current=%s confirmed=%s type=%s rationale=%s",
                 draft.previous_story,
                 draft.current_story,
                 draft.confirmed,
@@ -379,9 +405,7 @@ def resolve_daily_continuity(
                 draft.rationale,
             )
             if not draft.confirmed:
-                rejected_relation_pairs.add(
-                    (draft.previous_story, draft.current_story)
-                )
+                rejected_relation_pairs.add((draft.previous_story, draft.current_story))
                 continue
             relations.append(
                 StoryRelationRecord(
@@ -398,7 +422,7 @@ def resolve_daily_continuity(
                     current_story=draft.current_story,
                     relation_type=draft.relation_type,
                     change_summary=draft.what_changed,
-                    rationale=draft.rationale,
+                    rationale=draft.rationale or "已确认存在直接发展关系。",
                     evidence_refs=draft.evidence_refs,
                 )
             )
@@ -424,12 +448,11 @@ def resolve_daily_continuity(
                     topic_anchors=watch.topic_anchors,
                     source_story_refs=watch.source_story_refs,
                     matched_story_refs=match.matched_story_refs,
-                    rationale=match.rationale,
+                    rationale=match.rationale or "新事实直接回应了观察事项。",
                 )
             )
         by_latest_id = {
-            view.latest_record.judgement_id: view
-            for view in current_judgements.values()
+            view.latest_record.judgement_id: view for view in current_judgements.values()
         }
         for update in resolution.judgement_updates:
             LOGGER.info(
@@ -455,9 +478,7 @@ def resolve_daily_continuity(
                     evidence_refs=update.evidence_refs,
                     uncertainty=update.uncertainty,
                     watch_ids=previous.latest_record.watch_ids,
-                    depends_on_judgement_ids=(
-                        previous.latest_record.depends_on_judgement_ids
-                    ),
+                    depends_on_judgement_ids=(previous.latest_record.depends_on_judgement_ids),
                     updates_judgement_id=previous.latest_record.judgement_id,
                     update_kind=update.update_kind,
                 )
@@ -477,22 +498,23 @@ def resolve_daily_continuity(
     stats.update(
         {
             "relations_confirmed": len(relations),
+            "relation_confirmed": len(relations),
             "relations_rejected": len(rejected_relation_pairs),
+            "relation_rejected": len(rejected_relation_pairs),
             "relations_unresolved": max(
                 0,
-                len(relation_candidates)
-                - len(relations)
-                - len(rejected_relation_pairs),
+                len(relation_candidates) - len(relations) - len(rejected_relation_pairs),
+            ),
+            "relation_unresolved": max(
+                0, len(relation_candidates) - len(relations) - len(rejected_relation_pairs)
             ),
             "watch_matches": len(watch_events),
             "judgement_updates": len(judgement_updates),
+            "judgement_direct_revisions": len(judgement_updates),
             "revised": sum(item.update_kind.value == "revised" for item in judgement_updates),
-            "overturned": sum(
-                item.update_kind.value == "overturned" for item in judgement_updates
-            ),
+            "overturned": sum(item.update_kind.value == "overturned" for item in judgement_updates),
             "needs_review": sum(
-                view.state.value == "needs_review"
-                for view in resulting_judgements.values()
+                view.state.value == "needs_review" for view in resulting_judgements.values()
             ),
         }
     )
