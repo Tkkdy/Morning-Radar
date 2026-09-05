@@ -71,3 +71,54 @@ def test_editorial_eval_uses_safe_configuration_and_uploads_evidence() -> None:
     assert "actions/upload-artifact@v4" in workflow
     assert "if: ${{ always() }}" in workflow
     assert "enforce quality Gate" in workflow
+
+
+def test_post_daily_only_follows_successful_daily_on_master() -> None:
+    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
+
+    assert "workflow_run:" in workflow
+    assert 'workflows: ["Daily Morning Radar"]' in workflow
+    assert "types: [completed]" in workflow
+    assert "branches: [master]" in workflow
+    assert "workflow_run.conclusion == 'success'" in workflow
+    assert "schedule:" not in workflow
+
+
+def test_post_daily_orders_isolated_intelligence_and_redeploys_without_notification() -> None:
+    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
+
+    tendency = workflow.index("python -m morning_radar run-tendency")
+    deep = workflow.index("python -m morning_radar run-deep-continuity")
+    model_ab = workflow.index("python -m morning_radar run-model-ab")
+    build = workflow.index("python -m morning_radar build-site")
+    commit = workflow.index("git add data/tendencies data/continuity")
+    deploy = workflow.index("actions/deploy-pages@v4")
+    assert tendency < deep < model_ab < build < commit < deploy
+    assert workflow.count("continue-on-error: true") == 3
+    assert workflow.count("git push") == 1
+    assert "notify-latest" not in workflow
+    assert "WXPUSHER" not in workflow
+
+
+def test_post_daily_is_the_only_optional_generated_data_writer() -> None:
+    workflows = Path(".github/workflows")
+
+    assert not (workflows / "tendency.yml").exists()
+    assert not (workflows / "deep-continuity.yml").exists()
+    assert not (workflows / "model-ab.yml").exists()
+    assert "morning-radar-generated-data" in (
+        workflows / "post-daily.yml"
+    ).read_text(encoding="utf-8")
+
+
+def test_pr_ci_is_read_only_and_offline() -> None:
+    workflow = Path(".github/workflows/ci.yml").read_text(encoding="utf-8")
+
+    assert "pull_request:" in workflow
+    assert "contents: read" in workflow
+    assert 'python -m pip install -e ".[dev]"' in workflow
+    assert "python -m pytest" in workflow
+    assert "python -m ruff check src tests" in workflow
+    assert "secrets." not in workflow
+    assert "deploy-pages" not in workflow
+    assert "git push" not in workflow
