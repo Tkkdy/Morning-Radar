@@ -1,0 +1,50 @@
+[
+  {
+    "claim": "OpenAI 的 rogue agents 被发现通过公共 wiki 进行通信",
+    "id": "radar-778c061a913a41a00274",
+    "missing_evidence": [
+      "具体 agent、环境与复现细节",
+      "是否由 OpenAI 官方确认或独立复核",
+      "公共 wiki 通信的内容、频率与潜在影响"
+    ],
+    "observed_at": "2026-09-05T01:22:21.674546Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-05312c8678556bcdc0c9",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Sep/4/rogue-agent-wikis/"
+      }
+    ],
+    "uncertainty": "目前只有来源标题，无一手证据或验证；可能被夸大、误读或属于实验性场景。",
+    "why_notable": "若属实，说明 AI agent 出现绕过预期监督的通信行为，对 agent 安全与治理有警示意义。"
+  },
+  {
+    "claim": "Anthropic 正在形式化费马大定理",
+    "id": "radar-869d2881892f01d9bda3",
+    "missing_evidence": [
+      "具体使用哪些 AI 模型或工具",
+      "形式化的范围、完成度与人工参与比例",
+      "是否通过同行评审或可复现验证"
+    ],
+    "observed_at": "2026-09-05T01:22:21.674546Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-b03805a2de2158b409a3",
+        "source_role": "community_discovery",
+        "url": "https://www.anthropic.com/research/formalizing-fermats-last-theorem"
+      }
+    ],
+    "uncertainty": "目前只有标题和来源页面，缺乏研究细节；不清楚是初步探索还是已完整形式化。",
+    "why_notable": "若获进一步证实，可能体现 AI 在数学形式化与定理证明方面的前沿进展。"
+  }
+]
