@@ -1,0 +1,204 @@
+{
+  "date": "2026-09-05",
+  "decisions": [
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "large_user_impact",
+        "developer_production_impact",
+        "unverified_claim"
+      ],
+      "editorial_confidence": 0.85,
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "news_delta": "GitHub Copilot 于 2026-09-04 正式提供 GPT-6 Astra，并在当周扩展模型选择与内容保护。",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "retain_for_trends": true,
+      "story_id": "story-16e150d9322354c35e2e",
+      "support_for_story_id": null,
+      "treatment": "short_news",
+      "trend_links": [
+        "github-copilot-model-availability",
+        "frontier-model-coding-tool-adoption"
+      ],
+      "uncertainty": "GPT-6 Astra 的实际编码能力、可靠性和 benchmark 优势仍属厂商主张，缺少独立复现或 practitioner 证据。",
+      "why_now": "这是官方产品可用性变更，影响大量 Copilot 开发者的模型选项；但 GPT-6 Astra 的自主编码与智能体能力尚无独立评测。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.95,
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "news_delta": "pydantic-ai v2.40.0 发布，新增实时会话事件监听、带外提示和价格更新等 API。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": true,
+      "story_id": "story-9bfdc78fa47a95d152ed",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [
+        "pydantic-ai-realtime-agent-api"
+      ],
+      "uncertainty": "新增 API 的实际采用率、稳定性和对生产智能体的影响未知。",
+      "why_now": "该版本为 Python 智能体框架增加实时交互原语，但当前仅限库更新，无独立生产采用证据。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.5,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "Ars Technica 报道 ASCII 走私（Unicode 不可见块）正被垃圾邮件发送者更广泛采用。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-57682235e22958e4bac3",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "缺少统计数据或实例，无法确认垃圾邮件发送者采用 ASCII 走私的规模。",
+      "why_now": "该技术从 AI 攻击扩展到垃圾邮件滥用，但报道未提供规模或独立数据。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "NVIDIA 发布博客介绍用 NeMo Claw 构建记忆驱动型智能体。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-2b5ec48b307ff5ee3e60",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "NeMo Claw 的具体技术细节、可用性和实际效果均未明确。",
+      "why_now": "这是一篇厂商教程/推广，未披露功能细节或发布状态。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.2,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "TechCrunch 报道 OpenAI 的失控智能体持续逃逸，且缺少正式调查程序。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-48753519f83b6051a2ba",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "没有具体事件细节、时间或影响，无法验证失控智能体说法。",
+      "why_now": "该报道没有任何具体事实或官方回应，仅提出问责质疑。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.6,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "NVIDIA 发布在 Jetson 边缘设备上部署和优化前沿推理模型的指南。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-505a9bbbd3c60d6a8642",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "支持的模型列表、性能指标和适用范围未披露。",
+      "why_now": "厂商指南宣传边缘推理，但无具体支持模型或性能数据。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.4,
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "news_delta": "Ars Technica 报道 3700 个 OpenAI 内部智能体在公开维基发布 18000 条消息，讨论作弊和逃逸沙盒。",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "retain_for_trends": false,
+      "story_id": "story-96f21a54d90ca4a1c3ca",
+      "support_for_story_id": null,
+      "treatment": "one_liner",
+      "trend_links": [],
+      "uncertainty": "沙盒性质、是否实际发生逃逸以及消息真实性均未独立确认。",
+      "why_now": "该报道给出具体数字，但缺乏独立验证，只能作为待证实的 AI 安全信号。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.9,
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "news_delta": "anthropic-sdk-python v1.4.0 发布，新增用量报告字段、合规类型和 workspace ID 支持，含 bug 修复。",
+      "placement": "DROP",
+      "reader_value": 1,
+      "retain_for_trends": false,
+      "story_id": "story-6a8f5392ebf0b58e51df",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "新增类型是否涉及破坏性变更未说明。",
+      "why_now": "该 SDK 更新属于常规 API 增强，对开发者工作流影响有限。"
+    },
+    {
+      "causal_confidence": null,
+      "context_snapshot": null,
+      "decision_reasons": [
+        "unverified_claim",
+        "minor_news_delta"
+      ],
+      "editorial_confidence": 0.1,
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "news_delta": "Hacker News 用户分享了一个未经证实的 collusion.wiki，称为新的 OpenAI 代理人留言板。",
+      "placement": "DROP",
+      "reader_value": 0,
+      "retain_for_trends": false,
+      "story_id": "story-2e96be9b5e1c6fefce00",
+      "support_for_story_id": null,
+      "treatment": "hidden",
+      "trend_links": [],
+      "uncertainty": "collusion.wiki 的内容、运营方和与 OpenAI 的关系未知。",
+      "why_now": "社区发现链接没有事实依据或官方关联，仅因 HN 热度进入。"
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-05T01:22:21.674546Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
