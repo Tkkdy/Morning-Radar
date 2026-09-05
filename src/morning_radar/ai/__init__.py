@@ -13,6 +13,7 @@ from morning_radar.ai.errors import (
 from morning_radar.ai.fake_provider import FakeAIProvider
 from morning_radar.ai.openai_provider import OpenAIProvider
 from morning_radar.ai.provider import AIProvider
+from morning_radar.ai.qwen_provider import QwenProvider
 
 __all__ = [
     "AIBudget",
@@ -28,4 +29,5 @@ __all__ = [
     "DeepSeekProvider",
     "FakeAIProvider",
     "OpenAIProvider",
+    "QwenProvider",
 ]

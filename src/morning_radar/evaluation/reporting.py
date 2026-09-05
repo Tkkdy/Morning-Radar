@@ -6,7 +6,7 @@ from typing import Any
 
 
 def build_model_ab_report(artifacts: list[dict[str, Any]], *, stop_reason: str) -> dict[str, Any]:
-    lanes: dict[str, list[dict[str, Any]]] = {"production": [], "challenger": []}
+    lanes: dict[str, list[dict[str, Any]]] = {"deepseek": [], "qwen": []}
     for artifact in artifacts:
         mapping = artifact.get("label_mapping", {})
         versions = artifact.get("versions", {})
@@ -15,11 +15,17 @@ def build_model_ab_report(artifacts: list[dict[str, Any]], *, stop_reason: str) 
                 lanes[lane].append(versions[label])
 
     def summarize(rows: list[dict[str, Any]]) -> dict[str, Any]:
-        valid = [row for row in rows if row.get("schema_valid")]
+        valid = [row for row in rows if row.get("pair_eligible")]
         references = [row.get("automatic_validation", {}) for row in valid]
         return {
             "runs": len(rows),
-            "schema_successes": len(valid),
+            "pair_eligible_runs": len(valid),
+            "editorial_schema_successes": sum(
+                bool(row.get("editorial_schema_valid")) for row in rows
+            ),
+            "brief_schema_successes": sum(
+                bool(row.get("brief_schema_valid")) for row in rows
+            ),
             "provider_failures": sum(bool(row.get("provider_error")) for row in rows),
             "structured_retries": sum(int(row.get("retry_count", 0)) for row in rows),
             "average_latency_seconds": (
@@ -52,9 +58,11 @@ def build_model_ab_report(artifacts: list[dict[str, Any]], *, stop_reason: str) 
         "successful_paired_days": sum(
             bool(artifact.get("successful_pair")) for artifact in artifacts
         ),
-        "calendar_artifacts": len(artifacts),
-        "production": summarize(lanes["production"]),
-        "challenger": summarize(lanes["challenger"]),
+        "calendar_artifacts": len(
+            [artifact for artifact in artifacts if artifact.get("experiment_started")]
+        ),
+        "deepseek": summarize(lanes["deepseek"]),
+        "qwen": summarize(lanes["qwen"]),
         "user_preference": "available only in evaluation-page localStorage",
         "recommendation": "manual review required; no automatic winner selection",
         "editorial_recommendation": "manual ACTIVATE or KEEP SHADOW decision required",

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
 from morning_radar.logging_config import configure_logging
@@ -60,7 +61,8 @@ def main(argv: list[str] | None = None) -> int:
     elif args.command == "run-model-ab":
         from morning_radar.evaluation import run_model_ab_experiment
 
-        run_model_ab_experiment(pipeline.root)
+        result = run_model_ab_experiment(pipeline.root)
+        print(json.dumps(result, ensure_ascii=False, sort_keys=True))
     elif args.command == "collect":
         pipeline.run(dry_run=True)
     elif args.command == "test-notification" and not pipeline._notifier(pipeline.root).send_test():

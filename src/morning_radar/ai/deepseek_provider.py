@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import logging
 import os
+import time
 from collections.abc import Callable
 from contextlib import suppress
 from dataclasses import dataclass
@@ -102,6 +103,8 @@ def _usage_value(value: Any, name: str) -> int:
 
 
 class DeepSeekProvider:
+    provider_name = "deepseek"
+
     def __init__(
         self,
         *,
@@ -124,7 +127,6 @@ class DeepSeekProvider:
         self.budget = budget
         self.prompt_dir = prompt_dir
         self.network_attempts = network_attempts
-        self.provider_name = "deepseek"
         self.circuit_open = False
         self.circuit_reason: str | None = None
         self.client = client or OpenAI(
@@ -159,6 +161,7 @@ class DeepSeekProvider:
         item_count: int,
         allowed_urls: set[str],
         output_validator: Callable[[OutputT], OutputT | None] | None = None,
+        deadline_monotonic: float | None = None,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
         self.budget.consume(payload, item_count=item_count)
@@ -195,7 +198,12 @@ class DeepSeekProvider:
         )
         def invoke(*, structured_attempt: int) -> Any:
             if self.circuit_open:
-                raise AIBillingUnavailable("deepseek circuit is open")
+                raise AIBillingUnavailable(f"{self.provider_name} circuit is open")
+            request_timeout: float | None = None
+            if deadline_monotonic is not None:
+                request_timeout = deadline_monotonic - time.monotonic()
+                if request_timeout <= 0:
+                    raise AIOutputError(f"{self.provider_name} task deadline reached")
             self.budget.record_network_request(
                 task, maximum_task_attempts=policy.max_network_attempts
             )
@@ -215,18 +223,13 @@ class DeepSeekProvider:
                 if structured_attempt > 1 and isinstance(last_error, TruncatedStructuredOutput)
                 else policy.max_tokens
             )
-            request: dict[str, Any] = {
-                "model": self.model,
-                "messages": [
-                    {"role": "system", "content": system_prompt + retry_instruction},
-                    {"role": "user", "content": payload},
-                ],
-                "response_format": {"type": "json_object"},
-                "max_tokens": max_tokens,
-                "extra_body": {"thinking": {"type": policy.thinking}},
-            }
-            if policy.reasoning_effort is not None:
-                request["reasoning_effort"] = policy.reasoning_effort
+            request = self._build_request(
+                policy=policy,
+                system_prompt=system_prompt + retry_instruction,
+                payload=payload,
+                max_tokens=max_tokens,
+                request_timeout=request_timeout,
+            )
             try:
                 return self.client.chat.completions.create(**request)
             except Exception as exc:
@@ -248,7 +251,9 @@ class DeepSeekProvider:
             except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded):
                 raise
             except AIProviderUnavailable as exc:
-                raise AIOutputError("DeepSeek API unavailable after bounded retries") from exc
+                raise AIOutputError(
+                    f"{self.provider_name} API unavailable after bounded retries"
+                ) from exc
             try:
                 choice = response.choices[0]
                 finish_reason = str(getattr(choice, "finish_reason", None) or "unknown")
@@ -262,8 +267,9 @@ class DeepSeekProvider:
                     finish_reason=finish_reason,
                 )
                 LOGGER.info(
-                    "DeepSeek response usage: task=%s attempt=%d finish_reason=%s "
+                    "%s response usage: task=%s attempt=%d finish_reason=%s "
                     "prompt_tokens=%d completion_tokens=%d reasoning_tokens=%d",
+                    self.provider_name,
                     task,
                     structured_attempt,
                     finish_reason,
@@ -273,18 +279,22 @@ class DeepSeekProvider:
                 )
                 if finish_reason == "length":
                     raise TruncatedStructuredOutput(
-                        "DeepSeek structured output was truncated at max_tokens"
+                        f"{self.provider_name} structured output was truncated at max_tokens"
                     )
                 if finish_reason in {"content_filter", "insufficient_system_resource"}:
-                    raise AIOutputError(f"DeepSeek structured output stopped with {finish_reason}")
+                    raise AIOutputError(
+                        f"{self.provider_name} structured output stopped with {finish_reason}"
+                    )
                 if finish_reason not in {"stop", "unknown"}:
                     raise AIOutputError(
-                        f"DeepSeek structured output stopped with unsupported "
+                        f"{self.provider_name} structured output stopped with unsupported "
                         f"finish_reason={finish_reason}"
                     )
                 content = choice.message.content
                 if not isinstance(content, str) or not content.strip():
-                    raise AIOutputError("DeepSeek response contained no JSON content")
+                    raise AIOutputError(
+                        f"{self.provider_name} response contained no JSON content"
+                    )
                 validated = schema.model_validate(json.loads(content))
                 validate_output_urls(validated, allowed_urls)
                 validate_core_simplified_chinese_output(validated)
@@ -314,6 +324,31 @@ class DeepSeekProvider:
                     rejected_finish_reason,
                 )
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
+
+    def _build_request(
+        self,
+        *,
+        policy: DeepSeekTaskPolicy,
+        system_prompt: str,
+        payload: str,
+        max_tokens: int,
+        request_timeout: float | None,
+    ) -> dict[str, Any]:
+        request: dict[str, Any] = {
+            "model": self.model,
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": payload},
+            ],
+            "response_format": {"type": "json_object"},
+            "max_tokens": max_tokens,
+            "extra_body": {"thinking": {"type": policy.thinking}},
+        }
+        if policy.reasoning_effort is not None:
+            request["reasoning_effort"] = policy.reasoning_effort
+        if request_timeout is not None:
+            request["timeout"] = request_timeout
+        return request
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
         return self._parse(
@@ -406,6 +441,8 @@ class DeepSeekProvider:
     def resolve_continuity(
         self,
         context: ContinuityResolutionInput,
+        *,
+        deadline_monotonic: float | None = None,
     ) -> ContinuityResolution:
         item_count = (
             len(context.relation_candidates)
@@ -419,6 +456,7 @@ class DeepSeekProvider:
             item_count=item_count,
             allowed_urls=set(),
             output_validator=lambda output: validate_continuity_resolution(output, context),
+            deadline_monotonic=deadline_monotonic,
         )
 
     def resolve_research_cases(

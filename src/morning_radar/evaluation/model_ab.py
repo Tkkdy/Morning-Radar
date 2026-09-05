@@ -1,4 +1,4 @@
-"""Side-effect-free, frozen-input DeepSeek/Qwen Brief comparison."""
+"""Side-effect-free, frozen-input DeepSeek Flash/Qwen Flash comparison."""
 
 # ruff: noqa: E501
 
@@ -19,6 +19,7 @@ from morning_radar.ai import (
     AIConfigurationError,
     AIOutputError,
     DeepSeekProvider,
+    QwenProvider,
 )
 from morning_radar.ai.provider import AIProvider
 from morning_radar.editorial.evaluator import validate_editorial_batch
@@ -31,9 +32,7 @@ from morning_radar.time_utils import display_date, utc_now
 def stable_label_mapping(day: date) -> dict[str, str]:
     """Deterministically vary labels by date without changing during a day."""
     even = int(hashlib.sha256(day.isoformat().encode()).hexdigest(), 16) % 2 == 0
-    return (
-        {"A": "production", "B": "challenger"} if even else {"A": "challenger", "B": "production"}
-    )
+    return {"A": "deepseek", "B": "qwen"} if even else {"A": "qwen", "B": "deepseek"}
 
 
 def _provider_metrics(provider: AIProvider, started: float) -> dict[str, Any]:
@@ -62,7 +61,9 @@ def _run_lane(
     result: dict[str, Any] = {
         "provider": getattr(provider, "provider_name", type(provider).__name__),
         "model": getattr(provider, "model", "fixture"),
-        "schema_valid": False,
+        "editorial_schema_valid": False,
+        "brief_schema_valid": False,
+        "pair_eligible": False,
         "provider_error": None,
         "deterministic_fallback": False,
     }
@@ -71,6 +72,7 @@ def _run_lane(
     try:
         editorial = validate_editorial_batch(provider.evaluate_editorial(stories), stories)
         editorial_payload = editorial.model_dump(mode="json")
+        result["editorial_schema_valid"] = True
     except (
         AIOutputError,
         AIConfigurationError,
@@ -86,7 +88,7 @@ def _run_lane(
         unsupported = sorted(returned_ids - known_ids)
         result.update(
             {
-                "schema_valid": editorial_payload is not None,
+                "brief_schema_valid": True,
                 "editorial_shadow": editorial_payload,
                 "editorial_error": editorial_error,
                 "brief": brief.model_dump(mode="json"),
@@ -115,19 +117,36 @@ def _run_lane(
         ValueError,
     ) as exc:
         result["provider_error"] = type(exc).__name__
+    result["pair_eligible"] = bool(
+        result["editorial_schema_valid"] and result["brief_schema_valid"]
+    )
     result.update(_provider_metrics(provider, started))
     return result
 
 
 def _experiment_stop(artifacts: list[dict[str, Any]], day: date) -> str | None:
-    paired = [item for item in artifacts if item.get("successful_pair")]
+    started = [item for item in artifacts if item.get("experiment_started")]
+    paired = [item for item in started if item.get("successful_pair")]
     if len(paired) >= 7:
         return "seven_successful_paired_days"
-    if artifacts:
-        first = min(date.fromisoformat(item["date"]) for item in artifacts)
+    if started:
+        first = min(date.fromisoformat(item["date"]) for item in started)
         if (day - first).days >= 9 and len(paired) < 5:
             return "provider_reliability_insufficient"
     return None
+
+
+def _missing_default_configuration(
+    *,
+    need_deepseek: bool,
+    need_qwen: bool,
+) -> list[str]:
+    required: list[str] = []
+    if need_deepseek:
+        required.extend(("DEEPSEEK_API_KEY", "DEEPSEEK_BASE_URL"))
+    if need_qwen:
+        required.extend(("QWEN_API_KEY", "QWEN_BASE_URL", "QWEN_MODEL"))
+    return [name for name in required if not os.getenv(name)]
 
 
 def run_model_ab_experiment(
@@ -137,9 +156,22 @@ def run_model_ab_experiment(
     challenger: AIProvider | None = None,
     current_date: date | None = None,
 ) -> dict[str, Any]:
-    """Run both lanes from one persisted input bundle; never mutate production state."""
+    """Run both experiment lanes from one bundle; never mutate production state."""
     root = root.resolve()
     day = current_date or display_date(utc_now())
+    missing = _missing_default_configuration(
+        need_deepseek=production is None,
+        need_qwen=challenger is None,
+    )
+    if missing:
+        return {
+            "date": day.isoformat(),
+            "status": "NOT_CONFIGURED",
+            "missing_configuration": missing,
+            "experiment_started": False,
+            "successful_pair": False,
+        }
+
     artifact_dir = root / "data/evaluations/model_ab"
     prior = [read_json(path) for path in sorted(artifact_dir.glob("????-??-??.json"))]
     stop_reason = _experiment_stop(prior, day)
@@ -147,6 +179,7 @@ def run_model_ab_experiment(
         report = build_model_ab_report(prior, stop_reason=stop_reason)
         write_json(artifact_dir / "report.json", report)
         return {"date": day.isoformat(), **report}
+
     stories = load_models(root / "data/stories" / f"{day}.json", Story)
     signal_path = root / "data/signals" / f"{day}.json"
     signals = load_models(signal_path, Signal) if signal_path.exists() else []
@@ -156,41 +189,32 @@ def run_model_ab_experiment(
     }
     bundle_json = json.dumps(bundle_payload, ensure_ascii=False, sort_keys=True)
     bundle_hash = hashlib.sha256(bundle_json.encode()).hexdigest()
-    production_provider = production or DeepSeekProvider.from_environment(
-        budget=AIBudget(2, 50000, 40, 4), prompt_dir=root / "prompts"
+
+    deepseek = production or DeepSeekProvider(
+        model=os.getenv("MODEL_AB_DEEPSEEK_MODEL") or "deepseek-v4-flash",
+        api_key=os.getenv("DEEPSEEK_API_KEY", ""),
+        base_url=os.getenv("DEEPSEEK_BASE_URL", ""),
+        budget=AIBudget(2, 50000, 40, 4),
+        prompt_dir=root / "prompts",
     )
-    production_result = _run_lane(production_provider, stories, signals)
-    if challenger is None:
-        try:
-            challenger = DeepSeekProvider(
-                model=os.getenv("QWEN_MODEL", ""),
-                api_key=os.getenv("QWEN_API_KEY", ""),
-                base_url=os.getenv("QWEN_BASE_URL", ""),
-                budget=AIBudget(2, 50000, 40, 2),
-                prompt_dir=root / "prompts",
-                network_attempts=1,
-            )
-            challenger.provider_name = "qwen"
-        except AIConfigurationError as exc:
-            challenger_result = {
-                "provider": "qwen",
-                "model": os.getenv("QWEN_MODEL", "unconfigured"),
-                "schema_valid": False,
-                "provider_error": type(exc).__name__,
-            }
-        else:
-            challenger_result = _run_lane(challenger, stories, signals)
-    else:
-        challenger_result = _run_lane(challenger, stories, signals)
-    lanes = {"production": production_result, "challenger": challenger_result}
+    qwen = challenger or QwenProvider.from_environment(
+        budget=AIBudget(2, 50000, 40, 4),
+        prompt_dir=root / "prompts",
+    )
+    lanes = {
+        "deepseek": _run_lane(deepseek, stories, signals),
+        "qwen": _run_lane(qwen, stories, signals),
+    }
     mapping = stable_label_mapping(day)
     artifact = {
         "date": day.isoformat(),
+        "status": "COMPLETED",
+        "experiment_started": True,
         "input_bundle_id": bundle_hash[:20],
         "input_bundle_hash": bundle_hash,
         "label_mapping": mapping,
         "versions": {label: lanes[lane] for label, lane in mapping.items()},
-        "successful_pair": all(item.get("schema_valid") for item in lanes.values()),
+        "successful_pair": all(item["pair_eligible"] for item in lanes.values()),
     }
     write_json(artifact_dir / f"{day}.json", artifact)
     all_artifacts = [*prior, artifact]

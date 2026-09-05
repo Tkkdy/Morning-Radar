@@ -668,3 +668,36 @@ def test_user_payload_is_serialized_as_json() -> None:
     request = configured.client.chat.completions.last_request
     payload = request["messages"][1]["content"]
     assert json.loads(payload)[0]["url"] == "https://example.com/real"
+
+
+class RetryableStatusError(Exception):
+    def __init__(self, status_code: int) -> None:
+        super().__init__(f"HTTP {status_code}")
+        self.status_code = status_code
+
+
+@pytest.mark.parametrize("status_code", [429, 500, 502])
+def test_retryable_statuses_have_bounded_retries(status_code: int) -> None:
+    configured = provider([RetryableStatusError(status_code), classification_json()])
+
+    assert configured.classify_items([raw_item()]).items[0].relevant is True
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.network_requests_used == 2
+
+
+def test_continuity_request_timeout_never_exceeds_remaining_deadline() -> None:
+    import time
+
+    configured = provider([classification_json()])
+    deadline = time.monotonic() + 0.5
+    configured._parse(
+        task="resolve_continuity",
+        schema=ClassificationBatch,
+        payload_data={},
+        item_count=1,
+        allowed_urls=set(),
+        deadline_monotonic=deadline,
+    )
+
+    timeout = configured.client.chat.completions.last_request["timeout"]
+    assert 0 < timeout <= 0.5
