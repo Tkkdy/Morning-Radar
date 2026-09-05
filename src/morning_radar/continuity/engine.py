@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import hashlib
+import inspect
 import json
 import logging
+import time
 from dataclasses import dataclass, field
 from datetime import date, datetime, timedelta
 
@@ -191,6 +193,8 @@ def resolve_daily_continuity(
     maximum_input_characters: int,
     reserved_input_characters: int = 0,
     enable_ai: bool = True,
+    deadline_monotonic: float | None = None,
+    deadline_safe_minimum_seconds: float = 0.05,
 ) -> ContinuityRunResult:
     """Resolve deterministic work plus bounded, isolated AI lanes for one day."""
     current_memory = [
@@ -359,15 +363,40 @@ def resolve_daily_continuity(
     ]
     lane_results: list[ContinuityResolution] = []
     degraded_lanes = 0
-    for lane_context in lane_contexts:
+    for lane_index, lane_context in enumerate(lane_contexts):
         if not (
             lane_context.relation_candidates
             or lane_context.watch_candidates
             or lane_context.prior_hypotheses
         ):
             continue
+        if deadline_monotonic is not None:
+            remaining = deadline_monotonic - time.monotonic()
+            if remaining <= deadline_safe_minimum_seconds:
+                skipped = sum(
+                    bool(
+                        later.relation_candidates
+                        or later.watch_candidates
+                        or later.prior_hypotheses
+                    )
+                    for later in lane_contexts[lane_index:]
+                )
+                stats["fast_continuity_timeout"] = 1
+                stats["continuity_deadline_skipped_lanes"] = skipped
+                degraded_lanes += skipped
+                LOGGER.warning(
+                    "Fast Continuity deadline reached; skipping %d remaining AI lane(s)",
+                    skipped,
+                )
+                break
         try:
-            lane_result = provider.resolve_continuity(lane_context)
+            parameters = inspect.signature(provider.resolve_continuity).parameters
+            if "deadline_monotonic" in parameters:
+                lane_result = provider.resolve_continuity(
+                    lane_context, deadline_monotonic=deadline_monotonic
+                )
+            else:
+                lane_result = provider.resolve_continuity(lane_context)
             validate_continuity_resolution(lane_result, lane_context)
             lane_results.append(lane_result)
         except AIBudgetExceeded:

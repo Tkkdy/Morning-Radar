@@ -184,19 +184,15 @@ def sanitize_memory_drafts(output: BriefDraft, stories: list[Story]) -> BriefDra
             if len(_normalize_anchor(value)) >= 3
         }
         normalized_claim = _normalize_anchor(judgement.claim)
-        gate_values = (
-            judgement.falsifiable,
-            judgement.changes_future_interpretation,
-            judgement.correction_required_if_false,
-        )
         explicit_gate = (
-            all(value is True for value in gate_values)
-            and judgement.expected_lifetime_days is not None
-            and bool(judgement.loss_if_unmentioned_30d)
+            judgement.falsifiable is True
+            and judgement.changes_future_interpretation is True
+            and judgement.correction_required_if_false is True
+            and judgement.expected_lifetime_days >= 2
+            and bool(judgement.loss_if_unmentioned_30d.strip())
         )
-        legacy_gate = all(value is None for value in gate_values)
         if (
-            not (explicit_gate or legacy_gate)
+            not explicit_gate
             or any(story_id not in stories_by_id for story_id in judgement.evidence_story_ids)
             or len(judgement.claim.strip()) < 20
             or is_suspicious_english_prose(judgement.claim)

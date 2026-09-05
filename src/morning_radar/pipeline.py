@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import logging
 import os
+import time
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FuturesTimeoutError
 from datetime import date, timedelta
@@ -120,6 +121,7 @@ def _resolve_fast_continuity(
     provider,
     brief_ai_stories,
     enable_ai: bool = True,
+    deadline_monotonic: float | None = None,
 ) -> ContinuityRunResult:
     return resolve_daily_continuity(
         current_date=current_date,
@@ -137,6 +139,7 @@ def _resolve_fast_continuity(
             sum(len(story.model_dump_json()) for story in brief_ai_stories) + 5000
         ),
         enable_ai=enable_ai,
+        deadline_monotonic=deadline_monotonic,
     )
 
 
@@ -258,6 +261,9 @@ class MorningRadarPipeline:
                 history_root,
                 current_date=brief_date,
             )
+            continuity_deadline = (
+                time.monotonic() + self.app.fast_continuity_join_timeout_seconds
+            )
             continuity_executor = ThreadPoolExecutor(
                 max_workers=1, thread_name_prefix="fast-continuity"
             )
@@ -271,6 +277,7 @@ class MorningRadarPipeline:
                 continuity_history=continuity_history,
                 provider=provider,
                 brief_ai_stories=brief_ai_stories,
+                deadline_monotonic=continuity_deadline,
             )
         except (OSError, ValueError):
             LOGGER.exception("Continuity degradation: history could not be loaded or reduced")
@@ -278,6 +285,7 @@ class MorningRadarPipeline:
             continuity_history = []
             continuity_executor = None
             continuity_future = None
+            continuity_deadline = None
             continuity_result = ContinuityRunResult(
                 daily=DailyContinuity(date=brief_date, generated_at=now),
                 stats={"continuity_unavailable": 1},
@@ -345,8 +353,9 @@ class MorningRadarPipeline:
         )
         if continuity_future is not None:
             try:
+                assert continuity_deadline is not None
                 continuity_result = continuity_future.result(
-                    timeout=self.app.fast_continuity_join_timeout_seconds
+                    timeout=max(0, continuity_deadline - time.monotonic())
                 )
             except FuturesTimeoutError:
                 LOGGER.warning("Fast Continuity timed out; publishing deterministic backbone")

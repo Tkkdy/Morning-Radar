@@ -87,11 +87,11 @@ class GeneratedJudgementDraft(RadarModel):
     rationale: str = Field(min_length=1, max_length=1500)
     evidence_story_ids: list[str] = Field(min_length=1)
     uncertainty: str | None = Field(default=None, max_length=1000)
-    falsifiable: bool | None = None
-    changes_future_interpretation: bool | None = None
-    expected_lifetime_days: int | None = Field(default=None, ge=2)
-    loss_if_unmentioned_30d: str | None = Field(default=None, max_length=300)
-    correction_required_if_false: bool | None = None
+    falsifiable: bool
+    changes_future_interpretation: bool
+    expected_lifetime_days: int = Field(ge=2)
+    loss_if_unmentioned_30d: str = Field(min_length=1, max_length=300)
+    correction_required_if_false: bool
 
 
 class BriefDraft(RadarModel):

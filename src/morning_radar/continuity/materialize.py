@@ -75,15 +75,12 @@ def materialize_judgements(
     result: list[JudgementRecord] = []
     seen_ids: set[str] = set()
     for draft in drafts[:maximum_judgements]:
-        gate_values = (
-            draft.falsifiable,
-            draft.changes_future_interpretation,
-            draft.correction_required_if_false,
-        )
-        if any(value is not None for value in gate_values) and not (
-            all(value is True for value in gate_values)
-            and draft.expected_lifetime_days is not None
-            and bool(draft.loss_if_unmentioned_30d)
+        if not (
+            draft.falsifiable is True
+            and draft.changes_future_interpretation is True
+            and draft.correction_required_if_false is True
+            and draft.expected_lifetime_days >= 2
+            and bool(draft.loss_if_unmentioned_30d.strip())
         ):
             continue
         evidence = [
