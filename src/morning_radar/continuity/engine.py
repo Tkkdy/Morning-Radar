@@ -34,6 +34,7 @@ from morning_radar.models import (
     DailyContinuity,
     JudgementRecord,
     Story,
+    StoryEvidenceRef,
     StoryOccurrenceRef,
     StoryRelationRecord,
     WatchEvent,
@@ -452,7 +453,10 @@ def resolve_daily_continuity(
                     relation_type=draft.relation_type,
                     change_summary=draft.what_changed,
                     rationale=draft.rationale or "已确认存在直接发展关系。",
-                    evidence_refs=draft.evidence_refs,
+                    evidence_refs=[
+                        StoryEvidenceRef(story=draft.previous_story),
+                        StoryEvidenceRef(story=draft.current_story),
+                    ],
                 )
             )
         for match in resolution.watch_matches:

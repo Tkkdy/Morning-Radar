@@ -1,4 +1,5 @@
 import json
+import logging
 from datetime import UTC, date, datetime
 from pathlib import Path
 from types import SimpleNamespace
@@ -21,9 +22,20 @@ from morning_radar.ai.models import (
     DirectionObservation,
     GeneratedBriefItem,
     MergedStoryDraft,
+    ResearchResolutionBatch,
 )
 from morning_radar.briefing import BriefLimits, generate_daily_brief
-from morning_radar.models import RawItem, Signal, SignalType, Story
+from morning_radar.editorial.evaluator import evaluate_editorial
+from morning_radar.models import (
+    RawItem,
+    ResearchCase,
+    ResearchEvidenceRef,
+    Signal,
+    SignalType,
+    SourceRole,
+    StatementType,
+    Story,
+)
 
 
 def raw_item(url: str = "https://example.com/real") -> RawItem:
@@ -34,6 +46,20 @@ def raw_item(url: str = "https://example.com/real") -> RawItem:
         source_name="Fixture",
         source_type="fixture",
         fetched_at=datetime(2026, 7, 23, tzinfo=UTC),
+    )
+
+
+def research_case() -> ResearchCase:
+    return ResearchCase(
+        id="research-1",
+        observed_at=datetime(2026, 7, 23, tzinfo=UTC),
+        claim="开发者观察到结构化输出发生截断。",
+        statement_type=StatementType.FIRSTHAND_OBSERVATION,
+        lead=ResearchEvidenceRef(
+            raw_item_id="item-1",
+            url="https://example.com/research",
+            source_role=SourceRole.PRACTITIONER,
+        ),
     )
 
 
@@ -48,6 +74,19 @@ def hn_raw_item() -> RawItem:
                 "community_signal": True,
             },
         }
+    )
+
+
+def merged_story_json(canonical_title: str) -> str:
+    return json.dumps(
+        {
+            "same_event": True,
+            "canonical_title": canonical_title,
+            "category": "ai_and_open_source",
+            "source_urls": ["https://example.com/real"],
+            "primary_source_url": "https://example.com/real",
+        },
+        ensure_ascii=False,
     )
 
 
@@ -224,6 +263,39 @@ def test_structured_json_result_is_validated_and_returned() -> None:
     assert "json schema" in request["messages"][0]["content"]
 
 
+def test_merge_story_empty_title_retries_with_schema_instruction() -> None:
+    configured = provider(
+        [merged_story_json(""), merged_story_json("有效标题")]
+    )
+
+    result = configured.merge_story([raw_item()])
+
+    assert result.canonical_title == "有效标题"
+    assert configured.client.chat.completions.calls == 2
+    requests = configured.client.chat.completions.requests
+    assert [request["max_tokens"] for request in requests] == [4096, 4096]
+    assert all(
+        request["extra_body"] == {"thinking": {"type": "disabled"}}
+        for request in requests
+    )
+    assert all("reasoning_effort" not in request for request in requests)
+    first_prompt = requests[0]["messages"][0]["content"]
+    retry_prompt = requests[1]["messages"][0]["content"]
+    assert "failed schema validation" not in first_prompt
+    assert "The previous response failed schema validation." in retry_prompt
+    assert "All required string fields must be non-empty." in retry_prompt
+
+
+def test_merge_story_repeated_empty_title_becomes_ai_output_error() -> None:
+    configured = provider([merged_story_json(""), merged_story_json("   ")])
+
+    with pytest.raises(AIOutputError, match="after retry"):
+        configured.merge_story([raw_item()])
+
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.network_requests_used == 2
+
+
 @pytest.mark.parametrize(
     ("task", "max_tokens"),
     [("classify", 4096), ("merge_story", 4096), ("score_story", 2048)],
@@ -254,9 +326,8 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
         ("write_brief", 8192, "high"),
         ("resolve_continuity", 4096, "medium"),
         ("direction_observation", 4096, "medium"),
-        ("resolve_research_cases", 4096, "medium"),
+        ("resolve_research_cases", 6144, "low"),
         ("evaluate_tendencies", 6000, "medium"),
-        ("evaluate_editorial", 4096, "medium"),
     ],
 )
 def test_semantic_tasks_use_bounded_policy(
@@ -278,6 +349,49 @@ def test_semantic_tasks_use_bounded_policy(
     assert request["extra_body"] == {"thinking": {"type": "enabled"}}
     assert request["reasoning_effort"] == effort
     assert request["max_tokens"] == max_tokens
+
+
+def test_research_truncation_retry_uses_low_reasoning_and_larger_cap() -> None:
+    case = research_case()
+    configured = provider(
+        [
+            chat_response("{truncated", finish_reason="length"),
+            ResearchResolutionBatch().model_dump_json(),
+        ]
+    )
+
+    assert configured.resolve_research_cases([case]) == ResearchResolutionBatch()
+    requests = configured.client.chat.completions.requests
+    assert [request["max_tokens"] for request in requests] == [6144, 8192]
+    assert [request["reasoning_effort"] for request in requests] == ["low", "low"]
+    assert all(
+        request["extra_body"] == {"thinking": {"type": "enabled"}}
+        for request in requests
+    )
+
+
+def test_editorial_truncation_degrades_without_second_network_call() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider([chat_response("{truncated", finish_reason="length")])
+
+    result = evaluate_editorial(
+        [source_story],
+        provider=configured,
+        current_date=date(2026, 7, 23),
+        generated_at=datetime(2026, 7, 23, tzinfo=UTC),
+        enabled=True,
+        shadow_mode=True,
+        profile_version="1.0",
+        maximum_stories=20,
+    )
+
+    assert result.daily.degraded is True
+    assert result.selection is None
+    assert configured.client.chat.completions.calls == 1
+    [request] = configured.client.chat.completions.requests
+    assert request["extra_body"] == {"thinking": {"type": "disabled"}}
+    assert "reasoning_effort" not in request
+    assert request["max_tokens"] == 6144
 
 
 def test_invalid_or_missing_json_output_retries_once() -> None:
@@ -389,7 +503,8 @@ def test_write_brief_malformed_json_retry_regenerates_complete_output(caplog) ->
     assert "task=write_brief attempt=1 error_type=JSONDecodeError" in caplog.text
 
 
-def test_write_brief_length_finish_reason_retries_with_bounded_larger_cap() -> None:
+def test_write_brief_length_finish_reason_retries_with_medium_effort(caplog) -> None:
+    caplog.set_level(logging.INFO)
     source_story = brief_story("story-openai", "https://example.com/openai")
     configured = provider(
         [
@@ -403,6 +518,11 @@ def test_write_brief_length_finish_reason_retries_with_bounded_larger_cap() -> N
     assert result.items[0].story_ids == [source_story.id]
     requests = configured.client.chat.completions.requests
     assert [request["max_tokens"] for request in requests] == [8192, 8192]
+    assert [request["reasoning_effort"] for request in requests] == ["high", "medium"]
+    assert (
+        "AI structured retry: provider=deepseek task=write_brief "
+        "reason=truncated thinking=medium max_output_tokens=8192"
+    ) in caplog.text
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
 
@@ -683,6 +803,34 @@ def test_retryable_statuses_have_bounded_retries(status_code: int) -> None:
     assert configured.classify_items([raw_item()]).items[0].relevant is True
     assert configured.client.chat.completions.calls == 2
     assert configured.budget.network_requests_used == 2
+
+
+def test_research_transport_retry_keeps_first_attempt_policy() -> None:
+    configured = provider(
+        [RetryableStatusError(502), ResearchResolutionBatch().model_dump_json()]
+    )
+
+    assert configured.resolve_research_cases([research_case()]) == ResearchResolutionBatch()
+    requests = configured.client.chat.completions.requests
+    assert [request["max_tokens"] for request in requests] == [6144, 6144]
+    assert [request["reasoning_effort"] for request in requests] == ["low", "low"]
+
+
+def test_write_brief_transport_retry_keeps_high_reasoning() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    configured = provider(
+        [
+            RetryableStatusError(502),
+            brief_json([source_story.id], source_story.source_urls),
+        ]
+    )
+
+    result = configured.write_brief([source_story], [])
+
+    assert result.items[0].story_ids == [source_story.id]
+    requests = configured.client.chat.completions.requests
+    assert [request["max_tokens"] for request in requests] == [8192, 8192]
+    assert [request["reasoning_effort"] for request in requests] == ["high", "high"]
 
 
 def test_continuity_request_timeout_never_exceeds_remaining_deadline() -> None:

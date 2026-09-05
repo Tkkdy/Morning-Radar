@@ -8,7 +8,7 @@ import os
 import time
 from collections.abc import Callable
 from contextlib import suppress
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from pathlib import Path
 from typing import Any
 
@@ -69,13 +69,16 @@ class DeepSeekTaskPolicy:
     reasoning_effort: str | None = None
     priority: AITaskPriority = AITaskPriority.CORE
     max_network_attempts: int = 3
+    retry_reasoning_effort: str | None = None
 
 
 TASK_POLICIES = {
     "classify": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
-    "write_brief": DeepSeekTaskPolicy("enabled", 8192, 8192, "high"),
+    "write_brief": DeepSeekTaskPolicy(
+        "enabled", 8192, 8192, "high", retry_reasoning_effort="medium"
+    ),
     "resolve_continuity": DeepSeekTaskPolicy(
         "enabled", 4096, 4096, "medium", AITaskPriority.IMPORTANT, 2
     ),
@@ -83,13 +86,13 @@ TASK_POLICIES = {
         "enabled", 4096, 4096, "medium", AITaskPriority.OPTIONAL, 1
     ),
     "resolve_research_cases": DeepSeekTaskPolicy(
-        "enabled", 4096, 4096, "medium", AITaskPriority.IMPORTANT, 2
+        "enabled", 6144, 8192, "low", AITaskPriority.IMPORTANT, 2
     ),
     "evaluate_tendencies": DeepSeekTaskPolicy(
         "enabled", 6000, 6000, "medium", AITaskPriority.OPTIONAL, 1
     ),
     "evaluate_editorial": DeepSeekTaskPolicy(
-        "enabled", 4096, 4096, "medium", AITaskPriority.EXPERIMENTAL, 1
+        "disabled", 6144, 6144, None, AITaskPriority.EXPERIMENTAL, 1
     ),
 }
 
@@ -208,23 +211,51 @@ class DeepSeekProvider:
                 task, maximum_task_attempts=policy.max_network_attempts
             )
             retry_instruction = ""
-            if structured_attempt > 1 and isinstance(
-                last_error, (json.JSONDecodeError, TruncatedStructuredOutput)
-            ):
-                retry_instruction = (
-                    "\n\nThe previous structured response was invalid. Regenerate the "
-                    "entire response from scratch as one complete JSON object. Ensure "
-                    "every string, array, and object is closed. Be concise and include "
-                    "only fields required by the schema. Do not continue or repair the "
-                    "previous response."
-                )
+            if structured_attempt > 1:
+                if isinstance(last_error, ValidationError):
+                    retry_instruction = (
+                        "\n\nThe previous response failed schema validation. Regenerate the "
+                        "entire JSON object. All required string fields must be non-empty."
+                    )
+                elif isinstance(
+                    last_error, (json.JSONDecodeError, TruncatedStructuredOutput)
+                ):
+                    retry_instruction = (
+                        "\n\nThe previous structured response was invalid. Regenerate the "
+                        "entire response from scratch as one complete JSON object. Ensure "
+                        "every string, array, and object is closed. Be concise and include "
+                        "only fields required by the schema. Do not continue or repair the "
+                        "previous response."
+                    )
             max_tokens = (
                 policy.retry_max_tokens
                 if structured_attempt > 1 and isinstance(last_error, TruncatedStructuredOutput)
                 else policy.max_tokens
             )
+            effective_policy = policy
+            if (
+                structured_attempt > 1
+                and isinstance(last_error, TruncatedStructuredOutput)
+                and policy.retry_reasoning_effort is not None
+            ):
+                effective_policy = replace(
+                    policy,
+                    reasoning_effort=policy.retry_reasoning_effort,
+                )
+            if structured_attempt > 1:
+                LOGGER.info(
+                    "AI structured retry: provider=%s task=%s reason=%s thinking=%s "
+                    "max_output_tokens=%d",
+                    self.provider_name,
+                    task,
+                    "truncated"
+                    if isinstance(last_error, TruncatedStructuredOutput)
+                    else "invalid",
+                    effective_policy.reasoning_effort or effective_policy.thinking,
+                    max_tokens,
+                )
             request = self._build_request(
-                policy=policy,
+                policy=effective_policy,
                 system_prompt=system_prompt + retry_instruction,
                 payload=payload,
                 max_tokens=max_tokens,

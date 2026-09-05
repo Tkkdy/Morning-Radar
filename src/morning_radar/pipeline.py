@@ -261,6 +261,10 @@ class MorningRadarPipeline:
                 history_root,
                 current_date=brief_date,
             )
+            if dry_run:
+                continuity_history = [
+                    daily for daily in continuity_history if daily.date < brief_date
+                ]
             continuity_deadline = (
                 time.monotonic() + self.app.fast_continuity_join_timeout_seconds
             )

@@ -28,9 +28,12 @@ RSS HTTP 304 is returned as an unchanged, zero-item success before `raise_for_st
 
 The global main input-character cap remains 120,000. `AIBudget` separately tracks logical tasks,
 network requests, and actual provider usage. The main network cap is 60; every task is capped at
-three attempts or fewer. Experimental/optional tasks stop after the first network attempt.
-Research and Editorial use medium reasoning and a 4K output cap. Editorial never expands 16K to
-24K. Tendency has its own 24K input, three-call, four-request envelope.
+three attempts or fewer. Experimental/optional tasks stop after the first network attempt. Flash
+production tuning uses Low reasoning with a 6K output cap for Research and an 8K retry only after
+structured truncation. Editorial uses no thinking with a 6K cap. Brief keeps High reasoning and
+8K on its first attempt, then uses Medium reasoning and 8K only after structured truncation.
+Transport retries retain the current structured attempt's reasoning and token policy. Tendency has
+its own 24K input, three-call, four-request envelope.
 
 ## Continuity V2
 
@@ -73,6 +76,10 @@ existing DeepSeek key and base URL. Daily production remains explicitly configur
 
 ## Rollout locks
 
+- Production remains DeepSeek V4 Flash. Dry-run previews exclude persisted current-day Continuity
+  while retaining older production history. Confirmed Relation evidence is persisted against both
+  whole Story occurrences; Judgement evidence keeps valid fact-level references. Empty or blank
+  merged Story titles are rejected and retried at the AI schema boundary.
 - Editorial remains Shadow.
 - No A/B winner is selected automatically.
 - The 120K character cap is unchanged.

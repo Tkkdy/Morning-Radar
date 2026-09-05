@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import Field
+from pydantic import Field, field_validator
 
 from morning_radar.models.continuity import (
     JudgementUpdateKind,
@@ -41,7 +41,15 @@ class ClassificationBatch(RadarModel):
 
 class MergedStoryDraft(RadarModel):
     same_event: bool
-    canonical_title: str
+    canonical_title: str = Field(min_length=1, max_length=500)
+
+    @field_validator("canonical_title")
+    @classmethod
+    def canonical_title_must_not_be_blank(cls, value: str) -> str:
+        stripped = value.strip()
+        if not stripped:
+            raise ValueError("canonical_title must not be blank")
+        return stripped
     category: str
     entity_names: list[str] = Field(default_factory=list)
     product_names: list[str] = Field(default_factory=list)

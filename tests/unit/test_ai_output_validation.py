@@ -1,6 +1,7 @@
 from datetime import UTC, datetime
 
 import pytest
+from pydantic import ValidationError
 
 from morning_radar.ai.models import (
     BriefDraft,
@@ -31,6 +32,28 @@ from morning_radar.models import (
 )
 
 NOW = datetime(2026, 8, 9, tzinfo=UTC)
+
+
+@pytest.mark.parametrize("canonical_title", ["", "   ", "\n"])
+def test_merged_story_draft_rejects_empty_or_whitespace_title(
+    canonical_title: str,
+) -> None:
+    with pytest.raises(ValidationError, match="canonical_title"):
+        MergedStoryDraft(
+            same_event=True,
+            canonical_title=canonical_title,
+            category="ai_and_open_source",
+        )
+
+
+def test_merged_story_draft_accepts_valid_title() -> None:
+    draft = MergedStoryDraft(
+        same_event=True,
+        canonical_title="OpenAI 发布 Astra",
+        category="ai_and_open_source",
+    )
+
+    assert draft.canonical_title == "OpenAI 发布 Astra"
 
 
 def story() -> Story:

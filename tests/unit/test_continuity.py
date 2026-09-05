@@ -14,6 +14,8 @@ from morning_radar.ai.models import (
     ContinuityStorySummary,
     ContinuityWatchInput,
     PriorJudgementInput,
+    ResolvedJudgementUpdateDraft,
+    ResolvedRelationDraft,
 )
 from morning_radar.continuity.candidates import (
     StoryMemory,
@@ -746,6 +748,113 @@ def test_new_judgement_passing_every_creation_gate_can_persist() -> None:
     )
 
     assert len(records) == 1
+
+
+class ScriptedContinuityProvider:
+    def __init__(self, resolution: ContinuityResolution) -> None:
+        self.resolution = resolution
+        self.budget = AIBudget(10, 100_000, 40)
+
+    def resolve_continuity(self, context):
+        self.budget.consume(context.model_dump_json(), item_count=1)
+        self.budget.record_network_request()
+        return self.resolution
+
+
+def test_ai_relation_persists_exactly_two_whole_story_evidence_refs() -> None:
+    previous = memory(date(2026, 8, 11), story("old", "Example SDK announced"))
+    current = story("new", "Example SDK gains controls").model_copy(
+        update={"facts": ["事实一。", "事实二。", "事实三。"]}
+    )
+    current_ref = StoryOccurrenceRef(date=date(2026, 8, 12), story_id=current.id)
+    provider = ScriptedContinuityProvider(
+        ContinuityResolution(
+            relations=[
+                ResolvedRelationDraft(
+                    confirmed=True,
+                    previous_story=previous.ref,
+                    current_story=current_ref,
+                    relation_type=StoryRelationType.FOLLOW_UP,
+                    what_changed="Example SDK 增加了部署控制。",
+                    rationale="同一产品出现明确后续能力。",
+                    evidence_refs=[
+                        StoryEvidenceRef(story=previous.ref, fact_indexes=[0]),
+                        StoryEvidenceRef(story=current_ref, fact_indexes=[0, 1, 2]),
+                    ],
+                )
+            ]
+        )
+    )
+
+    result = resolve_daily_continuity(
+        current_date=date(2026, 8, 12),
+        generated_at=NOW,
+        current_stories=[current],
+        historical_stories=[previous],
+        continuity_history=[],
+        provider=provider,
+        history_days=14,
+        maximum_candidates=20,
+        maximum_open_watches=20,
+        maximum_ai_items=40,
+        maximum_input_characters=30_000,
+    )
+
+    [relation] = result.daily.relations
+    assert relation.evidence_refs == [
+        StoryEvidenceRef(story=previous.ref),
+        StoryEvidenceRef(story=current_ref),
+    ]
+
+
+def test_ai_judgement_update_retains_valid_fact_level_evidence() -> None:
+    current = story("new", "Example SDK deployment strategy changes").model_copy(
+        update={"facts": ["事实一。", "事实二。"]}
+    )
+    current_ref = StoryOccurrenceRef(date=date(2026, 8, 12), story_id=current.id)
+    prior = judgement("prior", day=11).model_copy(
+        update={"claim": "Example SDK 的长期部署策略正在改变。"}
+    )
+    provider = ScriptedContinuityProvider(
+        ContinuityResolution(
+            judgement_updates=[
+                ResolvedJudgementUpdateDraft(
+                    prior_judgement_id=prior.judgement_id,
+                    update_kind=JudgementUpdateKind.REVISED,
+                    claim="Example SDK 的长期部署策略已经改变。",
+                    rationale="当前 Story 的第二条事实提供了直接证据。",
+                    evidence_refs=[
+                        StoryEvidenceRef(story=current_ref, fact_indexes=[1])
+                    ],
+                )
+            ]
+        )
+    )
+
+    result = resolve_daily_continuity(
+        current_date=date(2026, 8, 12),
+        generated_at=NOW,
+        current_stories=[current],
+        historical_stories=[],
+        continuity_history=[
+            DailyContinuity(
+                date=date(2026, 8, 11),
+                generated_at=prior.recorded_at,
+                judgements=[prior],
+            )
+        ],
+        provider=provider,
+        history_days=14,
+        maximum_candidates=20,
+        maximum_open_watches=20,
+        maximum_ai_items=40,
+        maximum_input_characters=30_000,
+    )
+
+    [update] = result.daily.judgements
+    assert update.evidence_refs == [
+        StoryEvidenceRef(story=current_ref, fact_indexes=[1])
+    ]
 
 
 class DeadlineProvider:
