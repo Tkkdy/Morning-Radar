@@ -3,6 +3,7 @@ import shutil
 from datetime import UTC, date, datetime
 from pathlib import Path
 
+from morning_radar.continuity.candidates import StoryMemory
 from morning_radar.models import (
     DailyBrief,
     DailyContinuity,
@@ -10,12 +11,15 @@ from morning_radar.models import (
     GitHubSnapshot,
     MarketSnapshot,
     Story,
+    StoryEvidenceRef,
     StoryOccurrenceRef,
+    StoryRelationRecord,
+    StoryRelationType,
     WatchEvent,
     WatchEventType,
 )
 from morning_radar.pipeline import MorningRadarPipeline
-from morning_radar.storage import save_model, save_models
+from morning_radar.storage import load_model, load_models, save_model, save_models
 
 
 def _copy_fixture_project(source: Path, destination: Path) -> None:
@@ -298,3 +302,105 @@ def test_preview_site_merges_history_and_today_without_mutating_history(tmp_path
     assert history_path.read_bytes() == history_before
     assert "production duplicate" in duplicate_path.read_text(encoding="utf-8")
     assert not (history_root / "site").exists()
+
+
+def test_dry_run_excludes_stale_same_day_production_continuity(tmp_path) -> None:
+    from morning_radar.continuity.validation import validate_daily_continuity
+
+    source_project = Path(".").resolve()
+    project = tmp_path / "project"
+    _copy_fixture_project(source_project, project)
+    pipeline = MorningRadarPipeline(project)
+
+    pipeline.run(fixtures=True, dry_run=True, notify=False)
+    preview_story_path = project / ".tmp/dry-run/data/stories/2026-07-23.json"
+    [current_story, *_] = load_models(preview_story_path, Story)
+    previous_story = Story(
+        id="historical-story",
+        canonical_title="OpenAI earlier release",
+        category="ai_and_open_source",
+        updated_at=datetime(2026, 7, 22, 1, tzinfo=UTC),
+        source_item_ids=["historical-item"],
+        source_urls=["https://example.com/historical"],
+        primary_source_url="https://example.com/historical",
+        entity_names=["OpenAI"],
+        facts=["OpenAI 发布了较早版本。"],
+        relevance_score=0.9,
+        importance_score=0.8,
+        novelty_score=0.8,
+        credibility_score=0.9,
+    )
+    previous_ref = StoryOccurrenceRef(
+        date=date(2026, 7, 22), story_id=previous_story.id
+    )
+    current_ref = StoryOccurrenceRef(
+        date=date(2026, 7, 23), story_id=current_story.id
+    )
+    historical = DailyContinuity(
+        date=date(2026, 7, 22),
+        generated_at=datetime(2026, 7, 22, 2, tzinfo=UTC),
+        watch_events=[
+            WatchEvent(
+                watch_id="historical-watch",
+                recorded_at=datetime(2026, 7, 22, 2, tzinfo=UTC),
+                event_type=WatchEventType.OPENED,
+                expectation="观察 OpenAI 的后续发布。",
+                entity_anchors=["OpenAI"],
+                source_story_refs=[previous_ref],
+            )
+        ],
+    )
+    stale_same_day = DailyContinuity(
+        date=date(2026, 7, 23),
+        generated_at=datetime(2026, 7, 23, 1, tzinfo=UTC),
+        relations=[
+            StoryRelationRecord(
+                relation_id="stale-production-relation",
+                recorded_at=datetime(2026, 7, 23, 1, tzinfo=UTC),
+                previous_story=previous_ref,
+                current_story=current_ref,
+                relation_type=StoryRelationType.FOLLOW_UP,
+                change_summary="旧 production snapshot 的关系。",
+                rationale="该记录故意引用旧 snapshot 的事实下标。",
+                evidence_refs=[
+                    StoryEvidenceRef(story=previous_ref, fact_indexes=[0]),
+                    StoryEvidenceRef(story=current_ref, fact_indexes=[5]),
+                ],
+            )
+        ],
+    )
+    save_models(project / "data/stories/2026-07-22.json", [previous_story])
+    save_model(project / "data/continuity/2026-07-22.json", historical)
+    production_today_path = project / "data/continuity/2026-07-23.json"
+    save_model(production_today_path, stale_same_day)
+    production_today_before = production_today_path.read_bytes()
+
+    brief = pipeline.run(fixtures=True, dry_run=True, notify=False)
+
+    preview_daily = load_model(
+        project / ".tmp/dry-run/data/continuity/2026-07-23.json",
+        DailyContinuity,
+    )
+    preview_stories = load_models(preview_story_path, Story)
+    assert all(
+        relation.relation_id != "stale-production-relation"
+        for relation in preview_daily.relations
+    )
+    assert brief.run_stats["historical_story_candidates"] == 1
+    assert brief.run_stats["open_watches_considered"] == 1
+    validate_daily_continuity(
+        preview_daily,
+        stories=[
+            StoryMemory(ref=previous_ref, story=previous_story),
+            *(
+                StoryMemory(
+                    ref=StoryOccurrenceRef(
+                        date=date(2026, 7, 23), story_id=story.id
+                    ),
+                    story=story,
+                )
+                for story in preview_stories
+            ),
+        ],
+    )
+    assert production_today_path.read_bytes() == production_today_before
