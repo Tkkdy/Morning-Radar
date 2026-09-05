@@ -4,10 +4,15 @@
 
 The daily workflow keeps the modular monolith. After Stories are frozen, Brief generation and
 Fast Continuity run in a local two-branch join. The Brief branch is core. Fast Continuity has a
-configured 60-second join limit and falls back to its deterministic relation backbone.
+configured 60-second deadline measured from task start. Every AI lane checks the remaining time,
+and provider requests receive no timeout longer than that remainder. Publication falls back to the
+deterministic relation backbone at the deadline; no later lane may begin.
 
-Tendency and Deep Continuity are standalone CLI/GitHub Actions workflows. All workflows that
-write generated data share the `morning-radar-generated-data` Actions concurrency group.
+`Daily Morning Radar` is the only scheduled entry. On successful completion on `master`,
+`Post-Daily Intelligence` runs Tendency, Deep Continuity, and the configured model A/B in order
+from one checkout, rebuilds the site, commits generated intelligence once, and redeploys Pages.
+Optional intelligence failures do not prevent rebuilding/deploying the last valid site. Post-Daily
+never sends a WxPusher notification.
 
 ## Failure semantics
 
@@ -50,18 +55,21 @@ persisted Tendency view without rewriting historical Brief JSON.
 ## A/B experiment
 
 `python -m morning_radar run-model-ab` loads one persisted Story/Signal bundle, hashes it, and sends
-that identical frozen input to the production and challenger lanes. It writes only
+that identical frozen input to a separately configured DeepSeek Flash lane and a real Qwen lane. It writes only
 `data/evaluations/model_ab/` and `/evaluation/model-ab/`; it cannot mutate Continuity, Tendency,
 production Briefs, or notifications. Labels vary deterministically by date and are hidden until
 the local user chooses Reveal. Votes stay in localStorage.
 
-The experiment stops after seven successful paired days, or after ten calendar days with fewer
-than five valid pairs. It records multidimensional reliability, validation, latency, token and
+The experiment starts only once both configured lanes are actually attempted. It stops after seven
+successful paired days, or after ten experiment calendar days with fewer than five valid pairs.
+Missing Qwen configuration returns `NOT_CONFIGURED`, exits successfully, and writes no dated
+artifact, so those days do not count. It records multidimensional reliability, validation, latency, token and
 reference metrics; it does not compute a synthetic overall score or switch a model.
 
 Required challenger deployment configuration: `QWEN_API_KEY`, `QWEN_BASE_URL`, `QWEN_MODEL`.
-Production remains explicitly configured by `DEEPSEEK_API_KEY`, `DEEPSEEK_BASE_URL`, and
-`DEEPSEEK_MODEL`; the code does not modify secrets.
+The DeepSeek experiment lane uses `MODEL_AB_DEEPSEEK_MODEL` (default `deepseek-v4-flash`) with the
+existing DeepSeek key and base URL. Daily production remains explicitly configured only by
+`DEEPSEEK_API_KEY`, `DEEPSEEK_BASE_URL`, and `DEEPSEEK_MODEL`; the code does not modify secrets.
 
 ## Rollout locks
 
