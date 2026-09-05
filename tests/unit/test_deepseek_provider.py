@@ -77,6 +77,19 @@ def hn_raw_item() -> RawItem:
     )
 
 
+def merged_story_json(canonical_title: str) -> str:
+    return json.dumps(
+        {
+            "same_event": True,
+            "canonical_title": canonical_title,
+            "category": "ai_and_open_source",
+            "source_urls": ["https://example.com/real"],
+            "primary_source_url": "https://example.com/real",
+        },
+        ensure_ascii=False,
+    )
+
+
 def brief_story(story_id: str, url: str) -> Story:
     return Story(
         id=story_id,
@@ -248,6 +261,39 @@ def test_structured_json_result_is_validated_and_returned() -> None:
     assert request["model"] == "configured-test-model"
     assert request["response_format"] == {"type": "json_object"}
     assert "json schema" in request["messages"][0]["content"]
+
+
+def test_merge_story_empty_title_retries_with_schema_instruction() -> None:
+    configured = provider(
+        [merged_story_json(""), merged_story_json("有效标题")]
+    )
+
+    result = configured.merge_story([raw_item()])
+
+    assert result.canonical_title == "有效标题"
+    assert configured.client.chat.completions.calls == 2
+    requests = configured.client.chat.completions.requests
+    assert [request["max_tokens"] for request in requests] == [4096, 4096]
+    assert all(
+        request["extra_body"] == {"thinking": {"type": "disabled"}}
+        for request in requests
+    )
+    assert all("reasoning_effort" not in request for request in requests)
+    first_prompt = requests[0]["messages"][0]["content"]
+    retry_prompt = requests[1]["messages"][0]["content"]
+    assert "failed schema validation" not in first_prompt
+    assert "The previous response failed schema validation." in retry_prompt
+    assert "All required string fields must be non-empty." in retry_prompt
+
+
+def test_merge_story_repeated_empty_title_becomes_ai_output_error() -> None:
+    configured = provider([merged_story_json(""), merged_story_json("   ")])
+
+    with pytest.raises(AIOutputError, match="after retry"):
+        configured.merge_story([raw_item()])
+
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.network_requests_used == 2
 
 
 @pytest.mark.parametrize(

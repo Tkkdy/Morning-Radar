@@ -211,16 +211,22 @@ class DeepSeekProvider:
                 task, maximum_task_attempts=policy.max_network_attempts
             )
             retry_instruction = ""
-            if structured_attempt > 1 and isinstance(
-                last_error, (json.JSONDecodeError, TruncatedStructuredOutput)
-            ):
-                retry_instruction = (
-                    "\n\nThe previous structured response was invalid. Regenerate the "
-                    "entire response from scratch as one complete JSON object. Ensure "
-                    "every string, array, and object is closed. Be concise and include "
-                    "only fields required by the schema. Do not continue or repair the "
-                    "previous response."
-                )
+            if structured_attempt > 1:
+                if isinstance(last_error, ValidationError):
+                    retry_instruction = (
+                        "\n\nThe previous response failed schema validation. Regenerate the "
+                        "entire JSON object. All required string fields must be non-empty."
+                    )
+                elif isinstance(
+                    last_error, (json.JSONDecodeError, TruncatedStructuredOutput)
+                ):
+                    retry_instruction = (
+                        "\n\nThe previous structured response was invalid. Regenerate the "
+                        "entire response from scratch as one complete JSON object. Ensure "
+                        "every string, array, and object is closed. Be concise and include "
+                        "only fields required by the schema. Do not continue or repair the "
+                        "previous response."
+                    )
             max_tokens = (
                 policy.retry_max_tokens
                 if structured_attempt > 1 and isinstance(last_error, TruncatedStructuredOutput)

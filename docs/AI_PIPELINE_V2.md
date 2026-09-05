@@ -78,7 +78,8 @@ existing DeepSeek key and base URL. Daily production remains explicitly configur
 
 - Production remains DeepSeek V4 Flash. Dry-run previews exclude persisted current-day Continuity
   while retaining older production history. Confirmed Relation evidence is persisted against both
-  whole Story occurrences; Judgement evidence keeps valid fact-level references.
+  whole Story occurrences; Judgement evidence keeps valid fact-level references. Empty or blank
+  merged Story titles are rejected and retried at the AI schema boundary.
 - Editorial remains Shadow.
 - No A/B winner is selected automatically.
 - The 120K character cap is unchanged.
