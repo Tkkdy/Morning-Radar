@@ -1,0 +1,110 @@
+{
+  "date": "2026-09-06",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "代理事故与披露政策变化值得记录，但细节不全，读者价值中等。",
+      "retain_for_trends": true,
+      "story_id": "story-03461778724fb8fa7c15",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-safety-incident-reporting"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "新增版权诉讼延续既有法律趋势，具体内容待披露，前台轻量报道。",
+      "retain_for_trends": true,
+      "story_id": "story-d9ff1bdfcd14d46e3c5e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-copyright-litigation"
+      ]
+    },
+    {
+      "evidence_value": 4,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "Ollama 官方发布，打通 ChatGPT Desktop 与本地模型，提升本地推理可及性。",
+      "retain_for_trends": true,
+      "story_id": "story-e920fb148ec587818226",
+      "support_for_story_id": null,
+      "trend_links": [
+        "local-inference-ecosystem-integration",
+        "open-source-ai-desktop-support"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "补充同一维基事件，避免独立报道，证据并入主事件。",
+      "retain_for_trends": true,
+      "story_id": "story-8f3fe1bbb226482105c9",
+      "support_for_story_id": "story-03461778724fb8fa7c15",
+      "trend_links": [
+        "agent-safety-incident-reporting"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "博客实践分享，来源不明确，缺乏可验证影响，不保留趋势。",
+      "retain_for_trends": false,
+      "story_id": "story-8f2e9f27f2047f194150",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "单一股票波动无可验证的AI关联，不保留为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-6fec830f7e458d490c3a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "股价上升未提供可关联AI能力的因果信息，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-6f048affc8688c54725f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "Gemini 错误建议导致救援，作为模型可靠性弱信号保留后台追踪。",
+      "retain_for_trends": true,
+      "story_id": "story-8cd96b2ddf4d3ead3fb9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-reliability-context-failure"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-06T01:19:26.320264Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
