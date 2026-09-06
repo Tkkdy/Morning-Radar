@@ -76,7 +76,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/tendencies data/continuity data/evaluations/model_ab site
+          git add data/tendencies data/continuity site
+          if [[ -d data/evaluations/model_ab ]]; then
+            git add data/evaluations/model_ab
+          fi
           if git diff --cached --quiet; then
             echo "No post-daily generated changes to commit."
           else
