@@ -1,0 +1,410 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-1027749ddfc35b4da6d4",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/research-acceleration-view-inside-openai"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "OpenAI 公开这些早期数据可能旨在展示编码智能体对研究效率的提升，强调其作为未来 AI 发展的关键驱动力。",
+            "数据可能反映了 OpenAI 内部对自主智能体研究投入的增加，以加速模型迭代。"
+          ],
+          "canonical_title": "OpenAI 内部研究加速：编码智能体使用情况与早期数据",
+          "category": "AI 研究动态",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 内部正在使用编码智能体来重塑 AI 研究。",
+            "OpenAI 发布了关于编码智能体使用情况、实验速度、任务复杂性和研究加速的早期数据。",
+            "该内容来自 OpenAI 的官方新闻页面。"
+          ],
+          "primary_source_url": "https://openai.com/index/research-acceleration-view-inside-openai",
+          "product_names": [],
+          "published_at": "2026-09-06T08:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-07T01:17:49.275726Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-06T08:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-3784d7aba9718af9aa19",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Research acceleration: The view inside OpenAI",
+              "url": "https://openai.com/index/research-acceleration-view-inside-openai"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-d196cbf7ff1f5fc546e2",
+          "topic_names": [
+            "编码智能体",
+            "AI 研究",
+            "实验速度",
+            "任务复杂性"
+          ],
+          "uncertainties": [
+            "早期数据的具体统计口径未详细披露，实际影响程度有待验证。",
+            "尚未知晓这些数据是否与公开可用的智能体产品（如 Codex）相关。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-d196cbf7ff1f5fc546e2"
+      ],
+      "title": "OpenAI 内部研究加速：编码智能体使用情况与早期数据",
+      "uncertainty": "AI 晨报分析暂时不可用。",
+      "what_happened": "OpenAI 内部正在使用编码智能体来重塑 AI 研究。",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-f408e6821caa3825c32c",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://rocm.blogs.amd.com/ecosystems-and-partners/rocm-x-blog/README.html",
+        "https://news.ycombinator.com/item?id=49592508"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章标题暗示 ROCm 10.0 是 AMD 开源计算平台的重要版本，其设计目标明确针对'代理式 AI'，这表明 AMD 将重心放在支持新兴的 AI 工作负载上。"
+          ],
+          "canonical_title": "AMD 发布 ROCm 10.0，面向代理式 AI 时代",
+          "category": "technology",
+          "entity_names": [
+            "AMD"
+          ],
+          "facts": [
+            "AMD 通过其 ROCm 博客发布了一篇标题为 'ROCm 10.0: A Decade of Open Compute, Built for the Age of Agentic AI' 的文章，URL 为 https://rocm.blogs.amd.com/ecosystems-and-partners/rocm-x-blog/README.html。"
+          ],
+          "primary_source_url": "https://rocm.blogs.amd.com/ecosystems-and-partners/rocm-x-blog/README.html",
+          "product_names": [
+            "ROCm 10.0"
+          ],
+          "published_at": "2026-09-07T00:46:01Z",
+          "source_refs": [
+            {
+              "author": "metrofun",
+              "discussion_url": "https://news.ycombinator.com/item?id=49592508",
+              "fetched_at": "2026-09-07T01:17:49.275726Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-07T00:46:01Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-f0b8728a06313ad4661e",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "ROCm 10.0: A Decade of Open Compute, Built for the Age of Agentic AI",
+              "url": "https://rocm.blogs.amd.com/ecosystems-and-partners/rocm-x-blog/README.html"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-4ca64182cca1bc403fe8",
+          "topic_names": [
+            "AI",
+            "GPGPU",
+            "Open Compute"
+          ],
+          "uncertainties": [
+            "文章发布日期为 2026-09-07，但该日期在未来，可能存在日期错误。",
+            "来自 Hacker News 的摘要内容为空，无法确认文章具体内容，仅凭标题和 URL 提供的信息有限。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-4ca64182cca1bc403fe8"
+      ],
+      "title": "AMD 发布 ROCm 10.0，面向代理式 AI 时代",
+      "uncertainty": "AI 晨报分析暂时不可用。",
+      "what_happened": "AMD 通过其 ROCm 博客发布了一篇标题为 'ROCm 10.0: A Decade of Open Compute, Built for the Age of Agentic AI' 的文章，URL 为 https://rocm.blogs.amd.com/ecosystems-and-partners/rocm-x-blog/README.html。",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-09-07",
+  "developer_discussions": [],
+  "direction_observation": "AI安全话题在近3日关注度持续升温，事件报道数量保持增加或高位，且获得多家来源和多家公司的共同提及，显示该主题讨论活跃度上升。",
+  "generated_at": "2026-09-07T01:17:49.275726Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "有博客文章谈到OpenAI内部的研究加速进程，但仅凭标题无具体细节。",
+      "id": "radar-8ab1d3494db14d45ffc0",
+      "missing_evidence": [
+        "文章正文内容",
+        "具体的加速证据或数据",
+        "是否基于一手观察"
+      ],
+      "observed_at": "2026-09-07T01:17:49.275726Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "unknown",
+      "support_refs": [
+        {
+          "raw_item_id": "item-904ea86174aa4acc4bec",
+          "source_role": "practitioner",
+          "url": "https://simonwillison.net/2026/Sep/6/research-acceleration-the-view-inside-openai/"
+        }
+      ],
+      "uncertainty": "仅依据标题和来源无法核实具体主张，无法确认其观察或结论的可靠性。",
+      "why_notable": "OpenAI的研发加速可能影响AI前沿进展节奏与生态方向，对AI跟踪有价值。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 36,
+    "ai_brief_fallback": true,
+    "ai_brief_story_inputs": 4,
+    "ai_classify_completion_tokens": 1058,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 4449,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 40179,
+    "ai_direction_observation_completion_tokens": 1144,
+    "ai_direction_observation_finish_stop": 1,
+    "ai_direction_observation_prompt_tokens": 664,
+    "ai_direction_observation_reasoning_tokens": 982,
+    "ai_evaluate_editorial_completion_tokens": 592,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 4280,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 62513,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 1456,
+    "ai_merge_story_finish_stop": 5,
+    "ai_merge_story_prompt_tokens": 4137,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 42994,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 33865,
+    "ai_resolve_continuity_completion_tokens": 6471,
+    "ai_resolve_continuity_finish_stop": 3,
+    "ai_resolve_continuity_prompt_tokens": 13583,
+    "ai_resolve_continuity_reasoning_tokens": 5880,
+    "ai_resolve_research_cases_completion_tokens": 12503,
+    "ai_resolve_research_cases_finish_length": 1,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 4169,
+    "ai_resolve_research_cases_reasoning_tokens": 10622,
+    "ai_score_story_completion_tokens": 574,
+    "ai_score_story_finish_stop": 5,
+    "ai_score_story_prompt_tokens": 3969,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 16381,
+    "ai_write_brief_finish_length": 2,
+    "ai_write_brief_prompt_tokens": 7743,
+    "ai_write_brief_reasoning_tokens": 16381,
+    "aihot_enabled": false,
+    "completion_tokens": 40179,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 0,
+    "continuity_character_budget_available": 30000,
+    "continuity_input_chars": 16215,
+    "continuity_judgement_inputs": 10,
+    "continuity_logical_ai_calls": 3,
+    "continuity_network_requests": 4,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 7,
+    "direction_signal_inputs": 1,
+    "dry_run": false,
+    "editorial_decisions": 5,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fast_continuity_degraded": 1,
+    "fixture_mode": false,
+    "historical_story_candidates": 123,
+    "judgement_candidates": 10,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 17,
+    "logical_ai_tasks": 17,
+    "main_brief_items": 4,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 20,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 42994,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 1,
+    "reasoning_tokens": 33865,
+    "recent_24h": 27,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 0,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 0,
+    "research_cases": 8,
+    "research_input_characters": 3749,
+    "research_logical_ai_calls": 1,
+    "research_unresolved": 7,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 7,
+    "signals": 1,
+    "stories": 5,
+    "story_candidate_input": 16,
+    "structured_watches_opened": 0,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 4,
+    "total_displayed_items": 4,
+    "watch_inputs": 7,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-76024201170c0ace1860",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该报道引发了对生成式AI公司版权诉讼和解中利益分配的关注。"
+          ],
+          "canonical_title": "作家反对出版商和代理商索取Anthropic和解金份额",
+          "category": "artificial_intelligence",
+          "entity_names": [
+            "Anthropic"
+          ],
+          "facts": [
+            "TechCrunch于2026年9月6日报道，出版商和代理商正在寻求Anthropic和解金的一部分。",
+            "作家表示出版商似乎声称的份额超过了他们应得的。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/",
+          "product_names": [],
+          "published_at": "2026-09-06T20:47:37Z",
+          "source_refs": [
+            {
+              "author": "Anthony Ha",
+              "discussion_url": null,
+              "fetched_at": "2026-09-07T01:17:49.275726Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-06T20:47:37Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-b5898210effe4127fb3c",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Authors push back as publishers and agents make claims on Anthropic settlement",
+              "url": "https://techcrunch.com/2026/09/06/authors-push-back-as-publishers-and-agents-seek-share-of-anthropic-settlement/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-8d8f2759ab403c615a88",
+          "topic_names": [
+            "版权",
+            "AI模型"
+          ],
+          "uncertainties": [
+            "和解协议的具体细节和金额尚未公开。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8d8f2759ab403c615a88"
+      ],
+      "title": "作家反对出版商和代理商索取Anthropic和解金份额",
+      "uncertainty": "AI 晨报分析暂时不可用。",
+      "what_happened": "TechCrunch于2026年9月6日报道，出版商和代理商正在寻求Anthropic和解金的一部分。",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-a7492d233d338a53644b",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/",
+        "https://news.ycombinator.com/item?id=49592655"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Abliteration.ai 将移除 AI 护栏作为业务",
+          "category": "行业",
+          "entity_names": [
+            "Abliteration.ai"
+          ],
+          "facts": [],
+          "primary_source_url": "https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/",
+          "product_names": [],
+          "published_at": "2026-09-07T01:09:19Z",
+          "source_refs": [
+            {
+              "author": "NoRagrets",
+              "discussion_url": "https://news.ycombinator.com/item?id=49592655",
+              "fetched_at": "2026-09-07T01:17:49.275726Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-07T01:09:19Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-a18b44bdd748903ffd6b",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Abliteration.ai is making a business out of removing AI guardrails",
+              "url": "https://techcrunch.com/2026/09/03/abliteration-ai-is-making-a-business-out-of-removing-ai-guardrails/"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-dfe94c7ffb82f8daad2c",
+          "topic_names": [
+            "AI安全",
+            "AI护栏去除"
+          ],
+          "uncertainties": [
+            "Abliteration.ai 具体提供哪些服务？其商业模式细节如何？该报道的真实性有待确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-dfe94c7ffb82f8daad2c"
+      ],
+      "title": "Abliteration.ai 将移除 AI 护栏作为业务",
+      "uncertainty": "AI 晨报分析暂时不可用。",
+      "what_happened": "Abliteration.ai 将移除 AI 护栏作为业务",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": []
+}

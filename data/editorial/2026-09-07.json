@@ -1,0 +1,72 @@
+{
+  "date": "2026-09-07",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "作家与出版商在AI版权和解金分配上的争议是实际利益冲突，值得留意但细节未明。",
+      "retain_for_trends": true,
+      "story_id": "story-8d8f2759ab403c615a88",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-copyright-settlement-distribution"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 1,
+      "reason": "传闻报道缺乏具体事实和可信度，价值有限，后台也无可靠趋势。",
+      "retain_for_trends": false,
+      "story_id": "story-dfe94c7ffb82f8daad2c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "OpenAI自述编码智能体加速研究，但无独立复现，仅作弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-d196cbf7ff1f5fc546e2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agents-research-acceleration"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "AMD新一代ROCm版本对本地部署和开源计算生态有潜在影响，值得关注。",
+      "retain_for_trends": true,
+      "story_id": "story-4ca64182cca1bc403fe8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "amd-rocm-open-compute"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "思想讨论无具体产品或数据，对开发者无实际影响，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-226e9343699d8b860ecb",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-07T01:17:49.275726Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
