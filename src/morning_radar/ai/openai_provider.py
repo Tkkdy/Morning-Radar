@@ -29,6 +29,7 @@ from morning_radar.ai.errors import (
 )
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     ContinuityResolution,
     ContinuityResolutionInput,
@@ -70,6 +71,7 @@ OPENAI_TASK_POLICIES = {
     "merge_story": OpenAITaskPolicy(4096, AITaskPriority.CORE, 3),
     "score_story": OpenAITaskPolicy(2048, AITaskPriority.CORE, 3),
     "write_brief": OpenAITaskPolicy(8192, AITaskPriority.CORE, 3),
+    "write_brief_item": OpenAITaskPolicy(4096, AITaskPriority.CORE, 1),
     "resolve_continuity": OpenAITaskPolicy(4096, AITaskPriority.IMPORTANT, 2),
     "direction_observation": OpenAITaskPolicy(4096, AITaskPriority.OPTIONAL, 1),
     "resolve_research_cases": OpenAITaskPolicy(4096, AITaskPriority.IMPORTANT, 2),
@@ -155,6 +157,7 @@ class OpenAIProvider:
         item_count: int,
         allowed_urls: set[str],
         output_validator: Callable[[OutputT], OutputT | None] | None = None,
+        maximum_structured_attempts: int = 2,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
         self.budget.consume(payload, item_count=item_count)
@@ -198,7 +201,7 @@ class OpenAIProvider:
                 raise normalized from exc
 
         last_error: Exception | None = None
-        for _ in range(2):
+        for _ in range(maximum_structured_attempts):
             try:
                 response = invoke()
                 usage = getattr(response, "usage", None)
@@ -280,6 +283,38 @@ class OpenAIProvider:
                 stories,
                 signals,
             ),
+        )
+
+    def recover_brief_item(
+        self,
+        story: Story,
+        signals: list[Signal],
+        editorial_decision: EditorialDecision | None = None,
+    ) -> BriefItemRecoveryDraft:
+        def validate(output: BriefItemRecoveryDraft) -> BriefItemRecoveryDraft:
+            validated = validate_and_sanitize_brief(
+                BriefDraft(items=[output.item]),
+                [story],
+                signals,
+            )
+            return output.model_copy(update={"item": validated.items[0]})
+
+        return self._parse(
+            task="write_brief_item",
+            schema=BriefItemRecoveryDraft,
+            payload_data={
+                "story": story.model_dump(mode="json"),
+                "signals": [signal.model_dump(mode="json") for signal in signals],
+                "editorial_decision": (
+                    editorial_decision.model_dump(mode="json")
+                    if editorial_decision is not None
+                    else None
+                ),
+            },
+            item_count=1,
+            allowed_urls=set(story.source_urls),
+            output_validator=validate,
+            maximum_structured_attempts=1,
         )
 
     def write_direction_observation(

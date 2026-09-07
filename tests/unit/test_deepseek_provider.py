@@ -17,6 +17,7 @@ from morning_radar.ai import (
 )
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     ClassifiedItem,
     DirectionObservation,
@@ -323,7 +324,7 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
 @pytest.mark.parametrize(
     ("task", "max_tokens", "effort"),
     [
-        ("write_brief", 8192, "high"),
+        ("write_brief", 8192, "medium"),
         ("resolve_continuity", 4096, "medium"),
         ("direction_observation", 4096, "medium"),
         ("resolve_research_cases", 6144, "low"),
@@ -503,7 +504,7 @@ def test_write_brief_malformed_json_retry_regenerates_complete_output(caplog) ->
     assert "task=write_brief attempt=1 error_type=JSONDecodeError" in caplog.text
 
 
-def test_write_brief_length_finish_reason_retries_with_medium_effort(caplog) -> None:
+def test_write_brief_length_finish_reason_retries_with_low_effort(caplog) -> None:
     caplog.set_level(logging.INFO)
     source_story = brief_story("story-openai", "https://example.com/openai")
     configured = provider(
@@ -518,10 +519,10 @@ def test_write_brief_length_finish_reason_retries_with_medium_effort(caplog) -> 
     assert result.items[0].story_ids == [source_story.id]
     requests = configured.client.chat.completions.requests
     assert [request["max_tokens"] for request in requests] == [8192, 8192]
-    assert [request["reasoning_effort"] for request in requests] == ["high", "medium"]
+    assert [request["reasoning_effort"] for request in requests] == ["medium", "low"]
     assert (
         "AI structured retry: provider=deepseek task=write_brief "
-        "reason=truncated thinking=medium max_output_tokens=8192"
+        "reason=truncated thinking=low max_output_tokens=8192"
     ) in caplog.text
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
@@ -533,6 +534,7 @@ def test_write_brief_repeated_length_finish_reason_falls_back() -> None:
         [
             chat_response("{truncated", finish_reason="length"),
             chat_response("{still-truncated", finish_reason="length"),
+            "{invalid-recovery",
         ]
     )
 
@@ -549,8 +551,11 @@ def test_write_brief_repeated_length_finish_reason_falls_back() -> None:
     )
 
     assert result.run_stats["ai_brief_fallback"] is True
-    assert configured.budget.calls_used == 1
-    assert configured.budget.network_requests_used == 2
+    assert result.run_stats["ai_brief_batch_failed"] is True
+    assert result.run_stats["ai_brief_recovery_attempts"] == 1
+    assert result.run_stats["ai_brief_item_fallbacks"] == 1
+    assert configured.budget.calls_used == 2
+    assert configured.budget.network_requests_used == 3
 
 
 def test_deepseek_usage_records_reasoning_tokens_and_finish_reason() -> None:
@@ -593,7 +598,7 @@ def test_deepseek_missing_usage_is_a_zero_safe_default() -> None:
 
 def test_write_brief_repeated_malformed_json_keeps_graceful_fallback() -> None:
     source_story = brief_story("story-openai", "https://example.com/openai")
-    configured = provider(["{not-json", '{"still":"unterminated'])
+    configured = provider(["{not-json", '{"still":"unterminated', "{invalid-recovery"])
 
     result = generate_daily_brief(
         brief_date=date(2026, 7, 23),
@@ -608,8 +613,8 @@ def test_write_brief_repeated_malformed_json_keeps_graceful_fallback() -> None:
     )
 
     assert result.run_stats["ai_brief_fallback"] is True
-    assert configured.budget.calls_used == 1
-    assert configured.budget.network_requests_used == 2
+    assert configured.budget.calls_used == 2
+    assert configured.budget.network_requests_used == 3
 
 
 def test_write_brief_schema_violation_is_not_repaired_or_accepted() -> None:
@@ -816,7 +821,7 @@ def test_research_transport_retry_keeps_first_attempt_policy() -> None:
     assert [request["reasoning_effort"] for request in requests] == ["low", "low"]
 
 
-def test_write_brief_transport_retry_keeps_high_reasoning() -> None:
+def test_write_brief_transport_retry_keeps_medium_reasoning() -> None:
     source_story = brief_story("story-openai", "https://example.com/openai")
     configured = provider(
         [
@@ -830,7 +835,41 @@ def test_write_brief_transport_retry_keeps_high_reasoning() -> None:
     assert result.items[0].story_ids == [source_story.id]
     requests = configured.client.chat.completions.requests
     assert [request["max_tokens"] for request in requests] == [8192, 8192]
-    assert [request["reasoning_effort"] for request in requests] == ["high", "high"]
+    assert [request["reasoning_effort"] for request in requests] == ["medium", "medium"]
+
+
+def test_brief_item_recovery_is_display_only_and_has_one_attempt() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    item = BriefDraft.model_validate_json(
+        brief_json([source_story.id], source_story.source_urls)
+    ).items[0]
+    configured = provider([BriefItemRecoveryDraft(item=item).model_dump_json()])
+
+    result = configured.recover_brief_item(source_story, [])
+
+    assert result.item.story_ids == [source_story.id]
+    request = configured.client.chat.completions.last_request
+    assert request["extra_body"] == {"thinking": {"type": "disabled"}}
+    assert "reasoning_effort" not in request
+    assert request["max_tokens"] == 4096
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 1
+
+
+def test_brief_item_recovery_does_not_retry_invalid_output() -> None:
+    source_story = brief_story("story-openai", "https://example.com/openai")
+    item = BriefDraft.model_validate_json(
+        brief_json([source_story.id], source_story.source_urls)
+    ).items[0]
+    configured = provider(
+        ["{invalid-recovery", BriefItemRecoveryDraft(item=item).model_dump_json()]
+    )
+
+    with pytest.raises(AIOutputError, match="after retry"):
+        configured.recover_brief_item(source_story, [])
+
+    assert configured.client.chat.completions.calls == 1
+    assert configured.budget.network_requests_used == 1
 
 
 def test_continuity_request_timeout_never_exceeds_remaining_deadline() -> None:

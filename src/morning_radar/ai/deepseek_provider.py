@@ -31,6 +31,7 @@ from morning_radar.ai.errors import (
 )
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     ContinuityResolution,
     ContinuityResolutionInput,
@@ -77,7 +78,10 @@ TASK_POLICIES = {
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
     "write_brief": DeepSeekTaskPolicy(
-        "enabled", 8192, 8192, "high", retry_reasoning_effort="medium"
+        "enabled", 8192, 8192, "medium", retry_reasoning_effort="low"
+    ),
+    "write_brief_item": DeepSeekTaskPolicy(
+        "disabled", 4096, 4096, max_network_attempts=1
     ),
     "resolve_continuity": DeepSeekTaskPolicy(
         "enabled", 4096, 4096, "medium", AITaskPriority.IMPORTANT, 2
@@ -165,6 +169,7 @@ class DeepSeekProvider:
         allowed_urls: set[str],
         output_validator: Callable[[OutputT], OutputT | None] | None = None,
         deadline_monotonic: float | None = None,
+        maximum_structured_attempts: int = 2,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
         self.budget.consume(payload, item_count=item_count)
@@ -276,7 +281,7 @@ class DeepSeekProvider:
                 raise normalized from exc
 
         last_error: Exception | None = None
-        for structured_attempt in range(1, 3):
+        for structured_attempt in range(1, maximum_structured_attempts + 1):
             try:
                 response = invoke(structured_attempt=structured_attempt)
             except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded):
@@ -431,6 +436,38 @@ class DeepSeekProvider:
                 stories,
                 signals,
             ),
+        )
+
+    def recover_brief_item(
+        self,
+        story: Story,
+        signals: list[Signal],
+        editorial_decision: EditorialDecision | None = None,
+    ) -> BriefItemRecoveryDraft:
+        def validate(output: BriefItemRecoveryDraft) -> BriefItemRecoveryDraft:
+            validated = validate_and_sanitize_brief(
+                BriefDraft(items=[output.item]),
+                [story],
+                signals,
+            )
+            return output.model_copy(update={"item": validated.items[0]})
+
+        return self._parse(
+            task="write_brief_item",
+            schema=BriefItemRecoveryDraft,
+            payload_data={
+                "story": story.model_dump(mode="json"),
+                "signals": [signal.model_dump(mode="json") for signal in signals],
+                "editorial_decision": (
+                    editorial_decision.model_dump(mode="json")
+                    if editorial_decision is not None
+                    else None
+                ),
+            },
+            item_count=1,
+            allowed_urls=set(story.source_urls),
+            output_validator=validate,
+            maximum_structured_attempts=1,
         )
 
     def write_direction_observation(

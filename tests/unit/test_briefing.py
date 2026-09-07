@@ -3,9 +3,18 @@ from datetime import UTC, date, datetime
 
 import pytest
 
-from morning_radar.ai import AIOutputError, FakeAIProvider
-from morning_radar.ai.models import BriefDraft, ClassificationBatch, GeneratedBriefItem
-from morning_radar.briefing import BriefLimits, BriefValidationError, generate_daily_brief
+from morning_radar.ai import AIBudgetExceeded, AIOutputError, FakeAIProvider
+from morning_radar.ai.models import (
+    BriefDraft,
+    ClassificationBatch,
+    GeneratedBriefItem,
+)
+from morning_radar.briefing import (
+    BriefLimits,
+    BriefValidationError,
+    generate_daily_brief,
+    generate_daily_brief_with_memory,
+)
 from morning_radar.models import Signal, SignalType, Story, StorySourceRef
 from morning_radar.processing import build_stories
 
@@ -63,6 +72,40 @@ def test_same_story_is_not_repeated_and_item_limit_is_enforced() -> None:
     assert len(all_items) == 3
     assert len({item.story_ids[0] for item in all_items}) == 3
     assert len(result.top_stories) == 2
+
+
+class SuccessfulBatchOnlyProvider(FakeAIProvider):
+    def __init__(self) -> None:
+        self.batch_calls = 0
+
+    def write_brief(self, stories, signals):
+        self.batch_calls += 1
+        return super().write_brief(stories, signals)
+
+    def recover_brief_item(self, story, signals, editorial_decision=None):
+        raise AssertionError("successful batch must not enter item recovery")
+
+
+def test_successful_batch_does_not_enter_recovery_or_fallback() -> None:
+    provider = SuccessfulBatchOnlyProvider()
+    stories = [story(index) for index in range(4)]
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=4),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert provider.batch_calls == 1
+    assert len(_main_items(result)) == 4
+    assert "ai_brief_batch_failed" not in result.run_stats
+    assert "ai_brief_fallback" not in result.run_stats
 
 
 def test_empty_optional_sections_and_observations_remain_empty() -> None:
@@ -565,6 +608,10 @@ class BriefFailureProvider(FakeAIProvider):
         del stories, signals
         raise AIOutputError("structured output failed")
 
+    def recover_brief_item(self, story, signals, editorial_decision=None):
+        del story, signals, editorial_decision
+        raise AIOutputError("item recovery failed")
+
 
 def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog) -> None:
     source_story = story(1)
@@ -593,7 +640,154 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     assert result.top_stories[0].story_contexts[0].source_refs == []
     assert result.other_reading == []
     assert result.run_stats["ai_brief_fallback"] is True
-    assert "AI degradation: brief generation failed" in caplog.text
+    assert "AI degradation: batch brief generation failed" in caplog.text
+    assert result.run_stats["ai_brief_batch_failed"] is True
+    assert result.run_stats["ai_brief_recovery_attempts"] == 1
+    assert result.run_stats["ai_brief_recovery_successes"] == 0
+    assert result.run_stats["ai_brief_item_fallbacks"] == 1
+
+
+class ItemRecoveryProvider(FakeAIProvider):
+    def __init__(self, failed_story_ids: set[str] | None = None) -> None:
+        self.failed_story_ids = failed_story_ids or set()
+        self.batch_calls = 0
+        self.recovery_story_ids: list[str] = []
+
+    def write_brief(self, stories, signals):
+        del stories, signals
+        self.batch_calls += 1
+        raise AIOutputError("batch output failed")
+
+    def recover_brief_item(self, story, signals, editorial_decision=None):
+        self.recovery_story_ids.append(story.id)
+        if story.id in self.failed_story_ids:
+            raise AIOutputError("item output failed")
+        return super().recover_brief_item(story, signals, editorial_decision)
+
+
+def _main_items(result):
+    return [
+        *result.top_stories,
+        *result.market_and_companies,
+        *result.ai_and_open_source,
+        *result.trend_radar,
+        *result.developer_discussions,
+    ]
+
+
+def test_batch_failure_recovers_every_story_without_memory_side_effects() -> None:
+    stories = [story(index) for index in range(4)]
+    provider = ItemRecoveryProvider()
+
+    result = generate_daily_brief_with_memory(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=4),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert provider.batch_calls == 1
+    assert provider.recovery_story_ids == [story.id for story in stories]
+    assert len(_main_items(result.brief)) == 4
+    assert "ai_brief_fallback" not in result.brief.run_stats
+    assert result.brief.run_stats["ai_brief_batch_failed"] is True
+    assert result.brief.run_stats["ai_brief_recovery_attempts"] == 4
+    assert result.brief.run_stats["ai_brief_recovery_successes"] == 4
+    assert result.brief.run_stats["ai_brief_item_fallbacks"] == 0
+    assert result.watch_drafts == []
+    assert result.judgement_drafts == []
+    assert result.brief.cognitive_extension is None
+
+
+def test_one_failed_item_recovery_does_not_contaminate_other_stories() -> None:
+    stories = [story(index) for index in range(4)]
+    provider = ItemRecoveryProvider({"story-2"})
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=4),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert items["story-2"].why_it_matters == (
+        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    )
+    assert items["story-2"].uncertainty == "AI 晨报分析暂时不可用。"
+    assert all(
+        items[f"story-{index}"].why_it_matters == f"Analysis {index}"
+        for index in (0, 1, 3)
+    )
+    assert "ai_brief_fallback" not in result.run_stats
+    assert result.run_stats["ai_brief_recovery_successes"] == 3
+    assert result.run_stats["ai_brief_item_fallbacks"] == 1
+
+
+def test_all_item_recoveries_fail_but_brief_remains_schema_valid() -> None:
+    stories = [story(index) for index in range(4)]
+    provider = ItemRecoveryProvider({story.id for story in stories})
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=4),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert len(_main_items(result)) == 4
+    assert all(
+        item.uncertainty == "AI 晨报分析暂时不可用。"
+        for item in _main_items(result)
+    )
+    assert result.run_stats["ai_brief_fallback"] is True
+    assert result.run_stats["ai_brief_recovery_attempts"] == 4
+    assert result.run_stats["ai_brief_recovery_successes"] == 0
+    assert result.run_stats["ai_brief_item_fallbacks"] == 4
+
+
+class RecoveryBudgetExceededProvider(ItemRecoveryProvider):
+    def recover_brief_item(self, story, signals, editorial_decision=None):
+        self.recovery_story_ids.append(story.id)
+        raise AIBudgetExceeded("AI daily call limit exceeded")
+
+
+def test_recovery_stops_immediately_when_budget_is_unavailable() -> None:
+    stories = [story(index) for index in range(4)]
+    provider = RecoveryBudgetExceededProvider()
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 7, 23),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=4),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    assert provider.recovery_story_ids == ["story-0"]
+    assert result.run_stats["ai_brief_recovery_attempts"] == 0
+    assert result.run_stats["ai_brief_recovery_successes"] == 0
+    assert result.run_stats["ai_brief_item_fallbacks"] == 4
+    assert result.run_stats["ai_brief_fallback"] is True
 
 
 class DirectionFailureProvider(FakeAIProvider):
