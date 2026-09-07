@@ -6,6 +6,7 @@ from typing import Protocol
 
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     ContinuityResolution,
     ContinuityResolutionInput,
@@ -41,6 +42,13 @@ class AIProvider(Protocol):
         signals: list[Signal],
         editorial_decisions: list[EditorialDecision] | None = None,
     ) -> BriefDraft: ...
+
+    def recover_brief_item(
+        self,
+        story: Story,
+        signals: list[Signal],
+        editorial_decision: EditorialDecision | None = None,
+    ) -> BriefItemRecoveryDraft: ...
 
     def write_direction_observation(
         self,

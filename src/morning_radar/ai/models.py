@@ -82,6 +82,12 @@ class GeneratedBriefItem(RadarModel):
     source_urls: list[str]
 
 
+class BriefItemRecoveryDraft(RadarModel):
+    """A display-only recovery result with no memory side-effect fields."""
+
+    item: GeneratedBriefItem
+
+
 class GeneratedWatchDraft(RadarModel):
     expectation: str = Field(min_length=1, max_length=1000)
     source_story_ids: list[str] = Field(min_length=1)

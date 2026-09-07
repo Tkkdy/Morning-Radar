@@ -7,14 +7,17 @@ import logging
 from dataclasses import dataclass
 from datetime import date, datetime
 
-from morning_radar.ai import AIOutputError
+from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.models import (
     BriefDraft,
     GeneratedBriefItem,
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
 )
-from morning_radar.ai.output_validation import sanitize_memory_drafts
+from morning_radar.ai.output_validation import (
+    sanitize_memory_drafts,
+    validate_and_sanitize_brief,
+)
 from morning_radar.ai.provider import AIProvider
 from morning_radar.editorial.evaluator import EditorialRunResult
 from morning_radar.editorial.models import Placement
@@ -224,12 +227,68 @@ def generate_daily_brief_with_memory(
             else:
                 draft = provider.write_brief(ai_stories, bounded_signals)
             draft = sanitize_memory_drafts(draft, ai_stories)
-        except AIOutputError:
+        except (AIBudgetExceeded, AIOutputError):
             LOGGER.exception(
-                "AI degradation: brief generation failed; using verified Story facts"
+                "AI degradation: batch brief generation failed; starting item recovery"
             )
-            stats["ai_brief_fallback"] = True
-            draft = _fallback_brief_draft(eligible_stories)
+            stats["ai_brief_batch_failed"] = True
+            recovery_stories = eligible_stories[: limits.maximum_items]
+            recovered_items: list[GeneratedBriefItem] = []
+            recovery_attempts = 0
+            recovery_successes = 0
+            item_fallbacks = 0
+            for story in recovery_stories:
+                try:
+                    recovered = provider.recover_brief_item(
+                        story,
+                        bounded_signals,
+                        editorial_decisions.get(story.id),
+                    )
+                    validated = validate_and_sanitize_brief(
+                        BriefDraft(items=[recovered.item]),
+                        [story],
+                        bounded_signals,
+                    )
+                except AIBudgetExceeded:
+                    LOGGER.warning(
+                        "AI brief recovery stopped: budget unavailable; "
+                        "using verified Story facts for remaining items"
+                    )
+                    remaining = recovery_stories[len(recovered_items) :]
+                    recovered_items.extend(
+                        _deterministic_generated_item(
+                            remaining_story,
+                            section=remaining_story.category,
+                            fallback=True,
+                        )
+                        for remaining_story in remaining
+                    )
+                    item_fallbacks += len(remaining)
+                    break
+                except (AIOutputError, ValueError):
+                    recovery_attempts += 1
+                    LOGGER.exception(
+                        "AI degradation: brief item recovery failed for story_id=%s",
+                        story.id,
+                    )
+                    recovered_items.append(
+                        _deterministic_generated_item(
+                            story,
+                            section=story.category,
+                            fallback=True,
+                        )
+                    )
+                    item_fallbacks += 1
+                else:
+                    recovery_attempts += 1
+                    recovered_items.append(validated.items[0])
+                    recovery_successes += 1
+            stats["ai_brief_recovery_attempts"] = recovery_attempts
+            stats["ai_brief_recovery_successes"] = recovery_successes
+            stats["ai_brief_item_fallbacks"] = item_fallbacks
+            if recovery_stories and recovery_successes == 0:
+                stats["ai_brief_fallback"] = True
+            draft = BriefDraft(items=recovered_items)
     else:
         LOGGER.info("Skipping AI brief generation: no stories")
         draft = BriefDraft(items=[])

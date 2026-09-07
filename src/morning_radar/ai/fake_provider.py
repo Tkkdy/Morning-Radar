@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     ClassifiedItem,
     ContinuityResolution,
@@ -144,6 +145,28 @@ class FakeAIProvider:
                 for story in stories
             ],
             watch_items=watch_drafts,
+        )
+
+    def recover_brief_item(
+        self,
+        story: Story,
+        signals: list[Signal],
+        editorial_decision: EditorialDecision | None = None,
+    ) -> BriefItemRecoveryDraft:
+        del signals
+        del editorial_decision
+        return BriefItemRecoveryDraft(
+            item=GeneratedBriefItem(
+                story_ids=[story.id],
+                section=story.category,
+                title=story.canonical_title,
+                what_happened=story.facts[0] if story.facts else story.canonical_title,
+                why_it_matters=(
+                    story.analysis[0] if story.analysis else "该事件与配置关注主题相关。"
+                ),
+                uncertainty=story.uncertainties[0] if story.uncertainties else None,
+                source_urls=story.source_urls,
+            )
         )
 
     def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:

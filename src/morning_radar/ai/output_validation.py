@@ -11,6 +11,7 @@ from pydantic import BaseModel
 
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ContinuityResolution,
     DirectionObservation,
     GeneratedJudgementDraft,
@@ -353,6 +354,12 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
             yield from _present((judgement.uncertainty,))
         yield from output.watch_next
         yield from _present((output.cognitive_extension,))
+    elif isinstance(output, BriefItemRecoveryDraft):
+        item = output.item
+        yield item.title
+        yield item.what_happened
+        yield item.why_it_matters
+        yield from _present((item.market_or_community_reaction, item.uncertainty))
     elif isinstance(output, DirectionObservation):
         yield from _present((output.observation,))
         yield from output.uncertainties
