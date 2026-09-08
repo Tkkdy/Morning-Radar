@@ -1,0 +1,35 @@
+{
+  "date": "2026-09-08",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "MCP Python SDK 2.2.0 发布，包含安全与行为变更，对开发者有参考价值。",
+      "retain_for_trends": true,
+      "story_id": "story-9cfb7e3ca19454cfba8a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "mcp-sdk-evolution"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "MCP Python SDK 1.x 维护版例行更新，对主流 2.x 用户影响有限。",
+      "retain_for_trends": false,
+      "story_id": "story-6327887c723b14561e84",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-08T01:22:37.340485Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

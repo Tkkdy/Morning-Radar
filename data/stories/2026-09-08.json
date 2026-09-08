@@ -1,0 +1,148 @@
+[
+  {
+    "analysis": [
+      "行为变更和新增参数可能影响现有 2.x 用户，特别是 HTTP 重定向和空闲会话超时。",
+      "此类发布通常用于向后兼容性改进和 bug 修复，预计对现有用法影响较小。",
+      "已知的空白功能（tasks 扩展、DPoP、jwt-bearer）表明 SDK 仍有发展空间。"
+    ],
+    "canonical_title": "modelcontextprotocol/python-sdk 发布 v2.2.0",
+    "category": "sdk_release",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "modelcontextprotocol"
+    ],
+    "facts": [
+      "modelcontextprotocol/python-sdk v2.2.0 于2026年9月7日发布，发布日期源自 GitHub Release 页面（https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0）。",
+      "HTTP 客户端重定向仅在同一 scheme、host 和 port 内跟随，或将 http 升级为 https 到相同 host；其他重定向不被跟随，调用将失败。",
+      "空闲的 Streamable HTTP 会话现在默认在无活动 30 分钟后过期（legacy <=2025-11-25 spec）。",
+      "服务器同时最多持有 10000 个会话，拒绝新会话时返回 503。",
+      "OAuth 客户端在 legacy 路径上也检查授权服务器的 issuer，不匹配时抛出 OAuthFlowError。",
+      "新增 MCPDeprecationWarning 警告，提示无 issuer= 参数的 ClientCredentialsOAuthProvider / PrivateKeyJWTOAuthProvider，以及设置了 resource_server_url 但未设置 validate_token_resource 的 AuthSettings。",
+      "新增 AuthSettings.validate_token_resource 选项，只接受 TokenVerifier 报告的令牌。",
+      "在 ClientCredentialsOAuthProvider 和 PrivateKeyJWTOAuthProvider 上新增 issuer= 参数。",
+      "新增 session_idle_timeout 和 max_sessions 参数用于 Streamable HTTP 服务器入口。",
+      "修复了客户端 DELETE 立即释放会话，以及被拒绝的打开请求不再留下会话。",
+      "修复了工具 outputSchema 中的 $ref 仅在该 schema 内解析，无法解析时抛出 RuntimeError。",
+      "tasks 扩展（SEP-2663）、DPoP（SEP-1932）和 jwt-bearer grant 尚未实现。"
+    ],
+    "id": "story-9cfb7e3ca19454cfba8a",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0",
+    "product_names": [
+      "modelcontextprotocol/python-sdk"
+    ],
+    "published_at": "2026-09-07T15:53:57Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-dafe5c0295f8273a8c90"
+    ],
+    "source_refs": [
+      {
+        "author": "maxisbey",
+        "discussion_url": null,
+        "fetched_at": "2026-09-08T01:22:37.340485Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-07T15:53:57Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-dafe5c0295f8273a8c90",
+        "source_name": "GitHub · modelcontextprotocol/python-sdk",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "modelcontextprotocol/python-sdk: v2.2.0",
+        "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "MCP",
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "具体影响未量化，但行为变更可能影响依赖重定向或长会话的现有实现。",
+      "新警告不会影响 2.x 的功能。"
+    ],
+    "updated_at": "2026-09-08T01:22:37.340485Z"
+  },
+  {
+    "analysis": [
+      "该版本着重于安全性和稳定性，包括限制重定向、验证 issuer、以及会话管理。这些变更可能影响依赖旧行为的客户端和服务器，建议用户阅读变更说明。",
+      "官方将 1.x 标记为维护线，建议用户考虑迁移到 2.x。"
+    ],
+    "canonical_title": "MCP Python SDK v1.30.0 发布：维护版更新，默认值变更",
+    "category": "软件发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "modelcontextprotocol/python-sdk",
+      "GitHub",
+      "Python SDK 1.x",
+      "FastMCP",
+      "OAuthClientProvider"
+    ],
+    "facts": [
+      "modelcontextprotocol/python-sdk v1.30.0 于 2026-09-07 由 maxisbey 发布，是 1.x 系列的维护版本，当前主线为 2.x。",
+      "HTTP 客户端（streamable_http_client 和 sse_client）现在仅跟随同一源（scheme, host, port）内的重定向，否则请求失败并返回 httpx.HTTPStatusError。",
+      "空闲的 Streamable HTTP 会话在 30 分钟无活动后过期，客户端下次请求将收到 404 并需要重新初始化。",
+      "服务器最多同时持有 10,000 个会话，超过后新会话返回 503。",
+      "OAuth 客户端现在检查授权服务器的 issuer，不匹配时抛出 OAuthFlowError。",
+      "新增 AuthSettings.validate_token_resource 参数，仅接受 TokenVerifier 报告为为此服务器发放的令牌。",
+      "ClientCredentialsOAuthProvider 和 PrivateKeyJWTOAuthProvider 新增 issuer 参数。",
+      "FastMCP 新增 session_idle_timeout 和 max_sessions 参数。"
+    ],
+    "id": "story-6327887c723b14561e84",
+    "importance_score": 0.2,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0",
+    "product_names": [
+      "modelcontextprotocol/python-sdk v1.30.0",
+      "streamable_http_client",
+      "sse_client",
+      "FastMCP",
+      "ClientCredentialsOAuthProvider",
+      "PrivateKeyJWTOAuthProvider",
+      "AuthSettings"
+    ],
+    "published_at": "2026-09-07T14:03:59Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-155ec56ec5e126ff129b"
+    ],
+    "source_refs": [
+      {
+        "author": "maxisbey",
+        "discussion_url": null,
+        "fetched_at": "2026-09-08T01:22:37.340485Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-07T14:03:59Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-155ec56ec5e126ff129b",
+        "source_name": "GitHub · modelcontextprotocol/python-sdk",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "modelcontextprotocol/python-sdk: v1.30.0",
+        "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编程",
+      "开源 AI",
+      "SDK 发布",
+      "HTTP 客户端",
+      "OAuth 认证"
+    ],
+    "uncertainties": [
+      "未明确说明 2.x 版本是否已包含这些变更或具有不同的行为。"
+    ],
+    "updated_at": "2026-09-08T01:22:37.340485Z"
+  }
+]
