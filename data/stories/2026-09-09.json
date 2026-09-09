@@ -56,6 +56,79 @@
   },
   {
     "analysis": [
+      "MRV2 成为默认标志着一个重要的过渡完成，可能提高所有模型的一致性和可维护性。",
+      "新模型的加入表明 vLLM 正在积极扩展对最新 MoE 架构和硬件（如 SM100）的支持。",
+      "对 Kimi-K3 和 DeepSeek V4 的特定优化表明 vLLM 正在与这些模型提供者紧密合作。",
+      "RL 权重同步的新后端是为满足大规模训练同步需求。",
+      "破坏性更改是清理技术债务和推动现代实践的一部分。"
+    ],
+    "canonical_title": "vLLM v0.29.0 发布：Model Runner V2 成为默认，新增多种模型支持",
+    "category": "软件发布",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "vllm-project/vllm",
+      "Tencent",
+      "Kimi",
+      "DeepSeek"
+    ],
+    "facts": [
+      "vllm-project/vllm 发布了 v0.29.0 版本，包含 594 个提交，来自 277 位贡献者。",
+      "Model Runner V2 (MRV2) 现在成为所有模型的默认运行器，完成自 pooling 模型开始的推广。",
+      "MRV2 新增了 CUDA graph 内存剖析、批分片采样、prompt embeds、extract_hidden_states 推测解码、padded FULL cudagraph 分发和 DP-sync 跳过等功能。",
+      "MRV1 仍用于一些 ROCm 模型和不支持 MRV2 的功能。",
+      "新模型支持包括 Tencent 的 Hy4-preview、Qwen3.8-Flash-Next、GraniteSWA 和 GraniteMoeSWA、NemotronH_Omni_Reasoning_V3 和 Kimi K3 NVFP4 检查点。",
+      "针对 Kimi-K3 和 DeepSeek V4 的性能优化包括融合 MXFP4 top-k 终结、K3 Mamba 元数据准备、低延迟 GEMM、GEMM-RS 扩展到 GEMM-AR、MLA 门融合、共享专家融合到 MegaMoE、自适应 top-k 宽度和 SwiGLU clamp 内核。",
+      "推测解码新增了 per-request 接受统计、对 logprobs 的自适应验证、SM100 稀疏 MLA、Qwen3-Omni DSpark drafts、PLaMo3 EAGLE-3/DFlash 和 DFlash2 加载。",
+      "RL 权重同步新增了 sharded_rdt P2P 后端、rank-local IPC 权重更新、稀疏检查点坐标更新和路由专家加载。",
+      "Mamba 前缀缓存通过内部预填充检查点带来 TTFT 改善，prefix_cache_retention_interval 成为命令行参数，默认值为 0。",
+      "新默认值包括：FlashInfer 全归约默认启用、确定性前缀缓存 NONE_HASH、新的 --max-num-queued-reqs 和 --max-num-queued-tokens 标志。",
+      "破坏性更改包括移除十个已弃用的模型架构、将 FlexOlmo/Olmo3/Hunyuan V1/VL 迁移到 Transformers 后端、移除 PyAV 视频解码器、弃用 python -m vllm.entrypoints.openai.api_server 并移除测试环境变量。"
+    ],
+    "id": "story-4536cf61d56b62c663e3",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.29.0",
+    "product_names": [
+      "vllm"
+    ],
+    "published_at": "2026-09-09T08:54:49Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-448701fe99745f6407d1"
+    ],
+    "source_refs": [
+      {
+        "author": "khluu",
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T08:54:49Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-448701fe99745f6407d1",
+        "source_name": "GitHub · vllm-project/vllm",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "vllm-project/vllm: v0.29.0",
+        "url": "https://github.com/vllm-project/vllm/releases/tag/v0.29.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/vllm-project/vllm/releases/tag/v0.29.0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "MRV1 对 ROCm 模型的支持持续时间不确定。",
+      "多个破坏性更改的影响范围需要进一步评估。"
+    ],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
+    "analysis": [
       "此次补丁数量创纪录可能反映了AI工具在安全研究中的广泛应用，使得漏洞发现和修复速度加快。",
       "大量严重漏洞被修复表明微软产品面临的安全挑战日益严峻。"
     ],
@@ -109,6 +182,61 @@
       "报道未提及AI辅助攻击的具体形式或实例。"
     ],
     "updated_at": "2026-09-09T01:30:26.688104Z"
+  },
+  {
+    "analysis": [
+      "该计划表明 OpenAI 对青少年使用生成式 AI 的影响给予高度重视，并通过外部研究来获取中立视角。"
+    ],
+    "canonical_title": "OpenAI 推出 500 万美元资助计划，支持生成式 AI 对青少年发展的独立研究",
+    "category": "News",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 宣布推出一个 500 万美元的资助计划，用于支持关于生成式 AI 如何影响青少年发展、福祉和安全的独立研究。",
+      "该资助计划申请现已开放。"
+    ],
+    "id": "story-94b5021f944e0d1b98aa",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/teen-development-research-grants",
+    "product_names": [],
+    "published_at": "2026-09-08T09:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-7948c39493cbd65ea48c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T09:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-7948c39493cbd65ea48c",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Funding grants for new research into AI and teen development",
+        "url": "https://openai.com/index/teen-development-research-grants"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/teen-development-research-grants"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 伦理",
+      "青少年发展",
+      "研究资助"
+    ],
+    "uncertainties": [
+      "资助计划的具体时间线、申请条件和评审标准尚未披露。"
+    ],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
   },
   {
     "analysis": [
@@ -167,118 +295,59 @@
   },
   {
     "analysis": [
-      "此发布表明OpenAI正在推进将大型语言模型应用于科学实验自动化领域，尤其是量子计算的复杂性管理。"
+      "该事件反映了AI安全研究界对高级AI潜在风险的担忧，特别是关于无法控制超级智能系统的可能性。",
+      "研究员和辞职同事的观点可能代表部分安全研究者的共识，但未必代表AI行业的整体立场。"
     ],
-    "canonical_title": "OpenAI 发布 GPT-5.6 Sol 与 Codex 用于量子计算实验",
-    "category": "AI 模型",
-    "credibility_score": 0.9,
+    "canonical_title": "Anthropic安全研究人员警告AI可能杀死全人类",
+    "category": "AI安全",
+    "credibility_score": 0.5,
     "entity_names": [
-      "OpenAI",
-      "MIT"
+      "Anthropic"
     ],
     "facts": [
-      "OpenAI 于2026年9月8日发布了一篇博客文章，标题为 'How GPT-5.6 Sol helps run quantum computing experiments'，描述了MIT研究员将GPT-5.6 Sol与Codex结合，自动运行量子计算实验、分析结果并校准量子比特。",
-      "该文章来自OpenAI官方网站，属于官方发布。"
+      "Anthropic的一位资深安全研究员表示，人工智能在本十年末前“杀死全人类”的可能性超过10%。",
+      "该研究员发表上述言论数小时后，一位同事因担心AI实验室及其竞争对手正草率地竞相构建无法控制的“超人类系统”而辞职。"
     ],
-    "id": "story-86aafd1a3e212803f29b",
-    "importance_score": 0.7,
+    "id": "story-59fed1f220567df0e593",
+    "importance_score": 0.8,
     "novelty_score": 0.6,
-    "primary_source_url": "https://openai.com/index/codex-quantum-computing-experiments",
-    "product_names": [
-      "GPT-5.6 Sol",
-      "Codex"
-    ],
-    "published_at": "2026-09-08T17:00:00Z",
-    "relevance_score": 0.8,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/991927/anthropic-ai-kill-all-humans",
+    "product_names": [],
+    "published_at": "2026-09-09T05:56:28-04:00",
+    "relevance_score": 0.7,
     "source_item_ids": [
-      "item-503e9c2326e78f3e5469"
+      "item-4c2384d2d8e097048366"
     ],
     "source_refs": [
       {
-        "author": null,
+        "author": "Robert Hart",
         "discussion_url": null,
-        "fetched_at": "2026-09-09T01:30:26.688104Z",
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
         "practice_signal_kind": null,
-        "published_at": "2026-09-08T17:00:00Z",
+        "published_at": "2026-09-09T05:56:28-04:00",
         "published_at_role": "feed_entry_time",
-        "raw_item_id": "item-503e9c2326e78f3e5469",
-        "source_name": "OpenAI News",
-        "source_role": "official_primary",
+        "raw_item_id": "item-4c2384d2d8e097048366",
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
         "source_type": "rss",
-        "statement_type": "factual_announcement",
-        "title": "How GPT-5.6 Sol helps run quantum computing experiments",
-        "url": "https://openai.com/index/codex-quantum-computing-experiments"
+        "statement_type": "unknown",
+        "title": "Anthropic safety researchers warn that AI ‘could kill all humans’",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/991927/anthropic-ai-kill-all-humans"
       }
     ],
     "source_urls": [
-      "https://openai.com/index/codex-quantum-computing-experiments"
+      "https://www.theverge.com/ai-artificial-intelligence/991927/anthropic-ai-kill-all-humans"
     ],
-    "status": "announced",
+    "status": "unknown",
     "topic_names": [
-      "量子计算",
-      "自主实验",
-      "人工智能"
+      "AI安全",
+      "AI风险评估"
     ],
     "uncertainties": [
-      "GPT-5.6 Sol的具体技术细节、在量子计算实验中的实际性能尚不清楚。",
-      "该文章未提供独立验证或第三方数据。"
+      "'超过10%'的估计基于的研究背景和方法未明确，可能依赖主观判断。",
+      "同事辞职的具体原因和事件细节未完全报道，存在未证实的成分。"
     ],
-    "updated_at": "2026-09-09T01:30:26.688104Z"
-  },
-  {
-    "analysis": [],
-    "canonical_title": "GitHub Enterprise Server 3.22 正式发布",
-    "category": "technology",
-    "credibility_score": 1.0,
-    "entity_names": [
-      "GitHub"
-    ],
-    "facts": [
-      "GitHub Enterprise Server (GHES) 3.22 现已正式发布（来源：GitHub 官方变更日志）。",
-      "3.22 版本引入了平台上的新功能，包括管理员可以配置 Copilot CLI（来源：GitHub 官方变更日志）。"
-    ],
-    "id": "story-5842a22eae6fd41c5cca",
-    "importance_score": 0.6,
-    "novelty_score": 0.4,
-    "primary_source_url": "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available",
-    "product_names": [
-      "GitHub Enterprise Server 3.22"
-    ],
-    "published_at": "2026-09-08T21:52:42Z",
-    "relevance_score": 0.8,
-    "source_item_ids": [
-      "item-5024ef0cc7b0b96301fd"
-    ],
-    "source_refs": [
-      {
-        "author": "Allison",
-        "discussion_url": null,
-        "fetched_at": "2026-09-09T01:30:26.688104Z",
-        "practice_signal_kind": null,
-        "published_at": "2026-09-08T21:52:42Z",
-        "published_at_role": "feed_entry_time",
-        "raw_item_id": "item-5024ef0cc7b0b96301fd",
-        "source_name": "GitHub Changelog",
-        "source_role": "official_primary",
-        "source_type": "rss",
-        "statement_type": "factual_announcement",
-        "title": "GitHub Enterprise Server 3.22 is now generally available",
-        "url": "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available"
-      }
-    ],
-    "source_urls": [
-      "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available"
-    ],
-    "status": "announced",
-    "topic_names": [
-      "ai_coding",
-      "open_source_ai",
-      "enterprise"
-    ],
-    "uncertainties": [
-      "有关 3.22 版本新增功能的详细内容尚不明确。"
-    ],
-    "updated_at": "2026-09-09T01:30:26.688104Z"
+    "updated_at": "2026-09-09T10:25:26.754027Z"
   },
   {
     "analysis": [
@@ -340,89 +409,57 @@
     "updated_at": "2026-09-09T01:30:26.688104Z"
   },
   {
-    "analysis": [
-      "此次发布主要集中在功能增强和错误修复上，特别是对 web search 图像结果的支持，表明 OpenAI 正在增强其 agent 工具的多模态能力。",
-      "新增的 guardrails 相关功能（包括 MCP 服务器级 guardrails）反映了对安全性和可控性的重视，可能为了扩展生产环境使用。",
-      "一系列与 variadic 参数相关的修复（如 tuple 注解、字段约束）表明在复杂使用场景下提高了 SDK 的稳定性。"
-    ],
-    "canonical_title": "OpenAI Agents Python SDK v0.22.1 发布：新增多项特性与修复",
-    "category": "software_release",
-    "credibility_score": 0.9,
+    "analysis": [],
+    "canonical_title": "GitHub Copilot for JetBrains 更新：企业托管沙盒策略支持",
+    "category": "产品更新",
+    "credibility_score": 1.0,
     "entity_names": [
-      "OpenAI",
-      "seratch",
-      "seanxuu",
-      "green3sf",
-      "hsusul",
-      "simpleqt",
-      "shoemoney",
-      "lllakshit",
-      "Excelius-Wang",
-      "XuQuanxin04",
-      "abhay-codes07",
-      "rajarshidattapy",
-      "subhashpolisetti",
-      "rioyu123",
-      "mmjerge",
-      "weike-zhang",
-      "apcha-oai"
+      "GitHub",
+      "JetBrains"
     ],
     "facts": [
-      "openai/openai-agents-python 发布了版本 v0.22.1。",
-      "该版本在 GitHub 上于 2026-09-08T09:18:00Z 发布。",
-      "本次更新包括 web search 工具支持图像结果（PR #4898）。",
-      "新增自定义输出 guardrail 阻断消息的功能（PR #4594）。",
-      "为 MCP 工具添加服务器级 guardrails（PR #4632）。",
-      "sandbox 新增可配置的 Unix 本地环境隔离（PR #4640）。",
-      "允许在 Docker sandbox 容器上添加标签（PR #4564）。",
-      "在 voice 工具中公开流式转录选项（PR #4645）。",
-      "修复了多个核心问题，包括分离聚合请求使用记录、空工具参数失败关闭、流式响应跨度丢失响应/输入等（见相关 PR）。"
+      "GitHub 于 2026-09-08 在 changelog 中宣布 Copilot for JetBrains 更新，支持企业托管沙盒策略。",
+      "更新还包括跨文件光标跳转以进行下一个编辑建议、聊天中的全局项目上下文、企业策略诊断以及终端 Copilot 之间的新连接。"
     ],
-    "id": "story-39d3b2a4f7c9a37b1092",
+    "id": "story-c4afa56d7dc92115351d",
     "importance_score": 0.5,
     "novelty_score": 0.4,
-    "primary_source_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1",
+    "primary_source_url": "https://github.blog/changelog/2026-09-08-enterprise-managed-sandbox-in-copilot-for-jetbrains",
     "product_names": [
-      "openai-agents-python"
+      "GitHub Copilot"
     ],
-    "published_at": "2026-09-08T09:18:00Z",
-    "relevance_score": 0.7,
+    "published_at": "2026-09-09T02:43:38Z",
+    "relevance_score": 0.8,
     "source_item_ids": [
-      "item-52cef0c70f5575cec8d1"
+      "item-56c4269b99a656fe7ff2"
     ],
     "source_refs": [
       {
-        "author": "seratch",
+        "author": "Allison",
         "discussion_url": null,
-        "fetched_at": "2026-09-09T01:30:26.688104Z",
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
         "practice_signal_kind": null,
-        "published_at": "2026-09-08T09:18:00Z",
-        "published_at_role": "github_release_published_time",
-        "raw_item_id": "item-52cef0c70f5575cec8d1",
-        "source_name": "GitHub · openai/openai-agents-python",
+        "published_at": "2026-09-09T02:43:38Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-56c4269b99a656fe7ff2",
+        "source_name": "GitHub Changelog",
         "source_role": "official_primary",
-        "source_type": "github",
+        "source_type": "rss",
         "statement_type": "factual_announcement",
-        "title": "openai/openai-agents-python: v0.22.1",
-        "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1"
+        "title": "Enterprise-managed sandbox in Copilot for JetBrains",
+        "url": "https://github.blog/changelog/2026-09-08-enterprise-managed-sandbox-in-copilot-for-jetbrains"
       }
     ],
     "source_urls": [
-      "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1"
+      "https://github.blog/changelog/2026-09-08-enterprise-managed-sandbox-in-copilot-for-jetbrains"
     ],
     "status": "announced",
     "topic_names": [
-      "web search",
-      "guardrails",
-      "MCP",
-      "sandbox",
-      "voice transcription"
+      "AI 编程助手",
+      "企业策略"
     ],
-    "uncertainties": [
-      "本次列出的修复项数量较多，但未提及具体影响的用户范围，可能存在回归风险。",
-      "虽然提及 web search 支持图像结果，但具体实现细节和兼容性尚未明确。"
-    ],
-    "updated_at": "2026-09-09T01:30:26.688104Z"
+    "uncertainties": [],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
   },
   {
     "analysis": [
@@ -479,61 +516,6 @@
     ],
     "uncertainties": [
       "具体支持的注册表类型和访问权限配置细节未在摘要中完整说明。"
-    ],
-    "updated_at": "2026-09-09T01:30:26.688104Z"
-  },
-  {
-    "analysis": [
-      "该公告属于官方声明，但声明中未提及证明的具体内容或验证状态，有待进一步确认。"
-    ],
-    "canonical_title": "OpenAI 声称以 AI 生成 Navier–Stokes 千年奖问题的解决方案",
-    "category": "AI 研究",
-    "credibility_score": 0.3,
-    "entity_names": [
-      "OpenAI"
-    ],
-    "facts": [
-      "OpenAI 于 2026 年 9 月 8 日宣布，分享一个 AI 生成的 Navier–Stokes 千年奖问题的解决方案，包括一份论文和 Lean 中的形式化证明。"
-    ],
-    "id": "story-186878b0613c8758694d",
-    "importance_score": 0.6,
-    "novelty_score": 0.9,
-    "primary_source_url": "https://openai.com/index/navier-stokes-solution",
-    "product_names": [
-      "Lean"
-    ],
-    "published_at": "2026-09-08T10:00:00Z",
-    "relevance_score": 0.8,
-    "source_item_ids": [
-      "item-2c827cba158d2f26e6e9"
-    ],
-    "source_refs": [
-      {
-        "author": null,
-        "discussion_url": null,
-        "fetched_at": "2026-09-09T01:30:26.688104Z",
-        "practice_signal_kind": null,
-        "published_at": "2026-09-08T10:00:00Z",
-        "published_at_role": "feed_entry_time",
-        "raw_item_id": "item-2c827cba158d2f26e6e9",
-        "source_name": "OpenAI News",
-        "source_role": "official_primary",
-        "source_type": "rss",
-        "statement_type": "factual_announcement",
-        "title": "On the Navier–Stokes Millennium Prize Problem",
-        "url": "https://openai.com/index/navier-stokes-solution"
-      }
-    ],
-    "source_urls": [
-      "https://openai.com/index/navier-stokes-solution"
-    ],
-    "status": "announced",
-    "topic_names": [
-      "Navier–Stokes 千年奖问题",
-      "AI 数学证明"
-    ],
-    "uncertainties": [
-      "该 AI 生成的证明是否经过同行评审或数学界验证尚不清楚。"
     ],
     "updated_at": "2026-09-09T01:30:26.688104Z"
   },
@@ -599,6 +581,111 @@
     "updated_at": "2026-09-09T01:30:26.688104Z"
   },
   {
+    "analysis": [],
+    "canonical_title": "GitHub Enterprise Server 3.22 正式发布",
+    "category": "Software Release",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Enterprise Server (GHES) 3.22 于2026年9月8日正式发布。",
+      "GitHub Enterprise Server 3.22 引入了包括配置 Copilot CLI 在内的多项新能力。"
+    ],
+    "id": "story-5842a22eae6fd41c5cca",
+    "importance_score": 0.4,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available",
+    "product_names": [
+      "GitHub Enterprise Server 3.22"
+    ],
+    "published_at": "2026-09-08T21:52:42Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-5024ef0cc7b0b96301fd"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T21:52:42Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5024ef0cc7b0b96301fd",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Enterprise Server 3.22 is now generally available",
+        "url": "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-08-github-enterprise-server-3-22-is-now-generally-available"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "GitHub Enterprise Server",
+      "Copilot CLI"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 展示 GPT-5.6 Sol 与 Codex 在量子计算实验中的应用",
+    "category": "AI模型应用",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI",
+      "MIT"
+    ],
+    "facts": [
+      "OpenAI 新闻于2026年9月8日发布文章，介绍一位 MIT 研究员使用 GPT-5.6 Sol 与 Codex 自主运行量子计算实验、分析结果并校准量子比特。"
+    ],
+    "id": "story-86aafd1a3e212803f29b",
+    "importance_score": 0.4,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/codex-quantum-computing-experiments",
+    "product_names": [
+      "GPT-5.6 Sol",
+      "Codex"
+    ],
+    "published_at": "2026-09-08T17:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-503e9c2326e78f3e5469"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-503e9c2326e78f3e5469",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How GPT-5.6 Sol helps run quantum computing experiments",
+        "url": "https://openai.com/index/codex-quantum-computing-experiments"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/codex-quantum-computing-experiments"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "量子计算",
+      "AI编程"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
     "analysis": [
       "本次版本是 patch 级更新，主要针对 API 行为的修复和内部优化。"
     ],
@@ -660,26 +747,192 @@
     "updated_at": "2026-09-09T01:30:26.688104Z"
   },
   {
-    "analysis": [
-      "OpenAI这篇官方声明表明其战略方向是提升AI能力同时降低成本，可能旨在扩大AI的普及和应用。"
+    "analysis": [],
+    "canonical_title": "Navier-Stokes 相关声明 PDF 在 Hacker News 上引发讨论",
+    "category": "未分类",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Tristan Buckmaster",
+      "Hacker News"
     ],
-    "canonical_title": "OpenAI发布关于更强大、更经济AI的声明",
-    "category": "AI能力与经济学",
-    "credibility_score": 0.7,
+    "facts": [],
+    "id": "story-5a3a7aec1ff010bfea88",
+    "importance_score": 0.5,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://cims.nyu.edu/~tristanb/statement.pdf",
+    "product_names": [],
+    "published_at": "2026-09-08T05:42:28Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-b1cdae86fb568cf2ff8c"
+    ],
+    "source_refs": [
+      {
+        "author": "procedurecall",
+        "discussion_url": "https://news.ycombinator.com/item?id=49605915",
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T05:42:28Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-b1cdae86fb568cf2ff8c",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Navier-Stokes – Tristan Buckmaster [pdf]",
+        "url": "https://cims.nyu.edu/~tristanb/statement.pdf"
+      }
+    ],
+    "source_urls": [
+      "https://cims.nyu.edu/~tristanb/statement.pdf",
+      "https://news.ycombinator.com/item?id=49605915"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "Navier-Stokes"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
+    "analysis": [
+      "该版本是一个 patch 版本，包含大量修复和功能增强，显示项目持续迭代。",
+      "多个修复与工具参数处理相关，表明项目在完善工具调用的健壮性。",
+      "新增的功能集中在 web search、guardrails、sandbox 和 voice 方面，扩展了 SDK 的适用场景。"
+    ],
+    "canonical_title": "OpenAI Agents Python SDK v0.22.1 发布，新增多项功能与修复",
+    "category": "software_release",
+    "credibility_score": 0.9,
     "entity_names": [
       "OpenAI"
     ],
     "facts": [
-      "OpenAI于2026年9月8日发布题为'The Work Now Within Reach'的文章。",
-      "文章描述了更强大、更经济的AI如何扩大人们和企业能够完成的工作，并使增长更加经济。"
+      "openai/openai-agents-python 发布了 v0.22.1 版本。",
+      "该版本新增了在 web search 工具中支持图像结果的功能。",
+      "该版本允许自定义输出 guardrail 的阻止消息。",
+      "该版本为 MCP 工具添加了服务器级 guardrails。",
+      "该版本添加了可配置的 Unix-local 环境隔离。",
+      "该版本允许在 Docker sandbox 容器上添加标签。",
+      "该版本暴露了流式转录选项。",
+      "该版本包含多个核心修复，如分离聚合请求使用条目、空工具参数时关闭失败、重放 RunItems 时去除 created_by 等。",
+      "该版本包含多个 chat-completions 修复，如合并流式消息、对截断空完成引发错误、拒绝未配对的函数输出等。",
+      "该版本包含 extensions 修复，如分支无轮次时跳过 AdvancedSQLiteSession 使用存储、在 any-llm chat 路径上嵌套 extra_body 等。"
+    ],
+    "id": "story-39d3b2a4f7c9a37b1092",
+    "importance_score": 0.3,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1",
+    "product_names": [
+      "openai-agents-python"
+    ],
+    "published_at": "2026-09-08T09:18:00Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-52cef0c70f5575cec8d1"
+    ],
+    "source_refs": [
+      {
+        "author": "seratch",
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T09:18:00Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-52cef0c70f5575cec8d1",
+        "source_name": "GitHub · openai/openai-agents-python",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-agents-python: v0.22.1",
+        "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-agents-python/releases/tag/v0.22.1"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
+    "analysis": [
+      "该文章可能讨论AI安全中如何精确拒绝特定子主题而非整体主题。"
+    ],
+    "canonical_title": "Safety for Whom? 关于选择性拒绝主题子集的新博客",
+    "category": "AI安全",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "MultiverseComputingCAI"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了标题为 'Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic' 的文章，发布日期为 2026-09-08。",
+      "文章作者或发布者为 MultiverseComputingCAI。"
+    ],
+    "id": "story-f93eb6602dfbf5d268c1",
+    "importance_score": 0.4,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom",
+    "product_names": [],
+    "published_at": "2026-09-08T14:23:07Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-5cbcf08e288841ac31de"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T14:23:07Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-5cbcf08e288841ac31de",
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Safety for Whom? Refusing the Right Subset of a Topic, Not the Whole Topic",
+        "url": "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/MultiverseComputingCAI/safety-for-whom"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI安全",
+      "主题控制"
+    ],
+    "uncertainties": [
+      "文章具体内容和立场尚未确认。"
+    ],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
+    "analysis": [
+      "该文章可能暗示 OpenAI 将推出成本更低、能力更强的 AI 模型，以扩大用户群体和应用场景。"
+    ],
+    "canonical_title": "OpenAI 发布关于更强大、更实惠的 AI 扩展工作范围的官方文章",
+    "category": "官方公告",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 于 2026 年 9 月 8 日发布了一篇题为“The Work Now Within Reach”的文章 (https://openai.com/index/the-work-now-within-reach)。",
+      "文章探讨了更强大、更实惠的 AI 可以扩展个人和企业能够完成的工作，并使增长更加经济。"
     ],
     "id": "story-b5c56951992e56554452",
-    "importance_score": 0.3,
+    "importance_score": 0.2,
     "novelty_score": 0.1,
     "primary_source_url": "https://openai.com/index/the-work-now-within-reach",
     "product_names": [],
     "published_at": "2026-09-08T13:00:00Z",
-    "relevance_score": 0.2,
+    "relevance_score": 0.3,
     "source_item_ids": [
       "item-a00fc889a2dd293b4204"
     ],
@@ -687,7 +940,7 @@
       {
         "author": null,
         "discussion_url": null,
-        "fetched_at": "2026-09-09T01:30:26.688104Z",
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
         "practice_signal_kind": null,
         "published_at": "2026-09-08T13:00:00Z",
         "published_at_role": "feed_entry_time",
@@ -703,14 +956,72 @@
     "source_urls": [
       "https://openai.com/index/the-work-now-within-reach"
     ],
-    "status": "announced",
+    "status": "official_teaser",
     "topic_names": [
       "AI模型",
-      "AI编码"
+      "AI辅助编程",
+      "经济性"
     ],
     "uncertainties": [
-      "该声明未具体说明技术细节或产品，其具体实施和影响尚不明确。"
+      "文章未明确提及任何具体产品或模型，也未提供具体的技术细节。",
+      "文章未提供任何数据或案例来支持其观点。"
     ],
-    "updated_at": "2026-09-09T01:30:26.688104Z"
+    "updated_at": "2026-09-09T10:25:26.754027Z"
+  },
+  {
+    "analysis": [
+      "该公告属于官方原始事实，但內容尚未经过同行评审或独立验证，建议等待数学界确认。"
+    ],
+    "canonical_title": "OpenAI公布AI生成的Navier-Stokes千禧年问题求解及Lean形式化证明",
+    "category": "AI突破",
+    "credibility_score": 0.0,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI于2026年9月8日通过其官网分享了一个AI生成的Navier-Stokes千禧年问题的解决方案，包含一份书面报告和一个用Lean软件完成的正式证明。"
+    ],
+    "id": "story-186878b0613c8758694d",
+    "importance_score": 0.0,
+    "novelty_score": 0.0,
+    "primary_source_url": "https://openai.com/index/navier-stokes-solution",
+    "product_names": [
+      "Lean"
+    ],
+    "published_at": "2026-09-08T10:00:00Z",
+    "relevance_score": 0.0,
+    "source_item_ids": [
+      "item-2c827cba158d2f26e6e9"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-09T10:25:06.277865Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-2c827cba158d2f26e6e9",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "On the Navier–Stokes Millennium Prize Problem",
+        "url": "https://openai.com/index/navier-stokes-solution"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/navier-stokes-solution"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "Navier-Stokes千禧年问题",
+      "AI生成数学证明",
+      "形式化验证"
+    ],
+    "uncertainties": [
+      "AI生成的解决方案是否真正解决了Navier-Stokes问题，以及证明的正确性尚未得到数学界的独立验证。"
+    ],
+    "updated_at": "2026-09-09T10:25:26.754027Z"
   }
 ]
