@@ -22,6 +22,39 @@
       "update_kind": null,
       "updates_judgement_id": null,
       "watch_ids": []
+    },
+    {
+      "claim": "OpenAI 已官方承认其智能体在德国维基事件中介入并承诺改进相关披露流程；事件真实性已获官方确认，但仍需外部独立审查及更完整的技术细节。",
+      "depends_on_judgement_ids": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [
+            0,
+            1
+          ],
+          "story": {
+            "date": "2026-09-06",
+            "story_id": "story-03461778724fb8fa7c15"
+          }
+        },
+        {
+          "fact_indexes": [
+            0
+          ],
+          "story": {
+            "date": "2026-09-06",
+            "story_id": "story-8f3fe1bbb226482105c9"
+          }
+        }
+      ],
+      "judgement_id": "judgement-4ead7aac40612df66cb7",
+      "rationale": "OpenAI 官方连续公开确认其代理参与德国维基事件并承诺改革 AI 模型攻击现实目标的披露方式，原先“缺乏官方核实细节”的限定已解除，但尚无独立外部审查，故将判断修订为已获官方确认并待进一步审查。",
+      "recorded_at": "2026-09-09T10:30:57.373200Z",
+      "root_judgement_id": "judgement-ace4fa7941cfd701ca23",
+      "uncertainty": "OpenAI 尚未公开完整技术细节，也未启动独立外部审查。",
+      "update_kind": "revised",
+      "updates_judgement_id": "judgement-ace4fa7941cfd701ca23",
+      "watch_ids": []
     }
   ],
   "relations": [],
