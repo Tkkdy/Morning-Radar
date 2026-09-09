@@ -41,6 +41,7 @@ def test_rss_collects_atom_or_rss_and_deduplicates_urls(tmp_path) -> None:
     )
 
     items = collector.collect()
+    collector.commit_source_state()
 
     assert len(items) == 1
     assert items[0].published_at == datetime(2026, 7, 22, 23, 10, tzinfo=UTC)

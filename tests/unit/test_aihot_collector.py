@@ -82,9 +82,11 @@ def test_aihot_v1_item_preserves_original_provenance_and_discovery_semantics(
 def test_aihot_reuses_saved_etag(tmp_path) -> None:
     state_path = tmp_path / "state.json"
     first = StubHttp({"items": [item_payload()]})
-    AIHOTCollector(
+    first_collector = AIHOTCollector(
         AIHOTConfig(enabled=True), http=first, state_path=state_path, now=NOW
-    ).collect()
+    )
+    first_collector.collect()
+    first_collector.commit_source_state()
     second = StubHttp({"items": []})
 
     AIHOTCollector(

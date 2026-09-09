@@ -80,6 +80,7 @@ class GitHubCollector:
         self.history_snapshot_dir = history_snapshot_dir or snapshot_dir
         self.token = token
         self.now = now or utc_now()
+        self._pending_snapshots: list[GitHubSnapshot] = []
 
     def collect(self) -> list[RawItem]:
         items: list[RawItem] = []
@@ -91,9 +92,19 @@ class GitHubCollector:
                 snapshots.append(snapshot)
             except Exception:
                 LOGGER.exception("GitHub repository failed: %s", repository.full_name)
-        if snapshots:
-            save_models(self.snapshot_dir / f"{display_date(self.now)}.json", snapshots)
+        self._pending_snapshots = snapshots
         return items
+
+    @property
+    def pending_source_state(self) -> list[dict]:
+        return [snapshot.model_dump(mode="json") for snapshot in self._pending_snapshots]
+
+    def commit_source_state(self) -> None:
+        if self._pending_snapshots:
+            save_models(
+                self.snapshot_dir / f"{display_date(self.now)}.json",
+                self._pending_snapshots,
+            )
 
     def _headers(self) -> dict[str, str]:
         headers = {

@@ -16,6 +16,11 @@ maximum_open_watches_considered: 20
 maximum_research_cases: 8
 maximum_research_input_characters: 12000
 maximum_radar_signals: 3
+intake_recovery_lookback_days: 7
+intake_maximum_recovery_items: 8
+intake_reserved_candidate_slots: 4
+research_item_retry_attempts: 2
+research_split_retry_attempts: 2
 maximum_tendency_candidates: 12
 maximum_tendency_input_characters: 24000
 tendency_maximum_ai_calls: 3

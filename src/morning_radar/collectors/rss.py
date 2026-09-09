@@ -61,6 +61,7 @@ class RSSCollector:
         http: HttpClient,
         state_path: Path,
         now: datetime | None = None,
+        unconditional_source_ids: set[str] | None = None,
     ) -> None:
         self.sources = [
             source
@@ -70,6 +71,8 @@ class RSSCollector:
         self.http = http
         self.state_path = state_path
         self.now = now or utc_now()
+        self.unconditional_source_ids = set(unconditional_source_ids or ())
+        self._pending_state: dict[str, dict[str, str]] | None = None
 
     def collect(self) -> list[RawItem]:
         state = read_json(self.state_path) if self.state_path.exists() else {}
@@ -79,7 +82,7 @@ class RSSCollector:
                 batches.append(self._collect_source(source, state))
             except Exception:
                 LOGGER.exception("RSS source failed: %s", source.id)
-        write_json(self.state_path, state)
+        self._pending_state = state
 
         unique: dict[str, RawItem] = {}
         for item in _fair_merge_source_batches(batches):
@@ -93,18 +96,19 @@ class RSSCollector:
     ) -> list[RawItem]:
         cached = state.get(source.id, {})
         headers: dict[str, str] = {}
-        if cached.get("etag"):
-            headers["If-None-Match"] = cached["etag"]
-        if cached.get("last_modified"):
-            headers["If-Modified-Since"] = cached["last_modified"]
+        if source.id not in self.unconditional_source_ids:
+            if cached.get("etag"):
+                headers["If-None-Match"] = cached["etag"]
+            if cached.get("last_modified"):
+                headers["If-Modified-Since"] = cached["last_modified"]
         response = self.http.get(source.url, headers=headers)
         if response.status_code == 304:
+            previous = dict(cached)
+            previous["status"] = "not_modified"
+            previous.setdefault("item_ids", [])
+            state[source.id] = previous
             return []
 
-        state[source.id] = {
-            "etag": response.headers.get("ETag", ""),
-            "last_modified": response.headers.get("Last-Modified", ""),
-        }
         parsed = feedparser.parse(response.content)
         if parsed.bozo and not parsed.entries:
             raise ValueError(f"Malformed feed: {source.id}")
@@ -158,4 +162,18 @@ class RSSCollector:
                     },
                 )
             )
+        state[source.id] = {
+            "etag": response.headers.get("ETag", ""),
+            "last_modified": response.headers.get("Last-Modified", ""),
+            "status": "ok" if result else "empty",
+            "item_ids": [item.id for item in result],
+        }
         return result
+
+    @property
+    def pending_source_state(self) -> dict[str, dict[str, str]] | None:
+        return self._pending_state
+
+    def commit_source_state(self) -> None:
+        if self._pending_state is not None:
+            write_json(self.state_path, self._pending_state)

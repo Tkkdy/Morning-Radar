@@ -85,6 +85,7 @@ def test_github_collects_release_and_saves_snapshot(tmp_path) -> None:
     )
 
     items = collector.collect()
+    collector.commit_source_state()
 
     assert len(items) == 1
     assert items[0].url == releases_data[0]["html_url"]

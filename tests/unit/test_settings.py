@@ -32,6 +32,11 @@ def test_repository_configuration_files_are_valid() -> None:
     assert app.collection_buffer_hours == 6
     assert app.maximum_ai_calls == 50
     assert app.maximum_ai_input_characters == 120000
+    assert app.intake_recovery_lookback_days == 7
+    assert app.intake_maximum_recovery_items == 8
+    assert app.intake_reserved_candidate_slots == 4
+    assert app.research_item_retry_attempts == 2
+    assert app.research_split_retry_attempts == 2
     assert any(source.official for source in sources)
     assert topics and companies and repositories and people
     assert app.aihot.enabled is False

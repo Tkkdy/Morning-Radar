@@ -56,6 +56,7 @@ class MarketCollector:
         self.provider = provider
         self.snapshot_dir = snapshot_dir
         self.now = now or utc_now()
+        self._pending_snapshots: list[MarketSnapshot] = []
 
     def collect(self) -> list[RawItem]:
         items: list[RawItem] = []
@@ -67,9 +68,19 @@ class MarketCollector:
                 snapshots.append(snapshot)
             except Exception:
                 LOGGER.exception("Market ticker failed: %s", company.ticker)
-        if snapshots:
-            save_models(self.snapshot_dir / f"{display_date(self.now)}.json", snapshots)
+        self._pending_snapshots = snapshots
         return items
+
+    @property
+    def pending_source_state(self) -> list[dict]:
+        return [snapshot.model_dump(mode="json") for snapshot in self._pending_snapshots]
+
+    def commit_source_state(self) -> None:
+        if self._pending_snapshots:
+            save_models(
+                self.snapshot_dir / f"{display_date(self.now)}.json",
+                self._pending_snapshots,
+            )
 
     def _collect_company(self, company: CompanyConfig) -> tuple[RawItem, MarketSnapshot]:
         bars = self.provider.history(company.ticker)

@@ -39,6 +39,7 @@ class AIHOTCollector:
         self.http = http
         self.state_path = state_path
         self.now = now
+        self._pending_state: dict[str, object] | None = None
 
     def collect(self) -> list[RawItem]:
         if not self.config.enabled:
@@ -64,13 +65,18 @@ class AIHOTCollector:
         items = payload.get("items") if isinstance(payload, dict) else None
         if not isinstance(items, list):
             raise ValueError("AIHOT v1 response is missing items")
-        write_json(
-            self.state_path,
-            {"etag": response.headers.get("ETag", ""), "url": str(response.url)},
-        )
+        self._pending_state = {"etag": response.headers.get("ETag", ""), "url": str(response.url)}
         result = [converted for item in items if (converted := self._convert(item))]
         LOGGER.info("AIHOT discovery stats: received=%d retained=%d", len(items), len(result))
         return result
+
+    @property
+    def pending_source_state(self) -> dict[str, object] | None:
+        return self._pending_state
+
+    def commit_source_state(self) -> None:
+        if self._pending_state is not None:
+            write_json(self.state_path, self._pending_state)
 
     def _convert(self, value: Any) -> RawItem | None:
         if not isinstance(value, dict):
