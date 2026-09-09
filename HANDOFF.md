@@ -88,3 +88,7 @@ git push
 优先使用 `git revert` 保留审计历史，不使用 `git reset --hard`。若只需停止微信推送，
 删除/撤销 WxPusher Secret 或 Token；网页生成仍可继续。若密钥疑似泄露，立即在对应平台
 吊销并重新创建，不要只从 Git 历史删除文本。
+
+## AI development snapshot
+
+Phase 1 reliability work is tracked in [.ai/handoffs/MR-RECALL-RELIABILITY-P1.md](.ai/handoffs/MR-RECALL-RELIABILITY-P1.md). This file remains the human setup and operations guide.

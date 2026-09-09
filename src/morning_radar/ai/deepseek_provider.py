@@ -170,6 +170,8 @@ class DeepSeekProvider:
         output_validator: Callable[[OutputT], OutputT | None] | None = None,
         deadline_monotonic: float | None = None,
         maximum_structured_attempts: int = 2,
+        validate_language: bool = True,
+        skip_model_validate: bool = False,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
         self.budget.consume(payload, item_count=item_count)
@@ -331,9 +333,13 @@ class DeepSeekProvider:
                     raise AIOutputError(
                         f"{self.provider_name} response contained no JSON content"
                     )
-                validated = schema.model_validate(json.loads(content))
+                parsed = json.loads(content)
+                if skip_model_validate:
+                    return parsed
+                validated = schema.model_validate(parsed)
                 validate_output_urls(validated, allowed_urls)
-                validate_core_simplified_chinese_output(validated)
+                if validate_language:
+                    validate_core_simplified_chinese_output(validated)
                 if output_validator is not None:
                     transformed = output_validator(validated)
                     if transformed is not None:
@@ -531,27 +537,94 @@ class DeepSeekProvider:
         self,
         cases: list[ResearchCase],
     ) -> ResearchResolutionBatch:
+        isolated = self.resolve_research_cases_isolated(cases)
+        if isolated.truncated:
+            raise AIOutputError("Research output was truncated")
+        return isolated.batch
+
+
+    def resolve_research_cases_isolated(
+        self,
+        cases: list[ResearchCase],
+    ):
+        from pydantic import ValidationError
+
+        from morning_radar.ai.errors import AIAuthenticationError, AIBillingUnavailable
+        from morning_radar.ai.models import ResearchResolutionDraft
+        from morning_radar.research.isolation import IsolatedResearchResult
+
         case_ids = {case.id for case in cases}
+        allowed_urls = {
+            evidence.url
+            for case in cases
+            for evidence in [case.lead, *case.supporting_evidence]
+        }
+        try:
+            parsed = self._parse(
+                task="resolve_research_cases",
+                schema=ResearchResolutionBatch,
+                payload_data=[case.model_dump(mode="json") for case in cases],
+                item_count=len(cases),
+                allowed_urls=allowed_urls,
+                validate_language=False,
+                skip_model_validate=True,
+            )
+        except (AIBillingUnavailable, AIAuthenticationError, AIBudgetExceeded):
+            raise
+        except AIOutputError as exc:
+            truncated = "truncated" in str(exc).casefold() or "json" in str(exc).casefold()
+            return IsolatedResearchResult(
+                batch=ResearchResolutionBatch(),
+                truncated=truncated,
+                error=str(exc),
+            )
 
-        def validate(output: ResearchResolutionBatch) -> ResearchResolutionBatch:
-            if len(output.cases) != len({item.case_id for item in output.cases}):
-                raise AIOutputError("Research output contains duplicate case IDs")
-            if any(item.case_id not in case_ids for item in output.cases):
-                raise AIOutputError("Research output references an unknown case ID")
-            return output
-
-        return self._parse(
-            task="resolve_research_cases",
-            schema=ResearchResolutionBatch,
-            payload_data=[case.model_dump(mode="json") for case in cases],
-            item_count=len(cases),
-            allowed_urls={
-                evidence.url
-                for case in cases
-                for evidence in [case.lead, *case.supporting_evidence]
-            },
-            output_validator=validate,
+        raw_cases = parsed.get("cases") if isinstance(parsed, dict) else None
+        if not isinstance(raw_cases, list):
+            return IsolatedResearchResult(
+                batch=ResearchResolutionBatch(),
+                truncated=True,
+                error="research container is not a cases array",
+            )
+        valid = []
+        invalid_ids: list[str] = []
+        unknown_ids: list[str] = []
+        duplicate_ids: list[str] = []
+        seen: set[str] = set()
+        for raw in raw_cases:
+            if not isinstance(raw, dict):
+                invalid_ids.append("")
+                continue
+            case_id = str(raw.get("case_id") or "")
+            if not case_id:
+                invalid_ids.append("")
+                continue
+            if case_id in seen:
+                duplicate_ids.append(case_id)
+                continue
+            seen.add(case_id)
+            if case_id not in case_ids:
+                unknown_ids.append(case_id)
+                continue
+            try:
+                draft = ResearchResolutionDraft.model_validate(raw)
+                validate_output_urls(draft, allowed_urls)
+                validate_core_simplified_chinese_output(
+                    ResearchResolutionBatch(cases=[draft])
+                )
+            except (ValidationError, AIOutputError, ValueError):
+                invalid_ids.append(case_id)
+                continue
+            valid.append(draft)
+        missing_ids = sorted(case_ids - seen)
+        return IsolatedResearchResult(
+            batch=ResearchResolutionBatch(cases=valid),
+            invalid_ids=invalid_ids,
+            missing_ids=missing_ids,
+            unknown_ids=unknown_ids,
+            duplicate_ids=duplicate_ids,
         )
+
 
     def evaluate_tendencies(
         self,

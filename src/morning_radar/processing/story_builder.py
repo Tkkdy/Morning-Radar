@@ -182,18 +182,32 @@ def build_stories(
     provider: AIProvider,
     now: datetime,
     maximum_ai_items: int | None = None,
+    item_outcomes: dict[str, str] | None = None,
 ) -> list[Story]:
+    from morning_radar.intake.models import ReasonCode
+
+    def note(item_id: str, reason: ReasonCode, *, story_id: str | None = None) -> None:
+        if item_outcomes is not None:
+            item_outcomes[item_id] = reason.value
+
     if not items:
         LOGGER.info("Skipping AI classification: no recent items")
         return []
 
     unique = deduplicate_items(items)
     candidates = preselect_ai_candidates(unique, maximum_items=maximum_ai_items)
+    candidate_ids = {item.id for item in candidates}
+    for item in unique:
+        if item.id not in candidate_ids:
+            note(item.id, ReasonCode.DEFERRED_BUDGET)
     if not candidates:
         LOGGER.warning("AI candidate budget left no items for classification")
         return []
     classifications = provider.classify_items(candidates)
     relevant_ids = {item.item_id for item in classifications.items if item.relevant}
+    for item in candidates:
+        if item.id not in relevant_ids:
+            note(item.id, ReasonCode.CLASSIFIED_IRRELEVANT)
     relevant = [item for item in candidates if item.id in relevant_ids]
 
     stories: list[Story] = []
@@ -205,28 +219,37 @@ def build_stories(
                 "AI degradation: merge failed; skipping candidate group with %d item(s)",
                 len(group),
             )
+            for item in group:
+                note(item.id, ReasonCode.MERGE_FAILED)
             continue
         if draft.same_event or len(group) == 1:
-            # Reuse a tiny adapter to avoid changing the provider contract.
             try:
-                stories.append(
-                    build_story(group, provider=_DraftProvider(provider, draft), now=now)
-                )
+                story = build_story(group, provider=_DraftProvider(provider, draft), now=now)
             except AIOutputError:
                 LOGGER.exception(
                     "AI degradation: scoring failed; skipping candidate group with %d item(s)",
                     len(group),
                 )
+                for item in group:
+                    note(item.id, ReasonCode.SCORE_FAILED)
+                continue
+            stories.append(story)
+            for item in group:
+                note(item.id, ReasonCode.MERGED_INTO if len(group) > 1 else ReasonCode.PROCESSED)
         else:
             for item in group:
                 try:
-                    stories.append(build_story([item], provider=provider, now=now))
+                    story = build_story([item], provider=provider, now=now)
                 except AIOutputError:
                     LOGGER.exception(
                         "AI degradation: single-item story generation failed; "
                         "skipping item %s",
                         item.id,
                     )
+                    note(item.id, ReasonCode.SCORE_FAILED)
+                    continue
+                stories.append(story)
+                note(item.id, ReasonCode.PROCESSED)
     return rank_stories(stories)
 
 

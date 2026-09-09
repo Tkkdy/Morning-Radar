@@ -1,4 +1,5 @@
 name: Daily Morning Radar
+run-name: Daily Morning Radar (${{ (inputs.dry_run && 'dry-run') || (inputs.fixtures && 'fixtures') || 'production' }})
 
 on:
   workflow_dispatch:
@@ -53,7 +54,35 @@ jobs:
           python -m pytest
           python -m ruff check src tests
 
-      - name: Generate morning brief
+      - name: Collect durable intake checkpoint
+        id: collect
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          flags=()
+          if [[ "${{ inputs.fixtures || false }}" == "true" ]]; then flags+=(--fixtures); fi
+          if [[ "${{ inputs.dry_run || false }}" == "true" ]]; then flags+=(--dry-run); fi
+          python -m morning_radar collect "${flags[@]}" > "${RUNNER_TEMP}/collect.json"
+          batch_id="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["batch_id"])' "${RUNNER_TEMP}/collect.json")"
+          echo "batch_id=${batch_id}" >> "$GITHUB_OUTPUT"
+
+      - name: Commit intake checkpoint
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/intake data/state data/raw data/snapshots
+          if git diff --cached --quiet; then
+            echo "No intake checkpoint changes to commit."
+          else
+            git commit -m "chore: save morning radar intake checkpoint for $(date -u +%F)"
+            git push
+          fi
+
+      - name: Process saved intake
+        id: process
         shell: bash
         env:
           DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
@@ -68,10 +97,15 @@ jobs:
           if [[ "${{ inputs.fixtures || false }}" == "true" ]]; then flags+=(--fixtures); fi
           if [[ "${{ inputs.dry_run || false }}" == "true" ]]; then flags+=(--dry-run); fi
           flags+=(--skip-notify)
-          python -m morning_radar run "${flags[@]}"
+          flags+=(--batch-id "${{ steps.collect.outputs.batch_id }}")
+          python -m morning_radar process "${flags[@]}" > "${RUNNER_TEMP}/process.json"
+          brief_date="$(python -c "import json,os,pathlib; print(json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'process.json').read_text(encoding='utf-8'))['brief_date'])")"
+          brief_hash="$(python -c "import json,os,pathlib; print(json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'process.json').read_text(encoding='utf-8'))['brief_hash'])")"
+          echo "brief_date=${brief_date}" >> "$GITHUB_OUTPUT"
+          echo "brief_hash=${brief_hash}" >> "$GITHUB_OUTPUT"
 
       - name: Commit generated history
-        if: ${{ !(inputs.dry_run || false) }}
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
         shell: bash
         run: |
           git config user.name "github-actions[bot]"
@@ -85,16 +119,35 @@ jobs:
           fi
 
       - name: Configure GitHub Pages
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
         uses: actions/configure-pages@v5
 
       - name: Upload Pages artifact
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
       - name: Deploy GitHub Pages
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
         id: deployment
         uses: actions/deploy-pages@v4
+
+      - name: Record successful Pages deployment
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        run: python -m morning_radar record-deploy --date "${{ steps.process.outputs.brief_date }}" --brief-hash "${{ steps.process.outputs.brief_hash }}"
+
+      - name: Commit deployment confirmation
+        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        shell: bash
+        run: |
+          git add data/state/publish.json data/intake
+          if git diff --cached --quiet; then
+            echo "No deployment confirmation to commit."
+          else
+            git commit -m "chore: record morning radar deployment state"
+            git push
+          fi
 
       - name: Notify after successful Pages deployment
         if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
