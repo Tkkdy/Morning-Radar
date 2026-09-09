@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "note": "Evidence-backed historical samples for Phase 1 reliability. Missing days are listed as unknown, not reconstructed.",
+  "samples": [
+    {
+      "id": "H01",
+      "title": "2026-09-04 missing issue and GPT-6 launch window",
+      "event_time": "2026-09-04",
+      "precision": "date",
+      "expected_brief_date": "2026-09-04",
+      "actual_raw": null,
+      "actual_stories": null,
+      "actual_brief": null,
+      "fault_class": "interrupted_run_or_failed_daily",
+      "known": ["No local data/raw/2026-09-04.json, stories, or brief exists after snapshot eec8bcd."],
+      "unknown": ["Whether collectors returned items that were never checkpointed."],
+      "phase1_expectation": "New ledger cannot invent capture evidence. Inspect must return not_found, not coverage_gap."
+    },
+    {
+      "id": "H02",
+      "title": "Hugging Face incident report in 30h buffer / 24h window gap",
+      "event_time": "2026-08-26T00:00:00Z",
+      "precision": "datetime_or_date_midnight",
+      "fetched_at": "2026-08-27T05:00:24Z",
+      "source": "OpenAI News",
+      "url_title": "The Hugging Face incident and the road ahead",
+      "actual_raw": "data/raw/2026-08-27.json",
+      "actual_stories": "not present as this event; 08-27 stories are Transformers releases",
+      "fault_class": "window_drop_after_collect_buffer",
+      "known": ["Collected within 30h buffer", "About 29h old at fetch", "No matching Story"],
+      "phase1_expectation": "If checkpointed, recovery must give a processing chance and record the real reason if it still does not display."
+    },
+    {
+      "id": "H03",
+      "title": "2026-09-06 research unavailable",
+      "event_time": "2026-09-06",
+      "actual_brief": "data/briefs/2026-09-06.json",
+      "run_stats": {"research_unavailable": true, "research_cases": 6, "research_unresolved": 6, "stories": 8, "main_brief_items": 3},
+      "fault_class": "research_batch_failure",
+      "phase1_expectation": "Keep unfinished research cases recoverable; do not treat batch failure as irrelevance."
+    },
+    {
+      "id": "H04",
+      "title": "2026-09-08 research unavailable",
+      "event_time": "2026-09-08",
+      "actual_brief": "data/briefs/2026-09-08.json",
+      "run_stats": {"research_unavailable": true, "research_cases": 8, "research_unresolved": 8, "stories": 2, "main_brief_items": 1},
+      "fault_class": "research_batch_failure",
+      "phase1_expectation": "Same as H03. Quiet-day low counts are allowed."
+    },
+    {
+      "id": "H05",
+      "title": "An Alien Mind scored 0.3 on 2026-09-07",
+      "event_time": "2026-09-06",
+      "actual_stories": "data/stories/2026-09-07.json",
+      "relevance_score": 0.3,
+      "formal_threshold": 0.55,
+      "editorial_shadow_mode": true,
+      "fault_class": "below_relevance_threshold",
+      "known": ["Story exists", "relevance 0.3 < 0.55", "shadow_mode true so shadow DROP is not the official reason"],
+      "phase1_expectation": "Record below_relevance_threshold. Do not raise score this phase."
+    },
+    {
+      "id": "H06",
+      "title": "2026-08-26 verify failure / missing local artifacts",
+      "event_time": "2026-08-26",
+      "actual_raw": null,
+      "actual_brief": null,
+      "fault_class": "failed_run_no_local_history",
+      "phase1_expectation": "Fixture tests must use tmp_path isolation; do not treat missing 08-26 as proof of coverage gap."
+    },
+    {
+      "id": "H07",
+      "title": "Normal 2026-08-27 production day",
+      "event_time": "2026-08-27",
+      "actual_brief": "data/briefs/2026-08-27.json",
+      "run_stats": {"recent_24h": 59, "stories": 17, "main_brief_items": 8},
+      "fault_class": "negative_control_repeat_and_volume",
+      "phase1_expectation": "Reliability work must not treat more items as automatically better."
+    }
+  ]
+}
