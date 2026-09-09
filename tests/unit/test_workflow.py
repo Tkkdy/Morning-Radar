@@ -22,12 +22,20 @@ def test_notification_runs_only_after_pages_deploy_without_push_loop() -> None:
     workflow = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
 
     deploy_index = workflow.index("- name: Deploy GitHub Pages")
+    record_index = workflow.index("- name: Record successful Pages deployment")
+    deploy_state_index = workflow.index("- name: Commit deployment confirmation")
     notify_index = workflow.index("- name: Notify after successful Pages deployment")
     state_index = workflow.index("- name: Commit notification state")
 
     assert "--skip-notify" in workflow
-    assert deploy_index < notify_index < state_index
+    assert "--batch-id" in workflow
+    assert "--brief-hash" in workflow
+    assert deploy_index < record_index < deploy_state_index < notify_index < state_index
+    assert "python -m morning_radar collect" in workflow
+    assert "python -m morning_radar process" in workflow
+    assert "python -m morning_radar record-deploy" in workflow
     assert "python -m morning_radar notify-latest" in workflow
+    assert "!(inputs.dry_run || false) && !(inputs.fixtures || false)" in workflow
     assert "!(inputs.dry_run || false) && !(inputs.fixtures || false)" in workflow
     assert "\n  push:" not in workflow
 
@@ -122,3 +130,17 @@ def test_pr_ci_is_read_only_and_offline() -> None:
     assert "secrets." not in workflow
     assert "deploy-pages" not in workflow
     assert "git push" not in workflow
+
+
+def test_post_daily_skips_fixture_and_dry_run_daily_runs() -> None:
+    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
+    assert "display_title, '(fixtures)'" in workflow
+    assert "display_title, '(dry-run)'" in workflow
+
+
+def test_daily_run_name_distinguishes_preview_from_production() -> None:
+    workflow = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
+    assert "run-name:" in workflow
+    assert "dry-run" in workflow
+    assert "fixtures" in workflow
+    assert "production" in workflow

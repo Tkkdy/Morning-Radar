@@ -16,17 +16,6 @@ from morning_radar.briefing import (
     generate_daily_brief_with_memory,
     ranked_eligible_stories,
 )
-from morning_radar.collectors import (
-    AIHOTCollector,
-    CollectionResult,
-    FixtureCollector,
-    collect_available,
-)
-from morning_radar.collectors.github import GitHubCollector
-from morning_radar.collectors.hacker_news import HackerNewsCollector
-from morning_radar.collectors.http import HttpClient
-from morning_radar.collectors.market import MarketCollector, YFinanceHistoryProvider
-from morning_radar.collectors.rss import RSSCollector
 from morning_radar.continuity.candidates import StoryMemory
 from morning_radar.continuity.engine import ContinuityRunResult, resolve_daily_continuity
 from morning_radar.continuity.history import (
@@ -62,11 +51,6 @@ from morning_radar.research.engine import eligible_story_inputs
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
-    PersonConfig,
-    RepositoryConfig,
-    SourceConfig,
-    TopicConfig,
-    active_practitioner_sources,
     load_model,
     load_model_list,
     practitioner_coverage_stats,
@@ -79,7 +63,7 @@ from morning_radar.tendencies import (
     project_tendencies,
     reduce_tendencies,
 )
-from morning_radar.time_utils import display_date, utc_now
+from morning_radar.time_utils import display_date
 from morning_radar.trends import TrendDetector
 
 LOGGER = logging.getLogger(__name__)
@@ -143,10 +127,369 @@ def _resolve_fast_continuity(
     )
 
 
+
+
+
+
+def _brief_hash(brief) -> str:
+    import hashlib
+    import json
+
+    payload = json.dumps(
+        brief.model_dump(mode="json"),
+        ensure_ascii=False,
+        sort_keys=True,
+        separators=(",", ":"),
+    )
+    return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
+
+
+def _artifact_digest(path: Path) -> str:
+    from morning_radar.intake.generation import artifact_digest
+
+    return artifact_digest(path)
+
+
+def _merge_same_day_stories(output_root, brief_date, stories, *, replaced_item_ids: set[str]):
+    from morning_radar.models import Story
+    from morning_radar.processing.story_builder import rank_stories
+    from morning_radar.storage import load_models
+
+    path = output_root / "data/stories" / f"{brief_date}.json"
+    previous = load_models(path, Story) if path.exists() else []
+    kept = []
+    for story in previous:
+        if replaced_item_ids.intersection(story.source_item_ids):
+            continue
+        kept.append(story)
+    merged = {story.id: story for story in kept}
+    for story in stories:
+        merged[story.id] = story
+    return rank_stories(list(merged.values()))
+
+
+def _record_site_build(output_root, brief) -> None:
+    from morning_radar.storage import write_json
+
+    write_json(
+        output_root / "data/state/site_build.json",
+        {
+            "brief_date": str(brief.date),
+            "brief_hash": _brief_hash(brief),
+        },
+    )
+
+
+def _site_matches_brief(output_root, brief) -> bool:
+    from morning_radar.storage import read_json
+
+    index = output_root / "site/index.html"
+    marker = output_root / "data/state/site_build.json"
+    if not index.exists() or not marker.exists():
+        return False
+    try:
+        payload = read_json(marker)
+    except (OSError, ValueError):
+        return False
+    return (
+        payload.get("brief_date") == str(brief.date)
+        and payload.get("brief_hash") == _brief_hash(brief)
+    )
+
+def _displayed_story_ids(brief) -> set[str]:
+    ids: set[str] = set()
+    for name in (
+        "top_stories",
+        "market_and_companies",
+        "ai_and_open_source",
+        "trend_radar",
+        "developer_discussions",
+        "other_reading",
+    ):
+        for item in getattr(brief, name, []) or []:
+            ids.update(getattr(item, "story_ids", []) or [])
+    return ids
+
+
+def _record_processing_outcomes(
+    prepared,
+    *,
+    stories,
+    story_candidate_items,
+    research_result,
+    story_item_outcomes,
+    brief,
+    relevance_threshold,
+    importance_threshold,
+    persist: bool = True,
+) -> None:
+    from morning_radar.intake.models import ProcessingStatus, PublishStatus, ReasonCode
+    from morning_radar.models import SourceRole
+
+    selected_item_ids = {item.id for item in story_candidate_items}
+    stories_by_item: dict[str, object] = {}
+    for story in stories:
+        for item_id in story.source_item_ids:
+            stories_by_item[item_id] = story
+    displayed = _displayed_story_ids(brief)
+    now = prepared.process_now
+    outcomes = getattr(research_result, "item_outcomes", {}) or {}
+    for record in prepared.selection.records:
+        story = stories_by_item.get(record.item.id)
+        research_reason = outcomes.get(record.item.id)
+        if story is None:
+            if research_reason in {
+                ReasonCode.RESEARCH_OUTPUT_INVALID,
+                ReasonCode.RESEARCH_OUTPUT_TRUNCATED,
+                ReasonCode.RESEARCH_CASE_MISSING,
+            }:
+                processing = ProcessingStatus.FAILED_RETRY
+                reason = research_reason
+                evidence = None
+            elif research_reason is ReasonCode.WAITING_EVIDENCE:
+                processing = ProcessingStatus.WAITING_EVIDENCE
+                reason = ReasonCode.WAITING_EVIDENCE
+                evidence = None
+            elif story_item_outcomes.get(record.item.id) == ReasonCode.CLASSIFIED_IRRELEVANT.value:
+                processing = ProcessingStatus.EXCLUDED
+                reason = ReasonCode.CLASSIFIED_IRRELEVANT
+                evidence = None
+            elif story_item_outcomes.get(record.item.id) == ReasonCode.MERGE_FAILED.value:
+                processing = ProcessingStatus.FAILED_RETRY
+                reason = ReasonCode.MERGE_FAILED
+                evidence = None
+            elif story_item_outcomes.get(record.item.id) == ReasonCode.SCORE_FAILED.value:
+                processing = ProcessingStatus.FAILED_RETRY
+                reason = ReasonCode.SCORE_FAILED
+                evidence = None
+            elif research_reason is ReasonCode.RESEARCH_OUT_OF_SCOPE:
+                processing = ProcessingStatus.EXCLUDED
+                reason = ReasonCode.RESEARCH_OUT_OF_SCOPE
+                evidence = None
+            elif research_reason is ReasonCode.RESEARCH_DEFERRED:
+                processing = ProcessingStatus.DEFERRED_BUDGET
+                reason = ReasonCode.RESEARCH_DEFERRED
+                evidence = None
+            elif research_reason is ReasonCode.RESEARCH_FATAL:
+                processing = ProcessingStatus.FAILED_RETRY
+                reason = ReasonCode.RESEARCH_FATAL
+                evidence = None
+            elif record.item.id not in selected_item_ids:
+                if record.item.source_role in {
+                    SourceRole.PRACTITIONER,
+                    SourceRole.UPSTREAM_DISCOVERY,
+                }:
+                    processing = ProcessingStatus.WAITING_EVIDENCE
+                    reason = ReasonCode.WAITING_EVIDENCE
+                else:
+                    processing = ProcessingStatus.EXCLUDED
+                    reason = ReasonCode.CLASSIFIED_IRRELEVANT
+                evidence = None
+            else:
+                processing = ProcessingStatus.FAILED_RETRY
+                reason = ReasonCode.STORY_BUILD_FAILED
+                evidence = None
+            current = prepared.ledger.get(record.input_id, record.content_version)
+            attempts = (current.attempt_count if current else 0)
+            if processing is ProcessingStatus.FAILED_RETRY:
+                attempts += 1
+            updates = {
+                "processing": processing,
+                "stage": "story",
+                "outcome": reason.value if reason else "not_promoted",
+                "reason_code": reason,
+                "processed_at": now,
+                "attempt_count": attempts,
+            }
+            if evidence is not None:
+                updates["evidence"] = evidence
+            prepared.ledger.update(
+                record.input_id,
+                record.content_version,
+                now=now,
+                **updates,
+            )
+            continue
+        below = story.relevance_score < relevance_threshold
+        merged = story.id if len(story.source_item_ids) > 1 else None
+        shown = story.id in displayed
+        prepared.ledger.update(
+            record.input_id,
+            record.content_version,
+            now=now,
+            processing=ProcessingStatus.COMPLETED,
+            stage="story",
+            outcome="below_relevance_threshold" if below else "processed",
+            reason_code=(
+                ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED
+            ),
+            story_id=story.id,
+            merged_into=merged,
+            relevance_score=story.relevance_score,
+            importance_score=story.importance_score,
+            relevance_threshold=relevance_threshold,
+            importance_threshold=importance_threshold,
+            score_rationale=(
+                f"relevance={story.relevance_score:.2f} "
+                f"threshold={relevance_threshold:.2f}"
+            ),
+            processed_at=now,
+            publish=PublishStatus.GENERATED if shown else PublishStatus.NOT_GENERATED,
+            brief_date=str(brief.date) if shown else None,
+        )
+    if persist:
+        prepared.ledger.save()
+
+
+
+def _mark_superseded_versions(prepared) -> None:
+    from morning_radar.intake.models import ProcessingStatus, ReasonCode
+
+    now = prepared.process_now
+    unfinished = {
+        ProcessingStatus.UNPROCESSED,
+        ProcessingStatus.IN_PROGRESS,
+        ProcessingStatus.DEFERRED_BUDGET,
+        ProcessingStatus.FAILED_RETRY,
+    }
+    for record in prepared.selection.records:
+        current = prepared.ledger.get(record.input_id, record.content_version)
+        if current is None or current.processing is not ProcessingStatus.COMPLETED:
+            continue
+        for other in prepared.ledger.find_by_input_id(record.input_id):
+            if other.content_version == record.content_version:
+                continue
+            if other.processing not in unfinished:
+                continue
+            winner_obs = current.durable_at or current.first_seen_at
+            other_obs = other.durable_at or other.first_seen_at
+            if other_obs >= winner_obs:
+                continue
+            prepared.ledger.update(
+                other.input_id,
+                other.content_version,
+                now=now,
+                processing=ProcessingStatus.EXCLUDED,
+                reason_code=ReasonCode.SUPERSEDED,
+                outcome="superseded",
+                superseded_by=record.content_version,
+                stage="version",
+            )
+
+
+
+def _generation_result_keys(prepared) -> set[str]:
+    from morning_radar.intake.identity import intake_key
+    from morning_radar.intake.models import ReasonCode
+
+    keys = {
+        intake_key(record.input_id, record.content_version)
+        for record in prepared.selection.records
+    }
+    selected_inputs = {record.input_id for record in prepared.selection.records}
+    for entry in prepared.ledger.ledger.entries.values():
+        if entry.reason_code is ReasonCode.SUPERSEDED and entry.input_id in selected_inputs:
+            keys.add(intake_key(entry.input_id, entry.content_version))
+    return keys
+
+
+def _mark_brief_generated(output_root, brief) -> None:
+    from morning_radar.intake.publish import PublishStore
+
+    artifact_path = output_root / "data/briefs" / f"{brief.date}.json"
+    digest = _artifact_digest(artifact_path)
+    PublishStore(output_root / "data/state/publish.json").mark_generated(
+        brief_date=str(brief.date),
+        brief_hash=digest,
+        generated_at=brief.generated_at,
+        artifact_path=f"data/briefs/{brief.date}.json",
+    )
+
+
+
+def _finalize_publish_status(
+    prepared,
+    brief,
+    *,
+    persist: bool = True,
+    brief_hash: str | None = None,
+) -> None:
+    from morning_radar.intake.models import ProcessingStatus, PublishStatus, ReasonCode
+    from morning_radar.intake.publish import PublishStore
+
+    store_path = prepared.intake.output_root / "data/state/publish.json"
+    record = PublishStore(store_path).get(str(brief.date))
+    if brief_hash is None:
+        brief_hash = record.brief_hash if record else None
+    now = prepared.process_now
+    displayed = _displayed_story_ids(brief)
+    shown_keys = {
+        (entry.input_id, entry.content_version)
+        for entry in prepared.ledger.ledger.entries.values()
+        if entry.story_id in displayed
+        and entry.processing is ProcessingStatus.COMPLETED
+        and entry.reason_code is not ReasonCode.SUPERSEDED
+    }
+    for entry in list(prepared.ledger.ledger.entries.values()):
+        key = (entry.input_id, entry.content_version)
+        if key not in shown_keys:
+            continue
+        prepared.ledger.update(
+            entry.input_id,
+            entry.content_version,
+            now=now,
+            publish=PublishStatus.GENERATED,
+            brief_date=str(brief.date),
+            brief_hash=brief_hash,
+            reason_code=entry.reason_code or ReasonCode.GENERATED_NOT_DEPLOYED,
+        )
+    if persist:
+        prepared.ledger.save()
+
+
 class MorningRadarPipeline:
     def __init__(self, project_root: Path = Path(".")) -> None:
         self.root = project_root.resolve()
         self.app = load_model(self.root / "config/app.yaml", AppConfig)
+
+    def collect(
+        self,
+        *,
+        fixtures: bool = False,
+        dry_run: bool = False,
+        now=None,
+    ):
+        from morning_radar.intake.service import collect_intake
+
+        return collect_intake(
+            self.root,
+            self.app,
+            fixtures=fixtures,
+            dry_run=dry_run,
+            now=now,
+        )
+
+    def process(
+        self,
+        *,
+        fixtures: bool = False,
+        dry_run: bool = False,
+        force_notify: bool = False,
+        notify: bool = True,
+        intake=None,
+        batch_id: str | None = None,
+        now=None,
+    ) -> DailyBrief:
+        return self.run(
+            fixtures=fixtures,
+            dry_run=dry_run,
+            force_notify=force_notify,
+            notify=notify,
+            intake=intake,
+            collect_first=False,
+            batch_id=batch_id,
+            now=now,
+        )
 
     def run(
         self,
@@ -155,25 +498,70 @@ class MorningRadarPipeline:
         dry_run: bool = False,
         force_notify: bool = False,
         notify: bool = True,
+        intake=None,
+        collect_first: bool | None = None,
+        batch_id: str | None = None,
+        now=None,
     ) -> DailyBrief:
-        history_root = self.root
-        output_root = self.root / ".tmp/dry-run" if dry_run else self.root
-        if fixtures:
-            raw_items = FixtureCollector(self.root / "fixtures/sample_items.json").collect()
-            now = max(item.fetched_at for item in raw_items)
-            provider = FakeAIProvider()
-            collection = CollectionResult(
-                items=raw_items,
-                raw_collected=len(raw_items),
-                after_buffer=len(raw_items),
-                after_dedup=len(raw_items),
+        from morning_radar.intake.generation import heal_incomplete_generation
+        from morning_radar.intake.service import (
+            collect_intake,
+            isolated_output_root,
+            prepare_process,
+        )
+
+        if collect_first is None:
+            collect_first = intake is None and batch_id is None
+        if collect_first:
+            intake = collect_intake(
+                self.root,
+                self.app,
+                fixtures=fixtures,
+                dry_run=dry_run,
+                now=now,
             )
-            people = load_model_list(self.root / "config/people.yaml", "people", PersonConfig)
+        heal_incomplete_generation(
+            isolated_output_root(self.root, fixtures=fixtures, dry_run=dry_run)
+        )
+        prepared = prepare_process(
+            self.root,
+            self.app,
+            fixtures=fixtures,
+            dry_run=dry_run,
+            intake=intake,
+            batch_id=batch_id,
+            now=now,
+        )
+        history_root = self.root
+        output_root = prepared.intake.output_root
+        now = prepared.process_now
+        if not fixtures and not dry_run and not prepared.selection.records:
+            existing_brief = output_root / "data/briefs" / f"{display_date(now)}.json"
+            if existing_brief.exists():
+                from morning_radar.intake.generation import generation_is_complete
+                from morning_radar.models import DailyBrief as SavedBrief
+                from morning_radar.storage import load_model as load_saved_brief
+
+                if not generation_is_complete(output_root, str(display_date(now))):
+                    raise RuntimeError("Incomplete generation cannot be reused")
+                brief = load_saved_brief(existing_brief, SavedBrief)
+                self._ensure_site_built(
+                    output_root=output_root,
+                    history_root=history_root,
+                    brief=brief,
+                )
+                return brief
+        collection = prepared.intake.collection
+        people = prepared.people
+        raw_items = [record.item for record in prepared.intake.checkpoint.items]
+        recent = filter_news_window(
+            raw_items,
+            now=now,
+            hours=self.app.news_window_hours,
+        )
+        if fixtures:
+            provider = FakeAIProvider()
         else:
-            now = utc_now()
-            collection = self._production_collectors(output_root, history_root, now)
-            raw_items = collection.items
-            people = load_model_list(self.root / "config/people.yaml", "people", PersonConfig)
             provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
                     self.app.maximum_ai_calls,
@@ -183,41 +571,44 @@ class MorningRadarPipeline:
                 ),
                 prompt_dir=self.root / "prompts",
             )
-
-        recent = filter_news_window(
-            raw_items,
-            now=now,
-            hours=self.app.news_window_hours,
-        )
+        process_items = prepared.selection.items
         story_candidate_items, routine_market_suppressed = filter_story_candidate_inputs(
-            recent,
+            process_items,
             market_movement_threshold=self.app.market_movement_threshold,
         )
         research_result = resolve_research(
-            recent,
+            process_items,
             provider=provider,
             maximum_cases=self.app.maximum_research_cases,
             maximum_radar_signals=self.app.maximum_radar_signals,
             maximum_input_characters=(self.app.maximum_research_input_characters),
+            item_retry_attempts=self.app.research_item_retry_attempts,
+            split_retry_attempts=self.app.research_split_retry_attempts,
         )
         story_candidate_items = eligible_story_inputs(
             story_candidate_items,
             verified_item_ids=research_result.verified_item_ids,
         )
-        # Reserve calls for classification, continuity, brief, direction, research,
-        # and tendency. A rejected two-item candidate group costs five calls:
-        # one group merge plus merge + score for each resulting Story.
-        ai_candidate_limit = _call_safe_story_candidate_limit(
-            maximum_calls=self.app.maximum_ai_calls,
-            maximum_items=self.app.maximum_ai_items,
-        )
+        brief_date = display_date(now)
+        story_item_outcomes: dict[str, str] = {}
         stories = build_stories(
             story_candidate_items,
             provider=provider,
             now=now,
-            maximum_ai_items=ai_candidate_limit,
+            maximum_ai_items=None,
+            item_outcomes=story_item_outcomes,
         )
-        brief_date = display_date(now)
+        new_stories = stories
+        stories = _merge_same_day_stories(
+            output_root,
+            brief_date,
+            new_stories,
+            replaced_item_ids={
+                item_id
+                for story in new_stories
+                for item_id in story.source_item_ids
+            },
+        )
         editorial_result = evaluate_editorial(
             stories,
             provider=provider,
@@ -598,7 +989,19 @@ class MorningRadarPipeline:
         )
         if usage_stats:
             LOGGER.info("AI token usage by task: %s", usage_stats)
-        self._save_outputs(
+        _record_processing_outcomes(
+            prepared,
+            stories=new_stories,
+            story_candidate_items=story_candidate_items,
+            research_result=research_result,
+            story_item_outcomes=story_item_outcomes,
+            brief=brief,
+            relevance_threshold=self.app.relevance_threshold,
+            importance_threshold=self.app.importance_threshold,
+            persist=False,
+        )
+        _mark_superseded_versions(prepared)
+        self._commit_generation(
             output_root,
             brief_date,
             raw_items,
@@ -609,77 +1012,80 @@ class MorningRadarPipeline:
             research_result.radar_signals,
             tendency_result.daily,
             editorial_result.daily,
+            ledger=prepared.ledger,
+            result_keys=_generation_result_keys(prepared),
         )
+        digest = _artifact_digest(output_root / "data/briefs" / f"{brief_date}.json")
+        _mark_brief_generated(output_root, brief)
+        _finalize_publish_status(prepared, brief, brief_hash=digest)
         self.build_site(output_root=output_root, history_root=history_root)
+        _record_site_build(output_root, brief)
         if notify and not fixtures and not dry_run:
             self._notifier(output_root).notify(brief, force=force_notify)
         return brief
 
     def notify_latest(self, *, force: bool = False) -> bool:
+        from morning_radar.intake.generation import (
+            generation_is_complete,
+            heal_incomplete_generation,
+        )
+
+        heal_incomplete_generation(self.root)
         brief_paths = sorted((self.root / "data/briefs").glob("*.json"))
         if not brief_paths:
             raise FileNotFoundError("No saved DailyBrief is available for notification")
         brief = load_json_model(brief_paths[-1], DailyBrief)
+        if not generation_is_complete(self.root, str(brief.date)):
+            raise RuntimeError(f"Incomplete or untrusted generation for {brief.date}")
+        brief_paths = sorted((self.root / "data/briefs").glob("*.json"))
+        brief = load_json_model(brief_paths[-1], DailyBrief)
         return self._notifier(self.root).notify(brief, force=force)
 
-    def _production_collectors(
+    def _commit_generation(
         self,
-        output_root: Path,
-        history_root: Path,
-        now,
-    ) -> CollectionResult:
-        sources = load_model_list(self.root / "config/sources.yaml", "sources", SourceConfig)
-        people = load_model_list(self.root / "config/people.yaml", "people", PersonConfig)
-        sources.extend(active_practitioner_sources(people))
-        topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
-        repositories = load_model_list(
-            self.root / "config/repositories.yaml", "repositories", RepositoryConfig
+        root,
+        brief_date,
+        raw,
+        stories,
+        signals,
+        brief,
+        continuity,
+        radar_signals,
+        tendencies,
+        editorial,
+        *,
+        ledger,
+        result_keys: set[str] | None = None,
+    ) -> None:
+        from morning_radar.intake.generation import (
+            commit_prepared_generation,
+            compute_generation_id,
+            save_prepared_generation,
         )
-        companies = load_model_list(self.root / "config/companies.yaml", "companies", CompanyConfig)
-        http = HttpClient(
-            timeout_seconds=self.app.request_timeout_seconds,
-            attempts=self.app.request_retry_attempts,
-        )
-        keywords = list(dict.fromkeys(word for topic in topics for word in topic.keywords))
-        collectors = [
-            RSSCollector(
-                sources,
-                http=http,
-                state_path=output_root / "data/state/rss.json",
-                now=now,
-            ),
-            GitHubCollector(
-                repositories,
-                http=http,
-                snapshot_dir=output_root / "data/snapshots/github",
-                history_snapshot_dir=history_root / "data/snapshots/github",
-                token=os.getenv("GITHUB_TOKEN"),
-                now=now,
-            ),
-            HackerNewsCollector(http=http, keywords=keywords, now=now),
-            MarketCollector(
-                companies,
-                provider=YFinanceHistoryProvider(),
-                snapshot_dir=output_root / "data/snapshots/market",
-                now=now,
-            ),
-            AIHOTCollector(
-                self.app.aihot,
-                http=http,
-                state_path=output_root / "data/state/aihot.json",
-                now=now,
-            ),
-        ]
-        collection_hours = self.app.news_window_hours + self.app.collection_buffer_hours
-        return collect_available(
-            collectors,
-            filter_items=lambda items: filter_news_window(
-                items,
-                now=now,
-                hours=collection_hours,
-            ),
-            maximum_items=self.app.maximum_raw_items,
-        )
+        outputs = {
+                "raw": [item.model_dump(mode="json") for item in raw],
+                "stories": [item.model_dump(mode="json") for item in stories],
+                "signals": [item.model_dump(mode="json") for item in signals],
+                "brief": brief.model_dump(mode="json"),
+                "continuity": continuity.model_dump(mode="json"),
+                "radar_signals": [item.model_dump(mode="json") for item in radar_signals],
+                "tendencies": (
+                    tendencies.model_dump(mode="json")
+                    if brief.run_stats.get("fixture_mode")
+                    else None
+                ),
+                "editorial": editorial.model_dump(mode="json") if editorial is not None else None,
+        }
+        payload = {
+            "brief_date": str(brief_date),
+            "generation_id": compute_generation_id(str(brief_date), outputs),
+            "result_keys": sorted(result_keys or []),
+            "selection_keys": sorted(result_keys or []),
+            "outputs": outputs,
+            "ledger": ledger.ledger.model_dump(mode="json"),
+        }
+        save_prepared_generation(root, payload)
+        commit_prepared_generation(root, payload)
 
     def _save_outputs(
         self,
@@ -739,6 +1145,14 @@ class MorningRadarPipeline:
             values.extend(load_models(path, model_type))
         return values
 
+    def _ensure_site_built(self, *, output_root, history_root, brief) -> None:
+        if _site_matches_brief(output_root, brief):
+            return
+        self.build_site(output_root=output_root, history_root=history_root)
+        _record_site_build(output_root, brief)
+        if not _site_matches_brief(output_root, brief):
+            raise RuntimeError("Site build did not produce the current brief")
+
     def build_site(
         self,
         *,
@@ -747,6 +1161,9 @@ class MorningRadarPipeline:
     ) -> None:
         output = output_root or self.root
         history = history_root or self.root
+        from morning_radar.intake.generation import heal_incomplete_generation
+
+        heal_incomplete_generation(output)
         brief_by_date: dict[date, DailyBrief] = {}
         for root in dict.fromkeys((history, output)):
             for path in sorted((root / "data/briefs").glob("*.json")):
