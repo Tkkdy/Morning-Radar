@@ -1,0 +1,27 @@
+[
+  {
+    "claim": "社区发现站点 opusfived.dev 展示了一个以自然语言指令“Claude, change the ‘Add to Cart’ button to blue”让 Claude 修改网页按钮颜色的演示。",
+    "id": "radar-391aa96a35e5dc7e7bed",
+    "missing_evidence": [
+      "演示的实际运行记录、视频或可复现步骤",
+      "所用模型/Agent 的具体名称与版本",
+      "该站点是真实产品、实验演示还是营销页面",
+      "修改结果的正确性与是否需要人工复核"
+    ],
+    "observed_at": "2026-09-10T01:26:02.505830Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-ac93aa5b8899e1f4422d",
+        "source_role": "community_discovery",
+        "url": "https://opusfived.dev/"
+      }
+    ],
+    "uncertainty": "证据仅有站点链接与一句指令式标题，无法确认演示真实性、完成质量，也无法判断是否只是常见的 AI 前端生成类演示。",
+    "why_notable": "若属实，这是用自然语言直接驱动编码 Agent 修改前端 UI 的具体使用模式，反映 Agent 从写代码走向直接操作产品界面的路径，值得作为工作流变化的观察点。"
+  }
+]

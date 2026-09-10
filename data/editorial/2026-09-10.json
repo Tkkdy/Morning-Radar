@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-10",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认推进 CUDA Rust，但两条路径具体差异与可用性未明，值得展开但需标注未验证细节。",
+      "retain_for_trends": true,
+      "story_id": "story-308216ddb7cc6b2afa8d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cuda-language-ecosystem-expansion",
+        "gpu-kernel-authoring-language-diversification"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "企业管理员可集中管控代理操作是 AI 编码工具治理的实质机制变化，值得记录。",
+      "retain_for_trends": true,
+      "story_id": "story-db108edf57882838fa5e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-enterprise-permission-control",
+        "agent-action-governance"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "后量子加密向源站链路推进有机制意义，但性能与可用性数据缺失，仅作轻量记录。",
+      "retain_for_trends": true,
+      "story_id": "story-e3f4b2ce677a4b775e9b",
+      "support_for_story_id": null,
+      "trend_links": [
+        "post-quantum-tls-origin-adoption",
+        "automated-crypto-negotiation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "创纪录补丁数量具安全实践关注度，但数字缺官方独立核实，AI 攻击因果归因仅为报道推测。",
+      "retain_for_trends": true,
+      "story_id": "story-0ad34c07d2f1dc604e1e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-assisted-exploit-volume-growth",
+        "patch-volume-record-break"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "EPD 解聚是推理服务架构的具体工程模式，属方法论文章，保留为部署优化趋势线索。",
+      "retain_for_trends": true,
+      "story_id": "story-956707135e348ea8a956",
+      "support_for_story_id": null,
+      "trend_links": [
+        "multimodal-inference-disaggregation",
+        "encode-prefill-decode-serving-optimization"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方版本发布确认 Windows on Arm 支持，扩大 CUDA 硬件与平台覆盖面，具持续跟踪价值。",
+      "retain_for_trends": true,
+      "story_id": "story-dd6916aa5133845c98af",
+      "support_for_story_id": null,
+      "trend_links": [
+        "windows-on-arm-gpu-toolchain-support",
+        "cuda-shared-gpu-control"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "常规版本迭代，Linux ARM64 支持与 Rust 查询扩展仅值一句，但保留为工具链覆盖趋势线索。",
+      "retain_for_trends": true,
+      "story_id": "story-d37b7fd7391abfdca45e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "linux-arm64-toolchain-coverage",
+        "sast-rust-security-query-expansion"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "一次性接入多类模型并披露 780B MoE 架构细节，但基准与许可未验证，属可追踪的开放模型接入信号。",
+      "retain_for_trends": true,
+      "story_id": "story-9e0183f6d13a8d2e51ad",
+      "support_for_story_id": null,
+      "trend_links": [
+        "moe-long-context-architecture-convergence",
+        "small-parameter-end-to-end-asr",
+        "transformers-multimodal-model-onboarding"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "HN 未验证线索，无摘要正文，事件含义无法确认，不值得读者注意力或趋势保留。",
+      "retain_for_trends": false,
+      "story_id": "story-928b1296c4749fe0a4ea",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-10T01:26:19.218028Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

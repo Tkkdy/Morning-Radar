@@ -1,0 +1,555 @@
+[
+  {
+    "analysis": [
+      "NVIDIA 此举延续了将 CUDA 编程能力扩展到新语言生态的策略，可能吸引更多使用 Rust 的开发者进入 GPU 计算领域。"
+    ],
+    "canonical_title": "NVIDIA 宣布推进 CUDA Rust，提供两条编写 GPU Kernel 的路径",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "NVIDIA",
+      "CUDA"
+    ],
+    "facts": [
+      "NVIDIA 在 2026 年 9 月发布文章，宣布将原生 GPU 编程引入 Rust。",
+      "该文章标题为“Introducing CUDA Rust: Two Tracks for Writing GPU Kernels”，发布在 NVIDIA Developer Blog。",
+      "文章将 CUDA C++ 与 CUDA Python 描述为成熟、企业级的工具链。"
+    ],
+    "id": "story-308216ddb7cc6b2afa8d",
+    "importance_score": 0.7,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/",
+    "product_names": [
+      "CUDA Rust",
+      "CUDA C++",
+      "CUDA Python"
+    ],
+    "published_at": "2026-09-08T12:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a97d132c2500d2b3d417"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-a97d132c2500d2b3d417",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing CUDA Rust: Two Tracks for Writing GPU Kernels",
+        "url": "https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/introducing-cuda-rust-two-tracks-for-writing-gpu-kernels/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "GPU 编程",
+      "Rust 语言支持"
+    ],
+    "uncertainties": [
+      "NVIDIA 尚未在已获取内容中说明 CUDA Rust 两条路径的具体差异、发布时间表或可用性状态。",
+      "CUDA Rust 是否为正式产品、预览版或仅实验性项目，目前无法从输入确认。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub 推出面向企业管理的 GitHub Copilot 代理操作集中权限控制",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot Business",
+      "GitHub Copilot Enterprise"
+    ],
+    "facts": [
+      "GitHub 发布更新，面向 GitHub Copilot Business 和 GitHub Copilot Enterprise 管理员，提供集中控制代理操作的能力。",
+      "管理员可集中设置代理操作为：被阻止、需要人工审批、或无需提示直接执行。",
+      "该更新来自 GitHub Changelog，发布时间为 2026-09-09T20:08:14Z。"
+    ],
+    "id": "story-db108edf57882838fa5e",
+    "importance_score": 0.75,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-09-09-enterprise-managed-permissions-for-github-copilot-agent-operations",
+    "product_names": [
+      "GitHub Copilot Business",
+      "GitHub Copilot Enterprise"
+    ],
+    "published_at": "2026-09-09T20:08:14Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-faa37362568657fbf7a1"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T20:08:14Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-faa37362568657fbf7a1",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Enterprise managed permissions for GitHub Copilot agent operations",
+        "url": "https://github.blog/changelog/2026-09-09-enterprise-managed-permissions-for-github-copilot-agent-operations"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-09-enterprise-managed-permissions-for-github-copilot-agent-operations"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "企业权限管理",
+      "AI 代理操作管控"
+    ],
+    "uncertainties": [
+      "输入未说明该权限控制所覆盖的具体代理操作范围、配置粒度、默认策略，以及是否已对全部 Copilot Business/Enterprise 客户开放。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [
+      "该功能通过自动探测源站能力，避免了手动配置密钥交换算法，有助于后量子加密在源站方向的规模化落地。",
+      "在源站支持的前提下优先使用后量子算法，意味着 Cloudflare 正在将后量子安全从边缘推向源站链路。"
+    ],
+    "canonical_title": "Cloudflare 推出 Automatic Key Exchange：为源站握手优先采用后量子加密算法",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "Cloudflare"
+    ],
+    "facts": [
+      "Cloudflare 发布 Automatic Key Exchange 功能，用于探测支持 TLS 1.3 的客户源站所支持的密钥协商算法。",
+      "Cloudflare 表示，在连接源站时会优先采用安全性最高的算法，只要源站支持，就优先使用后量子连接。",
+      "Cloudflare 称该功能面向每日 450 亿次连接（且数量仍在增长）的场景。"
+    ],
+    "id": "story-e3f4b2ce677a4b775e9b",
+    "importance_score": 0.78,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://blog.cloudflare.com/automatic-key-exchange-for-origins/",
+    "product_names": [
+      "Automatic Key Exchange"
+    ],
+    "published_at": "2026-09-08T13:10:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-aab995f606f0dc7198f1"
+    ],
+    "source_refs": [
+      {
+        "author": "Alex Krivit",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T13:10:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-aab995f606f0dc7198f1",
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Automatic Key Exchange: faster, post-quantum secure origin handshakes for 45 billion daily connections (and counting)",
+        "url": "https://blog.cloudflare.com/automatic-key-exchange-for-origins/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/automatic-key-exchange-for-origins/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "后量子加密",
+      "TLS 1.3",
+      "源站握手",
+      "密钥交换"
+    ],
+    "uncertainties": [
+      "自动探测在源站仅部分支持后量子算法时的具体回退行为未在摘要中说明。",
+      "该功能是否已全面可用、默认启用或需客户配置，输入未明确。",
+      "后量子连接对握手延迟和性能的实际影响未提供数据。",
+      "每日 450 亿次连接的具体统计口径和时间范围未说明。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [
+      "该报道将本次补丁数量激增与预期中的 AI 辅助攻击浪潮相关联，认为安全团队正在提前大量发布补丁以应对这一威胁。"
+    ],
+    "canonical_title": "微软本月补丁更新修复创纪录的 972 个漏洞，其中 112 个为严重级别",
+    "category": "security",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Microsoft"
+    ],
+    "facts": [
+      "Ars Technica 报道称，微软本月补丁更新修复了创纪录的 972 个漏洞，其中 112 个为严重级别。"
+    ],
+    "id": "story-0ad34c07d2f1dc604e1e",
+    "importance_score": 0.8,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://arstechnica.com/security/2026/09/microsoft-patches-a-record-972-vulnerabilities-112-of-them-critical/",
+    "product_names": [],
+    "published_at": "2026-09-08T21:11:46Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-2cf2324cd2db88adca9c"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-08T21:11:46Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-2cf2324cd2db88adca9c",
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Why this month's Microsoft patch release is a doozy",
+        "url": "https://arstechnica.com/security/2026/09/microsoft-patches-a-record-972-vulnerabilities-112-of-them-critical/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/09/microsoft-patches-a-record-972-vulnerabilities-112-of-them-critical/"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI-assisted attacks",
+      "vulnerability patching"
+    ],
+    "uncertainties": [
+      "所引内容为摘要性表述，未提供微软官方公告或具体漏洞列表以独立核实 972 和 112 这两个数字。",
+      "AI 辅助攻击即将大幅增加的预期在报道中未给出具体证据或来源。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "NVIDIA 开发者博客：何时使用 Encode-Prefill-Decode 解聚加速多模态模型服务",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布由 Tanya Lenz 撰写的文章《When to Use Encode-Prefill-Decode Disaggregation to Accelerate Multimodal Model Serving》，发布时间为 2026-09-09T20:31:04Z。",
+      "文章指出 Encode-Prefill-Decode（EPD）解聚是一种面向多模态模型的推理优化技术，它将视觉编码器阶段与 prefill 阶段分离。"
+    ],
+    "id": "story-956707135e348ea8a956",
+    "importance_score": 0.62,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://developer.nvidia.com/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/",
+    "product_names": [],
+    "published_at": "2026-09-09T20:31:04Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-778743892f0688c6227e"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T20:31:04Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-778743892f0688c6227e",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "When to Use Encode-Prefill-Decode Disaggregation to Accelerate Multimodal Model Serving",
+        "url": "https://developer.nvidia.com/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/when-to-use-encode-prefill-decode-disaggregation-to-accelerate-multimodal-model-serving/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [
+      "Windows on Arm 支持意味着 CUDA 开发者工具链将覆盖 Arm 架构 Windows 设备，可能扩大 NVIDIA GPU 在该平台的软件生态适用性。",
+      "对共享 GPU 的更大控制能力可能面向多任务或多用户共享 GPU 资源的场景，但官方摘要未展开具体机制。"
+    ],
+    "canonical_title": "NVIDIA 发布 CUDA Toolkit 13.4，新增 Windows on Arm 支持并增强共享 GPU 控制",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 发布 CUDA Toolkit 13.4。",
+      "CUDA Toolkit 13.4 新增 Windows on Arm 支持。",
+      "CUDA Toolkit 13.4 提供对共享 GPU 的更大控制能力。",
+      "NVIDIA 官方开发者博客将 CUDA Toolkit 13.4 定位为带来功能与性能改进的版本。"
+    ],
+    "id": "story-dd6916aa5133845c98af",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/",
+    "product_names": [
+      "CUDA Toolkit 13.4"
+    ],
+    "published_at": "2026-09-09T20:24:12Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-8045128f07d20e63d484"
+    ],
+    "source_refs": [
+      {
+        "author": "Jonathan Bentz",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T20:24:12Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-8045128f07d20e63d484",
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "CUDA Toolkit 13.4 Adds Windows on Arm Support and Greater Control over Shared GPUs",
+        "url": "https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/cuda-toolkit-13-4-adds-windows-on-arm-support-and-greater-control-over-shared-gpus/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "输入摘要和内容节选为截断文本，未列出 CUDA Toolkit 13.4 的具体新特性、API 变更或性能数据。",
+      "共享 GPU 控制增强的具体功能范围和使用条件尚不清楚。",
+      "Windows on Arm 支持所覆盖的具体 Windows 版本、GPU 型号和工具链组件未在输入中说明。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [
+      "从公告内容看，2.27.0 的更新集中在平台支持（Linux ARM64）、查询能力（Rust 安全查询）和语言/框架覆盖（Java/Kotlin、C#）三个方向，属于常规的版本迭代。",
+      "支持 Linux ARM64 意味着在 ARM 架构的 Linux 环境（如部分 CI 运行器、云主机）中可直接运行 CodeQL，而不必依赖 x86 环境或模拟。"
+    ],
+    "canonical_title": "CodeQL 2.27.0 发布：支持 Linux ARM64，新增 Rust 安全查询并扩展框架覆盖",
+    "category": "developer_tools",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "CodeQL"
+    ],
+    "facts": [
+      "CodeQL 2.27.0 现已发布，并支持 Linux ARM64。",
+      "CodeQL 2.27.0 新增了一个 Rust 安全查询。",
+      "CodeQL 2.27.0 扩展了针对 Java/Kotlin 和 C# 的框架覆盖。",
+      "CodeQL 2.27.0 包含跨多种语言的分析准确性改进。"
+    ],
+    "id": "story-d37b7fd7391abfdca45e",
+    "importance_score": 0.45,
+    "novelty_score": 0.38,
+    "primary_source_url": "https://github.blog/changelog/2026-09-09-codeql-2-27-0-adds-support-for-linux-arm64",
+    "product_names": [
+      "CodeQL 2.27.0"
+    ],
+    "published_at": "2026-09-09T21:45:06Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-f4612605b9b4783a81b4"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T21:45:06Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-f4612605b9b4783a81b4",
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "CodeQL 2.27.0 adds support for Linux ARM64",
+        "url": "https://github.blog/changelog/2026-09-09-codeql-2-27-0-adds-support-for-linux-arm64"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-09-codeql-2-27-0-adds-support-for-linux-arm64"
+    ],
+    "status": "available",
+    "topic_names": [
+      "静态代码分析",
+      "安全查询",
+      "Linux ARM64",
+      "Rust",
+      "Java",
+      "Kotlin",
+      "C#"
+    ],
+    "uncertainties": [
+      "公告摘要未说明新增 Rust 安全查询的具体规则内容、覆盖范围或严重级别判定方式。",
+      "未给出 Java/Kotlin 和 C# 框架覆盖扩展所涉及的具体框架清单。",
+      "‘分析准确性改进’缺少可量化的指标或具体语言范围说明。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [
+      "v5.17.0 一次性纳入文本 MoE、语音合成、多模态检索编码器和语音识别四类模型，说明 Transformers 的模型接入范围继续向多模态与语音方向扩展。",
+      "HYV4 同时采用 MLA、DSA 和 iHC 等注意力与残差路径改造，反映出大模型架构层面对长上下文（1M tokens）与推理效率的持续优化取向。",
+      "发布说明明确 HYV4 实现不执行 MTP 层但保留权重以供其他运行时投机解码使用，体现出训练 checkpoint 与推理运行时之间的解耦设计。",
+      "Fun-ASR-Nano 以 800M 参数主打中英日 ASR，并在发布说明中强调相对同类模型的规模优势，显示小参数规模端到端语音识别仍是竞争方向。"
+    ],
+    "canonical_title": "Hugging Face Transformers 发布 v5.17.0，新增 HYV4、VibeVoice、NeoMME、Fun-ASR-Nano 支持",
+    "category": "open_source_ai",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "Hugging Face",
+      "huggingface/transformers",
+      "H Company",
+      "Alibaba DAMO Academy",
+      "FunAudioLLM"
+    ],
+    "facts": [
+      "Hugging Face 的 huggingface/transformers 仓库发布了 Release v5.17.0。",
+      "v5.17.0 新增模型支持包括 HYV4、VibeVoice、NeoMME 和 Fun-ASR-Nano。",
+      "HYV4 方面，Hy4-Preview 是一个 780B 参数的混合专家（MoE）语言模型，每个 token 激活 49B 参数。",
+      "据发布说明，HYV4 的每个 MoE 层包含 256 个路由专家加一个始终激活的共享专家，每个 token 路由到其中 8 个专家，上下文窗口为 1M tokens。",
+      "据发布说明，HYV4 架构包含四项特性：Multi-head Latent Attention（MLA）、DeepSeek Sparse Attention（DSA）、带可学习 attention sinks 的 Gated MLA，以及 Independent Hyper-Connections（iHC）。",
+      "据发布说明，HYV4 实现不执行多 token 预测（MTP）层，但发布的 checkpoint 保留这些权重以便其他运行时用于投机解码，加载时被忽略。",
+      "HYV4 由 @ArthurZucker 通过 PR #48473 添加。",
+      "据发布说明，VibeVoice 是一个在 LLM 结构内采用 next-token diffusion 方法、用于合成高保真多说话人长语音的框架，适用于播客和多参与者有声书等音频内容。",
+      "VibeVoice 由 @pengzhiliang 通过 PR #40546 实现。",
+      "据发布说明，NeoMME 是来自 H Company 的高效 260M 和 800M 参数多模态原生多语言基础编码器系列，在单个双向 Transformer 编码器中处理多语言文本 token 和原始图像 patch，无需单独预训练的视觉塔或因果语言模型。",
+      "据发布说明，NeoMME-Retriever 是从 NeoMME 骨干微调的模型，用于视觉文档检索，结合后期交互与稠密目标，接收文本查询和文档（文本或页面截图），输出用于 MeanMaxSim 评分的多向量嵌入以及用于余弦相似度的均值池化嵌入。",
+      "NeoMME 和 NeoMME-Retriever 由 @tonywu71 通过 PR #47992 添加。",
+      "据发布说明，Fun-ASR-Nano 是阿里巴巴 DAMO Academy 的 FunAudioLLM 团队开发的 800M 参数端到端语音识别模型。",
+      "据发布说明，Fun-ASR-Nano 在中、英、日 ASR 基准上达到 state-of-the-art 性能，同时规模显著小于同类模型。",
+      "据发布说明，Fun-ASR-Nano 支持中文、英文和日文，包括 7 种中文方言和 26 种地区口音，支持热词定制，并原生输出标点，无需单独的标点模型。",
+      "Fun-ASR-Nano 模型通过 PR #46180 添加。"
+    ],
+    "id": "story-9e0183f6d13a8d2e51ad",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.17.0",
+    "product_names": [
+      "Transformers v5.17.0",
+      "HYV4",
+      "Hy4-Preview",
+      "VibeVoice",
+      "NeoMME",
+      "NeoMME-Retriever",
+      "Fun-ASR-Nano"
+    ],
+    "published_at": "2026-09-09T15:42:45Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-c6a70b623b520248d507"
+    ],
+    "source_refs": [
+      {
+        "author": "vasqu",
+        "discussion_url": null,
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T15:42:45Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-c6a70b623b520248d507",
+        "source_name": "GitHub · huggingface/transformers",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "huggingface/transformers: Release 5.17.0",
+        "url": "https://github.com/huggingface/transformers/releases/tag/v5.17.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/huggingface/transformers/releases/tag/v5.17.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明未给出 HYV4、VibeVoice、NeoMME、Fun-ASR-Nano 具体基准测试数值或对比结果。",
+      "发布说明未说明 HYV4、NeoMME、Fun-ASR-Nano 相关 checkpoint 的许可协议与可用范围。",
+      "发布说明未提供 VibeVoice、NeoMME、Fun-ASR-Nano 的完整参数规模以外的训练数据与训练细节。",
+      "发布说明中 HYV4 上下文窗口为 1M tokens 等能力描述来自官方发布文本，尚无独立复现验证。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Claude，把“添加到购物车”按钮改成蓝色",
+    "category": "community_discovery",
+    "credibility_score": 0.1,
+    "entity_names": [
+      "Claude"
+    ],
+    "facts": [],
+    "id": "story-928b1296c4749fe0a4ea",
+    "importance_score": 0.15,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://opusfived.dev/",
+    "product_names": [
+      "Claude"
+    ],
+    "published_at": "2026-09-09T09:39:46Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-ac93aa5b8899e1f4422d"
+    ],
+    "source_refs": [
+      {
+        "author": "matthieu_bl",
+        "discussion_url": "https://news.ycombinator.com/item?id=49623754",
+        "fetched_at": "2026-09-10T01:26:02.505830Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T09:39:46Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-ac93aa5b8899e1f4422d",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude, change the “Add to Cart” button to blue",
+        "url": "https://opusfived.dev/"
+      }
+    ],
+    "source_urls": [
+      "https://opusfived.dev/",
+      "https://news.ycombinator.com/item?id=49623754"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 辅助前端开发",
+      "按钮样式修改"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 的非官方讨论帖，标题为“Claude, change the ‘Add to Cart’ button to blue”，指向 opusfived.dev，未提供摘要或正文内容，其实际含义、真实项目和具体事件均无法从输入中确认。",
+      "该条目的 statement_type 为 unverified_lead，不应作为事实依据。"
+    ],
+    "updated_at": "2026-09-10T01:26:19.218028Z"
+  }
+]

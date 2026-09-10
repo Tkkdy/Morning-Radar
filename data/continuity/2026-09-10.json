@@ -1,0 +1,176 @@
+{
+  "date": "2026-09-10",
+  "generated_at": "2026-09-10T01:26:19.218028Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "同一 Hugging Face Transformers 发布线从 v5.16.1 推进到 v5.17.0：新增 HYV4、VibeVoice、NeoMME、Fun-ASR-Nano 模型支持，v5.16.1 中的 GLM-5.3-Flash 支持与兼容性修复不再是该系列的最新发布状态。",
+      "current_story": {
+        "date": "2026-09-10",
+        "story_id": "story-9e0183f6d13a8d2e51ad"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-27",
+            "story_id": "story-a3714e1985a0e21733c9"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-10",
+            "story_id": "story-9e0183f6d13a8d2e51ad"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-27",
+        "story_id": "story-a3714e1985a0e21733c9"
+      },
+      "rationale": "同一仓库、同一发布系列的相邻版本号（v5.16.1→v5.17.0），后者取代前者成为最新发布状态。",
+      "recorded_at": "2026-09-10T01:26:19.218028Z",
+      "relation_id": "relation-39170a8cf7fbf46cd1f9",
+      "relation_type": "status_transition",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Transformers 发布状态由 v5.16.0 推进到 v5.17.0，新增模型支持由 Qwen4-Exp、GraniteSpeech5、Step-3.7-Flash 变为 HYV4、VibeVoice、NeoMME、Fun-ASR-Nano。",
+      "current_story": {
+        "date": "2026-09-10",
+        "story_id": "story-9e0183f6d13a8d2e51ad"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-08-27",
+            "story_id": "story-80ee3f8d453689abc52d"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-10",
+            "story_id": "story-9e0183f6d13a8d2e51ad"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-08-27",
+        "story_id": "story-80ee3f8d453689abc52d"
+      },
+      "rationale": "同一 Transformers 仓库的相邻版本发布（v5.16.0→v5.17.0），新版本发布使前一版本的发布状态被取代。",
+      "recorded_at": "2026-09-10T01:26:19.218028Z",
+      "relation_id": "relation-bc331caf24a12eb66d60",
+      "relation_type": "status_transition",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Cloudflare"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Cloudflare 是否公布 Automatic Key Exchange 的默认启用状态、源站仅部分支持后量子算法时的回退行为，以及握手性能影响数据。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Automatic Key Exchange"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-10T01:26:19.218028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-10",
+          "story_id": "story-e3f4b2ce677a4b775e9b"
+        }
+      ],
+      "topic_anchors": [
+        "后量子加密",
+        "TLS 1.3"
+      ],
+      "watch_id": "watch-3f1c464134e4ca730d41"
+    },
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布该权限控制覆盖的具体代理操作范围、配置粒度和默认策略，以及是否面向全部 Copilot Business/Enterprise 客户开放。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot Business",
+        "GitHub Copilot Enterprise"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-10T01:26:19.218028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-10",
+          "story_id": "story-db108edf57882838fa5e"
+        }
+      ],
+      "topic_anchors": [
+        "AI 代理操作管控",
+        "企业权限管理"
+      ],
+      "watch_id": "watch-dc8cfc12ff718d9a6baa"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA",
+        "CUDA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否说明 CUDA Rust 两条编写 GPU Kernel 路径的具体差异、发布时间表和可用性状态，以及该项目属于正式产品、预览版还是实验性项目。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "CUDA Rust"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-10T01:26:19.218028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-10",
+          "story_id": "story-308216ddb7cc6b2afa8d"
+        }
+      ],
+      "topic_anchors": [
+        "GPU 编程",
+        "Rust 语言支持"
+      ],
+      "watch_id": "watch-e5cbf7a0e55a624f2aca"
+    },
+    {
+      "entity_anchors": [
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Hugging Face 是否补充 HYV4、VibeVoice、NeoMME 和 Fun-ASR-Nano 的基准测试数值、checkpoint 许可协议与可用范围，以及是否有第三方复现 HYV4 的 1M tokens 上下文能力。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "HYV4",
+        "VibeVoice",
+        "NeoMME",
+        "Fun-ASR-Nano"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-10T01:26:19.218028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-10",
+          "story_id": "story-9e0183f6d13a8d2e51ad"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-e063f3553a5fef872b07"
+    }
+  ]
+}
