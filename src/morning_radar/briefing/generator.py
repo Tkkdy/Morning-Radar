@@ -415,6 +415,13 @@ def generate_daily_brief_with_memory(
     if direction_signals and enabled_sections.get("direction_observation", True):
         try:
             direction = provider.write_direction_observation(direction_signals).observation
+        except AIBudgetExceeded as exc:
+            LOGGER.warning(
+                "AI degradation: direction observation skipped because budget is unavailable: %s",
+                exc,
+            )
+            stats["ai_direction_fallback"] = True
+            stats["ai_direction_fallback_reason"] = str(exc)
         except AIOutputError:
             LOGGER.exception(
                 "AI degradation: direction observation failed; section omitted"

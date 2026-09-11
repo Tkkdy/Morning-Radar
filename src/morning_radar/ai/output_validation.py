@@ -366,10 +366,10 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         yield from output.uncertainties
     elif isinstance(output, ContinuityResolution):
         for relation in output.relations:
-            yield relation.rationale
+            yield from _present((relation.rationale,))
             yield from _present((relation.what_changed,))
         for match in output.watch_matches:
-            yield match.rationale
+            yield from _present((match.rationale,))
         for update in output.judgement_updates:
             yield update.claim
             yield update.rationale
