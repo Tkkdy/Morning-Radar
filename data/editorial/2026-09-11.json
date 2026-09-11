@@ -1,0 +1,137 @@
+{
+  "date": "2026-09-11",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方一手确认后量子 DNSSEC 上线，具基础设施与部署规模含义。",
+      "retain_for_trends": true,
+      "story_id": "story-ec8b7e7f1a21bfca60dd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "post-quantum-dnssec-deployment",
+        "dns-resolution-infrastructure-hardening"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "CASB 从检测延伸到自动修复，属于安全自动化路径的可追踪信号。",
+      "retain_for_trends": true,
+      "story_id": "story-83b3a75f589a80e5109c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "casb-automated-remediation",
+        "security-workflow-automation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "共享漏洞套件现象与补丁差距可作长期安全趋势证据，但细节缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-9c42487ba4eafdb6da4f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "exploit-kit-reuse-across-groups",
+        "ai-accelerated-vulnerability-discovery"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认发布，但厂商不能自证效果，保留为企业数据自动化信号。",
+      "retain_for_trends": true,
+      "story_id": "story-0d616518ceaefdad5f7d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "natural-language-data-analytics",
+        "enterprise-data-agent-adoption"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "金融垂直打包是产品分发结构信号，但仅官方摘要、无独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-a5defb4edd985ccdbb63",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vertical-chatgpt-industry-packaging"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规库版本迭代与字段清理，无结构意义或工作流影响。",
+      "retain_for_trends": false,
+      "story_id": "story-005624719121d6017b91",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商单方科研案例无独立复现，仅作可验证的弱线索保留。",
+      "retain_for_trends": true,
+      "story_id": "story-7cadb0b7d4f97cb50c51",
+      "support_for_story_id": null,
+      "trend_links": [
+        "llm-driven-scientific-discovery-claims"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "消费级搜索使用技巧，与开发者与模型能力变化无关。",
+      "retain_for_trends": false,
+      "story_id": "story-c1b7487869eb3b0754fc",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "赛事装饰性搜索功能，无工作流或能力意义。",
+      "retain_for_trends": false,
+      "story_id": "story-fa4a27bff75c3d3ed320",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "inference",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "HN 热度但无原文与数据来源，无法验证其科研协作论断。",
+      "retain_for_trends": false,
+      "story_id": "story-e61f44f036c8eebdf3b1",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-11T14:15:06.226830Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

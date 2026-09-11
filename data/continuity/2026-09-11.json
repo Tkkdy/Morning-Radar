@@ -1,0 +1,41 @@
+{
+  "date": "2026-09-11",
+  "generated_at": "2026-09-11T14:15:06.226830Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "googleapis/python-genai 从 v2.22.0 发布推进到相邻的 v2.23.0 发布，新增 from_environment 环境复制支持与动态轮次完成等特性。",
+      "current_story": {
+        "date": "2026-09-11",
+        "story_id": "story-005624719121d6017b91"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-03",
+            "story_id": "story-608651ed97d89c96caf0"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-11",
+            "story_id": "story-005624719121d6017b91"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-09-03",
+        "story_id": "story-608651ed97d89c96caf0"
+      },
+      "rationale": "同一发布系列的相邻版本，v2.23.0 是 v2.22.0 之后的下一个版本发布。",
+      "recorded_at": "2026-09-11T14:15:06.226830Z",
+      "relation_id": "relation-576f43e53d620ae77be1",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": []
+}

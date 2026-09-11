@@ -1,0 +1,601 @@
+[
+  {
+    "analysis": [
+      "该发布由 Cloudflare 官方渠道发出，属于一手官方公告，可作为事实底座。",
+      "采用后量子签名算法会显著增大 DNSSEC 响应体积，文中提及的 2,420 字节签名与降级风险说明规模化管理是该发布的技术重点。"
+    ],
+    "canonical_title": "Cloudflare 1.1.1.1 支持后量子 DNSSEC，采用 ML-DSA-44 签名",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Cloudflare",
+      "NIST"
+    ],
+    "facts": [
+      "Cloudflare 官方博客于 2026-09-10 宣布，1.1.1.1 现在使用 NIST 的后量子 ML-DSA-44 算法验证 DNSSEC 签名。",
+      "Cloudflare 表示其处理的是 2,420 字节的签名。",
+      "Cloudflare 称该文章解释了其如何大规模管理 2,420 字节签名以及降级风险。"
+    ],
+    "id": "story-ec8b7e7f1a21bfca60dd",
+    "importance_score": 0.7,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://blog.cloudflare.com/post-quantum-dnssec-1111/",
+    "product_names": [
+      "1.1.1.1"
+    ],
+    "published_at": "2026-09-10T13:00:00Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-6cf5e73795db38f088b0"
+    ],
+    "source_refs": [
+      {
+        "author": "Bas Westerbaan",
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-10T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-6cf5e73795db38f088b0",
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "1.1.1.1 now supports post-quantum DNSSEC, all 2,420 bytes of it",
+        "url": "https://blog.cloudflare.com/post-quantum-dnssec-1111/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/post-quantum-dnssec-1111/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "post-quantum DNSSEC",
+      "ML-DSA-44",
+      "DNSSEC"
+    ],
+    "uncertainties": [
+      "输入未说明 ML-DSA-44 验证是否已对所有 1.1.1.1 用户全面生效，也未提供具体生效时间或分阶段计划。",
+      "输入未给出与降级风险相关的具体缓解措施细节。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [
+      "该公告将 CASB 从风险检测/可见性进一步延伸到自动修复环节，可能减少安全团队对 SaaS 风险的手动响应负担。",
+      "原生自动化引擎构建在 Cloudflare 开发者平台上，意味着修复策略可能复用 Cloudflare 现有的开发与集成能力，但其具体 API、触发条件和可用范围尚未披露。"
+    ],
+    "canonical_title": "Cloudflare 发布 CASB 自动修复策略，支持基于开发者平台的事件驱动自动化",
+    "category": "云安全 / SaaS 安全",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Cloudflare"
+    ],
+    "facts": [
+      "Cloudflare 发布 Cloudflare CASB 自动修复策略（automatic remediation policies）。",
+      "该策略引入一个原生自动化引擎，构建在 Cloudflare 开发者平台之上。",
+      "安全团队可以设计事件驱动逻辑来自动修复 SaaS 风险。",
+      "该能力可用于撤销有风险的 file share 和发送 webhooks，无需人工干预。",
+      "来源为 Cloudflare Blog 官方公告，作者 Abe Carryl，发布时间 2026-09-11T13:00:00Z。"
+    ],
+    "id": "story-83b3a75f589a80e5109c",
+    "importance_score": 0.6,
+    "novelty_score": 0.58,
+    "primary_source_url": "https://blog.cloudflare.com/casb-policies/",
+    "product_names": [
+      "Cloudflare CASB"
+    ],
+    "published_at": "2026-09-11T13:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-e2fe6a9d8b48a8623c00"
+    ],
+    "source_refs": [
+      {
+        "author": "Abe Carryl",
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-11T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-e2fe6a9d8b48a8623c00",
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing automatic remediation policies with Cloudflare CASB",
+        "url": "https://blog.cloudflare.com/casb-policies/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/casb-policies/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "CASB",
+      "SaaS 风险自动修复",
+      "自动化策略",
+      "事件驱动自动化"
+    ],
+    "uncertainties": [
+      "自动修复策略的具体支持范围、可用区域、定价和限制条件尚未在输入中说明。",
+      "事件驱动逻辑的具体触发条件、可配置动作与 webhook 载荷格式尚未披露。",
+      "“撤销有风险的 file share”具体覆盖哪些 SaaS 应用、权限模型和审批流程尚不明确。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [
+      "报道摘要认为，补丁差距以及 AI 驱动的漏洞发现节奏加快，可能是促成该情况的背景因素。"
+    ],
+    "canonical_title": "四个组织被指使用相同的 Chrome 与 Windows 漏洞利用套件",
+    "category": "security",
+    "credibility_score": 0.64,
+    "entity_names": [
+      "Ars Technica",
+      "Dan Goodin"
+    ],
+    "facts": [
+      "Ars Technica 刊文称，有四个组织被指使用同一套针对 Chrome 和 Windows 的漏洞利用工具。",
+      "报道作者为 Dan Goodin，发布时间为 2026-09-09T20:55:02Z。"
+    ],
+    "id": "story-9c42487ba4eafdb6da4f",
+    "importance_score": 0.58,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://arstechnica.com/information-technology/2026/09/4-groups-caught-using-the-same-chrome-and-windows-exploit-kit/",
+    "product_names": [
+      "Chrome",
+      "Windows"
+    ],
+    "published_at": "2026-09-09T20:55:02Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-99cf35f35a9f06db763c"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T20:55:02Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-99cf35f35a9f06db763c",
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Four groups caught using the same Chrome and Windows exploit kit",
+        "url": "https://arstechnica.com/information-technology/2026/09/4-groups-caught-using-the-same-chrome-and-windows-exploit-kit/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/information-technology/2026/09/4-groups-caught-using-the-same-chrome-and-windows-exploit-kit/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "漏洞利用套件",
+      "补丁差距",
+      "AI 漏洞发现"
+    ],
+    "uncertainties": [
+      "报道未披露四个组织的具体身份。",
+      "报道未提供该漏洞利用套件所针对的具体 CVE 编号、Chrome 或 Windows 版本，以及补丁差距的细节。",
+      "关于 AI 加速漏洞发现的说法在摘要中仅作为可能原因出现，缺乏可核验的具体证据。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [
+      "从官方定位看，Data agent 面向企业数据场景，目标是降低数据接入、分析与仪表板构建的门槛。",
+      "自然语言交互被作为核心卖点，可能用于非技术用户的数据探索和报表生成。"
+    ],
+    "canonical_title": "OpenAI 在 ChatGPT Work 中推出 Data agent",
+    "category": "ai_models",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT Work"
+    ],
+    "facts": [
+      "OpenAI News 发布公告，标题为“Now everyone can put data to work”。",
+      "该公告介绍了 ChatGPT Work 中的 Data agent。",
+      "Data agent 可连接公司数据、发现洞察，并借助 AI 使用自然语言构建交互式仪表板。",
+      "发布来源为 OpenAI News，source_role 为 official_primary，statement_type 为 factual_announcement。",
+      "公告发布时间为 2026-09-10T15:00:00Z。"
+    ],
+    "id": "story-0d616518ceaefdad5f7d",
+    "importance_score": 0.5,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://openai.com/index/put-data-to-work",
+    "product_names": [
+      "Data agent",
+      "ChatGPT Work"
+    ],
+    "published_at": "2026-09-10T15:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-6a886414536a09e3da65"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-10T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-6a886414536a09e3da65",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Now everyone can put data to work",
+        "url": "https://openai.com/index/put-data-to-work"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/put-data-to-work"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入未说明 Data agent 的可用地区、定价、支持的数据源类型及具体技术实现。",
+      "输入未提供与 Data agent 相关的基准测试、用户案例或第三方评测。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 推出面向金融服务行业的 ChatGPT",
+    "category": "ai_models",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布 ChatGPT for Financial Services，内置金融数据。",
+      "该产品结合 GPT-6 Astra 用于研究、建模和客户交付材料。"
+    ],
+    "id": "story-a5defb4edd985ccdbb63",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/introducing-chatgpt-financial-services",
+    "product_names": [
+      "ChatGPT for Financial Services",
+      "GPT-6 Astra"
+    ],
+    "published_at": "2026-09-10T07:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-0bb946f0c421538942e4"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-10T07:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-0bb946f0c421538942e4",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing ChatGPT for Financial Services",
+        "url": "https://openai.com/index/introducing-chatgpt-financial-services"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-chatgpt-financial-services"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "除官方公告摘要外，暂无关于内置金融数据范围、GPT-6 Astra 具体能力及可用性、定价的进一步信息。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [
+      "此次版本更新聚焦于环境配置复制与实时交互轮次完成两项功能增强，并清理了一个冗余字段，属于常规迭代。",
+      "python-genai 是 Google 面向生成式 AI 的 Python 客户端库，该版本更新可能影响使用其 live 接口的开发者。"
+    ],
+    "canonical_title": "googleapis/python-genai 发布 v2.23.0 版本",
+    "category": "library_release",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "googleapis",
+      "python-genai"
+    ],
+    "facts": [
+      "googleapis/python-genai 于 2026-09-10 发布 v2.23.0 版本，该版本可通过 https://github.com/googleapis/python-genai/releases/tag/v2.23.0 查看。",
+      "v2.23.0 新增特性：为环境复制添加 from_environment 支持（提交 e6d3168）。",
+      "v2.23.0 新增特性：通过 live.py 中 receive() 的 interaction_status 支持动态轮次完成（提交 455df80）。",
+      "v2.23.0 修复问题：从 FunctionResultDelta 中移除未使用的字段（提交 2843079）。",
+      "该发布说明由 release-please[bot] 在 GitHub 上发布，仓库为 googleapis/python-genai。"
+    ],
+    "id": "story-005624719121d6017b91",
+    "importance_score": 0.25,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v2.23.0",
+    "product_names": [
+      "python-genai"
+    ],
+    "published_at": "2026-09-10T22:15:45Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-5f9fc93486530d7aeb09"
+    ],
+    "source_refs": [
+      {
+        "author": "release-please[bot]",
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-10T22:15:45Z",
+        "published_at_role": "github_release_published_time",
+        "raw_item_id": "item-5f9fc93486530d7aeb09",
+        "source_name": "GitHub · googleapis/python-genai",
+        "source_role": "official_primary",
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "googleapis/python-genai: v2.23.0",
+        "url": "https://github.com/googleapis/python-genai/releases/tag/v2.23.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/googleapis/python-genai/releases/tag/v2.23.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [
+      "该案例表明 Codex 与 ChatGPT 被用于生物信息学与基因组筛选等科研场景，而非仅限于软件开发。",
+      "以已灭绝基因组作为候选来源，属于扩展抗菌分子搜索空间的探索方向。"
+    ],
+    "canonical_title": "OpenAI 介绍研究者利用 Codex 与 ChatGPT 搜索新型抗菌分子",
+    "category": "ai_models",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "OpenAI",
+      "César de la Fuente"
+    ],
+    "facts": [
+      "OpenAI News 于 2026-09-10 发布文章，介绍 César de la Fuente 的实验室使用 Codex 和 ChatGPT 搜索现存与已灭绝基因组中的抗菌候选分子，以对抗耐药感染。",
+      "文章标题为“How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules”。"
+    ],
+    "id": "story-7cadb0b7d4f97cb50c51",
+    "importance_score": 0.35,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials",
+    "product_names": [
+      "Codex",
+      "ChatGPT"
+    ],
+    "published_at": "2026-09-10T16:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-39842fa0b34b37cbe3f7"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-10T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-39842fa0b34b37cbe3f7",
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How a researcher uses Codex and ChatGPT to search for new antimicrobial molecules",
+        "url": "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/using-codex-chatgpt-to-search-for-new-antimicrobials"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "抗菌肽发现",
+      "抗药性感染"
+    ],
+    "uncertainties": [
+      "摘要与内容节选未披露具体使用了哪些基因组、筛选流程细节，也未提供候选分子数量或验证结果。",
+      "尚无独立第三方来源证实该实验室通过该流程获得的具体发现或疗效。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Google 发布用 Search 备战大型跑步赛事的三种技巧",
+    "category": "产品功能",
+    "credibility_score": 0.9,
+    "entity_names": [],
+    "facts": [
+      "Google 在官方博客发布文章，标题为“3 ways to prep for your next big race with Search”。",
+      "文章配图描述为蓝色背景上叠加了放大镜和 Gemini spark 的彩色跑者插图。",
+      "文章作者为 Peter Schottenfels，发布于 2026-09-10T16:00:00Z。"
+    ],
+    "id": "story-c1b7487869eb3b0754fc",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/",
+    "product_names": [
+      "Search"
+    ],
+    "published_at": "2026-09-10T16:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-338a77b082d6e9b86e32"
+    ],
+    "source_refs": [
+      {
+        "author": "Peter Schottenfels",
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-10T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-338a77b082d6e9b86e32",
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "3 ways to prep for your next big race with Search",
+        "url": "https://blog.google/products-and-platforms/products/search/running-race-training-tips/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products-and-platforms/products/search/running-race-training-tips/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "跑步训练",
+      "赛事备战"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要和内容摘录，未包含文章中三种具体备战技巧的详细内容，无法确认其具体方法。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Google 搜索推出橄榄球新功能",
+    "category": "产品发布",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 官方博客发布文章《Get ready for the game with new football features in Search》，宣布 Google 搜索新增橄榄球相关功能。",
+      "文章作者为 Denise Ho，发布日期为 2026-09-09。",
+      "文章配图包含美式橄榄球元素：金色奖杯、蓝色头盔、银色哨子、橄榄球、迷你记分牌和战术示意图，以及 Google 搜索中 AI Mode 的图标。"
+    ],
+    "id": "story-fa4a27bff75c3d3ed320",
+    "importance_score": 0.3,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://blog.google/products-and-platforms/products/search/football-features-google-search/",
+    "product_names": [
+      "Google Search",
+      "AI Mode in Google Search"
+    ],
+    "published_at": "2026-09-09T16:00:00Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-77adb66885449411a18b"
+    ],
+    "source_refs": [
+      {
+        "author": "Denise Ho",
+        "discussion_url": null,
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-09T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "raw_item_id": "item-77adb66885449411a18b",
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Get ready for the game with new football features in Search",
+        "url": "https://blog.google/products-and-platforms/products/search/football-features-google-search/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products-and-platforms/products/search/football-features-google-search/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "文章正文未完整获取，仅提供图片描述作为摘要，新功能的具体内容、上线时间和适用地区尚不明确。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  },
+  {
+    "analysis": [
+      "该输入目前仅提供 HN 社区发现层的信息（标题、评分、评论数、发布者），没有文章正文或摘要，因此无法核实其关于 AI 与科研协作关系的具体论点。",
+      "高分与较多评论表明该话题在 Hacker News 社区有一定关注度，但社区热度本身不构成对文章论断的验证。",
+      "在缺少原文内容的情况下，只能确认存在这样一个讨论线索，不能确认其作者身份、数据来源或论证强度。"
+    ],
+    "canonical_title": "The Waymo effect：AI 如何悄然降低科研协作性",
+    "category": "ai_research_culture",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Waymo",
+      "Hacker News",
+      "Research Agenda"
+    ],
+    "facts": [
+      "Hacker News 社区发现条目标题为《The Waymo effect: how AI is quietly making research less collaborative》。",
+      "该条目发布于 2026-09-11T11:17:50Z，抓取于 2026-09-11T14:14:49.660440Z。",
+      "来源为 researchagenda.news，HN 讨论帖 ID 为 49656496。",
+      "该 HN 条目获得 209 分、155 条评论，发布者为 JohnHammersley。",
+      "该条目被标记为 unverified_lead，来源类型为 hacker_news，来源角色为 community_discovery。"
+    ],
+    "id": "story-e61f44f036c8eebdf3b1",
+    "importance_score": 0.2,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://www.researchagenda.news/articles/the-waymo-effect.html",
+    "product_names": [],
+    "published_at": "2026-09-11T11:17:50Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-f8f6e4aa340ff7105890"
+    ],
+    "source_refs": [
+      {
+        "author": "JohnHammersley",
+        "discussion_url": "https://news.ycombinator.com/item?id=49656496",
+        "fetched_at": "2026-09-11T14:14:49.660440Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-11T11:17:50Z",
+        "published_at_role": "hn_submission_time",
+        "raw_item_id": "item-f8f6e4aa340ff7105890",
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "The Waymo effect: how AI is quietly making research less collaborative",
+        "url": "https://www.researchagenda.news/articles/the-waymo-effect.html"
+      }
+    ],
+    "source_urls": [
+      "https://www.researchagenda.news/articles/the-waymo-effect.html",
+      "https://news.ycombinator.com/item?id=49656496"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 对科研协作的影响",
+      "科研协作",
+      "Waymo effect"
+    ],
+    "uncertainties": [
+      "researchagenda.news 原文的具体内容、论证依据与数据来源未知。",
+      "该文章是否为同行评议、正式研究或观点评论，尚不明确。",
+      "AI 与科研协作性下降之间是否存在因果关系，无法从现有输入判断。",
+      "Waymo 在标题中的具体指代及与 AI 科研协作的关联机制未在输入中说明。"
+    ],
+    "updated_at": "2026-09-11T14:15:06.226830Z"
+  }
+]
