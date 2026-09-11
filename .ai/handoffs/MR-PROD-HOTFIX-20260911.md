@@ -8,8 +8,8 @@ next_actor: PLANNER_REVIEWER
 repository: Tkkdy/Morning-Radar
 base_branch: master
 work_branch: codex/prod-hotfix-20260911
-pr: unavailable (gh CLI is unauthenticated; browser session unavailable)
-updated_at: 2026-09-11T07:00:00Z
+pr: https://github.com/Tkkdy/Morning-Radar/pull/14
+updated_at: 2026-09-11T13:44:43Z
 ---
 
 # AI Development Handoff
@@ -24,7 +24,7 @@ Apply the bounded production hotfix locally: preserve a valid Brief when optiona
 - Python imports were checked with temporary `PYTHONPATH` and resolve to this hotfix worktree's `src`.
 
 ## Last Action
-Completed the bounded H01/H02 repair and offline incident-chain regression coverage. No commit, push, PR, merge, deployment, notification, real network collection, or production model call.
+Completed the bounded H01/H02 repair and offline incident-chain regression coverage. The isolated branch has been committed, pushed, and opened as PR #14. No merge, deployment, notification, real network collection, or production model call occurred.
 
 ## Validation Summary
 - Focused hotfix tests: 8 passed (HF01-HF08); fixture process persistence: 1 passed (HF09).
@@ -43,5 +43,5 @@ Completed the bounded H01/H02 repair and offline incident-chain regression cover
 - After review and separately authorized integration, first reconfirm the actual master SHA; then inspect existing batch `batch-20260911T012654Z-6ca39acc65` before any recovery. A recovery may use `process --batch-id <batch>` only with explicit production/AI/write authorization and a confirmed checkout SHA. Current CLI has no dedicated `process --date`; do not substitute `--now` as a backfill-date interface.
 
 ## Next Action
-- The isolated branch was pushed as `origin/codex/prod-hotfix-20260911` at commit `12f2027`. PR creation was attempted with `gh pr create` but the CLI reported no GitHub authentication; the available browser surface also had no usable session. Create the PR after authenticating with base `master` and head `codex/prod-hotfix-20260911`.
-- Reviewer inspect the isolated hotfix diff and HF01-HF09 evidence once the PR exists. READY_FOR_REVIEW is not a merge, production recovery, or deployment result.
+- The isolated branch is pushed as `origin/codex/prod-hotfix-20260911` at `9f8bc0d`; PR #14 targets `master` and contains only the five reviewed files listed in this handoff.
+- Reviewer inspect the isolated hotfix diff and HF01-HF09 evidence. READY_FOR_REVIEW is not a merge, production recovery, or deployment result.
