@@ -792,7 +792,9 @@ def test_user_payload_is_serialized_as_json() -> None:
 
     request = configured.client.chat.completions.last_request
     payload = request["messages"][1]["content"]
-    assert json.loads(payload)[0]["url"] == "https://example.com/real"
+    body = json.loads(payload)
+    assert body["payload"][0]["url"] == "https://example.com/real"
+    assert "topic_context" in body
 
 
 class RetryableStatusError(Exception):

@@ -127,10 +127,6 @@ def _resolve_fast_continuity(
     )
 
 
-
-
-
-
 def _brief_hash(brief) -> str:
     import hashlib
     import json
@@ -191,10 +187,10 @@ def _site_matches_brief(output_root, brief) -> bool:
         payload = read_json(marker)
     except (OSError, ValueError):
         return False
-    return (
-        payload.get("brief_date") == str(brief.date)
-        and payload.get("brief_hash") == _brief_hash(brief)
-    )
+    return payload.get("brief_date") == str(brief.date) and payload.get(
+        "brief_hash"
+    ) == _brief_hash(brief)
+
 
 def _displayed_story_ids(brief) -> set[str]:
     ids: set[str] = set()
@@ -211,6 +207,244 @@ def _displayed_story_ids(brief) -> set[str]:
     return ids
 
 
+def _clip_reason(value: object) -> str | None:
+    from morning_radar.ai.request_payload import REASON_CHAR_LIMIT, clip_text
+
+    text_value, _truncated = clip_text(str(value or ""), REASON_CHAR_LIMIT)
+    return text_value or None
+
+
+def _attempt_from_meta(meta, *, now, fallback_attempt: int = 1):
+    from morning_radar.ai.request_payload import get_call_meta
+    from morning_radar.intake.models import DecisionAttempt
+
+    if meta is None:
+        return None
+    if not isinstance(meta, dict):
+        meta = get_call_meta(meta) or {}
+    attempted_at = meta.get("attempted_at") or now
+    return DecisionAttempt(
+        attempted_at=attempted_at,
+        attempt=max(1, int(meta.get("attempt") or fallback_attempt)),
+        task=meta.get("task"),
+        provider=meta.get("provider"),
+        model=meta.get("model"),
+        prompt_hash=meta.get("prompt_hash"),
+        policy_hash=meta.get("policy_hash"),
+        structured_retry=int(meta.get("structured_retry") or 0),
+        executed=bool(meta.get("executed", True)),
+        blocked_reason=meta.get("blocked_reason"),
+        attempt_kind=str(meta.get("attempt_kind") or "stage_logical_call"),
+    )
+
+
+def _blocked_attempt(*, now, reason: str | None):
+    from morning_radar.intake.models import DecisionAttempt
+
+    return DecisionAttempt(
+        attempted_at=now,
+        attempt=1,
+        executed=False,
+        blocked_reason=reason,
+        attempt_kind="stage_logical_call",
+    )
+
+
+def _latest_stage_attempt(*stages):
+    attempts = [getattr(stage, "attempt", None) for stage in stages]
+    attempts = [item for item in attempts if item is not None]
+    if not attempts:
+        return None
+    executed = [item for item in attempts if getattr(item, "executed", True)]
+    pool = executed or attempts
+    return max(
+        pool,
+        key=lambda item: (
+            item.attempted_at,
+            item.attempt,
+            item.task or "",
+        ),
+    )
+
+
+def _participating_input_keys(story, prepared, fallback_version: str) -> list[str]:
+    from morning_radar.intake.identity import intake_key
+
+    keys: list[str] = []
+    records = getattr(getattr(prepared, "selection", None), "records", []) or []
+    for item_id in story.source_item_ids:
+        version = next(
+            (record.content_version for record in records if record.item.id == item_id),
+            fallback_version,
+        )
+        keys.append(intake_key(item_id, version))
+    return keys
+
+
+def _classification_decision(record, classification_out, reason):
+    from morning_radar.intake.models import ClassificationDecision, ReasonCode
+
+    classified = None
+    classify_meta = None
+    if classification_out:
+        classified = classification_out.get(record.item.id)
+        classify_meta = classification_out.get("_call_meta")
+    if classified is not None:
+        return ClassificationDecision(
+            status="ok",
+            relevant=classified.relevant,
+            important=classified.important,
+            relevance_reason=_clip_reason(classified.relevance_reason),
+            importance_reason=_clip_reason(classified.importance_reason),
+            category=classified.category,
+            attempt=_attempt_from_meta(classify_meta, now=record.item.fetched_at),
+        )
+    if reason is ReasonCode.CLASSIFICATION_RESPONSE_MISSING:
+        return ClassificationDecision(
+            status="response_missing",
+            attempt=_attempt_from_meta(classify_meta, now=record.item.fetched_at),
+        )
+    return ClassificationDecision(status="not_run")
+
+
+def _score_decision(
+    record,
+    story,
+    score_out,
+    *,
+    relevance_threshold,
+    now,
+    reason=None,
+    prepared=None,
+):
+    from morning_radar.ai.request_payload import get_call_meta
+    from morning_radar.intake.models import ReasonCode, ScoreDecision
+
+    if story is None:
+        if reason is ReasonCode.SCORE_FAILED:
+            failed_meta = ((score_out or {}).get("_failed_meta") or {}).get(record.item.id)
+            return ScoreDecision(
+                status="failed",
+                attempt=_attempt_from_meta(failed_meta, now=now),
+            )
+        return ScoreDecision(status="not_run")
+    score_obj = (score_out or {}).get(story.id)
+    return ScoreDecision(
+        status="ok" if score_obj is not None else "not_run",
+        model_explanation=_clip_reason(getattr(score_obj, "explanation", None)),
+        relevance_score=story.relevance_score,
+        importance_score=story.importance_score,
+        novelty_score=story.novelty_score,
+        credibility_score=story.credibility_score,
+        rule_reason=f"relevance={story.relevance_score:.2f} threshold={relevance_threshold:.2f}",
+        story_id=story.id,
+        story_level=len(story.source_item_ids) > 1,
+        participating_input_keys=_participating_input_keys(
+            story, prepared, record.content_version
+        ),
+        attempt=_attempt_from_meta(get_call_meta(score_obj), now=now),
+    )
+
+
+def _research_decision(record, research_result, *, now):
+    from morning_radar.intake.models import ReasonCode, ResearchDecision
+    from morning_radar.models import ResearchDisposition
+
+    outcomes = getattr(research_result, "item_outcomes", {}) or {}
+    omitted = getattr(research_result, "omitted_cases", {}) or {}
+    planned = list(
+        getattr(research_result, "planned_cases", None)
+        or getattr(research_result, "cases", None)
+        or []
+    )
+    resolutions = getattr(research_result, "case_resolutions", {}) or {}
+    research_reason = outcomes.get(record.item.id)
+    matched_case = next((case for case in planned if case.lead.raw_item_id == record.item.id), None)
+    case_metas = getattr(research_result, "case_call_meta", {}) or {}
+    meta = case_metas.get(matched_case.id) if matched_case is not None else None
+    if matched_case is not None and matched_case.id in omitted:
+        budget_reason = omitted.get(matched_case.id) or "research_input_budget"
+        return ResearchDecision(
+            status="omitted_budget",
+            budget_reason=budget_reason,
+            case_id=matched_case.id,
+            attempt=_blocked_attempt(now=now, reason=budget_reason),
+        )
+    resolution = resolutions.get(matched_case.id) if matched_case is not None else None
+    if resolution is not None:
+        model_disp = str(getattr(resolution, "disposition", "") or "")
+        applied = model_disp
+        if (
+            model_disp == ResearchDisposition.VERIFIED_STORY_CANDIDATE
+            and matched_case is not None
+            and not matched_case.supporting_evidence
+        ):
+            applied = ResearchDisposition.RADAR_SIGNAL
+        return ResearchDecision(
+            status="ok",
+            scope_rationale=_clip_reason(getattr(resolution, "scope_rationale", None)),
+            disposition=applied or None,
+            model_disposition=model_disp or None,
+            applied_disposition=applied or None,
+            missing_evidence=list(getattr(resolution, "missing_evidence", []) or []),
+            uncertainty=_clip_reason(getattr(resolution, "uncertainty", None)),
+            case_id=getattr(resolution, "case_id", None),
+            attempt=_attempt_from_meta(meta, now=now),
+        )
+    if research_reason in {
+        ReasonCode.RESEARCH_OUTPUT_INVALID,
+        ReasonCode.RESEARCH_OUTPUT_TRUNCATED,
+        ReasonCode.RESEARCH_CASE_MISSING,
+        ReasonCode.RESEARCH_FATAL,
+    }:
+        return ResearchDecision(
+            status="failed",
+            case_id=matched_case.id if matched_case is not None else None,
+            attempt=_attempt_from_meta(meta, now=now),
+        )
+    if research_reason is ReasonCode.RESEARCH_DEFERRED:
+        return ResearchDecision(
+            status="omitted_budget",
+            budget_reason="research_deferred",
+            case_id=matched_case.id if matched_case is not None else None,
+            attempt=_blocked_attempt(now=now, reason="research_deferred"),
+        )
+    return ResearchDecision(status="not_run")
+
+
+def _decision_details(
+    record,
+    *,
+    story,
+    classification_out,
+    score_out,
+    research_result,
+    reason,
+    relevance_threshold,
+    now,
+    prepared,
+):
+    from morning_radar.intake.models import DecisionDetails
+
+    classification = _classification_decision(record, classification_out, reason)
+    score = _score_decision(
+        record,
+        story,
+        score_out,
+        relevance_threshold=relevance_threshold,
+        now=now,
+        reason=reason,
+        prepared=prepared,
+    )
+    research = _research_decision(record, research_result, now=now)
+    return DecisionDetails(
+        classification=classification,
+        score=score,
+        research=research,
+        latest_attempt=_latest_stage_attempt(classification, score, research),
+    )
+
+
 def _record_processing_outcomes(
     prepared,
     *,
@@ -222,10 +456,18 @@ def _record_processing_outcomes(
     relevance_threshold,
     importance_threshold,
     persist: bool = True,
+    classification_out: dict | None = None,
+    score_out: dict | None = None,
+    provider=None,
 ) -> None:
-    from morning_radar.intake.models import ProcessingStatus, PublishStatus, ReasonCode
+    from morning_radar.intake.models import (
+        ProcessingStatus,
+        PublishStatus,
+        ReasonCode,
+    )
     from morning_radar.models import SourceRole
 
+    del provider
     selected_item_ids = {item.id for item in story_candidate_items}
     stories_by_item: dict[str, object] = {}
     for story in stories:
@@ -253,6 +495,13 @@ def _record_processing_outcomes(
             elif story_item_outcomes.get(record.item.id) == ReasonCode.CLASSIFIED_IRRELEVANT.value:
                 processing = ProcessingStatus.EXCLUDED
                 reason = ReasonCode.CLASSIFIED_IRRELEVANT
+                evidence = None
+            elif (
+                story_item_outcomes.get(record.item.id)
+                == ReasonCode.CLASSIFICATION_RESPONSE_MISSING.value
+            ):
+                processing = ProcessingStatus.FAILED_RETRY
+                reason = ReasonCode.CLASSIFICATION_RESPONSE_MISSING
                 evidence = None
             elif story_item_outcomes.get(record.item.id) == ReasonCode.MERGE_FAILED.value:
                 processing = ProcessingStatus.FAILED_RETRY
@@ -290,9 +539,20 @@ def _record_processing_outcomes(
                 reason = ReasonCode.STORY_BUILD_FAILED
                 evidence = None
             current = prepared.ledger.get(record.input_id, record.content_version)
-            attempts = (current.attempt_count if current else 0)
+            attempts = current.attempt_count if current else 0
             if processing is ProcessingStatus.FAILED_RETRY:
                 attempts += 1
+            details = _decision_details(
+                record,
+                story=None,
+                classification_out=classification_out,
+                score_out=score_out,
+                research_result=research_result,
+                reason=reason,
+                relevance_threshold=relevance_threshold,
+                now=now,
+                prepared=prepared,
+            )
             updates = {
                 "processing": processing,
                 "stage": "story",
@@ -300,6 +560,7 @@ def _record_processing_outcomes(
                 "reason_code": reason,
                 "processed_at": now,
                 "attempt_count": attempts,
+                "decision_details": details,
             }
             if evidence is not None:
                 updates["evidence"] = evidence
@@ -320,9 +581,7 @@ def _record_processing_outcomes(
             processing=ProcessingStatus.COMPLETED,
             stage="story",
             outcome="below_relevance_threshold" if below else "processed",
-            reason_code=(
-                ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED
-            ),
+            reason_code=(ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED),
             story_id=story.id,
             merged_into=merged,
             relevance_score=story.relevance_score,
@@ -330,16 +589,25 @@ def _record_processing_outcomes(
             relevance_threshold=relevance_threshold,
             importance_threshold=importance_threshold,
             score_rationale=(
-                f"relevance={story.relevance_score:.2f} "
-                f"threshold={relevance_threshold:.2f}"
+                f"relevance={story.relevance_score:.2f} threshold={relevance_threshold:.2f}"
             ),
             processed_at=now,
             publish=PublishStatus.GENERATED if shown else PublishStatus.NOT_GENERATED,
             brief_date=str(brief.date) if shown else None,
+            decision_details=_decision_details(
+                record,
+                story=story,
+                classification_out=classification_out,
+                score_out=score_out,
+                research_result=research_result,
+                reason=(ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED),
+                relevance_threshold=relevance_threshold,
+                now=now,
+                prepared=prepared,
+            ),
         )
     if persist:
         prepared.ledger.save()
-
 
 
 def _mark_superseded_versions(prepared) -> None:
@@ -377,14 +645,12 @@ def _mark_superseded_versions(prepared) -> None:
             )
 
 
-
 def _generation_result_keys(prepared) -> set[str]:
     from morning_radar.intake.identity import intake_key
     from morning_radar.intake.models import ReasonCode
 
     keys = {
-        intake_key(record.input_id, record.content_version)
-        for record in prepared.selection.records
+        intake_key(record.input_id, record.content_version) for record in prepared.selection.records
     }
     selected_inputs = {record.input_id for record in prepared.selection.records}
     for entry in prepared.ledger.ledger.entries.values():
@@ -404,7 +670,6 @@ def _mark_brief_generated(output_root, brief) -> None:
         generated_at=brief.generated_at,
         artifact_path=f"data/briefs/{brief.date}.json",
     )
-
 
 
 def _finalize_publish_status(
@@ -559,8 +824,14 @@ class MorningRadarPipeline:
             now=now,
             hours=self.app.news_window_hours,
         )
+        from morning_radar.ai.request_payload import build_topic_context
+        from morning_radar.settings import TopicConfig
+
+        topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
+        topic_context = build_topic_context(topics)
         if fixtures:
             provider = FakeAIProvider()
+            provider.topic_context = topic_context
         else:
             provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
@@ -571,6 +842,10 @@ class MorningRadarPipeline:
                 ),
                 prompt_dir=self.root / "prompts",
             )
+            provider.topic_context = topic_context
+        for record in prepared.selection.records:
+            if isinstance(record.item.metadata, dict):
+                record.item.metadata.setdefault("content_version", record.content_version)
         process_items = prepared.selection.items
         story_candidate_items, routine_market_suppressed = filter_story_candidate_inputs(
             process_items,
@@ -591,12 +866,16 @@ class MorningRadarPipeline:
         )
         brief_date = display_date(now)
         story_item_outcomes: dict[str, str] = {}
+        classification_out: dict[str, object] = {}
+        score_out: dict[str, object] = {}
         stories = build_stories(
             story_candidate_items,
             provider=provider,
             now=now,
             maximum_ai_items=None,
             item_outcomes=story_item_outcomes,
+            classification_out=classification_out,
+            score_out=score_out,
         )
         new_stories = stories
         stories = _merge_same_day_stories(
@@ -604,9 +883,7 @@ class MorningRadarPipeline:
             brief_date,
             new_stories,
             replaced_item_ids={
-                item_id
-                for story in new_stories
-                for item_id in story.source_item_ids
+                item_id for story in new_stories for item_id in story.source_item_ids
             },
         )
         editorial_result = evaluate_editorial(
@@ -656,9 +933,7 @@ class MorningRadarPipeline:
                 continuity_history = [
                     daily for daily in continuity_history if daily.date < brief_date
                 ]
-            continuity_deadline = (
-                time.monotonic() + self.app.fast_continuity_join_timeout_seconds
-            )
+            continuity_deadline = time.monotonic() + self.app.fast_continuity_join_timeout_seconds
             continuity_executor = ThreadPoolExecutor(
                 max_workers=1, thread_name_prefix="fast-continuity"
             )
@@ -995,6 +1270,9 @@ class MorningRadarPipeline:
             story_candidate_items=story_candidate_items,
             research_result=research_result,
             story_item_outcomes=story_item_outcomes,
+            classification_out=classification_out,
+            score_out=score_out,
+            provider=provider,
             brief=brief,
             relevance_threshold=self.app.relevance_threshold,
             importance_threshold=self.app.importance_threshold,
@@ -1062,19 +1340,18 @@ class MorningRadarPipeline:
             compute_generation_id,
             save_prepared_generation,
         )
+
         outputs = {
-                "raw": [item.model_dump(mode="json") for item in raw],
-                "stories": [item.model_dump(mode="json") for item in stories],
-                "signals": [item.model_dump(mode="json") for item in signals],
-                "brief": brief.model_dump(mode="json"),
-                "continuity": continuity.model_dump(mode="json"),
-                "radar_signals": [item.model_dump(mode="json") for item in radar_signals],
-                "tendencies": (
-                    tendencies.model_dump(mode="json")
-                    if brief.run_stats.get("fixture_mode")
-                    else None
-                ),
-                "editorial": editorial.model_dump(mode="json") if editorial is not None else None,
+            "raw": [item.model_dump(mode="json") for item in raw],
+            "stories": [item.model_dump(mode="json") for item in stories],
+            "signals": [item.model_dump(mode="json") for item in signals],
+            "brief": brief.model_dump(mode="json"),
+            "continuity": continuity.model_dump(mode="json"),
+            "radar_signals": [item.model_dump(mode="json") for item in radar_signals],
+            "tendencies": (
+                tendencies.model_dump(mode="json") if brief.run_stats.get("fixture_mode") else None
+            ),
+            "editorial": editorial.model_dump(mode="json") if editorial is not None else None,
         }
         payload = {
             "brief_date": str(brief_date),

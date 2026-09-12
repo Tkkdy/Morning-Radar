@@ -22,6 +22,18 @@ from morning_radar.ai.models import (
     TendencyEvaluationBatch,
     TendencyFormationSupportDraft,
 )
+from morning_radar.ai.request_payload import (
+    attach_call_meta,
+    bind_call_meta,
+    build_topic_context,
+    classify_items_payload,
+    dumps,
+    policy_hash,
+    prompt_hash_for,
+    research_request_payload,
+    score_story_payload,
+    snapshot_call_meta,
+)
 from morning_radar.editorial.models import (
     EditorialDecision,
     EditorialDecisionBatch,
@@ -46,24 +58,73 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
-    def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
-        return ClassificationBatch(
-            items=[
-                ClassifiedItem(
-                    item_id=item.id,
-                    relevant=True,
-                    relevance_reason="Fixture item matches configured topics.",
-                    important=True,
-                    importance_reason="Fixture item demonstrates the pipeline.",
-                    category=(
-                        "market_and_companies"
-                        if item.source_type.endswith("market")
-                        else "ai_and_open_source"
-                    ),
-                )
-                for item in items
-            ]
+    def __init__(
+        self,
+        topic_context: dict | None = None,
+        classify_overrides: dict | None = None,
+        score_overrides: dict | None = None,
+    ) -> None:
+        self.topic_context = (
+            topic_context if topic_context is not None else build_topic_context(None)
         )
+        self.classify_overrides = classify_overrides or {}
+        self.score_overrides = score_overrides or {}
+        self.last_task: str | None = None
+        self.last_payload: object | None = None
+        self.last_payload_text: str | None = None
+        self.last_prompt_hash: str | None = "fake"
+        self.last_policy_hash: str | None = policy_hash(self.topic_context)
+        self.provider_name = "fake"
+        self.model = "fake"
+
+    def _record(self, task: str, payload: object) -> dict:
+        from morning_radar.ai.budget import AIBudgetExceeded
+
+        if getattr(self, "topic_context", None) is None:
+            self.topic_context = build_topic_context(None)
+        self.last_task = task
+        self.last_payload = payload
+        self.last_payload_text = dumps(payload)
+        self.last_policy_hash = policy_hash(self.topic_context)
+        call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
+        budget = getattr(self, "budget", None)
+        if budget is not None and getattr(self, "enforce_budget", False):
+            try:
+                budget.consume(self.last_payload_text or "", item_count=1)
+            except AIBudgetExceeded as exc:
+                call_meta["blocked_reason"] = str(exc)
+                attach_call_meta(exc, call_meta)
+                raise
+        self.last_prompt_hash = prompt_hash_for(f"fake:{task}")
+        call_meta["prompt_hash"] = self.last_prompt_hash
+        call_meta["executed"] = True
+        return call_meta
+
+    def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
+        meta = self._record(
+            "classify", classify_items_payload(items, getattr(self, "topic_context", None))
+        )
+        batch_items = []
+        for item in items:
+            override = (getattr(self, "classify_overrides", None) or {}).get(item.id)
+            if override is None:
+                batch_items.append(
+                    ClassifiedItem(
+                        item_id=item.id,
+                        relevant=True,
+                        relevance_reason="Fixture item matches configured topics.",
+                        important=True,
+                        importance_reason="Fixture item demonstrates the pipeline.",
+                        category=(
+                            "market_and_companies"
+                            if item.source_type.endswith("market")
+                            else "ai_and_open_source"
+                        ),
+                    )
+                )
+            else:
+                batch_items.append(override)
+        return bind_call_meta(ClassificationBatch(items=batch_items), meta)
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
         first = items[0]
@@ -90,12 +151,21 @@ class FakeAIProvider:
         )
 
     def score_story(self, story: Story) -> StoryScore:
-        return StoryScore(
-            relevance_score=0.9,
-            importance_score=0.8,
-            novelty_score=0.7,
-            credibility_score=min(1.0, 0.6 + 0.1 * len(story.source_urls)),
-            explanation="Fixture 使用稳定分数以保证测试可重复。",
+        meta = self._record(
+            "score_story", score_story_payload(story, getattr(self, "topic_context", None))
+        )
+        override = (getattr(self, "score_overrides", None) or {}).get(story.id)
+        if override is not None:
+            return bind_call_meta(override, meta)
+        return bind_call_meta(
+            StoryScore(
+                relevance_score=0.9,
+                importance_score=0.8,
+                novelty_score=0.7,
+                credibility_score=min(1.0, 0.6 + 0.1 * len(story.source_urls)),
+                explanation="Fixture 使用稳定分数以保证测试可重复。",
+            ),
+            meta,
         )
 
     def write_brief(
@@ -104,6 +174,7 @@ class FakeAIProvider:
         signals: list[Signal],
         editorial_decisions: list[EditorialDecision] | None = None,
     ) -> BriefDraft:
+        self._record("write_brief", {"stories": [story.id for story in stories]})
         del signals
         del editorial_decisions
         watch_anchor = None
@@ -274,6 +345,8 @@ class FakeAIProvider:
         self,
         cases: list[ResearchCase],
     ) -> ResearchResolutionBatch:
+        context = getattr(self, "topic_context", None)
+        meta = self._record("resolve_research_cases", research_request_payload(cases, context))
         resolved: list[ResearchResolutionDraft] = []
         for case in cases:
             corroborated = bool(case.supporting_evidence)
@@ -296,7 +369,7 @@ class FakeAIProvider:
                     uncertainty=("" if corroborated else "当前只有发现线索，尚未独立确认。"),
                 )
             )
-        return ResearchResolutionBatch(cases=resolved)
+        return bind_call_meta(ResearchResolutionBatch(cases=resolved), meta)
 
     def evaluate_tendencies(
         self,

@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import datetime
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 
 from pydantic import Field, field_validator
 
@@ -57,6 +57,7 @@ class ReasonCode(StrEnum):
     PROCESSED = "processed"
     ALREADY_EXISTS = "already_exists"
     CLASSIFIED_IRRELEVANT = "classified_irrelevant"
+    CLASSIFICATION_RESPONSE_MISSING = "classification_response_missing"
     STORY_BUILD_FAILED = "story_build_failed"
     MERGE_FAILED = "merge_failed"
     SCORE_FAILED = "score_failed"
@@ -108,6 +109,7 @@ class CheckpointManifest(RadarModel):
     truncated: bool = False
     cache_inconsistencies: list[str] = Field(default_factory=list)
     source_state_committed: bool = False
+    discovery_audit: list[dict[str, Any]] = Field(default_factory=list)
 
     _created_is_aware = field_validator("created_at")(_validate_aware_datetime)
     _cutoff_is_aware = field_validator("cutoff_at")(_validate_aware_datetime)
@@ -117,6 +119,71 @@ class IntakeCheckpoint(RadarModel):
     manifest: CheckpointManifest
     items: list[IntakeRecord] = Field(default_factory=list)
     source_state: dict[str, Any] = Field(default_factory=dict)
+
+
+class DecisionAttempt(RadarModel):
+    attempted_at: datetime
+    attempt: int = Field(default=1, ge=1)
+    task: str | None = None
+    provider: str | None = None
+    model: str | None = None
+    prompt_hash: str | None = None
+    policy_hash: str | None = None
+    structured_retry: int = Field(default=0, ge=0)
+    executed: bool = True
+    blocked_reason: str | None = None
+    attempt_kind: str = "stage_logical_call"
+
+    _attempted_is_aware = field_validator("attempted_at")(_validate_aware_datetime)
+
+
+class ClassificationDecision(RadarModel):
+    status: Literal["ok", "response_missing", "not_run", "unknown", "legacy_unavailable"] = (
+        "unknown"
+    )
+    relevant: bool | None = None
+    important: bool | None = None
+    relevance_reason: str | None = None
+    importance_reason: str | None = None
+    category: str | None = None
+    attempt: DecisionAttempt | None = None
+
+
+class ScoreDecision(RadarModel):
+    status: Literal["ok", "not_run", "failed", "unknown", "legacy_unavailable"] = "unknown"
+    model_explanation: str | None = None
+    relevance_score: float | None = Field(default=None, ge=0, le=1)
+    importance_score: float | None = Field(default=None, ge=0, le=1)
+    novelty_score: float | None = Field(default=None, ge=0, le=1)
+    credibility_score: float | None = Field(default=None, ge=0, le=1)
+    rule_reason: str | None = None
+    story_id: str | None = None
+    story_level: bool = False
+    participating_input_keys: list[str] = Field(default_factory=list)
+    attempt: DecisionAttempt | None = None
+
+
+class ResearchDecision(RadarModel):
+    status: Literal[
+        "ok", "not_run", "omitted_budget", "failed", "unknown", "legacy_unavailable"
+    ] = "unknown"
+    scope_rationale: str | None = None
+    disposition: str | None = None
+    missing_evidence: list[str] = Field(default_factory=list)
+    uncertainty: str | None = None
+    budget_reason: str | None = None
+    case_id: str | None = None
+    model_disposition: str | None = None
+    applied_disposition: str | None = None
+    attempt: DecisionAttempt | None = None
+
+
+class DecisionDetails(RadarModel):
+    classification: ClassificationDecision | None = None
+    score: ScoreDecision | None = None
+    research: ResearchDecision | None = None
+    latest_attempt: DecisionAttempt | None = None
+    prior_successful_score: ScoreDecision | None = None
 
 
 class LedgerEntry(RadarModel):
@@ -152,6 +219,8 @@ class LedgerEntry(RadarModel):
     url: str | None = None
     title: str | None = None
     superseded_by: str | None = None
+    decision_details: DecisionDetails | None = None
+    candidate_diagnostics: dict[str, Any] = Field(default_factory=dict)
 
     _updated_is_aware = field_validator("updated_at")(_validate_aware_datetime)
     _retry_is_aware = field_validator("next_retry_at")(_validate_aware_datetime)

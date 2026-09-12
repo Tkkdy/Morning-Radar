@@ -44,6 +44,16 @@ from morning_radar.ai.output_validation import (
     validate_core_simplified_chinese_output,
     validate_direction_evidence,
 )
+from morning_radar.ai.request_payload import (
+    attach_call_meta,
+    bind_call_meta,
+    classify_items_payload,
+    policy_hash,
+    prompt_hash_for,
+    research_request_payload,
+    score_story_payload,
+    snapshot_call_meta,
+)
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
@@ -115,6 +125,7 @@ class OpenAIProvider:
         client: Any | None = None,
         network_attempts: int = 3,
         timeout_seconds: float = 60,
+        topic_context: dict | None = None,
     ) -> None:
         if not model:
             raise AIConfigurationError("OPENAI_MODEL is required for production AI")
@@ -127,6 +138,16 @@ class OpenAIProvider:
         self.provider_name = "openai"
         self.circuit_open = False
         self.circuit_reason: str | None = None
+        self.topic_context = topic_context
+        if self.topic_context is None:
+            from morning_radar.ai.request_payload import build_topic_context
+
+            self.topic_context = build_topic_context(None)
+        self.last_task: str | None = None
+        self.last_payload: object | None = None
+        self.last_payload_text: str | None = None
+        self.last_prompt_hash: str | None = None
+        self.last_policy_hash: str | None = None
         self.client = client or OpenAI(
             api_key=api_key,
             timeout=httpx.Timeout(timeout_seconds),
@@ -160,9 +181,21 @@ class OpenAIProvider:
         maximum_structured_attempts: int = 2,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
-        self.budget.consume(payload, item_count=item_count)
+        self.last_task = task
+        self.last_payload = payload_data
+        self.last_payload_text = payload
+        self.last_policy_hash = policy_hash(self.topic_context)
+        call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
+        try:
+            self.budget.consume(payload, item_count=item_count)
+        except AIBudgetExceeded as exc:
+            call_meta["blocked_reason"] = str(exc)
+            attach_call_meta(exc, call_meta)
+            raise
         self.budget.reset_task_attempts(task)
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
+        self.last_prompt_hash = prompt_hash_for(instructions)
+        call_meta["prompt_hash"] = self.last_prompt_hash
         policy = OPENAI_TASK_POLICIES[task]
         LOGGER.info(
             "AI task start: provider=%s model=%s task=%s max_output_tokens=%d priority=%s",
@@ -185,6 +218,7 @@ class OpenAIProvider:
             self.budget.record_network_request(
                 task, maximum_task_attempts=policy.max_network_attempts
             )
+            call_meta["executed"] = True
             try:
                 return self.client.responses.parse(
                     model=self.model,
@@ -201,7 +235,7 @@ class OpenAIProvider:
                 raise normalized from exc
 
         last_error: Exception | None = None
-        for _ in range(maximum_structured_attempts):
+        for structured_attempt in range(1, maximum_structured_attempts + 1):
             try:
                 response = invoke()
                 usage = getattr(response, "usage", None)
@@ -214,9 +248,13 @@ class OpenAIProvider:
                     finish_reason=str(getattr(response, "status", None) or "unknown"),
                 )
                 parsed = response.output_parsed
-            except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded):
+            except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded) as exc:
+                if isinstance(exc, AIBudgetExceeded):
+                    call_meta["blocked_reason"] = str(exc)
+                attach_call_meta(exc, call_meta)
                 raise
             except AIProviderUnavailable as exc:
+                attach_call_meta(exc, call_meta)
                 raise AIOutputError("OpenAI API unavailable after bounded retries") from exc
             try:
                 if parsed is None:
@@ -228,7 +266,8 @@ class OpenAIProvider:
                     transformed = output_validator(validated)
                     if transformed is not None:
                         validated = transformed
-                return validated
+                call_meta["structured_retry"] = max(0, structured_attempt - 1)
+                return bind_call_meta(validated, call_meta)
             except (AIOutputError, ValidationError, TypeError, ValueError) as exc:
                 last_error = exc
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
@@ -237,7 +276,7 @@ class OpenAIProvider:
         return self._parse(
             task="classify",
             schema=ClassificationBatch,
-            payload_data=[item.model_dump(mode="json") for item in items],
+            payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
         )
@@ -255,7 +294,7 @@ class OpenAIProvider:
         return self._parse(
             task="score_story",
             schema=StoryScore,
-            payload_data=story.model_dump(mode="json"),
+            payload_data=score_story_payload(story, self.topic_context),
             item_count=1,
             allowed_urls=set(story.source_urls),
         )
@@ -385,7 +424,7 @@ class OpenAIProvider:
         return self._parse(
             task="resolve_research_cases",
             schema=ResearchResolutionBatch,
-            payload_data=[case.model_dump(mode="json") for case in cases],
+            payload_data=research_request_payload(cases, self.topic_context),
             item_count=len(cases),
             allowed_urls={
                 evidence.url

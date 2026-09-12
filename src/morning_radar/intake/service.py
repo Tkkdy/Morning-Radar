@@ -11,12 +11,14 @@ from pathlib import Path
 from morning_radar.collectors import (
     AIHOTCollector,
     CollectionResult,
+    DeepSeekUpdatesCollector,
     FixtureCollector,
+    HNSearchCollector,
     collect_available,
 )
 from morning_radar.collectors.github import GitHubCollector
 from morning_radar.collectors.hacker_news import HackerNewsCollector
-from morning_radar.collectors.http import HttpClient
+from morning_radar.collectors.http import HttpClient, RequestStartBudget
 from morning_radar.collectors.market import MarketCollector, YFinanceHistoryProvider
 from morning_radar.collectors.rss import RSSCollector
 from morning_radar.intake.candidates import (
@@ -46,11 +48,13 @@ from morning_radar.processing import filter_news_window
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
+    LabWatchlistConfig,
     PersonConfig,
     RepositoryConfig,
     SourceConfig,
     TopicConfig,
     active_practitioner_sources,
+    load_model,
     load_model_list,
 )
 from morning_radar.storage import save_models
@@ -130,6 +134,9 @@ def collect_intake(
         source_state=source_state,
         cache_inconsistencies=cache_inconsistencies,
         first_seen=first_seen,
+        discovery_audit=[
+            entry for collector in collectors for entry in getattr(collector, "discovery_audit", [])
+        ],
     )
     for record in checkpoint.items:
         record.durable_at = checkpoint.manifest.created_at
@@ -149,9 +156,7 @@ def collect_intake(
         collection=collection,
         now=clock,
         output_root=output_root,
-        path=output_root
-        / "data/intake/checkpoints"
-        / f"{checkpoint.manifest.batch_id}.json",
+        path=output_root / "data/intake/checkpoints" / f"{checkpoint.manifest.batch_id}.json",
         collected_at=clock,
     )
 
@@ -200,9 +205,7 @@ def _intake_run_from_checkpoint(output_root: Path, checkpoint) -> IntakeRun:
         ),
         now=checkpoint.manifest.created_at,
         output_root=output_root,
-        path=output_root
-        / "data/intake/checkpoints"
-        / f"{checkpoint.manifest.batch_id}.json",
+        path=output_root / "data/intake/checkpoints" / f"{checkpoint.manifest.batch_id}.json",
         collected_at=checkpoint.manifest.created_at,
     )
 
@@ -225,9 +228,7 @@ def prepare_process(
             else latest_complete_checkpoint(output_root)
         )
         if checkpoint is None:
-            raise FileNotFoundError(
-                "No complete intake checkpoint is available to process"
-            )
+            raise FileNotFoundError("No complete intake checkpoint is available to process")
         intake = _intake_run_from_checkpoint(output_root, checkpoint)
     elif batch_id and intake.checkpoint.manifest.batch_id != batch_id:
         checkpoint = load_checkpoint_by_batch_id(output_root, batch_id)
@@ -247,8 +248,7 @@ def prepare_process(
     )
     people = load_model_list(project_root / "config/people.yaml", "people", PersonConfig)
     current_keys = {
-        intake_key(record.input_id, record.content_version)
-        for record in intake.checkpoint.items
+        intake_key(record.input_id, record.content_version) for record in intake.checkpoint.items
     }
     fresh = []
     same_batch_old = []
@@ -260,9 +260,7 @@ def prepare_process(
             continue
         entry = ledger.get(record.input_id, record.content_version)
         first_saved = (
-            (entry.durable_at if entry is not None else None)
-            or record.durable_at
-            or save_now
+            (entry.durable_at if entry is not None else None) or record.durable_at or save_now
         )
         eligible_at_save = bool(
             filter_news_window(
@@ -330,11 +328,19 @@ def prepare_process(
         app.maximum_raw_items,
         max(0, app.maximum_ai_calls - 7) * 2 // 5,
     )
+    watchlist_path = project_root / "config/lab_watchlist.yaml"
+    watchlist = load_model(watchlist_path, LabWatchlistConfig) if watchlist_path.exists() else None
+    protected_slots = (
+        watchlist.reserved_fresh_candidate_slots if watchlist and watchlist.enabled else 0
+    )
     selection = select_process_candidates(
         fresh=fresh,
         recovery=recovery,
         maximum_items=call_safe_limit,
         reserved_recovery_slots=app.intake_reserved_candidate_slots,
+        reserved_fresh_slots=protected_slots,
+        labs=watchlist.labs if watchlist else None,
+        update_rules=watchlist.update_rules if watchlist else None,
     )
     for record in selection.deferred:
         if not _actionable_record(ledger, record, recompute_completed=fixtures):
@@ -348,6 +354,15 @@ def prepare_process(
             stage="candidate_select",
             outcome="deferred_budget",
             run_id=intake.checkpoint.manifest.run_id,
+            candidate_diagnostics={
+                "selected": False,
+                "reason": "deferred_budget",
+                "cap": call_safe_limit,
+                "candidate_policy_hash": selection.candidate_policy_hash,
+                **selection.candidate_matches.get(
+                    intake_key(record.input_id, record.content_version), {}
+                ),
+            },
         )
     for record in selection.records:
         ledger.update(
@@ -358,6 +373,16 @@ def prepare_process(
             stage="process",
             outcome="in_progress",
             run_id=intake.checkpoint.manifest.run_id,
+            candidate_diagnostics={
+                "selected": True,
+                "cap": call_safe_limit,
+                "candidate_policy_hash": selection.candidate_policy_hash,
+                **selection.candidate_matches.get(
+                    intake_key(record.input_id, record.content_version), {}
+                ),
+                "protected_fresh": intake_key(record.input_id, record.content_version)
+                in selection.protected_fresh_keys,
+            },
         )
     ledger.save()
     return PreparedProcess(
@@ -377,6 +402,8 @@ def _production_collect(
     now: datetime,
 ) -> tuple[CollectionResult, list[object], list[str]]:
     sources = load_model_list(project_root / "config/sources.yaml", "sources", SourceConfig)
+    watchlist_path = project_root / "config/lab_watchlist.yaml"
+    watchlist = load_model(watchlist_path, LabWatchlistConfig) if watchlist_path.exists() else None
     people = load_model_list(project_root / "config/people.yaml", "people", PersonConfig)
     sources.extend(active_practitioner_sources(people))
     topics = load_model_list(project_root / "config/topics.yaml", "topics", TopicConfig)
@@ -407,7 +434,7 @@ def _production_collect(
     )
     collectors: list[object] = [
         RSSCollector(
-            sources,
+            [source for source in sources if source.type in {"rss", "atom"}],
             http=http,
             state_path=output_root / "data/state/rss.json",
             now=now,
@@ -435,6 +462,37 @@ def _production_collect(
             now=now,
         ),
     ]
+    if watchlist is not None and watchlist.enabled:
+        discovery_budget = RequestStartBudget(
+            maximum_requests=watchlist.maximum_network_requests,
+            deadline_seconds=watchlist.request_start_deadline_seconds,
+        )
+        discovery_http = HttpClient(
+            timeout_seconds=watchlist.request_timeout_seconds,
+            attempts=watchlist.request_attempts,
+            before_attempt=discovery_budget.before_attempt,
+        )
+        special_sources = [
+            source for source in sources if source.type == "official_changelog" and source.enabled
+        ]
+        collectors.extend(
+            DeepSeekUpdatesCollector(
+                http=discovery_http,
+                source=source,
+                now=now,
+                maximum_response_bytes=watchlist.maximum_response_bytes,
+                maximum_excerpt_characters=watchlist.maximum_excerpt_characters,
+            )
+            for source in special_sources
+        )
+        collectors.append(
+            HNSearchCollector(
+                http=discovery_http,
+                watchlist=watchlist,
+                now=now,
+                window_hours=app.news_window_hours + app.collection_buffer_hours,
+            )
+        )
     if aihot_inconsistent:
         collectors[-1].unconditional_refresh = True
     collection = collect_available(

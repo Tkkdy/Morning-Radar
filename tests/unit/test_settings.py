@@ -5,6 +5,7 @@ import pytest
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
+    LabWatchlistConfig,
     PersonConfig,
     RepositoryConfig,
     SourceConfig,
@@ -43,6 +44,10 @@ def test_repository_configuration_files_are_valid() -> None:
     assert app.editorial.enabled is True
     assert app.editorial.shadow_mode is True
     assert app.editorial.profile_version == "1.0"
+    watchlist = load_model(Path("config/lab_watchlist.yaml"), LabWatchlistConfig)
+    assert watchlist.enabled is True
+    assert len(watchlist.labs) == 6
+    assert watchlist.labs[0].official_source_id == "deepseek_updates"
     assert len(people) == 10
     active = active_practitioner_sources(people)
     assert [(source.practitioner_id, source.type) for source in active] == [

@@ -1,4 +1,12 @@
 sources:
+  - id: deepseek_updates
+    name: DeepSeek Updates
+    type: official_changelog
+    url: https://api-docs.deepseek.com/zh-cn/updates/
+    priority: high
+    enabled: true
+    topics: [ai_models]
+    official: true
   - id: openai_news
     name: OpenAI News
     type: rss

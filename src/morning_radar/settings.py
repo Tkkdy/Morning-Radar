@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+import re
 from pathlib import Path
 from typing import Any, Literal
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_validator
 
 
 class ConfigModel(BaseModel):
@@ -85,7 +86,7 @@ class TopicConfig(ConfigModel):
 class SourceConfig(ConfigModel):
     id: str
     name: str
-    type: Literal["rss", "atom", "hacker_news"]
+    type: Literal["rss", "atom", "hacker_news", "official_changelog"]
     url: str
     priority: Priority
     enabled: bool = True
@@ -102,6 +103,58 @@ class SourceConfig(ConfigModel):
         | None
     ) = None
     practitioner_id: str | None = None
+
+
+class LabWatchConfig(ConfigModel):
+    id: str = Field(min_length=1)
+    aliases: list[str] = Field(min_length=1)
+    hn_queries: list[str] = Field(default_factory=list)
+    official_source_id: str | None = None
+
+
+class LabUpdateRule(ConfigModel):
+    rule_id: str = Field(min_length=1)
+    include: list[str] = Field(min_length=1)
+    exclude: list[str] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def validate_patterns(self) -> LabUpdateRule:
+        for pattern in [*self.include, *self.exclude]:
+            try:
+                re.compile(pattern, re.I)
+            except re.error as exc:
+                raise ValueError(f"invalid update-rule pattern: {pattern}") from exc
+        return self
+
+
+class LabWatchlistConfig(ConfigModel):
+    enabled: bool = True
+    reserved_fresh_candidate_slots: int = Field(default=2, ge=0, le=2)
+    maximum_queries_per_run: int = Field(default=12, ge=1, le=12)
+    maximum_pages_per_query: int = Field(default=2, ge=1, le=2)
+    hits_per_page: int = Field(default=20, ge=1, le=20)
+    maximum_network_requests: int = Field(default=52, ge=0, le=52)
+    request_timeout_seconds: float = Field(default=10, gt=0, le=20)
+    request_attempts: int = Field(default=2, ge=1, le=2)
+    request_start_deadline_seconds: int = Field(default=120, ge=1, le=120)
+    maximum_response_bytes: int = Field(default=262144, ge=1024, le=262144)
+    maximum_excerpt_characters: int = Field(default=1600, ge=1, le=1600)
+    update_rules: list[LabUpdateRule] = Field(default_factory=list)
+    labs: list[LabWatchConfig] = Field(default_factory=list)
+
+    @model_validator(mode="after")
+    def validate_labs(self) -> LabWatchlistConfig:
+        ids = [lab.id for lab in self.labs]
+        if len(ids) != len(set(ids)):
+            raise ValueError("lab ids must be unique")
+        if self.enabled and len(ids) != 6:
+            raise ValueError("enabled lab watchlist requires exactly six labs")
+        if sum(len(lab.hn_queries) for lab in self.labs) > self.maximum_queries_per_run:
+            raise ValueError("HN query count exceeds maximum_queries_per_run")
+        rule_ids = [rule.rule_id for rule in self.update_rules]
+        if len(rule_ids) != len(set(rule_ids)):
+            raise ValueError("update rule ids must be unique")
+        return self
 
 
 class CompanyConfig(ConfigModel):
