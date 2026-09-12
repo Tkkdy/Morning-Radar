@@ -830,7 +830,8 @@ class MorningRadarPipeline:
         topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
         topic_context = build_topic_context(topics)
         if fixtures:
-            provider = FakeAIProvider(topic_context=topic_context)
+            provider = FakeAIProvider()
+            provider.topic_context = topic_context
         else:
             provider = DeepSeekProvider.from_environment(
                 budget=AIBudget(
