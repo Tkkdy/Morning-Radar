@@ -48,6 +48,40 @@ def test_hn_search_keeps_no_url_story_and_stops_at_page_budget() -> None:
     assert calls[0]["tags"] == "story" and calls[0]["page"] == "0"
 
 
+def test_hn_search_keeps_conflicting_discussion_versions_across_queries() -> None:
+    config = SimpleNamespace(
+        enabled=True,
+        maximum_queries_per_run=2,
+        maximum_pages_per_query=1,
+        maximum_network_requests=2,
+        hits_per_page=20,
+        maximum_excerpt_characters=1600,
+        labs=[SimpleNamespace(
+            id="deepseek", aliases=["DeepSeek"], hn_queries=["DeepSeek", "DeepSeek V4"]
+        )],
+    )
+
+    def handler(request: httpx.Request) -> httpx.Response:
+        query = request.url.params["query"]
+        hit = {
+            "objectID": "49624603",
+            "title": "DeepSeek V4 preview" if query == "DeepSeek" else "DeepSeek V4 released",
+            "url": "https://example.test/preview" if query == "DeepSeek" else "https://example.test/release",
+            "story_text": "preview details" if query == "DeepSeek" else "release details",
+            "created_at_i": int(NOW.timestamp()) - 60,
+        }
+        return httpx.Response(200, json={"nbPages": 1, "hits": [hit]})
+
+    http = HttpClient(client=httpx.Client(transport=httpx.MockTransport(handler)))
+    items = HNSearchCollector(http=http, watchlist=config, now=NOW).collect()
+
+    assert len(items) == 2
+    assert {item.title for item in items} == {"DeepSeek V4 preview", "DeepSeek V4 released"}
+    assert {item.url for item in items} == {
+        "https://example.test/preview", "https://example.test/release"
+    }
+
+
 def test_discovery_request_budget_counts_retries_and_hard_stops() -> None:
     attempts = []
     def handler(request: httpx.Request) -> httpx.Response:

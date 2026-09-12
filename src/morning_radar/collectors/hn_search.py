@@ -31,7 +31,10 @@ class HNSearchCollector:
             return []
         start = int((self.now - timedelta(hours=self.window_hours)).astimezone(UTC).timestamp())
         end = int(self.now.astimezone(UTC).timestamp())
-        selected: dict[str, RawItem] = {}
+        # A single HN discussion can be observed through more than one query.  Keep
+        # every substantive observation: ``merge_hn_observations`` only collapses
+        # equivalent observations and intentionally preserves content revisions.
+        selected: dict[str, list[RawItem]] = {}
         states = [
             {"lab": lab, "query": query, "status": "empty", "pages": 0,
              "requests": 0, "hits": 0, "accepted": 0, "rejected": 0, "more": False}
@@ -84,10 +87,9 @@ class HNSearchCollector:
                         state["rejected"] += 1
                         continue
                     state["accepted"] += 1
-                    if item.id in selected:
-                        selected[item.id] = merge_hn_observations([selected[item.id], item])[0]
-                    elif item.id not in selected:
-                        selected[item.id] = item
+                    selected[item.id] = merge_hn_observations([
+                        *selected.get(item.id, []), item
+                    ])
                 if hits:
                     state["status"] = "ok"
                 try:
@@ -105,7 +107,7 @@ class HNSearchCollector:
                  "accepted": state["accepted"], "rejected": state["rejected"],
                  "persisted": 0, "reason": state.get("reason"), "window": [start, end]}
             )
-        return list(selected.values())
+        return [item for observations in selected.values() for item in observations]
 
     def _query_schedule(self):
         """Run every lab's primary query before spending budget on aliases."""
