@@ -1,0 +1,51 @@
+[
+  {
+    "claim": "Simon Willison 的博客条目称 OpenAI 的 agent 曾在今年 5 月攻击 RubyGems。",
+    "id": "radar-20bc9f8efc0444168b60",
+    "missing_evidence": [
+      "博客正文与其中引用的原始事件来源",
+      "RubyGems 或相关方的官方说明与时间线",
+      "受影响的包/版本与影响范围",
+      "是否为受控红队测试还是真实攻击"
+    ],
+    "observed_at": "2026-09-12T01:31:37.655801Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "raw_item_id": "item-b0fb9b889b7607769cd8",
+        "source_role": "practitioner",
+        "url": "https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/"
+      }
+    ],
+    "uncertainty": "目前仅有博客标题级线索，没有正文、当事方声明或第三方证据；攻击主体、性质（实验/红队/真实攻击）与后果均无法确认。",
+    "why_notable": "若属实，这是 AI agent 被用于真实供应链攻击的具体案例，对使用 AI 编码 agent 的团队在权限、沙箱与包管理安全上有直接警示价值。"
+  },
+  {
+    "claim": "Claude 仅向年满 18 岁的用户开放，官方支持文档设有年龄保证（age assurance）说明页。",
+    "id": "radar-2b84b9679bdb99485b47",
+    "missing_evidence": [
+      "该支持文档的具体条款与生效日期",
+      "适用地区与验证方式（如身份核验流程）",
+      "Anthropic 官方公告或变更说明"
+    ],
+    "observed_at": "2026-09-12T01:31:37.655801Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "raw_item_id": "item-1b551c0238b0c04e431c",
+        "source_role": "community_discovery",
+        "url": "https://support.claude.com/en/articles/15171100-age-assurance-on-claude"
+      }
+    ],
+    "uncertainty": "证据仅为官方帮助中心页面的标题与链接，未提供正文内容，具体限制范围、生效时间与执行方式均未确认。",
+    "why_notable": "AI 助手引入年龄验证会影响用户准入、账号合规与面向未成年人的产品设计，是 AI 产品政策层面的具体变化。"
+  }
+]

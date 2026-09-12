@@ -1,0 +1,145 @@
+{
+  "date": "2026-09-12",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方一手发布可确认其存储架构演进与规模声明，但吞吐数字仍需独立验证，对基础设施实践者有参考价值。",
+      "retain_for_trends": true,
+      "story_id": "story-ba650b035320aecd3f59",
+      "support_for_story_id": null,
+      "trend_links": [
+        "AI-service-storage-infrastructure-scale",
+        "hyperscale-online-storage-architecture"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认的功能发布，HydraFusion 自适应模型编排与 agent 自动化属可追踪的机制变化，但细节不足。",
+      "retain_for_trends": true,
+      "story_id": "story-d5880ab67cd11d37461c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-model-orchestration",
+        "ide-agent-automation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认代码审查评论自动解决与智能提交信息，减少 PR 手动操作，值得轻量关注。",
+      "retain_for_trends": true,
+      "story_id": "story-f69ed8aab6cee87de085",
+      "support_for_story_id": null,
+      "trend_links": [
+        "code-review-lifecycle-automation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "厂商博客仅提供方向性描述，缺少性能数字与复现，作为生物分子推理运行时线索保留。",
+      "retain_for_trends": true,
+      "story_id": "story-4d6f39844c8c5612ee12",
+      "support_for_story_id": null,
+      "trend_links": [
+        "bionemo-inference-runtime-throughput"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "2.5 倍并发提升为厂商单方声明且条件不明，前台只作一句提示，后台保留为可验证 claim。",
+      "retain_for_trends": true,
+      "story_id": "story-c9271d48b4ca7b7cc7e2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "inference-serving-concurrency-optimization",
+        "vendor-benchmark-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "OpenAI 与 Cognition 的联合宣传缺乏基准与启用细节，仅作 Devin 自测试方向的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-5696292496cf299d29c3",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-self-testing",
+        "vendor-capability-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认用量指标新增 VS Code Agents 窗口，可用于观测企业级 agent 采用度，但字段口径未明。",
+      "retain_for_trends": true,
+      "story_id": "story-f2dd7c29aaafbb5bacee",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-usage-metrics-enterprise-adoption"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规小版本发布与局部 bug 修复，无结构性影响，不保留为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-32fb0594faad1ef0dd05",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "社区发现的未验证线索，若年龄验证落地将影响 Claude 准入与合规，作为待验证政策信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-da464694fb68a6861e40",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-product-age-verification-compliance",
+        "user-access-policy-change"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "融资未完成属传闻，但机器人训练数据赛道估值可作资本流向观察点。",
+      "retain_for_trends": true,
+      "story_id": "story-81597ae530127a06ae18",
+      "support_for_story_id": null,
+      "trend_links": [
+        "robot-training-data-funding",
+        "embodied-ai-data-market"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-12T01:31:56.752561Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

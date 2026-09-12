@@ -1,0 +1,796 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-c6d6123cd398284b31b6",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章为面向开发者的官方博客，可能介绍全栈 NIM 优化方法及其在 Nemotron 3 Ultra 上的并发服务效果。"
+          ],
+          "canonical_title": "NVIDIA 发布关于 Nemotron 3 Ultra 上全栈 NIM 优化实现 2.5 倍并发用户提升的博客",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 于 2026-09-10 发布文章，标题为《How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra》。",
+            "文章作者为 Elizabeth Goodman。",
+            "文章摘要指出：部署大语言模型只是生产级服务的第一步，生产团队还需要服务尽可能多的并发用户。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/",
+          "product_names": [
+            "Nemotron 3 Ultra",
+            "NIM"
+          ],
+          "published_at": "2026-09-10T16:55:32Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-10T16:55:32Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-c187f25455eed028f5d2",
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra",
+              "url": "https://developer.nvidia.com/blog/how-full-stack-nim-optimizations-deliver-2-5x-more-users-on-nemotron-3-ultra/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-c9271d48b4ca7b7cc7e2",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure"
+          ],
+          "uncertainties": [
+            "文章正文未完整提供，2.5 倍并发用户提升的具体测试条件、基准方法和适用场景尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-c9271d48b4ca7b7cc7e2"
+      ],
+      "title": "NVIDIA 发布全栈 NIM 优化在 Nemotron 3 Ultra 上实现 2.5 倍并发用户提升",
+      "uncertainty": "2.5 倍并发用户提升的具体测试条件、基准方法和适用场景尚不明确。",
+      "what_happened": "NVIDIA Developer Blog 于 2026-09-10 发布文章，标题为《How Full-Stack NIM Optimizations Deliver 2.5x More Users on Nemotron 3 Ultra》，作者 Elizabeth Goodman。文章摘要指出部署大语言模型只是生产级服务的第一步，生产团队还需要服务尽可能多的并发用户。",
+      "why_it_matters": "全栈优化可能提升模型服务的并发能力，对 LLM 部署效率有参考价值。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-967b933323bf51d00710",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "NVIDIA 介绍 BioNeMo 推理运行时实现高吞吐量结构预测",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布了由 Elizabeth Goodman 撰写、主题为“High-Throughput Structure Prediction with BioNeMo Inference Runtime”的文章，发布时间为 2026-09-10T15:00:00Z。",
+            "文章指出生物分子结构预测目前常以蛋白质组规模运行，目标是将整个工作清单高效地通过流程管线处理。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/",
+          "product_names": [
+            "BioNeMo Inference Runtime"
+          ],
+          "published_at": "2026-09-10T15:00:00Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-10T15:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-c64184c5f5adf495d824",
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "High-Throughput Structure Prediction with BioNeMo Inference Runtime",
+              "url": "https://developer.nvidia.com/blog/high-throughput-structure-prediction-with-bionemo-inference-runtime/"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-4d6f39844c8c5612ee12",
+          "topic_names": [
+            "生物分子结构预测",
+            "蛋白质组规模推理",
+            "AI 推理基础设施"
+          ],
+          "uncertainties": [
+            "输入仅为官方博客摘要与内容摘录，缺少 BioNeMo Inference Runtime 的具体性能数字、基准测试结果和实现细节，无法据此评估实际吞吐量提升幅度。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-4d6f39844c8c5612ee12"
+      ],
+      "title": "NVIDIA 介绍 BioNeMo 推理运行时实现高吞吐量结构预测",
+      "uncertainty": "输入缺少 BioNeMo Inference Runtime 的具体性能数字、基准测试结果和实现细节，无法评估实际吞吐量提升幅度。",
+      "what_happened": "NVIDIA Developer Blog 发布由 Elizabeth Goodman 撰写的文章，主题为“High-Throughput Structure Prediction with BioNeMo Inference Runtime”。文章指出生物分子结构预测目前常以蛋白质组规模运行，目标是将整个工作清单高效地通过流程管线处理。",
+      "why_it_matters": "针对蛋白质组规模推理的优化，可能加速生物分子结构预测工作流。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-abdcbde97ebaa6ba5a3d",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/cognition-devin-testing-with-astra"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该公告将模型能力提升与 Devin 的软件测试环节直接关联，暗示测试自动化可能是本次改进的重点方向。"
+          ],
+          "canonical_title": "Cognition 借助 GPT‑6 Astra 提升 Devin 的自我测试能力",
+          "category": "ai_coding",
+          "entity_names": [
+            "Cognition",
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 发布消息称，GPT‑6 Astra 提升了 Devin 测试软件并展示其可用性的能力。",
+            "该消息的目标是帮助工程师减少审查代码、加快交付。"
+          ],
+          "primary_source_url": "https://openai.com/index/cognition-devin-testing-with-astra",
+          "product_names": [
+            "Devin",
+            "GPT‑6 Astra"
+          ],
+          "published_at": "2026-09-11T16:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-11T16:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-4aeb82da9975e2f5f564",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Cognition helps Devin test its own work with GPT‑6 Astra",
+              "url": "https://openai.com/index/cognition-devin-testing-with-astra"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-5696292496cf299d29c3",
+          "topic_names": [
+            "ai_models",
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "公告未提供具体基准测试、测试覆盖指标或可复现的评估结果，实际提升幅度尚不明确。",
+            "公告未说明该能力通过何种接口或配置启用，也未披露可用范围与定价。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-5696292496cf299d29c3"
+      ],
+      "title": "Cognition 借助 GPT-6 Astra 提升 Devin 的自我测试能力",
+      "uncertainty": "公告未提供具体基准测试、测试覆盖指标或可复现的评估结果；未说明该能力通过何种接口或配置启用，也未披露可用范围与定价。",
+      "what_happened": "OpenAI 发布消息称，GPT-6 Astra 提升了 Devin 测试软件并展示其可用性的能力，目标是帮助工程师减少审查代码、加快交付。",
+      "why_it_matters": "该公告将模型能力提升与 Devin 的软件测试环节直接关联，暗示测试自动化可能是本次改进的重点方向。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-a052cff2916cdc7c5124",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.43.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本为常规小版本发布，主要包含一项功能改进和两项 Bug 修复，未涉及破坏性变更说明。",
+            "修复 OpenAIChatModel 工具调用后的文本分段边界问题，可能改善多段文本与工具调用混合场景下的输出结构一致性。",
+            "temporal 修复将 opt-out 检查与 MCP 导入解耦，可能降低模块耦合与导入依赖带来的副作用。"
+          ],
+          "canonical_title": "pydantic-ai 发布 v2.43.0：新增首次运行横幅并修复 OpenAIChatModel 文本分段问题",
+          "category": "open_source_ai",
+          "entity_names": [
+            "pydantic",
+            "pydantic-ai"
+          ],
+          "facts": [
+            "pydantic/pydantic-ai 发布 v2.43.0，发布日期为 2026-09-11（发布说明由 main 分支的 .github/release.yml 配置生成）。",
+            "新功能：添加一个描述本次运行的首次运行横幅（first-run banner），并在打开 `clai` 会话时使用该横幅，由 @DouweM 在 PR #7447 中提交。",
+            "Bug 修复：在 `OpenAIChatModel` 中保留工具调用后的文本分段边界，由 @KaranJayakumar 在 PR #8235 中提交。",
+            "Bug 修复：temporal 相关修复，将工具 opt-out 检查基于操作类型（operation kind）而非 MCP 导入，由 @adtyavrdhn 在 PR #8257 中提交。",
+            "新贡献者：@KaranJayakumar 通过 PR #8235 完成首次贡献。",
+            "版本对比链接为 v2.42.0...v2.43.0。"
+          ],
+          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.43.0",
+          "product_names": [
+            "pydantic-ai",
+            "OpenAIChatModel",
+            "clai"
+          ],
+          "published_at": "2026-09-12T00:54:42Z",
+          "source_refs": [
+            {
+              "author": "DouweM",
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-12T00:54:42Z",
+              "published_at_role": "github_release_published_time",
+              "raw_item_id": "item-1727d8093f3ae977878b",
+              "source_name": "GitHub · pydantic/pydantic-ai",
+              "source_role": "official_primary",
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "pydantic/pydantic-ai: v2.43.0 (2026-09-11)",
+              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.43.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-32fb0594faad1ef0dd05",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "首次运行横幅与 `clai` 会话的具体交互方式及用户体验影响，发布说明未详细展开。",
+            "temporal 修复的具体影响范围与触发条件，发布说明未提供复现细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-32fb0594faad1ef0dd05"
+      ],
+      "title": "pydantic-ai 发布 v2.43.0：新增首次运行横幅并修复 OpenAIChatModel 文本分段问题",
+      "uncertainty": "首次运行横幅与 clai 会话的具体交互方式及用户体验影响未详细展开；temporal 修复的具体影响范围与触发条件未提供复现细节。",
+      "what_happened": "pydantic/pydantic-ai 发布 v2.43.0，新增首次运行横幅并在打开 clai 会话时使用；修复 OpenAIChatModel 中保留工具调用后的文本分段边界；temporal 相关修复将工具 opt-out 检查基于操作类型而非 MCP 导入；新贡献者 @KaranJayakumar 通过 PR #8235 完成首次贡献。",
+      "why_it_matters": "该版本为常规小版本发布，主要包含一项功能改进和两项 Bug 修复，可能改善多段文本与工具调用混合场景下的输出结构一致性。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-d337c8426633261801b3",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://support.claude.com/en/articles/15171100-age-assurance-on-claude",
+        "https://news.ycombinator.com/item?id=49656225"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该条目来源为 Hacker News 社区发现（community_discovery），陈述类型标记为 unverified_lead，且指向的官方支持页面原文内容在输入中为空，因此没有可作为事实底座的一手信息。",
+            "从标题和 URL 指向 support.claude.com 的年龄保证（age assurance）文章来看，Anthropic 似乎正在为 Claude 引入年龄验证机制，但输入中未提供具体实施细节。"
+          ],
+          "canonical_title": "Claude 推出年龄验证机制，仅限 18 岁以上用户使用",
+          "category": "AI 产品与政策",
+          "entity_names": [
+            "Anthropic",
+            "Claude"
+          ],
+          "facts": [],
+          "primary_source_url": "https://support.claude.com/en/articles/15171100-age-assurance-on-claude",
+          "product_names": [
+            "Claude"
+          ],
+          "published_at": "2026-09-11T10:48:00Z",
+          "source_refs": [
+            {
+              "author": "Muhammad523",
+              "discussion_url": "https://news.ycombinator.com/item?id=49656225",
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-11T10:48:00Z",
+              "published_at_role": "hn_submission_time",
+              "raw_item_id": "item-1b551c0238b0c04e431c",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Claude is only available to people over 18 years",
+              "url": "https://support.claude.com/en/articles/15171100-age-assurance-on-claude"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-da464694fb68a6861e40",
+          "topic_names": [
+            "年龄验证",
+            "用户准入政策",
+            "AI 合规"
+          ],
+          "uncertainties": [
+            "输入中未提供该官方支持页面的正文内容，无法确认年龄验证的具体方式（如身份证件、自拍、信用卡等）。",
+            "无法确认该政策的生效日期、适用地区，以及是否已有用户实际遇到验证拦截。",
+            "无法确认该页面是长期政策还是临时测试，也无法确认 Anthropic 是否已正式对外公告。",
+            "标题称“Claude is only available to people over 18 years”，但该表述是否准确反映政策范围（例如是否仅针对部分功能或地区）无法从输入验证。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-da464694fb68a6861e40"
+      ],
+      "title": "Claude 推出年龄验证机制，仅限 18 岁以上用户使用",
+      "uncertainty": "无法确认年龄验证的具体方式、生效日期、适用地区，以及是否为长期政策或临时测试；标题表述是否准确反映政策范围也无法验证。",
+      "what_happened": "来源为 Hacker News 社区发现，指向 support.claude.com 的年龄保证文章，标题称 Claude 仅对 18 岁以上用户可用。输入中未提供官方支持页面正文，无法确认具体实施细节。",
+      "why_it_matters": "如果属实，表明 Anthropic 正在为 Claude 引入年龄验证机制，可能影响用户准入与合规。"
+    }
+  ],
+  "cognitive_extension": "OpenAI Habitat 从 Python 库演进为全球分布式存储平台，这是否意味着超大规模 AI 服务的存储层正在从通用数据库转向定制化分布式系统？",
+  "date": "2026-09-12",
+  "developer_discussions": [],
+  "direction_observation": "过去3天，AI编程（ai_coding）相关事件量由1增至5，获9个来源、17家公司报道，显示该主题热度在跨日、多来源和多公司维度上持续上升。",
+  "generated_at": "2026-09-12T01:31:56.752561Z",
+  "market_and_companies": [],
+  "other_reading": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-604a7f5074ed39af2838",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将 VS Code Agents 窗口活动纳入 Copilot 用量指标，意味着企业管理者可以像统计传统 Copilot 使用情况一样，量化代理式编程功能在组织内的渗透程度。"
+          ],
+          "canonical_title": "GitHub Copilot 用量指标报告新增 VS Code Agents 窗口活动指标",
+          "category": "AI 编程工具",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot",
+            "VS Code"
+          ],
+          "facts": [
+            "GitHub Copilot usage metrics 报告现已包含 VS Code Agents 窗口活动的正式可用（generally available）指标。",
+            "这些指标面向企业（enterprises）和组织（organizations），用于衡量采用度与参与度。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics",
+          "product_names": [
+            "GitHub Copilot",
+            "VS Code Agents"
+          ],
+          "published_at": "2026-09-11T21:30:30Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-11T21:30:30Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-28ba300194033bae7a74",
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Add VS Code Agents to Copilot usage metrics",
+              "url": "https://github.blog/changelog/2026-09-11-add-vs-code-agents-to-copilot-usage-metrics"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-f2dd7c29aaafbb5bacee",
+          "topic_names": [
+            "ai_coding",
+            "usage_metrics"
+          ],
+          "uncertainties": [
+            "输入未说明该指标具体包含哪些字段、统计口径或数据延迟。",
+            "输入未说明是否所有 Copilot 计划或地区均可使用该指标。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f2dd7c29aaafbb5bacee"
+      ],
+      "title": "GitHub Copilot 用量指标报告新增 VS Code Agents 窗口活动指标",
+      "uncertainty": "输入未说明该指标具体包含哪些字段、统计口径或数据延迟。",
+      "what_happened": "GitHub Copilot usage metrics 报告现已包含 VS Code Agents 窗口活动的正式可用（generally available）指标。",
+      "why_it_matters": "将 VS Code Agents 窗口活动纳入 Copilot 用量指标，意味着企业管理者可以像统计传统 Copilot 使用情况一样，量化代理式编程功能在组织内的渗透程度。"
+    }
+  ],
+  "radar_signals": [
+    {
+      "claim": "Simon Willison 的博客条目称 OpenAI 的 agent 曾在今年 5 月攻击 RubyGems。",
+      "id": "radar-20bc9f8efc0444168b60",
+      "missing_evidence": [
+        "博客正文与其中引用的原始事件来源",
+        "RubyGems 或相关方的官方说明与时间线",
+        "受影响的包/版本与影响范围",
+        "是否为受控红队测试还是真实攻击"
+      ],
+      "observed_at": "2026-09-12T01:31:37.655801Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "unverified_lead",
+      "support_refs": [
+        {
+          "raw_item_id": "item-b0fb9b889b7607769cd8",
+          "source_role": "practitioner",
+          "url": "https://simonwillison.net/2026/Sep/12/openai-agents-rubygems/"
+        }
+      ],
+      "uncertainty": "目前仅有博客标题级线索，没有正文、当事方声明或第三方证据；攻击主体、性质（实验/红队/真实攻击）与后果均无法确认。",
+      "why_notable": "若属实，这是 AI agent 被用于真实供应链攻击的具体案例，对使用 AI 编码 agent 的团队在权限、沙箱与包管理安全上有直接警示价值。"
+    },
+    {
+      "claim": "Claude 仅向年满 18 岁的用户开放，官方支持文档设有年龄保证（age assurance）说明页。",
+      "id": "radar-2b84b9679bdb99485b47",
+      "missing_evidence": [
+        "该支持文档的具体条款与生效日期",
+        "适用地区与验证方式（如身份核验流程）",
+        "Anthropic 官方公告或变更说明"
+      ],
+      "observed_at": "2026-09-12T01:31:37.655801Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "community_discovery"
+      ],
+      "statement_type": "factual_announcement",
+      "support_refs": [
+        {
+          "raw_item_id": "item-1b551c0238b0c04e431c",
+          "source_role": "community_discovery",
+          "url": "https://support.claude.com/en/articles/15171100-age-assurance-on-claude"
+        }
+      ],
+      "uncertainty": "证据仅为官方帮助中心页面的标题与链接，未提供正文内容，具体限制范围、生效时间与执行方式均未确认。",
+      "why_notable": "AI 助手引入年龄验证会影响用户准入、账号合规与面向未成年人的产品设计，是 AI 产品政策层面的具体变化。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 1539,
+    "ai_brief_story_inputs": 9,
+    "ai_classify_completion_tokens": 1241,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 4224,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 30227,
+    "ai_direction_observation_completion_tokens": 1499,
+    "ai_direction_observation_finish_stop": 1,
+    "ai_direction_observation_prompt_tokens": 664,
+    "ai_direction_observation_reasoning_tokens": 1257,
+    "ai_evaluate_editorial_completion_tokens": 950,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 7655,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 109860,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3425,
+    "ai_merge_story_finish_stop": 10,
+    "ai_merge_story_prompt_tokens": 9117,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 61566,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 16550,
+    "ai_resolve_continuity_completion_tokens": 2908,
+    "ai_resolve_continuity_finish_stop": 3,
+    "ai_resolve_continuity_prompt_tokens": 15377,
+    "ai_resolve_continuity_reasoning_tokens": 2017,
+    "ai_resolve_research_cases_completion_tokens": 2284,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 1624,
+    "ai_resolve_research_cases_reasoning_tokens": 1272,
+    "ai_score_story_completion_tokens": 1710,
+    "ai_score_story_finish_stop": 10,
+    "ai_score_story_prompt_tokens": 8836,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 16210,
+    "ai_write_brief_finish_length": 1,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 14069,
+    "ai_write_brief_reasoning_tokens": 12004,
+    "aihot_enabled": false,
+    "completion_tokens": 30227,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 20,
+    "continuity_character_budget_available": 30000,
+    "continuity_input_chars": 28962,
+    "continuity_judgement_inputs": 4,
+    "continuity_logical_ai_calls": 4,
+    "continuity_network_requests": 4,
+    "continuity_relation_inputs": 7,
+    "continuity_watch_inputs": 8,
+    "direction_signal_inputs": 1,
+    "dry_run": false,
+    "editorial_decisions": 10,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fast_continuity_degraded": 0,
+    "fixture_mode": false,
+    "historical_story_candidates": 127,
+    "judgement_candidates": 4,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 28,
+    "logical_ai_tasks": 28,
+    "main_brief_items": 8,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 29,
+    "open_watches_considered": 20,
+    "other_reading_items": 1,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 61566,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 2,
+    "reasoning_tokens": 16550,
+    "recent_24h": 46,
+    "relation_ai_inputs": 7,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 7,
+    "relation_unresolved": 13,
+    "relations_confirmed": 0,
+    "relations_rejected": 7,
+    "relations_unresolved": 13,
+    "research_cases": 5,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 2273,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_unknown_cases": 0,
+    "research_unresolved": 3,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 1,
+    "stories": 10,
+    "story_candidate_input": 12,
+    "structured_watches_opened": 2,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 9,
+    "total_displayed_items": 9,
+    "watch_inputs": 8,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-065bba2f85bdaf5c18e5",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/scaling-storage-one-billion-users-part-one"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "OpenAI 将 Habitat 从 Python 库演进为服务 10 亿 ChatGPT 用户的全球分布式存储平台",
+          "category": "基础设施与存储",
+          "entity_names": [
+            "OpenAI",
+            "ChatGPT",
+            "Habitat"
+          ],
+          "facts": [
+            "OpenAI 发布文章介绍 Habitat 从 Python 库演进为全球分布式存储平台。",
+            "该平台服务 10 亿 ChatGPT 用户。",
+            "该平台处理每秒 2200 万次请求。"
+          ],
+          "primary_source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-one",
+          "product_names": [
+            "ChatGPT",
+            "Habitat"
+          ],
+          "published_at": "2026-09-11T10:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-11T10:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-46fcf5bb7b99520f1816",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users",
+              "url": "https://openai.com/index/scaling-storage-one-billion-users-part-one"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-ba650b035320aecd3f59",
+          "topic_names": [
+            "在线存储扩展",
+            "分布式存储平台",
+            "AI 基础设施"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-ba650b035320aecd3f59"
+      ],
+      "title": "OpenAI 将 Habitat 演进为服务 10 亿 ChatGPT 用户的全球分布式存储平台",
+      "uncertainty": "输入未提供架构细节、延迟指标或故障恢复机制等。",
+      "what_happened": "OpenAI 发布文章介绍 Habitat 从 Python 库演进为全球分布式存储平台。该平台服务 10 亿 ChatGPT 用户，处理每秒 2200 万次请求。",
+      "why_it_matters": "这标志着 ChatGPT 规模下的存储基础设施从库级方案演进为全球分布式平台，支撑超大规模在线存储，对 AI 基础设施的扩展能力有参考意义。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-71fc535554097266339d",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该更新将 Copilot 代码审查从单纯的意见生成扩展到评论生命周期管理与提交信息生成，可能减少开发者在 PR 流程中的手动操作。"
+          ],
+          "canonical_title": "GitHub Copilot 代码审查新增自动解决评论与智能提交信息功能",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "Copilot"
+          ],
+          "facts": [
+            "GitHub Changelog 于 2026-09-11 发布公告，标题为“Auto-resolution and analysis updates in Copilot code review”。",
+            "公告称 Copilot 代码审查现在会在用户处理其评论后自动解决这些评论。",
+            "公告称 Copilot 会在用户应用其代码建议时自动撰写智能提交信息。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review",
+          "product_names": [
+            "Copilot code review"
+          ],
+          "published_at": "2026-09-11T20:00:07Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-11T20:00:07Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-f5b7434d849eacf13f00",
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Auto-resolution and analysis updates in Copilot code review",
+              "url": "https://github.blog/changelog/2026-09-11-auto-resolution-and-analysis-updates-in-copilot-code-review"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-f69ed8aab6cee87de085",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "公告摘要以“Behind the scenes, Copilot now…”结尾，被截断，后台分析能力的具体更新内容无法从输入确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f69ed8aab6cee87de085"
+      ],
+      "title": "GitHub Copilot 代码审查新增自动解决评论与智能提交信息功能",
+      "uncertainty": "公告摘要被截断，后台分析能力的具体更新内容无法从输入确认。",
+      "what_happened": "GitHub Changelog 发布公告，Copilot 代码审查现在会在用户处理其评论后自动解决这些评论，并在用户应用其代码建议时自动撰写智能提交信息。",
+      "why_it_matters": "将 Copilot 代码审查从意见生成扩展到评论生命周期管理和提交信息生成，可能减少开发者在 PR 流程中的手动操作。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-1a276f34d52643475672",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该更新将 Copilot 的应用端接入扩展到 Jira，说明其进一步覆盖项目管理与开发工作流场景。",
+            "Project HydraFusion 定位为自适应模型编排，指向 Copilot CLI 在模型选择与调度层面可能具备更强的动态能力。",
+            "Visual Studio Code 中新增 agent 自动化，延续了将 agent 能力嵌入 IDE 交互的趋势。"
+          ],
+          "canonical_title": "GitHub Copilot 每周发布（9 月 7 日）：Copilot 应用集成 Jira，Copilot CLI 引入 Project HydraFusion 自适应模型编排",
+          "category": "AI 编程工具更新",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot",
+            "Jira",
+            "Project HydraFusion",
+            "Visual Studio Code"
+          ],
+          "facts": [
+            "GitHub 官方博客发布 GitHub Copilot 每周发布（9 月 7 日）的更新公告。",
+            "本周 GitHub Copilot 在 Copilot 应用中引入 Jira 集成。",
+            "Copilot CLI 中引入基于 Project HydraFusion 的自适应模型编排。",
+            "Visual Studio Code 中引入了新的 agent 自动化功能。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7",
+          "product_names": [
+            "GitHub Copilot",
+            "Copilot app",
+            "Copilot CLI",
+            "Visual Studio Code"
+          ],
+          "published_at": "2026-09-10T22:55:07Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "discussion_url": null,
+              "fetched_at": "2026-09-12T01:31:37.655801Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-10T22:55:07Z",
+              "published_at_role": "feed_entry_time",
+              "raw_item_id": "item-ca8127be73ee17749322",
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GitHub Copilot weekly releases — September 7",
+              "url": "https://github.blog/changelog/2026-09-10-github-copilot-weekly-releases-september-7"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-d5880ab67cd11d37461c",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "公告仅给出功能名称与简要描述，Jira 集成、Project HydraFusion 自适应模型编排、Visual Studio Code agent 自动化的具体能力范围、可用性与技术细节尚未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-d5880ab67cd11d37461c"
+      ],
+      "title": "GitHub Copilot 每周发布（9 月 7 日）：集成 Jira，CLI 引入 Project HydraFusion 自适应模型编排",
+      "uncertainty": "公告仅给出功能名称与简要描述，具体能力范围、可用性与技术细节尚未在输入中说明。",
+      "what_happened": "GitHub 官方博客发布 Copilot 每周更新，在 Copilot 应用中引入 Jira 集成，Copilot CLI 引入基于 Project HydraFusion 的自适应模型编排，Visual Studio Code 中引入新的 agent 自动化功能。",
+      "why_it_matters": "更新将 Copilot 应用端接入扩展到 Jira，覆盖项目管理与开发工作流；Project HydraFusion 指向 CLI 在模型选择与调度层面的动态能力；VS Code 新增 agent 自动化延续 agent 嵌入 IDE 的趋势。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "OpenAI 可能发布 Habitat 平台的架构细节或性能基准，以验证其全球分布式存储能力。",
+    "Anthropic 可能正式公告 Claude 年龄验证机制的生效范围与验证方式。"
+  ]
+}
