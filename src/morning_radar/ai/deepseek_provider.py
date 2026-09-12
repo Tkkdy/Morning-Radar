@@ -47,6 +47,17 @@ from morning_radar.ai.output_validation import (
     validate_core_simplified_chinese_output,
     validate_direction_evidence,
 )
+from morning_radar.ai.request_payload import (
+    attach_call_meta,
+    bind_call_meta,
+    classify_items_payload,
+    freeze_call_meta,
+    policy_hash,
+    prompt_hash_for,
+    research_request_payload,
+    score_story_payload,
+    snapshot_call_meta,
+)
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
@@ -80,9 +91,7 @@ TASK_POLICIES = {
     "write_brief": DeepSeekTaskPolicy(
         "enabled", 8192, 8192, "medium", retry_reasoning_effort="low"
     ),
-    "write_brief_item": DeepSeekTaskPolicy(
-        "disabled", 4096, 4096, max_network_attempts=1
-    ),
+    "write_brief_item": DeepSeekTaskPolicy("disabled", 4096, 4096, max_network_attempts=1),
     "resolve_continuity": DeepSeekTaskPolicy(
         "enabled", 4096, 4096, "medium", AITaskPriority.IMPORTANT, 2
     ),
@@ -123,6 +132,7 @@ class DeepSeekProvider:
         client: Any | None = None,
         network_attempts: int = 3,
         timeout_seconds: float = 60,
+        topic_context: dict | None = None,
     ) -> None:
         if not model:
             raise AIConfigurationError("DEEPSEEK_MODEL is required for production AI")
@@ -136,6 +146,16 @@ class DeepSeekProvider:
         self.network_attempts = network_attempts
         self.circuit_open = False
         self.circuit_reason: str | None = None
+        self.topic_context = topic_context if topic_context is not None else None
+        if self.topic_context is None:
+            from morning_radar.ai.request_payload import build_topic_context
+
+            self.topic_context = build_topic_context(None)
+        self.last_task: str | None = None
+        self.last_payload: object | None = None
+        self.last_payload_text: str | None = None
+        self.last_prompt_hash: str | None = None
+        self.last_policy_hash: str | None = None
         self.client = client or OpenAI(
             api_key=api_key,
             base_url=base_url,
@@ -174,9 +194,21 @@ class DeepSeekProvider:
         skip_model_validate: bool = False,
     ) -> OutputT:
         payload = json.dumps(payload_data, ensure_ascii=False, separators=(",", ":"))
-        self.budget.consume(payload, item_count=item_count)
+        self.last_task = task
+        self.last_payload = payload_data
+        self.last_payload_text = payload
+        self.last_policy_hash = policy_hash(self.topic_context)
+        call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
+        try:
+            self.budget.consume(payload, item_count=item_count)
+        except AIBudgetExceeded as exc:
+            call_meta["blocked_reason"] = str(exc)
+            attach_call_meta(exc, call_meta)
+            raise
         self.budget.reset_task_attempts(task)
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
+        self.last_prompt_hash = prompt_hash_for(instructions)
+        call_meta["prompt_hash"] = self.last_prompt_hash
         schema_json = json.dumps(
             schema.model_json_schema(),
             ensure_ascii=False,
@@ -217,6 +249,7 @@ class DeepSeekProvider:
             self.budget.record_network_request(
                 task, maximum_task_attempts=policy.max_network_attempts
             )
+            call_meta["executed"] = True
             retry_instruction = ""
             if structured_attempt > 1:
                 if isinstance(last_error, ValidationError):
@@ -224,9 +257,7 @@ class DeepSeekProvider:
                         "\n\nThe previous response failed schema validation. Regenerate the "
                         "entire JSON object. All required string fields must be non-empty."
                     )
-                elif isinstance(
-                    last_error, (json.JSONDecodeError, TruncatedStructuredOutput)
-                ):
+                elif isinstance(last_error, (json.JSONDecodeError, TruncatedStructuredOutput)):
                     retry_instruction = (
                         "\n\nThe previous structured response was invalid. Regenerate the "
                         "entire response from scratch as one complete JSON object. Ensure "
@@ -255,9 +286,7 @@ class DeepSeekProvider:
                     "max_output_tokens=%d",
                     self.provider_name,
                     task,
-                    "truncated"
-                    if isinstance(last_error, TruncatedStructuredOutput)
-                    else "invalid",
+                    "truncated" if isinstance(last_error, TruncatedStructuredOutput) else "invalid",
                     effective_policy.reasoning_effort or effective_policy.thinking,
                     max_tokens,
                 )
@@ -286,9 +315,13 @@ class DeepSeekProvider:
         for structured_attempt in range(1, maximum_structured_attempts + 1):
             try:
                 response = invoke(structured_attempt=structured_attempt)
-            except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded):
+            except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded) as exc:
+                if isinstance(exc, AIBudgetExceeded):
+                    call_meta["blocked_reason"] = str(exc)
+                attach_call_meta(exc, call_meta)
                 raise
             except AIProviderUnavailable as exc:
+                attach_call_meta(exc, call_meta)
                 raise AIOutputError(
                     f"{self.provider_name} API unavailable after bounded retries"
                 ) from exc
@@ -330,11 +363,10 @@ class DeepSeekProvider:
                     )
                 content = choice.message.content
                 if not isinstance(content, str) or not content.strip():
-                    raise AIOutputError(
-                        f"{self.provider_name} response contained no JSON content"
-                    )
+                    raise AIOutputError(f"{self.provider_name} response contained no JSON content")
                 parsed = json.loads(content)
                 if skip_model_validate:
+                    call_meta["structured_retry"] = max(0, structured_attempt - 1)
                     return parsed
                 validated = schema.model_validate(parsed)
                 validate_output_urls(validated, allowed_urls)
@@ -344,7 +376,8 @@ class DeepSeekProvider:
                     transformed = output_validator(validated)
                     if transformed is not None:
                         validated = transformed
-                return validated
+                call_meta["structured_retry"] = max(0, structured_attempt - 1)
+                return bind_call_meta(validated, call_meta)
             except (
                 AIOutputError,
                 ValidationError,
@@ -396,7 +429,7 @@ class DeepSeekProvider:
         return self._parse(
             task="classify",
             schema=ClassificationBatch,
-            payload_data=[item.model_dump(mode="json") for item in items],
+            payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
         )
@@ -414,7 +447,7 @@ class DeepSeekProvider:
         return self._parse(
             task="score_story",
             schema=StoryScore,
-            payload_data=story.model_dump(mode="json"),
+            payload_data=score_story_payload(story, self.topic_context),
             item_count=1,
             allowed_urls=set(story.source_urls),
         )
@@ -540,8 +573,7 @@ class DeepSeekProvider:
         isolated = self.resolve_research_cases_isolated(cases)
         if isolated.truncated:
             raise AIOutputError("Research output was truncated")
-        return isolated.batch
-
+        return bind_call_meta(isolated.batch, isolated.call_meta)
 
     def resolve_research_cases_isolated(
         self,
@@ -555,15 +587,13 @@ class DeepSeekProvider:
 
         case_ids = {case.id for case in cases}
         allowed_urls = {
-            evidence.url
-            for case in cases
-            for evidence in [case.lead, *case.supporting_evidence]
+            evidence.url for case in cases for evidence in [case.lead, *case.supporting_evidence]
         }
         try:
             parsed = self._parse(
                 task="resolve_research_cases",
                 schema=ResearchResolutionBatch,
-                payload_data=[case.model_dump(mode="json") for case in cases],
+                payload_data=research_request_payload(cases, self.topic_context),
                 item_count=len(cases),
                 allowed_urls=allowed_urls,
                 validate_language=False,
@@ -573,18 +603,22 @@ class DeepSeekProvider:
             raise
         except AIOutputError as exc:
             truncated = "truncated" in str(exc).casefold() or "json" in str(exc).casefold()
+            meta = freeze_call_meta(getattr(self, "last_call_meta", None))
             return IsolatedResearchResult(
                 batch=ResearchResolutionBatch(),
                 truncated=truncated,
                 error=str(exc),
+                call_meta=meta,
             )
 
         raw_cases = parsed.get("cases") if isinstance(parsed, dict) else None
         if not isinstance(raw_cases, list):
+            meta = freeze_call_meta(getattr(self, "last_call_meta", None))
             return IsolatedResearchResult(
                 batch=ResearchResolutionBatch(),
                 truncated=True,
                 error="research container is not a cases array",
+                call_meta=meta,
             )
         valid = []
         invalid_ids: list[str] = []
@@ -609,22 +643,22 @@ class DeepSeekProvider:
             try:
                 draft = ResearchResolutionDraft.model_validate(raw)
                 validate_output_urls(draft, allowed_urls)
-                validate_core_simplified_chinese_output(
-                    ResearchResolutionBatch(cases=[draft])
-                )
+                validate_core_simplified_chinese_output(ResearchResolutionBatch(cases=[draft]))
             except (ValidationError, AIOutputError, ValueError):
                 invalid_ids.append(case_id)
                 continue
             valid.append(draft)
         missing_ids = sorted(case_ids - seen)
+        meta = freeze_call_meta(getattr(self, "last_call_meta", None))
+        batch = bind_call_meta(ResearchResolutionBatch(cases=valid), meta)
         return IsolatedResearchResult(
-            batch=ResearchResolutionBatch(cases=valid),
+            batch=batch,
             invalid_ids=invalid_ids,
             missing_ids=missing_ids,
             unknown_ids=unknown_ids,
             duplicate_ids=duplicate_ids,
+            call_meta=meta,
         )
-
 
     def evaluate_tendencies(
         self,

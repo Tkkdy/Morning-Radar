@@ -46,6 +46,11 @@ def build_parser() -> argparse.ArgumentParser:
     inspect.add_argument("--url")
     inspect.add_argument("--story-id")
     inspect.add_argument("--json", action="store_true", dest="as_json")
+    collection_inspect = commands.add_parser(
+        "inspect-collection", help="read saved collection diagnostics"
+    )
+    collection_inspect.add_argument("--batch-id", required=True)
+    collection_inspect.add_argument("--json", action="store_true", dest="as_json")
     commands.add_parser("build-site", help="rebuild pages from saved brief JSON")
     commands.add_parser("run-tendency", help="run standalone Tendency evaluation")
     commands.add_parser("run-deep-continuity", help="run triggered deep Judgement review")
@@ -115,11 +120,15 @@ def main(argv: list[str] | None = None) -> int:
         from morning_radar.intake.service import isolated_output_root
         from morning_radar.pipeline import _artifact_digest
 
-        artifact = isolated_output_root(
-            pipeline.root,
-            fixtures=args.fixtures,
-            dry_run=args.dry_run,
-        ) / "data/briefs" / f"{brief.date}.json"
+        artifact = (
+            isolated_output_root(
+                pipeline.root,
+                fixtures=args.fixtures,
+                dry_run=args.dry_run,
+            )
+            / "data/briefs"
+            / f"{brief.date}.json"
+        )
         print(
             json.dumps(
                 {
@@ -146,6 +155,15 @@ def main(argv: list[str] | None = None) -> int:
             print(json.dumps(payload, ensure_ascii=False, indent=2, sort_keys=True))
         else:
             print(format_inspect_summary(payload))
+    elif args.command == "inspect-collection":
+        from morning_radar.intake.inspect import inspect_collection
+
+        payload = inspect_collection(pipeline.root, batch_id=args.batch_id)
+        print(
+            json.dumps(
+                payload, ensure_ascii=False, indent=2 if args.as_json else None, sort_keys=True
+            )
+        )
     elif args.command == "build-site":
         pipeline.build_site()
     elif args.command == "run-tendency":
@@ -191,9 +209,7 @@ def main(argv: list[str] | None = None) -> int:
         from morning_radar.intake.generation import generation_is_complete
 
         actual_hash = _artifact_digest(brief_path)
-        if not generation_is_complete(
-            pipeline.root, brief_date, expected_hash=args.brief_hash
-        ):
+        if not generation_is_complete(pipeline.root, brief_date, expected_hash=args.brief_hash):
             raise SystemExit(f"Generation is incomplete for {brief_date}")
         if actual_hash != args.brief_hash:
             raise SystemExit(

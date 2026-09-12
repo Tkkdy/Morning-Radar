@@ -9,6 +9,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
+from morning_radar.collectors.hn_common import merge_hn_observations
 from morning_radar.collectors.orchestrator import CollectionResult
 from morning_radar.intake.identity import (
     content_version,
@@ -61,6 +62,7 @@ def build_intake_records(
     run_id: str,
     first_seen: dict[str, datetime] | None = None,
 ) -> list[IntakeRecord]:
+    items = merge_hn_observations(items)
     seen_versions: dict[tuple[str, str], IntakeRecord] = {}
     for item in items:
         input_id = input_id_for(item)
@@ -102,6 +104,7 @@ def write_intake_checkpoint(
     run_id: str | None = None,
     batch_id: str | None = None,
     first_seen: dict[str, datetime] | None = None,
+    discovery_audit: list[dict[str, Any]] | None = None,
 ) -> IntakeCheckpoint:
     assigned_run_id, assigned_batch_id = new_run_ids(now)
     run_id = run_id or assigned_run_id
@@ -112,9 +115,7 @@ def write_intake_checkpoint(
         run_id=run_id,
         first_seen=first_seen,
     )
-    truncated = bool(
-        collection.after_dedup and len(collection.items) < collection.after_dedup
-    )
+    truncated = bool(collection.after_dedup and len(collection.items) < collection.after_dedup)
     stats = {
         name: {
             "collected": stat.collected,
@@ -138,6 +139,7 @@ def write_intake_checkpoint(
             truncated=truncated,
             cache_inconsistencies=list(cache_inconsistencies or []),
             source_state_committed=False,
+            discovery_audit=list(discovery_audit or []),
         ),
         items=records,
         source_state=source_state,
@@ -183,9 +185,7 @@ def load_checkpoint_by_batch_id(root: Path, batch_id: str) -> IntakeCheckpoint:
     path = checkpoint_path(root, batch_id)
     checkpoint = load_complete_checkpoint(path)
     if checkpoint is None:
-        raise FileNotFoundError(
-            f"Complete intake checkpoint not found for batch_id={batch_id}"
-        )
+        raise FileNotFoundError(f"Complete intake checkpoint not found for batch_id={batch_id}")
     return checkpoint
 
 
@@ -231,11 +231,7 @@ def latest_complete_checkpoint(root: Path) -> IntakeCheckpoint | None:
 
 def mark_source_state_committed(root: Path, checkpoint: IntakeCheckpoint) -> IntakeCheckpoint:
     updated = checkpoint.model_copy(
-        update={
-            "manifest": checkpoint.manifest.model_copy(
-                update={"source_state_committed": True}
-            )
-        }
+        update={"manifest": checkpoint.manifest.model_copy(update={"source_state_committed": True})}
     )
     save_model(checkpoint_path(root, checkpoint.manifest.batch_id), updated)
     return updated

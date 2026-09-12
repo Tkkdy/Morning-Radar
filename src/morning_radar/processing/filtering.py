@@ -2,7 +2,8 @@
 
 from __future__ import annotations
 
-from datetime import UTC, datetime
+from datetime import UTC, datetime, timedelta
+from zoneinfo import ZoneInfo
 
 from morning_radar.models import RawItem
 from morning_radar.time_utils import is_within_past_hours
@@ -16,6 +17,19 @@ def filter_news_window(
 ) -> list[RawItem]:
     filtered: list[RawItem] = []
     for item in items:
+        if item.metadata.get("date_precision") == "day":
+            source_date = item.metadata.get("source_date")
+            try:
+                start = datetime.fromisoformat(str(source_date)).replace(
+                    tzinfo=ZoneInfo("Asia/Singapore")
+                )
+            except ValueError:
+                continue
+            end = start + timedelta(days=1)
+            lower = now.astimezone(UTC) - timedelta(hours=hours)
+            if start.astimezone(UTC) <= now.astimezone(UTC) and end.astimezone(UTC) >= lower:
+                filtered.append(item)
+            continue
         if item.published_at is not None:
             if is_within_past_hours(
                 item.published_at,

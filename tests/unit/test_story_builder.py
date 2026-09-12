@@ -103,6 +103,10 @@ def test_story_source_ref_preserves_rss_collector_context() -> None:
                 "source_role": SourceRole.EDITORIAL,
                 "statement_type": StatementType.UNKNOWN,
                 "practice_signal_kind": None,
+                "source_date": None,
+                "date_precision": None,
+                "source_timezone": None,
+                "published_date_role": None,
         }
     ]
 

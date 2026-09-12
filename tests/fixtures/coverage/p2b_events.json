@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "task_id": "MR-COVERAGE-P2-B",
+  "timezone": "Asia/Singapore",
+  "events": [
+    {
+      "event_id": "E16",
+      "lab": "deepseek",
+      "event_type": "preview",
+      "product": "V4.1 Flash",
+      "source_url": "https://news.ycombinator.com/item?id=49624603",
+      "original_published_at": "2026-09-09T11:19:26Z",
+      "original_time_precision": "datetime",
+      "expected_treatment": "research_opportunity",
+      "expected_brief_date": "2026-09-10",
+      "historical_observation": {"raw_input_present": false, "checkpoint": "batch-20260910T012602Z-4b3abb1522"},
+      "reconstruction_result": "simulated_hn_search_response_only",
+      "archive_ref": "5316837",
+      "known": ["HN post had no external URL", "production raw did not contain this input"],
+      "unknown": ["HN ranking at the production run", "whether research would verify it"]
+    },
+    {
+      "event_id": "E17",
+      "lab": "deepseek",
+      "event_type": "follow_up",
+      "related_event_id": "E16",
+      "source_url": "https://www.ithome.com/1/000/602.htm",
+      "original_published_at": "2026-09-10T10:11:13+08:00",
+      "original_time_precision": "datetime_with_offset",
+      "expected_treatment": "outside_prior_run",
+      "historical_observation": "later_than_2026-09-10_collection",
+      "reconstruction_result": "not_replayed_as_E16"
+    },
+    {
+      "event_id": "E18",
+      "lab": "deepseek",
+      "event_type": "official_release_api_pricing",
+      "related_event_id": "E16",
+      "source_url": "https://api-docs.deepseek.com/zh-cn/updates/",
+      "source_date": "2026-09-10",
+      "original_time_precision": "date",
+      "expected_treatment": "date_only_official_input",
+      "historical_observation": "current_page_not_evidence_of_09:26_availability",
+      "reconstruction_result": "fixture_only_no_invented_timestamp"
+    }
+  ]
+}

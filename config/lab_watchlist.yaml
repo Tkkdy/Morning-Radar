@@ -1,0 +1,40 @@
+enabled: true
+reserved_fresh_candidate_slots: 2
+maximum_queries_per_run: 12
+maximum_pages_per_query: 2
+hits_per_page: 20
+maximum_network_requests: 52
+request_timeout_seconds: 10
+request_attempts: 2
+request_start_deadline_seconds: 120
+maximum_response_bytes: 262144
+maximum_excerpt_characters: 1600
+update_rules:
+  - rule_id: model_release
+    include: ['\b(model|gpt|claude|gemini|llama|grok|deepseek)\b.*\b(release|released|preview|launch|available)\b', '发布.*模型', '模型.*(发布|预告|上线)']
+    exclude: ['\b(ipo|stock|funding)\b']
+  - rule_id: api_lifecycle
+    include: ['\b(api|model)\b.*\b(available|migration|deprecated|sunset|pricing)\b', '(API|模型).*(可用|迁移|下线|价格)']
+    exclude: ['\b(sdk|cache|benchmark)\b']
+labs:
+  - id: deepseek
+    aliases: [DeepSeek, 深度求索]
+    hn_queries: [DeepSeek]
+    official_source_id: deepseek_updates
+  - id: openai
+    aliases: [OpenAI, ChatGPT, GPT]
+    hn_queries: [OpenAI, GPT]
+    official_source_id: openai_news
+  - id: anthropic
+    aliases: [Anthropic, Claude]
+    hn_queries: [Anthropic, Claude]
+  - id: google_deepmind
+    aliases: [Google DeepMind, DeepMind, Gemini]
+    hn_queries: [Gemini, DeepMind]
+    official_source_id: google_ai
+  - id: xai
+    aliases: [xAI, Grok]
+    hn_queries: [xAI, Grok]
+  - id: meta
+    aliases: [Meta AI, Llama]
+    hn_queries: [Llama]

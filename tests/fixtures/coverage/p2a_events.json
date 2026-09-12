@@ -1,0 +1,622 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-09-09",
+  "archive_ref": "94bc895",
+  "archive_source": "workspace",
+  "timezone": "Asia/Singapore",
+  "events": [
+    {
+      "event_id": "E01",
+      "name": "GPT-6 Astra launch",
+      "historical_observation": "部分覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-09-04",
+      "original_time_precision": "date",
+      "original_published_at": "2026-09-04T18:59:51Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "Local collected timestamp is GitHub Copilot changelog RSS time, not an independently verified OpenAI launch timestamp.",
+      "discovery_or_fetched_at": "2026-09-05T01:22:21.674546Z",
+      "expected_brief_date": "2026-09-05",
+      "expected_brief_date_range": [
+        "2026-09-04",
+        "2026-09-05"
+      ],
+      "expected_brief_date_basis": "Copilot GA item was fetched 09:22 SGT on 2026-09-05. The 2026-09-04 brief file is missing because of O02, not because the model launch was judged unimportant.",
+      "official_sources": [
+        "https://openai.com/index/safety-overview-gpt-6-astra/",
+        "https://github.blog/changelog/2026-09-04-gpt-6-astra-is-generally-available-in-github-copilot"
+      ],
+      "required_facets": [
+        "GPT-6 Astra is the launched model",
+        "where/how developers can access it",
+        "material capability changes that affect developers"
+      ],
+      "facet_explanation": "Complete coverage would report the model identity, access path, and developer-facing changes. The 9/5 brief only reports GitHub Copilot general availability.",
+      "covered_facets": [
+        "GPT-6 Astra is named",
+        "GitHub Copilot is an access path"
+      ],
+      "missing_facets": [
+        "OpenAI official launch details and capability claims"
+      ],
+      "collected": {
+        "raw": "data/raw/2026-09-05.json",
+        "raw_item_id": "item-cf45e2be25e062a0c299"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-05.json",
+        "brief_item_id": "brief-529e8ab50e77f9e5de52",
+        "story_id": "story-16e150d9322354c35e2e",
+        "section": "top_stories"
+      },
+      "missing_brief": "data/briefs/2026-09-04.json",
+      "conclusion": "9/5 Copilot coverage is partial/delayed relative to a first-party launch brief; the missing 9/4 issue is a failed run sample, not complete non-reporting."
+    },
+    {
+      "event_id": "E02",
+      "name": "Claude Fable / Mythos 5.1",
+      "historical_observation": "部分覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-09-01",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-01T14:29:23Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "Local timestamp is GitHub Copilot changelog RSS time. Anthropic first-party launch time was not independently verified from local raw.",
+      "discovery_or_fetched_at": "2026-09-02T01:22:34.022056Z",
+      "expected_brief_date": "2026-09-02",
+      "expected_brief_date_basis": "Copilot GA item was fetched 09:22 SGT on 2026-09-02, after the 2026-09-01 22:29 SGT changelog time.",
+      "official_sources": [
+        "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+        "https://github.blog/changelog/2026-09-01-claude-fable-5-1-generally-available-in-github-copilot"
+      ],
+      "required_facets": [
+        "Fable 5.1 / Mythos 5.1 is the launched version",
+        "availability or access path",
+        "developer-facing changes beyond a channel listing"
+      ],
+      "facet_explanation": "The 9/2 top story reports Copilot general availability, not a complete Anthropic launch writeup.",
+      "covered_facets": [
+        "Claude Fable 5.1 is named",
+        "GitHub Copilot availability"
+      ],
+      "missing_facets": [
+        "Anthropic first-party launch details and model capability changes"
+      ],
+      "collected": {
+        "raw": "data/raw/2026-09-02.json",
+        "raw_item_id": "item-fe2ffe194622a50cb936"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-02.json",
+        "brief_item_id": "brief-e81457413af54c13e1ca",
+        "story_id": "story-c8392690fe4e2f6f2971",
+        "section": "top_stories"
+      },
+      "conclusion": "Copilot access is not complete Anthropic launch coverage."
+    },
+    {
+      "event_id": "E03",
+      "name": "Gemini 3.5 Transcribe",
+      "historical_observation": "未覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-08-26",
+      "original_time_precision": "datetime_with_offset",
+      "original_published_at": "2026-08-26T13:00:00-04:00",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "Verge RSS/article time in EDT; SGT calendar date is 2026-08-27. This is not an official Google post timestamp.",
+      "discovery_or_fetched_at": "2026-08-27T05:00:24.503837Z",
+      "expected_brief_date": "2026-08-27",
+      "expected_brief_date_basis": "Collected before the 2026-08-27 morning archive run (13:00 SGT fetch).",
+      "official_sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/"
+      ],
+      "required_facets": [
+        "Gemini 3.5 Transcribe is the product/version",
+        "audio transcription capability",
+        "availability or language/domain coverage mentioned by the source"
+      ],
+      "facet_explanation": "A media item was collected but never displayed, so none of the product facets reached the brief.",
+      "covered_facets": [],
+      "missing_facets": [
+        "model/product name in a displayed brief",
+        "transcription capability",
+        "availability details"
+      ],
+      "collected": {
+        "raw": "data/raw/2026-08-27.json",
+        "raw_item_id": "item-b9b7e9271a29b3a2870f"
+      },
+      "displayed": {
+        "brief": null,
+        "story": null
+      },
+      "conclusion": "Collected media item was not displayed. P2-A does not fix preselect truncation."
+    },
+    {
+      "event_id": "E04",
+      "name": "Anthropic MHS research preview",
+      "historical_observation": "未知",
+      "expected_treatment": "待判断",
+      "original_date": "2026-08-27",
+      "original_time_precision": "date",
+      "published_at_role": "unknown",
+      "published_at_note": "No local collected timestamp. Official page time was not verified from workspace archive.",
+      "expected_brief_date_range": [
+        "2026-08-27",
+        "2026-08-28"
+      ],
+      "expected_brief_date_basis": "If collected, the next Asia/Singapore morning run after 2026-08-27 would be the earliest display window. No local intake exists.",
+      "official_sources": [
+        "https://www.anthropic.com/news/model-hardware-standard-research-preview"
+      ],
+      "required_facets": [
+        "research preview status",
+        "what Model Hardware Standard covers",
+        "who can access the preview"
+      ],
+      "facet_explanation": "Cannot judge coverage without a local collected item or displayed story.",
+      "covered_facets": [],
+      "missing_facets": [
+        "all required facets unverifiable locally"
+      ],
+      "collected": {
+        "raw": null
+      },
+      "displayed": {
+        "brief": null,
+        "story": null
+      },
+      "conclusion": "No local collected input. Do not invent raw IDs."
+    },
+    {
+      "event_id": "E05",
+      "name": "OpenAI Hugging Face incident announcement",
+      "historical_observation": "未覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-08-26",
+      "original_time_precision": "date",
+      "original_published_at": "2026-08-26T00:00:00Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "OpenAI News RSS feed_entry_time at midnight UTC, not a verified exact incident clock time.",
+      "discovery_or_fetched_at": "2026-08-27T05:00:24.503837Z",
+      "expected_brief_date": "2026-08-27",
+      "expected_brief_date_basis": "Present in the 2026-08-27 raw archive after a 13:00 SGT fetch. The old 24h window dropped it from display.",
+      "official_sources": [
+        "https://openai.com/index/hugging-face-incident-and-the-road-ahead/"
+      ],
+      "required_facets": [
+        "Hugging Face security incident is acknowledged",
+        "OpenAI is the speaker",
+        "follow-up security/monitoring/alignment actions"
+      ],
+      "facet_explanation": "The official item was collected and then dropped by the old window, so the incident was not displayed.",
+      "covered_facets": [],
+      "missing_facets": [
+        "incident acknowledgement in a brief",
+        "stated remediation/next steps"
+      ],
+      "collected": {
+        "raw": "data/raw/2026-08-27.json",
+        "raw_item_id": "item-34e62ff4c7cf4defda5b",
+        "fetched_at": "2026-08-27T05:00:24.503837Z"
+      },
+      "displayed": {
+        "brief": null,
+        "story": null
+      },
+      "conclusion": "Collected then dropped by the old 24h window. P1 sample."
+    },
+    {
+      "event_id": "E06",
+      "name": "Qwen3.8-Flash-Next",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-08-26",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-08-26T17:07:12Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "NVIDIA developer blog RSS time. SGT calendar date is 2026-08-27.",
+      "discovery_or_fetched_at": "2026-08-27T05:00:24.503837Z",
+      "expected_brief_date": "2026-08-27",
+      "expected_brief_date_basis": "RSS time 01:07 SGT on 2026-08-27; fetched at 13:00 SGT the same morning.",
+      "official_sources": [
+        "https://developer.nvidia.com/blog/experiment-with-qwen3-8-flash-next-on-nvidia-gb300-nvl72-for-agentic-coding/"
+      ],
+      "required_facets": [
+        "Qwen3.8-Flash-Next is the model",
+        "it is positioned as a Qwen4-architecture preview",
+        "NVIDIA GB300 NVL72 is the access/experiment path for agentic coding"
+      ],
+      "facet_explanation": "The 8/27 ai_and_open_source item names the model, preview role, and NVIDIA experiment path.",
+      "covered_facets": [
+        "model name",
+        "Qwen4 preview positioning",
+        "GB300 NVL72 experiment path"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-08-27.json",
+        "raw_item_id": "item-f1b061f3a3d454f635e9"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-08-27.json",
+        "brief_item_id": "brief-8c9d49491953b2f30ea5",
+        "story_id": "story-847d0e768467145ecf47",
+        "section": "ai_and_open_source"
+      },
+      "conclusion": "Positive control: displayed with the core model, preview, and hardware-access facts."
+    },
+    {
+      "event_id": "E07",
+      "name": "An Alien Mind",
+      "historical_observation": "未覆盖",
+      "expected_treatment": "可选",
+      "original_date": "2026-09-06",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-06T09:00:00Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "OpenAI News RSS time 17:00 SGT on 2026-09-06.",
+      "discovery_or_fetched_at": "2026-09-07T01:17:49.275726Z",
+      "expected_brief_date": "2026-09-07",
+      "expected_brief_date_basis": "Fetched 09:17 SGT on 2026-09-07. A story exists but scored 0.3, below the 0.55 display threshold.",
+      "official_sources": [
+        "https://openai.com/index/an-alien-mind"
+      ],
+      "required_facets": [
+        "it is an OpenAI essay/view on alien-like AI minds",
+        "the speaker/role is identified",
+        "it is not a product launch"
+      ],
+      "facet_explanation": "A story was built and kept below threshold; shadow DROP is not the recorded reason. Optional because it is an essay, not a shipping change.",
+      "covered_facets": [],
+      "missing_facets": [
+        "essay displayed in a brief"
+      ],
+      "story": {
+        "path": "data/stories/2026-09-07.json",
+        "story_id": "story-226e9343699d8b860ecb",
+        "raw_item_id": "item-e0f75446731d598ce3aa",
+        "relevance_score": 0.3
+      },
+      "displayed": {
+        "brief": null
+      },
+      "conclusion": "Story exists below 0.55. Shadow DROP is not the recorded reason."
+    },
+    {
+      "event_id": "E08",
+      "name": "OpenAI Research acceleration",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "可选",
+      "original_date": "2026-09-06",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-06T08:00:00Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "OpenAI News RSS time 16:00 SGT on 2026-09-06. This is not independently verified as the official post clock time. Do not use the 2026-09-07 brief date as the original event date.",
+      "discovery_or_fetched_at": "2026-09-07T01:17:49.275726Z",
+      "expected_brief_date": "2026-09-07",
+      "expected_brief_date_basis": "Original RSS time is 2026-09-06 16:00 SGT; the item was fetched 09:17 SGT on 2026-09-07 and displayed that morning.",
+      "official_sources": [
+        "https://openai.com/index/research-acceleration-view-inside-openai"
+      ],
+      "required_facets": [
+        "OpenAI published an inside view of research acceleration",
+        "more compute is being applied to research",
+        "this is an essay/view rather than a new model launch"
+      ],
+      "facet_explanation": "The 9/7 ai_and_open_source item reports the OpenAI research-acceleration essay and does not treat it as a model launch.",
+      "covered_facets": [
+        "OpenAI research acceleration essay",
+        "compute used for research",
+        "not a model launch"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-09-07.json",
+        "raw_item_id": "item-3784d7aba9718af9aa19"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-07.json",
+        "brief_item_id": "brief-1027749ddfc35b4da6d4",
+        "story_id": "story-d196cbf7ff1f5fc546e2",
+        "section": "ai_and_open_source"
+      },
+      "conclusion": "Displayed on 2026-09-07; original event date remains 2026-09-06 SGT. Do not treat importance below 0.60 as undisplayed."
+    },
+    {
+      "event_id": "E09",
+      "name": "MCP Python SDK v2.2.0",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-09-07",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-07T15:53:57Z",
+      "published_at_role": "github_release_published_time",
+      "published_at_note": "GitHub release published time 23:53 SGT on 2026-09-07. The 2026-09-08 brief date is the next morning run, not the release date.",
+      "discovery_or_fetched_at": "2026-09-08T01:22:37.340485Z",
+      "expected_brief_date": "2026-09-08",
+      "expected_brief_date_basis": "Release landed after the 2026-09-07 morning run and was fetched 09:22 SGT on 2026-09-08.",
+      "official_sources": [
+        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.2.0"
+      ],
+      "required_facets": [
+        "version is v2.2.0",
+        "HTTP redirect/scheme host-port hardening",
+        "session idle timeout / max session limits"
+      ],
+      "facet_explanation": "The 9/8 top story names v2.2.0 and the redirect plus session-limit changes that affect MCP Python clients/servers.",
+      "covered_facets": [
+        "v2.2.0",
+        "redirect hardening",
+        "session timeout and max sessions"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-09-08.json",
+        "raw_item_id": "item-dafe5c0295f8273a8c90"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-08.json",
+        "brief_item_id": "brief-15cb16fe9fa06bc4ef26",
+        "story_id": "story-9cfb7e3ca19454cfba8a",
+        "section": "top_stories"
+      },
+      "conclusion": "Displayed normal sample on the morning after the GitHub release."
+    },
+    {
+      "event_id": "E10",
+      "name": "MCP Python SDK v1.30.0",
+      "historical_observation": "未覆盖",
+      "expected_treatment": "合理不报",
+      "original_date": "2026-09-07",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-07T14:03:59Z",
+      "published_at_role": "github_release_published_time",
+      "published_at_note": "Separate GitHub release from v2.2.0; 22:03 SGT on 2026-09-07.",
+      "discovery_or_fetched_at": "2026-09-08T01:22:37.340485Z",
+      "expected_brief_date": "2026-09-08",
+      "expected_brief_date_basis": "Same fetch window as v2.2.0. A story exists at relevance 0.35, below display threshold.",
+      "official_sources": [
+        "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v1.30.0"
+      ],
+      "required_facets": [
+        "version is v1.30.0",
+        "it is a maintenance line distinct from v2.2.0",
+        "no major developer-facing protocol break is claimed in the local story"
+      ],
+      "facet_explanation": "Non-display is reasonable because this is a separate low-score maintenance release, not because v2.2.0 coverage should be reused.",
+      "covered_facets": [],
+      "missing_facets": [
+        "v1.30.0 displayed in a brief"
+      ],
+      "story": {
+        "path": "data/stories/2026-09-08.json",
+        "story_id": "story-6327887c723b14561e84",
+        "raw_item_id": "item-155ec56ec5e126ff129b",
+        "relevance_score": 0.35
+      },
+      "displayed": {
+        "brief": null
+      },
+      "conclusion": "Separate version from v2.2.0; low-score non-display."
+    },
+    {
+      "event_id": "E11",
+      "name": "Google August AI recap",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "可选",
+      "original_date": "2026-09-01",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-01T20:45:00Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "Google blog RSS time 04:45 SGT on 2026-09-02. This is a period recap, not a Gemini 3.7 first-release clock.",
+      "discovery_or_fetched_at": "2026-09-02T01:22:34.022056Z",
+      "expected_brief_date": "2026-09-02",
+      "expected_brief_date_basis": "Fetched 09:22 SGT on 2026-09-02 and displayed in ai_and_open_source that morning.",
+      "official_sources": [
+        "https://blog.google/innovation-and-ai/technology/google-ai-updates-august-2026/"
+      ],
+      "required_facets": [
+        "it is an August 2026 recap rather than a first launch",
+        "Gemini 3.7 Flash is mentioned as part of the recap",
+        "the source is Google's own monthly AI update"
+      ],
+      "facet_explanation": "The 9/2 recap item is a period summary. Naming Gemini 3.7 Flash here is not evidence of a same-day first release.",
+      "covered_facets": [
+        "August recap framing",
+        "Gemini 3.7 Flash mentioned",
+        "Google official update URL"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-09-02.json",
+        "raw_item_id": "item-e6646933ca959a5fc8d1"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-02.json",
+        "brief_item_id": "brief-eba3309beb7b9c1f7f28",
+        "story_id": "story-b719df82270b277ca939",
+        "section": "ai_and_open_source"
+      },
+      "conclusion": "Period recap, not a first launch. IDs taken from the 2026-09-02 brief rather than left loosely pinned."
+    },
+    {
+      "event_id": "E12",
+      "name": "Google Pics",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-09-01",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-01T16:00:00Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "Google blog RSS time 00:00 SGT on 2026-09-02.",
+      "discovery_or_fetched_at": "2026-09-02T01:22:34.022056Z",
+      "expected_brief_date": "2026-09-02",
+      "expected_brief_date_basis": "Fetched 09:22 SGT on 2026-09-02 after a midnight SGT blog time.",
+      "official_sources": [
+        "https://blog.google/products-and-platforms/products/workspace/google-pics/"
+      ],
+      "required_facets": [
+        "Google Pics is the launched product",
+        "it creates/edits images",
+        "it is available inside Google Workspace"
+      ],
+      "facet_explanation": "The 9/2 top story names Pics, image creation/editing, and Workspace availability.",
+      "covered_facets": [
+        "product name",
+        "image creation/editing",
+        "Workspace availability"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-09-02.json",
+        "raw_item_id": "item-ab46a267f212840f55ce"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-02.json",
+        "brief_item_id": "brief-7b4628aa903dc0a39ed5",
+        "story_id": "story-a55c79ac41627b1f50eb",
+        "section": "top_stories"
+      },
+      "conclusion": "Displayed product launch."
+    },
+    {
+      "event_id": "E13",
+      "name": "NVIDIA NVLink Fusion / NVHBM",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-08-26",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-08-26T21:06:58Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "NVIDIA developer blog RSS time 05:06 SGT on 2026-08-27.",
+      "discovery_or_fetched_at": "2026-08-27T05:00:24.503837Z",
+      "expected_brief_date": "2026-08-27",
+      "expected_brief_date_basis": "Fetched 13:00 SGT on 2026-08-27 after the 05:06 SGT blog time.",
+      "official_sources": [
+        "https://developer.nvidia.com/blog/nvidia-nvlink-fusion-brings-nvhbm-to-next-generation-ai-infrastructure/"
+      ],
+      "required_facets": [
+        "NVLink Fusion is the announced technology",
+        "it brings NVHBM to next-generation AI infrastructure",
+        "the speaker is NVIDIA"
+      ],
+      "facet_explanation": "The 8/27 top story reports NVLink Fusion and NVHBM for next-generation AI infrastructure.",
+      "covered_facets": [
+        "NVLink Fusion",
+        "NVHBM",
+        "NVIDIA infrastructure announcement"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-08-27.json",
+        "raw_item_id": "item-676f90ee5f88ebab3b50"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-08-27.json",
+        "brief_item_id": "brief-4883aef33b4c0e61bf4e",
+        "story_id": "story-46902e4f0e7dc269b245",
+        "section": "top_stories"
+      },
+      "conclusion": "Displayed infrastructure sample."
+    },
+    {
+      "event_id": "E14",
+      "name": "Gemini 3.8 Flash / Flash Cyber",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-09-02",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-02T15:12:40Z",
+      "published_at_role": "hn_submission_time",
+      "published_at_note": "Local raw is a Hacker News discovery. 23:12 SGT on 2026-09-02 is submission time, not a verified official Google post timestamp.",
+      "discovery_or_fetched_at": "2026-09-03T01:25:59.820664Z",
+      "expected_brief_date": "2026-09-03",
+      "expected_brief_date_basis": "HN item was fetched 09:25 SGT on 2026-09-03 and displayed that morning. Official Google clock time remains unverified in this archive.",
+      "official_sources": [
+        "https://blog.google/innovation-and-ai/models-and-research/gemini-models/3-8-flash-and-3-8-flash-cyber/"
+      ],
+      "required_facets": [
+        "Gemini 3.8 Flash is launched",
+        "Gemini 3.8 Flash Cyber is a distinct variant",
+        "Google is the source of the models"
+      ],
+      "facet_explanation": "The 9/3 top story reports both Flash and Flash Cyber from the Google URL. The HN discussion URL is discovery context only.",
+      "covered_facets": [
+        "3.8 Flash",
+        "3.8 Flash Cyber",
+        "Google model announcement"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-09-03.json",
+        "raw_item_id": "item-d4e68fef43a6cb2f11f9"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-03.json",
+        "brief_item_id": "brief-cc322a65b429698eef58",
+        "story_id": "story-8f9d805cb5f022061be2",
+        "section": "top_stories"
+      },
+      "conclusion": "HN discussion URL is discovery, not event time."
+    },
+    {
+      "event_id": "E15",
+      "name": "Copilot code review can approve PRs",
+      "historical_observation": "完整覆盖",
+      "expected_treatment": "建议报道",
+      "original_date": "2026-09-01",
+      "original_time_precision": "datetime",
+      "original_published_at": "2026-09-01T19:25:57Z",
+      "published_at_role": "feed_entry_time",
+      "published_at_note": "GitHub changelog RSS time 03:25 SGT on 2026-09-02.",
+      "discovery_or_fetched_at": "2026-09-02T01:22:34.022056Z",
+      "expected_brief_date": "2026-09-02",
+      "expected_brief_date_basis": "Fetched 09:22 SGT on 2026-09-02 after the 03:25 SGT changelog time.",
+      "official_sources": [
+        "https://github.blog/changelog/2026-09-01-copilot-code-review-can-now-approve-pull-requests"
+      ],
+      "required_facets": [
+        "Copilot code review can approve pull requests",
+        "the capability is opt-in / admin-controlled",
+        "it changes review authority not just comment quality"
+      ],
+      "facet_explanation": "The 9/2 top story reports that Copilot can approve PRs and that admins enable the capability.",
+      "covered_facets": [
+        "approve pull requests",
+        "admin/opt-in control",
+        "review-authority change"
+      ],
+      "missing_facets": [],
+      "collected": {
+        "raw": "data/raw/2026-09-02.json",
+        "raw_item_id": "item-a5af7099832f3f1fdece"
+      },
+      "displayed": {
+        "brief": "data/briefs/2026-09-02.json",
+        "brief_item_id": "brief-67e638bd96f6361ffa8e",
+        "story_id": "story-8edcbe63f020ab114916",
+        "section": "top_stories"
+      },
+      "conclusion": "Displayed developer workflow change."
+    }
+  ],
+  "runs": [
+    {
+      "run_id": "O01",
+      "date": "2026-08-26",
+      "kind": "failed_verify_before_collect",
+      "actions_url": "https://github.com/Tkkdy/Morning-Radar/actions/runs/32912933965",
+      "local_brief": null,
+      "note": "Missing local artifacts are not a per-event coverage_gap."
+    },
+    {
+      "run_id": "O02",
+      "date": "2026-09-04",
+      "kind": "generation_402",
+      "actions_url": "https://github.com/Tkkdy/Morning-Radar/actions/runs/33825367464",
+      "local_brief": null,
+      "note": "Independent from E01 event facets."
+    }
+  ]
+}

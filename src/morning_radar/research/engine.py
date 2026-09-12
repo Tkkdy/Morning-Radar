@@ -3,19 +3,24 @@
 from __future__ import annotations
 
 import hashlib
-import json
 import logging
 from dataclasses import dataclass, field
 
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.errors import AIAuthenticationError, AIBillingUnavailable
 from morning_radar.ai.provider import AIProvider
+from morning_radar.ai.request_payload import (
+    evidence_snapshot,
+    fit_research_request,
+    freeze_call_meta,
+    get_call_meta,
+    slim_evidence,
+)
 from morning_radar.models import (
     RadarSignal,
     RawItem,
     ResearchCase,
     ResearchDisposition,
-    ResearchEvidenceRef,
     SourceRole,
     StatementType,
 )
@@ -32,6 +37,11 @@ class ResearchRunResult:
     radar_signals: list[RadarSignal] = field(default_factory=list)
     stats: dict[str, int | bool] = field(default_factory=dict)
     item_outcomes: dict[str, object] = field(default_factory=dict)
+    omitted_cases: dict[str, str] = field(default_factory=dict)
+    case_resolutions: dict[str, object] = field(default_factory=dict)
+    call_meta: dict | None = None
+    case_call_meta: dict[str, dict] = field(default_factory=dict)
+    planned_cases: list[ResearchCase] = field(default_factory=list)
 
 
 def _is_research_lead(item: RawItem) -> bool:
@@ -39,7 +49,11 @@ def _is_research_lead(item: RawItem) -> bool:
         return True
     return bool(
         item.source_role == SourceRole.COMMUNITY_DISCOVERY
-        and item.metadata.get("selection_reason") == "high_signal_discovery"
+        and (
+            item.metadata.get("selection_reason")
+            in {"high_signal_discovery", "watchlist_discovery"}
+            or "watchlist_discovery" in item.metadata.get("discovery_reasons", [])
+        )
     )
 
 
@@ -57,12 +71,9 @@ def _is_concrete(item: RawItem) -> bool:
     )
 
 
-def _evidence_ref(item: RawItem) -> ResearchEvidenceRef:
-    return ResearchEvidenceRef(
-        raw_item_id=item.id,
-        url=item.url,
-        source_role=item.source_role,
-    )
+def _content_version(item: RawItem) -> str | None:
+    value = item.metadata.get("content_version")
+    return value if isinstance(value, str) and value else None
 
 
 def build_research_cases(
@@ -97,8 +108,10 @@ def build_research_cases(
                     or lead_products.intersection(item.product_candidates)
                 )
             )
-            if same_original or anchored_primary:
-                support.append(item)
+            if same_original:
+                support.append((item, "same_url"))
+            elif anchored_primary:
+                support.append((item, "official_primary_entity_overlap"))
         identity = hashlib.sha256(lead.id.encode()).hexdigest()[:20]
         cases.append(
             ResearchCase(
@@ -110,8 +123,19 @@ def build_research_cases(
                 topic_keys=lead.topic_candidates,
                 statement_type=lead.statement_type,
                 practice_signal_kind=lead.practice_signal_kind,
-                lead=_evidence_ref(lead),
-                supporting_evidence=[_evidence_ref(item) for item in support[:3]],
+                lead=evidence_snapshot(
+                    lead,
+                    association_basis="lead",
+                    content_version=_content_version(lead),
+                ),
+                supporting_evidence=[
+                    evidence_snapshot(
+                        item,
+                        association_basis=basis,
+                        content_version=_content_version(item),
+                    )
+                    for item, basis in support[:3]
+                ],
             )
         )
     return cases
@@ -127,42 +151,53 @@ def resolve_research(
     item_retry_attempts: int = 0,
     split_retry_attempts: int = 0,
 ) -> ResearchRunResult:
-    cases = build_research_cases(items, maximum_cases=maximum_cases)
+    planned_cases = build_research_cases(items, maximum_cases=maximum_cases)
+    cases = planned_cases
     had_cases = bool(cases)
-    research_input_characters = len(
-        json.dumps(
-            [case.model_dump(mode="json") for case in cases],
-            ensure_ascii=False,
-            separators=(",", ":"),
-        )
+    topic_context = getattr(provider, "topic_context", None)
+    fitted = fit_research_request(
+        cases,
+        topic_context=topic_context,
+        maximum_characters=maximum_input_characters,
     )
-    while cases and research_input_characters > maximum_input_characters:
-        cases.pop()
-        research_input_characters = len(
-            json.dumps(
-                [case.model_dump(mode="json") for case in cases],
-                ensure_ascii=False,
-                separators=(",", ":"),
-            )
-        )
+    omitted = dict(fitted.omitted)
+    cases = fitted.included
+    research_input_characters = len(fitted.payload_text)
     if not cases:
+        from morning_radar.intake.models import ReasonCode
+
+        item_outcomes = {
+            case.lead.raw_item_id: ReasonCode.RESEARCH_DEFERRED
+            for case in planned_cases
+            if case.id in omitted or fitted.unexecuted
+        }
         return ResearchRunResult(
+            planned_cases=planned_cases,
+            omitted_cases=omitted,
+            item_outcomes=item_outcomes,
+            call_meta=None,
             stats={
                 "research_cases": 0,
                 "research_logical_ai_calls": 0,
                 "research_input_characters": research_input_characters,
                 "research_budget_skipped": had_cases,
                 "research_unresolved": 0,
-            }
+                "research_omitted_cases": len(omitted),
+                "research_truncated_fields": fitted.truncated_fields,
+                "research_unexecuted": fitted.unexecuted,
+            },
         )
     from morning_radar.intake.models import ReasonCode
+
     budget = getattr(provider, "budget", None)
     calls_before = getattr(budget, "calls_used", 0)
-    batch, isolation_stats, unavailable, case_reasons, fatal_kind = _resolve_research_batch(
-        cases,
-        provider=provider,
-        item_retry_attempts=item_retry_attempts,
-        split_retry_attempts=split_retry_attempts,
+    batch, isolation_stats, unavailable, case_reasons, fatal_kind, case_call_meta = (
+        _resolve_research_batch(
+            cases,
+            provider=provider,
+            item_retry_attempts=item_retry_attempts,
+            split_retry_attempts=split_retry_attempts,
+        )
     )
     if unavailable and not batch.cases:
         LOGGER.exception("Research degradation: batch resolution failed; signals omitted")
@@ -173,17 +208,25 @@ def resolve_research(
             )
             for case in cases
         }
+        for case in planned_cases:
+            if case.id in omitted:
+                item_outcomes[case.lead.raw_item_id] = ReasonCode.RESEARCH_DEFERRED
         return ResearchRunResult(
             cases=cases,
+            planned_cases=planned_cases,
             stats={
                 "research_cases": len(cases),
                 "research_input_characters": research_input_characters,
                 "research_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
                 "research_unavailable": True,
                 "research_unresolved": len(cases),
+                "research_omitted_cases": len(omitted),
                 **isolation_stats,
             },
             item_outcomes=item_outcomes,
+            omitted_cases=omitted,
+            call_meta=freeze_call_meta(get_call_meta(batch)),
+            case_call_meta=case_call_meta,
         )
 
     cases_by_id = {case.id: case for case in cases}
@@ -208,7 +251,7 @@ def resolve_research(
         if not resolved.why_notable or not resolved.uncertainty:
             continue
         identity = hashlib.sha256(case.id.encode()).hexdigest()[:20]
-        refs = [case.lead, *case.supporting_evidence]
+        refs = [slim_evidence(case.lead), *[slim_evidence(ref) for ref in case.supporting_evidence]]
         signals.append(
             RadarSignal(
                 id=f"radar-{identity}",
@@ -226,7 +269,11 @@ def resolve_research(
     from morning_radar.intake.models import ReasonCode
 
     item_outcomes: dict[str, ReasonCode] = {}
+    for original in planned_cases:
+        if original.id in omitted:
+            item_outcomes[original.lead.raw_item_id] = ReasonCode.RESEARCH_DEFERRED
     resolved_by_id = {item.case_id: item for item in batch.cases}
+    case_resolutions = {item.case_id: item for item in batch.cases}
     for case in cases:
         lead_id = case.lead.raw_item_id
         if case.id in case_reasons:
@@ -237,6 +284,7 @@ def resolve_research(
             item_outcomes[lead_id] = ReasonCode.RESEARCH_OUT_OF_SCOPE
     return ResearchRunResult(
         cases=cases,
+        planned_cases=planned_cases,
         verified_item_ids=frozenset(verified),
         radar_signals=signals,
         stats={
@@ -246,12 +294,16 @@ def resolve_research(
             "research_unresolved": max(0, len(cases) - len(verified) - len(signals)),
             "radar_signals": len(signals),
             "research_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
+            "research_omitted_cases": len(omitted),
+            "research_truncated_fields": fitted.truncated_fields,
             **isolation_stats,
         },
         item_outcomes=item_outcomes,
+        omitted_cases=omitted,
+        case_resolutions=case_resolutions,
+        call_meta=freeze_call_meta(get_call_meta(batch)),
+        case_call_meta=case_call_meta,
     )
-
-
 
 
 class _SharedRetries:
@@ -267,14 +319,26 @@ def _call_research(provider, cases):
     isolator = getattr(provider, "resolve_research_cases_isolated", None)
     try:
         if isolator is not None:
-            return isolator(cases)
-        batch = provider.resolve_research_cases(cases)
-        return IsolatedResearchResult(batch=batch)
+            isolated = isolator(cases)
+        else:
+            batch = provider.resolve_research_cases(cases)
+            isolated = IsolatedResearchResult(batch=batch)
+        if isolated.call_meta is None:
+            isolated.call_meta = freeze_call_meta(
+                get_call_meta(isolated.batch) or getattr(provider, "last_call_meta", None)
+            )
+        else:
+            isolated.call_meta = freeze_call_meta(isolated.call_meta)
+        return isolated
     except (AIBillingUnavailable, AIAuthenticationError, AIBudgetExceeded) as exc:
+        meta = freeze_call_meta(
+            getattr(exc, "call_meta", None) or getattr(provider, "last_call_meta", None)
+        )
         return IsolatedResearchResult(
             batch=ResearchResolutionBatch(),
             fatal_kind=type(exc).__name__,
             error=str(exc),
+            call_meta=meta,
         )
     except AIOutputError as exc:
         truncated = "truncated" in str(exc).casefold()
@@ -282,8 +346,10 @@ def _call_research(provider, cases):
             batch=ResearchResolutionBatch(),
             truncated=truncated,
             error=str(exc),
+            call_meta=freeze_call_meta(
+                getattr(exc, "call_meta", None) or getattr(provider, "last_call_meta", None)
+            ),
         )
-
 
 
 def _reasons_from_isolated(cases, isolated, *, ReasonCode):
@@ -303,6 +369,22 @@ def _reasons_from_isolated(cases, isolated, *, ReasonCode):
         else:
             reasons[case.id] = ReasonCode.RESEARCH_CASE_MISSING
     return reasons
+
+
+def _case_call_meta_from_isolated(cases, isolated) -> dict[str, dict]:
+    meta = freeze_call_meta(isolated.call_meta)
+    if meta is None:
+        return {}
+    involved = {item.case_id for item in isolated.batch.cases}
+    involved.update(case_id for case_id in isolated.invalid_ids if case_id)
+    involved.update(case_id for case_id in isolated.missing_ids if case_id)
+    if (isolated.truncated or isolated.fatal_kind) and not isolated.batch.cases:
+        involved.update(case.id for case in cases)
+    mapping: dict[str, dict] = {}
+    for case in cases:
+        if case.id in involved:
+            mapping[case.id] = dict(meta)
+    return mapping
 
 
 def _resolve_research_batch(
@@ -328,12 +410,20 @@ def _resolve_research_batch(
     if isolated.fatal_kind:
         isolation_stats["research_fatal_kind"] = isolated.fatal_kind
         reasons = {case.id: ReasonCode.RESEARCH_FATAL for case in cases}
-        return isolated.batch, isolation_stats, True, reasons, isolated.fatal_kind
+        return (
+            isolated.batch,
+            isolation_stats,
+            True,
+            reasons,
+            isolated.fatal_kind,
+            _case_call_meta_from_isolated(cases, isolated),
+        )
     if isolated.truncated and retries.split > 0 and len(cases) > 1:
         mid = max(1, len(cases) // 2)
         parts = [cases[:mid], cases[mid:]]
         merged_cases = []
         reasons: dict[str, object] = {}
+        case_call_meta: dict[str, dict] = {}
         fatal_kind = None
         for part in parts:
             if fatal_kind:
@@ -345,13 +435,21 @@ def _resolve_research_batch(
                     reasons.setdefault(case.id, ReasonCode.RESEARCH_DEFERRED)
                 continue
             retries.split -= 1
-            part_batch, part_stats, _failed, part_reasons, part_fatal = _resolve_research_batch(
+            (
+                part_batch,
+                part_stats,
+                _failed,
+                part_reasons,
+                part_fatal,
+                part_meta,
+            ) = _resolve_research_batch(
                 part,
                 provider=provider,
                 retries=retries,
             )
             merged_cases.extend(part_batch.cases)
             reasons.update(part_reasons)
+            case_call_meta.update(part_meta)
             for key in isolation_stats:
                 if key in part_stats and key != "research_fatal_kind":
                     isolation_stats[key] = isolation_stats.get(key, 0) + part_stats.get(key, 0)
@@ -359,19 +457,33 @@ def _resolve_research_batch(
                 fatal_kind = part_fatal
                 isolation_stats["research_fatal_kind"] = part_fatal
         merged = ResearchResolutionBatch(cases=merged_cases)
-        return merged, isolation_stats, bool(fatal_kind) and not merged.cases, reasons, fatal_kind
+        return (
+            merged,
+            isolation_stats,
+            bool(fatal_kind) and not merged.cases,
+            reasons,
+            fatal_kind,
+            case_call_meta,
+        )
     reasons = _reasons_from_isolated(cases, isolated, ReasonCode=ReasonCode)
+    case_call_meta = _case_call_meta_from_isolated(cases, isolated)
     retry_ids = [
         case_id
         for case_id, reason in reasons.items()
-        if reason
-        in {ReasonCode.RESEARCH_OUTPUT_INVALID, ReasonCode.RESEARCH_CASE_MISSING}
+        if reason in {ReasonCode.RESEARCH_OUTPUT_INVALID, ReasonCode.RESEARCH_CASE_MISSING}
     ]
     if retry_ids and retries.item > 0:
         remaining = [case for case in cases if case.id in set(retry_ids)]
         if remaining:
             retries.item -= 1
-            retry_batch, retry_stats, _failed, retry_reasons, retry_fatal = _resolve_research_batch(
+            (
+                retry_batch,
+                retry_stats,
+                _failed,
+                retry_reasons,
+                retry_fatal,
+                retry_meta,
+            ) = _resolve_research_batch(
                 remaining,
                 provider=provider,
                 retries=retries,
@@ -380,6 +492,7 @@ def _resolve_research_batch(
             extra = [item for item in retry_batch.cases if item.case_id not in known]
             isolated.batch = ResearchResolutionBatch(cases=[*isolated.batch.cases, *extra])
             reasons.update(retry_reasons)
+            case_call_meta.update(retry_meta)
             for case in extra:
                 reasons.pop(case.case_id, None)
             for key in isolation_stats:
@@ -387,9 +500,16 @@ def _resolve_research_batch(
                     isolation_stats[key] = isolation_stats.get(key, 0) + retry_stats.get(key, 0)
             if retry_fatal:
                 isolation_stats["research_fatal_kind"] = retry_fatal
-                return isolated.batch, isolation_stats, False, reasons, retry_fatal
+                return isolated.batch, isolation_stats, False, reasons, retry_fatal, case_call_meta
     unavailable = (isolated.truncated or bool(isolated.fatal_kind)) and not isolated.batch.cases
-    return isolated.batch, isolation_stats, unavailable, reasons, isolated.fatal_kind
+    return (
+        isolated.batch,
+        isolation_stats,
+        unavailable,
+        reasons,
+        isolated.fatal_kind,
+        case_call_meta,
+    )
 
 
 def eligible_story_inputs(

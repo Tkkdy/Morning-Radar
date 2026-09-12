@@ -11,6 +11,7 @@ from datetime import datetime
 from morning_radar.ai import AIOutputError
 from morning_radar.ai.models import MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
+from morning_radar.ai.request_payload import get_call_meta
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
 from morning_radar.processing.deduplicate import deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
@@ -98,8 +99,7 @@ def _validate_draft_urls(draft: MergedStoryDraft, items: list[RawItem]) -> None:
     invented = returned - allowed
     if invented:
         raise StoryValidationError(
-            "AI story draft contains URL outside verified source set: "
-            f"{sorted(invented)[0]}"
+            f"AI story draft contains URL outside verified source set: {sorted(invented)[0]}"
         )
 
 
@@ -129,6 +129,10 @@ def _source_ref(item: RawItem) -> StorySourceRef:
         source_role=item.source_role,
         statement_type=item.statement_type,
         practice_signal_kind=item.practice_signal_kind,
+        source_date=item.metadata.get("source_date"),
+        date_precision=item.metadata.get("date_precision"),
+        source_timezone=item.metadata.get("source_timezone"),
+        published_date_role=item.metadata.get("published_date_role"),
     )
 
 
@@ -166,7 +170,7 @@ def build_story(
         status=draft.status,
     )
     score = provider.score_story(provisional)
-    return provisional.model_copy(
+    scored = provisional.model_copy(
         update={
             "relevance_score": score.relevance_score,
             "importance_score": score.importance_score,
@@ -174,6 +178,21 @@ def build_story(
             "credibility_score": score.credibility_score,
         }
     )
+    scored._score_decision = score
+    return scored
+
+
+
+def _capture_failed_score_meta(provider, score_out, items) -> None:
+    if score_out is None:
+        return
+    failed = score_out.setdefault("_failed_meta", {})
+    meta = getattr(provider, "last_call_meta", None)
+    if meta is None:
+        inner = getattr(provider, "provider", None)
+        meta = getattr(inner, "last_call_meta", None)
+    for item in items:
+        failed[item.id] = meta
 
 
 def build_stories(
@@ -183,6 +202,8 @@ def build_stories(
     now: datetime,
     maximum_ai_items: int | None = None,
     item_outcomes: dict[str, str] | None = None,
+    classification_out: dict[str, object] | None = None,
+    score_out: dict[str, object] | None = None,
 ) -> list[Story]:
     from morning_radar.intake.models import ReasonCode
 
@@ -204,9 +225,18 @@ def build_stories(
         LOGGER.warning("AI candidate budget left no items for classification")
         return []
     classifications = provider.classify_items(candidates)
+    classified_by_id = {item.item_id: item for item in classifications.items}
+    if classification_out is not None:
+        classification_out.update(classified_by_id)
+        meta = get_call_meta(classifications)
+        if meta is not None:
+            classification_out["_call_meta"] = meta
     relevant_ids = {item.item_id for item in classifications.items if item.relevant}
     for item in candidates:
-        if item.id not in relevant_ids:
+        classified = classified_by_id.get(item.id)
+        if classified is None:
+            note(item.id, ReasonCode.CLASSIFICATION_RESPONSE_MISSING)
+        elif item.id not in relevant_ids:
             note(item.id, ReasonCode.CLASSIFIED_IRRELEVANT)
     relevant = [item for item in candidates if item.id in relevant_ids]
 
@@ -230,10 +260,13 @@ def build_stories(
                     "AI degradation: scoring failed; skipping candidate group with %d item(s)",
                     len(group),
                 )
+                _capture_failed_score_meta(provider, score_out, group)
                 for item in group:
                     note(item.id, ReasonCode.SCORE_FAILED)
                 continue
             stories.append(story)
+            if score_out is not None:
+                score_out[story.id] = getattr(story, "_score_decision", None)
             for item in group:
                 note(item.id, ReasonCode.MERGED_INTO if len(group) > 1 else ReasonCode.PROCESSED)
         else:
@@ -242,13 +275,15 @@ def build_stories(
                     story = build_story([item], provider=provider, now=now)
                 except AIOutputError:
                     LOGGER.exception(
-                        "AI degradation: single-item story generation failed; "
-                        "skipping item %s",
+                        "AI degradation: single-item story generation failed; skipping item %s",
                         item.id,
                     )
+                    _capture_failed_score_meta(provider, score_out, [item])
                     note(item.id, ReasonCode.SCORE_FAILED)
                     continue
                 stories.append(story)
+                if score_out is not None:
+                    score_out[story.id] = getattr(story, "_score_decision", None)
                 note(item.id, ReasonCode.PROCESSED)
     return rank_stories(stories)
 
@@ -327,11 +362,10 @@ def _candidate_lane(item: RawItem) -> str:
         )
     if item.source_type == "market":
         return "significant_market"
-    if item.source_type in {"rss", "atom"}:
+    if item.source_type in {"rss", "atom", "official_changelog"}:
         return (
             "official_primary"
-            if item.source_role.value == "official_primary"
-            or item.metadata.get("official")
+            if item.source_role.value == "official_primary" or item.metadata.get("official")
             else "secondary_editorial"
         )
     return "other"

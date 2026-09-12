@@ -17,3 +17,4 @@ class IsolatedResearchResult:
     truncated: bool = False
     fatal_kind: str | None = None
     error: str | None = None
+    call_meta: dict | None = None

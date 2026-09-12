@@ -4,9 +4,19 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from morning_radar.intake.checkpoint import load_checkpoint_by_batch_id
 from morning_radar.intake.identity import intake_key
 from morning_radar.intake.ledger import ProcessingLedgerStore
 from morning_radar.processing.normalize import normalize_url, stable_item_id
+
+
+def inspect_collection(root: Path, *, batch_id: str) -> dict[str, object]:
+    checkpoint = load_checkpoint_by_batch_id(root, batch_id)
+    return {
+        "batch_id": batch_id,
+        "complete": checkpoint.manifest.complete,
+        "discovery_audit": checkpoint.manifest.discovery_audit,
+    }
 
 
 def inspect_intake(
@@ -27,9 +37,7 @@ def inspect_intake(
         matches.extend(store.find_by_input_id(stable_item_id(url)))
     if story_id:
         matches.extend(store.find_by_story_id(story_id))
-    unique = {
-        intake_key(entry.input_id, entry.content_version): entry for entry in matches
-    }
+    unique = {intake_key(entry.input_id, entry.content_version): entry for entry in matches}
     records = [entry.model_dump(mode="json") for entry in unique.values()]
     if not records:
         return {
@@ -62,10 +70,21 @@ def format_inspect_summary(payload: dict[str, object]) -> str:
     for record in payload.get("records") or []:
         if not isinstance(record, dict):
             continue
+        details = record.get("decision_details") or {}
+        classification = details.get("classification") or {}
+        score = details.get("score") or {}
+        class_reason = (
+            classification.get("relevance_reason")
+            or classification.get("status")
+            or "legacy_unavailable"
+        )
+        model_expl = score.get("model_explanation") or score.get("status") or "legacy_unavailable"
+        rule_reason = score.get("rule_reason") or record.get("score_rationale") or "-"
         lines.append(
             f"{record.get('input_id')} {record.get('content_version')} "
             f"processing={record.get('processing')} reason={record.get('reason_code')} "
             f"story={record.get('story_id') or record.get('merged_into') or '-'} "
-            f"score={record.get('relevance_score')}/{record.get('relevance_threshold')}"
+            f"score={record.get('relevance_score')}/{record.get('relevance_threshold')} "
+            f"class_reason={class_reason} model_explanation={model_expl} rule={rule_reason}"
         )
     return "\n".join(lines) if lines else "found records"

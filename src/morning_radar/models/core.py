@@ -137,6 +137,10 @@ class StorySourceRef(RadarModel):
     source_role: SourceRole = SourceRole.EDITORIAL
     statement_type: StatementType = StatementType.UNKNOWN
     practice_signal_kind: PracticeSignalKind | None = None
+    source_date: str | None = None
+    date_precision: str | None = None
+    source_timezone: str | None = None
+    published_date_role: str | None = None
 
     _url_is_http = field_validator("url")(_validate_http_url)
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
@@ -235,8 +239,37 @@ class ResearchEvidenceRef(RadarModel):
     raw_item_id: str = Field(min_length=1)
     url: str
     source_role: SourceRole
+    content_version: str | None = None
+    title: str | None = Field(default=None, max_length=500)
+    summary: str = Field(default="", max_length=2000)
+    content_excerpt: str = Field(default="", max_length=4000)
+    source_name: str | None = None
+    source_type: str | None = None
+    statement_type: StatementType | None = None
+    published_at: datetime | None = None
+    published_at_role: PublishedAtRole = PublishedAtRole.UNKNOWN
+    fetched_at: datetime | None = None
+    discussion_url: str | None = None
+    content_missing: bool = False
+    excerpt_truncated: bool = False
+    text_omission_reason: str | None = None
+    association_basis: str | None = None
+    official_page_fetched: bool = False
+    source_date: str | None = None
+    date_precision: str | None = None
+    source_timezone: str | None = None
+    published_date_role: str | None = None
 
     _url_is_http = field_validator("url")(_validate_http_url)
+    _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
+    _fetched_is_aware = field_validator("fetched_at")(_validate_aware_datetime)
+
+    @field_validator("discussion_url")
+    @classmethod
+    def _discussion_url_http(cls, value: str | None) -> str | None:
+        if value is None:
+            return value
+        return _validate_http_url(value)
 
 
 class ResearchCase(RadarModel):

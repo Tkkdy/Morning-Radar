@@ -6,14 +6,9 @@ import logging
 import re
 from datetime import UTC, datetime
 
+from morning_radar.collectors.hn_common import hn_item
 from morning_radar.collectors.http import HttpClient
-from morning_radar.models import (
-    PracticeSignalKind,
-    RawItem,
-    SourceRole,
-    StatementType,
-)
-from morning_radar.processing import stable_item_id
+from morning_radar.models import PracticeSignalKind, RawItem
 from morning_radar.time_utils import utc_now
 
 LOGGER = logging.getLogger(__name__)
@@ -167,35 +162,17 @@ class HackerNewsCollector:
         if not title or not (title_match or body_match or discovery_match):
             return None
         story_id = int(story["id"])
-        discussion_url = f"https://news.ycombinator.com/item?id={story_id}"
-        original_url = str(story.get("url") or discussion_url)
         published_at = (
             datetime.fromtimestamp(int(story["time"]), tz=UTC)
             if story.get("time")
             else None
         )
-        return RawItem(
-            id=stable_item_id(discussion_url),
-            title=title,
-            url=original_url,
-            source_name="Hacker News",
-            source_type="hacker_news",
-            author=str(story.get("by") or "") or None,
-            published_at=published_at,
-            fetched_at=self.now,
-            language="en",
-            summary="",
-            content_excerpt="",
-            source_role=SourceRole.COMMUNITY_DISCOVERY,
-            statement_type=StatementType.UNVERIFIED_LEAD,
-            practice_signal_kind=(
-                PracticeSignalKind.IMPLEMENTATION_INSIGHT if show_hn else None
-            ),
-            metadata={
-                "official": False,
-                "community_signal": True,
-                "discussion_url": discussion_url,
-                "original_url": story.get("url"),
+        if published_at is None:
+            return None
+        item = hn_item(
+            story_id=story_id, title=title, original_url=story.get("url"), text=story.get("text"),
+            author=story.get("by"), submitted_at=int(story["time"]), fetched_at=self.now,
+            metadata={"official": False,
                 "score": score,
                 "comments": comments,
                 "selection_reason": (
@@ -203,3 +180,6 @@ class HackerNewsCollector:
                 ),
             },
         )
+        return item.model_copy(update={"practice_signal_kind": (
+            PracticeSignalKind.IMPLEMENTATION_INSIGHT if show_hn else None
+        )})
