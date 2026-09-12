@@ -7,6 +7,38 @@ sources:
     enabled: true
     topics: [ai_models]
     official: true
+  - id: anthropic_news
+    name: Anthropic News
+    type: official_listing
+    url: https://www.anthropic.com/news
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_infrastructure]
+    official: true
+  - id: anthropic_research
+    name: Anthropic Research
+    type: official_listing
+    url: https://www.anthropic.com/research
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_infrastructure]
+    official: true
+  - id: anthropic_threat_intelligence
+    name: Anthropic Threat Intelligence
+    type: official_listing
+    url: https://www.anthropic.com/threat-intelligence
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_infrastructure]
+    official: true
+  - id: xai_news
+    name: xAI News
+    type: official_listing
+    url: https://x.ai/news
+    priority: high
+    enabled: true
+    topics: [ai_models, ai_coding]
+    official: true
   - id: openai_news
     name: OpenAI News
     type: rss

@@ -14,6 +14,7 @@ from morning_radar.collectors import (
     DeepSeekUpdatesCollector,
     FixtureCollector,
     HNSearchCollector,
+    OfficialListingCollector,
     collect_available,
 )
 from morning_radar.collectors.github import GitHubCollector
@@ -484,6 +485,17 @@ def _production_collect(
                 maximum_excerpt_characters=watchlist.maximum_excerpt_characters,
             )
             for source in special_sources
+        )
+        collectors.extend(
+            OfficialListingCollector(
+                http=discovery_http,
+                source=source,
+                now=now,
+                maximum_response_bytes=watchlist.maximum_response_bytes,
+                maximum_excerpt_characters=watchlist.maximum_excerpt_characters,
+            )
+            for source in sources
+            if source.type == "official_listing" and source.enabled
         )
         collectors.append(
             HNSearchCollector(

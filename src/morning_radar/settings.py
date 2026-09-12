@@ -86,7 +86,7 @@ class TopicConfig(ConfigModel):
 class SourceConfig(ConfigModel):
     id: str
     name: str
-    type: Literal["rss", "atom", "hacker_news", "official_changelog"]
+    type: Literal["rss", "atom", "hacker_news", "official_changelog", "official_listing"]
     url: str
     priority: Priority
     enabled: bool = True
