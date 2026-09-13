@@ -114,6 +114,10 @@ def test_three_samples_keep_first_seen_through_refetch_and_checkpoint_reload(
         record.title: ledger.get(record.input_id, record.content_version).first_seen_at
         for record in checkpoint.items
     } == expected_first_seen
+    assert {
+        record.title: ledger.get(record.input_id, record.content_version).durable_at
+        for record in checkpoint.items
+    } == expected_first_seen
     prepared = prepare_process(
         project,
         app,
@@ -173,22 +177,28 @@ def test_deferred_budget_diagnostics_survive_ledger_reload(tmp_path, monkeypatch
     )
     collected = _install_collection(monkeypatch)
     collected[:] = [
-        _late_item("budget-a", title="Budget candidate A", published_at=NOW - timedelta(hours=2)),
-        _late_item("budget-b", title="Budget candidate B", published_at=NOW - timedelta(hours=1)),
+        _late_item("budget-a", title="Budget candidate A", published_at=NOW - timedelta(days=2)),
+        _late_item("budget-b", title="Budget candidate B", published_at=NOW - timedelta(days=2)),
     ]
     intake = collect_intake(project, app, now=NOW)
     checkpoint = load_checkpoint_by_batch_id(project, intake.checkpoint.manifest.batch_id)
     prepared = prepare_process(project, app, batch_id=checkpoint.manifest.batch_id, now=NOW)
     assert len(prepared.selection.records) == 1
     assert len(prepared.selection.deferred) == 1
-    deferred = prepared.selection.deferred[0]
     reloaded = ProcessingLedgerStore(project / "data/intake/ledger.json")
-    entry = reloaded.get(deferred.input_id, deferred.content_version)
-    assert entry.processing is ProcessingStatus.DEFERRED_BUDGET
-    assert entry.reason_code is ReasonCode.DEFERRED_BUDGET
-    assert entry.candidate_diagnostics["selected"] is False
-    assert entry.candidate_diagnostics["reason"] == "deferred_budget"
-    assert entry.candidate_diagnostics["cap"] == 1
+    entries = [reloaded.get(record.input_id, record.content_version) for record in checkpoint.items]
+    selected = [entry for entry in entries if entry.processing is ProcessingStatus.IN_PROGRESS]
+    deferred = [entry for entry in entries if entry.processing is ProcessingStatus.DEFERRED_BUDGET]
+    assert len(selected) == 1
+    assert len(deferred) == 1
+    assert selected[0].candidate_diagnostics["selected"] is True
+    assert selected[0].candidate_diagnostics["freshness"] == "eligible_late"
+    assert selected[0].candidate_diagnostics["cap"] == 1
+    assert deferred[0].reason_code is ReasonCode.DEFERRED_BUDGET
+    assert deferred[0].candidate_diagnostics["selected"] is False
+    assert deferred[0].candidate_diagnostics["reason"] == "deferred_budget"
+    assert deferred[0].candidate_diagnostics["freshness"] == "eligible_late"
+    assert deferred[0].candidate_diagnostics["cap"] == 1
 
 
 def test_expired_future_and_low_value_late_items_are_diagnosed(tmp_path) -> None:
