@@ -67,6 +67,7 @@
     "id": "item-085c670b7956ccc97008",
     "language": "en-US",
     "metadata": {
+      "content_version": "a47d29389eca4d7dc34e",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -97,6 +98,7 @@
     "id": "item-593440c97619d82bd9db",
     "language": "en-US",
     "metadata": {
+      "content_version": "8053bfa1e5fe38fb976c",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -158,6 +160,7 @@
     "id": "item-e0bb328294c6f8f6e2fb",
     "language": "en-us",
     "metadata": {
+      "content_version": "b2617ef2a724e4287ebc",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -189,6 +192,7 @@
     "id": "item-fe8392b5a4ac92a2068a",
     "language": "en",
     "metadata": {
+      "content_version": "c505c8452e2a308a68b1",
       "official": false,
       "practitioner_id": "armin-ronacher",
       "priority": "high",
@@ -280,6 +284,7 @@
     "id": "item-7a75ba4b5b75a039d3ed",
     "language": "en-US",
     "metadata": {
+      "content_version": "c355f3e97f6ab657e1de",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -310,6 +315,7 @@
     "id": "item-b10d7fa5e19ae5db423d",
     "language": "en-US",
     "metadata": {
+      "content_version": "c32f5c7d9828d6567a15",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -371,6 +377,7 @@
     "id": "item-ea1d2d3a2bc11c2b5a35",
     "language": "en-us",
     "metadata": {
+      "content_version": "8029d142cd0f661f38d7",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -523,6 +530,7 @@
     "id": "item-4bb7ed73f911dcda7120",
     "language": "en-US",
     "metadata": {
+      "content_version": "f105df20996d93f10994",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -584,6 +592,7 @@
     "id": "item-f4d9abc5784198830b57",
     "language": "en-us",
     "metadata": {
+      "content_version": "7f8e76fa79b891bbe080",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -706,6 +715,7 @@
     "id": "item-223c811be8738dde267a",
     "language": "en-US",
     "metadata": {
+      "content_version": "152962dff892e194d95d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -736,6 +746,7 @@
     "id": "item-664b7c30cd349bfc8b85",
     "language": "en-US",
     "metadata": {
+      "content_version": "8cea4ab44fffb4ffbf19",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -919,6 +930,7 @@
     "id": "item-bf292c264ce3da0c0c25",
     "language": "en-US",
     "metadata": {
+      "content_version": "26acc5e64f9493c8dadc",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -949,6 +961,7 @@
     "id": "item-eeedd70bf03dfb90e2a9",
     "language": "en-US",
     "metadata": {
+      "content_version": "d5a0e74963ea1343bc68",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1132,6 +1145,7 @@
     "id": "item-092a22a77f18748174c5",
     "language": "en-US",
     "metadata": {
+      "content_version": "7223b45566a75d138772",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -43059,11 +43073,19 @@
     "metadata": {
       "comments": 576,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49666735",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://www.rubyhack.ai/",
       "score": 923,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -43089,6 +43111,7 @@
     "metadata": {
       "comments": 265,
       "community_signal": true,
+      "content_version": "35c5c2862df0fbd7d672",
       "discussion_url": "https://news.ycombinator.com/item?id=49673098",
       "official": false,
       "original_url": "https://www.economist.com/interactive/briefing/2026/09/03/nvidia-is-the-central-bank-of-ai",
@@ -43179,11 +43202,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49678950",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.cnn.com/business/video/anderson-cooper-anthropic-ceo-dario-amodei-could-ai-kill-humans-digvid",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -43269,6 +43300,7 @@
     "metadata": {
       "comments": 489,
       "community_signal": true,
+      "content_version": "a8ddeef2d1f4687ca867",
       "discussion_url": "https://news.ycombinator.com/item?id=49668386",
       "official": false,
       "original_url": "https://www.autom.dev/blog/google-search-goto-links",
@@ -43813,6 +43845,7 @@
     "metadata": {
       "change_percent": 0.005171099393325048,
       "close": 365.44000244140625,
+      "content_version": "0a386da54739a65107a9",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 363.55999755859375,
@@ -45055,38 +45088,6 @@
     "url": "https://techcrunch.com/2026/09/10/openai-puts-pro-subscriptions-on-hold-due-to-astra-demand/"
   },
   {
-    "author": "chao-",
-    "company_candidates": [],
-    "content_excerpt": "https://simonwillison.net/2026/Sep/12/openai-agents-rubygems...",
-    "fetched_at": "2026-09-13T01:24:12.711722Z",
-    "id": "item-7f26b7d0c94098990165",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49666735",
-      "hn_submission_time": 1789168662,
-      "lab_id": "openai",
-      "original_url": "https://www.rubyhack.ai/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-11T23:17:42Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://simonwillison.net/2026/Sep/12/openai-agents-rubygems...",
-    "title": "OpenAI agents carried out an undisclosed attack on RubyGems",
-    "topic_candidates": [],
-    "url": "https://www.rubyhack.ai/"
-  },
-  {
     "author": "owenshen24",
     "company_candidates": [],
     "content_excerpt": "",
@@ -45153,38 +45154,6 @@
     "title": "GPT-6-sol appeared on OpenAI API",
     "topic_candidates": [],
     "url": "https://www.reddit.com/r/singularity/comments/1wcqwj9/gpt6_sol_appeared_on_the_openai_api/"
-  },
-  {
-    "author": "oxag3n",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-13T01:24:12.711722Z",
-    "id": "item-fb4170c7bb3882595e83",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49678950",
-      "hn_submission_time": 1789262275,
-      "lab_id": "anthropic",
-      "original_url": "https://www.cnn.com/business/video/anderson-cooper-anthropic-ceo-dario-amodei-could-ai-kill-humans-digvid",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-13T01:17:55Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Asking Anthropic CEO: 'Do you earnestly believe that AI could kill all humans?'",
-    "topic_candidates": [],
-    "url": "https://www.cnn.com/business/video/anderson-cooper-anthropic-ceo-dario-amodei-could-ai-kill-humans-digvid"
   },
   {
     "author": "LebToki",

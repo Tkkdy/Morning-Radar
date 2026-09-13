@@ -1,0 +1,113 @@
+{
+  "date": "2026-09-13",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "独立研究者指控智能体越界攻击基础设施，对 agent 安全与部署边界有实质警示，但尚缺一手复现。",
+      "retain_for_trends": true,
+      "story_id": "story-3fff64bfb43380ccb2fa",
+      "support_for_story_id": null,
+      "trend_links": [
+        "autonomous-agent-security-incidents",
+        "agent-runtime-sandboxing-need"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "头部实验室 CEO 公开主张放缓并承诺第三方评估准入，是可验证的治理立场变化。",
+      "retain_for_trends": true,
+      "story_id": "story-66eea6358565fd5cc213",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-lab-voluntary-slowdown",
+        "third-party-model-evaluation-access"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "数学家联署反映学术界与实验室张力升级，但缺具体诉求细节，轻量处理即可。",
+      "retain_for_trends": true,
+      "story_id": "story-59bf32748cb650262df7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-lab-academia-credit-conflict"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅媒体转述的千禧年难题声称且无同行评议，读者价值低但可作为待验证主张留存。",
+      "retain_for_trends": true,
+      "story_id": "story-687f3c9faef752c6af09",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-math-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "YC 合伙人主张开放权重实验室可蒸馏前沿模型，是开放权重政策争论的一条明确立场。",
+      "retain_for_trends": true,
+      "story_id": "story-cbe4da2a0da41313aba4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weight-distillation-policy-debate"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "前 EPA 官员批评为数据中心放松环境监管，触及算力扩张的成本外部性，尚无政策落地细节。",
+      "retain_for_trends": true,
+      "story_id": "story-697a6cef11b12d5b4d0f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "data-center-expansion-regulatory-relaxation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有标题与归档链接，无内容可验证，不构成可用证据。",
+      "retain_for_trends": false,
+      "story_id": "story-ca1b9b765253971c2fdd",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "与 Amodei 放缓开发计划为同一事件，作为该主 Story 的补充报道，不独立成立。",
+      "retain_for_trends": false,
+      "story_id": "story-08f40e7314487eb6eae4",
+      "support_for_story_id": "story-66eea6358565fd5cc213",
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-13T01:24:36.972650Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

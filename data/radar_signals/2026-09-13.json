@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 称其让 ChatGPT Work 配合 GPT-6 Astra（Max）规划住处附近的 5K/10K 环形跑步路线，要求使用 OSM 数据；模型运行约 27 分钟，输出了嵌入式可视化以及可下载的 GPX 与 GeoJSON 文件，并自述使用了 Nominatim 定位地址、Overpass 下载本地数据。",
+    "id": "radar-7243900322a3eb2274cd",
+    "missing_evidence": [
+      "缺少官方页面或独立来源确认模型名称与产品版本",
+      "未提供可公开核验的生成文件与可视化链接",
+      "excerpt 被截断，缺少过程中的失败、纠错与重试情况",
+      "仅有单一用户单次观察，无成功率或可复现性数据"
+    ],
+    "observed_at": "2026-09-13T01:24:12.711722Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": null,
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-e0bb328294c6f8f6e2fb",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/12/astra-running-routes/"
+      }
+    ],
+    "uncertainty": "模型与产品命名未经官方证据确认；任务是否一次成功、输出质量与数据准确性均未独立复核，属单次个人观察。",
+    "why_notable": "展示了一次长时程（约 27 分钟）agent 任务：自主选择并串联 OSM 相关外部工具、消费地理数据并产出可直接使用的多格式文件（可视化、GPX、GeoJSON），是观察 ChatGPT 类产品在真实生活任务中工具编排与自我报告能力的实践样本。"
+  }
+]
