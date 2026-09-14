@@ -402,7 +402,7 @@ def test_v10_recovery_entrances_match_v09(tmp_path, monkeypatch) -> None:
 def test_v11_initially_stale_stays_excluded(tmp_path, monkeypatch) -> None:
     project = copy_project(tmp_path)
     _install_tracking_provider(monkeypatch)
-    item = official_item("stale", published_at=DAY_N - timedelta(hours=31), title="Already stale")
+    item = official_item("stale", published_at=DAY_N - timedelta(days=8), title="Already stale")
     _seed(project, save_checkpoint(project, [item], now=DAY_N, batch_id="batch-stale"))
     MorningRadarPipeline(project).process(batch_id="batch-stale", now=DAY_N, notify=False)
     entry = _ledger(project).get(item.id, content_version(item))
@@ -426,7 +426,6 @@ def test_v12_aged_unresolved_is_not_auto_finished(tmp_path, monkeypatch) -> None
     entry = _ledger(project).get(item.id, content_version(item))
     assert entry.processing not in {ProcessingStatus.COMPLETED, ProcessingStatus.EXCLUDED}
     assert entry.outcome == "aged_unresolved"
-
 
 
 def test_v04_deploy_does_not_mark_unprocessed_version(tmp_path, monkeypatch) -> None:

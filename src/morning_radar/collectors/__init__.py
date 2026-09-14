@@ -5,6 +5,7 @@ from morning_radar.collectors.base import Collector
 from morning_radar.collectors.deepseek_updates import DeepSeekUpdatesCollector
 from morning_radar.collectors.fixture import FixtureCollector
 from morning_radar.collectors.hn_search import HNSearchCollector
+from morning_radar.collectors.official_listing import OfficialListingCollector
 from morning_radar.collectors.orchestrator import CollectionResult, collect_available
 
 __all__ = [
@@ -14,5 +15,6 @@ __all__ = [
     "FixtureCollector",
     "DeepSeekUpdatesCollector",
     "HNSearchCollector",
+    "OfficialListingCollector",
     "collect_available",
 ]

@@ -5,6 +5,7 @@ from __future__ import annotations
 from datetime import datetime
 
 from morning_radar.intake.checkpoint import load_recent_complete_checkpoints
+from morning_radar.intake.freshness import late_discovery_reason
 from morning_radar.intake.identity import intake_key
 from morning_radar.intake.ledger import ProcessingLedgerStore
 from morning_radar.intake.models import IntakeRecord, ProcessingStatus, ReasonCode
@@ -22,7 +23,6 @@ def recover_unfinished_records(
     collection_hours: int | None = None,
 ) -> tuple[list[IntakeRecord], list]:
     from morning_radar.intake.candidates import choose_latest_content_versions
-    from morning_radar.processing.filtering import filter_news_window
 
     excluded = exclude_keys or set()
     checkpoints = load_recent_complete_checkpoints(
@@ -42,21 +42,20 @@ def recover_unfinished_records(
         and (entry.durable_at or entry.first_seen_at) >= cutoff
     ]
     aged_unresolved = [
-        entry
-        for entry in ledger.unfinished()
-        if (entry.durable_at or entry.first_seen_at) < cutoff
+        entry for entry in ledger.unfinished() if (entry.durable_at or entry.first_seen_at) < cutoff
     ]
     eligible: list[IntakeRecord] = []
     for entry in unfinished:
         record = records_by_key.get(intake_key(entry.input_id, entry.content_version))
         if record is None:
             continue
-        first_saved = entry.durable_at or record.durable_at or record.first_seen_at
-        if collection_hours is not None and not filter_news_window(
-            [record.item],
-            now=first_saved,
-            hours=collection_hours,
-        ):
+        freshness = late_discovery_reason(
+            record,
+            now=now,
+            normal_hours=collection_hours or 1,
+            lookback_days=lookback_days,
+        )
+        if collection_hours is not None and freshness not in {"fresh", "eligible_late"}:
             ledger.update(
                 entry.input_id,
                 entry.content_version,
@@ -65,6 +64,7 @@ def recover_unfinished_records(
                 reason_code=ReasonCode.EXCLUDED_STALE,
                 stage="window",
                 outcome="excluded_stale",
+                candidate_diagnostics={"selected": False, "reason": freshness},
             )
             continue
         eligible.append(record)

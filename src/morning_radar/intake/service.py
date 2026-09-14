@@ -14,6 +14,7 @@ from morning_radar.collectors import (
     DeepSeekUpdatesCollector,
     FixtureCollector,
     HNSearchCollector,
+    OfficialListingCollector,
     collect_available,
 )
 from morning_radar.collectors.github import GitHubCollector
@@ -36,6 +37,7 @@ from morning_radar.intake.checkpoint import (
     pending_source_state,
     write_intake_checkpoint,
 )
+from morning_radar.intake.freshness import late_discovery_reason
 from morning_radar.intake.identity import intake_key
 from morning_radar.intake.ledger import ProcessingLedgerStore
 from morning_radar.intake.models import (
@@ -262,26 +264,41 @@ def prepare_process(
         first_saved = (
             (entry.durable_at if entry is not None else None) or record.durable_at or save_now
         )
-        eligible_at_save = bool(
-            filter_news_window(
-                [record.item],
-                now=first_saved,
-                hours=collection_hours,
-            )
+        durable = record.durable_at or record.first_seen_at
+        if durable < lookback_cutoff:
+            continue
+        eligibility = late_discovery_reason(
+            record.model_copy(update={"durable_at": first_saved}),
+            now=process_now,
+            normal_hours=collection_hours,
+            lookback_days=app.intake_recovery_lookback_days,
         )
-        if not eligible_at_save:
+        if eligibility not in {"fresh", "eligible_late"}:
+            missing_listing_event_time = (
+                eligibility == "missing_event_time"
+                and record.item.metadata.get("official_page_fetched")
+                and record.item.metadata.get("event_time_unverified")
+            )
             ledger.update(
                 record.input_id,
                 record.content_version,
                 now=process_now,
-                processing=ProcessingStatus.EXCLUDED,
-                reason_code=ReasonCode.EXCLUDED_STALE,
+                processing=(
+                    ProcessingStatus.WAITING_EVIDENCE
+                    if missing_listing_event_time
+                    else ProcessingStatus.EXCLUDED
+                ),
+                reason_code=(
+                    ReasonCode.WAITING_EVIDENCE
+                    if missing_listing_event_time
+                    else ReasonCode.EXCLUDED_STALE
+                ),
                 stage="window",
-                outcome="excluded_stale",
+                outcome=(
+                    "waiting_event_time" if missing_listing_event_time else "excluded_stale"
+                ),
+                candidate_diagnostics={"selected": False, "reason": eligibility},
             )
-            continue
-        durable = record.durable_at or record.first_seen_at
-        if durable < lookback_cutoff:
             continue
         in_window = bool(
             filter_news_window(
@@ -362,6 +379,12 @@ def prepare_process(
                 **selection.candidate_matches.get(
                     intake_key(record.input_id, record.content_version), {}
                 ),
+                "freshness": late_discovery_reason(
+                    record,
+                    now=process_now,
+                    normal_hours=app.news_window_hours,
+                    lookback_days=app.intake_recovery_lookback_days,
+                ),
             },
         )
     for record in selection.records:
@@ -382,6 +405,12 @@ def prepare_process(
                 ),
                 "protected_fresh": intake_key(record.input_id, record.content_version)
                 in selection.protected_fresh_keys,
+                "freshness": late_discovery_reason(
+                    record,
+                    now=process_now,
+                    normal_hours=app.news_window_hours,
+                    lookback_days=app.intake_recovery_lookback_days,
+                ),
             },
         )
     ledger.save()
@@ -484,6 +513,17 @@ def _production_collect(
                 maximum_excerpt_characters=watchlist.maximum_excerpt_characters,
             )
             for source in special_sources
+        )
+        collectors.extend(
+            OfficialListingCollector(
+                http=discovery_http,
+                source=source,
+                now=now,
+                maximum_response_bytes=watchlist.maximum_response_bytes,
+                maximum_excerpt_characters=watchlist.maximum_excerpt_characters,
+            )
+            for source in sources
+            if source.type == "official_listing" and source.enabled
         )
         collectors.append(
             HNSearchCollector(

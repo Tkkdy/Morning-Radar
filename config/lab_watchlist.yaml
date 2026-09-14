@@ -16,6 +16,15 @@ update_rules:
   - rule_id: api_lifecycle
     include: ['\b(api|model)\b.*\b(available|migration|deprecated|sunset|pricing)\b', '(API|模型).*(可用|迁移|下线|价格)']
     exclude: ['\b(sdk|cache|benchmark)\b']
+  - rule_id: safety_or_threat_report
+    include: ['\b(threat intelligence|threat report|safety report|security report|cybersecurity)\b', '威胁.*报告', '安全.*报告']
+    exclude: ['\b(tutorial|course|stock|funding)\b']
+  - rule_id: plan_availability
+    include: ['\b(plan|plans|subscription|supergrok|cursor)\b.*\b(available|included|expand|more)\b', '\b(available|included|expand|more)\b.*\b(plan|plans|subscription|supergrok|cursor)\b', '套餐.*(可用|扩展)']
+    exclude: ['\b(stock|funding|marketing)\b']
+  - rule_id: announced_or_delayed
+    include: ['\b(announced|coming|planned|delay|delayed|postponed)\b', '(预告|延期|推迟)']
+    exclude: ['\b(stock|funding)\b']
 labs:
   - id: deepseek
     aliases: [DeepSeek, 深度求索]
@@ -28,6 +37,7 @@ labs:
   - id: anthropic
     aliases: [Anthropic, Claude]
     hn_queries: [Anthropic, Claude]
+    official_source_id: anthropic_news
   - id: google_deepmind
     aliases: [Google DeepMind, DeepMind, Gemini]
     hn_queries: [Gemini, DeepMind]
@@ -35,6 +45,7 @@ labs:
   - id: xai
     aliases: [xAI, Grok]
     hn_queries: [xAI, Grok]
+    official_source_id: xai_news
   - id: meta
     aliases: [Meta AI, Llama]
     hn_queries: [Llama]

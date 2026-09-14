@@ -266,7 +266,7 @@ def test_u09_fatal_child_stops_sibling_calls() -> None:
 def test_u11_stale_item_is_saved_then_excluded(tmp_path, monkeypatch) -> None:
     project = copy_project(tmp_path)
     fresh = official_item("fresh", published_at=DAY_N - timedelta(hours=2))
-    stale = official_item("stale31", published_at=DAY_N - timedelta(hours=31))
+    stale = official_item("stale31", published_at=DAY_N - timedelta(days=8))
     collection = CollectionResult(
         items=[fresh, stale],
         raw_collected=2,

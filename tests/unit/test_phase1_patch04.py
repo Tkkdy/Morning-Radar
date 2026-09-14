@@ -156,7 +156,7 @@ def test_w07_recaptured_legal_version_stays_recoverable(tmp_path, monkeypatch) -
 def test_w08_never_processed_stale_stays_excluded_on_empty_batch(tmp_path, monkeypatch) -> None:
     project = copy_project(tmp_path)
     _install_tracking_provider(monkeypatch)
-    item = official_item("stale", published_at=DAY_N - timedelta(hours=31), title="Already stale")
+    item = official_item("stale", published_at=DAY_N - timedelta(days=8), title="Already stale")
     _seed(project, save_checkpoint(project, [item], now=DAY_N, batch_id="batch-stale"))
     later = DAY_N + timedelta(hours=1)
     empty = save_checkpoint(project, [], now=later, batch_id="batch-empty")
