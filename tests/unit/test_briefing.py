@@ -1,11 +1,20 @@
 import logging
 from datetime import UTC, date, datetime
+from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
-from morning_radar.ai import AIBudgetExceeded, AIOutputError, FakeAIProvider
+from morning_radar.ai import (
+    AIBudget,
+    AIBudgetExceeded,
+    AIOutputError,
+    DeepSeekProvider,
+    FakeAIProvider,
+)
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     GeneratedBriefItem,
 )
@@ -15,7 +24,20 @@ from morning_radar.briefing import (
     generate_daily_brief,
     generate_daily_brief_with_memory,
 )
-from morning_radar.models import Signal, SignalType, Story, StorySourceRef
+from morning_radar.models import (
+    BriefItem,
+    BriefStoryContext,
+    DailyBrief,
+    RadarSignal,
+    ResearchEvidenceRef,
+    Signal,
+    SignalType,
+    SourceRole,
+    StatementType,
+    Story,
+    StorySourceRef,
+)
+from morning_radar.pipeline import suppress_displayed_radar_duplicates
 from morning_radar.processing import build_stories
 
 NOW = datetime(2026, 7, 23, 1, tzinfo=UTC)
@@ -180,14 +202,16 @@ class SelectiveBriefProvider(FakeAIProvider):
         return BriefDraft(
             items=[
                 GeneratedBriefItem(
-                    story_ids=[stories[index].id],
+                    story_ids=[source_story.id],
                     section="ai_and_open_source",
                     title=f"Selected {index}",
                     what_happened="Selected story",
                     why_it_matters="Selected importance",
-                    source_urls=[stories[index].primary_source_url],
+                    source_urls=[source_story.primary_source_url],
                 )
                 for index in self.selected_indexes
+                for source_story in stories
+                if source_story.id == f"story-{index}"
             ]
         )
 
@@ -266,7 +290,7 @@ def test_other_reading_keeps_unselected_eligible_stories_in_ranked_order() -> No
     )
     assert result.other_reading[0].source_urls == stories[0].source_urls
     assert result.other_reading[0].story_contexts[0].story_id == stories[0].id
-    assert provider.write_calls == 1
+    assert provider.write_calls == 2
 
 
 def test_other_reading_respects_total_and_independent_item_limits() -> None:
@@ -404,10 +428,10 @@ def test_maximum_brief_items_counts_cards_not_referenced_stories() -> None:
 
 class BriefInputRecordingProvider(FakeAIProvider):
     def __init__(self) -> None:
-        self.story_inputs: list[Story] = []
+        self.story_inputs: list[list[Story]] = []
 
     def write_brief(self, stories, signals):
-        self.story_inputs = list(stories)
+        self.story_inputs.append(list(stories))
         return super().write_brief(stories, signals)
 
 
@@ -426,7 +450,7 @@ def test_brief_ai_input_is_bounded_to_display_capacity() -> None:
         run_stats={},
     )
 
-    assert len(provider.story_inputs) == 12
+    assert [len(batch) for batch in provider.story_inputs] == [4, 4, 4]
     assert result.run_stats["threshold_eligible_stories"] == 16
     assert result.run_stats["ai_brief_story_inputs"] == 12
 
@@ -631,16 +655,16 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     )
 
     assert result.top_stories[0].what_happened == source_story.facts[0]
-    assert result.top_stories[0].why_it_matters == (
-        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
-    )
-    assert result.top_stories[0].uncertainty == "AI 晨报分析暂时不可用。"
+    assert result.top_stories[0].why_it_matters == source_story.analysis[0]
+    assert result.top_stories[0].uncertainty is None
+    assert result.top_stories[0].generation_status == "fallback_existing_analysis"
+    assert result.top_stories[0].generation_note == "本次成稿使用已验证的已有分析。"
     assert result.top_stories[0].source_urls == source_story.source_urls
     assert result.top_stories[0].story_contexts[0].story_id == source_story.id
     assert result.top_stories[0].story_contexts[0].source_refs == []
     assert result.other_reading == []
     assert result.run_stats["ai_brief_fallback"] is True
-    assert "AI degradation: batch brief generation failed" in caplog.text
+    assert "AI degradation: brief batch failed" in caplog.text
     assert result.run_stats["ai_brief_batch_failed"] is True
     assert result.run_stats["ai_brief_recovery_attempts"] == 1
     assert result.run_stats["ai_brief_recovery_successes"] == 0
@@ -721,15 +745,14 @@ def test_one_failed_item_recovery_does_not_contaminate_other_stories() -> None:
     )
 
     items = {item.story_ids[0]: item for item in _main_items(result)}
-    assert items["story-2"].why_it_matters == (
-        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
-    )
-    assert items["story-2"].uncertainty == "AI 晨报分析暂时不可用。"
+    assert items["story-2"].why_it_matters == "Analysis 2"
+    assert items["story-2"].uncertainty is None
+    assert items["story-2"].generation_status == "fallback_existing_analysis"
     assert all(
         items[f"story-{index}"].why_it_matters == f"Analysis {index}"
         for index in (0, 1, 3)
     )
-    assert "ai_brief_fallback" not in result.run_stats
+    assert result.run_stats["ai_brief_fallback"] is True
     assert result.run_stats["ai_brief_recovery_successes"] == 3
     assert result.run_stats["ai_brief_item_fallbacks"] == 1
 
@@ -752,7 +775,12 @@ def test_all_item_recoveries_fail_but_brief_remains_schema_valid() -> None:
 
     assert len(_main_items(result)) == 4
     assert all(
-        item.uncertainty == "AI 晨报分析暂时不可用。"
+        item.why_it_matters == f"Analysis {index}"
+        for index, item in enumerate(_main_items(result))
+    )
+    assert all(item.uncertainty is None for item in _main_items(result))
+    assert all(
+        item.generation_status == "fallback_existing_analysis"
         for item in _main_items(result)
     )
     assert result.run_stats["ai_brief_fallback"] is True
@@ -788,6 +816,102 @@ def test_recovery_stops_immediately_when_budget_is_unavailable() -> None:
     assert result.run_stats["ai_brief_recovery_successes"] == 0
     assert result.run_stats["ai_brief_item_fallbacks"] == 4
     assert result.run_stats["ai_brief_fallback"] is True
+
+
+class _ScriptedBriefCompletions:
+    def __init__(self, responses) -> None:
+        self.responses = list(responses)
+        self.requests = []
+
+    def create(self, **kwargs):
+        self.requests.append(kwargs)
+        finish_reason, content = self.responses.pop(0)
+        return SimpleNamespace(
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(content=content), finish_reason=finish_reason
+                )
+            ],
+            usage=None,
+        )
+
+
+def test_real_budget_bounds_truncated_batch_recovery_and_preserves_existing_analysis() -> None:
+    stories = [story(1), story(2)]
+    recovered = BriefItemRecoveryDraft(
+        item=GeneratedBriefItem(
+            story_ids=[stories[0].id], section="ai_and_open_source", title="恢复条目",
+            what_happened="已验证事实 1", why_it_matters="恢复分析 1",
+            source_urls=stories[0].source_urls,
+        )
+    ).model_dump_json()
+    completions = _ScriptedBriefCompletions([
+        ("length", "{}"), ("length", "{}"), ("stop", recovered),
+    ])
+    budget = AIBudget(maximum_calls=2, maximum_input_characters=100_000, maximum_items=8)
+    provider = DeepSeekProvider(
+        model="test", api_key="test", base_url="https://api.deepseek.test", budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 9, 14), generated_at=NOW, timezone="Asia/Singapore",
+        stories=stories, signals=[], provider=provider, limits=BriefLimits(maximum_items=2),
+        enabled_sections={}, run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert budget.calls_used == 2
+    assert budget.network_requests_used == 3
+    assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
+    assert result.run_stats["ai_brief_recovery_successes"] == 1
+    assert items["story-1"].why_it_matters == "恢复分析 1"
+    assert items["story-2"].why_it_matters == "Analysis 2"
+    assert items["story-2"].generation_reason == "recovery_budget_unavailable"
+    assert completions.requests[0]["extra_body"] == {"thinking": {"type": "disabled"}}
+    assert completions.requests[0]["max_tokens"] == 4096
+
+
+def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain() -> None:
+    source_url = "https://example.test/events/fable?utm_source=radar"
+    context = BriefStoryContext(
+        story_id="visible-story", canonical_title="Visible event", category="top_stories",
+        primary_source_url=source_url,
+        source_refs=[StorySourceRef(
+            raw_item_id="visible-raw", title="Visible source", source_name="Example",
+            source_type="rss", url=source_url, fetched_at=NOW,
+        )],
+    )
+    visible = BriefItem(
+        id="visible", section="top_stories", title="Visible event", what_happened="Fact",
+        why_it_matters="Analysis", source_urls=[source_url], story_ids=["visible-story"],
+        story_contexts=[context],
+    )
+    brief = DailyBrief(
+        date=date(2026, 9, 14), timezone="Asia/Singapore", generated_at=NOW,
+        top_stories=[visible],
+    )
+
+    def radar(signal_id: str, raw_id: str, url: str) -> RadarSignal:
+        return RadarSignal(
+            id=signal_id, observed_at=NOW, claim=signal_id, why_notable="Worth checking",
+            support_refs=[ResearchEvidenceRef(raw_item_id=raw_id, url=url,
+                                               source_role=SourceRole.PRACTITIONER)],
+            source_roles=[SourceRole.PRACTITIONER], missing_evidence=["Independent evidence"],
+            uncertainty="Unverified", statement_type=StatementType.FIRSTHAND_OBSERVATION,
+        )
+
+    displayed = suppress_displayed_radar_duplicates(
+        brief,
+        [
+            radar("same-raw", "visible-raw", "https://another.test/copy"),
+            radar("same-normalized-url", "other-raw", "https://example.test/events/fable"),
+            radar("independent", "other-raw", "https://example.test/events/independent"),
+        ],
+    )
+
+    assert [signal.id for signal in displayed] == ["independent"]
 
 
 class DirectionFailureProvider(FakeAIProvider):

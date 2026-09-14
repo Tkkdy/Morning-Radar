@@ -88,9 +88,10 @@ TASK_POLICIES = {
     "classify": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
-    "write_brief": DeepSeekTaskPolicy(
-        "enabled", 8192, 8192, "medium", retry_reasoning_effort="low"
-    ),
+    # The brief is grounded in already validated Stories.  Disabling extended
+    # reasoning and bounding each request to four Stories avoids spending most
+    # of a response budget on hidden reasoning before the JSON can close.
+    "write_brief": DeepSeekTaskPolicy("disabled", 4096, 4096, None),
     "write_brief_item": DeepSeekTaskPolicy("disabled", 4096, 4096, max_network_attempts=1),
     "resolve_continuity": DeepSeekTaskPolicy(
         "enabled", 4096, 4096, "medium", AITaskPriority.IMPORTANT, 2

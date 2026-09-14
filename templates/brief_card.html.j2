@@ -29,7 +29,7 @@
     </div>
     {% endfor %}
   {% endfor %}
-  {% if not compact %}<p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>{% endif %}
+  {% if not compact and item.why_it_matters %}<p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>{% endif %}
   {% if primary_context and primary_context.status.value != "unknown" %}
     {% set status_labels = {"rumor": "传闻", "official_teaser": "官方预告", "announced": "已宣布", "available": "已上线", "updated": "已更新"} %}
     <span class="status-badge">{{ status_labels.get(primary_context.status.value, primary_context.status.value) }}</span>
@@ -123,4 +123,5 @@
   {% elif not item.story_contexts %}
   <div class="sources">{% for url in item.source_urls %}<a href="{{ url }}" rel="noopener noreferrer">来源 {{ loop.index }}</a>{% endfor %}</div>
   {% endif %}
+  {% if not compact and item.generation_note %}<p class="generation-note">{{ item.generation_note }}</p>{% endif %}
 </article>

@@ -31,6 +31,8 @@ SECTION_NAMES = (
     "developer_discussions",
 )
 LOGGER = logging.getLogger(__name__)
+BRIEF_BATCH_ITEM_LIMIT = 4
+BRIEF_SIGNAL_INPUT_LIMIT = 3
 
 
 class BriefValidationError(ValueError):
@@ -100,6 +102,7 @@ def _deterministic_generated_item(
     *,
     section: str,
     fallback: bool = False,
+    fallback_reason: str | None = None,
 ) -> GeneratedBriefItem:
     """Create a conservative, schema-valid item from an already verified Story."""
     return GeneratedBriefItem(
@@ -107,19 +110,20 @@ def _deterministic_generated_item(
         section=section,
         title=story.canonical_title,
         what_happened=story.facts[0] if story.facts else story.canonical_title,
-        why_it_matters=(
-            "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
-            if fallback or not story.analysis
-            else (
-                story.analysis[0]
-            )
-        ),
-        uncertainty=(
-            "AI 晨报分析暂时不可用。"
-            if fallback
-            else (story.uncertainties[0] if story.uncertainties else None)
-        ),
+        why_it_matters=story.analysis[0] if story.analysis else None,
+        # Generation health is not an event uncertainty.  Preserve the latter
+        # whenever it was already validated on the Story.
+        uncertainty=story.uncertainties[0] if story.uncertainties else None,
         source_urls=story.source_urls,
+        generation_status=(
+            "fallback_existing_analysis" if story.analysis else "fallback_no_analysis"
+        ) if fallback else "generated",
+        generation_note=(
+            "本次成稿使用已验证的已有分析。"
+            if story.analysis
+            else "补充分析未生成，已保留已验证事实与来源。"
+        ) if fallback else None,
+        generation_reason=fallback_reason if fallback else None,
     )
 
 
@@ -151,6 +155,9 @@ def _validated_item(
         source_urls=generated.source_urls,
         story_ids=generated.story_ids,
         story_contexts=[_story_context(story_by_id[story_id]) for story_id in generated.story_ids],
+        generation_status=generated.generation_status,
+        generation_note=generated.generation_note,
+        generation_reason=generated.generation_reason,
     )
 
 
@@ -217,78 +224,91 @@ def generate_daily_brief_with_memory(
     stats["direction_signal_inputs"] = len(direction_signals)
 
     if ai_stories:
-        try:
-            if editorial_active:
-                draft = provider.write_brief(
-                    ai_stories,
-                    bounded_signals,
-                    [editorial_decisions[story.id] for story in ai_stories],
-                )
-            else:
-                draft = provider.write_brief(ai_stories, bounded_signals)
-            draft = sanitize_memory_drafts(draft, ai_stories)
-        except (AIBudgetExceeded, AIOutputError):
-            LOGGER.exception(
-                "AI degradation: batch brief generation failed; starting item recovery"
-            )
-            stats["ai_brief_batch_failed"] = True
-            recovery_stories = eligible_stories[: limits.maximum_items]
-            recovered_items: list[GeneratedBriefItem] = []
-            recovery_attempts = 0
-            recovery_successes = 0
-            item_fallbacks = 0
-            for story in recovery_stories:
-                try:
-                    recovered = provider.recover_brief_item(
-                        story,
-                        bounded_signals,
-                        editorial_decisions.get(story.id),
+        # A bounded batch keeps a single long structured response from consuming
+        # the whole write phase.  Successful sibling batches are retained and
+        # only the failed batch enters one-item recovery.
+        batches = [
+            ai_stories[index : index + BRIEF_BATCH_ITEM_LIMIT]
+            for index in range(0, len(ai_stories), BRIEF_BATCH_ITEM_LIMIT)
+        ]
+        batch_signals = bounded_signals[:BRIEF_SIGNAL_INPUT_LIMIT]
+        draft_items: list[GeneratedBriefItem] = []
+        watch_items: list[GeneratedWatchDraft] = []
+        judgement_items: list[GeneratedJudgementDraft] = []
+        cognitive_extension: str | None = None
+        recovery_attempts = recovery_successes = item_fallbacks = batch_failures = 0
+        for batch in batches:
+            try:
+                if editorial_active:
+                    batch_draft = provider.write_brief(
+                        batch,
+                        batch_signals,
+                        [editorial_decisions[story.id] for story in batch],
                     )
-                    validated = validate_and_sanitize_brief(
-                        BriefDraft(items=[recovered.item]),
-                        [story],
-                        bounded_signals,
-                    )
-                except AIBudgetExceeded:
-                    LOGGER.warning(
-                        "AI brief recovery stopped: budget unavailable; "
-                        "using verified Story facts for remaining items"
-                    )
-                    remaining = recovery_stories[len(recovered_items) :]
-                    recovered_items.extend(
-                        _deterministic_generated_item(
-                            remaining_story,
-                            section=remaining_story.category,
-                            fallback=True,
-                        )
-                        for remaining_story in remaining
-                    )
-                    item_fallbacks += len(remaining)
-                    break
-                except (AIOutputError, ValueError):
-                    recovery_attempts += 1
-                    LOGGER.exception(
-                        "AI degradation: brief item recovery failed for story_id=%s",
-                        story.id,
-                    )
-                    recovered_items.append(
-                        _deterministic_generated_item(
-                            story,
-                            section=story.category,
-                            fallback=True,
-                        )
-                    )
-                    item_fallbacks += 1
                 else:
-                    recovery_attempts += 1
-                    recovered_items.append(validated.items[0])
-                    recovery_successes += 1
-            stats["ai_brief_recovery_attempts"] = recovery_attempts
-            stats["ai_brief_recovery_successes"] = recovery_successes
-            stats["ai_brief_item_fallbacks"] = item_fallbacks
-            if recovery_stories and recovery_successes == 0:
-                stats["ai_brief_fallback"] = True
-            draft = BriefDraft(items=recovered_items)
+                    batch_draft = provider.write_brief(batch, batch_signals)
+                batch_draft = sanitize_memory_drafts(batch_draft, batch)
+            except (AIBudgetExceeded, AIOutputError):
+                LOGGER.exception("AI degradation: brief batch failed; starting item recovery")
+                batch_failures += 1
+                for position, story in enumerate(batch):
+                    try:
+                        recovered = provider.recover_brief_item(
+                            story, batch_signals, editorial_decisions.get(story.id)
+                        )
+                        validated = validate_and_sanitize_brief(
+                            BriefDraft(items=[recovered.item]), [story], batch_signals
+                        )
+                    except AIBudgetExceeded:
+                        remaining = batch[position:]
+                        LOGGER.warning("AI brief recovery stopped: budget unavailable")
+                        draft_items.extend(
+                            _deterministic_generated_item(
+                                remaining_story,
+                                section=remaining_story.category,
+                                fallback=True,
+                                fallback_reason="recovery_budget_unavailable",
+                            )
+                            for remaining_story in remaining
+                        )
+                        item_fallbacks += len(remaining)
+                        stats["ai_brief_recovery_budget_exhausted"] = True
+                        break
+                    except (AIOutputError, ValueError):
+                        recovery_attempts += 1
+                        draft_items.append(
+                            _deterministic_generated_item(
+                                story,
+                                section=story.category,
+                                fallback=True,
+                                fallback_reason="recovery_output_failed",
+                            )
+                        )
+                        item_fallbacks += 1
+                    else:
+                        recovery_attempts += 1
+                        draft_items.append(validated.items[0])
+                        recovery_successes += 1
+            else:
+                draft_items.extend(batch_draft.items)
+                watch_items.extend(batch_draft.watch_items)
+                judgement_items.extend(batch_draft.judgements)
+                cognitive_extension = cognitive_extension or batch_draft.cognitive_extension
+        stats["ai_brief_batches"] = len(batches)
+        if batch_failures:
+            stats["ai_brief_batch_failed"] = True
+            stats["ai_brief_batch_failures"] = batch_failures
+        stats["ai_brief_recovery_attempts"] = recovery_attempts
+        stats["ai_brief_recovery_successes"] = recovery_successes
+        stats["ai_brief_item_fallbacks"] = item_fallbacks
+        if item_fallbacks:
+            stats["ai_brief_fallback"] = True
+        draft = BriefDraft(
+            items=draft_items,
+            watch_items=watch_items,
+            judgements=judgement_items,
+            cognitive_extension=cognitive_extension,
+        )
     else:
         LOGGER.info("Skipping AI brief generation: no stories")
         draft = BriefDraft(items=[])

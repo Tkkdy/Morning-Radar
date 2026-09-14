@@ -44,6 +44,7 @@ from morning_radar.processing import (
     build_stories,
     filter_news_window,
     filter_story_candidate_inputs,
+    normalize_url,
 )
 from morning_radar.publishing import SiteBuilder
 from morning_radar.research import resolve_research
@@ -83,6 +84,44 @@ def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
     )
     other_items = len(brief.other_reading)
     return main_items, other_items, main_items + other_items
+
+
+def _visible_brief_provenance(brief: DailyBrief) -> tuple[set[str], set[str]]:
+    """Return the raw-item and canonical URL identities actually rendered.
+
+    This intentionally reads every visible section, including ``other_reading``.
+    A shared company or source hostname is not an identity and must never hide a
+    separate radar observation.
+    """
+    raw_item_ids: set[str] = set()
+    urls: set[str] = set()
+    for items in (
+        brief.top_stories,
+        brief.market_and_companies,
+        brief.ai_and_open_source,
+        brief.trend_radar,
+        brief.developer_discussions,
+        brief.other_reading,
+    ):
+        for item in items:
+            urls.update(normalize_url(url) for url in item.source_urls)
+            for context in item.story_contexts:
+                raw_item_ids.update(ref.raw_item_id for ref in context.source_refs)
+                urls.update(normalize_url(ref.url) for ref in context.source_refs)
+    return raw_item_ids, urls
+
+
+def suppress_displayed_radar_duplicates(brief: DailyBrief, radar_signals):
+    """Keep radar leads unless their evidence is already a visible body event."""
+    visible_raw_ids, visible_urls = _visible_brief_provenance(brief)
+    kept = []
+    for signal in radar_signals:
+        signal_raw_ids = {ref.raw_item_id for ref in signal.support_refs}
+        signal_urls = {normalize_url(ref.url) for ref in signal.support_refs}
+        if signal_raw_ids.intersection(visible_raw_ids) or signal_urls.intersection(visible_urls):
+            continue
+        kept.append(signal)
+    return kept
 
 
 def _call_safe_story_candidate_limit(
@@ -1132,9 +1171,13 @@ class MorningRadarPipeline:
             story_memory=[*historical_story_memory, *current_story_memory],
             current_judgements=continuity_result.current_judgements,
         )
+        displayed_radar_signals = suppress_displayed_radar_duplicates(
+            brief,
+            research_result.radar_signals,
+        )
         brief = brief.model_copy(
             update={
-                "radar_signals": research_result.radar_signals,
+                "radar_signals": displayed_radar_signals,
                 "tendencies": tendency_result.brief_tendencies,
                 "run_stats": {
                     **brief.run_stats,
@@ -1144,6 +1187,11 @@ class MorningRadarPipeline:
                     "judgement_deep_review_triggers": 0,
                     "judgement_deep_review_calls": 0,
                     "structured_watches_opened": len(opened_watches),
+                    "radar_signals_generated": len(research_result.radar_signals),
+                    "radar_signals_displayed": len(displayed_radar_signals),
+                    "radar_signals_suppressed_as_visible_brief_duplicates": (
+                        len(research_result.radar_signals) - len(displayed_radar_signals)
+                    ),
                 },
             }
         )

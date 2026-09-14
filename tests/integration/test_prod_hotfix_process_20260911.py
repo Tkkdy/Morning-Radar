@@ -63,6 +63,19 @@ def test_hf09_fixture_process_saves_budget_degraded_brief(tmp_path, monkeypatch)
     saved = load_model(output / "data/briefs/2026-07-23.json", DailyBrief)
     assert brief.direction_observation is None
     assert saved.direction_observation is None
+    saved_items = [
+        *saved.top_stories,
+        *saved.market_and_companies,
+        *saved.ai_and_open_source,
+        *saved.trend_radar,
+        *saved.developer_discussions,
+    ]
+    assert any(item.generation_status.startswith("fallback_") for item in saved_items)
+    assert all(
+        item.why_it_matters != "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+        for item in saved_items
+    )
+    assert all(item.uncertainty != "AI 晨报分析暂时不可用。" for item in saved_items)
     assert saved.run_stats["ai_direction_fallback_reason"] == (
         "AI daily input character limit exceeded"
     )

@@ -587,3 +587,40 @@ def test_site_builder_handles_empty_radar_and_tendency_day(tmp_path) -> None:
     html = (output / "index.html").read_text(encoding="utf-8")
     assert "雷达信号 · 尚待验证" not in html
     assert "结构趋势" not in html
+
+
+def test_site_builder_hides_legacy_placeholder_and_marks_only_degraded_card(tmp_path) -> None:
+    now = datetime(2026, 9, 14, tzinfo=UTC)
+    legacy = BriefItem(
+        id="legacy", section="top_stories", title="Legacy fallback",
+        what_happened="Verified fact",
+        why_it_matters="降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。",
+        uncertainty="AI 晨报分析暂时不可用。",
+        source_urls=["https://example.test/legacy"], story_ids=["legacy-story"],
+    )
+    normal = BriefItem(
+        id="normal", section="top_stories", title="Normal card", what_happened="Normal fact",
+        why_it_matters="Normal analysis", uncertainty="Event uncertainty",
+        source_urls=["https://example.test/normal"], story_ids=["normal-story"],
+    )
+    degraded_without_analysis = BriefItem(
+        id="missing-analysis", section="ai_and_open_source", title="No analysis",
+        what_happened="Verified fact only", why_it_matters=None,
+        source_urls=["https://example.test/no-analysis"], story_ids=["missing-analysis-story"],
+        generation_status="fallback_no_analysis",
+        generation_note="补充分析未生成，已保留已验证事实与来源。",
+    )
+    output = tmp_path / "site"
+    SiteBuilder(template_dir=Path("templates"), output_dir=output).build(
+        [DailyBrief(date=date(2026, 9, 14), timezone="Asia/Singapore", generated_at=now,
+                    top_stories=[legacy, normal], ai_and_open_source=[degraded_without_analysis])],
+        stylesheet=Path("site/assets/style.css"),
+    )
+
+    html = (output / "index.html").read_text(encoding="utf-8")
+    assert "降级模式下暂时无法生成重要性分析" not in html
+    assert "AI 晨报分析暂时不可用" not in html
+    assert "<strong>为什么重要：</strong>Normal analysis" in html
+    assert "<strong>为什么重要：</strong>Verified fact only" not in html
+    assert html.index("补充分析未生成") > html.index("No analysis")
+    assert html.count("generation-note") == 1
