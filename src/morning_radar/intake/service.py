@@ -274,14 +274,29 @@ def prepare_process(
             lookback_days=app.intake_recovery_lookback_days,
         )
         if eligibility not in {"fresh", "eligible_late"}:
+            missing_listing_event_time = (
+                eligibility == "missing_event_time"
+                and record.item.metadata.get("official_page_fetched")
+                and record.item.metadata.get("event_time_unverified")
+            )
             ledger.update(
                 record.input_id,
                 record.content_version,
                 now=process_now,
-                processing=ProcessingStatus.EXCLUDED,
-                reason_code=ReasonCode.EXCLUDED_STALE,
+                processing=(
+                    ProcessingStatus.WAITING_EVIDENCE
+                    if missing_listing_event_time
+                    else ProcessingStatus.EXCLUDED
+                ),
+                reason_code=(
+                    ReasonCode.WAITING_EVIDENCE
+                    if missing_listing_event_time
+                    else ReasonCode.EXCLUDED_STALE
+                ),
                 stage="window",
-                outcome="excluded_stale",
+                outcome=(
+                    "waiting_event_time" if missing_listing_event_time else "excluded_stale"
+                ),
                 candidate_diagnostics={"selected": False, "reason": eligibility},
             )
             continue

@@ -173,6 +173,12 @@ class OfficialListingCollector:
         }
         if entry.source_date:
             metadata.update({"source_date": entry.source_date, "date_precision": "day"})
+        else:
+            # The page is authoritative about its own contents, but without an
+            # observed event date it cannot establish when the event happened.
+            # Keep the source identity and fetched time for later verification
+            # without promoting the entry to a factual news event.
+            metadata["event_time_unverified"] = True
         return RawItem(
             id=stable_item_id(entry.url),
             title=entry.title,
@@ -184,6 +190,10 @@ class OfficialListingCollector:
             summary=excerpt[:280],
             content_excerpt=excerpt,
             source_role=SourceRole.OFFICIAL_PRIMARY,
-            statement_type=StatementType.FACTUAL_ANNOUNCEMENT,
+            statement_type=(
+                StatementType.FACTUAL_ANNOUNCEMENT
+                if entry.source_date
+                else StatementType.UNVERIFIED_LEAD
+            ),
             metadata=metadata,
         )

@@ -24,6 +24,8 @@ def late_discovery_reason(
     and publish decisions remain unchanged.
     """
     item = record.item
+    if item.metadata.get("official_page_fetched") and item.metadata.get("event_time_unverified"):
+        return "missing_event_time"
     if item.published_at is not None and item.published_at > now:
         return "future_timestamp"
     if filter_news_window([item], now=now, hours=normal_hours):
