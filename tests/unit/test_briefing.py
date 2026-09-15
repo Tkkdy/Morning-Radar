@@ -873,6 +873,73 @@ def test_real_budget_bounds_truncated_batch_recovery_and_preserves_existing_anal
     assert completions.requests[0]["max_tokens"] == 4096
 
 
+class OrderedBudgetProvider(FakeAIProvider):
+    """Records bounded task ordering while delegating accounting to AIBudget."""
+
+    def __init__(self, budget: AIBudget) -> None:
+        super().__init__()
+        self.budget = budget
+        self.events: list[str] = []
+        self.brief_calls = 0
+
+    def write_brief(self, stories, signals, editorial_decisions=None):
+        del signals
+        del editorial_decisions
+        self.events.append(f"brief:{','.join(story.id for story in stories)}")
+        self.budget.consume("b" * 120, item_count=len(stories))
+        self.brief_calls += 1
+        if self.brief_calls == 1:
+            raise AIOutputError("truncated batch output")
+        return super().write_brief(stories, [])
+
+    def recover_brief_item(self, story, signals, editorial_decision=None):
+        del signals
+        del editorial_decision
+        self.events.append(f"recover:{story.id}")
+        self.budget.consume("r" * 50, item_count=1)
+        return super().recover_brief_item(story, [])
+
+    def write_direction_observation(self, signals):
+        self.events.append("direction")
+        self.budget.consume("d" * 20, item_count=len(signals))
+        return super().write_direction_observation(signals)
+
+
+def test_real_budget_runs_core_batches_before_limited_recovery_and_auxiliary() -> None:
+    stories = [story(index) for index in range(5)]
+    signal = Signal(
+        id="signal-one", signal_type=SignalType.TOPIC_HEATING, topic="ai_coding",
+        window_days=3, supporting_story_ids=["story-0", "story-1"],
+        supporting_source_count=2, supporting_company_count=0, strength=0.7,
+        explanation="Verified multi-source evidence", created_at=NOW, updated_at=NOW,
+    )
+    budget = AIBudget(maximum_calls=5, maximum_input_characters=300, maximum_items=8)
+    provider = OrderedBudgetProvider(budget)
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 9, 14), generated_at=NOW, timezone="Asia/Singapore",
+        stories=stories, signals=[signal], provider=provider,
+        limits=BriefLimits(maximum_items=5), enabled_sections={}, run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert provider.events == [
+        "brief:story-0,story-1,story-2,story-3", "brief:story-4",
+        "recover:story-0", "recover:story-1", "direction",
+    ]
+    assert budget.calls_used == 3
+    assert budget.input_characters_used == 290
+    assert budget.input_characters_used <= budget.maximum_input_characters
+    assert items["story-4"].generation_status == "generated"
+    assert items["story-0"].generation_status == "generated"
+    for story_id in ["story-1", "story-2", "story-3"]:
+        assert items[story_id].generation_reason == "recovery_budget_unavailable"
+    assert result.run_stats["ai_brief_batch_failures"] == 1
+    assert result.run_stats["ai_brief_recovery_successes"] == 1
+    assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
+    assert result.run_stats["ai_direction_fallback"] is True
+
+
 def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain() -> None:
     source_url = "https://example.test/events/fable?utm_source=radar"
     context = BriefStoryContext(
@@ -888,16 +955,31 @@ def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain()
         why_it_matters="Analysis", source_urls=[source_url], story_ids=["visible-story"],
         story_contexts=[context],
     )
+    other_url = "https://example.test/events/other-reading"
+    other = BriefItem(
+        id="other", section="other_reading", title="Other visible event", what_happened="Fact",
+        source_urls=[other_url], story_ids=["other-story"],
+        story_contexts=[BriefStoryContext(
+            story_id="other-story", canonical_title="Other visible event",
+            category="ai_and_open_source",
+            primary_source_url=other_url,
+            source_refs=[StorySourceRef(
+                raw_item_id="other-visible-raw", title="Other source", source_name="Example",
+                source_type="rss", url=other_url, fetched_at=NOW,
+            )],
+        )],
+    )
     brief = DailyBrief(
         date=date(2026, 9, 14), timezone="Asia/Singapore", generated_at=NOW,
-        top_stories=[visible],
+        top_stories=[visible], other_reading=[other],
     )
 
-    def radar(signal_id: str, raw_id: str, url: str) -> RadarSignal:
+    def radar(signal_id: str, *references: tuple[str, str]) -> RadarSignal:
         return RadarSignal(
             id=signal_id, observed_at=NOW, claim=signal_id, why_notable="Worth checking",
             support_refs=[ResearchEvidenceRef(raw_item_id=raw_id, url=url,
-                                               source_role=SourceRole.PRACTITIONER)],
+                                               source_role=SourceRole.PRACTITIONER)
+                          for raw_id, url in references],
             source_roles=[SourceRole.PRACTITIONER], missing_evidence=["Independent evidence"],
             uncertainty="Unverified", statement_type=StatementType.FIRSTHAND_OBSERVATION,
         )
@@ -905,13 +987,19 @@ def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain()
     displayed = suppress_displayed_radar_duplicates(
         brief,
         [
-            radar("same-raw", "visible-raw", "https://another.test/copy"),
-            radar("same-normalized-url", "other-raw", "https://example.test/events/fable"),
-            radar("independent", "other-raw", "https://example.test/events/independent"),
+            radar("same-raw", ("visible-raw", "https://another.test/copy")),
+            radar("same-normalized-url", ("other-raw", "https://example.test/events/fable")),
+            radar("shared-auxiliary", ("visible-raw", source_url),
+                  ("independent-raw", "https://example.test/events/independent")),
+            radar("independent", ("other-raw", "https://example.test/events/independent")),
+            radar("same-other-reading", ("other-visible-raw", other_url)),
+            radar("not-rendered-lead", ("not-rendered-raw", "https://example.test/unrendered")),
         ],
     )
 
-    assert [signal.id for signal in displayed] == ["independent"]
+    assert [signal.id for signal in displayed] == [
+        "shared-auxiliary", "independent", "not-rendered-lead"
+    ]
 
 
 class DirectionFailureProvider(FakeAIProvider):

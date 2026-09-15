@@ -237,6 +237,7 @@ def generate_daily_brief_with_memory(
         judgement_items: list[GeneratedJudgementDraft] = []
         cognitive_extension: str | None = None
         recovery_attempts = recovery_successes = item_fallbacks = batch_failures = 0
+        failed_batches: list[list[Story]] = []
         for batch in batches:
             try:
                 if editorial_active:
@@ -249,51 +250,56 @@ def generate_daily_brief_with_memory(
                     batch_draft = provider.write_brief(batch, batch_signals)
                 batch_draft = sanitize_memory_drafts(batch_draft, batch)
             except (AIBudgetExceeded, AIOutputError):
-                LOGGER.exception("AI degradation: brief batch failed; starting item recovery")
+                LOGGER.exception("AI degradation: brief batch failed; deferring item recovery")
                 batch_failures += 1
-                for position, story in enumerate(batch):
-                    try:
-                        recovered = provider.recover_brief_item(
-                            story, batch_signals, editorial_decisions.get(story.id)
-                        )
-                        validated = validate_and_sanitize_brief(
-                            BriefDraft(items=[recovered.item]), [story], batch_signals
-                        )
-                    except AIBudgetExceeded:
-                        remaining = batch[position:]
-                        LOGGER.warning("AI brief recovery stopped: budget unavailable")
-                        draft_items.extend(
-                            _deterministic_generated_item(
-                                remaining_story,
-                                section=remaining_story.category,
-                                fallback=True,
-                                fallback_reason="recovery_budget_unavailable",
-                            )
-                            for remaining_story in remaining
-                        )
-                        item_fallbacks += len(remaining)
-                        stats["ai_brief_recovery_budget_exhausted"] = True
-                        break
-                    except (AIOutputError, ValueError):
-                        recovery_attempts += 1
-                        draft_items.append(
-                            _deterministic_generated_item(
-                                story,
-                                section=story.category,
-                                fallback=True,
-                                fallback_reason="recovery_output_failed",
-                            )
-                        )
-                        item_fallbacks += 1
-                    else:
-                        recovery_attempts += 1
-                        draft_items.append(validated.items[0])
-                        recovery_successes += 1
+                failed_batches.append(batch)
             else:
                 draft_items.extend(batch_draft.items)
                 watch_items.extend(batch_draft.watch_items)
                 judgement_items.extend(batch_draft.judgements)
                 cognitive_extension = cognitive_extension or batch_draft.cognitive_extension
+        # Core batch attempts always run before item-level recovery.  This keeps
+        # a failed early batch from consuming the bounded daily budget and
+        # starving later independent batches.
+        for batch in failed_batches:
+            for position, story in enumerate(batch):
+                try:
+                    recovered = provider.recover_brief_item(
+                        story, batch_signals, editorial_decisions.get(story.id)
+                    )
+                    validated = validate_and_sanitize_brief(
+                        BriefDraft(items=[recovered.item]), [story], batch_signals
+                    )
+                except AIBudgetExceeded:
+                    remaining = batch[position:]
+                    LOGGER.warning("AI brief recovery stopped: budget unavailable")
+                    draft_items.extend(
+                        _deterministic_generated_item(
+                            remaining_story,
+                            section=remaining_story.category,
+                            fallback=True,
+                            fallback_reason="recovery_budget_unavailable",
+                        )
+                        for remaining_story in remaining
+                    )
+                    item_fallbacks += len(remaining)
+                    stats["ai_brief_recovery_budget_exhausted"] = True
+                    break
+                except (AIOutputError, ValueError):
+                    recovery_attempts += 1
+                    draft_items.append(
+                        _deterministic_generated_item(
+                            story,
+                            section=story.category,
+                            fallback=True,
+                            fallback_reason="recovery_output_failed",
+                        )
+                    )
+                    item_fallbacks += 1
+                else:
+                    recovery_attempts += 1
+                    draft_items.append(validated.items[0])
+                    recovery_successes += 1
         stats["ai_brief_batches"] = len(batches)
         if batch_failures:
             stats["ai_brief_batch_failed"] = True

@@ -116,9 +116,13 @@ def suppress_displayed_radar_duplicates(brief: DailyBrief, radar_signals):
     visible_raw_ids, visible_urls = _visible_brief_provenance(brief)
     kept = []
     for signal in radar_signals:
-        signal_raw_ids = {ref.raw_item_id for ref in signal.support_refs}
-        signal_urls = {normalize_url(ref.url) for ref in signal.support_refs}
-        if signal_raw_ids.intersection(visible_raw_ids) or signal_urls.intersection(visible_urls):
+        # A radar lead may cite a shared auxiliary source while making a
+        # separate observation.  Suppress it only when every supplied support
+        # reference is already rendered as the same visible event.
+        if signal.support_refs and all(
+            ref.raw_item_id in visible_raw_ids or normalize_url(ref.url) in visible_urls
+            for ref in signal.support_refs
+        ):
             continue
         kept.append(signal)
     return kept

@@ -409,11 +409,14 @@ class BriefItem(RadarModel):
         analysis and event uncertainty.  Keep those files readable, but map the
         exact legacy values to the absence they actually represented.
         """
+        legacy_placeholder = False
         if self.why_it_matters == "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。":
             self.why_it_matters = None
+            legacy_placeholder = True
         if self.uncertainty == "AI 晨报分析暂时不可用。":
             self.uncertainty = None
-        if self.why_it_matters is None and self.generation_status == "generated":
+            legacy_placeholder = True
+        if legacy_placeholder and self.generation_status == "generated":
             self.generation_status = "legacy_fallback"
         return self
 
