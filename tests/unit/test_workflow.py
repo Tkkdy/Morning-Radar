@@ -5,7 +5,8 @@ def test_workflow_has_manual_schedule_pages_and_safety_controls() -> None:
     workflow = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
 
     assert "workflow_dispatch:" in workflow
-    assert 'cron: "37 23 * * *"' in workflow
+    assert 'cron: "37 3 * * *"' in workflow
+    assert 'timezone: "Asia/Singapore"' in workflow
     assert "python-version: \"3.12\"" in workflow
     assert "timeout-minutes: 45" in workflow
     assert "concurrency:" in workflow

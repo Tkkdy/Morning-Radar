@@ -17,8 +17,10 @@ on:
         type: boolean
         default: false
   schedule:
-    # Singapore is UTC+8 year-round: 07:37 SGT = 23:37 UTC on the previous day.
-    - cron: "37 23 * * *"
+    # Target: Morning Radar ready before 06:00 Singapore time.
+    # Scheduled early to absorb observed GitHub Actions scheduler delay.
+    - cron: "37 3 * * *"
+      timezone: "Asia/Singapore"
 
 permissions:
   contents: write
