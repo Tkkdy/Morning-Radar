@@ -19,8 +19,12 @@ from morning_radar.ai.output_validation import (
     validate_and_sanitize_brief,
 )
 from morning_radar.ai.provider import AIProvider
+from morning_radar.ai.request_payload import (
+    brief_item_recovery_request_payload,
+    brief_request_payload,
+)
 from morning_radar.editorial.evaluator import EditorialRunResult
-from morning_radar.editorial.models import Placement
+from morning_radar.editorial.models import EditorialDecision, Placement
 from morning_radar.models import BriefItem, BriefStoryContext, DailyBrief, Signal, Story
 
 SECTION_NAMES = (
@@ -51,6 +55,45 @@ class BriefGenerationResult:
     brief: DailyBrief
     watch_drafts: list[GeneratedWatchDraft]
     judgement_drafts: list[GeneratedJudgementDraft]
+
+
+def core_brief_request_payloads(
+    stories: list[Story],
+    signals: list[Signal],
+    editorial_decisions: list[EditorialDecision] | None = None,
+) -> tuple[list[dict], list[dict]]:
+    """Return every core batch payload and every possible one-item recovery payload."""
+    bounded_signals = sorted(
+        signals,
+        key=lambda signal: (signal.strength, signal.id),
+        reverse=True,
+    )[:BRIEF_SIGNAL_INPUT_LIMIT]
+    decisions_by_story_id = {
+        decision.story_id: decision for decision in editorial_decisions or []
+    }
+    batches = [
+        stories[index : index + BRIEF_BATCH_ITEM_LIMIT]
+        for index in range(0, len(stories), BRIEF_BATCH_ITEM_LIMIT)
+    ]
+    batch_payloads = [
+        brief_request_payload(
+            batch,
+            bounded_signals,
+            [decisions_by_story_id[story.id] for story in batch]
+            if editorial_decisions is not None
+            else None,
+        )
+        for batch in batches
+    ]
+    recovery_payloads = [
+        brief_item_recovery_request_payload(
+            story,
+            bounded_signals,
+            decisions_by_story_id.get(story.id) if editorial_decisions is not None else None,
+        )
+        for story in stories
+    ]
+    return batch_payloads, recovery_payloads
 
 
 def ranked_eligible_stories(

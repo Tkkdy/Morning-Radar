@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import logging
-import math
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -12,8 +11,10 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
+from morning_radar.ai.request_payload import dumps
 from morning_radar.briefing import (
     BriefLimits,
+    core_brief_request_payloads,
     generate_daily_brief_with_memory,
     ranked_eligible_stories,
 )
@@ -175,14 +176,25 @@ def _resolve_fast_continuity(
     )
 
 
-def _reserve_brief_core_budget(provider, brief_ai_stories) -> None:
-    """Protect 4-item brief batches and one bounded recovery from fast continuity."""
+def _reserve_brief_core_budget(
+    provider,
+    brief_ai_stories,
+    signals,
+    editorial_decisions=None,
+) -> None:
+    """Protect actual core batch payloads and the largest possible one-item recovery."""
     budget = getattr(provider, "budget", None)
     if budget is None or not brief_ai_stories:
         return
+    batch_payloads, recovery_payloads = core_brief_request_payloads(
+        brief_ai_stories,
+        signals,
+        editorial_decisions,
+    )
     budget.reserve_core(
-        calls=math.ceil(len(brief_ai_stories) / 4) + 1,
-        input_characters=sum(len(story.model_dump_json()) for story in brief_ai_stories) + 5_000,
+        calls=len(batch_payloads) + 1,
+        input_characters=sum(len(dumps(payload)) for payload in batch_payloads)
+        + max((len(dumps(payload)) for payload in recovery_payloads), default=0),
     )
 
 
@@ -959,11 +971,18 @@ class MorningRadarPipeline:
         if editorial_result.active:
             assert editorial_result.selection is not None
             story_by_id = {story.id: story for story in stories}
+            primary_ids = editorial_result.selection.visible_story_ids[: brief_limits.maximum_items]
+            support_ids = [
+                support_id
+                for primary_id in primary_ids
+                for support_id in editorial_result.selection.support_by_story_id.get(
+                    primary_id,
+                    [],
+                )
+            ]
             brief_ai_stories = [
                 story_by_id[story_id]
-                for story_id in editorial_result.selection.visible_story_ids[
-                    : brief_limits.maximum_items
-                ]
+                for story_id in dict.fromkeys([*primary_ids, *support_ids])
             ]
         else:
             brief_ai_stories = ranked_eligible_stories(
@@ -971,6 +990,36 @@ class MorningRadarPipeline:
                 relevance_threshold=self.app.relevance_threshold,
                 importance_threshold=self.app.importance_threshold,
             )[: brief_limits.maximum_items]
+        story_history = self._story_history(history_root, brief_date)
+        story_history[brief_date] = stories
+        signals = TrendDetector(
+            github_threshold=self.app.github_growth_threshold,
+            market_threshold=self.app.market_movement_threshold,
+            company_names={
+                company.name
+                for company in load_model_list(
+                    self.root / "config/companies.yaml",
+                    "companies",
+                    CompanyConfig,
+                )
+            },
+        ).detect(
+            story_history=story_history,
+            github_snapshots=self._snapshots(
+                history_root / "data/snapshots/github",
+                output_root / "data/snapshots/github",
+                GitHubSnapshot,
+                brief_date,
+            ),
+            market_snapshots=self._snapshots(
+                history_root / "data/snapshots/market",
+                output_root / "data/snapshots/market",
+                MarketSnapshot,
+                brief_date,
+            ),
+            current_date=brief_date,
+            now=now,
+        )
         current_story_memory = [
             StoryMemory(
                 ref=StoryOccurrenceRef(date=brief_date, story_id=story.id),
@@ -978,7 +1027,21 @@ class MorningRadarPipeline:
             )
             for story in stories
         ]
-        _reserve_brief_core_budget(provider, brief_ai_stories)
+        brief_editorial_decisions = (
+            [
+                decision
+                for decision in editorial_result.daily.decisions
+                if decision.story_id in {story.id for story in brief_ai_stories}
+            ]
+            if editorial_result.active
+            else None
+        )
+        _reserve_brief_core_budget(
+            provider,
+            brief_ai_stories,
+            signals,
+            brief_editorial_decisions,
+        )
         try:
             historical_story_memory = load_story_memory(
                 history_root,
@@ -1020,36 +1083,6 @@ class MorningRadarPipeline:
                 daily=DailyContinuity(date=brief_date, generated_at=now),
                 stats={"continuity_unavailable": 1},
             )
-        story_history = self._story_history(history_root, brief_date)
-        story_history[brief_date] = stories
-        signals = TrendDetector(
-            github_threshold=self.app.github_growth_threshold,
-            market_threshold=self.app.market_movement_threshold,
-            company_names={
-                company.name
-                for company in load_model_list(
-                    self.root / "config/companies.yaml",
-                    "companies",
-                    CompanyConfig,
-                )
-            },
-        ).detect(
-            story_history=story_history,
-            github_snapshots=self._snapshots(
-                history_root / "data/snapshots/github",
-                output_root / "data/snapshots/github",
-                GitHubSnapshot,
-                brief_date,
-            ),
-            market_snapshots=self._snapshots(
-                history_root / "data/snapshots/market",
-                output_root / "data/snapshots/market",
-                MarketSnapshot,
-                brief_date,
-            ),
-            current_date=brief_date,
-            now=now,
-        )
         budget = getattr(provider, "budget", None)
         try:
             brief_result = generate_daily_brief_with_memory(

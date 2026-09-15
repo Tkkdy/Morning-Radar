@@ -21,12 +21,15 @@ from morning_radar.ai.models import (
     ResearchResolutionBatch,
     ResearchResolutionDraft,
 )
+from morning_radar.ai.request_payload import dumps
 from morning_radar.briefing import (
     BriefLimits,
     BriefValidationError,
+    core_brief_request_payloads,
     generate_daily_brief,
     generate_daily_brief_with_memory,
 )
+from morning_radar.editorial.models import EditorialDecision, FactStatus, Placement
 from morning_radar.models import (
     BriefItem,
     BriefStoryContext,
@@ -882,27 +885,10 @@ def test_real_budget_bounds_truncated_batch_recovery_and_preserves_existing_anal
 def test_real_provider_budget_reservation_bounds_4_plus_1_batches_and_recovery() -> None:
     """Use the provider's production payload shape to bound an entire degraded brief."""
     stories = [story(index) for index in range(5)]
-    batch_one_payload = {
-        "stories": [item.model_dump(mode="json") for item in stories[:4]],
-        "signals": [],
-        "editorial_decisions": [],
-    }
-    batch_two_payload = {
-        "stories": [stories[4].model_dump(mode="json")],
-        "signals": [],
-        "editorial_decisions": [],
-    }
-    recovery_payload = {
-        "story": stories[0].model_dump(mode="json"),
-        "signals": [],
-        "editorial_decision": None,
-    }
-    def serialize(payload) -> str:
-        return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    batch_payloads, recovery_payloads = core_brief_request_payloads(stories, [])
     core_payloads = [
-        serialize(batch_one_payload),
-        serialize(batch_two_payload),
-        serialize(recovery_payload),
+        *(dumps(payload) for payload in batch_payloads),
+        dumps(recovery_payloads[0]),
     ]
     recovery = BriefItemRecoveryDraft(
         item=GeneratedBriefItem(
@@ -931,7 +917,10 @@ def test_real_provider_budget_reservation_bounds_4_plus_1_batches_and_recovery()
     )
     budget = AIBudget(
         maximum_calls=3,
-        maximum_input_characters=sum(map(len, core_payloads)),
+        maximum_input_characters=(
+            sum(len(dumps(payload)) for payload in batch_payloads)
+            + max(len(dumps(payload)) for payload in recovery_payloads)
+        ),
         maximum_items=8,
         maximum_network_requests=4,
     )
@@ -944,7 +933,7 @@ def test_real_provider_budget_reservation_bounds_4_plus_1_batches_and_recovery()
         client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
     )
 
-    _reserve_brief_core_budget(provider, stories)
+    _reserve_brief_core_budget(provider, stories, [])
     assert budget.reserved_core_calls == 3
     assert budget.reserved_core_input_characters == budget.maximum_input_characters
     with pytest.raises(AIBudgetExceeded):
@@ -977,6 +966,121 @@ def test_real_provider_budget_reservation_bounds_4_plus_1_batches_and_recovery()
     assert result.run_stats["ai_brief_batches"] == 2
     assert result.run_stats["ai_brief_recovery_successes"] == 1
     assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
+
+
+def test_real_provider_reservation_uses_long_payloads_signals_and_editorial_decisions() -> None:
+    stories = [
+        story(index).model_copy(
+            update={
+                "facts": [f"事实 {index} " + "长输入" * (900 + index * 50)],
+                "analysis": [f"分析 {index} " + "详细依据" * (500 + index * 30)],
+            }
+        )
+        for index in range(5)
+    ]
+    signal = Signal(
+        id="signal-long",
+        signal_type=SignalType.TOPIC_HEATING,
+        topic="ai_coding",
+        window_days=3,
+        supporting_story_ids=[stories[0].id, stories[1].id],
+        supporting_source_count=2,
+        supporting_company_count=0,
+        strength=0.9,
+        explanation="已验证的多来源信号。",
+        created_at=NOW,
+        updated_at=NOW,
+    )
+    decisions = [
+        EditorialDecision(
+            story_id=item.id,
+            placement=Placement.STORY,
+            reader_value=3,
+            evidence_value=2,
+            fact_status=FactStatus.CLAIM,
+            retain_for_trends=False,
+            reason="与开发者工作流直接相关。",
+        )
+        for item in stories
+    ]
+    batch_payloads, recovery_payloads = core_brief_request_payloads(
+        stories,
+        [signal],
+        decisions,
+    )
+    auxiliary_payload = dumps([signal.model_dump(mode="json")])
+    reserved_characters = sum(len(dumps(payload)) for payload in batch_payloads) + max(
+        len(dumps(payload)) for payload in recovery_payloads
+    )
+    second_batch = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[stories[4].id],
+                section="ai_and_open_source",
+                title="第五条",
+                what_happened="已验证事实 4",
+                why_it_matters="正常分析 4",
+                source_urls=stories[4].source_urls,
+            )
+        ]
+    ).model_dump_json()
+    recovery = BriefItemRecoveryDraft(
+        item=GeneratedBriefItem(
+            story_ids=[stories[0].id],
+            section="ai_and_open_source",
+            title="恢复条目",
+            what_happened="已验证事实 0",
+            why_it_matters="恢复分析 0",
+            source_urls=stories[0].source_urls,
+        )
+    ).model_dump_json()
+    direction_response = (
+        '{"observation":"信号仍在形成。",'
+        '"evidence_story_ids":["story-0","story-1"],"confidence":"medium"}'
+    )
+    completions = _ScriptedBriefCompletions(
+        [
+            ("stop", direction_response),
+            ("length", "{}"),
+            ("length", "{}"),
+            ("stop", second_batch),
+            ("stop", recovery),
+        ]
+    )
+    budget = AIBudget(
+        maximum_calls=4,
+        maximum_input_characters=reserved_characters + len(auxiliary_payload),
+        maximum_items=8,
+        maximum_network_requests=5,
+    )
+    provider = DeepSeekProvider(
+        model="test",
+        api_key="test",
+        base_url="https://api.deepseek.test",
+        budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    _reserve_brief_core_budget(provider, stories, [signal], decisions)
+    assert budget.reserved_core_calls == 3
+    assert budget.reserved_core_input_characters == reserved_characters
+    assert provider.write_direction_observation([signal]).observation == "信号仍在形成。"
+    with pytest.raises(AIOutputError):
+        provider.write_brief(stories[:4], [signal], decisions[:4])
+    provider.write_brief(stories[4:], [signal], decisions[4:])
+    provider.recover_brief_item(stories[0], [signal], decisions[0])
+
+    assert [request["messages"][1]["content"] for request in completions.requests] == [
+        auxiliary_payload,
+        dumps(batch_payloads[0]),
+        dumps(batch_payloads[0]),
+        dumps(batch_payloads[1]),
+        dumps(recovery_payloads[0]),
+    ]
+    assert budget.calls_used == budget.maximum_calls
+    assert budget.input_characters_used <= budget.maximum_input_characters
+    assert budget.network_requests_used == budget.maximum_network_requests
 
 
 def test_real_provider_released_reservation_allows_remaining_auxiliary_capacity() -> None:
@@ -1017,7 +1121,7 @@ def test_real_provider_released_reservation_allows_remaining_auxiliary_capacity(
         client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
     )
 
-    _reserve_brief_core_budget(provider, [source_story])
+    _reserve_brief_core_budget(provider, [source_story], [])
     with pytest.raises(AIBudgetExceeded):
         provider.write_direction_observation([])
     assert completions.requests == []
@@ -1073,7 +1177,7 @@ def test_real_provider_insufficient_reservation_degrades_without_exceeding_limit
         client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
     )
 
-    _reserve_brief_core_budget(provider, stories)
+    _reserve_brief_core_budget(provider, stories, [])
     assert budget.reserved_core_calls == budget.maximum_calls
     result = generate_daily_brief(
         brief_date=date(2026, 9, 14), generated_at=NOW, timezone="Asia/Singapore",

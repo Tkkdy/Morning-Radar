@@ -50,6 +50,8 @@ from morning_radar.ai.output_validation import (
 from morning_radar.ai.request_payload import (
     attach_call_meta,
     bind_call_meta,
+    brief_item_recovery_request_payload,
+    brief_request_payload,
     classify_items_payload,
     freeze_call_meta,
     policy_hash,
@@ -462,13 +464,7 @@ class DeepSeekProvider:
         return self._parse(
             task="write_brief",
             schema=BriefDraft,
-            payload_data={
-                "stories": [story.model_dump(mode="json") for story in stories],
-                "signals": [signal.model_dump(mode="json") for signal in signals],
-                "editorial_decisions": [
-                    decision.model_dump(mode="json") for decision in editorial_decisions or []
-                ],
-            },
+            payload_data=brief_request_payload(stories, signals, editorial_decisions),
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},
             output_validator=lambda output: validate_and_sanitize_brief(
@@ -495,15 +491,11 @@ class DeepSeekProvider:
         return self._parse(
             task="write_brief_item",
             schema=BriefItemRecoveryDraft,
-            payload_data={
-                "story": story.model_dump(mode="json"),
-                "signals": [signal.model_dump(mode="json") for signal in signals],
-                "editorial_decision": (
-                    editorial_decision.model_dump(mode="json")
-                    if editorial_decision is not None
-                    else None
-                ),
-            },
+            payload_data=brief_item_recovery_request_payload(
+                story,
+                signals,
+                editorial_decision,
+            ),
             item_count=1,
             allowed_urls=set(story.source_urls),
             output_validator=validate,
