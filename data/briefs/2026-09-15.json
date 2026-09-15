@@ -1,0 +1,816 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-f3904879f7eafc66c88e",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/fyxer"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Fyxer 将 OpenAI 模型与微调、记忆及真实用户反馈结合，说明其产品定位在个性化邮件助理场景，而非通用聊天机器人。",
+            "以‘每个用户的声音’起草邮件意味着 Fyxer 需要较高的个性化与写作风格适配能力，这对模型记忆与微调效果有持续要求。"
+          ],
+          "canonical_title": "Fyxer 利用 OpenAI 模型构建受人信任的 AI 行政助理",
+          "category": "AI 应用案例",
+          "entity_names": [
+            "Fyxer",
+            "OpenAI"
+          ],
+          "facts": [
+            "Fyxer 使用 OpenAI 模型、微调、记忆以及真实用户反馈来整理收件箱，并以每个用户的声音起草邮件。"
+          ],
+          "primary_source_url": "https://openai.com/index/fyxer",
+          "product_names": [
+            "OpenAI 模型"
+          ],
+          "published_at": "2026-09-14T12:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-14T12:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-7f82d995c515e5ba429e",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "How Fyxer built an AI executive assistant people trust",
+              "url": "https://openai.com/index/fyxer"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-f4d7d0fbfa2d85afd07b",
+          "topic_names": [
+            "AI 行政助理",
+            "邮件管理",
+            "微调",
+            "记忆机制",
+            "用户反馈"
+          ],
+          "uncertainties": [
+            "Fyxer 具体使用哪些 OpenAI 模型、微调方式、记忆机制的技术细节以及用户反馈的收集与使用方式均未在输入中说明。",
+            "输入未提供 Fyxer 产品是否已公开发布、定价或用户规模等信息。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f4d7d0fbfa2d85afd07b"
+      ],
+      "title": "Fyxer 利用 OpenAI 模型构建受人信任的 AI 行政助理",
+      "uncertainty": "Fyxer 具体使用哪些 OpenAI 模型、微调方式、记忆机制的技术细节以及用户反馈的收集与使用方式均未在输入中说明；输入未提供 Fyxer 产品是否已公开发布、定价或用户规模等信息。",
+      "what_happened": "OpenAI 新闻于 2026 年 9 月 14 日发布案例文章《How Fyxer built an AI executive assistant people trust》。Fyxer 使用 OpenAI 模型、微调、记忆以及真实用户反馈来整理收件箱，并以每个用户的声音起草邮件。",
+      "why_it_matters": "Fyxer 将 OpenAI 模型与微调、记忆及真实用户反馈结合，说明其产品定位在个性化邮件助理场景，而非通用聊天机器人。以“每个用户的声音”起草邮件意味着 Fyxer 需要较高的个性化与写作风格适配能力，这对模型记忆与微调效果有持续要求。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-644e328517269adad110",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/ollama/ollama/releases/tag/v0.34.1-rc1"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Ollama 发布 v0.34.1-rc1 预览版",
+          "category": "open_source_ai",
+          "entity_names": [
+            "Ollama"
+          ],
+          "facts": [
+            "Ollama 发布 v0.34.1-rc1 预览版，版本区间为 v0.34.0 至 v0.34.1-rc1。",
+            "本次更新包含：修复 ChatGPT 模型选择器间距、从活跃对话中驱逐前缀缓存快照、在加载下一个 MLX 模型前检查系统空闲内存并等待被驱逐的 runner、将 token 重复上限提高到 100 并在无法完成时返回错误、作用域化数组生命周期而非 pinning/sweeping、让 gemma3n projector 远离 CPU、刷新 Apps 布局与命令复制反馈，以及 MLX 与 llama.cpp 更新。",
+            "仓库为 ollama/ollama，发布时星标数 180966，fork 数 17871，open issues 4003，24 小时星标增量 128，7 天星标增量 546。"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.34.1-rc1",
+          "product_names": [
+            "Ollama v0.34.1-rc1",
+            "llama.cpp",
+            "MLX"
+          ],
+          "published_at": "2026-09-14T22:14:03Z",
+          "source_refs": [
+            {
+              "author": "github-actions[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-14T22:14:03Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-578363c9152d3af14e3b",
+              "source_date": null,
+              "source_name": "GitHub · ollama/ollama",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "ollama/ollama: v0.34.1",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.34.1-rc1"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-39e2902a20e1c061ca28",
+          "topic_names": [
+            "ai_infrastructure",
+            "open_source_ai",
+            "ai_models"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-39e2902a20e1c061ca28"
+      ],
+      "title": "Ollama 发布 v0.34.1-rc1 预览版",
+      "uncertainty": null,
+      "what_happened": "Ollama 发布 v0.34.1-rc1 预览版，版本区间为 v0.34.0 至 v0.34.1-rc1。更新包含：修复 ChatGPT 模型选择器间距、从活跃对话中驱逐前缀缓存快照、在加载下一个 MLX 模型前检查系统空闲内存并等待被驱逐的 runner、将 token 重复上限提高到 100 并在无法完成时返回错误、作用域化数组生命周期而非 pinning/sweeping、让 gemma3n projector 远离 CPU、刷新 Apps 布局与命令复制反馈，以及 MLX 与 llama.cpp 更新。仓库为 ollama/ollama，发布时星标数 180966，fork 数 17871，open issues 4003，24 小时星标增量 128，7 天星标增量 546。",
+      "why_it_matters": "该预览版包含多项推理与内存管理改进，并更新 MLX 与 llama.cpp，可能影响本地模型运行的稳定性与性能。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-fa5e47427513d92095f9",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该发布来源为 Hugging Face 官方博客，属于官方一手公告，可作为模型存在与发布渠道的事实底座。",
+            "条目未提供模型架构细节、基准测试数据、参数规模或具体许可条款，因此 SOTA 表述与商业友好许可的具体范围尚无法在输入内验证。"
+          ],
+          "canonical_title": "IBM 发布 Granite Time Series PatchTST-FM-r2 模型，采用商业友好许可",
+          "category": "ai_models",
+          "entity_names": [
+            "IBM"
+          ],
+          "facts": [
+            "IBM 发布了 Granite Time Series PatchTST-FM-r2 模型。",
+            "该发布出现在 Hugging Face 博客上，作者标注为 ibm-research。",
+            "发布方将该模型称为 SOTA，并称其采用商业友好许可。",
+            "发布时间为 2026-09-09T15:36:24Z。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series",
+          "product_names": [
+            "Granite Time Series PatchTST-FM-r2"
+          ],
+          "published_at": "2026-09-09T15:36:24Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-09T15:36:24Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-46660cb2ea4362f69cbd",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "IBM releases SOTA Granite Time Series PatchTST-FM-r2 model with commercial-friendly license",
+              "url": "https://huggingface.co/blog/ibm-research/ibm-releases-sota-granite-time-series"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-2e1ff3ba0272bc478440",
+          "topic_names": [
+            "时间序列基础模型",
+            "开源许可"
+          ],
+          "uncertainties": [
+            "模型的具体许可名称与条款内容未在输入中给出。",
+            "SOTA 的具体基准、评测口径与对比对象未在输入中给出。",
+            "模型参数规模、架构细节及可用下载状态未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2e1ff3ba0272bc478440"
+      ],
+      "title": "IBM 发布 Granite Time Series PatchTST-FM-r2 模型，采用商业友好许可",
+      "uncertainty": "模型的具体许可名称与条款内容未在输入中给出；SOTA 的具体基准、评测口径与对比对象未在输入中给出；模型参数规模、架构细节及可用下载状态未在输入中说明。",
+      "what_happened": "IBM 在 Hugging Face 博客发布 Granite Time Series PatchTST-FM-r2 模型，发布时间为 2026 年 9 月 9 日。发布方将该模型称为 SOTA，并称其采用商业友好许可。",
+      "why_it_matters": "该发布来源为 Hugging Face 官方博客，属于官方一手公告，可作为模型存在与发布渠道的事实底座。商业友好许可可能降低企业采用时间序列基础模型的门槛。"
+    }
+  ],
+  "cognitive_extension": "NVIDIA 在 JAX 生态中加速 dropless MoE 训练，是否意味着 MoE 训练栈的竞争正从单卡性能转向框架级集成优化？",
+  "date": "2026-09-15",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-09-15T01:53:48.494646Z",
+  "market_and_companies": [],
+  "other_reading": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-f7ac1ca78acc97936153",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://github.com/veedstudio/open-edit",
+        "https://news.ycombinator.com/item?id=49697218"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "社区讨论称 GPT-6 Astra 在开源编辑器中生成 VEED 发布视频",
+          "category": "AI模型与产品动态",
+          "entity_names": [
+            "OpenAI",
+            "VEED",
+            "veedstudio"
+          ],
+          "facts": [],
+          "primary_source_url": "https://github.com/veedstudio/open-edit",
+          "product_names": [
+            "GPT-6 Astra",
+            "open-edit"
+          ],
+          "published_at": "2026-09-14T14:12:29Z",
+          "source_refs": [
+            {
+              "author": "anton-zazerski",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=49697218",
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-14T14:12:29Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-758db58296b2bfe49fb6",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "GPT-6 Astra built VEED's own launch video, in an open-source editor",
+              "url": "https://github.com/veedstudio/open-edit"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-455497e94f220843d737",
+          "topic_names": [
+            "视频生成",
+            "开源编辑器",
+            "Hacker News 社区讨论"
+          ],
+          "uncertainties": [
+            "该消息来源为 Hacker News 社区发现，属于未经核实的线索，尚无官方或一手证据确认 GPT-6 Astra 的真实存在或此次视频生成事件。",
+            "无法确认所述内容是否完整、准确，也无法确认发布视频的具体用途与范围。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-455497e94f220843d737"
+      ],
+      "title": "社区讨论称 GPT-6 Astra 在开源编辑器中生成 VEED 发布视频",
+      "uncertainty": "该消息来源为 Hacker News 社区发现，属于未经核实的线索，尚无官方或一手证据确认 GPT-6 Astra 的真实存在或此次视频生成事件。",
+      "what_happened": "社区讨论称 GPT-6 Astra 在开源编辑器中生成 VEED 发布视频",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-f655a92a6d1a84e32aa9",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://huggingface.co/blog/gradio-workflow-1111"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "使用 Gradio Workflow 重建 AUTOMATIC1111",
+          "category": "open_source_ai",
+          "entity_names": [
+            "Hugging Face",
+            "Gradio",
+            "AUTOMATIC1111"
+          ],
+          "facts": [
+            "Hugging Face 博客发布了一篇题为《使用 Gradio Workflow 重建 AUTOMATIC1111》的文章，发布于 2026-09-10。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/gradio-workflow-1111",
+          "product_names": [
+            "Gradio Workflow",
+            "AUTOMATIC1111"
+          ],
+          "published_at": "2026-09-10T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-10T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-075fed980e67c694db46",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Rebuilding AUTOMATIC1111 with Gradio Workflow",
+              "url": "https://huggingface.co/blog/gradio-workflow-1111"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-060ddf8e49b357025ccf",
+          "topic_names": [
+            "ai_infrastructure",
+            "open_source_ai",
+            "ai_models"
+          ],
+          "uncertainties": [
+            "输入仅包含标题与来源信息，正文摘要与内容摘录为空，无法确认文章具体描述的重建方式、涉及版本或实现细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-060ddf8e49b357025ccf"
+      ],
+      "title": "使用 Gradio Workflow 重建 AUTOMATIC1111",
+      "uncertainty": "输入仅包含标题与来源信息，正文摘要与内容摘录为空，无法确认文章具体描述的重建方式、涉及版本或实现细节。",
+      "what_happened": "Hugging Face 博客发布了一篇题为《使用 Gradio Workflow 重建 AUTOMATIC1111》的文章，发布于 2026-09-10。",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-9c7ba1506d2b2920d3f5",
+      "market_or_community_reaction": null,
+      "section": "other_reading",
+      "source_urls": [
+        "https://github.com/openai/openai-python/releases/tag/v3.14.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "openai/openai-python 发布 v3.14.0",
+          "category": "开源工具与SDK",
+          "entity_names": [
+            "OpenAI",
+            "openai/openai-python"
+          ],
+          "facts": [
+            "openai/openai-python 发布了 v3.14.0，发布日期为 2026-09-14。",
+            "v3.14.0 的新功能：normalize errors raised while reading streams（#3827）。",
+            "v3.14.0 的错误修复包括：bound vector store file polling（#3401）、refresh realtime push_to_talk_app session types（#2926）、normalize PathLike upload tuples（#3475）、include completion in content filter errors（#3094）、support standard OPENAI_LOG levels（#3734）、normalize API error codes to strings（#3532，关闭 #3531）、preserve response stream indexes after empty items（#3126）、handle null text in output_text（#3019）。",
+            "v3.14.0 的文档更新：在 README 示例中使用 vision guide 图片（#3849）。"
+          ],
+          "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.14.0",
+          "product_names": [
+            "openai-python",
+            "v3.14.0"
+          ],
+          "published_at": "2026-09-14T23:28:28Z",
+          "source_refs": [
+            {
+              "author": "openai-sdks[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-14T23:28:28Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-27cc9239955f2ae7a254",
+              "source_date": null,
+              "source_name": "GitHub · openai/openai-python",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "openai/openai-python: v3.14.0",
+              "url": "https://github.com/openai/openai-python/releases/tag/v3.14.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-5244384e5a458e6d17a7",
+          "topic_names": [
+            "open_source_ai"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-5244384e5a458e6d17a7"
+      ],
+      "title": "openai/openai-python 发布 v3.14.0",
+      "uncertainty": null,
+      "what_happened": "openai/openai-python 发布了 v3.14.0，发布日期为 2026-09-14。",
+      "why_it_matters": "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
+    }
+  ],
+  "radar_signals": [
+    {
+      "claim": "作者 Armin Ronacher 指出，AI 检测器 Pangram 虽自称误报率低，但使用过 LLM 辅助写作的人常被其判定为\"完全由 AI 生成\"，David Sacks 的推文即被如此判定，Sacks 则回称这类检测器不可靠。",
+      "id": "radar-9e5334486e9dfac2db78",
+      "missing_evidence": [
+        "Pangram 对该推文的实际评分与置信度输出",
+        "作者本人被误判的具体样本与复现步骤",
+        "Pangram 误报率的独立评测或方法说明",
+        "Sacks 推文实际创作过程的证据"
+      ],
+      "observed_at": "2026-09-15T01:53:26.388402Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "association_basis": null,
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-8e44957209feef8dd719",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://lucumr.pocoo.org/2026/9/14/interpreting-pangram/"
+        }
+      ],
+      "uncertainty": "属个人经验叙述，缺乏可复现的检测输出与基准；\"低误报率\"为检测方自述，未经独立验证。",
+      "why_notable": "若属实，说明宣称低误报率的 AI 检测工具对 LLM 辅助写作存在系统性误判，直接影响内容真实性判定与对检测工具的信任。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2493,
+    "ai_brief_story_inputs": 9,
+    "ai_classify_completion_tokens": 1183,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6048,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 27727,
+    "ai_evaluate_editorial_completion_tokens": 1152,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9407,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 117531,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 4334,
+    "ai_merge_story_finish_stop": 13,
+    "ai_merge_story_prompt_tokens": 12635,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 59372,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 13845,
+    "ai_resolve_research_cases_completion_tokens": 3084,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2947,
+    "ai_resolve_research_cases_reasoning_tokens": 2029,
+    "ai_score_story_completion_tokens": 2135,
+    "ai_score_story_finish_stop": 13,
+    "ai_score_story_prompt_tokens": 14388,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 15839,
+    "ai_write_brief_finish_length": 1,
+    "ai_write_brief_finish_stop": 1,
+    "ai_write_brief_prompt_tokens": 13947,
+    "ai_write_brief_reasoning_tokens": 11816,
+    "aihot_enabled": false,
+    "completion_tokens": 27727,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 8,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 0,
+    "dry_run": false,
+    "editorial_decisions": 0,
+    "editorial_degraded": true,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 128,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 30,
+    "logical_ai_tasks": 30,
+    "main_brief_items": 6,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 31,
+    "open_watches_considered": 20,
+    "other_reading_items": 3,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 59372,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 1,
+    "reasoning_tokens": 13845,
+    "recent_24h": 85,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 8,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 8,
+    "research_cases": 5,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 7285,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 2,
+    "research_unknown_cases": 0,
+    "research_unresolved": 4,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 1,
+    "stories": 13,
+    "story_candidate_input": 14,
+    "structured_watches_opened": 5,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 9,
+    "total_displayed_items": 9,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "id": "brief-7e5816ab0172a2e4319c",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将自动模型选择拆分为效率、平衡、智能三档，表明 GitHub 把成本、质量、响应时间的权衡交给用户显式配置，而非由单一默认策略统一决定。"
+          ],
+          "canonical_title": "GitHub Copilot 自动模型选择新增效率、平衡与智能三个档位",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot"
+          ],
+          "facts": [
+            "GitHub Changelog 于 2026-09-14 发布更新，宣布 GitHub Copilot 自动模型选择（auto model selection）现提供三个档位：efficiency、balance 和 intelligence。",
+            "用户可选择档位，以决定 auto 在成本、质量和响应时间之间如何权衡。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection",
+          "product_names": [
+            "GitHub Copilot auto model selection"
+          ],
+          "published_at": "2026-09-14T16:05:27Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-14T16:05:27Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ef18d943849cad0ec287",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Configure cost and quality in Copilot auto model selection",
+              "url": "https://github.blog/changelog/2026-09-14-configure-cost-and-quality-in-copilot-auto-model-selection"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-35c29ef7207861f58c58",
+          "topic_names": [
+            "ai_coding",
+            "model_selection",
+            "cost_quality_tradeoff"
+          ],
+          "uncertainties": [
+            "各档位具体对应哪些模型、定价差异和响应时间指标在输入摘要中未说明。",
+            "三个档位的默认值及对现有 Copilot 用户的影响范围未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-35c29ef7207861f58c58"
+      ],
+      "title": "GitHub Copilot 自动模型选择新增效率、平衡与智能三档",
+      "uncertainty": "各档位具体对应哪些模型、定价差异和响应时间指标在输入摘要中未说明；三个档位的默认值及对现有 Copilot 用户的影响范围未在输入中说明。",
+      "what_happened": "GitHub Changelog 于 2026 年 9 月 14 日发布更新，宣布 GitHub Copilot 自动模型选择（auto model selection）现提供 efficiency、balance 和 intelligence 三个档位，用户可选择档位以决定 auto 在成本、质量和响应时间之间如何权衡。",
+      "why_it_matters": "将自动模型选择拆分为效率、平衡、智能三档，表明 GitHub 把成本、质量、响应时间的权衡交给用户显式配置，而非由单一默认策略统一决定。这可能会影响开发者对 Copilot 的使用成本和体验预期。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-abd053b4e658a40239d9",
+      "market_or_community_reaction": "信号显示 NVIDIA 最近交易日变动 -3.4%，且当日存在相关事件；两者不构成因果确认。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/accelerating-dropless-moe-training-in-jax-with-nvidia-transformer-engine/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章属于 NVIDIA 官方开发者博客内容，主题围绕在 JAX 中使用 NVIDIA Transformer Engine 加速 dropless MoE 训练，反映 NVIDIA 持续投入 MoE 训练基础设施与 JAX 生态的性能优化方向。"
+          ],
+          "canonical_title": "NVIDIA 发布用 Transformer Engine 在 JAX 中加速 Dropless MoE 训练的技术内容",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA",
+            "DeepSeek",
+            "Qwen",
+            "Mixtral"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布了题为《Accelerating Dropless MoE Training in JAX with NVIDIA Transformer Engine》的文章。",
+            "文章作者为 Tanya Lenz，发布于 2026-09-14T16:39:15Z。",
+            "文章指出 Mixture of experts（MoE）已成为大规模 AI 模型训练的典型架构趋势之一。",
+            "文章举例提到 DeepSeek、Qwen 和 Mixtral 属于 MoE 模型。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/accelerating-dropless-moe-training-in-jax-with-nvidia-transformer-engine/",
+          "product_names": [
+            "NVIDIA Transformer Engine",
+            "JAX"
+          ],
+          "published_at": "2026-09-14T16:39:15Z",
+          "source_refs": [
+            {
+              "author": "Tanya Lenz",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-14T16:39:15Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-75ebfc4f40c5e28ba3df",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Accelerating Dropless MoE Training in JAX with NVIDIA Transformer Engine",
+              "url": "https://developer.nvidia.com/blog/accelerating-dropless-moe-training-in-jax-with-nvidia-transformer-engine/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-0c2c05c49e1106bef7a8",
+          "topic_names": [
+            "Dropless MoE training",
+            "Mixture of Experts",
+            "large-scale AI model training"
+          ],
+          "uncertainties": [
+            "输入仅提供文章摘要与内容摘录，未包含具体加速方法、性能数据或基准测试结果。",
+            "无法从输入确认该技术内容的实际适用范围、可用版本或配套代码。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-0c2c05c49e1106bef7a8"
+      ],
+      "title": "NVIDIA 发布用 Transformer Engine 在 JAX 中加速 Dropless MoE 训练的技术内容",
+      "uncertainty": "输入仅提供文章摘要与内容摘录，未包含具体加速方法、性能数据或基准测试结果；无法从输入确认该技术内容的实际适用范围、可用版本或配套代码。",
+      "what_happened": "NVIDIA Developer Blog 于 2026 年 9 月 14 日发布文章《Accelerating Dropless MoE Training in JAX with NVIDIA Transformer Engine》，作者为 Tanya Lenz。文章指出 MoE 已成为大规模 AI 模型训练的典型架构趋势之一，并举例提到 DeepSeek、Qwen 和 Mixtral 属于 MoE 模型。",
+      "why_it_matters": "该文章属于 NVIDIA 官方开发者博客内容，主题围绕在 JAX 中使用 NVIDIA Transformer Engine 加速 dropless MoE 训练，反映 NVIDIA 持续投入 MoE 训练基础设施与 JAX 生态的性能优化方向。"
+    },
+    {
+      "continuity_contexts": [],
+      "id": "brief-193c4681fc57d079647c",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://huggingface.co/blog/asyncgrpo-lora-hfjobs"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "官方将异步 GRPO 与 LoRA 结合并部署在 HF Jobs 上，可能意在降低长序列强化学习训练的显存与同步开销。",
+            "标题强调“无 NCCL”，说明其实现可能绕开常规多卡通信库，改用存储与代理协调训练流程。"
+          ],
+          "canonical_title": "Hugging Face 发布异步 GRPO 与 LoRA 的 HF Jobs 实践指南",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Hugging Face",
+            "HF Jobs"
+          ],
+          "facts": [
+            "Hugging Face 官方博客发布文章《Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL》。",
+            "文章标题提到使用存储桶（bucket）、代理（proxy），且不依赖 NCCL。",
+            "文章标称平台为 HF Jobs，涉及方法为 GRPO 与 LoRA。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs",
+          "product_names": [
+            "GRPO",
+            "LoRA"
+          ],
+          "published_at": "2026-09-10T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-15T01:53:26.388402Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-10T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-85052f9befba2c4e17fa",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL",
+              "url": "https://huggingface.co/blog/asyncgrpo-lora-hfjobs"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-896cadb7230a8b60739b",
+          "topic_names": [
+            "异步强化学习训练",
+            "参数高效微调",
+            "分布式训练"
+          ],
+          "uncertainties": [
+            "输入未提供文章正文或摘要，无法确认具体实现细节、性能数据及适用边界。",
+            "“a bucket, a proxy” 所指的具体组件与服务配置未知。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-896cadb7230a8b60739b"
+      ],
+      "title": "Hugging Face 发布异步 GRPO 与 LoRA 的 HF Jobs 实践指南",
+      "uncertainty": "输入未提供文章正文或摘要，无法确认具体实现细节、性能数据及适用边界；“a bucket, a proxy”所指的具体组件与服务配置未知。",
+      "what_happened": "Hugging Face 官方博客于 2026 年 9 月 10 日发布文章《Async GRPO with LoRA across HF Jobs: a bucket, a proxy, and no NCCL》。文章标题提到使用存储桶（bucket）、代理（proxy），且不依赖 NCCL；平台为 HF Jobs，方法为 GRPO 与 LoRA。",
+      "why_it_matters": "官方将异步 GRPO 与 LoRA 结合并部署在 HF Jobs 上，可能意在降低长序列强化学习训练的显存与同步开销。标题强调“无 NCCL”，说明其实现可能绕开常规多卡通信库，改用存储与代理协调训练流程。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "GitHub 后续会公布三个档位分别对应哪些模型、默认档位以及对现有用户的影响。",
+    "NVIDIA 会发布该技术的性能基准、可用版本或配套代码。",
+    "Hugging Face 会补充该实现的性能数据、适用边界或示例代码。",
+    "IBM 会公布模型的具体许可条款、基准测试结果和下载状态。",
+    "Fyxer 会公布产品定价、用户规模或更多技术实现细节。"
+  ]
+}

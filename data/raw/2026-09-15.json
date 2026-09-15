@@ -7,6 +7,7 @@
     "id": "item-7f82d995c515e5ba429e",
     "language": null,
     "metadata": {
+      "content_version": "3b5044aa9d7dc81418ad",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-ff082bc32dcf39bfd278",
     "language": "en-us",
     "metadata": {
+      "content_version": "01d4fdc9f1c5b2236345",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +69,7 @@
     "id": "item-ef18d943849cad0ec287",
     "language": "en-US",
     "metadata": {
+      "content_version": "f35438b49aa00d7d5126",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +100,7 @@
     "id": "item-85052f9befba2c4e17fa",
     "language": "en-US",
     "metadata": {
+      "content_version": "18b8a6db4a3df97df684",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +132,7 @@
     "id": "item-75ebfc4f40c5e28ba3df",
     "language": null,
     "metadata": {
+      "content_version": "eedb8c903644bddb919f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +193,7 @@
     "id": "item-98df03ca10b54f987219",
     "language": "en-US",
     "metadata": {
+      "content_version": "8dafeb1854d3e70ff227",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +285,7 @@
     "id": "item-d8bf444e905274d8a052",
     "language": "en-us",
     "metadata": {
+      "content_version": "cd19877b4072b6473485",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +317,7 @@
     "id": "item-8e44957209feef8dd719",
     "language": "en",
     "metadata": {
+      "content_version": "d724ef78cb8e2d2de71c",
       "official": false,
       "practitioner_id": "armin-ronacher",
       "priority": "high",
@@ -371,6 +379,7 @@
     "id": "item-fd1baec08311b505543d",
     "language": "en-us",
     "metadata": {
+      "content_version": "ba54d527801ae7607617",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +440,7 @@
     "id": "item-075fed980e67c694db46",
     "language": "en-US",
     "metadata": {
+      "content_version": "4d7fa5d39974c0e83b68",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -765,6 +775,7 @@
     "id": "item-46660cb2ea4362f69cbd",
     "language": "en-US",
     "metadata": {
+      "content_version": "7e32d7e4039039565fc6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -69779,6 +69790,7 @@
     "id": "item-27cc9239955f2ae7a254",
     "language": "en",
     "metadata": {
+      "content_version": "430955986c5584efa1fc",
       "data_anomaly": false,
       "forks": 5191,
       "official": true,
@@ -72439,6 +72451,7 @@
     "id": "item-578363c9152d3af14e3b",
     "language": "en",
     "metadata": {
+      "content_version": "742973f52d25891992f1",
       "data_anomaly": false,
       "forks": 17871,
       "official": true,
@@ -73891,6 +73904,7 @@
     "metadata": {
       "comments": 373,
       "community_signal": true,
+      "content_version": "3dc8b010cbab1f5a1772",
       "discussion_url": "https://news.ycombinator.com/item?id=49700661",
       "official": false,
       "original_url": "https://store.steampowered.com/hardware/steamframe",
@@ -73921,11 +73935,20 @@
     "metadata": {
       "comments": 322,
       "community_signal": true,
+      "content_version": "c59020faedb622c9aaac",
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49695876",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/",
       "score": 377,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -74269,6 +74292,7 @@
     "metadata": {
       "change_percent": -0.012617826577485329,
       "close": 253.5399932861328,
+      "content_version": "8291ee317254a7553536",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 256.7799987792969,
@@ -75462,38 +75486,6 @@
     "url": "https://rietta.com/blog/rubygems-supply-chain-openai/"
   },
   {
-    "author": "gregnavis",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-15T01:53:26.388402Z",
-    "id": "item-0b782dd351501fc6d722",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49695876",
-      "hn_submission_time": 1789389657,
-      "lab_id": "openai",
-      "original_url": "https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-14T12:40:57Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI bots knew about the RubyGems caching vulnerability",
-    "topic_candidates": [],
-    "url": "https://tenderlovemaking.com/2026/09/11/what-a-time-to-be-alive/"
-  },
-  {
     "author": "thm",
     "company_candidates": [],
     "content_excerpt": "",
@@ -76670,6 +76662,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "2fb3420c65700a3f687f",
       "discovery_paths": [
         "hn_search:openai:GPT"
       ],
