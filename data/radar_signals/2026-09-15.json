@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "作者 Armin Ronacher 指出，AI 检测器 Pangram 虽自称误报率低，但使用过 LLM 辅助写作的人常被其判定为\"完全由 AI 生成\"，David Sacks 的推文即被如此判定，Sacks 则回称这类检测器不可靠。",
+    "id": "radar-9e5334486e9dfac2db78",
+    "missing_evidence": [
+      "Pangram 对该推文的实际评分与置信度输出",
+      "作者本人被误判的具体样本与复现步骤",
+      "Pangram 误报率的独立评测或方法说明",
+      "Sacks 推文实际创作过程的证据"
+    ],
+    "observed_at": "2026-09-15T01:53:26.388402Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": null,
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-8e44957209feef8dd719",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://lucumr.pocoo.org/2026/9/14/interpreting-pangram/"
+      }
+    ],
+    "uncertainty": "属个人经验叙述，缺乏可复现的检测输出与基准；\"低误报率\"为检测方自述，未经独立验证。",
+    "why_notable": "若属实，说明宣称低误报率的 AI 检测工具对 LLM 辅助写作存在系统性误判，直接影响内容真实性判定与对检测工具的信任。"
+  }
+]

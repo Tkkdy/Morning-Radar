@@ -1,0 +1,139 @@
+{
+  "date": "2026-09-15",
+  "generated_at": "2026-09-15T01:53:48.494646Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub 后续会公布三个档位分别对应哪些模型、默认档位以及对现有用户的影响。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot auto model selection"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-15T01:53:48.494646Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-15",
+          "story_id": "story-35c29ef7207861f58c58"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "model_selection",
+        "cost_quality_tradeoff"
+      ],
+      "watch_id": "watch-1abb47617b1069272cfd"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "NVIDIA 会发布该技术的性能基准、可用版本或配套代码。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA Transformer Engine",
+        "JAX"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-15T01:53:48.494646Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-15",
+          "story_id": "story-0c2c05c49e1106bef7a8"
+        }
+      ],
+      "topic_anchors": [
+        "Dropless MoE training",
+        "Mixture of Experts",
+        "large-scale AI model training"
+      ],
+      "watch_id": "watch-9db11590b0e51fd9a716"
+    },
+    {
+      "entity_anchors": [
+        "Hugging Face",
+        "HF Jobs"
+      ],
+      "event_type": "opened",
+      "expectation": "Hugging Face 会补充该实现的性能数据、适用边界或示例代码。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GRPO",
+        "LoRA"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-15T01:53:48.494646Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-15",
+          "story_id": "story-896cadb7230a8b60739b"
+        }
+      ],
+      "topic_anchors": [
+        "异步强化学习训练",
+        "参数高效微调",
+        "分布式训练"
+      ],
+      "watch_id": "watch-f80265dbbd0a235c5231"
+    },
+    {
+      "entity_anchors": [
+        "IBM"
+      ],
+      "event_type": "opened",
+      "expectation": "IBM 会公布模型的具体许可条款、基准测试结果和下载状态。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Granite Time Series PatchTST-FM-r2"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-15T01:53:48.494646Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-15",
+          "story_id": "story-2e1ff3ba0272bc478440"
+        }
+      ],
+      "topic_anchors": [
+        "时间序列基础模型",
+        "开源许可"
+      ],
+      "watch_id": "watch-6ef2344bdb8b242c2c20"
+    },
+    {
+      "entity_anchors": [
+        "Fyxer",
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "Fyxer 会公布产品定价、用户规模或更多技术实现细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "OpenAI 模型"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-15T01:53:48.494646Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-15",
+          "story_id": "story-f4d7d0fbfa2d85afd07b"
+        }
+      ],
+      "topic_anchors": [
+        "AI 行政助理",
+        "邮件管理",
+        "微调",
+        "记忆机制",
+        "用户反馈"
+      ],
+      "watch_id": "watch-bba5b1924f4b3c9b4c11"
+    }
+  ]
+}
