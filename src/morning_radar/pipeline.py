@@ -1050,40 +1050,42 @@ class MorningRadarPipeline:
             current_date=brief_date,
             now=now,
         )
-        brief_result = generate_daily_brief_with_memory(
-            brief_date=brief_date,
-            generated_at=now,
-            timezone=self.app.timezone,
-            stories=stories,
-            signals=signals,
-            provider=provider,
-            limits=brief_limits,
-            enabled_sections=self.app.enabled_sections,
-            relevance_threshold=self.app.relevance_threshold,
-            importance_threshold=self.app.importance_threshold,
-            maximum_ai_items=self.app.maximum_ai_items,
-            editorial_result=editorial_result,
-            run_stats={
-                "after_global_cap": len(raw_items),
-                "recent_24h": len(recent),
-                "story_candidate_input": len(story_candidate_items),
-                "routine_market_suppressed": routine_market_suppressed,
-                "stories": len(stories),
-                "signals": len(signals),
-                "fixture_mode": fixtures,
-                "dry_run": dry_run,
-                "editorial_enabled": editorial_result.daily.enabled,
-                "editorial_shadow_mode": editorial_result.daily.shadow_mode,
-                "editorial_degraded": editorial_result.daily.degraded,
-                "editorial_decisions": len(editorial_result.daily.decisions),
-                "aihot_enabled": self.app.aihot.enabled,
-                **practitioner_coverage_stats(people),
-                **research_result.stats,
-            },
-        )
         budget = getattr(provider, "budget", None)
-        if budget is not None:
-            budget.release_core_reservation()
+        try:
+            brief_result = generate_daily_brief_with_memory(
+                brief_date=brief_date,
+                generated_at=now,
+                timezone=self.app.timezone,
+                stories=stories,
+                signals=signals,
+                provider=provider,
+                limits=brief_limits,
+                enabled_sections=self.app.enabled_sections,
+                relevance_threshold=self.app.relevance_threshold,
+                importance_threshold=self.app.importance_threshold,
+                maximum_ai_items=self.app.maximum_ai_items,
+                editorial_result=editorial_result,
+                run_stats={
+                    "after_global_cap": len(raw_items),
+                    "recent_24h": len(recent),
+                    "story_candidate_input": len(story_candidate_items),
+                    "routine_market_suppressed": routine_market_suppressed,
+                    "stories": len(stories),
+                    "signals": len(signals),
+                    "fixture_mode": fixtures,
+                    "dry_run": dry_run,
+                    "editorial_enabled": editorial_result.daily.enabled,
+                    "editorial_shadow_mode": editorial_result.daily.shadow_mode,
+                    "editorial_degraded": editorial_result.daily.degraded,
+                    "editorial_decisions": len(editorial_result.daily.decisions),
+                    "aihot_enabled": self.app.aihot.enabled,
+                    **practitioner_coverage_stats(people),
+                    **research_result.stats,
+                },
+            )
+        finally:
+            if budget is not None:
+                budget.release_core_reservation()
         if continuity_future is not None:
             try:
                 assert continuity_deadline is not None

@@ -250,6 +250,7 @@ def slim_evidence(ref: ResearchEvidenceRef) -> ResearchEvidenceRef:
         raw_item_id=ref.raw_item_id,
         url=ref.url,
         source_role=ref.source_role,
+        association_basis=ref.association_basis,
     )
 
 
