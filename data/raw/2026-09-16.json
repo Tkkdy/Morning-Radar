@@ -67,6 +67,7 @@
     "id": "item-3c75a69d7db995ab411d",
     "language": "en-US",
     "metadata": {
+      "content_version": "53ea06a1916cf044bfbe",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +129,7 @@
     "id": "item-78b5b4167b14366b49de",
     "language": null,
     "metadata": {
+      "content_version": "8d942ac6ec63757e003a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +190,7 @@
     "id": "item-cf06d711f417111b157e",
     "language": "en-US",
     "metadata": {
+      "content_version": "5c9dfdccebcf4d6d38a2",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +251,7 @@
     "id": "item-e396fb2d958f488e7645",
     "language": "en-US",
     "metadata": {
+      "content_version": "8c3d51815e83299a60e1",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -370,6 +374,7 @@
     "id": "item-547415ff166106996890",
     "language": "en-US",
     "metadata": {
+      "content_version": "155d148863b95bff12d7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +436,7 @@
     "id": "item-bd253f19a79d5bc85acd",
     "language": null,
     "metadata": {
+      "content_version": "a1816c1e5659eb20abbb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -673,6 +679,7 @@
     "id": "item-75750532babc26210b56",
     "language": "en-US",
     "metadata": {
+      "content_version": "8907567af974369760ba",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -734,6 +741,7 @@
     "id": "item-d6edaad23002fd8bb747",
     "language": null,
     "metadata": {
+      "content_version": "cdb576df198d6a406338",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -794,6 +802,7 @@
     "id": "item-f391b75d24dd941d6a3a",
     "language": "en-US",
     "metadata": {
+      "content_version": "1e45b0fb038a7b339529",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1127,6 +1136,7 @@
     "id": "item-ab0b67bb40bdb00511c3",
     "language": "en-US",
     "metadata": {
+      "content_version": "a7ce8cea78b0bb48ebfb",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1279,6 +1289,7 @@
     "id": "item-abac871d4d980ef63d4b",
     "language": "en-US",
     "metadata": {
+      "content_version": "774f5814319537f2b125",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1430,6 +1441,7 @@
     "id": "item-f6599299efeb5a97653c",
     "language": "en-US",
     "metadata": {
+      "content_version": "47fd12387e355ea54590",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -71509,6 +71521,7 @@
     "id": "item-e57a3fad6d0d0eec5368",
     "language": "en",
     "metadata": {
+      "content_version": "dc4e4374cad364aa1a08",
       "data_anomaly": false,
       "forks": 17892,
       "official": true,
@@ -72721,6 +72734,7 @@
     "metadata": {
       "comments": 156,
       "community_signal": true,
+      "content_version": "2d5712293da80d51cfaf",
       "discussion_url": "https://news.ycombinator.com/item?id=49711544",
       "official": false,
       "original_url": "https://github.com/arnegiacomo/fugleramme",
@@ -72811,11 +72825,20 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "content_version": "69d7d440b9c2c0e35dd3",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49719696",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://github.com/skillsynchq/txcript",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -72931,11 +72954,20 @@
     "metadata": {
       "comments": 146,
       "community_signal": true,
+      "content_version": "4b21e6be187ebc27994d",
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49715947",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
       "score": 216,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -73323,6 +73355,7 @@
     "metadata": {
       "change_percent": 0.005735643802473333,
       "close": 212.1699981689453,
+      "content_version": "9bf1bbdbbd33c2fd49a1",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 210.9600067138672,
@@ -75475,38 +75508,6 @@
     "url": "https://claude.com/blog/agentic-coding-is-straining-ci-heres-how-we-scaled-test-impact-analysis-at-anthropic"
   },
   {
-    "author": "leumon",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-15T22:26:35.175827Z",
-    "id": "item-a19cea66070be2721663",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49715947",
-      "hn_submission_time": 1789493898,
-      "lab_id": "google_deepmind",
-      "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-15T17:38:18Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Gemini 3.8 Live and 3.8 Live Extended Thinking",
-    "topic_candidates": [],
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
-  },
-  {
     "author": "thisisauserid",
     "company_candidates": [],
     "content_excerpt": "",
@@ -75637,38 +75638,6 @@
     "title": "Ollama 0.33.3 changed what prompt_eval_duration measures",
     "topic_candidates": [],
     "url": "https://lognebudo.github.io/llmxray/docs/en/articles/ollama-prefill-metrics.html"
-  },
-  {
-    "author": "ibobev",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-15T22:26:35.175827Z",
-    "id": "item-87c8be38eae854b866a7",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49719696",
-      "hn_submission_time": 1789511040,
-      "lab_id": "anthropic",
-      "original_url": "https://github.com/skillsynchq/txcript",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-15T22:24:00Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Move AI chats across harnesses: Claude Code, Codex, OpenCode, Cursor, and more",
-    "topic_candidates": [],
-    "url": "https://github.com/skillsynchq/txcript"
   },
   {
     "author": "epv",

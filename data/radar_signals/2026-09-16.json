@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Google 官方博客出现题为“Gemini 3.8 Live 与 3.8 Live Extended Thinking”的页面，指向 Gemini 新版本模型的发布。",
+    "id": "radar-1b99d11647e0fecd5072",
+    "missing_evidence": [
+      "官方博客正文内容（当前 content_missing 为 true，摘要与摘录均为空）",
+      "模型能力、上下文长度、开放范围与可用地区的具体说明",
+      "独立第三方或官方渠道的交叉印证"
+    ],
+    "observed_at": "2026-09-15T22:26:35.175827Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-a19cea66070be2721663",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+      }
+    ],
+    "uncertainty": "域名与标题指向官方发布页，但正文完全缺失且未经抓取，无法确认发布是否真实、具体版本号与功能细节，标题本身也可能为预告或占位页。",
+    "why_notable": "若属实，这是 Google 旗舰多模态/实时模型的一次版本更新并新增 Extended Thinking 形态，可能影响模型选型与实时多模态应用。"
+  },
+  {
+    "claim": "GitHub 项目 txcript（skillsynchq/txcript）声称可在 Claude Code、Codex、OpenCode、Cursor 等多个 AI 编程 harness 之间迁移 AI 对话记录。",
+    "id": "radar-38e73ca3317eee243197",
+    "missing_evidence": [
+      "仓库 README、支持格式与迁移方式说明",
+      "实际可运行性验证或用户反馈",
+      "对各家 harness 会话格式兼容性与合法性的说明"
+    ],
+    "observed_at": "2026-09-15T22:26:35.175827Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-87c8be38eae854b866a7",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/skillsynchq/txcript"
+      }
+    ],
+    "uncertainty": "仅有 HN 提交标题，仓库内容与摘要均缺失，无法确认项目是否真实可用、支持范围及迁移是否会破坏上下文。",
+    "why_notable": "跨 harness 迁移会话记录若可用，能降低开发者切换 AI 编程工具时的上下文迁移成本，反映多 harness 并用这一新兴使用模式。"
+  }
+]

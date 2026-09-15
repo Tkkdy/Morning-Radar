@@ -1,0 +1,574 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "Google 发布 Gemini 3.8 Live 与 Gemini 3.8 Live Extended Thinking",
+    "category": "AI 模型发布",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Google",
+      "DeepMind"
+    ],
+    "facts": [],
+    "id": "story-a298e653d114ef98b9fa",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+    "product_names": [
+      "Gemini 3.8 Live",
+      "Gemini 3.8 Live Extended Thinking"
+    ],
+    "published_at": "2026-09-15T17:38:18Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a19cea66070be2721663"
+    ],
+    "source_refs": [
+      {
+        "author": "leumon",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49715947",
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T17:38:18Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a19cea66070be2721663",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Gemini 3.8 Live and 3.8 Live Extended Thinking",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
+      "https://news.ycombinator.com/item?id=49715947"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "大语言模型",
+      "多模态模型",
+      "模型发布"
+    ],
+    "uncertainties": [
+      "目前仅有 Hacker News 社区发现条目，标题指向 Google 官方博客，但正文摘要与内容摘录均为空，无法从输入确认具体发布内容、功能细节或可用状态。",
+      "该条目来源被标记为 unverified_lead，且 official 为 false，不能单独作为事实依据。",
+      "Hacker News 评分 216、评论 146 条，社区信号较高，但讨论内容未知。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "NVIDIA 介绍 Groq 3 LPX 确定性执行如何提升 NVIDIA Vera Rubin 上高交互性推理的能效",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-09-15 发布文章，标题为“How NVIDIA Groq 3 LPX Deterministic Execution Drives Power-Efficient High-Interactivity Inference on NVIDIA Vera Rubin”。",
+      "文章作者为 Tanya Lenz。",
+      "文章摘要指出，电力是 AI 工厂的决定性约束，随着 AI 工作负载需要完整计算平台来服务，平台的每个组件都必须最大化能效。"
+    ],
+    "id": "story-7abe18823ba678a16198",
+    "importance_score": 0.7,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-deterministic-execution-drives-power-efficient-high-interactivity-inference-on-nvidia-vera-rubin/",
+    "product_names": [
+      "Groq 3 LPX",
+      "NVIDIA Vera Rubin"
+    ],
+    "published_at": "2026-09-15T16:55:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-bd253f19a79d5bc85acd"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T16:55:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bd253f19a79d5bc85acd",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How NVIDIA Groq 3 LPX Deterministic Execution Drives Power-Efficient High-Interactivity Inference on NVIDIA Vera Rubin",
+        "url": "https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-deterministic-execution-drives-power-efficient-high-interactivity-inference-on-nvidia-vera-rubin/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-nvidia-groq-3-lpx-deterministic-execution-drives-power-efficient-high-interactivity-inference-on-nvidia-vera-rubin/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "确定性执行",
+      "高交互性推理",
+      "能效",
+      "AI 工厂"
+    ],
+    "uncertainties": [
+      "文章具体技术细节与性能数据在提供的摘要中未展开，无法从现有输入核实。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [
+      "NVLink 6 的弹性设计方向表明，在大规模 AI 训练集群中，互联层的容错能力正在成为影响整体有效算力输出与运营成本的关键因素。"
+    ],
+    "canonical_title": "NVIDIA 发布 NVLink 6 多层级弹性机制，面向大规模 AI 工厂",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《How NVIDIA NVLink 6 Delivers Multi-Layer Resiliency for AI Factories》的文章，作者为 Elizabeth Goodman，发布时间为 2026-09-15T16:55:00Z。",
+      "文章面向大规模 AI 工厂运营者，指出最大化连续输出对生产力至关重要。"
+    ],
+    "id": "story-8b5436bfe7a80e62f095",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-nvidia-nvlink-6-delivers-multi-layer-resiliency-for-ai-factories/",
+    "product_names": [
+      "NVLink 6"
+    ],
+    "published_at": "2026-09-15T16:55:00Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-d6edaad23002fd8bb747"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T16:55:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d6edaad23002fd8bb747",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How NVIDIA NVLink 6 Delivers Multi-Layer Resiliency for AI Factories",
+        "url": "https://developer.nvidia.com/blog/how-nvidia-nvlink-6-delivers-multi-layer-resiliency-for-ai-factories/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-nvidia-nvlink-6-delivers-multi-layer-resiliency-for-ai-factories/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入内容仅为摘要片段，NVLink 6 多层级弹性的具体技术机制、覆盖场景和性能数据尚不明确。",
+      "该文章的陈述属于官方发布，但未提供可独立验证的第三方测试或部署反馈。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [
+      "该事件属于 AI 安全与监管的持续公共讨论：Anthropic 负责人以长文形式提出放缓前沿 AI 发展的主张，随后引发业内与政界的公开回应，The Verge 以汇总形式整理各方表态。"
+    ],
+    "canonical_title": "Dario Amodei 发表《We Must Pace the Frontier》长文，AI 高管与政界人士就放缓 AI 发展展开讨论",
+    "category": "ai_safety",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Dario Amodei",
+      "Anthropic"
+    ],
+    "facts": [
+      "Dario Amodei 发表了一篇题为《We Must Pace the Frontier》的长文，阐述为何 AI 发展应当放缓。",
+      "The Verge 汇总了其他 AI 领袖与政界人士对 Amodei 观点的支持或反对表态。"
+    ],
+    "id": "story-5ac12c95b070d7d92f62",
+    "importance_score": 0.55,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/995141/ai-executives-politicians-safety-regulation-anthropic-dario-amodei",
+    "product_names": [],
+    "published_at": "2026-09-14T17:21:42-04:00",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-ab0b67bb40bdb00511c3"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-14T17:21:42-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ab0b67bb40bdb00511c3",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "What execs and politicians are saying about slowing down AI development",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/995141/ai-executives-politicians-safety-regulation-anthropic-dario-amodei"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/995141/ai-executives-politicians-safety-regulation-anthropic-dario-amodei"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_safety",
+      "ai_regulation"
+    ],
+    "uncertainties": [
+      "The Verge 的报道为汇总性文章，未在摘要中列出具体支持或反对者的姓名与表态原文。",
+      "Amodei 长文之外其他 AI 领袖和政界人士的具体立场、措辞与发布渠道尚未在输入中明确。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [
+      "该报道将数据中心建设与曾受重工业影响的社区选址联系起来，暗示地方反对可能与历史上的环境负担有关，但这一因果关系未在输入中明确论证。"
+    ],
+    "canonical_title": "美国数据中心建设热潮引发地方反对，费城官员提议在曾受炼油厂影响的社区选址",
+    "category": "industry",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "TechCrunch"
+    ],
+    "facts": [
+      "TechCrunch 报道称，全美反对数据中心建设的声浪已蔓延至费城。",
+      "费城官员建议在一个已经受到现已关闭的炼油厂影响的社区进行可能的建设。"
+    ],
+    "id": "story-12cc44491fe284b17299",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/",
+    "product_names": [],
+    "published_at": "2026-09-15T21:47:38Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-cf06d711f417111b157e"
+    ],
+    "source_refs": [
+      {
+        "author": "Amanda Silberling",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T21:47:38Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-cf06d711f417111b157e",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "The AI data center boom is colliding with cities scarred by big industry",
+        "url": "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/15/the-ai-data-center-boom-is-colliding-with-cities-scarred-by-big-industry/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_data_center",
+      "data_center_construction",
+      "community_opposition"
+    ],
+    "uncertainties": [
+      "费城官员建议的具体项目、建设时间表、规模及最终是否推进尚未明确。",
+      "所指现已关闭的炼油厂名称及该社区具体受影响情况未在输入中说明。",
+      "全国性反对数据中心建设声浪的规模、组织方及具体诉求未在输入中提供。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [
+      "该文章属于 NVIDIA 官方渠道的对比性技术说明，通过 Nemotron 3.5 Lightning 展示 MoE 架构中总参数量与每 token 活跃参数之间的差异。",
+      "将 Dense 与 MoE 放在活跃参数和吞吐量维度上比较，有助于读者根据推理成本与容量需求选择模型架构。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客发布 Dense 与 MoE 模型对比文章，以 Nemotron 3.5 Lightning 为例",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-09-15 发布文章，标题为《Dense vs. MoE Models: Active Parameters, Throughput, and When to Choose Each》。",
+      "文章提出一个现象：一个 30B 参数的模型每个 token 只激活 3B 参数，同时仍能利用更大模型的容量。",
+      "文章以 Nemotron 3.5 Lightning 作为说明该现象的示例。"
+    ],
+    "id": "story-3438f074a0b143cba88d",
+    "importance_score": 0.45,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://developer.nvidia.com/blog/dense-vs-moe-models-active-parameters-throughput-and-when-to-choose-each/",
+    "product_names": [
+      "Nemotron 3.5 Lightning"
+    ],
+    "published_at": "2026-09-15T17:00:11Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-78b5b4167b14366b49de"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T17:00:11Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-78b5b4167b14366b49de",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Dense vs. MoE Models: Active Parameters, Throughput, and When to Choose Each",
+        "url": "https://developer.nvidia.com/blog/dense-vs-moe-models-active-parameters-throughput-and-when-to-choose-each/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/dense-vs-moe-models-active-parameters-throughput-and-when-to-choose-each/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "MoE",
+      "Dense 模型",
+      "活跃参数",
+      "吞吐量"
+    ],
+    "uncertainties": [
+      "Nemotron 3.5 Lightning 的具体架构细节、发布状态与可用性在输入中未完整给出。",
+      "文章摘要与正文节选并未展开 30B 总参数、3B 活跃参数对应的具体基准测试或吞吐量数据。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [
+      "该公告属于 GitHub 官方 Changelog 发布，证据等级为 official_primary，可作为原始事实底座。",
+      "功能定位为组织级仓库治理辅助，通过 Copilot 建议自定义属性的允许值，可能降低管理员配置成本。",
+      "公开预览通常意味着功能仍可能调整，且可用范围可能受套餐限制。"
+    ],
+    "canonical_title": "GitHub Copilot 为组织仓库自定义属性定义提供允许值建议（公开预览）",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot",
+      "Allison"
+    ],
+    "facts": [
+      "GitHub Copilot 现在可以在为组织中的仓库创建自定义属性时建议允许值。",
+      "该功能处于公开预览阶段，面向 GitHub Copilot Business 和 Copilot（摘要在此处截断）。",
+      "发布来源为 GitHub Changelog，发布时间为 2026-09-15T19:07:47Z，作者为 Allison。"
+    ],
+    "id": "story-c50207ad52704f6fc08e",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions",
+    "product_names": [
+      "GitHub Copilot",
+      "GitHub Copilot Business"
+    ],
+    "published_at": "2026-09-15T19:07:47Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-547415ff166106996890"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T19:07:47Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-547415ff166106996890",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Copilot suggests custom properties definitions",
+        "url": "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-15-github-copilot-suggests-custom-properties-definitions"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入摘要中 Copilot 套餐名称在“Copilot…”处截断，无法确认除 GitHub Copilot Business 外还包含哪些套餐。",
+      "输入未说明公开预览的可用区域、组织规模限制或具体启用方式。",
+      "输入未提供功能的技术实现细节，例如建议值是否基于仓库历史或组织策略生成。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "txcript：跨 Claude Code、Codex、OpenCode、Cursor 等 AI 编程工具迁移聊天记录",
+    "category": "developer_tools",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "skillsynchq",
+      "txcript",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-4fd6e08f75ad65f4e6c9",
+    "importance_score": 0.35,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/skillsynchq/txcript",
+    "product_names": [
+      "Claude Code",
+      "Codex",
+      "OpenCode",
+      "Cursor",
+      "txcript"
+    ],
+    "published_at": "2026-09-15T22:24:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-87c8be38eae854b866a7"
+    ],
+    "source_refs": [
+      {
+        "author": "ibobev",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49719696",
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T22:24:00Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-87c8be38eae854b866a7",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Move AI chats across harnesses: Claude Code, Codex, OpenCode, Cursor, and more",
+        "url": "https://github.com/skillsynchq/txcript"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/skillsynchq/txcript",
+      "https://news.ycombinator.com/item?id=49719696"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI chat portability",
+      "developer tooling"
+    ],
+    "uncertainties": [
+      "该条目为 Hacker News 上的社区发现链接，source_role 为 community_discovery，statement_type 为 unverified_lead，摘要与正文摘录均为空，因此 txcript 是否真实存在、其功能范围及宣称支持的 harness 列表均未经验证。",
+      "标题称可在 Claude Code、Codex、OpenCode、Cursor 等工具之间迁移 AI 聊天记录，但输入中不含仓库 README、发布说明或官方来源，无法确认其实际能力。",
+      "该条目得分为 1、评论数为 0，社区关注度极低，缺乏独立佐证。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  },
+  {
+    "analysis": [
+      "这是补丁版本 0.34.2 的候选发布版本（rc0），通常用于正式版本发布前的测试与验证。",
+      "变更内容仅涉及 llama.cpp 的更新，表明该版本可能聚焦于推理引擎的改进或修复。"
+    ],
+    "canonical_title": "Ollama 发布 v0.34.2-rc0 预发布版本，包含 llama.cpp 更新",
+    "category": "AI 基础设施",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "Ollama",
+      "llama.cpp"
+    ],
+    "facts": [
+      "Ollama 项目在 GitHub 上发布了 v0.34.2-rc0 预发布版本。",
+      "该版本的变更日志显示包含 llama.cpp 更新。",
+      "完整变更日志链接为 https://github.com/ollama/ollama/compare/v0.34.1...v0.34.2-rc0。",
+      "该发布由 github-actions[bot] 于 2026-09-15T21:21:07Z 提交。",
+      "该发布仓库为 ollama/ollama，当前星标数 181069，fork 数 17892，开放 issue 数 4013。"
+    ],
+    "id": "story-aecbd5119c303e48d0af",
+    "importance_score": 0.15,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.34.2-rc0",
+    "product_names": [
+      "Ollama v0.34.2-rc0"
+    ],
+    "published_at": "2026-09-15T21:21:07Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-e57a3fad6d0d0eec5368"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-15T22:26:35.175827Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T21:21:07Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e57a3fad6d0d0eec5368",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.34.2",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.34.2-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.34.2-rc0"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "开源 AI",
+      "AI 模型部署",
+      "版本发布"
+    ],
+    "uncertainties": [
+      "llama.cpp 更新的具体内容未在摘要中列出，无法确定包含哪些功能或修复。",
+      "该预发布版本是否会被正式发布，以及正式版本将包含哪些额外变更，尚不清楚。"
+    ],
+    "updated_at": "2026-09-15T22:27:05.732560Z"
+  }
+]

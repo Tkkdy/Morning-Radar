@@ -1,0 +1,128 @@
+{
+  "date": "2026-09-16",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅有社区发现且无任何正文内容，官方发布动作无法验证，仅作一句提示并保留为待验证线索。",
+      "retain_for_trends": true,
+      "story_id": "story-a298e653d114ef98b9fa",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-capability-claim-validation-gap",
+        "frontier-model-release-cadence"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商博客宣传性技术说明，无独立能效数据，对开发者工作流无实质改变。",
+      "retain_for_trends": false,
+      "story_id": "story-7abe18823ba678a16198",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "互联层容错是AI工厂有效算力的真实约束，但仅有官方摘要，适合轻量提及并作为基础设施可靠性线索保留。",
+      "retain_for_trends": true,
+      "story_id": "story-8b5436bfe7a80e62f095",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-factory-interconnect-resiliency",
+        "large-cluster-effective-compute-uptime"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "高管长文与政界表态属立场信号，未展示对开发能力或成本的实际影响，一句带过并留作监管舆论线索。",
+      "retain_for_trends": true,
+      "story_id": "story-5ac12c95b070d7d92f62",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-lab-safety-stance-signaling",
+        "voluntary-ai-slowdown-debate"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "数据中心选址遭遇地方反对可能影响算力落地节奏，值得知道但缺乏具体项目细节，作为部署摩擦线索保留。",
+      "retain_for_trends": true,
+      "story_id": "story-12cc44491fe284b17299",
+      "support_for_story_id": null,
+      "trend_links": [
+        "data-center-siting-community-opposition",
+        "compute-infrastructure-local-permitting-friction"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Dense与MoE选择是推理成本决策的常青话题，但为厂商科普且无基准数据，轻量收录并保留架构选择线索。",
+      "retain_for_trends": true,
+      "story_id": "story-3438f074a0b143cba88d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "moe-active-parameter-efficiency",
+        "inference-cost-architecture-tradeoff"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "公开预览中的仓库属性值建议属装饰性小更新，对开发工作流影响甚微。",
+      "retain_for_trends": false,
+      "story_id": "story-c50207ad52704f6fc08e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "跨编程工具迁移聊天记录切中工具锁定痛点，但仅HN发现且零关注，一句提示并留作可移植性弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-4fd6e08f75ad65f4e6c9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-coding-chat-portability",
+        "harness-lock-in-mitigation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规预发布候选版本，仅含llama.cpp更新且无具体内容，属普通维护。",
+      "retain_for_trends": false,
+      "story_id": "story-aecbd5119c303e48d0af",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-15T22:27:05.732560Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
