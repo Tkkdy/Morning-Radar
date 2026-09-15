@@ -324,7 +324,7 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
 @pytest.mark.parametrize(
     ("task", "max_tokens", "effort"),
     [
-        ("write_brief", 8192, "medium"),
+        ("write_brief", 4096, None),
         ("resolve_continuity", 4096, "medium"),
         ("direction_observation", 4096, "medium"),
         ("resolve_research_cases", 6144, "low"),
@@ -334,7 +334,7 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
 def test_semantic_tasks_use_bounded_policy(
     task: str,
     max_tokens: int,
-    effort: str,
+    effort: str | None,
 ) -> None:
     configured = provider([classification_json()])
 
@@ -347,8 +347,10 @@ def test_semantic_tasks_use_bounded_policy(
     )
 
     request = configured.client.chat.completions.last_request
-    assert request["extra_body"] == {"thinking": {"type": "enabled"}}
-    assert request["reasoning_effort"] == effort
+    assert request["extra_body"] == {
+        "thinking": {"type": "disabled" if task == "write_brief" else "enabled"}
+    }
+    assert request.get("reasoning_effort") == effort
     assert request["max_tokens"] == max_tokens
 
 
@@ -504,7 +506,7 @@ def test_write_brief_malformed_json_retry_regenerates_complete_output(caplog) ->
     assert "task=write_brief attempt=1 error_type=JSONDecodeError" in caplog.text
 
 
-def test_write_brief_length_finish_reason_retries_with_low_effort(caplog) -> None:
+def test_write_brief_length_finish_reason_retries_without_reasoning(caplog) -> None:
     caplog.set_level(logging.INFO)
     source_story = brief_story("story-openai", "https://example.com/openai")
     configured = provider(
@@ -518,11 +520,11 @@ def test_write_brief_length_finish_reason_retries_with_low_effort(caplog) -> Non
 
     assert result.items[0].story_ids == [source_story.id]
     requests = configured.client.chat.completions.requests
-    assert [request["max_tokens"] for request in requests] == [8192, 8192]
-    assert [request["reasoning_effort"] for request in requests] == ["medium", "low"]
+    assert [request["max_tokens"] for request in requests] == [4096, 4096]
+    assert [request.get("reasoning_effort") for request in requests] == [None, None]
     assert (
         "AI structured retry: provider=deepseek task=write_brief "
-        "reason=truncated thinking=low max_output_tokens=8192"
+        "reason=truncated thinking=disabled max_output_tokens=4096"
     ) in caplog.text
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
@@ -823,7 +825,7 @@ def test_research_transport_retry_keeps_first_attempt_policy() -> None:
     assert [request["reasoning_effort"] for request in requests] == ["low", "low"]
 
 
-def test_write_brief_transport_retry_keeps_medium_reasoning() -> None:
+def test_write_brief_transport_retry_keeps_reasoning_disabled() -> None:
     source_story = brief_story("story-openai", "https://example.com/openai")
     configured = provider(
         [
@@ -836,8 +838,8 @@ def test_write_brief_transport_retry_keeps_medium_reasoning() -> None:
 
     assert result.items[0].story_ids == [source_story.id]
     requests = configured.client.chat.completions.requests
-    assert [request["max_tokens"] for request in requests] == [8192, 8192]
-    assert [request["reasoning_effort"] for request in requests] == ["medium", "medium"]
+    assert [request["max_tokens"] for request in requests] == [4096, 4096]
+    assert [request.get("reasoning_effort") for request in requests] == [None, None]
 
 
 def test_brief_item_recovery_is_display_only_and_has_one_attempt() -> None:

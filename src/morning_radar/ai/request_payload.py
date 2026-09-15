@@ -12,6 +12,7 @@ from morning_radar.models.core import (
     RawItem,
     ResearchCase,
     ResearchEvidenceRef,
+    Signal,
     Story,
 )
 from morning_radar.provenance import verified_source_urls
@@ -250,7 +251,40 @@ def slim_evidence(ref: ResearchEvidenceRef) -> ResearchEvidenceRef:
         raw_item_id=ref.raw_item_id,
         url=ref.url,
         source_role=ref.source_role,
+        association_basis=ref.association_basis,
     )
+
+
+def brief_request_payload(
+    stories: Sequence[Story],
+    signals: Sequence[Signal],
+    editorial_decisions: Sequence[Any] | None = None,
+) -> dict[str, Any]:
+    """Build the exact structured payload used by the brief-writing providers."""
+    return {
+        "stories": [story.model_dump(mode="json") for story in stories],
+        "signals": [signal.model_dump(mode="json") for signal in signals],
+        "editorial_decisions": [
+            decision.model_dump(mode="json") for decision in editorial_decisions or []
+        ],
+    }
+
+
+def brief_item_recovery_request_payload(
+    story: Story,
+    signals: Sequence[Signal],
+    editorial_decision: Any | None = None,
+) -> dict[str, Any]:
+    """Build the exact structured payload used for one-item brief recovery."""
+    return {
+        "story": story.model_dump(mode="json"),
+        "signals": [signal.model_dump(mode="json") for signal in signals],
+        "editorial_decision": (
+            editorial_decision.model_dump(mode="json")
+            if editorial_decision is not None
+            else None
+        ),
+    }
 
 
 def research_case_payload(case: ResearchCase) -> dict[str, Any]:

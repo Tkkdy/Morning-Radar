@@ -7,7 +7,7 @@ from enum import StrEnum
 from typing import Any
 from urllib.parse import urlsplit
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
 
 def _validate_aware_datetime(value: datetime | None) -> datetime | None:
@@ -358,13 +358,19 @@ class BriefItem(RadarModel):
     section: str = Field(min_length=1)
     title: str = Field(min_length=1, max_length=500)
     what_happened: str
-    why_it_matters: str
+    # A degraded write may still have verified facts but no suitable analysis.
+    # ``None`` deliberately means that the reader-facing importance block is
+    # omitted; it is not an invitation to manufacture a generic explanation.
+    why_it_matters: str | None = None
     market_or_community_reaction: str | None = None
     uncertainty: str | None = None
     source_urls: list[str] = Field(min_length=1)
     story_ids: list[str] = Field(min_length=1)
     story_contexts: list[BriefStoryContext] = Field(default_factory=list)
     continuity_contexts: list[BriefContinuityContext] = Field(default_factory=list)
+    generation_status: str = "generated"
+    generation_note: str | None = None
+    generation_reason: str | None = None
 
     _source_urls_are_http = field_validator("source_urls")(
         lambda urls: [_validate_http_url(url) for url in urls]
@@ -394,6 +400,25 @@ class BriefItem(RadarModel):
         if any(context.current_story_id not in story_ids for context in values):
             raise ValueError("continuity_contexts must reference item story_ids")
         return values
+
+    @model_validator(mode="after")
+    def normalize_legacy_generation_placeholders(self) -> BriefItem:
+        """Hide old internal fallback prose when historical JSON is rendered.
+
+        Older briefs persisted two generic strings as if they were editorial
+        analysis and event uncertainty.  Keep those files readable, but map the
+        exact legacy values to the absence they actually represented.
+        """
+        legacy_placeholder = False
+        if self.why_it_matters == "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。":
+            self.why_it_matters = None
+            legacy_placeholder = True
+        if self.uncertainty == "AI 晨报分析暂时不可用。":
+            self.uncertainty = None
+            legacy_placeholder = True
+        if legacy_placeholder and self.generation_status == "generated":
+            self.generation_status = "legacy_fallback"
+        return self
 
 
 class DailyBrief(RadarModel):

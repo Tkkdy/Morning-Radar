@@ -76,10 +76,13 @@ class GeneratedBriefItem(RadarModel):
     section: str
     title: str
     what_happened: str
-    why_it_matters: str
+    why_it_matters: str | None = None
     market_or_community_reaction: str | None = None
     uncertainty: str | None = None
     source_urls: list[str]
+    generation_status: str = "generated"
+    generation_note: str | None = None
+    generation_reason: str | None = None
 
 
 class BriefItemRecoveryDraft(RadarModel):

@@ -50,6 +50,8 @@ from morning_radar.ai.output_validation import (
 from morning_radar.ai.request_payload import (
     attach_call_meta,
     bind_call_meta,
+    brief_item_recovery_request_payload,
+    brief_request_payload,
     classify_items_payload,
     freeze_call_meta,
     policy_hash,
@@ -88,9 +90,10 @@ TASK_POLICIES = {
     "classify": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
-    "write_brief": DeepSeekTaskPolicy(
-        "enabled", 8192, 8192, "medium", retry_reasoning_effort="low"
-    ),
+    # The brief is grounded in already validated Stories.  Disabling extended
+    # reasoning and bounding each request to four Stories avoids spending most
+    # of a response budget on hidden reasoning before the JSON can close.
+    "write_brief": DeepSeekTaskPolicy("disabled", 4096, 4096, None),
     "write_brief_item": DeepSeekTaskPolicy("disabled", 4096, 4096, max_network_attempts=1),
     "resolve_continuity": DeepSeekTaskPolicy(
         "enabled", 4096, 4096, "medium", AITaskPriority.IMPORTANT, 2
@@ -199,8 +202,9 @@ class DeepSeekProvider:
         self.last_payload_text = payload
         self.last_policy_hash = policy_hash(self.topic_context)
         call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
+        policy = TASK_POLICIES[task]
         try:
-            self.budget.consume(payload, item_count=item_count)
+            self.budget.consume(payload, item_count=item_count, priority=policy.priority)
         except AIBudgetExceeded as exc:
             call_meta["blocked_reason"] = str(exc)
             attach_call_meta(exc, call_meta)
@@ -220,7 +224,6 @@ class DeepSeekProvider:
             "Do not wrap the json in Markdown fences.\n"
             f"{schema_json}"
         )
-        policy = TASK_POLICIES[task]
         LOGGER.info(
             "AI task start: provider=%s model=%s task=%s thinking=%s "
             "max_output_tokens=%d priority=%s",
@@ -461,13 +464,7 @@ class DeepSeekProvider:
         return self._parse(
             task="write_brief",
             schema=BriefDraft,
-            payload_data={
-                "stories": [story.model_dump(mode="json") for story in stories],
-                "signals": [signal.model_dump(mode="json") for signal in signals],
-                "editorial_decisions": [
-                    decision.model_dump(mode="json") for decision in editorial_decisions or []
-                ],
-            },
+            payload_data=brief_request_payload(stories, signals, editorial_decisions),
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},
             output_validator=lambda output: validate_and_sanitize_brief(
@@ -494,15 +491,11 @@ class DeepSeekProvider:
         return self._parse(
             task="write_brief_item",
             schema=BriefItemRecoveryDraft,
-            payload_data={
-                "story": story.model_dump(mode="json"),
-                "signals": [signal.model_dump(mode="json") for signal in signals],
-                "editorial_decision": (
-                    editorial_decision.model_dump(mode="json")
-                    if editorial_decision is not None
-                    else None
-                ),
-            },
+            payload_data=brief_item_recovery_request_payload(
+                story,
+                signals,
+                editorial_decision,
+            ),
             item_count=1,
             allowed_urls=set(story.source_urls),
             output_validator=validate,

@@ -1,22 +1,53 @@
+import json
 import logging
 from datetime import UTC, date, datetime
+from pathlib import Path
+from types import SimpleNamespace
 
 import pytest
 
-from morning_radar.ai import AIBudgetExceeded, AIOutputError, FakeAIProvider
+from morning_radar.ai import (
+    AIBudget,
+    AIBudgetExceeded,
+    AIOutputError,
+    DeepSeekProvider,
+    FakeAIProvider,
+)
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     ClassificationBatch,
     GeneratedBriefItem,
+    ResearchResolutionBatch,
+    ResearchResolutionDraft,
 )
+from morning_radar.ai.request_payload import dumps
 from morning_radar.briefing import (
     BriefLimits,
     BriefValidationError,
+    core_brief_request_payloads,
     generate_daily_brief,
     generate_daily_brief_with_memory,
 )
-from morning_radar.models import Signal, SignalType, Story, StorySourceRef
+from morning_radar.editorial.models import EditorialDecision, FactStatus, Placement
+from morning_radar.models import (
+    BriefItem,
+    BriefStoryContext,
+    DailyBrief,
+    RadarSignal,
+    RawItem,
+    ResearchDisposition,
+    ResearchEvidenceRef,
+    Signal,
+    SignalType,
+    SourceRole,
+    StatementType,
+    Story,
+    StorySourceRef,
+)
+from morning_radar.pipeline import _reserve_brief_core_budget, suppress_displayed_radar_duplicates
 from morning_radar.processing import build_stories
+from morning_radar.research.engine import resolve_research
 
 NOW = datetime(2026, 7, 23, 1, tzinfo=UTC)
 
@@ -180,14 +211,16 @@ class SelectiveBriefProvider(FakeAIProvider):
         return BriefDraft(
             items=[
                 GeneratedBriefItem(
-                    story_ids=[stories[index].id],
+                    story_ids=[source_story.id],
                     section="ai_and_open_source",
                     title=f"Selected {index}",
                     what_happened="Selected story",
                     why_it_matters="Selected importance",
-                    source_urls=[stories[index].primary_source_url],
+                    source_urls=[source_story.primary_source_url],
                 )
                 for index in self.selected_indexes
+                for source_story in stories
+                if source_story.id == f"story-{index}"
             ]
         )
 
@@ -266,7 +299,7 @@ def test_other_reading_keeps_unselected_eligible_stories_in_ranked_order() -> No
     )
     assert result.other_reading[0].source_urls == stories[0].source_urls
     assert result.other_reading[0].story_contexts[0].story_id == stories[0].id
-    assert provider.write_calls == 1
+    assert provider.write_calls == 2
 
 
 def test_other_reading_respects_total_and_independent_item_limits() -> None:
@@ -404,10 +437,10 @@ def test_maximum_brief_items_counts_cards_not_referenced_stories() -> None:
 
 class BriefInputRecordingProvider(FakeAIProvider):
     def __init__(self) -> None:
-        self.story_inputs: list[Story] = []
+        self.story_inputs: list[list[Story]] = []
 
     def write_brief(self, stories, signals):
-        self.story_inputs = list(stories)
+        self.story_inputs.append(list(stories))
         return super().write_brief(stories, signals)
 
 
@@ -426,7 +459,7 @@ def test_brief_ai_input_is_bounded_to_display_capacity() -> None:
         run_stats={},
     )
 
-    assert len(provider.story_inputs) == 12
+    assert [len(batch) for batch in provider.story_inputs] == [4, 4, 4]
     assert result.run_stats["threshold_eligible_stories"] == 16
     assert result.run_stats["ai_brief_story_inputs"] == 12
 
@@ -631,16 +664,16 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     )
 
     assert result.top_stories[0].what_happened == source_story.facts[0]
-    assert result.top_stories[0].why_it_matters == (
-        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
-    )
-    assert result.top_stories[0].uncertainty == "AI 晨报分析暂时不可用。"
+    assert result.top_stories[0].why_it_matters == source_story.analysis[0]
+    assert result.top_stories[0].uncertainty is None
+    assert result.top_stories[0].generation_status == "fallback_existing_analysis"
+    assert result.top_stories[0].generation_note == "本次成稿使用已验证的已有分析。"
     assert result.top_stories[0].source_urls == source_story.source_urls
     assert result.top_stories[0].story_contexts[0].story_id == source_story.id
     assert result.top_stories[0].story_contexts[0].source_refs == []
     assert result.other_reading == []
     assert result.run_stats["ai_brief_fallback"] is True
-    assert "AI degradation: batch brief generation failed" in caplog.text
+    assert "AI degradation: brief batch failed" in caplog.text
     assert result.run_stats["ai_brief_batch_failed"] is True
     assert result.run_stats["ai_brief_recovery_attempts"] == 1
     assert result.run_stats["ai_brief_recovery_successes"] == 0
@@ -721,15 +754,14 @@ def test_one_failed_item_recovery_does_not_contaminate_other_stories() -> None:
     )
 
     items = {item.story_ids[0]: item for item in _main_items(result)}
-    assert items["story-2"].why_it_matters == (
-        "降级模式下暂时无法生成重要性分析，请查看已验证事实与来源。"
-    )
-    assert items["story-2"].uncertainty == "AI 晨报分析暂时不可用。"
+    assert items["story-2"].why_it_matters == "Analysis 2"
+    assert items["story-2"].uncertainty is None
+    assert items["story-2"].generation_status == "fallback_existing_analysis"
     assert all(
         items[f"story-{index}"].why_it_matters == f"Analysis {index}"
         for index in (0, 1, 3)
     )
-    assert "ai_brief_fallback" not in result.run_stats
+    assert result.run_stats["ai_brief_fallback"] is True
     assert result.run_stats["ai_brief_recovery_successes"] == 3
     assert result.run_stats["ai_brief_item_fallbacks"] == 1
 
@@ -752,7 +784,12 @@ def test_all_item_recoveries_fail_but_brief_remains_schema_valid() -> None:
 
     assert len(_main_items(result)) == 4
     assert all(
-        item.uncertainty == "AI 晨报分析暂时不可用。"
+        item.why_it_matters == f"Analysis {index}"
+        for index, item in enumerate(_main_items(result))
+    )
+    assert all(item.uncertainty is None for item in _main_items(result))
+    assert all(
+        item.generation_status == "fallback_existing_analysis"
         for item in _main_items(result)
     )
     assert result.run_stats["ai_brief_fallback"] is True
@@ -788,6 +825,645 @@ def test_recovery_stops_immediately_when_budget_is_unavailable() -> None:
     assert result.run_stats["ai_brief_recovery_successes"] == 0
     assert result.run_stats["ai_brief_item_fallbacks"] == 4
     assert result.run_stats["ai_brief_fallback"] is True
+
+
+class _ScriptedBriefCompletions:
+    def __init__(self, responses) -> None:
+        self.responses = list(responses)
+        self.requests = []
+
+    def create(self, **kwargs):
+        self.requests.append(kwargs)
+        finish_reason, content = self.responses.pop(0)
+        return SimpleNamespace(
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(content=content), finish_reason=finish_reason
+                )
+            ],
+            usage=None,
+        )
+
+
+def test_real_budget_bounds_truncated_batch_recovery_and_preserves_existing_analysis() -> None:
+    stories = [story(1), story(2)]
+    recovered = BriefItemRecoveryDraft(
+        item=GeneratedBriefItem(
+            story_ids=[stories[0].id], section="ai_and_open_source", title="恢复条目",
+            what_happened="已验证事实 1", why_it_matters="恢复分析 1",
+            source_urls=stories[0].source_urls,
+        )
+    ).model_dump_json()
+    completions = _ScriptedBriefCompletions([
+        ("length", "{}"), ("length", "{}"), ("stop", recovered),
+    ])
+    budget = AIBudget(maximum_calls=2, maximum_input_characters=100_000, maximum_items=8)
+    provider = DeepSeekProvider(
+        model="test", api_key="test", base_url="https://api.deepseek.test", budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 9, 14), generated_at=NOW, timezone="Asia/Singapore",
+        stories=stories, signals=[], provider=provider, limits=BriefLimits(maximum_items=2),
+        enabled_sections={}, run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert budget.calls_used == 2
+    assert budget.network_requests_used == 3
+    assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
+    assert result.run_stats["ai_brief_recovery_successes"] == 1
+    assert items["story-1"].why_it_matters == "恢复分析 1"
+    assert items["story-2"].why_it_matters == "Analysis 2"
+    assert items["story-2"].generation_reason == "recovery_budget_unavailable"
+    assert completions.requests[0]["extra_body"] == {"thinking": {"type": "disabled"}}
+    assert completions.requests[0]["max_tokens"] == 4096
+
+
+def test_real_provider_budget_reservation_bounds_4_plus_1_batches_and_recovery() -> None:
+    """Use the provider's production payload shape to bound an entire degraded brief."""
+    stories = [story(index) for index in range(5)]
+    batch_payloads, recovery_payloads = core_brief_request_payloads(stories, [])
+    core_payloads = [
+        *(dumps(payload) for payload in batch_payloads),
+        dumps(recovery_payloads[0]),
+    ]
+    recovery = BriefItemRecoveryDraft(
+        item=GeneratedBriefItem(
+            story_ids=[stories[0].id],
+            section="ai_and_open_source",
+            title="恢复条目",
+            what_happened="已验证事实 0",
+            why_it_matters="恢复分析 0",
+            source_urls=stories[0].source_urls,
+        )
+    ).model_dump_json()
+    second_batch = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[stories[4].id],
+                section="ai_and_open_source",
+                title="第五条",
+                what_happened="已验证事实 4",
+                why_it_matters="正常分析 4",
+                source_urls=stories[4].source_urls,
+            )
+        ]
+    ).model_dump_json()
+    completions = _ScriptedBriefCompletions(
+        [("length", "{}"), ("length", "{}"), ("stop", second_batch), ("stop", recovery)]
+    )
+    budget = AIBudget(
+        maximum_calls=3,
+        maximum_input_characters=(
+            sum(len(dumps(payload)) for payload in batch_payloads)
+            + max(len(dumps(payload)) for payload in recovery_payloads)
+        ),
+        maximum_items=8,
+        maximum_network_requests=4,
+    )
+    provider = DeepSeekProvider(
+        model="test",
+        api_key="test",
+        base_url="https://api.deepseek.test",
+        budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    _reserve_brief_core_budget(provider, stories, [])
+    assert budget.reserved_core_calls == 3
+    assert budget.reserved_core_input_characters == budget.maximum_input_characters
+    with pytest.raises(AIBudgetExceeded):
+        provider.write_direction_observation([])
+    assert completions.requests == []
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 9, 14),
+        generated_at=NOW,
+        timezone="Asia/Singapore",
+        stories=stories,
+        signals=[],
+        provider=provider,
+        limits=BriefLimits(maximum_items=5),
+        enabled_sections={},
+        run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert budget.calls_used == budget.maximum_calls
+    assert budget.input_characters_used == budget.maximum_input_characters
+    assert budget.network_requests_used == budget.maximum_network_requests
+    assert [request["messages"][1]["content"] for request in completions.requests] == [
+        core_payloads[0], core_payloads[0], core_payloads[1], core_payloads[2]
+    ]
+    assert items["story-4"].generation_status == "generated"
+    assert items["story-0"].why_it_matters == "恢复分析 0"
+    for story_id in ("story-1", "story-2", "story-3"):
+        assert items[story_id].generation_reason == "recovery_budget_unavailable"
+    assert result.run_stats["ai_brief_batches"] == 2
+    assert result.run_stats["ai_brief_recovery_successes"] == 1
+    assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
+
+
+def test_real_provider_reservation_uses_long_payloads_signals_and_editorial_decisions() -> None:
+    stories = [
+        story(index).model_copy(
+            update={
+                "facts": [f"事实 {index} " + "长输入" * (900 + index * 50)],
+                "analysis": [f"分析 {index} " + "详细依据" * (500 + index * 30)],
+            }
+        )
+        for index in range(5)
+    ]
+    signal = Signal(
+        id="signal-long",
+        signal_type=SignalType.TOPIC_HEATING,
+        topic="ai_coding",
+        window_days=3,
+        supporting_story_ids=[stories[0].id, stories[1].id],
+        supporting_source_count=2,
+        supporting_company_count=0,
+        strength=0.9,
+        explanation="已验证的多来源信号。",
+        created_at=NOW,
+        updated_at=NOW,
+    )
+    decisions = [
+        EditorialDecision(
+            story_id=item.id,
+            placement=Placement.STORY,
+            reader_value=3,
+            evidence_value=2,
+            fact_status=FactStatus.CLAIM,
+            retain_for_trends=False,
+            reason="与开发者工作流直接相关。",
+        )
+        for item in stories
+    ]
+    batch_payloads, recovery_payloads = core_brief_request_payloads(
+        stories,
+        [signal],
+        decisions,
+    )
+    auxiliary_payload = dumps([signal.model_dump(mode="json")])
+    reserved_characters = sum(len(dumps(payload)) for payload in batch_payloads) + max(
+        len(dumps(payload)) for payload in recovery_payloads
+    )
+    second_batch = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[stories[4].id],
+                section="ai_and_open_source",
+                title="第五条",
+                what_happened="已验证事实 4",
+                why_it_matters="正常分析 4",
+                source_urls=stories[4].source_urls,
+            )
+        ]
+    ).model_dump_json()
+    recovery = BriefItemRecoveryDraft(
+        item=GeneratedBriefItem(
+            story_ids=[stories[0].id],
+            section="ai_and_open_source",
+            title="恢复条目",
+            what_happened="已验证事实 0",
+            why_it_matters="恢复分析 0",
+            source_urls=stories[0].source_urls,
+        )
+    ).model_dump_json()
+    direction_response = (
+        '{"observation":"信号仍在形成。",'
+        '"evidence_story_ids":["story-0","story-1"],"confidence":"medium"}'
+    )
+    completions = _ScriptedBriefCompletions(
+        [
+            ("stop", direction_response),
+            ("length", "{}"),
+            ("length", "{}"),
+            ("stop", second_batch),
+            ("stop", recovery),
+        ]
+    )
+    budget = AIBudget(
+        maximum_calls=4,
+        maximum_input_characters=reserved_characters + len(auxiliary_payload),
+        maximum_items=8,
+        maximum_network_requests=5,
+    )
+    provider = DeepSeekProvider(
+        model="test",
+        api_key="test",
+        base_url="https://api.deepseek.test",
+        budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    _reserve_brief_core_budget(provider, stories, [signal], decisions)
+    assert budget.reserved_core_calls == 3
+    assert budget.reserved_core_input_characters == reserved_characters
+    assert provider.write_direction_observation([signal]).observation == "信号仍在形成。"
+    with pytest.raises(AIOutputError):
+        provider.write_brief(stories[:4], [signal], decisions[:4])
+    provider.write_brief(stories[4:], [signal], decisions[4:])
+    provider.recover_brief_item(stories[0], [signal], decisions[0])
+
+    assert [request["messages"][1]["content"] for request in completions.requests] == [
+        auxiliary_payload,
+        dumps(batch_payloads[0]),
+        dumps(batch_payloads[0]),
+        dumps(batch_payloads[1]),
+        dumps(recovery_payloads[0]),
+    ]
+    assert budget.calls_used == budget.maximum_calls
+    assert budget.input_characters_used <= budget.maximum_input_characters
+    assert budget.network_requests_used == budget.maximum_network_requests
+
+
+def test_real_provider_released_reservation_allows_remaining_auxiliary_capacity() -> None:
+    source_story = story(1)
+    brief_payload = {
+        "stories": [source_story.model_dump(mode="json")],
+        "signals": [],
+        "editorial_decisions": [],
+    }
+    auxiliary_payload: list[object] = []
+
+    def serialize(payload) -> str:
+        return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+    draft = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[source_story.id],
+                section="ai_and_open_source",
+                title="正常条目",
+                what_happened="已验证事实 1",
+                why_it_matters="正常分析 1",
+                source_urls=source_story.source_urls,
+            )
+        ]
+    ).model_dump_json()
+    # ``direction_observation`` serializes the empty signal list itself; this
+    # is deliberately the same payload the Provider will account for below.
+    completions = _ScriptedBriefCompletions([("stop", draft), ("stop", '{"observation":null}')])
+    maximum_characters = len(serialize(brief_payload)) + len(serialize(auxiliary_payload))
+    budget = AIBudget(maximum_calls=2, maximum_input_characters=maximum_characters, maximum_items=8)
+    completions = _ScriptedBriefCompletions([("stop", draft), ("stop", '{"observation":null}')])
+    provider = DeepSeekProvider(
+        model="test",
+        api_key="test",
+        base_url="https://api.deepseek.test",
+        budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    _reserve_brief_core_budget(provider, [source_story], [])
+    with pytest.raises(AIBudgetExceeded):
+        provider.write_direction_observation([])
+    assert completions.requests == []
+    provider.write_brief([source_story], [])
+    assert budget.reserved_core_calls == 1
+    budget.release_core_reservation()
+    assert provider.write_direction_observation([]).observation is None
+    assert budget.calls_used == budget.maximum_calls
+    assert budget.input_characters_used == budget.maximum_input_characters
+    assert budget.network_requests_used == 2
+
+
+def test_real_provider_insufficient_reservation_degrades_without_exceeding_limits() -> None:
+    stories = [story(index) for index in range(5)]
+
+    def serialize(payload) -> str:
+        return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
+
+    first_payload = serialize(
+        {
+            "stories": [item.model_dump(mode="json") for item in stories[:4]],
+            "signals": [],
+            "editorial_decisions": [],
+        }
+    )
+    second_payload = serialize(
+        {"stories": [stories[4].model_dump(mode="json")], "signals": [], "editorial_decisions": []}
+    )
+    second_batch = BriefDraft(
+        items=[
+            GeneratedBriefItem(
+                story_ids=[stories[4].id], section="ai_and_open_source", title="第五条",
+                what_happened="已验证事实 4", why_it_matters="正常分析 4",
+                source_urls=stories[4].source_urls,
+            )
+        ]
+    ).model_dump_json()
+    completions = _ScriptedBriefCompletions(
+        [("length", "{}"), ("length", "{}"), ("stop", second_batch)]
+    )
+    budget = AIBudget(
+        maximum_calls=2,
+        maximum_input_characters=len(first_payload) + len(second_payload),
+        maximum_items=8,
+        maximum_network_requests=3,
+    )
+    provider = DeepSeekProvider(
+        model="test",
+        api_key="test",
+        base_url="https://api.deepseek.test",
+        budget=budget,
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    _reserve_brief_core_budget(provider, stories, [])
+    assert budget.reserved_core_calls == budget.maximum_calls
+    result = generate_daily_brief(
+        brief_date=date(2026, 9, 14), generated_at=NOW, timezone="Asia/Singapore",
+        stories=stories, signals=[], provider=provider, limits=BriefLimits(maximum_items=5),
+        enabled_sections={}, run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert budget.calls_used == budget.maximum_calls
+    assert budget.input_characters_used == budget.maximum_input_characters
+    assert budget.network_requests_used == budget.maximum_network_requests
+    assert items["story-4"].generation_status == "generated"
+    for story_id in ("story-0", "story-1", "story-2", "story-3"):
+        assert items[story_id].generation_reason == "recovery_budget_unavailable"
+
+
+class OrderedBudgetProvider(FakeAIProvider):
+    """Records bounded task ordering while delegating accounting to AIBudget."""
+
+    def __init__(self, budget: AIBudget) -> None:
+        super().__init__()
+        self.budget = budget
+        self.events: list[str] = []
+        self.brief_calls = 0
+
+    def write_brief(self, stories, signals, editorial_decisions=None):
+        del signals
+        del editorial_decisions
+        self.events.append(f"brief:{','.join(story.id for story in stories)}")
+        self.budget.consume("b" * 120, item_count=len(stories))
+        self.brief_calls += 1
+        if self.brief_calls == 1:
+            raise AIOutputError("truncated batch output")
+        return super().write_brief(stories, [])
+
+    def recover_brief_item(self, story, signals, editorial_decision=None):
+        del signals
+        del editorial_decision
+        self.events.append(f"recover:{story.id}")
+        self.budget.consume("r" * 50, item_count=1)
+        return super().recover_brief_item(story, [])
+
+    def write_direction_observation(self, signals):
+        self.events.append("direction")
+        self.budget.consume("d" * 20, item_count=len(signals))
+        return super().write_direction_observation(signals)
+
+
+def test_real_budget_runs_core_batches_before_limited_recovery_and_auxiliary() -> None:
+    stories = [story(index) for index in range(5)]
+    signal = Signal(
+        id="signal-one", signal_type=SignalType.TOPIC_HEATING, topic="ai_coding",
+        window_days=3, supporting_story_ids=["story-0", "story-1"],
+        supporting_source_count=2, supporting_company_count=0, strength=0.7,
+        explanation="Verified multi-source evidence", created_at=NOW, updated_at=NOW,
+    )
+    budget = AIBudget(maximum_calls=5, maximum_input_characters=300, maximum_items=8)
+    provider = OrderedBudgetProvider(budget)
+
+    result = generate_daily_brief(
+        brief_date=date(2026, 9, 14), generated_at=NOW, timezone="Asia/Singapore",
+        stories=stories, signals=[signal], provider=provider,
+        limits=BriefLimits(maximum_items=5), enabled_sections={}, run_stats={},
+    )
+
+    items = {item.story_ids[0]: item for item in _main_items(result)}
+    assert provider.events == [
+        "brief:story-0,story-1,story-2,story-3", "brief:story-4",
+        "recover:story-0", "recover:story-1", "direction",
+    ]
+    assert budget.calls_used == 3
+    assert budget.input_characters_used == 290
+    assert budget.input_characters_used <= budget.maximum_input_characters
+    assert items["story-4"].generation_status == "generated"
+    assert items["story-0"].generation_status == "generated"
+    for story_id in ["story-1", "story-2", "story-3"]:
+        assert items[story_id].generation_reason == "recovery_budget_unavailable"
+    assert result.run_stats["ai_brief_batch_failures"] == 1
+    assert result.run_stats["ai_brief_recovery_successes"] == 1
+    assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
+    assert result.run_stats["ai_direction_fallback"] is True
+
+
+def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain() -> None:
+    source_url = "https://example.test/events/fable?utm_source=radar"
+    context = BriefStoryContext(
+        story_id="visible-story", canonical_title="Visible event", category="top_stories",
+        primary_source_url=source_url,
+        source_refs=[StorySourceRef(
+            raw_item_id="visible-raw", title="Visible source", source_name="Example",
+            source_type="rss", url=source_url, fetched_at=NOW,
+        )],
+    )
+    visible = BriefItem(
+        id="visible", section="top_stories", title="Visible event", what_happened="Fact",
+        why_it_matters="Analysis", source_urls=[source_url], story_ids=["visible-story"],
+        story_contexts=[context],
+    )
+    other_url = "https://example.test/events/other-reading"
+    other = BriefItem(
+        id="other", section="other_reading", title="Other visible event", what_happened="Fact",
+        source_urls=[other_url], story_ids=["other-story"],
+        story_contexts=[BriefStoryContext(
+            story_id="other-story", canonical_title="Other visible event",
+            category="ai_and_open_source",
+            primary_source_url=other_url,
+            source_refs=[StorySourceRef(
+                raw_item_id="other-visible-raw", title="Other source", source_name="Example",
+                source_type="rss", url=other_url, fetched_at=NOW,
+            )],
+        )],
+    )
+    brief = DailyBrief(
+        date=date(2026, 9, 14), timezone="Asia/Singapore", generated_at=NOW,
+        top_stories=[visible], other_reading=[other],
+    )
+
+    def radar(signal_id: str, *references: tuple[str, str]) -> RadarSignal:
+        return RadarSignal(
+            id=signal_id, observed_at=NOW, claim=signal_id, why_notable="Worth checking",
+            support_refs=[ResearchEvidenceRef(raw_item_id=raw_id, url=url,
+                                               source_role=SourceRole.PRACTITIONER,
+                                               association_basis=(
+                                                   "lead" if index == 0 else "support"
+                                               ))
+                          for index, (raw_id, url) in enumerate(references)],
+            source_roles=[SourceRole.PRACTITIONER], missing_evidence=["Independent evidence"],
+            uncertainty="Unverified", statement_type=StatementType.FIRSTHAND_OBSERVATION,
+        )
+
+    displayed = suppress_displayed_radar_duplicates(
+        brief,
+        [
+            radar("same-raw", ("visible-raw", "https://another.test/copy")),
+            radar("same-normalized-url", ("other-raw", "https://example.test/events/fable")),
+            radar("same-event-with-auxiliary", ("visible-raw", source_url),
+                  ("independent-raw", "https://example.test/events/independent")),
+            radar("shared-auxiliary", ("independent-raw", "https://example.test/events/independent"),
+                  ("visible-raw", source_url)),
+            radar("independent", ("other-raw", "https://example.test/events/independent")),
+            radar("same-other-reading", ("other-visible-raw", other_url)),
+            radar("not-rendered-lead", ("not-rendered-raw", "https://example.test/unrendered")),
+        ],
+    )
+
+    assert [signal.id for signal in displayed] == [
+        "shared-auxiliary", "independent", "not-rendered-lead"
+    ]
+
+
+def test_research_lead_association_reaches_display_duplicate_suppression() -> None:
+    def raw_item(item_id: str, url: str, role: SourceRole) -> RawItem:
+        return RawItem(
+            id=item_id,
+            title=f"{item_id} observed structured response behaviour",
+            url=url,
+            source_name="Example",
+            source_type="rss",
+            fetched_at=NOW,
+            summary="Concrete reproducible observation.",
+            content_excerpt="Concrete reproducible observation with enough detail.",
+            source_role=role,
+            statement_type=StatementType.FIRSTHAND_OBSERVATION,
+            company_candidates=["openai"],
+            metadata={"score": 10},
+        )
+
+    lead_a = raw_item("lead-a", "https://example.test/lead-a", SourceRole.PRACTITIONER)
+    lead_b = raw_item("lead-b", "https://example.test/lead-b", SourceRole.PRACTITIONER)
+    shared_auxiliary = raw_item(
+        "official-shared", "https://example.test/official", SourceRole.OFFICIAL_PRIMARY
+    )
+
+    class RadarOnlyProvider(FakeAIProvider):
+        def resolve_research_cases(self, cases):
+            return ResearchResolutionBatch(
+                cases=[
+                    ResearchResolutionDraft(
+                        case_id=case.id,
+                        in_scope=True,
+                        scope_rationale="AI 产品行为的具体观察。",
+                        disposition=ResearchDisposition.RADAR_SIGNAL,
+                        statement_type=case.statement_type,
+                        claim=case.claim,
+                        why_notable="需要继续跟踪。",
+                        uncertainty="仍需更多证据。",
+                    )
+                    for case in cases
+                ]
+            )
+
+    research = resolve_research(
+        [lead_a, lead_b, shared_auxiliary],
+        provider=RadarOnlyProvider(),
+        maximum_cases=8,
+        maximum_radar_signals=8,
+    )
+    assert len(research.radar_signals) == 2
+    assert all(
+        signal.support_refs[0].association_basis == "lead"
+        for signal in research.radar_signals
+    )
+    assert all(
+        any(ref.raw_item_id == "official-shared" for ref in signal.support_refs)
+        for signal in research.radar_signals
+    )
+    visible = DailyBrief(
+        date=date(2026, 9, 14),
+        timezone="Asia/Singapore",
+        generated_at=NOW,
+        top_stories=[
+            BriefItem(
+                id="visible-lead-a",
+                section="top_stories",
+                title="Visible lead A",
+                what_happened="Fact",
+                source_urls=[lead_a.url],
+                story_ids=["visible-a"],
+                story_contexts=[
+                    BriefStoryContext(
+                        story_id="visible-a",
+                        canonical_title="Visible lead A",
+                        category="top_stories",
+                        primary_source_url=lead_a.url,
+                        source_refs=[
+                            StorySourceRef(
+                                raw_item_id=lead_a.id,
+                                title=lead_a.title,
+                                source_name=lead_a.source_name,
+                                source_type=lead_a.source_type,
+                                url=lead_a.url,
+                                fetched_at=NOW,
+                            )
+                        ],
+                    )
+                ],
+            )
+        ],
+    )
+    displayed = suppress_displayed_radar_duplicates(visible, research.radar_signals)
+    assert [signal.support_refs[0].raw_item_id for signal in displayed] == ["lead-b"]
+
+
+def test_radar_duplicate_suppression_keeps_legacy_first_reference_compatibility() -> None:
+    legacy = RadarSignal(
+        id="legacy",
+        observed_at=NOW,
+        claim="Legacy signal",
+        why_notable="Worth checking",
+        support_refs=[
+            ResearchEvidenceRef(
+                raw_item_id="visible-raw",
+                url="https://example.test/visible",
+                source_role=SourceRole.PRACTITIONER,
+            ),
+            ResearchEvidenceRef(
+                raw_item_id="shared-aux",
+                url="https://example.test/shared",
+                source_role=SourceRole.OFFICIAL_PRIMARY,
+            ),
+        ],
+        source_roles=[SourceRole.PRACTITIONER],
+        missing_evidence=["Independent evidence"],
+        uncertainty="Unverified",
+        statement_type=StatementType.FIRSTHAND_OBSERVATION,
+    )
+    visible = DailyBrief(
+        date=date(2026, 9, 14), timezone="Asia/Singapore", generated_at=NOW,
+        top_stories=[
+            BriefItem(
+                id="visible", section="top_stories", title="Visible", what_happened="Fact",
+                source_urls=["https://example.test/visible"], story_ids=["visible-story"],
+                story_contexts=[
+                    BriefStoryContext(
+                        story_id="visible-story", canonical_title="Visible", category="top_stories",
+                        primary_source_url="https://example.test/visible",
+                        source_refs=[StorySourceRef(
+                            raw_item_id="visible-raw", title="Visible", source_name="Example",
+                            source_type="rss", url="https://example.test/visible", fetched_at=NOW,
+                        )],
+                    )
+                ],
+            )
+        ],
+    )
+    assert suppress_displayed_radar_duplicates(visible, [legacy]) == []
 
 
 class DirectionFailureProvider(FakeAIProvider):

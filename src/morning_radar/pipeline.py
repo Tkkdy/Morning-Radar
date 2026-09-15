@@ -11,8 +11,10 @@ from datetime import date, timedelta
 from pathlib import Path
 
 from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
+from morning_radar.ai.request_payload import dumps
 from morning_radar.briefing import (
     BriefLimits,
+    core_brief_request_payloads,
     generate_daily_brief_with_memory,
     ranked_eligible_stories,
 )
@@ -44,6 +46,7 @@ from morning_radar.processing import (
     build_stories,
     filter_news_window,
     filter_story_candidate_inputs,
+    normalize_url,
 )
 from morning_radar.publishing import SiteBuilder
 from morning_radar.research import resolve_research
@@ -85,6 +88,52 @@ def _displayed_item_counts(brief: DailyBrief) -> tuple[int, int, int]:
     return main_items, other_items, main_items + other_items
 
 
+def _visible_brief_provenance(brief: DailyBrief) -> tuple[set[str], set[str]]:
+    """Return the raw-item and canonical URL identities actually rendered.
+
+    This intentionally reads every visible section, including ``other_reading``.
+    A shared company or source hostname is not an identity and must never hide a
+    separate radar observation.
+    """
+    raw_item_ids: set[str] = set()
+    urls: set[str] = set()
+    for items in (
+        brief.top_stories,
+        brief.market_and_companies,
+        brief.ai_and_open_source,
+        brief.trend_radar,
+        brief.developer_discussions,
+        brief.other_reading,
+    ):
+        for item in items:
+            urls.update(normalize_url(url) for url in item.source_urls)
+            for context in item.story_contexts:
+                raw_item_ids.update(ref.raw_item_id for ref in context.source_refs)
+                urls.update(normalize_url(ref.url) for ref in context.source_refs)
+    return raw_item_ids, urls
+
+
+def suppress_displayed_radar_duplicates(brief: DailyBrief, radar_signals):
+    """Keep radar leads unless their evidence is already a visible body event."""
+    visible_raw_ids, visible_urls = _visible_brief_provenance(brief)
+    kept = []
+    for signal in radar_signals:
+        # Research marks the original event as ``lead``.  Auxiliary evidence
+        # can be shared by distinct observations, so it cannot identify a
+        # duplicate on its own.  Older records lacked that marker: preserve
+        # their conservative one-reference identity behavior.
+        lead_refs = [
+            ref for ref in signal.support_refs if ref.association_basis == "lead"
+        ] or signal.support_refs[:1]
+        if any(
+            ref.raw_item_id in visible_raw_ids or normalize_url(ref.url) in visible_urls
+            for ref in lead_refs
+        ):
+            continue
+        kept.append(signal)
+    return kept
+
+
 def _call_safe_story_candidate_limit(
     *,
     maximum_calls: int,
@@ -124,6 +173,28 @@ def _resolve_fast_continuity(
         ),
         enable_ai=enable_ai,
         deadline_monotonic=deadline_monotonic,
+    )
+
+
+def _reserve_brief_core_budget(
+    provider,
+    brief_ai_stories,
+    signals,
+    editorial_decisions=None,
+) -> None:
+    """Protect actual core batch payloads and the largest possible one-item recovery."""
+    budget = getattr(provider, "budget", None)
+    if budget is None or not brief_ai_stories:
+        return
+    batch_payloads, recovery_payloads = core_brief_request_payloads(
+        brief_ai_stories,
+        signals,
+        editorial_decisions,
+    )
+    budget.reserve_core(
+        calls=len(batch_payloads) + 1,
+        input_characters=sum(len(dumps(payload)) for payload in batch_payloads)
+        + max((len(dumps(payload)) for payload in recovery_payloads), default=0),
     )
 
 
@@ -900,11 +971,18 @@ class MorningRadarPipeline:
         if editorial_result.active:
             assert editorial_result.selection is not None
             story_by_id = {story.id: story for story in stories}
+            primary_ids = editorial_result.selection.visible_story_ids[: brief_limits.maximum_items]
+            support_ids = [
+                support_id
+                for primary_id in primary_ids
+                for support_id in editorial_result.selection.support_by_story_id.get(
+                    primary_id,
+                    [],
+                )
+            ]
             brief_ai_stories = [
                 story_by_id[story_id]
-                for story_id in editorial_result.selection.visible_story_ids[
-                    : brief_limits.maximum_items
-                ]
+                for story_id in dict.fromkeys([*primary_ids, *support_ids])
             ]
         else:
             brief_ai_stories = ranked_eligible_stories(
@@ -912,6 +990,36 @@ class MorningRadarPipeline:
                 relevance_threshold=self.app.relevance_threshold,
                 importance_threshold=self.app.importance_threshold,
             )[: brief_limits.maximum_items]
+        story_history = self._story_history(history_root, brief_date)
+        story_history[brief_date] = stories
+        signals = TrendDetector(
+            github_threshold=self.app.github_growth_threshold,
+            market_threshold=self.app.market_movement_threshold,
+            company_names={
+                company.name
+                for company in load_model_list(
+                    self.root / "config/companies.yaml",
+                    "companies",
+                    CompanyConfig,
+                )
+            },
+        ).detect(
+            story_history=story_history,
+            github_snapshots=self._snapshots(
+                history_root / "data/snapshots/github",
+                output_root / "data/snapshots/github",
+                GitHubSnapshot,
+                brief_date,
+            ),
+            market_snapshots=self._snapshots(
+                history_root / "data/snapshots/market",
+                output_root / "data/snapshots/market",
+                MarketSnapshot,
+                brief_date,
+            ),
+            current_date=brief_date,
+            now=now,
+        )
         current_story_memory = [
             StoryMemory(
                 ref=StoryOccurrenceRef(date=brief_date, story_id=story.id),
@@ -919,6 +1027,21 @@ class MorningRadarPipeline:
             )
             for story in stories
         ]
+        brief_editorial_decisions = (
+            [
+                decision
+                for decision in editorial_result.daily.decisions
+                if decision.story_id in {story.id for story in brief_ai_stories}
+            ]
+            if editorial_result.active
+            else None
+        )
+        _reserve_brief_core_budget(
+            provider,
+            brief_ai_stories,
+            signals,
+            brief_editorial_decisions,
+        )
         try:
             historical_story_memory = load_story_memory(
                 history_root,
@@ -960,67 +1083,42 @@ class MorningRadarPipeline:
                 daily=DailyContinuity(date=brief_date, generated_at=now),
                 stats={"continuity_unavailable": 1},
             )
-        story_history = self._story_history(history_root, brief_date)
-        story_history[brief_date] = stories
-        signals = TrendDetector(
-            github_threshold=self.app.github_growth_threshold,
-            market_threshold=self.app.market_movement_threshold,
-            company_names={
-                company.name
-                for company in load_model_list(
-                    self.root / "config/companies.yaml",
-                    "companies",
-                    CompanyConfig,
-                )
-            },
-        ).detect(
-            story_history=story_history,
-            github_snapshots=self._snapshots(
-                history_root / "data/snapshots/github",
-                output_root / "data/snapshots/github",
-                GitHubSnapshot,
-                brief_date,
-            ),
-            market_snapshots=self._snapshots(
-                history_root / "data/snapshots/market",
-                output_root / "data/snapshots/market",
-                MarketSnapshot,
-                brief_date,
-            ),
-            current_date=brief_date,
-            now=now,
-        )
-        brief_result = generate_daily_brief_with_memory(
-            brief_date=brief_date,
-            generated_at=now,
-            timezone=self.app.timezone,
-            stories=stories,
-            signals=signals,
-            provider=provider,
-            limits=brief_limits,
-            enabled_sections=self.app.enabled_sections,
-            relevance_threshold=self.app.relevance_threshold,
-            importance_threshold=self.app.importance_threshold,
-            maximum_ai_items=self.app.maximum_ai_items,
-            editorial_result=editorial_result,
-            run_stats={
-                "after_global_cap": len(raw_items),
-                "recent_24h": len(recent),
-                "story_candidate_input": len(story_candidate_items),
-                "routine_market_suppressed": routine_market_suppressed,
-                "stories": len(stories),
-                "signals": len(signals),
-                "fixture_mode": fixtures,
-                "dry_run": dry_run,
-                "editorial_enabled": editorial_result.daily.enabled,
-                "editorial_shadow_mode": editorial_result.daily.shadow_mode,
-                "editorial_degraded": editorial_result.daily.degraded,
-                "editorial_decisions": len(editorial_result.daily.decisions),
-                "aihot_enabled": self.app.aihot.enabled,
-                **practitioner_coverage_stats(people),
-                **research_result.stats,
-            },
-        )
+        budget = getattr(provider, "budget", None)
+        try:
+            brief_result = generate_daily_brief_with_memory(
+                brief_date=brief_date,
+                generated_at=now,
+                timezone=self.app.timezone,
+                stories=stories,
+                signals=signals,
+                provider=provider,
+                limits=brief_limits,
+                enabled_sections=self.app.enabled_sections,
+                relevance_threshold=self.app.relevance_threshold,
+                importance_threshold=self.app.importance_threshold,
+                maximum_ai_items=self.app.maximum_ai_items,
+                editorial_result=editorial_result,
+                run_stats={
+                    "after_global_cap": len(raw_items),
+                    "recent_24h": len(recent),
+                    "story_candidate_input": len(story_candidate_items),
+                    "routine_market_suppressed": routine_market_suppressed,
+                    "stories": len(stories),
+                    "signals": len(signals),
+                    "fixture_mode": fixtures,
+                    "dry_run": dry_run,
+                    "editorial_enabled": editorial_result.daily.enabled,
+                    "editorial_shadow_mode": editorial_result.daily.shadow_mode,
+                    "editorial_degraded": editorial_result.daily.degraded,
+                    "editorial_decisions": len(editorial_result.daily.decisions),
+                    "aihot_enabled": self.app.aihot.enabled,
+                    **practitioner_coverage_stats(people),
+                    **research_result.stats,
+                },
+            )
+        finally:
+            if budget is not None:
+                budget.release_core_reservation()
         if continuity_future is not None:
             try:
                 assert continuity_deadline is not None
@@ -1132,9 +1230,13 @@ class MorningRadarPipeline:
             story_memory=[*historical_story_memory, *current_story_memory],
             current_judgements=continuity_result.current_judgements,
         )
+        displayed_radar_signals = suppress_displayed_radar_duplicates(
+            brief,
+            research_result.radar_signals,
+        )
         brief = brief.model_copy(
             update={
-                "radar_signals": research_result.radar_signals,
+                "radar_signals": displayed_radar_signals,
                 "tendencies": tendency_result.brief_tendencies,
                 "run_stats": {
                     **brief.run_stats,
@@ -1144,6 +1246,11 @@ class MorningRadarPipeline:
                     "judgement_deep_review_triggers": 0,
                     "judgement_deep_review_calls": 0,
                     "structured_watches_opened": len(opened_watches),
+                    "radar_signals_generated": len(research_result.radar_signals),
+                    "radar_signals_displayed": len(displayed_radar_signals),
+                    "radar_signals_suppressed_as_visible_brief_duplicates": (
+                        len(research_result.radar_signals) - len(displayed_radar_signals)
+                    ),
                 },
             }
         )

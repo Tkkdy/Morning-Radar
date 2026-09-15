@@ -66,7 +66,7 @@ def test_qwen_uses_qwen_thinking_mapping_without_deepseek_only_fields() -> None:
     assert "thinking" not in request["extra_body"]
 
 
-def test_qwen_semantic_task_enables_thinking() -> None:
+def test_qwen_brief_task_keeps_bounded_write_policy_without_thinking() -> None:
     provider, completions = configured_qwen()
 
     provider._parse(
@@ -74,7 +74,7 @@ def test_qwen_semantic_task_enables_thinking() -> None:
         item_count=1, allowed_urls=set(),
     )
 
-    assert completions.requests[0]["extra_body"] == {"enable_thinking": True}
+    assert completions.requests[0]["extra_body"] == {"enable_thinking": False}
     assert "reasoning_effort" not in completions.requests[0]
 
 

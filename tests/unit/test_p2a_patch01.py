@@ -837,3 +837,26 @@ def test_x14_deepseek_openai_qwen_bind_real_call_meta() -> None:
     assert get_call_meta(qwen.classify_items([item]))["task"] == "classify"
     assert issubclass(QwenProvider, DeepSeekProvider)
     assert QwenProvider.__mro__[1] is DeepSeekProvider
+
+
+def test_x25_pipeline_releases_brief_reservation_when_brief_generation_raises(
+    tmp_path, monkeypatch
+) -> None:
+    project = copy_project(tmp_path)
+    item = official_item(
+        "reservation-release",
+        published_at=DAY_N - timedelta(hours=2),
+        title="Reservation release regression",
+    )
+    _seed(project, save_checkpoint(project, [item], now=DAY_N, batch_id="batch-release"))
+    provider = _install(monkeypatch, FakeAIProvider())
+
+    def fail_brief(**_kwargs):
+        raise RuntimeError("brief generation failed")
+
+    monkeypatch.setattr("morning_radar.pipeline.generate_daily_brief_with_memory", fail_brief)
+    with pytest.raises(RuntimeError, match="brief generation failed"):
+        MorningRadarPipeline(project).process(now=DAY_N, notify=False)
+
+    assert provider.budget.reserved_core_calls == 0
+    assert provider.budget.reserved_core_input_characters == 0
