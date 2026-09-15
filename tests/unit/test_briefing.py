@@ -978,8 +978,11 @@ def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain()
         return RadarSignal(
             id=signal_id, observed_at=NOW, claim=signal_id, why_notable="Worth checking",
             support_refs=[ResearchEvidenceRef(raw_item_id=raw_id, url=url,
-                                               source_role=SourceRole.PRACTITIONER)
-                          for raw_id, url in references],
+                                               source_role=SourceRole.PRACTITIONER,
+                                               association_basis=(
+                                                   "lead" if index == 0 else "support"
+                                               ))
+                          for index, (raw_id, url) in enumerate(references)],
             source_roles=[SourceRole.PRACTITIONER], missing_evidence=["Independent evidence"],
             uncertainty="Unverified", statement_type=StatementType.FIRSTHAND_OBSERVATION,
         )
@@ -989,8 +992,10 @@ def test_radar_suppression_uses_final_visible_provenance_not_company_or_domain()
         [
             radar("same-raw", ("visible-raw", "https://another.test/copy")),
             radar("same-normalized-url", ("other-raw", "https://example.test/events/fable")),
-            radar("shared-auxiliary", ("visible-raw", source_url),
+            radar("same-event-with-auxiliary", ("visible-raw", source_url),
                   ("independent-raw", "https://example.test/events/independent")),
+            radar("shared-auxiliary", ("independent-raw", "https://example.test/events/independent"),
+                  ("visible-raw", source_url)),
             radar("independent", ("other-raw", "https://example.test/events/independent")),
             radar("same-other-reading", ("other-visible-raw", other_url)),
             radar("not-rendered-lead", ("not-rendered-raw", "https://example.test/unrendered")),

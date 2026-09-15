@@ -30,22 +30,56 @@ class AIBudget:
     task_network_requests: dict[str, int] = field(default_factory=dict)
     task_usage: dict[str, dict[str, int]] = field(default_factory=dict)
     task_finish_reasons: dict[str, dict[str, int]] = field(default_factory=dict)
+    reserved_core_calls: int = 0
+    reserved_core_input_characters: int = 0
     _lock: Lock = field(default_factory=Lock, repr=False)
 
-    def consume(self, payload: str, *, item_count: int) -> None:
+    def reserve_core(self, *, calls: int, input_characters: int) -> None:
+        """Keep bounded capacity for an imminent core phase."""
+        with self._lock:
+            self.reserved_core_calls = min(max(0, calls), self.maximum_calls - self.calls_used)
+            self.reserved_core_input_characters = min(
+                max(0, input_characters),
+                self.maximum_input_characters - self.input_characters_used,
+            )
+
+    def release_core_reservation(self) -> None:
+        with self._lock:
+            self.reserved_core_calls = 0
+            self.reserved_core_input_characters = 0
+
+    def consume(
+        self,
+        payload: str,
+        *,
+        item_count: int,
+        priority: AITaskPriority = AITaskPriority.CORE,
+    ) -> None:
         """Reserve one logical task. Structured retries must not call this again."""
         with self._lock:
-            self._consume_locked(payload, item_count=item_count)
+            self._consume_locked(payload, item_count=item_count, priority=priority)
 
-    def _consume_locked(self, payload: str, *, item_count: int) -> None:
+    def _consume_locked(
+        self, payload: str, *, item_count: int, priority: AITaskPriority
+    ) -> None:
         if item_count > self.maximum_items:
             raise AIBudgetExceeded(f"AI item limit exceeded: {item_count} > {self.maximum_items}")
-        if self.calls_used + 1 > self.maximum_calls:
+        call_limit = self.maximum_calls
+        character_limit = self.maximum_input_characters
+        if priority is not AITaskPriority.CORE:
+            call_limit -= self.reserved_core_calls
+            character_limit -= self.reserved_core_input_characters
+        if self.calls_used + 1 > call_limit:
             raise AIBudgetExceeded("AI daily call limit exceeded")
-        if self.input_characters_used + len(payload) > self.maximum_input_characters:
+        if self.input_characters_used + len(payload) > character_limit:
             raise AIBudgetExceeded("AI daily input character limit exceeded")
         self.calls_used += 1
         self.input_characters_used += len(payload)
+        if priority is AITaskPriority.CORE:
+            self.reserved_core_calls = max(0, self.reserved_core_calls - 1)
+            self.reserved_core_input_characters = max(
+                0, self.reserved_core_input_characters - len(payload)
+            )
 
     def reset_task_attempts(self, task: str) -> None:
         with self._lock:

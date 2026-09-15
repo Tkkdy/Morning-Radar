@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import logging
+import math
 import os
 import time
 from concurrent.futures import ThreadPoolExecutor
@@ -116,12 +117,16 @@ def suppress_displayed_radar_duplicates(brief: DailyBrief, radar_signals):
     visible_raw_ids, visible_urls = _visible_brief_provenance(brief)
     kept = []
     for signal in radar_signals:
-        # A radar lead may cite a shared auxiliary source while making a
-        # separate observation.  Suppress it only when every supplied support
-        # reference is already rendered as the same visible event.
-        if signal.support_refs and all(
+        # Research marks the original event as ``lead``.  Auxiliary evidence
+        # can be shared by distinct observations, so it cannot identify a
+        # duplicate on its own.  Older records lacked that marker: preserve
+        # their conservative one-reference identity behavior.
+        lead_refs = [
+            ref for ref in signal.support_refs if ref.association_basis == "lead"
+        ] or signal.support_refs[:1]
+        if any(
             ref.raw_item_id in visible_raw_ids or normalize_url(ref.url) in visible_urls
-            for ref in signal.support_refs
+            for ref in lead_refs
         ):
             continue
         kept.append(signal)
@@ -167,6 +172,17 @@ def _resolve_fast_continuity(
         ),
         enable_ai=enable_ai,
         deadline_monotonic=deadline_monotonic,
+    )
+
+
+def _reserve_brief_core_budget(provider, brief_ai_stories) -> None:
+    """Protect 4-item brief batches and one bounded recovery from fast continuity."""
+    budget = getattr(provider, "budget", None)
+    if budget is None or not brief_ai_stories:
+        return
+    budget.reserve_core(
+        calls=math.ceil(len(brief_ai_stories) / 4) + 1,
+        input_characters=sum(len(story.model_dump_json()) for story in brief_ai_stories) + 5_000,
     )
 
 
@@ -962,6 +978,7 @@ class MorningRadarPipeline:
             )
             for story in stories
         ]
+        _reserve_brief_core_budget(provider, brief_ai_stories)
         try:
             historical_story_memory = load_story_memory(
                 history_root,
@@ -1064,6 +1081,9 @@ class MorningRadarPipeline:
                 **research_result.stats,
             },
         )
+        budget = getattr(provider, "budget", None)
+        if budget is not None:
+            budget.release_core_reservation()
         if continuity_future is not None:
             try:
                 assert continuity_deadline is not None

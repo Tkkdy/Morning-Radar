@@ -200,8 +200,9 @@ class DeepSeekProvider:
         self.last_payload_text = payload
         self.last_policy_hash = policy_hash(self.topic_context)
         call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
+        policy = TASK_POLICIES[task]
         try:
-            self.budget.consume(payload, item_count=item_count)
+            self.budget.consume(payload, item_count=item_count, priority=policy.priority)
         except AIBudgetExceeded as exc:
             call_meta["blocked_reason"] = str(exc)
             attach_call_meta(exc, call_meta)
@@ -221,7 +222,6 @@ class DeepSeekProvider:
             "Do not wrap the json in Markdown fences.\n"
             f"{schema_json}"
         )
-        policy = TASK_POLICIES[task]
         LOGGER.info(
             "AI task start: provider=%s model=%s task=%s thinking=%s "
             "max_output_tokens=%d priority=%s",
