@@ -1,3 +1,4 @@
+import json
 from datetime import UTC, date, datetime
 from pathlib import Path
 
@@ -66,6 +67,10 @@ def test_site_builder_creates_index_archive_and_daily_page(tmp_path) -> None:
     assert 'href="../archive.html"' in historical
     assert 'href="../index.html"' in historical
     assert item.title in historical
+    assert json.loads((output / "status.json").read_text(encoding="utf-8")) == {
+        "date": "2026-07-23",
+        "status": "ready",
+    }
 
 
 def test_site_builder_renders_v2_story_context_with_safe_source_semantics(tmp_path) -> None:
