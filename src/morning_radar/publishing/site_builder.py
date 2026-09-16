@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import shutil
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -39,6 +40,7 @@ class SiteBuilder:
         if stylesheet.resolve() != stylesheet_destination.resolve():
             shutil.copyfile(stylesheet, stylesheet_destination)
         latest = ordered[0]
+        self._write_status(latest)
         annotations = _historical_judgement_annotations(continuities or [])
         self._render(
             "index.html.j2",
@@ -60,6 +62,17 @@ class SiteBuilder:
     def _render(self, template: str, destination: Path, **context: object) -> None:
         destination.write_text(
             self.environment.get_template(template).render(**context),
+            encoding="utf-8",
+        )
+
+    def _write_status(self, brief: DailyBrief) -> None:
+        """Write the public readiness contract for the latest generated brief."""
+        (self.output_dir / "status.json").write_text(
+            json.dumps(
+                {"date": str(brief.date), "status": "ready"},
+                ensure_ascii=False,
+                separators=(",", ":"),
+            ),
             encoding="utf-8",
         )
 
