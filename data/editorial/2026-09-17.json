@@ -1,0 +1,136 @@
+{
+  "date": "2026-09-17",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方发布披露框架属客观事实，但六份报告具体内容未给出，只能作为自我披露制度的早期信号。",
+      "retain_for_trends": true,
+      "story_id": "story-c48f2801a71124b7e5a8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-misalignment-disclosure-institutionalization",
+        "vendor-self-reported-safety-framework",
+        "ai-safety-reporting-baseline"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "GPU kernel 编辑进入 Rust 生态对开发者有实际影响，但 API、许可、性能与开源状态均未确认。",
+      "retain_for_trends": true,
+      "story_id": "story-ce53159d976a74be5739",
+      "support_for_story_id": null,
+      "trend_links": [
+        "rust-gpu-kernel-authoring",
+        "agentic-ai-code-migration",
+        "cuda-tile-programming-model"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商自报 6.4 倍加速且缺对比基线，仅宜一句带过并留作待验证性能声明。",
+      "retain_for_trends": true,
+      "story_id": "story-c56840f94bf29affc929",
+      "support_for_story_id": null,
+      "trend_links": [
+        "edge-agentic-inference-benchmark",
+        "vendor-benchmark-self-reporting",
+        "jetson-edge-deployment"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认预算审批流程上线，反映 AI 编码额度治理由硬截断转向组织审批。",
+      "retain_for_trends": true,
+      "story_id": "story-fbbcb2c37531beee15a9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-coding-credit-governance",
+        "copilot-enterprise-cost-control"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有 HN 标题与分数，无内容摘要或合作细节，无法作为可命名趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-b09881c3d9876ff5bdff",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "常规 SDK 版本发布与文档更新，无结构性能力或生态影响。",
+      "retain_for_trends": false,
+      "story_id": "story-4ca44822f07928fd043f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅标题与配图说明，缺正文、数据口径与方法论，无可用证据价值。",
+      "retain_for_trends": false,
+      "story_id": "story-1fd529d5a4073460dfd1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "官方品牌叙事文章，摘要仅为视频片段描述，无可核实技术或部署信息。",
+      "retain_for_trends": false,
+      "story_id": "story-71578c28d70af7d98c39",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "企业社会责任专题合集，无新工具、资金或政策承诺，属品牌叙事噪声。",
+      "retain_for_trends": false,
+      "story_id": "story-f9fb6396257619a534ea",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅有图片替代文本，无可核实声明或发布内容，无法支撑任何判断。",
+      "retain_for_trends": false,
+      "story_id": "story-4026705f5605c88d4ad3",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-16T22:18:51.905290Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

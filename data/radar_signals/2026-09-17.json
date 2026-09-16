@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Claude Cowork 与 Claude 聊天（chat）现已合并为统一的 Claude，最先面向 Pro 和 Max 订阅，在未来数周内于 Web、桌面与移动端逐步推出。",
+    "id": "radar-d8a556a9bfd41c1f8e3a",
+    "missing_evidence": [
+      "Anthropic 官方公告或发布页原文",
+      "官方对各旧产品线（Cowork、Claude Code）是否保留或停用的说明",
+      "实际可用平台与逐步推送范围的一手验证"
+    ],
+    "observed_at": "2026-09-16T22:18:26.523889Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b365401fd38a766d27b4",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/16/one-claude/"
+      }
+    ],
+    "uncertainty": "目前仅有 Simon Willison 博客对官方文案的转述，官方页面未抓取、原文被截断，且无独立第二来源；合并的具体功能边界、旧入口是否会废弃、定价与可用地区均不明确。",
+    "why_notable": "若属实，这是 Anthropic 产品线的重大整合：把此前割裂的 Claude、Claude Cowork、Claude Code 收敛为单一入口，用户可提问或直接委派任务、并在关闭笔记本后继续运行，会直接影响 agent 使用方式与既有工作流迁移成本。"
+  }
+]

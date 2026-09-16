@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-17",
+  "generated_at": "2026-09-16T22:18:51.905290Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否进一步公布 Copilot 预算增加请求的审批方、审批条件、生效时间及是否支持追溯额度调整等细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Copilot"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-16T22:18:51.905290Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-17",
+          "story_id": "story-fbbcb2c37531beee15a9"
+        }
+      ],
+      "topic_anchors": [
+        "AI 编码",
+        "预算管理"
+      ],
+      "watch_id": "watch-298509ca4effd0260e47"
+    },
+    {
+      "entity_anchors": [
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Google 是否发布 AI & Economy ATLAS v1.0 2026 的正文、数据口径与方法论，以及产品正式命名与版本号是否确认。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "AI & Economy ATLAS"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-16T22:18:51.905290Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-17",
+          "story_id": "story-1fd529d5a4073460dfd1"
+        }
+      ],
+      "topic_anchors": [
+        "AI 与经济",
+        "AI 产业影响"
+      ],
+      "watch_id": "watch-324963aa91b32f061798"
+    },
+    {
+      "entity_anchors": [
+        "googleapis",
+        "python-genai",
+        "gaos"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 googleapis/python-genai 后续版本是否披露 gaos 的具体含义、凭据 API 与 RetrievalCallStep 等能力的技术细节，以及 Gemini 3.8 Flash 是否正式发布。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "googleapis/python-genai",
+        "GenAI SDK"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-16T22:18:51.905290Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-17",
+          "story_id": "story-4ca44822f07928fd043f"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-205cd0dacaa70a02c658"
+    }
+  ]
+}

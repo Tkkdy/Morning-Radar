@@ -1,0 +1,629 @@
+[
+  {
+    "analysis": [
+      "该框架的发布意味着 OpenAI 正在将模型失准的发现与披露流程制度化，而不仅限于单次事件说明。",
+      "同时公布六份报告，表明 OpenAI 试图以批量披露的方式建立关于模型异常行为的透明度基线。"
+    ],
+    "canonical_title": "OpenAI 发布模型失准报告框架，并同步公布六份异常行为报告",
+    "category": "ai_safety",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了一套用于追踪、调查和披露模型失准（model misalignment）的框架。",
+      "OpenAI 同步公布了六份关于模型意外或令人担忧行为的报告。"
+    ],
+    "id": "story-c48f2801a71124b7e5a8",
+    "importance_score": 0.7,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://openai.com/index/model-misalignment-reporting-framework",
+    "product_names": [],
+    "published_at": "2026-09-16T17:00:00Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-f3899afd4d6a0a2de479"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f3899afd4d6a0a2de479",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Our framework for reporting model misalignment",
+        "url": "https://openai.com/index/model-misalignment-reporting-framework"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/model-misalignment-reporting-framework"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "model_misalignment",
+      "ai_safety",
+      "model_behavior_reporting"
+    ],
+    "uncertainties": [
+      "这六份报告具体涉及哪些模型、行为类型、严重程度以及发生时间，输入中未提供。",
+      "该框架的适用范围、披露门槛和外部验证机制，输入中未说明。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "该文由 NVIDIA 官方开发者博客发布，属于官方一手来源，可作为产品发布的事实底座。",
+      "文章标题强调使用 agentic AI 完成 Python 到 Rust 的 CUDA Tile 操作翻译，说明 AI 辅助代码迁移是该项目推进方式的一部分。"
+    ],
+    "canonical_title": "NVIDIA 发布 cuTile Rust（cutile-rs）：用 Agentic AI 将 CUDA Tile 操作从 Python 翻译到 Rust",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《Translating CUDA Tile Operations from Python to Rust Using Agentic AI》的文章，作者为 Tanya Lenz，发布时间为 2026-09-16T16:28:59Z。",
+      "文章介绍 cuTile Rust（cutile-rs），这是一个基于 tile 的系统，用于以 Rust 语言进行安全、符合惯用风格的 GPU kernel 编写。",
+      "文章摘要提到将 Rust 所有权模型扩展到该场景。"
+    ],
+    "id": "story-ce53159d976a74be5739",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/translating-cuda-tile-operations-from-python-to-rust-using-agentic-ai/",
+    "product_names": [
+      "cuTile Rust",
+      "cutile-rs",
+      "CUDA"
+    ],
+    "published_at": "2026-09-16T16:28:59Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-51ee903b63bd893f4d54"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T16:28:59Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-51ee903b63bd893f4d54",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Translating CUDA Tile Operations from Python to Rust Using Agentic AI",
+        "url": "https://developer.nvidia.com/blog/translating-cuda-tile-operations-from-python-to-rust-using-agentic-ai/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/translating-cuda-tile-operations-from-python-to-rust-using-agentic-ai/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "GPU kernel authoring",
+      "Rust",
+      "tile-based programming",
+      "agentic AI code translation"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要与简短摘录，cutile-rs 的具体 API、开源地址、许可证、性能数据和可用版本均未给出。",
+      "‘safe, idiomatic’ 为 NVIDIA 官方描述用语，尚缺独立第三方验证。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "该内容属于 NVIDIA 官方来源，其性能声明可作为官方发布信息，但文章摘要未提供 6.4 倍提升的具体基准配置、对比基线或测试条件。",
+      "若边缘设备上的代理式工作负载成为趋势，TensorRT Edge-LLM 在 Jetson AGX Thor 上的表现可能影响边缘 AI 部署的模型选择与硬件规划。"
+    ],
+    "canonical_title": "NVIDIA 称 TensorRT Edge-LLM 在 Jetson AGX Thor 上完成 MLPerf Edge Agentic 基准测试并快 6.4 倍",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "NVIDIA",
+      "Jetson AGX Thor"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布文章称 TensorRT Edge-LLM 在 Jetson AGX Thor 上完成 MLPerf Edge Agentic 基准测试，速度快 6.4 倍。",
+      "文章署名作者为 Elizabeth Goodman，发布时间为 2026-09-16T20:37:07Z，来源为 NVIDIA Developer Blog。",
+      "文章摘要称 AI 代理正在从云数据中心转向车辆、机器人和其他边缘设备，代理不像聊天机器人只回答单个提示，而是逐步处理任务。"
+    ],
+    "id": "story-c56840f94bf29affc929",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://developer.nvidia.com/blog/tensorrt-edge-llm-completes-the-mlperf-edge-agentic-benchmark-6-4x-faster-on-jetson-agx-thor/",
+    "product_names": [
+      "TensorRT Edge-LLM",
+      "MLPerf Edge Agentic"
+    ],
+    "published_at": "2026-09-16T20:37:07Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-995842a0246984c921f7"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T20:37:07Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-995842a0246984c921f7",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "TensorRT Edge-LLM Completes the MLPerf Edge Agentic Benchmark 6.4x Faster on Jetson AGX Thor",
+        "url": "https://developer.nvidia.com/blog/tensorrt-edge-llm-completes-the-mlperf-edge-agentic-benchmark-6-4x-faster-on-jetson-agx-thor/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/tensorrt-edge-llm-completes-the-mlperf-edge-agentic-benchmark-6-4x-faster-on-jetson-agx-thor/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "边缘 AI 代理",
+      "推理性能基准"
+    ],
+    "uncertainties": [
+      "6.4 倍加速的具体对比对象、MLPerf Edge Agentic 基准的版本与测试环境未在输入中给出。",
+      "未提供 TensorRT Edge-LLM 的版本号、可用性状态或除 Jetson AGX Thor 外的其他硬件支持信息。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "从此前的直接封锁改为增加预算申请流程，意味着组织对 Copilot credits 的管理从硬性截断转向可协商的额度审批。",
+      "该功能面向企业/组织场景，反映 GitHub 在 Copilot 商业化中对成本控制与可管理性的持续投入。"
+    ],
+    "canonical_title": "GitHub 正式发布 Copilot 预算增加请求功能",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "Copilot"
+    ],
+    "facts": [
+      "GitHub 在官方 Changelog 中宣布，Copilot 预算增加请求功能已全面可用（generally available）。",
+      "此前，当成员用尽可用的 Copilot AI credits 后，会被阻止使用消耗 credits 的 Copilot 功能。",
+      "本次发布新增了一个供成员申请增加预算的流程。",
+      "该公告由 GitHub 官方博客发布，发布时间为 2026-09-16。"
+    ],
+    "id": "story-fbbcb2c37531beee15a9",
+    "importance_score": 0.55,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available",
+    "product_names": [
+      "Copilot"
+    ],
+    "published_at": "2026-09-16T20:17:18Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-41f2b23db141d620003a"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T20:17:18Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-41f2b23db141d620003a",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Copilot budget increase requests are generally available",
+        "url": "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-16-copilot-budget-increase-requests-are-generally-available"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 编码",
+      "预算管理"
+    ],
+    "uncertainties": [
+      "官方摘要未完整说明申请流程的具体审批方、审批条件、生效时间以及是否支持追溯额度调整。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Mistral 与 Mozilla 合作：私有、多语言的 AI 浏览",
+    "category": "AI Browser Partnership",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Mistral",
+      "Mozilla"
+    ],
+    "facts": [],
+    "id": "story-b09881c3d9876ff5bdff",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://mistral.ai/news/mistral-x-mozilla/",
+    "product_names": [],
+    "published_at": "2026-09-16T08:08:57Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-9687d5ff5e5981f41ffe"
+    ],
+    "source_refs": [
+      {
+        "author": "vertigoruntime",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49723408",
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T08:08:57Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9687d5ff5e5981f41ffe",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Mistral X Mozilla: Private, Multilingual AI Browsing",
+        "url": "https://mistral.ai/news/mistral-x-mozilla/"
+      }
+    ],
+    "source_urls": [
+      "https://mistral.ai/news/mistral-x-mozilla/",
+      "https://news.ycombinator.com/item?id=49723408"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "Private AI browsing",
+      "Multilingual AI browsing"
+    ],
+    "uncertainties": [
+      "Hacker News 上该条目（500 分、179 条评论）仅作为未验证线索，未提供摘要或内容摘录，无法确认 Mistral 与 Mozilla 合作的具体内容。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "v2.24.0 的更新集中在 SDK 能力扩展，包括凭据管理、检索步骤类型和跨语言环境文件操作。",
+      "修复项表明此前自动函数调用存在预算耗尽后仍可能继续执行的问题。",
+      "README 文档中提及 gemini-flash-latest 与 Gemini 3.8 Flash，反映 SDK 文档正与最新模型版本对齐。"
+    ],
+    "canonical_title": "googleapis/python-genai 发布 v2.24.0",
+    "category": "ai_models",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "googleapis",
+      "python-genai",
+      "gaos"
+    ],
+    "facts": [
+      "googleapis/python-genai 于 2026-09-16 发布 v2.24.0 版本。",
+      "该版本新增凭据 API 资源（credential APIs resource）至 gaos。",
+      "该版本在 interactions schema 和 SDK 中新增 RetrievalCallStep 与 RetrievalResultStep。",
+      "该版本在 Python 和 TypeScript SDK 中实现了 environments 文件上传与下载功能。",
+      "该版本将凭据 API 资源接入 SDK。",
+      "修复：当自动函数调用预算耗尽后不再执行函数。",
+      "文档更新：GenAI SDK README 文件改用 gemini-flash-latest。",
+      "文档更新：Python Gen AI SDK README 针对 Gemini 3.8 Flash 更新。"
+    ],
+    "id": "story-4ca44822f07928fd043f",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v2.24.0",
+    "product_names": [
+      "googleapis/python-genai",
+      "GenAI SDK"
+    ],
+    "published_at": "2026-09-16T22:11:13Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-40da866892d05d863b28"
+    ],
+    "source_refs": [
+      {
+        "author": "release-please[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T22:11:13Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-40da866892d05d863b28",
+        "source_date": null,
+        "source_name": "GitHub · googleapis/python-genai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "googleapis/python-genai: v2.24.0",
+        "url": "https://github.com/googleapis/python-genai/releases/tag/v2.24.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/googleapis/python-genai/releases/tag/v2.24.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "未说明 gaos 的具体含义与范围。",
+      "未提供凭据 API、RetrievalCallStep、RetrievalResultStep 及 environments 文件功能的详细技术说明。",
+      "未说明 Gemini 3.8 Flash 是否已正式发布，仅文档更新中提及。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "从标题与版本号看，ATLAS 可能是 Google 用于追踪 AI 与经济关系的系列报告或数据项目，但当前输入仅含标题及配图文字描述，无法支撑更具体的分析。"
+    ],
+    "canonical_title": "Google 发布 AI & Economy ATLAS v1.0 2026",
+    "category": "ai_economy",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 发布了 AI & Economy ATLAS v1.0 2026。",
+      "该内容发布在 Google 官方博客的 AI 创新与技术板块，发布时间为 2026-09-15T13:00:00Z，作者署名为 Scott Strand。"
+    ],
+    "id": "story-1fd529d5a4073460dfd1",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/",
+    "product_names": [
+      "AI & Economy ATLAS"
+    ],
+    "published_at": "2026-09-15T13:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-64730bcdfc3a35229b48"
+    ],
+    "source_refs": [
+      {
+        "author": "Scott Strand",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-64730bcdfc3a35229b48",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "New insights from Google’s AI & Economy ATLAS",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/ai-economy-atlas-september-2026/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 与经济",
+      "AI 产业影响"
+    ],
+    "uncertainties": [
+      "输入内容仅为标题与配图文字说明，缺少正文，ATLAS 的具体内容、数据口径与方法论均不明确。",
+      "产品名“AI & Economy ATLAS”来自配图文字描述，其正式命名与版本号有待确认。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "该文章来源为 Google 官方博客，属于官方一手信息，可作为事实底座。",
+      "文章主题候选归类为 ai_models 与 ai_infrastructure，但内容摘要未提供具体模型或基础设施信息。"
+    ],
+    "canonical_title": "Google 发布关于以 AI 加速科学进步与改善生活的官方博客文章",
+    "category": "AI 应用与科学",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 发布了一篇由 James Manyika 撰写的博客文章，标题为 Building AI to accelerate science and improve lives。",
+      "该文章的发布时间为 2026-09-15T16:00:00Z。",
+      "该文章内容摘要为一段 B-roll 描述，展示多元环境与人物，包括课堂中的教师与学生，以及医生与患者。"
+    ],
+    "id": "story-71578c28d70af7d98c39",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/",
+    "product_names": [],
+    "published_at": "2026-09-15T16:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-419a0d7bd8653188b6f4"
+    ],
+    "source_refs": [
+      {
+        "author": "James Manyika",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-419a0d7bd8653188b6f4",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Building AI to accelerate science and improve lives",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/ai-applications-science-people/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI for Science",
+      "AI 应用"
+    ],
+    "uncertainties": [
+      "该文章的具体 AI 技术细节、项目名称或产品发布内容未在提供的内容摘要中体现。",
+      "文章摘要仅为 B-roll 描述，无法确认其是否包含可核实的科学加速成果或量化数据。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [
+      "该内容属于 Google 官方渠道发布的专题集合页面，而非单一产品发布或技术论文，目的更偏向品牌叙事与社会影响展示。",
+      "从标题与摘要看，Google 正在强调 AI 的普惠与包容性叙事，这可能与其在监管与公众舆论层面建立正面形象的策略一致。"
+    ],
+    "canonical_title": "Google AI 发布“AI for Societal Impact”专题合集",
+    "category": "企业社会责任/公益AI",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Google AI",
+      "Google"
+    ],
+    "facts": [
+      "Google AI 官方博客发布了一篇题为“AI for Societal Impact”的文章，URL 为 https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/，发布时间为 2026-09-15T16:00:00Z。",
+      "文章摘要称，该合集展示了专家与地方领导者如何利用 AI 突破，确保每个人都能共享 AI 带来的机会。"
+    ],
+    "id": "story-f9fb6396257619a534ea",
+    "importance_score": 0.25,
+    "novelty_score": 0.15,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/",
+    "product_names": [],
+    "published_at": "2026-09-15T16:00:00Z",
+    "relevance_score": 0.2,
+    "source_item_ids": [
+      "item-dfe2f7f06070ffbc6122"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dfe2f7f06070ffbc6122",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "AI for Societal Impact",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/ai-for-societal-impact/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 社会影响",
+      "AI 公益性应用"
+    ],
+    "uncertainties": [
+      "文章摘要未说明该合集具体包含哪些项目、案例或合作方。",
+      "无法确认该专题是否伴随任何新工具、资金或政策承诺。",
+      "该页面是持续更新的合集还是单篇固定文章尚未明确。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Google AI 发布「面向每个人、每种语言的 AI」博客文章",
+    "category": "ai",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Google AI",
+      "James Manyika"
+    ],
+    "facts": [
+      "Google AI 于 2026-09-15T16:00:00Z 发布题为「AI for everyone in every language」的博客文章，作者为 James Manyika。",
+      "该文章的 URL 为 https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/ 。"
+    ],
+    "id": "story-4026705f5605c88d4ad3",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/",
+    "product_names": [],
+    "published_at": "2026-09-15T16:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-7a00acf92df0c96e9750"
+    ],
+    "source_refs": [
+      {
+        "author": "James Manyika",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-16T22:18:26.523889Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7a00acf92df0c96e9750",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "AI for everyone in every language",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/ai-for-every-language/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "输入仅提供动画图片的替代文本摘要（「Animation of several words in different languages slowly zooming past」），文章没有提供可核实的声明、产品发布、版本号或具体日期等事实性细节，因此无法提炼更多事实。",
+      "该来源被标记为 official_primary 和 factual_announcement，但摘要内容为图片描述，无法确认文章是否包含实质性发布内容。"
+    ],
+    "updated_at": "2026-09-16T22:18:51.905290Z"
+  }
+]

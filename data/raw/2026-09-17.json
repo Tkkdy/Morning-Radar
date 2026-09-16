@@ -37,6 +37,7 @@
     "id": "item-dfe2f7f06070ffbc6122",
     "language": "en-us",
     "metadata": {
+      "content_version": "087c35c336dbd9e7f11b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-c9cdd1ff5261c95b9d46",
     "language": "en-US",
     "metadata": {
+      "content_version": "1d6ff8a6df1c63b97110",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-995842a0246984c921f7",
     "language": null,
     "metadata": {
+      "content_version": "e239ac1359aa19a727d2",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -217,6 +220,7 @@
     "id": "item-7ee265610849d9148f87",
     "language": "en-US",
     "metadata": {
+      "content_version": "0096b62ab932454ddf8c",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +252,7 @@
     "id": "item-b365401fd38a766d27b4",
     "language": "en-us",
     "metadata": {
+      "content_version": "347435db3961c5f49d11",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -340,6 +345,7 @@
     "id": "item-419a0d7bd8653188b6f4",
     "language": "en-us",
     "metadata": {
+      "content_version": "5146446e1490742659c1",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -370,6 +376,7 @@
     "id": "item-509b91e3e4df2739cbaa",
     "language": "en-US",
     "metadata": {
+      "content_version": "99734bcdaa3c7d58f8c9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -400,6 +407,7 @@
     "id": "item-51ee903b63bd893f4d54",
     "language": null,
     "metadata": {
+      "content_version": "a05392aebc523e94a8d0",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -551,6 +559,7 @@
     "id": "item-fd032ffc5aef010ed94a",
     "language": "en-us",
     "metadata": {
+      "content_version": "d5d16208ff1a3a768717",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -643,6 +652,7 @@
     "id": "item-7a00acf92df0c96e9750",
     "language": "en-us",
     "metadata": {
+      "content_version": "f3070a8b591537e2e750",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -673,6 +683,7 @@
     "id": "item-41f2b23db141d620003a",
     "language": "en-US",
     "metadata": {
+      "content_version": "4c6a9b6d01f3692dd0f3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -916,6 +927,7 @@
     "id": "item-f3899afd4d6a0a2de479",
     "language": null,
     "metadata": {
+      "content_version": "c79aac41b5721214472e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -946,6 +958,7 @@
     "id": "item-64730bcdfc3a35229b48",
     "language": "en-us",
     "metadata": {
+      "content_version": "b78e6ad4eaa5197de6d4",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -44347,6 +44360,7 @@
     "id": "item-40da866892d05d863b28",
     "language": "en",
     "metadata": {
+      "content_version": "039f3bd0f2095230687b",
       "data_anomaly": false,
       "forks": 1013,
       "official": true,
@@ -47079,11 +47093,20 @@
     "metadata": {
       "comments": 1,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic",
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49733794",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.euronews.com/health/2026/09/16/danish-pharma-giant-novo-to-use-anthropics-claude-to-advance-ai-drug-discovery",
       "score": 3,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -47289,6 +47312,7 @@
     "metadata": {
       "comments": 817,
       "community_signal": true,
+      "content_version": "a3d2204e7c5ffed511c2",
       "discussion_url": "https://news.ycombinator.com/item?id=49724141",
       "official": false,
       "original_url": "https://www.bbc.com/news/articles/cjwyzrr9d3dko",
@@ -47379,6 +47403,7 @@
     "metadata": {
       "comments": 179,
       "community_signal": true,
+      "content_version": "63dd516dcb90f1b53f66",
       "discussion_url": "https://news.ycombinator.com/item?id=49723408",
       "official": false,
       "original_url": "https://mistral.ai/news/mistral-x-mozilla/",
@@ -47439,11 +47464,19 @@
     "metadata": {
       "comments": 320,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49715947",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
       "score": 480,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -47573,6 +47606,7 @@
     "metadata": {
       "change_percent": 0.0045804597889559,
       "close": 673.3099975585938,
+      "content_version": "993a83deac09e276ffb5",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 670.239990234375,
@@ -49151,42 +49185,6 @@
     "url": "https://thenextweb.com/news/hugging-face-delangue-openai-100m-compute-traces-demand"
   },
   {
-    "author": "billybuckwheat",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-16T22:18:26.523889Z",
-    "id": "item-e90c93130a50fbd1e958",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic",
-        "hn_search:anthropic:Claude"
-      ],
-      "discovery_reasons": [
-        "watchlist_discovery"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49733794",
-      "hn_submission_time": 1789596975,
-      "lab_id": "anthropic",
-      "original_url": "https://www.euronews.com/health/2026/09/16/danish-pharma-giant-novo-to-use-anthropics-claude-to-advance-ai-drug-discovery",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-16T22:16:15Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Danish pharma giant Novo to use Anthropic's Claude to advance AI drug discovery",
-    "topic_candidates": [],
-    "url": "https://www.euronews.com/health/2026/09/16/danish-pharma-giant-novo-to-use-anthropics-claude-to-advance-ai-drug-discovery"
-  },
-  {
     "author": "standeven",
     "company_candidates": [],
     "content_excerpt": "As the title states.",
@@ -49821,38 +49819,6 @@
     "title": "Gemini 3.8 Live",
     "topic_candidates": [],
     "url": "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-live"
-  },
-  {
-    "author": "leumon",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-16T22:18:26.523889Z",
-    "id": "item-a19cea66070be2721663",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49715947",
-      "hn_submission_time": 1789493898,
-      "lab_id": "google_deepmind",
-      "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-15T17:38:18Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Gemini 3.8 Live and 3.8 Live Extended Thinking",
-    "topic_candidates": [],
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-8-live-gemini-3-8-live-extended-thinking/"
   },
   {
     "author": "thisisauserid",
