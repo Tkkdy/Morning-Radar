@@ -1,0 +1,133 @@
+{
+  "date": "2026-09-18",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认新品与集成，开发者需知平台变现方向，但细节未公开。",
+      "retain_for_trends": true,
+      "story_id": "story-3dd85e10c81eabdfbd52",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-platform-ad-monetization",
+        "agentic-commerce-integration"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "AI 安全研究热度与未发布模型失控叙事高度可验证，但当前仅媒体摘要。",
+      "retain_for_trends": true,
+      "story_id": "story-011586ec9edf8c9725a9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-safety-research-funding-surge",
+        "frontier-model-risk-incident-verification"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅 HN 标题与讨论，缺乏可核实功能细节，不足以作为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-c137919cb4158c6403aa",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "GitHub 官方扩展用量 API，反映 agentic CLI 采用可观测化，但属增量更新。",
+      "retain_for_trends": true,
+      "story_id": "story-317f4014be7a3e19a7ab",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agentic-cli-usage-observability"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方营销内容，无具体指标与案例，仅说明企业分析定位。",
+      "retain_for_trends": false,
+      "story_id": "story-6305bcde031fbf4aef8b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "公益培训活动，与开发者工作流和生产能力无直接关系。",
+      "retain_for_trends": false,
+      "story_id": "story-8a2b9a22d71fb6689ded",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仪表板展示功能参与度，属装饰性增量，无结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-deab1a9cc89596109282",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规 bugfix 与依赖升级版本发布，无结构性变化。",
+      "retain_for_trends": false,
+      "story_id": "story-3b280c26f7e5f493a049",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "社区弱信号提出 AI 编码工具影响语言兴趣，但无方法论，保留待后续验证。",
+      "retain_for_trends": true,
+      "story_id": "story-387ae42a61ef05bff91e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-coding-tool-impact-on-language-interest"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "报道称 FAA 大额 AI 投入，但金额与项目细节未经官方来源确认。",
+      "retain_for_trends": true,
+      "story_id": "story-58c5526bdc3925c91186",
+      "support_for_story_id": null,
+      "trend_links": [
+        "government-ai-infrastructure-spending"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-17T22:25:41.240649Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
