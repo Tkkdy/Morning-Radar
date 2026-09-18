@@ -1,0 +1,168 @@
+{
+  "date": "2026-09-19",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认弃用日期且覆盖全部 Copilot 交互形态，直接影响开发者迁移计划，但被弃用模型名单缺失故不做 STORY。",
+      "retain_for_trends": true,
+      "story_id": "story-44b43bb64814e6d59632",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-deprecation-migration-pressure",
+        "copilot-model-routing-instability"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方仅验证发布动作，能力与合规细节均为未验证 claim，属垂直场景产品化的可追踪弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-e35bddc5dba1be5215f1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vertical-frontier-productization-legal",
+        "enterprise-confidential-workload-packaging"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "每周例行更新且细节全部缺失，属装饰性 delta，不占读者注意力也不留作趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-d0dfa14f5634f5cd2359",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 4,
+      "reason": "水印作为安全对齐机制反而引入攻击面的说法若可复现将改变水印部署权衡，值得展开但尚需独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-d7beb7a9958c31cd27b4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "watermark-alignment-coupling-risk",
+        "provenance-mechanism-attack-surface"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方博客仅确认发布文章，工具形态与指标未明，作为推理性基准工具的厂商自述证据保留观察。",
+      "retain_for_trends": true,
+      "story_id": "story-9a47caba288bb66d4bf1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "inference-benchmark-tooling-fragmentation",
+        "vendor-authored-inference-benchmarks"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认的审查闭环改进对日常 workflow 有实际影响，但范围与质量数据缺失故降为轻量阅读。",
+      "retain_for_trends": true,
+      "story_id": "story-33a9fd58c395af0fa61c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agentic-code-review-loop-closure",
+        "ai-review-to-commit-automation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅由未核实法庭文件报道支撑的高层表态，读者价值有限但可用于追踪训练数据诉讼证据链。",
+      "retain_for_trends": true,
+      "story_id": "story-47e3b32c4c04191e4b50",
+      "support_for_story_id": null,
+      "trend_links": [
+        "training-data-scraping-litigation-evidence",
+        "ai-labor-displacement-legal-framing"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "单点补丁修复内存泄漏且影响版本范围不明，属已解决的技术维护，不保留为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-75aa8be91b47f8d36080",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "极小体积工具调用模型若可复现将实质改变边缘部署边界，但性能对比与规格均来自发布者自述。",
+      "retain_for_trends": true,
+      "story_id": "story-6c54c330f7e9c45db3a2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sub-30MB-edge-tool-calling-models",
+        "quantized-subnetwork-deployment-laddering",
+        "consumer-hardware-local-inference"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商客户案例营销叙事，无功能、效果或部署细节，不具读者价值与趋势验证用途。",
+      "retain_for_trends": false,
+      "story_id": "story-2a5c9a1e40a68cf728d2",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "内容被截断且无产品、版本或可用性信息，属无结构意义的宣传性技术博客。",
+      "retain_for_trends": false,
+      "story_id": "story-45eeb4a004abbae76035",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "标题带问号且无合作细节，仅可作为评估方外置模式的低可信弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-80ee6751b7e6256419a8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "embedded-model-evaluator-model",
+        "consultancy-mediated-model-assessment"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-18T21:50:38.772028Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

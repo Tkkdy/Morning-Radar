@@ -1,0 +1,789 @@
+[
+  {
+    "analysis": [
+      "该公告为官方一手事实性发布，弃用日期明确为 2026 年 10 月 19 日，影响面覆盖 Copilot 的全部主要交互形态，使用者需要在此日期前迁移到替代模型。",
+      "输入摘要中仅出现“Model Deprecation date…”的截断列表，未给出被弃用模型的具体名称，因此无法从现有证据判断哪些模型会下线。"
+    ],
+    "canonical_title": "GitHub 将于 2026 年 10 月 19 日弃用部分 GitHub Copilot 模型",
+    "category": "ai_coding",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 在官方 Changelog 中宣布，将于 2026 年 10 月 19 日弃用部分模型。",
+      "弃用范围覆盖所有 GitHub Copilot 体验，包括 Copilot Chat、行内编辑（inline edits）、ask 与 agent 模式以及代码补全（code completions）。",
+      "公告发布于 2026-09-18，作者为 Allison，来源为 GitHub Changelog。"
+    ],
+    "id": "story-44b43bb64814e6d59632",
+    "importance_score": 0.7,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october",
+    "product_names": [
+      "GitHub Copilot",
+      "Copilot Chat"
+    ],
+    "published_at": "2026-09-18T19:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-4cbf947485c627798e6c"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T19:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4cbf947485c627798e6c",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Upcoming deprecation of selected GitHub Copilot models in mid-October",
+        "url": "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-18-upcoming-deprecation-of-selected-github-copilot-models-in-mid-october"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "model_deprecation"
+    ],
+    "uncertainties": [
+      "输入内容被截断（“Model Deprecation date…”），被弃用的具体模型名称及各自弃用日期不明确。",
+      "未提供官方建议的替代模型或迁移指引。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "OpenAI for Law 是 OpenAI 面向法律垂直场景的产品化落地，强调在通用前沿模型之上叠加工作流、数据连接与合规控制。",
+      "将“法律级管控”与“机密客户工作”并列，说明该产品定位更偏向律所与企业法务的高敏感工作负载，而非通用消费级体验。",
+      "官方页面标题使用“Astra”，而摘要使用“OpenAI for Law”，可能表明 Astra 是底层模型或该产品线的品牌名，但输入未明确两者关系。"
+    ],
+    "canonical_title": "OpenAI for Law 发布：面向法律领域的 frontier intelligence 与法律级管控",
+    "category": "产品发布",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布 OpenAI for Law，官方页面标题为“Introducing Astra for Law”。",
+      "OpenAI for Law 提供面向法律领域的 frontier intelligence。",
+      "OpenAI for Law 支持自定义律所工作流（custom firm workflows）。",
+      "OpenAI for Law 可连接法律数据源（connected legal data sources）。",
+      "OpenAI for Law 提供法律级管控（legal-grade controls），用于机密客户工作。"
+    ],
+    "id": "story-e35bddc5dba1be5215f1",
+    "importance_score": 0.75,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://openai.com/index/astra-for-law",
+    "product_names": [
+      "OpenAI for Law",
+      "Astra"
+    ],
+    "published_at": "2026-09-17T00:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-192794312f979cbd50ee"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-17T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-192794312f979cbd50ee",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing Astra for Law",
+        "url": "https://openai.com/index/astra-for-law"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/astra-for-law"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "法律科技",
+      "数据合规"
+    ],
+    "uncertainties": [
+      "输入未说明 Astra 与 OpenAI for Law 之间的准确关系（Astra 是模型名、产品代号还是产品家族名）。",
+      "输入未列出具体可连接的“法律数据源”是哪些，也未说明连接方式。",
+      "输入未说明“legal-grade controls”具体包含哪些合规认证、数据隔离或审计能力。",
+      "输入未提供定价、可用地区、上线时间或与 ChatGPT / API 的关系。",
+      "输入中只有一条来源，无法交叉验证产品细节。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub Copilot 每周发布（9月14日）：新增模型选择、代码审查更新、Sentry 集成与代理功能",
+    "category": "AI 编程工具",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "Sentry"
+    ],
+    "facts": [
+      "GitHub 在官方更新日志中发布了 GitHub Copilot 的每周发布内容，对应 9 月 14 日当周，发布文章日期为 2026 年 9 月 18 日。",
+      "本周 Copilot 新增了模型选择选项。",
+      "本周 Copilot 更新了代码审查功能。",
+      "本周 Copilot 应用集成了 Sentry。",
+      "本周还包含面向管理员的更新，以及 Copilot 代理的新功能。"
+    ],
+    "id": "story-d0dfa14f5634f5cd2359",
+    "importance_score": 0.65,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14",
+    "product_names": [
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-18T19:21:22Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-d1bb380da0e9010a9729"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T19:21:22Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d1bb380da0e9010a9729",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Copilot weekly releases — September 14",
+        "url": "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-18-github-copilot-weekly-releases-september-14"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 编程助手",
+      "模型选择",
+      "代码审查",
+      "代理功能"
+    ],
+    "uncertainties": [
+      "官方摘要未具体说明新增了哪些模型选项、代码审查更新的具体内容、Sentry 集成的功能范围，以及面向管理员和代理功能更新的具体细节。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "若该发现可复现，则 AI 水印机制可能在安全对齐方面引入新的攻击面，说明水印与拒绝行为之间存在耦合风险。"
+    ],
+    "canonical_title": "SynthID 水印可令模型更易受对抗性提示影响",
+    "category": "AI 安全与对齐",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Google",
+      "SynthID"
+    ],
+    "facts": [
+      "Ars Technica 报道称，SynthID 水印可导致模型遵循其原本会拒绝的有害指令。",
+      "该报道由 Dan Goodin 撰写，于 2026-09-17 发布。"
+    ],
+    "id": "story-d7beb7a9958c31cd27b4",
+    "importance_score": 0.8,
+    "novelty_score": 0.75,
+    "primary_source_url": "https://arstechnica.com/security/2026/09/ai-text-watermarking-can-make-models-more-vulnerable-to-adversarial-prompts/",
+    "product_names": [
+      "SynthID"
+    ],
+    "published_at": "2026-09-17T18:33:13Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-03d1a58396c217350b5c"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-17T18:33:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-03d1a58396c217350b5c",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "LLMs respond differently to harmful prompts when AI watermarking is used",
+        "url": "https://arstechnica.com/security/2026/09/ai-text-watermarking-can-make-models-more-vulnerable-to-adversarial-prompts/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/09/ai-text-watermarking-can-make-models-more-vulnerable-to-adversarial-prompts/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "对抗性提示",
+      "AI 水印",
+      "模型安全",
+      "越狱"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要，未给出具体模型版本、测试条件与复现步骤。",
+      "该现象是否为所有水印方案或仅 SynthID 特有，尚不明确。",
+      "尚未确认该报道是否经过同行评审或独立验证。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "该文章来源为 NVIDIA 官方开发者博客，属于官方一手来源，可作为 AIPerf 相关事实的底座。",
+      "文章聚焦于大规模 LLM 推理的性能评测问题，契合 AI 基础设施与模型部署场景。"
+    ],
+    "canonical_title": "NVIDIA 发布 AIPerf：面向大规模 LLM 推理的基准测试工具",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇标题为 \"Benchmarking LLM Inference at Scale with AIPerf\" 的文章，作者为 Elizabeth Goodman，发布时间为 2026-09-18T19:04:41Z。",
+      "文章摘要提到，在系统上部署模型后，模型启动并能对提示返回响应，接下来的难题是判断它是否够快。",
+      "文章与主题 ai_models 和 ai_infrastructure 相关。"
+    ],
+    "id": "story-9a47caba288bb66d4bf1",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/benchmarking-llm-inference-at-scale-with-aiperf/",
+    "product_names": [
+      "AIPerf"
+    ],
+    "published_at": "2026-09-18T19:04:41Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a1668928fd43d0c6cf05"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T19:04:41Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a1668928fd43d0c6cf05",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Benchmarking LLM Inference at Scale with AIPerf",
+        "url": "https://developer.nvidia.com/blog/benchmarking-llm-inference-at-scale-with-aiperf/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/benchmarking-llm-inference-at-scale-with-aiperf/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "LLM inference benchmarking",
+      "LLM inference at scale"
+    ],
+    "uncertainties": [
+      "输入仅提供文章摘要与内容片段，未给出 AIPerf 的具体功能、支持的指标或版本信息。",
+      "AIPerf 是否已公开发布、以何种形式提供（开源、产品等）尚不明确。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "此次更新聚焦于审查生命周期管理：通过呈现审查随时间的变化，帮助开发者追踪 Copilot 建议的演进与处理状态。",
+      "自动解决自身建议与生成提交信息，旨在减少接受建议后的手动整理工作，可能提升 AI 辅助代码审查的闭环效率。"
+    ],
+    "canonical_title": "GitHub Copilot 代码审查推出改进体验：审查变化视图、自动解决建议与提交信息生成",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "Copilot"
+    ],
+    "facts": [
+      "GitHub 发布 Copilot code review 的改进体验。",
+      "Copilot code review 现在提供更清晰的视图，展示审查随时间的变化。",
+      "Copilot code review 能更智能地自动解决其自身提出的建议。",
+      "在用户接受建议时，Copilot code review 会生成有用的提交信息。"
+    ],
+    "id": "story-33a9fd58c395af0fa61c",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience",
+    "product_names": [
+      "Copilot code review"
+    ],
+    "published_at": "2026-09-18T20:17:22Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-90422616cebb86f46f0a"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T20:17:22Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-90422616cebb86f46f0a",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Copilot code review: An improved review experience",
+        "url": "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-18-copilot-code-review-an-improved-review-experience"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "公告未说明这些改进功能的具体可用范围、启用方式或是否面向所有 GitHub 计划用户。",
+      "公告未提供自动解决建议的准确率或生成提交信息的质量评估数据。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "微软高管将 AI 抓取称为“人类历史上最大的劳动力盗窃”",
+    "category": "人工智能伦理与法律",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Microsoft"
+    ],
+    "facts": [],
+    "id": "story-47e3b32c4c04191e4b50",
+    "importance_score": 0.7,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+    "product_names": [],
+    "published_at": "2026-09-18T09:45:07Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-499506fa2dd412d84937"
+    ],
+    "source_refs": [
+      {
+        "author": "pluc",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49752056",
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T09:45:07Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-499506fa2dd412d84937",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Microsoft exec called AI scraping 'the largest theft of labor in human history'",
+        "url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
+      "https://news.ycombinator.com/item?id=49752056"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 抓取",
+      "数据版权",
+      "生成式 AI 训练数据"
+    ],
+    "uncertainties": [
+      "该说法来自 TechCrunch 报道，据称为新近解封的法庭文件所揭示，但输入未提供可核实的原始文件内容。",
+      "相关报道目前仅作为未经核实的线索出现，尚未获得官方或一手来源确认。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "该版本为补丁级发布（3.16.1 至 3.16.2），变更范围仅限一处解析相关缺陷修复，不涉及新功能或破坏性变更。",
+      "parse_response 是 SDK 中用户解析模型响应的常用入口，因此该内存泄漏修复对长时间运行或高并发调用的应用具有实际价值。"
+    ],
+    "canonical_title": "openai/openai-python 发布 v3.16.2，修复 parse_response 内存泄漏",
+    "category": "open_source_ai",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "openai/openai-python 于 2026-09-18 发布 v3.16.2 版本。",
+      "本次发布的变更内容为 Bug Fixes：在 parse_response 中移除 TextFormatT 参数化，以修复内存泄漏。",
+      "该修复关联 issue #3084 与 PR #3088，提交哈希为 009b7f6。"
+    ],
+    "id": "story-75aa8be91b47f8d36080",
+    "importance_score": 0.35,
+    "novelty_score": 0.15,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.16.2",
+    "product_names": [
+      "openai-python",
+      "v3.16.2",
+      "parse_response"
+    ],
+    "published_at": "2026-09-18T21:26:27Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-b7a89efefcc3e84135e4"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T21:26:27Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b7a89efefcc3e84135e4",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.16.2",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.16.2"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.16.2"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入摘要未说明内存泄漏的具体触发条件、影响版本范围以及严重程度。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "Needle 3 延续 Cactus 在小参数规模上追求设备端自动化能力的路线，通过子网络分层在单套权重内提供多种部署规模。",
+      "用 Monarch Hadamard MLP 以 O(d√d) 替换稠密 MLP 的 O(d²) 开销，是其在极小体积下维持能力的关键结构选择。",
+      "Mobile Actions 对比中，Needle 3 的 20 层 2-bit 版本高于多个 f16 基线，但这仅为单一基准，发帖者亦承认并非在所有项目上领先。"
+    ],
+    "canonical_title": "Cactus 发布 Needle 3：8-29MB 自动化模型，宣称可匹配 DeepSeek V4 Flash",
+    "category": "模型发布",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Cactus",
+      "DeepSeek",
+      "Qwen",
+      "Apple",
+      "LFM2.5"
+    ],
+    "facts": [
+      "Cactus 在 Hacker News 上发布 Needle 3，作者为 HenryNdubuaku，发布时间为 2026-09-18T00:11:44Z。",
+      "Needle 3 按设计不进行对话，聚焦工具调用与结构化 JSON 输出；若请求不匹配已声明的工具，则返回空列表。",
+      "Needle 3 采用 Intelligence Laddering：第 2 至第 20 层均为可部署子网络，同一套权重，25 至 121 百万参数、2-bit 量化，以 8-29MB 二进制发布。",
+      "在 Raspberry Pi 5 上，Needle 3 解码速度最高 4k tokens/秒，预填充最高 10k。",
+      "Needle 3 使用 Monarch Hadamard MLP，以三对可学习的 Walsh-Hadamard 初始化的 Kronecker（Monarch）因子对替换稠密 FFN，并交错逐通道对角缩放、固定置换、SiLU 非线性以及 rank-8 输入条件门控。",
+      "在 Mobile Actions 基准（按精确调用评分）上，20 层模型的 2-bit 发布版本得分为 86.0；LFM2.5 1.2B 为 82.4，Qwen3.5 0.8B 为 76.0，Apple 端侧模型为 57.6，均为 f16。",
+      "发布者称 Needle 3 现已支持多语言。",
+      "该内容来自 Hacker News 社区发现，帖子为非官方发布，得分 133，评论 69 条。"
+    ],
+    "id": "story-6c54c330f7e9c45db3a2",
+    "importance_score": 0.45,
+    "novelty_score": 0.78,
+    "primary_source_url": "https://cactuscompute.com/needle",
+    "product_names": [
+      "Needle 3",
+      "Needle 2",
+      "DeepSeek V4 Flash",
+      "Monarch Hadamard MLP",
+      "Qwen3.5 0.8B",
+      "LFM2.5 1.2B"
+    ],
+    "published_at": "2026-09-18T00:11:44Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-0f386af66f5d69b20dc8"
+    ],
+    "source_refs": [
+      {
+        "author": "HenryNdubuaku",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49748553",
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": "implementation_insight",
+        "published_at": "2026-09-18T00:11:44Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0f386af66f5d69b20dc8",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: Cactus Needle 3: 8-29MB automation models can match DeepSeek V4 Flash",
+        "url": "https://cactuscompute.com/needle"
+      }
+    ],
+    "source_urls": [
+      "https://cactuscompute.com/needle",
+      "https://news.ycombinator.com/item?id=49748553"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "边缘端小模型",
+      "工具调用与结构化 JSON 输出",
+      "模型量化"
+    ],
+    "uncertainties": [
+      "标题所称“可匹配 DeepSeek V4 Flash”未在正文证据中给出对应的基准数据或对比细节。",
+      "Mobile Actions 基准的评分方法、测试集与可复现性未在输入中说明。",
+      "8-29MB 二进制、25 至 121 百万参数与 2-bit 量化等规格来自发布者自述，缺少独立验证。",
+      "多语言支持的具体语言列表与效果未在输入中展开。",
+      "Needle 3 的发布时间、版本号与可用状态仅来自该 Hacker News 帖子，尚无官方一手来源确认。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "该信息来自 OpenAI 官方发布渠道，属于官方一手信息，可作为事实底座。",
+      "文章核心叙事是法律行业通过 ChatGPT Work 构建定制化 IPO 工作流，表明 AI 在企业专业服务领域的落地场景进一步扩展。"
+    ],
+    "canonical_title": "Cooley 使用 ChatGPT Work 构建 GO Public 以加速 IPO 工作",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Cooley",
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI News 发布了一篇关于 Cooley 如何使用 ChatGPT Work 加速 IPO 工作的文章，标题为 'How Cooley is accelerating IPO work with ChatGPT'。",
+      "文章发布于 2026-09-17T12:00:00Z，来源为 OpenAI News，来源类型为 rss，来源角色为 official_primary，声明类型为 factual_announcement。",
+      "文章摘要指出，Cooley 使用 ChatGPT Work 构建了 GO Public，将智能引入 IPO 流程，帮助律师更早发现问题并专注于关键判断。"
+    ],
+    "id": "story-2a5c9a1e40a68cf728d2",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/cooley-gopublic",
+    "product_names": [
+      "ChatGPT Work",
+      "GO Public"
+    ],
+    "published_at": "2026-09-17T12:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-d22acfa5d0cc1d093c4a"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-17T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d22acfa5d0cc1d093c4a",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Cooley is accelerating IPO work with ChatGPT",
+        "url": "https://openai.com/index/cooley-gopublic"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/cooley-gopublic"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入未提供 GO Public 的具体功能细节、技术架构、部署范围或实际效果数据。",
+      "输入未说明 Cooley 与 OpenAI 的合作性质、是否涉及商业协议或独家授权。",
+      "输入未提供 GO Public 的上线状态、可用范围或用户规模。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "该内容属于官方技术博客的事实性发布，可作为 NVIDIA 在 Agentic AI 与仿真准备方向上的官方表述。",
+      "文章主题位于 AI Agents 与 AI 基础设施/仿真交叉方向，但不涉及具体产品、版本或客户案例。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍使用 AI Agents 为仿真准备 3D 场景",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布文章《How to Use AI Agents to Prepare 3D Scenes for Simulation》，作者为 Tanya Lenz，发布时间为 2026-09-16T23:20:33Z。",
+      "该文章称 Agentic AI 工作流可用于为物理 AI 系统准备和验证数字孪生，Agents 可以检查 3D 场景并编写仿真相关数据。"
+    ],
+    "id": "story-45eeb4a004abbae76035",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-use-ai-agents-to-prepare-3d-scenes-for-simulation/",
+    "product_names": [],
+    "published_at": "2026-09-16T23:20:33Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-e538d279a1ab4018b7b8"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-16T23:20:33Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e538d279a1ab4018b7b8",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Use AI Agents to Prepare 3D Scenes for Simulation",
+        "url": "https://developer.nvidia.com/blog/how-to-use-ai-agents-to-prepare-3d-scenes-for-simulation/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-use-ai-agents-to-prepare-3d-scenes-for-simulation/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI Agents",
+      "3D 场景准备",
+      "仿真",
+      "数字孪生",
+      "物理 AI"
+    ],
+    "uncertainties": [
+      "输入摘要被截断，未提供文章所述工作流的具体实现细节、工具链或可用性状态。",
+      "文章未列出任何产品名称、版本号或发布状态。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  },
+  {
+    "analysis": [
+      "若该报道属实，Anthropic 采用嵌入式评估方模式，Accenture 成为其首个此类合作方，可能意味着模型评估与咨询交付深度结合。",
+      "文章标题以问号结尾，暗示该合作仍带有待确认性质。"
+    ],
+    "canonical_title": "Anthropic 首家嵌入式评估方为 Accenture",
+    "category": "ai_industry",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Anthropic",
+      "Accenture"
+    ],
+    "facts": [
+      "TechCrunch AI 于 2026-09-18T21:44:33Z 发布标题为“Anthropic’s first embedded evaluator is … Accenture?”的文章，作者为 Tim Fernholz。",
+      "文章摘要称：Accenture 即将承担其史上风险最高的咨询项目。"
+    ],
+    "id": "story-80ee6751b7e6256419a8",
+    "importance_score": 0.4,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/09/18/anthropics-first-embedded-evaluator-is-accenture/",
+    "product_names": [],
+    "published_at": "2026-09-18T21:44:33Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-e88f2ebb1ff3d5723f90"
+    ],
+    "source_refs": [
+      {
+        "author": "Tim Fernholz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-18T21:50:09.988530Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-18T21:44:33Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e88f2ebb1ff3d5723f90",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Anthropic’s first embedded evaluator is … Accenture?",
+        "url": "https://techcrunch.com/2026/09/18/anthropics-first-embedded-evaluator-is-accenture/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/18/anthropics-first-embedded-evaluator-is-accenture/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "摘要未说明“embedded evaluator”的具体职责、合作范围或协议状态。",
+      "除标题与摘要外，输入未提供更多细节以核实该合作是否已正式宣布或生效。",
+      "Accenture 承担“风险最高的咨询项目”的表述来自编辑性摘要，属评估性措辞，非官方事实。"
+    ],
+    "updated_at": "2026-09-18T21:50:38.772028Z"
+  }
+]

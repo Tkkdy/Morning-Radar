@@ -1,0 +1,135 @@
+{
+  "date": "2026-09-19",
+  "generated_at": "2026-09-18T21:50:38.772028Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Google",
+        "SynthID"
+      ],
+      "event_type": "opened",
+      "expectation": "观察是否出现对该现象的独立复现或澄清，以及是否确认其仅适用于 SynthID 还是波及更广泛的水印方案。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "SynthID"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-18T21:50:38.772028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-19",
+          "story_id": "story-d7beb7a9958c31cd27b4"
+        }
+      ],
+      "topic_anchors": [
+        "对抗性提示",
+        "AI 水印",
+        "模型安全"
+      ],
+      "watch_id": "watch-cf8f94f0391ad86158d6"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否补充公布被弃用模型的具体名称与替代模型指引，以及是否出现针对即将到来的弃用日期的迁移说明。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot",
+        "Copilot Chat"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-18T21:50:38.772028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-19",
+          "story_id": "story-44b43bb64814e6d59632"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "model_deprecation"
+      ],
+      "watch_id": "watch-555e64f2476f3c317eb9"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Sentry"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub 是否会在后续更新中披露本周新增模型选择的具体模型清单与代码审查改进的适用范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-18T21:50:38.772028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-19",
+          "story_id": "story-d0dfa14f5634f5cd2359"
+        }
+      ],
+      "topic_anchors": [
+        "模型选择",
+        "代码审查",
+        "代理功能"
+      ],
+      "watch_id": "watch-1d055eab11f5f1589ae6"
+    },
+    {
+      "entity_anchors": [
+        "Cactus",
+        "DeepSeek"
+      ],
+      "event_type": "opened",
+      "expectation": "Cactus 是否会发布 Needle 3 的官方一手发布说明，或提供与 DeepSeek V4 Flash 对比的基准数据与 Mobile Actions 评测细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Needle 3",
+        "DeepSeek V4 Flash"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-18T21:50:38.772028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-19",
+          "story_id": "story-6c54c330f7e9c45db3a2"
+        }
+      ],
+      "topic_anchors": [
+        "边缘端小模型",
+        "工具调用与结构化 JSON 输出"
+      ],
+      "watch_id": "watch-e9029ea676582a5c3fd2"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "NVIDIA 是否会公布 AIPerf 的具体功能、支持指标以及提供形式（开源或产品）。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "AIPerf"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-18T21:50:38.772028Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-19",
+          "story_id": "story-9a47caba288bb66d4bf1"
+        }
+      ],
+      "topic_anchors": [
+        "LLM inference benchmarking"
+      ],
+      "watch_id": "watch-ad27e87a535dbf2cd317"
+    }
+  ]
+}

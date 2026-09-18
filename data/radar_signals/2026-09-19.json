@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Cactus 团队在 Show HN 发布 Needle 3，声称 8–29MB 的自动化模型（专注工具调用与结构化 JSON 输出，不提供对话）可匹配 DeepSeek V4 Flash。",
+    "id": "radar-094d48ac889ffb71ce83",
+    "missing_evidence": [
+      "可复现的基准测试与评测方法",
+      "与 DeepSeek V4 Flash 的逐项对比数据",
+      "模型权重、许可与运行环境细节",
+      "第三方或社区的独立验证"
+    ],
+    "observed_at": "2026-09-18T21:50:09.988530Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "marketing_self_promotion",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-0f386af66f5d69b20dc8",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://cactuscompute.com/needle"
+      }
+    ],
+    "uncertainty": "内容来自厂商创始人的自我发布，摘要被截断，无独立证据支持；“可匹配 DeepSeek V4 Flash”的具体口径（任务集、指标、量化条件）不明。",
+    "why_notable": "若成立，极小体积模型在工具调用/结构化输出上达到前沿模型水平，会显著影响边缘与低成本 agent 部署的可行性判断。"
+  }
+]

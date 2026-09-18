@@ -1,0 +1,77 @@
+[
+  {
+    "created_at": "2026-09-18T21:50:38.772028Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 7 个来源支持。",
+    "id": "signal-7ba662f8da05e87c8b13",
+    "metric_history": [
+      {
+        "date": "2026-09-17",
+        "story_count": 2
+      },
+      {
+        "date": "2026-09-18",
+        "story_count": 2
+      },
+      {
+        "date": "2026-09-19",
+        "story_count": 3
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 14,
+    "supporting_source_count": 7,
+    "supporting_story_ids": [
+      "story-4ca44822f07928fd043f",
+      "story-4026705f5605c88d4ad3",
+      "story-011586ec9edf8c9725a9",
+      "story-58c5526bdc3925c91186",
+      "story-e35bddc5dba1be5215f1",
+      "story-2a5c9a1e40a68cf728d2",
+      "story-80ee6751b7e6256419a8"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-09-18T21:50:38.772028Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-09-18T21:50:38.772028Z",
+    "explanation": "ai_coding 连续 3 天保持或增加事件量，且有 10 个来源支持。",
+    "id": "signal-a9534dcf0cd7c0f2be3e",
+    "metric_history": [
+      {
+        "date": "2026-09-17",
+        "story_count": 1
+      },
+      {
+        "date": "2026-09-18",
+        "story_count": 4
+      },
+      {
+        "date": "2026-09-19",
+        "story_count": 5
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 13,
+    "supporting_source_count": 10,
+    "supporting_story_ids": [
+      "story-4ca44822f07928fd043f",
+      "story-317f4014be7a3e19a7ab",
+      "story-deab1a9cc89596109282",
+      "story-3b280c26f7e5f493a049",
+      "story-58c5526bdc3925c91186",
+      "story-44b43bb64814e6d59632",
+      "story-e35bddc5dba1be5215f1",
+      "story-33a9fd58c395af0fa61c",
+      "story-75aa8be91b47f8d36080",
+      "story-80ee6751b7e6256419a8"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-09-18T21:50:38.772028Z",
+    "window_days": 3
+  }
+]

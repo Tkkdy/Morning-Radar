@@ -7,6 +7,7 @@
     "id": "item-d22acfa5d0cc1d093c4a",
     "language": null,
     "metadata": {
+      "content_version": "0ec5f762b631f408e821",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-90422616cebb86f46f0a",
     "language": "en-US",
     "metadata": {
+      "content_version": "fa2ee1bd728e29b79660",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-a1668928fd43d0c6cf05",
     "language": null,
     "metadata": {
+      "content_version": "baa12e13047ba6d0236e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -157,6 +160,7 @@
     "id": "item-e88f2ebb1ff3d5723f90",
     "language": "en-US",
     "metadata": {
+      "content_version": "708a0550637273b864eb",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -217,6 +221,7 @@
     "id": "item-03d1a58396c217350b5c",
     "language": "en-US",
     "metadata": {
+      "content_version": "dbd98b5db9f7061c322f",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +253,7 @@
     "id": "item-d24cf3d00a4598572647",
     "language": "en-us",
     "metadata": {
+      "content_version": "fe8058bf40c65ad5c609",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +316,7 @@
     "id": "item-192794312f979cbd50ee",
     "language": null,
     "metadata": {
+      "content_version": "552c3d2636cd02510c65",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -370,6 +377,7 @@
     "id": "item-32006e5a8d11086972b6",
     "language": "en-US",
     "metadata": {
+      "content_version": "2fabe0e23343e88dfb9b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -400,6 +408,7 @@
     "id": "item-e538d279a1ab4018b7b8",
     "language": null,
     "metadata": {
+      "content_version": "69ab51576d7830343130",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -673,6 +682,7 @@
     "id": "item-d1bb380da0e9010a9729",
     "language": "en-US",
     "metadata": {
+      "content_version": "f10aa129ae352809fd32",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -976,6 +986,7 @@
     "id": "item-4cbf947485c627798e6c",
     "language": "en-US",
     "metadata": {
+      "content_version": "0051bfb2870a8d7b1007",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1279,6 +1290,7 @@
     "id": "item-4f937e072c6920ec30d8",
     "language": "en-US",
     "metadata": {
+      "content_version": "dcd02055fe377aef45f5",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -43507,6 +43519,7 @@
     "id": "item-b7a89efefcc3e84135e4",
     "language": "en",
     "metadata": {
+      "content_version": "5107bccd14c9ea2d82ae",
       "data_anomaly": false,
       "forks": 5680,
       "official": true,
@@ -47319,6 +47332,7 @@
     "metadata": {
       "comments": 738,
       "community_signal": true,
+      "content_version": "8d4a5b343b5e06f548bb",
       "discussion_url": "https://news.ycombinator.com/item?id=49752056",
       "official": false,
       "original_url": "https://techcrunch.com/2026/09/17/microsoft-exec-called-ai-scraping-the-largest-theft-of-labor-in-human-history-new-unredacted-filings-reveal/",
@@ -47409,6 +47423,7 @@
     "metadata": {
       "comments": 691,
       "community_signal": true,
+      "content_version": "45c238a1b01dd7adef53",
       "discussion_url": "https://news.ycombinator.com/item?id=49753211",
       "official": false,
       "original_url": "https://hawksley.dev/blog/i-dont-like-passkeys",
@@ -47709,11 +47724,19 @@
     "metadata": {
       "comments": 196,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49749656",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://www.hacktron.ai/blog/hacking-openai",
       "score": 460,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -47739,11 +47762,20 @@
     "metadata": {
       "comments": 69,
       "community_signal": true,
+      "content_version": "d03845ddaf4988710a42",
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49748553",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://cactuscompute.com/needle",
       "score": 133,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": "implementation_insight",
@@ -48031,6 +48063,7 @@
     "metadata": {
       "change_percent": -0.0025815878848293766,
       "close": 336.1300048828125,
+      "content_version": "4b1665df0eaaef19cd60",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 337.0,
@@ -48917,38 +48950,6 @@
     "url": "https://www.reddit.com/r/artificial/comments/1wi2zm9/a_deepseek_engineer_just_said_the_thing_ive_been/"
   },
   {
-    "author": "HenryNdubuaku",
-    "company_candidates": [],
-    "content_excerpt": "Hey HN, Henry from Cactus here. We submitted Needle 2 here a few weeks ago, and the feedback in the discussion thread was incredibly valuable, thanks! Thanks to all that feedback, we’ve been able to move quickly to release Needle 3 and I'd love to hear what you think again. The key features: 1) Automation (tool calls & structured JSON output): Needle still doesn't chat by design, its quite challenging to pack general capacity into such small models, so we focus on tool calls and structured JSON. If no tool you declared fits the request, you get an empty list back (note for when playing with the demo). 2) Intelligence Laddering: Every layer (2 to 20) is a deployable subnetwork, so one set of weights, 25 to 121 million parameters at 2-bit, shipping as 8-29MB binaries. On a Raspberry Pi 5 it decodes at up to 4k tokens/sec and prefills at up to 10k. 3) Monarch Hadamard MLP: replaces the dense FFN with three learnable Walsh-Hadamard-initialized Kronecker (Monarch) factor pairs interleaved with per-channel diagonal scales, fixed permutations, a SiLU nonlinearity, and a rank-8 input-conditioned gate, so each token gets a fully mixed nonlinear transform of its d_model channels at O(d√d) parameters and compute instead of the O(d²) a dense 4x-expansion MLP would cost. 4) Performance: On Mobile Actions (phone commands, scored on the exact call) the 20-layer model gets 86.0 through the shipped 2-bit binary; LFM2.5 1.2B is at 82.4, Qwen3.5 0.8B at 76.0, Apple's on-device model at 57.6, all at f16. More results on the link, we do not win everywhere ofc. 5) Multilingual: Needle 3 now supp",
-    "fetched_at": "2026-09-18T21:50:09.988530Z",
-    "id": "item-0f386af66f5d69b20dc8",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49748553",
-      "hn_submission_time": 1789690304,
-      "lab_id": "deepseek",
-      "original_url": "https://cactuscompute.com/needle",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-18T00:11:44Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "Hey HN, Henry from Cactus here. We submitted Needle 2 here a few weeks ago, and the feedback in the discussion thread was incredibly valuable, thanks! Thanks to all that feedback, we’ve been able to move quickly to release Needle 3 and I'd love to hear what you think again. The k",
-    "title": "Show HN: Cactus Needle 3: 8-29MB automation models can match DeepSeek V4 Flash",
-    "topic_candidates": [],
-    "url": "https://cactuscompute.com/needle"
-  },
-  {
     "author": "JumpCrisscross",
     "company_candidates": [],
     "content_excerpt": "",
@@ -49385,38 +49386,6 @@
     "title": "HEIF Heist- Hacking OpenAI, Slack, Meta, GitHub and Many Others",
     "topic_candidates": [],
     "url": "https://heif-heist.com"
-  },
-  {
-    "author": "Handy-Man",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-18T21:50:09.988530Z",
-    "id": "item-97e0d4a8107642fc80db",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49749656",
-      "hn_submission_time": 1789699644,
-      "lab_id": "openai",
-      "original_url": "https://www.hacktron.ai/blog/hacking-openai",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-18T02:47:24Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "A heap overflow and SSO misconfiguration to compromise OpenAI internal repos",
-    "topic_candidates": [],
-    "url": "https://www.hacktron.ai/blog/hacking-openai"
   },
   {
     "author": "impish9208",
