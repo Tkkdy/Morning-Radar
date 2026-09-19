@@ -1,0 +1,141 @@
+{
+  "date": "2026-09-20",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "媒体指称的隔离突破与延迟披露是开发者必须知道的安全治理信号，但缺少官方确认与细节。",
+      "retain_for_trends": true,
+      "story_id": "story-d40985626b2d47f45eb1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-sandbox-escape-and-disclosure",
+        "autonomous-agent-security-incident-reporting"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方一手来源可验证发表了该优化，但100TB级收益需正文与复现确认。",
+      "retain_for_trends": true,
+      "story_id": "story-dbcc20b8e07d70cfc6d5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "infrastructure-memory-cost-reduction",
+        "rust-service-efficiency"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "与Gemini越界测试事件同源且可信度更低，只作为该主Story的补充报道。",
+      "retain_for_trends": false,
+      "story_id": "story-73671aa871b30360c547",
+      "support_for_story_id": "story-d40985626b2d47f45eb1",
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方release可验证，/api/show暴露thinking档位对本地部署工具链有持续意义。",
+      "retain_for_trends": true,
+      "story_id": "story-44d6869eaa3d31c02d49",
+      "support_for_story_id": null,
+      "trend_links": [
+        "local-inference-runtime-capability-parity",
+        "thinking-effort-api-control"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "个人体验式隐私担忧，无技术细节或可验证机制，一句带过即可。",
+      "retain_for_trends": false,
+      "story_id": "story-312246d51393ebe1d748",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "抽象政策蓝图，未见对开发能力、成本或工具的实质影响，默认只作后台证据但不保留趋势。",
+      "retain_for_trends": false,
+      "story_id": "story-10d01bd3af7403385e5f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "未经证实且无正文的IPO时间传闻，无读者决策价值。",
+      "retain_for_trends": false,
+      "story_id": "story-75d0e63039aabf2ec5be",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "品牌营销合作内容，无结构性开发者或市场影响。",
+      "retain_for_trends": false,
+      "story_id": "story-d11826ce01745dd1ae02",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "无复现实验、无性能数据的匿名自述，不构成可用证据。",
+      "retain_for_trends": false,
+      "story_id": "story-b0b6afd9fc593a80dad3",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "个人设计经验分享，无可复用机制或趋势验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-9f2baf542af5ebbacb71",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅人事增补的公告，无能力、价格或工具影响。",
+      "retain_for_trends": false,
+      "story_id": "story-4c5c042ea3f2fe9dd221",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-19T21:44:04.285167Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

@@ -7,6 +7,7 @@
     "id": "item-a00923bf4ddda7153647",
     "language": null,
     "metadata": {
+      "content_version": "2fae026f82834ed961aa",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-2ad49dd9b65fe3aef9a7",
     "language": "en-us",
     "metadata": {
+      "content_version": "c1287275e89ff7aedee5",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-2b8896639e820b562d15",
     "language": "en-us",
     "metadata": {
+      "content_version": "7b36cd69ef12f96761f6",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -127,6 +130,7 @@
     "id": "item-f1a03220ac629bb7672f",
     "language": "en-US",
     "metadata": {
+      "content_version": "e7d6636423d2ad0fbb27",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -157,6 +161,7 @@
     "id": "item-b4233d80af418d7dffeb",
     "language": "en-US",
     "metadata": {
+      "content_version": "93a93bdeea59ae83c2b7",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -218,6 +223,7 @@
     "id": "item-aeb5f849d79860b9aba7",
     "language": "en-us",
     "metadata": {
+      "content_version": "08b962f16c132b53d7b2",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +316,7 @@
     "id": "item-332bec2b752a921dc077",
     "language": "en-us",
     "metadata": {
+      "content_version": "98c05475419553f52bc3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -400,6 +407,7 @@
     "id": "item-ef57ec1c7b8c93591522",
     "language": "en-US",
     "metadata": {
+      "content_version": "dc56fc525f3076aabac5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -430,6 +438,7 @@
     "id": "item-fd29565670e26ee46611",
     "language": "en-US",
     "metadata": {
+      "content_version": "f12042a43ef6e9f9ec3c",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -491,6 +500,7 @@
     "id": "item-cd7d3f3cc962b4c47172",
     "language": "en-us",
     "metadata": {
+      "content_version": "b9917763dc6c2e8568ec",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -673,6 +683,7 @@
     "id": "item-675a197c701faf4cedaa",
     "language": "en-US",
     "metadata": {
+      "content_version": "3bae86bc1b4a3e0f027e",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -946,6 +957,7 @@
     "id": "item-0c5324178046e5a1e6ed",
     "language": "en-US",
     "metadata": {
+      "content_version": "21bb61bfd961d6394e76",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -45927,6 +45939,7 @@
     "id": "item-a99de169c91807753cbd",
     "language": "en",
     "metadata": {
+      "content_version": "4d32d3f3bb03a3648cf2",
       "data_anomaly": false,
       "forks": 17935,
       "official": true,
@@ -47079,6 +47092,7 @@
     "metadata": {
       "comments": 228,
       "community_signal": true,
+      "content_version": "4dc873c8f367e7107119",
       "discussion_url": "https://news.ycombinator.com/item?id=49765348",
       "official": false,
       "original_url": "https://laya.convaiinnovations.com/",
@@ -47109,6 +47123,7 @@
     "metadata": {
       "comments": 668,
       "community_signal": true,
+      "content_version": "1f6b52792d99e420152f",
       "discussion_url": "https://news.ycombinator.com/item?id=49764791",
       "official": false,
       "original_url": "https://john.hartnup.uk/2026/06/07/ai-event-posters.html",
@@ -47289,11 +47304,19 @@
     "metadata": {
       "comments": 264,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49760187",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://code.claude.com/docs/en/changelog",
       "score": 712,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -47505,6 +47528,7 @@
     "metadata": {
       "change_percent": -0.007975893964245353,
       "close": 493.7799987792969,
+      "content_version": "8c68f638886168b5af74",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 497.75,
@@ -49150,6 +49174,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "c19ed551016552c5535a",
       "discovery_paths": [
         "hn_search:anthropic:Anthropic"
       ],
@@ -49980,38 +50005,6 @@
     "title": "Bring back Opus 4.8 in Claude Code",
     "topic_candidates": [],
     "url": "https://osr.im/notes/claude-code-model-picker-older-opus/"
-  },
-  {
-    "author": "datadrivenangel",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-19T21:43:31.685142Z",
-    "id": "item-a6ad541ad0b728dc434f",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49760187",
-      "hn_submission_time": 1789765232,
-      "lab_id": "anthropic",
-      "original_url": "https://code.claude.com/docs/en/changelog",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-18T21:00:32Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Code now reads AGENTS.md if there is no Claude.md",
-    "topic_candidates": [],
-    "url": "https://code.claude.com/docs/en/changelog"
   },
   {
     "author": "datadrivenangel",
