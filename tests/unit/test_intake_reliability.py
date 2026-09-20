@@ -260,3 +260,31 @@ def test_cli_collect_help_and_inspect_unknown() -> None:
     assert collect_help.dry_run is True
     inspect_help = parser.parse_args(["inspect", "--url", "https://example.com/x", "--json"])
     assert inspect_help.command == "inspect"
+
+
+def test_cli_collect_reports_checkpoint_business_date_across_utc_boundary(
+    tmp_path, monkeypatch, capsys
+) -> None:
+    from morning_radar.cli import main
+
+    source = Path(".").resolve()
+    project = tmp_path / "project"
+    shutil.copytree(source / "config", project / "config")
+    shutil.copytree(source / "fixtures", project / "fixtures")
+    monkeypatch.chdir(project)
+
+    assert (
+        main(
+            [
+                "collect",
+                "--fixtures",
+                "--dry-run",
+                "--now",
+                "2026-09-19T21:45:00Z",
+            ]
+        )
+        == 0
+    )
+
+    payload = json.loads(capsys.readouterr().out)
+    assert payload["business_date"] == "2026-09-20"

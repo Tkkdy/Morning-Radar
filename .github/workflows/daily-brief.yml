@@ -67,7 +67,9 @@ jobs:
           if [[ "${{ inputs.dry_run || false }}" == "true" ]]; then flags+=(--dry-run); fi
           python -m morning_radar collect "${flags[@]}" > "${RUNNER_TEMP}/collect.json"
           batch_id="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["batch_id"])' "${RUNNER_TEMP}/collect.json")"
+          business_date="$(python -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["business_date"])' "${RUNNER_TEMP}/collect.json")"
           echo "batch_id=${batch_id}" >> "$GITHUB_OUTPUT"
+          echo "business_date=${business_date}" >> "$GITHUB_OUTPUT"
 
       - name: Commit intake checkpoint
         if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
@@ -79,7 +81,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No intake checkpoint changes to commit."
           else
-            git commit -m "chore: save morning radar intake checkpoint for $(date -u +%F)"
+            git commit -m "chore: save morning radar intake checkpoint for ${{ steps.collect.outputs.business_date }}"
             git push
           fi
 
@@ -116,7 +118,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated changes to commit."
           else
-            git commit -m "chore: update morning radar for $(date -u +%F)"
+            git commit -m "chore: update morning radar for ${{ steps.process.outputs.brief_date }}"
             git push
           fi
 

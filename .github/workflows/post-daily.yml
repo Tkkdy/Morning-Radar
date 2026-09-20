@@ -73,6 +73,32 @@ jobs:
       - name: Rebuild site after optional intelligence
         run: python -m morning_radar build-site
 
+      - name: Read canonical post-daily business date
+        id: post_date
+        shell: bash
+        run: |
+          if ! business_date="$(python - <<'PY'
+          import json
+          from datetime import date
+          from pathlib import Path
+
+          status_path = Path("site/status.json")
+          try:
+              status = json.loads(status_path.read_text(encoding="utf-8"))
+              business_date = status["date"]
+              if not isinstance(business_date, str):
+                  raise TypeError("date must be a string")
+              print(date.fromisoformat(business_date).isoformat())
+          except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
+              raise SystemExit(
+                  f"Unable to read canonical business date from {status_path}: {exc}"
+              ) from exc
+          PY
+          )"; then
+            exit 1
+          fi
+          echo "business_date=${business_date}" >> "$GITHUB_OUTPUT"
+
       - name: Commit generated intelligence once
         shell: bash
         run: |
@@ -85,7 +111,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No post-daily generated changes to commit."
           else
-            git commit -m "chore: update post-daily intelligence for $(date -u +%F)"
+            git commit -m "chore: update post-daily intelligence for ${{ steps.post_date.outputs.business_date }}"
             git push
           fi
 
