@@ -9,7 +9,7 @@ from pathlib import Path
 
 from morning_radar.logging_config import configure_logging
 from morning_radar.pipeline import MorningRadarPipeline
-from morning_radar.time_utils import utc_now
+from morning_radar.time_utils import display_date, utc_now
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -100,6 +100,9 @@ def main(argv: list[str] | None = None) -> int:
             json.dumps(
                 {
                     "batch_id": intake.checkpoint.manifest.batch_id,
+                    "business_date": str(
+                        display_date(intake.checkpoint.manifest.created_at)
+                    ),
                     "complete": intake.checkpoint.manifest.complete,
                     "item_count": intake.checkpoint.manifest.item_count,
                     "path": str(intake.path),
