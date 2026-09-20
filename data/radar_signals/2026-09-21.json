@@ -1,0 +1,48 @@
+[
+  {
+    "claim": "一位刚入职大公司半个月的开发者称，其团队几乎所有产出——规格、代码、测试、PRD、工单及其处理、报告——都由 Claude Code 生成；团队成员普遍不喜欢这种方式，却被要求尽可能多交付。作者多次从高层听到“推送代码不是瓶颈，那我们为什么还慢”，并称人们每天工作 12 到 13 个小时，只为按回车。",
+    "id": "radar-64fed0ca04141d13d74e",
+    "missing_evidence": [
+      "原始发帖（voxium）的完整内容与上下文，当前摘要被截断",
+      "作者身份、公司、团队规模及所涉及系统的可核实信息",
+      "任何量化指标：交付量、缺陷率、返工率、审查耗时、离职率",
+      "管理层“推送代码不是瓶颈”说法的原始出处或记录",
+      "来自同一团队的独立佐证或第三方报道"
+    ],
+    "observed_at": "2026-09-20T21:48:07.070699Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b6349f50297a20151561",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/20/voxium/"
+      }
+    ],
+    "uncertainty": "仅为被 Simon Willison 转引的匿名一手叙述，无法独立核实；发帖人视角单一，可能带有个人情绪与选择性表述；摘要被截断，缺少结论部分，因此只能作为待观察的信号而非已确认事实。",
+    "why_notable": "这是一条少见的一线、具体描述：AI 编程 agent 被企业自上而下强制全面使用后，产出看似加速，实际压力转移到人工审查与流程，出现团队不满与长时间低价值劳动。若属实，它对“AI 生成代码即提速”的主流假设构成反例，涉及 AI 编程 agent 的真实工作流后果与组织管理问题。"
+  }
+]

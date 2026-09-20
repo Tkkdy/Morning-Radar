@@ -1,0 +1,84 @@
+{
+  "date": "2026-09-21",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方案例仅为厂商自述，无独立验证或价格与可用性细节，仅作轻量阅读并留作后台弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-b35eea407eb1568b5012",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-case-study-capability-narrative"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "高热度社区线索但证据薄弱，可一句带过并作为模型删除与存档演化的可验证弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-c0e002d71e3ce3ede4fb",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-weight-archive-and-deletion-resistance",
+        "open-weights-preservation-infrastructure"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "缺乏公司名单、金额与具体机制，无法命名可验证趋势，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-43ee7c76153fa89439ad",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 1,
+      "reason": "厂商自研经济研究无方法论细节，仅作轻量提示并留作劳动力任务迁移的后台证据。",
+      "retain_for_trends": true,
+      "story_id": "story-ef1c241ec4c0cd42ceaa",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-labor-task-shift-evidence"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅标题与域名、无任何可核实内容或机制，无法构成有效趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-efa167f854f18331b7ef",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "官方发布的常规小版本修复，无可命名结构性影响，属普通维护。",
+      "retain_for_trends": false,
+      "story_id": "story-c6003a8da749c00bfcac",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-20T21:48:40.903255Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

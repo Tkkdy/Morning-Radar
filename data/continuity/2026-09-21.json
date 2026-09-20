@@ -1,0 +1,80 @@
+{
+  "date": "2026-09-21",
+  "generated_at": "2026-09-20T21:48:40.903255Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "Hex"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 或 Hex 是否公开 GPT-6 Astra 在 Hex 数据智能体上的具体能力、开放范围或定价信息，以验证该案例是否面向广泛用户落地。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-6 Astra"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-20T21:48:40.903255Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-21",
+          "story_id": "story-b35eea407eb1568b5012"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-918c1a801709f8e6be0d"
+    },
+    {
+      "entity_anchors": [
+        "TechCrunch",
+        "Russell Brandom"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 TechCrunch 后续报道或世界模型公司是否公开披露其构建方向，以验证该领域信息不透明的持续性。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-09-20T21:48:40.903255Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-21",
+          "story_id": "story-43ee7c76153fa89439ad"
+        }
+      ],
+      "topic_anchors": [
+        "世界模型",
+        "AI 公司透明度"
+      ],
+      "watch_id": "watch-79a6bb28304b102b382f"
+    },
+    {
+      "entity_anchors": [
+        "Pirate Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 https://pirateface.co/ 页面是否提供可核实的托管模型清单或运营主体信息，以判断其模型存档行为的真实性。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Pirate Face"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-20T21:48:40.903255Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-21",
+          "story_id": "story-c0e002d71e3ce3ede4fb"
+        }
+      ],
+      "topic_anchors": [
+        "LLM 模型删除",
+        "模型存档"
+      ],
+      "watch_id": "watch-b35fdb6ba64283c9094f"
+    }
+  ]
+}
