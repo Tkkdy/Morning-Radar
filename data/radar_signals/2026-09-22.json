@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "针对 Hacker News 上\"MCP 一直是个坏主意\"的讨论，Simon Willison 提出反驳：若使用拥有不受限互联网访问的完整终端 agent（Claude Code、Codex 等），确实可以绕过 MCP 直接调用 API；但在更受控、非\"YOLO\"的场景中，MCP 提供了对 agent 可访问外部服务的明确控制与权限范围限定。",
+    "id": "radar-f9a3798876384e0c1ca1",
+    "missing_evidence": [
+      "Simon Willison 评论原文全文与 HN 讨论中的反方论据",
+      "MCP 在受控场景下相较直接 API 调用的对比测试或量化证据",
+      "除作者个人观点外的第三方实践验证"
+    ],
+    "observed_at": "2026-09-21T22:48:32.004525Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "analysis_judgement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-76fec386ed6440f314b1",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/20/hn-49779718/"
+      }
+    ],
+    "uncertainty": "摘录被截断，仅呈现单方观点，属判断性论述而非实验结论；MCP 与直接 API 访问的取舍仍无公认结论。",
+    "why_notable": "MCP 的实用价值近期受到质疑，这里给出了一线实践者的具体辩护角度：价值不在于替代直接 API 调用，而在于访问范围与权限控制，这对设计 agent 工具链的团队有参考意义。"
+  },
+  {
+    "claim": "Simon Willison 发布 llm-keys-ui 0.1 插件，用于在其通过 Codex Remote 从手机远程操控多台机器上的 coding agent 时，把 API key 送到目标机器上，而不必将密钥直接粘贴进 agent 会话或 ChatGPT 应用。",
+    "id": "radar-541c433df7094ce61b36",
+    "missing_evidence": [
+      "插件的实现方式、密钥传输与存储的安全模型",
+      "插件是否开源、安装方式与兼容范围",
+      "其他用户的使用反馈与独立验证"
+    ],
+    "observed_at": "2026-09-21T22:48:32.004525Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-a9e173503fefd148cf8f",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/20/llm-keys-ui/"
+      }
+    ],
+    "uncertainty": "仅为个人发布的 0.1 版本小工具，摘录被截断，实际可用性与安全性未获第三方验证；工作流本身尚未成为普遍实践。",
+    "why_notable": "呈现了一种具体的 agent 使用模式：手机远程驱动多机 coding agent，并暴露出随之而来的密钥分发与\"不要把密钥交给 agent 会话\"的实际需求。"
+  }
+]

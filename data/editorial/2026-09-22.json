@@ -1,0 +1,152 @@
+{
+  "date": "2026-09-22",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "加州立法为AI数据中心设立独立费率类别，可能实质抬高数据中心成本并引发其他州跟进，值得展开但细节未定。",
+      "retain_for_trends": true,
+      "story_id": "story-e551328fb64c5f39d80f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-data-center-utility-cost-allocation",
+        "state-level-ai-infrastructure-regulation"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方博客确认该集成存在，但性能与可用版本未披露，属轻量阅读，同时可作为多GPU推理栈演化的后台证据。",
+      "retain_for_trends": true,
+      "story_id": "story-9248dd0189accc825a71",
+      "support_for_story_id": null,
+      "trend_links": [
+        "multi-gpu-inference-stack-integration",
+        "inference-serving-complexity-reduction"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "GitHub 官方确认 Grok 4.7 上线 Copilot，影响开发者可选模型，但无能力对比数据，只值轻量阅读。",
+      "retain_for_trends": true,
+      "story_id": "story-2ff20aecb4df7a0aaa21",
+      "support_for_story_id": null,
+      "trend_links": [
+        "grok-model-release-cadence",
+        "copilot-model-menu-expansion"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅为厂商博客的评估方法论文章，无正文证据、基准或代码，无趋势验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-05a6916ea9b8a347b30f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "OpenAI 官方营销案例，性能与“一天上线”说法均无独立验证，前台价值低但可作厂商宣传claim的后台样本。",
+      "retain_for_trends": true,
+      "story_id": "story-81c0dd15add3797eac86",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-case-study-claim-unverified"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "AI编码把瓶颈推向CI是practitioner可复用的经验信号，HN高热度但缺乏正文核验，值得展开并保留观察。",
+      "retain_for_trends": true,
+      "story_id": "story-388a13b6d965694e0135",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-coding-shifts-bottleneck-to-ci",
+        "ci-pipeline-rework-under-agentic-coding"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "Agent任务一致性与可复现性是被低估的评测维度，但输入仅有标题与元数据，前台一句提示、后台保留机制线索。",
+      "retain_for_trends": true,
+      "story_id": "story-6d31dfcbfe6cae1b1525",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-task-consistency-evaluation",
+        "agent-reproducibility-benchmarking"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "抽象的咨询小组公告，无成员、机制或对开发能力的实际影响，属装饰性治理新闻。",
+      "retain_for_trends": false,
+      "story_id": "story-0bacaffc315771cc04f3",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商博客天气能力宣传，功能、接入方式与定价均不明，无明确趋势机制。",
+      "retain_for_trends": false,
+      "story_id": "story-cf7ef9e7c3aa569f126d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "把块剪枝建模为Ising优化属方法层面新思路，但正文与结果全缺，前台一句、后台留作模型压缩路线证据。",
+      "retain_for_trends": true,
+      "story_id": "story-0151997eeb18a61b71a3",
+      "support_for_story_id": null,
+      "trend_links": [
+        "llm-structured-pruning",
+        "ising-optimization-model-compression"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "高管采访表态既无机制也无可验证事实，属品牌光环言论，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-f89c2e508fa5e60572b6",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-21T22:49:06.306965Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

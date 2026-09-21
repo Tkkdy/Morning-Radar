@@ -1,0 +1,691 @@
+[
+  {
+    "analysis": [
+      "这一立法动向表明加州正在将AI数据中心视为需要单独监管的公用事业负荷类别，可能推动其他州效仿。",
+      "新费率分类和升级付费要求可能增加AI数据中心在加州的运营成本，进而影响其选址和扩张决策。"
+    ],
+    "canonical_title": "加州州长签署七项法案，规范AI数据中心能源与用水成本分摊",
+    "category": "policy_regulation",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "California",
+      "Gavin Newsom",
+      "California Public Utilities Commission",
+      "Los Angeles Times",
+      "The Verge AI"
+    ],
+    "facts": [
+      "加州州长加文·纽森签署了七项法案，旨在防止AI数据中心将公用事业成本转嫁给居民。",
+      "该法案包要求加州公共事业委员会为数据中心引入新的费率分类。",
+      "法案要求数据中心为升级付费。",
+      "The Verge AI 的报道引用了《洛杉矶时报》此前的报道。"
+    ],
+    "id": "story-e551328fb64c5f39d80f",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills",
+    "product_names": [],
+    "published_at": "2026-09-21T16:29:45-04:00",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-5fb2a618a0bb669f6bb1"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T16:29:45-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5fb2a618a0bb669f6bb1",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "California tightens rules on AI data center energy and water use",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_data_center_energy_regulation",
+      "utility_cost_allocation",
+      "ai_infrastructure_policy"
+    ],
+    "uncertainties": [
+      "法案的具体生效日期、费率分类细则以及‘升级’的具体范围未在现有摘要中明确。",
+      "摘要提到法案要求数据中心‘为升级付费’，但未说明升级涉及哪些基础设施（如电网、供水系统等）。",
+      "除加州公共事业委员会外，其他执行机构或监督机制未在现有信息中提及。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 通过将 TensorRT 多设备集成引入 Dynamo-Triton，旨在降低跨多块 GPU 部署模型服务的工程复杂度，回应生成式 AI 对算力与显存持续增长的需求。",
+      "该能力的发布位置在 NVIDIA Dynamo-Triton，表明 NVIDIA 正在把多 GPU 推理支持下沉到其模型服务栈中，可能影响后续推理部署的默认架构选择。"
+    ],
+    "canonical_title": "NVIDIA 在 Dynamo-Triton 中推出 TensorRT 多设备集成以简化多 GPU 模型服务",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《Simplifying Model Serving Across Multiple GPUs with NVIDIA TensorRT Multi-Device Integration in NVIDIA Dynamo-Triton》的文章。",
+      "文章作者为 Tanya Lenz，发布时间为 2026-09-21T21:51:06Z。",
+      "文章指出，生成式 AI 的计算与内存需求日益超出单块 GPU 所能提供的范围。",
+      "文章将 NVIDIA TensorRT 多设备推理描述为一项新能力。"
+    ],
+    "id": "story-9248dd0189accc825a71",
+    "importance_score": 0.74,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/",
+    "product_names": [
+      "TensorRT",
+      "NVIDIA Dynamo-Triton"
+    ],
+    "published_at": "2026-09-21T21:51:06Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-6b434694308aa0f04808"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T21:51:06Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6b434694308aa0f04808",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Simplifying Model Serving Across Multiple GPUs with NVIDIA TensorRT Multi-Device Integration in NVIDIA Dynamo-Triton",
+        "url": "https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/simplifying-model-serving-across-multiple-gpus-with-nvidia-tensorrt-multi-device-integration-in-nvidia-dynamo-triton/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "multi-device inference",
+      "multi-GPU model serving"
+    ],
+    "uncertainties": [
+      "TensorRT 多设备集成当前的具体支持范围、可用版本以及性能数据尚未在输入中给出。",
+      "“新能力”的正式发布状态（预览、正式可用等）不明确。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Grok 4.7 已在 GitHub Copilot 中上线",
+    "category": "ai_coding",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "xAI",
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub Changelog 公告称，Grok 4.7 正在 GitHub Copilot 中逐步推送。",
+      "Grok 4.7 被描述为 xAI 最新推理模型，基于 Grok 4.6。",
+      "该模型面向 agentic coding 与复杂的多步骤工作流设计。"
+    ],
+    "id": "story-2ff20aecb4df7a0aaa21",
+    "importance_score": 0.55,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot",
+    "product_names": [
+      "Grok 4.7",
+      "Grok 4.6",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-21T14:54:12Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-9c38b0e540fa6708e9ee"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T14:54:12Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9c38b0e540fa6708e9ee",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Grok 4.7 is now available in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-21-grok-4-7-is-now-available-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "agentic coding",
+      "multistep workflows"
+    ],
+    "uncertainties": [
+      "公告摘要未说明 Grok 4.7 在 GitHub Copilot 中的具体可用范围、是否需单独开关或面向哪些 Copilot 版本/套餐。",
+      "该公告仅覆盖上线消息，未提供能力对比数据或评测结果。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [
+      "该文章的切入点显示，AI agent 的评估重点正从单次工具调用能力转向跨多次顺序调用、在真实环境中完成端到端任务的能力。",
+      "NVIDIA Developer 博客以官方技术博客身份发布该主题，可能意在为开发者提供评估 AI agent 的方法论框架。"
+    ],
+    "canonical_title": "NVIDIA Developer 博客发布文章《How to Evaluate AI Agents From Tool Calls to Task Completion》",
+    "category": "ai_models",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer 博客于 2026-09-21 发布文章，标题为《How to Evaluate AI Agents From Tool Calls to Task Completion》，作者为 Elizabeth Goodman。",
+      "文章摘要指出，当部署 AI agent 时，关键问题是它能否在真实环境中执行由数十次连续工具调用组成的作业链。"
+    ],
+    "id": "story-05a6916ea9b8a347b30f",
+    "importance_score": 0.55,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/",
+    "product_names": [],
+    "published_at": "2026-09-21T21:05:28Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-bdd29549bac9c40278a0"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T21:05:28Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bdd29549bac9c40278a0",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Evaluate AI Agents From Tool Calls to Task Completion",
+        "url": "https://developer.nvidia.com/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-evaluate-ai-agents-from-tool-calls-to-task-completion/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI Agent 评估",
+      "工具调用",
+      "任务完成"
+    ],
+    "uncertainties": [
+      "文章完整内容未在输入中提供，仅能依据标题与摘要片段判断，无法确认其具体评估方法、指标或案例细节。",
+      "输入未说明该文章是否包含可复现的基准、代码或工具，因此无法判断其工程落地程度。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [
+      "该公告属于官方发布，可作为原始事实底座，说明 Higgsfield AI 与 GPT-6 Astra 在视频广告创作场景中的结合。",
+      "标题声称“一天内上线新视频功能”，但正文摘要未给出具体功能清单、上线日期或技术实现细节。"
+    ],
+    "canonical_title": "Higgsfield AI 基于 GPT-6 Astra 推出新视频功能",
+    "category": "ai_models",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Higgsfield AI",
+      "OpenAI",
+      "GPT-6 Astra"
+    ],
+    "facts": [
+      "OpenAI 官方新闻页发布公告，称 Higgsfield AI 使用 GPT-6 Astra 简化小型企业的视频广告制作，并更快将新创意工具推向市场。",
+      "公告发布时间为 2026-09-21T12:00:00Z。"
+    ],
+    "id": "story-81c0dd15add3797eac86",
+    "importance_score": 0.5,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra",
+    "product_names": [
+      "GPT-6 Astra"
+    ],
+    "published_at": "2026-09-21T12:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-8fe4474fdbb9c4c46a22"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8fe4474fdbb9c4c46a22",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Higgsfield AI ships new video features in a day with GPT-6 Astra",
+        "url": "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/higgsfield-from-prompt-to-production-with-astra"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "公告未说明新视频功能的具体名称、功能范围或技术细节。",
+      "“一天内上线”这一说法未在摘要或正文摘要中提供可验证的时间线或开发过程说明。",
+      "GPT-6 Astra 在其中的具体作用方式未披露。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Linear 分享因 AI 编码导致 CI 成为瓶颈后的 CI 重构经验",
+    "category": "工程实践",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Linear"
+    ],
+    "facts": [],
+    "id": "story-388a13b6d965694e0135",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://linear.app/now/ci-bottleneck-reworked",
+    "product_names": [],
+    "published_at": "2026-09-21T19:23:33Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-99630c0e5018e4bc3f8a"
+    ],
+    "source_refs": [
+      {
+        "author": "julian_digital",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49792067",
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T19:23:33Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-99630c0e5018e4bc3f8a",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "AI coding has made CI a bottleneck, so we reworked ours to keep up",
+        "url": "https://linear.app/now/ci-bottleneck-reworked"
+      }
+    ],
+    "source_urls": [
+      "https://linear.app/now/ci-bottleneck-reworked",
+      "https://news.ycombinator.com/item?id=49792067"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "CI",
+      "AI 编码",
+      "持续集成"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 社区发现，标题声称“AI coding has made CI a bottleneck, so we reworked ours to keep up”，并链接到 Linear 官方博客 linear.app/now/ci-bottleneck-reworked，但缺乏正文摘要和具体重构细节，无法确认其实际内容与证据边界。",
+      "该条目的 statement_type 为 unverified_lead，source_role 为 community_discovery，官方来源标记为 false，因此其陈述不能直接作为事实采纳。",
+      "讨论帖获得 93 分和 83 条评论，表明社区关注度较高，但热度本身不构成事实依据。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [
+      "标题以问句形式聚焦 AI Agent 在完成任务后能否重复成功，指向 Agent 行为一致性与可复现性这一评测维度。",
+      "URL 路径中的 \"altk-evolve-consistency\" 暗示该内容与名为 altk-evolve-consistency 的项目或方法相关，但输入未提供其具体定义或技术细节。",
+      "来源角色为 official_primary，可作为原始事实底座，但输入仅包含标题与元数据，缺少正文与摘要，无法据此判断研究的方法、数据集或结论。"
+    ],
+    "canonical_title": "IBM Research 在 Hugging Face 博客发布关于 Agent 任务一致性的研究 \"Your Agent Aced the Task. Will It Do It Again?\"",
+    "category": "ai_research",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "IBM Research",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇标题为 \"Your Agent Aced the Task. Will It Do It Again?\" 的文章。",
+      "该文章 URL 为 https://huggingface.co/blog/ibm-research/altk-evolve-consistency，路径中包含 ibm-research 与 altk-evolve-consistency。",
+      "文章发布于 2026-09-15T16:00:44Z，来源标注为 Hugging Face Blog，来源类型为 rss，来源角色为 official_primary，声明类型为 factual_announcement。",
+      "输入元数据将该条目标记为 official: true，优先级 high，来源 ID 为 hugging_face_blog。",
+      "输入中的 topic_candidates 为 ai_models、ai_infrastructure、open_source_ai；company_candidates、product_candidates、repository_candidates 均为空。"
+    ],
+    "id": "story-6d31dfcbfe6cae1b1525",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency",
+    "product_names": [
+      "altk-evolve-consistency"
+    ],
+    "published_at": "2026-09-15T16:00:44Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-a1d018f16fad79f97456"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-15T16:00:44Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a1d018f16fad79f97456",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Your Agent Aced the Task. Will It Do It Again?",
+        "url": "https://huggingface.co/blog/ibm-research/altk-evolve-consistency"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/ibm-research/altk-evolve-consistency"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供正文、摘要或作者信息，无法确认文章具体研究内容、实验设计与结论。",
+      "无法确认 \"altk-evolve-consistency\" 是产品、方法、项目还是博客 slug 的一部分。",
+      "无法确认该文章是否涉及具体的模型版本、基准测试或可复现结果。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 与独立数学与人工智能咨询小组合作指导新兴 AI 结果的审查与传播",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 正在与一个独立的数学与人工智能咨询小组（Advisory Group on Mathematics and Artificial Intelligence）合作，以指导新兴 AI 结果的审查与传播。"
+    ],
+    "id": "story-0bacaffc315771cc04f3",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/advisory-group-on-mathematics-and-ai",
+    "product_names": [],
+    "published_at": "2026-09-21T12:00:00Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-08ffdb24bebd9aa2ffda"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-08ffdb24bebd9aa2ffda",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Advisory Group on Mathematics and Artificial Intelligence",
+        "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/advisory-group-on-mathematics-and-ai"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "该咨询小组的成员构成、运作机制及具体职责范围未在输入中说明。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [
+      "该文章面向天气敏感行业，强调将最新观测转化为及时决策，表明 NVIDIA 正在把 Earth-2 定位为面向行业应用的天气决策工具链，而非单纯的研究模型发布。"
+    ],
+    "canonical_title": "NVIDIA 发布 Earth-2 相关能力，帮助基于最新观测做出及时天气决策",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇题为《Turn Your Latest Observations Into Timely Weather Decisions With NVIDIA Earth-2》的文章，作者为 Elizabeth Goodman，发布时间为 2026-09-21T15:00:00Z。",
+      "文章摘要指出，对天气敏感的行业正越来越多地获得观测数据，这些数据能更早、更本地化地反映天气变化。",
+      "文章摘要提到能源公司会收集相关观测数据（原文示例在此处截断）。"
+    ],
+    "id": "story-cf7ef9e7c3aa569f126d",
+    "importance_score": 0.45,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/turn-your-latest-observations-into-timely-weather-decisions-with-nvidia-earth-2/",
+    "product_names": [
+      "NVIDIA Earth-2"
+    ],
+    "published_at": "2026-09-21T15:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-63cdcdfe6e04249b37a8"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-63cdcdfe6e04249b37a8",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Turn Your Latest Observations Into Timely Weather Decisions With NVIDIA Earth-2",
+        "url": "https://developer.nvidia.com/blog/turn-your-latest-observations-into-timely-weather-decisions-with-nvidia-earth-2/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/turn-your-latest-observations-into-timely-weather-decisions-with-nvidia-earth-2/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "天气预测",
+      "观测数据",
+      "AI 气象基础设施"
+    ],
+    "uncertainties": [
+      "输入内容在摘要与正文摘录中被截断，Earth-2 具体新增功能、可用时间、接入方式及定价均不明确。",
+      "输入未说明该文章是产品发布、功能更新还是技术演示。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [
+      "从标题看，文章的核心思路是把 LLM 的结构化剪枝——以块（block）为单位移除网络组件——形式化为 Ising 优化问题进行求解，这属于将统计物理中的组合优化方法引入模型压缩领域的方法论类内容。",
+      "该条目来自官方博客渠道，可作为该文章已发布的原始事实依据；但摘要与正文节选为空，文章的具体算法细节、实验结果与可复现性尚无法从输入中评估。"
+    ],
+    "canonical_title": "Hugging Face 博客发布：将 LLM 结构化剪枝（块移除）建模为 Ising 优化问题",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Hugging Face",
+      "MultiverseComputingCAI"
+    ],
+    "facts": [
+      "Hugging Face Blog 于 2026-09-21T13:44:34Z 发布了一篇题为《Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem》的博客文章，URL 为 https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an。",
+      "该条目的来源角色为 official_primary，陈述类型为 factual_announcement。"
+    ],
+    "id": "story-0151997eeb18a61b71a3",
+    "importance_score": 0.41,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an",
+    "product_names": [],
+    "published_at": "2026-09-21T13:44:34Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-ae2a66f3c360fd1788ea"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T13:44:34Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ae2a66f3c360fd1788ea",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Pruning LLMs Like a Physicist: Block Removal as an Ising Optimization Problem",
+        "url": "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/MultiverseComputingCAI/pruning-llms-like-a-physicist-block-removal-as-an"
+    ],
+    "status": "available",
+    "topic_names": [
+      "LLM 剪枝",
+      "结构化剪枝",
+      "块移除",
+      "Ising 优化问题",
+      "模型压缩"
+    ],
+    "uncertainties": [
+      "输入中 summary 与 content_excerpt 均为空，无法确认文章中提出的具体方法、实验设置、评测结果以及是否开源代码。",
+      "标题中 MultiverseComputingCAI 的归属、文章作者及其与 Hugging Face 的关系在输入中未说明。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Nvidia CEO 黄仁勋在 CBS 采访中称 AI 末日风险为“0%”",
+    "category": "AI 行业动态",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang",
+      "CBS Sunday Morning"
+    ],
+    "facts": [
+      "据 The Verge 报道，Nvidia CEO 黄仁勋在 CBS Sunday Morning 采访中表示 AI 导致人类末日的概率为“0%”。"
+    ],
+    "id": "story-f89c2e508fa5e60572b6",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown",
+    "product_names": [],
+    "published_at": "2026-09-20T14:50:18-04:00",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-a24da9b4fbe345bc0e32"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-21T22:48:32.004525Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-20T14:50:18-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a24da9b4fbe345bc0e32",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "No one is surprised that Nvidia’s Jensen Huang thinks AI fears are overblown",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 风险",
+      "AI 监管"
+    ],
+    "uncertainties": [
+      "CBS Sunday Morning 采访的原始内容及黄仁勋原话的完整语境尚未核实。",
+      "黄仁勋“0%”说法的具体范围（是否仅指某一类风险）在摘要中未明确。"
+    ],
+    "updated_at": "2026-09-21T22:49:06.306965Z"
+  }
+]
