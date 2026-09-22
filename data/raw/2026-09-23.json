@@ -7,6 +7,7 @@
     "id": "item-f9027d80e820682e90d7",
     "language": null,
     "metadata": {
+      "content_version": "aa2c3ac41b88c9c75536",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-235d6f2bbf750d6c0d61",
     "language": "en-US",
     "metadata": {
+      "content_version": "f59a95b1d67e46e94e8f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +130,7 @@
     "id": "item-80425f477229c597aaa4",
     "language": null,
     "metadata": {
+      "content_version": "db359438c299716e3665",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +191,7 @@
     "id": "item-16afc5791c45315aa89d",
     "language": "en-US",
     "metadata": {
+      "content_version": "41bbd96d578c608463da",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +283,7 @@
     "id": "item-463daa474782f53c54ff",
     "language": "en-us",
     "metadata": {
+      "content_version": "1da70311361980548806",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -341,6 +346,7 @@
     "id": "item-73461b3e97af0d93277a",
     "language": null,
     "metadata": {
+      "content_version": "e1b0b462740f9bdec377",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -401,6 +407,7 @@
     "id": "item-f05a574f35fedc0736fa",
     "language": "en-US",
     "metadata": {
+      "content_version": "ad76b881bed09028366d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +469,7 @@
     "id": "item-f917779831ad43520462",
     "language": null,
     "metadata": {
+      "content_version": "2ed7d933463838cf6cea",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -735,6 +743,7 @@
     "id": "item-01037b2410289b4f9f5f",
     "language": "en-US",
     "metadata": {
+      "content_version": "393ddaedb2eac97f33a5",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -916,6 +925,7 @@
     "id": "item-790cf36b99eec5abd380",
     "language": "en-US",
     "metadata": {
+      "content_version": "fba72b7bdb676093b809",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1433,6 +1443,7 @@
     "id": "item-693b3130e25cc8808f58",
     "language": "en-US",
     "metadata": {
+      "content_version": "31a23709f3176c16993f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1888,6 +1899,7 @@
     "id": "item-5fb2a618a0bb669f6bb1",
     "language": "en-US",
     "metadata": {
+      "content_version": "0640e92cb31e35c4a8ca",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -2011,6 +2023,7 @@
     "id": "item-10538c022345675d1abd",
     "language": null,
     "metadata": {
+      "content_version": "15f37d9dcfe8d4b9cb4a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -70683,6 +70696,7 @@
     "id": "item-d01eae12e3314c79b5b0",
     "language": "en",
     "metadata": {
+      "content_version": "2d3e526a8d4b5c26da78",
       "data_anomaly": false,
       "forks": 5911,
       "official": true,
@@ -74495,11 +74509,19 @@
     "metadata": {
       "comments": 514,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49805509",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
       "score": 948,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -74555,11 +74577,20 @@
     "metadata": {
       "comments": 724,
       "community_signal": true,
+      "content_version": "0aa8c70ab17ebe8a17ef",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49803892",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/claude-opus-5-5",
       "score": 997,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -74615,6 +74646,7 @@
     "metadata": {
       "comments": 418,
       "community_signal": true,
+      "content_version": "611fa8115bb60bd3bac3",
       "discussion_url": "https://news.ycombinator.com/item?id=49794330",
       "official": false,
       "original_url": "https://blog.colinbreck.com/i-dont-want-to-read-what-you-didnt-write/",
@@ -74645,11 +74677,20 @@
     "metadata": {
       "comments": 348,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI",
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49801324",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://www.cryptocellar.org/bgac/the-mvueh-break.html",
       "score": 513,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -74825,11 +74866,19 @@
     "metadata": {
       "comments": 53,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49804316",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://artificialanalysis.ai/models/claude-opus-5-5",
       "score": 199,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -75177,6 +75226,7 @@
     "metadata": {
       "change_percent": 0.0022714879601055016,
       "close": 339.75,
+      "content_version": "3bea4109446f7a1d68a8",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 338.9800109863281,
@@ -76061,42 +76111,6 @@
     "title": "OpenAI is well positioned to fast-follow Jev",
     "topic_candidates": [],
     "url": "https://arcturus-labs.com/blog/2026/09/21/will-openai-eat-jevs-lunch/"
-  },
-  {
-    "author": "sohkamyung",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-22T22:24:28.380638Z",
-    "id": "item-ab7b887da8b092fb88b1",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI",
-        "hn_search:openai:GPT"
-      ],
-      "discovery_reasons": [
-        "watchlist_discovery"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49801324",
-      "hn_submission_time": 1790085135,
-      "lab_id": "openai",
-      "original_url": "https://www.cryptocellar.org/bgac/the-mvueh-break.html",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-22T13:52:15Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI GPT–6 Astra breaks Enigma message that has resisted solution since 2005",
-    "topic_candidates": [],
-    "url": "https://www.cryptocellar.org/bgac/the-mvueh-break.html"
   },
   {
     "author": "pier25",
@@ -77075,38 +77089,6 @@
     "url": "https://artificialanalysis.ai/models/gpt-6-luna"
   },
   {
-    "author": "OfficialTurkey",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-22T22:24:28.380638Z",
-    "id": "item-d510a28a0230627a50c1",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:GPT"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49805509",
-      "hn_submission_time": 1790100034,
-      "lab_id": "openai",
-      "original_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-22T18:00:34Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "GPT-6 Sol and Luna",
-    "topic_candidates": [],
-    "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/"
-  },
-  {
     "author": "mingyukma88",
     "company_candidates": [],
     "content_excerpt": "",
@@ -77267,38 +77249,6 @@
     "url": "https://platform.claude.com/docs/en/models/opus-5-5/overview"
   },
   {
-    "author": "theanonymousone",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-22T22:24:28.380638Z",
-    "id": "item-a6d5a20862a503a6762c",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49804316",
-      "hn_submission_time": 1790095891,
-      "lab_id": "anthropic",
-      "original_url": "https://artificialanalysis.ai/models/claude-opus-5-5",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-22T16:51:31Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Opus 5.5 Intelligence, Performance and Price Analysis (Max)",
-    "topic_candidates": [],
-    "url": "https://artificialanalysis.ai/models/claude-opus-5-5"
-  },
-  {
     "author": "skolos",
     "company_candidates": [],
     "content_excerpt": "Hi HN, I built `What's Next` (whats-next@kvit) – a Claude Code plugin that ends a turn with a short report + a card of 2-4 options instead of wall of Claude's prose. Think of it as reverse Jev: Jev's thesis is when the answer is a choice, return a typed choice instead of generating prose around it to speed up processing. This applies to humans as much as to LLMs - it is easier/faster to parse choices. Longer version with before/after: https://blog.kvit.app/posts/ending-a-turn-with-a-choice",
@@ -77329,38 +77279,6 @@
     "title": "Show HN: What's Next – end a Claude Code turn with a choice, not prose",
     "topic_candidates": [],
     "url": "https://github.com/kvitapp/kvit-plugins"
-  },
-  {
-    "author": "km144",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-22T22:24:28.380638Z",
-    "id": "item-07b6a602c4b4d74bd764",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49803892",
-      "hn_submission_time": 1790094545,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/claude-opus-5-5",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-22T16:29:05Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Opus 5.5",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/claude-opus-5-5"
   },
   {
     "author": "throwaway371647",

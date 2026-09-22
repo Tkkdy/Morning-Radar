@@ -1,0 +1,908 @@
+[
+  {
+    "analysis": [
+      "从命名和定位描述看，GPT-6 Sol 与 GPT-6 Luna 可能面向不同能力/成本组合的使用场景，但官方摘要未给出具体参数、定价或基准测试数据。",
+      "该发布被归类为 ai_models 与 ai_coding 话题候选，暗示其定位可能覆盖通用模型与编码相关用途。"
+    ],
+    "canonical_title": "OpenAI 发布 GPT-6 Sol 和 Luna 两款模型",
+    "category": "ai_models",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了两款模型，分别为 GPT-6 Sol 和 GPT-6 Luna。",
+      "OpenAI 表示这两款模型将前沿智能带入日常工作，并在能力与成本之间提供不同的平衡。",
+      "该消息来自 OpenAI News 的官方公告，发布时间为 2026-09-22T18:00:00Z。"
+    ],
+    "id": "story-8780c4a4907d733d3d94",
+    "importance_score": 0.9,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://openai.com/index/introducing-gpt-6-sol-and-luna",
+    "product_names": [
+      "GPT-6 Sol",
+      "GPT-6 Luna",
+      "GPT-6"
+    ],
+    "published_at": "2026-09-22T18:00:00Z",
+    "relevance_score": 0.95,
+    "source_item_ids": [
+      "item-73461b3e97af0d93277a"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T18:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-73461b3e97af0d93277a",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing GPT-6 Sol and Luna",
+        "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-gpt-6-sol-and-luna"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "GPT-6 Sol 和 GPT-6 Luna 的具体能力差异、上下文长度、定价与可用范围未在输入中说明。",
+      "两款模型是否已正式开放使用、通过何种渠道提供，输入中未明确。",
+      "产品名称中 GPT-6 与 Sol、Luna 的关系（例如是否为同一代模型的两个变体）未在输入中进一步说明。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "这是 GitHub 官方渠道发布的产品可用性公告，表明 GitHub Copilot 在模型选择上新增了 Anthropic 的 Opus 系列型号。",
+      "公告将使用场景明确指向代理式编程、长时间运行的代理任务与知识工作，说明其定位偏向复杂任务处理而非简单补全。"
+    ],
+    "canonical_title": "Claude Opus 5.5 在 GitHub Copilot 中上线",
+    "category": "AI 编程工具/模型发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Anthropic",
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-09-22 发布说明称，Anthropic 最新的 Opus 模型 Claude Opus 5.5 现已在 GitHub Copilot 中可用。",
+      "该说明称 Claude Opus 5.5 可用于 agentic coding、long-running agentic tasks 和 knowledge work。"
+    ],
+    "id": "story-b93c4cb8573b72a61707",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot",
+    "product_names": [
+      "Claude Opus 5.5",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-22T17:10:23Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-235d6f2bbf750d6c0d61"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T17:10:23Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-235d6f2bbf750d6c0d61",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Claude Opus 5.5 is now available in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-22-claude-opus-5-5-is-now-available-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "agentic coding",
+      "long-running agentic tasks",
+      "knowledge work"
+    ],
+    "uncertainties": [
+      "输入摘要中“In early testing, Opus…”一句被截断，早期测试的具体结论与数据无法从输入中确认。",
+      "输入未说明 Claude Opus 5.5 在 GitHub Copilot 中各套餐的可用范围、调用配额或是否分阶段推送。",
+      "输入未给出 Claude Opus 5.5 的模型参数、上下文窗口、定价等规格信息。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该文章将 Muse 定位为一个具有广泛权限的 AI 助手，这使其成为攻击的高价值目标。",
+      "单一且相对简单的 ClickFix 攻击即可完全劫持该代理，这暗示可能存在严重的安全影响。"
+    ],
+    "canonical_title": "Meta 的 AI 助手 Muse 存在严重 0-day 漏洞",
+    "category": "security",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "Meta",
+      "Muse",
+      "Ars Technica",
+      "Dan Goodin"
+    ],
+    "facts": [
+      "Ars Technica 发表了一篇由 Dan Goodin 撰写的文章，标题为“Muse, Meta's extraordinarily privileged AI assistant, has a serious 0-day”。",
+      "该文章于 2026-09-21T22:24:38Z 发布。",
+      "文章摘要称：“A simple ClickFix attack is only one way to completely hijack the new agent.”",
+      "文章将 Muse 描述为 Meta 的 AI 助手，并称其具有特别高的权限。"
+    ],
+    "id": "story-8da7446153804c97a36b",
+    "importance_score": 0.75,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/",
+    "product_names": [
+      "Muse"
+    ],
+    "published_at": "2026-09-21T22:24:38Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-790cf36b99eec5abd380"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T22:24:38Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-790cf36b99eec5abd380",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Muse, Meta's extraordinarily privileged AI assistant, has a serious 0-day",
+        "url": "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/09/muse-metas-extraordinarily-privileged-ai-assistant-has-a-serious-0-day/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI assistant security",
+      "0-day vulnerability",
+      "ClickFix attack",
+      "agent hijacking"
+    ],
+    "uncertainties": [
+      "输入中未说明受影响的具体 Muse 版本或部署范围。",
+      "输入中未描述除文中提到的 ClickFix 示例之外的其他攻击途径。",
+      "输入中未说明 0-day 的缓解措施、修复方案或厂商回应。",
+      "输入中未给出该漏洞的 CVE 编号。",
+      "输入中未说明攻击是否已在野被利用，或是否仅属于概念验证。",
+      "输入中未包含漏洞的技术细节，仅提及 ClickFix 分类。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "GitHub Copilot 在 GPT-6 系列上持续扩充模型选项，表明 OpenAI 与 GitHub 在编码助手场景的模型供应上保持同步更新。"
+    ],
+    "canonical_title": "GitHub Copilot 新增 OpenAI GPT-6 Sol 与 GPT-6 Luna 模型",
+    "category": "ai_coding",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI",
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-09-22 发布公告称，OpenAI 的 GPT-6 系列在 GitHub Copilot 中扩展，新增 GPT-6 Sol 和 GPT-6 Luna 两个模型。",
+      "公告指出这两个模型与先前已发布的 GPT-6 Astra 同属 GPT-6 系列，用户可在 GitHub Copilot 中选择使用。"
+    ],
+    "id": "story-1f473dda729559af3517",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available",
+    "product_names": [
+      "GPT-6 Sol",
+      "GPT-6 Luna",
+      "GPT-6 Astra",
+      "GPT-6",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-22T17:00:14Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-f05a574f35fedc0736fa"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T17:00:14Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f05a574f35fedc0736fa",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "OpenAI’s GPT-6 Sol and GPT-6 Luna now available",
+        "url": "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-22-openais-gpt-6-sol-and-gpt-6-luna-now-available"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "model_release"
+    ],
+    "uncertainties": [
+      "输入摘要未提供 GPT-6 Sol 与 GPT-6 Luna 的具体能力、上下文长度、定价或可用范围等细节。",
+      "输入未说明这两个模型是否已全量开放，还是分阶段推送。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "这属于官方产品公告，说明 OpenAI 将提示缓存优化作为 GPT-6 的一项能力改进来推广。",
+      "公告内容聚焦于缓存命中率、诊断能力和延迟/成本控制，目标用户可能是通过 API 调用 GPT-6 的开发者。"
+    ],
+    "canonical_title": "OpenAI 为 GPT-6 推出改进的提示缓存",
+    "category": "ai_models",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布文章介绍 GPT-6 的提示缓存改进。",
+      "GPT-6 的提示缓存改进包括更高的缓存命中率、新的诊断功能、显式断点以及可降低延迟和成本的控制项。"
+    ],
+    "id": "story-7efdf36fd7dd6cb7eea8",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/better-prompt-caching-for-gpt-6",
+    "product_names": [
+      "GPT-6"
+    ],
+    "published_at": "2026-09-22T21:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-f9027d80e820682e90d7"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T21:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f9027d80e820682e90d7",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Better prompt caching for GPT-6",
+        "url": "https://openai.com/index/better-prompt-caching-for-gpt-6"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/better-prompt-caching-for-gpt-6"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "prompt caching",
+      "latency",
+      "cost"
+    ],
+    "uncertainties": [
+      "公告未给出具体的缓存命中率提升数值、延迟降低幅度或成本节省比例。",
+      "未说明新诊断功能和显式断点的具体 API 形态、可用范围或是否面向所有用户开放。",
+      "该公告链接发布时间为 2026-09-22，但无法从输入确认 GPT-6 是否已正式可用。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该条目仅为官方 SDK 发布说明，说明客户端已加入 GPT-6 Sol 与 Luna 的模型标识符，但未披露这两个模型的能力、上下文长度、可用性范围或定价信息。",
+      "将模型标识符写入官方 SDK 通常是模型对外提供调用的前置或同步动作，但由于发布说明未包含模型发布公告，不能据此推断模型已正式向所有用户开放。"
+    ],
+    "canonical_title": "OpenAI Python SDK v3.18.0 新增 GPT-6 Sol 与 Luna 模型标识符",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "openai/openai-python",
+      "OpenAI"
+    ],
+    "facts": [
+      "openai/openai-python 发布 v3.18.0 版本，发布日期为 2026-09-22。",
+      "v3.18.0 的 Features 说明为：**api:** add GPT-6 Sol and Luna model identifiers（#3935）。",
+      "该变更对应 commit 455ce1b，对比版本为 v3.17.0，关联 issue 编号 #3935。"
+    ],
+    "id": "story-646e0e3d852ee991db45",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.18.0",
+    "product_names": [
+      "openai-python v3.18.0",
+      "GPT-6 Sol",
+      "GPT-6 Luna"
+    ],
+    "published_at": "2026-09-22T18:25:48Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-d01eae12e3314c79b5b0"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T18:25:48Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d01eae12e3314c79b5b0",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.18.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.18.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.18.0"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "open_source_ai",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "GPT-6 Sol 与 GPT-6 Luna 是否为正式发布模型、面向哪些用户开放、是否已可实际调用，输入中均未说明。",
+      "发布说明未提及 GPT-6 Sol 与 Luna 的具体规格、能力或与既有模型的差异。",
+      "版本号与日期（v3.18.0、2026-09-22）来自该 GitHub Release 条目，未在其他来源交叉验证。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该法案包可能增加AI数据中心在加州的运营合规成本，并影响其选址与扩张节奏。",
+      "新费率分类若落地，可能使数据中心承担更多电网升级与水资源相关费用。"
+    ],
+    "canonical_title": "加州州长Newsom签署七项法案，收紧AI数据中心能源与用水规则",
+    "category": "policy_regulation",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "California",
+      "Gavin Newsom",
+      "California Public Utilities Commission",
+      "Los Angeles Times",
+      "The Verge"
+    ],
+    "facts": [
+      "据报道，加州州长Gavin Newsom签署了七项法案，旨在防止AI数据中心将公用事业成本转嫁给居民。",
+      "该法案包要求加州公共事业委员会为数据中心引入新的费率分类，并强制数据中心为升级付费。"
+    ],
+    "id": "story-e551328fb64c5f39d80f",
+    "importance_score": 0.7,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills",
+    "product_names": [],
+    "published_at": "2026-09-21T16:29:45-04:00",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-5fb2a618a0bb669f6bb1"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T16:29:45-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5fb2a618a0bb669f6bb1",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "California tightens rules on AI data center energy and water use",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_data_center",
+      "energy_regulation",
+      "water_usage",
+      "utility_rates"
+    ],
+    "uncertainties": [
+      "现有信息仅为摘要，七项法案的具体条款、生效时间及执行细则尚不明确。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该文章属于 NVIDIA 官方开发者博客的 factual_announcement，可作为关于 NVIDIA 机密计算用于 AI 推理的官方信息底座。",
+      "由于内容仅为摘要和简介，尚无法判断具体技术实现、性能数据或可用性细节。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍使用 NVIDIA 机密计算实现私有高性能生产级 AI 推理",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布了一篇由 Tanya Lenz 撰写的文章，标题为“Enabling Private High-Performance Production AI Inference with NVIDIA Confidential Computing”。",
+      "文章于 2026-09-22T17:27:41Z 发布，抓取于 2026-09-22T22:24:28.380638Z。",
+      "文章摘要指出，随着大语言模型（LLM）推理越来越多地在个人、企业和受监管场景中处理敏感信息和专有模型上下文。"
+    ],
+    "id": "story-f00b644a315bf2a06094",
+    "importance_score": 0.55,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://developer.nvidia.com/blog/enabling-private-high-performance-production-ai-inference-with-nvidia-confidential-computing/",
+    "product_names": [
+      "NVIDIA Confidential Computing"
+    ],
+    "published_at": "2026-09-22T17:27:41Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-80425f477229c597aaa4"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T17:27:41Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-80425f477229c597aaa4",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Enabling Private High-Performance Production AI Inference with NVIDIA Confidential Computing",
+        "url": "https://developer.nvidia.com/blog/enabling-private-high-performance-production-ai-inference-with-nvidia-confidential-computing/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/enabling-private-high-performance-production-ai-inference-with-nvidia-confidential-computing/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 推理",
+      "机密计算",
+      "隐私保护"
+    ],
+    "uncertainties": [
+      "文章正文未提供，无法确认 NVIDIA Confidential Computing 的具体功能、支持范围、性能指标或发布时间。",
+      "来源未提及任何具体产品版本、客户案例或基准测试数字。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该来源为 NVIDIA 官方开发者博客（official_primary），其关于 Topograph 与拓扑感知调度的描述可作为事实底座；但文章摘要与正文节选均未展开 Topograph 的具体实现机制、可用版本或性能数据，目前只能确认官方在推广该调度方案与优化叙事。"
+    ],
+    "canonical_title": "NVIDIA 发布 Topograph 实现拓扑感知的 GPU 工作负载调度",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布了题为 “Topology-Aware Workload Scheduling with NVIDIA Topograph” 的文章，作者为 Elizabeth Goodman，发布时间为 2026-09-22T17:16:28Z。",
+      "文章指出 AI 工厂是受功率限制的系统，只有在充分优化时才能交付最大价值。",
+      "文章指出 GPU 工作负载放置是一项关键优化，且工作负载放置不佳会产生负面影响。"
+    ],
+    "id": "story-11459483161467aff3c1",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/topology-aware-workload-scheduling-with-nvidia-topograph/",
+    "product_names": [
+      "NVIDIA Topograph"
+    ],
+    "published_at": "2026-09-22T17:16:28Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-f917779831ad43520462"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T17:16:28Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f917779831ad43520462",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Topology-Aware Workload Scheduling with NVIDIA Topograph",
+        "url": "https://developer.nvidia.com/blog/topology-aware-workload-scheduling-with-nvidia-topograph/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/topology-aware-workload-scheduling-with-nvidia-topograph/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "topology-aware workload scheduling",
+      "GPU workload placement",
+      "AI factories"
+    ],
+    "uncertainties": [
+      "NVIDIA Topograph 的具体功能范围、支持平台、版本状态与可用时间尚未在输入中说明。",
+      "输入未提供拓扑感知调度带来的量化收益或基准测试数据。",
+      "输入未说明 Topograph 是新产品、现有功能更新还是概念性介绍。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 的社区发现，指向 anthropic.com 上的一个疑似 Claude Opus 5.5 页面；metadata 中标记 official 为 false、statement_type 为 unverified_lead，因此目前只能视为未经官方确认的线索。"
+    ],
+    "canonical_title": "Anthropic 页面出现 Claude Opus 5.5 相关线索",
+    "category": "AI Model Release",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "facts": [],
+    "id": "story-ff3247f257edf73a34e0",
+    "importance_score": 0.55,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.anthropic.com/claude-opus-5-5",
+    "product_names": [
+      "Claude Opus 5.5"
+    ],
+    "published_at": "2026-09-22T16:29:05Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-07b6a602c4b4d74bd764"
+    ],
+    "source_refs": [
+      {
+        "author": "km144",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49803892",
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T16:29:05Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-07b6a602c4b4d74bd764",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude Opus 5.5",
+        "url": "https://www.anthropic.com/claude-opus-5-5"
+      }
+    ],
+    "source_urls": [
+      "https://www.anthropic.com/claude-opus-5-5",
+      "https://news.ycombinator.com/item?id=49803892"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 模型发布"
+    ],
+    "uncertainties": [
+      "输入未提供页面正文或摘要，无法确认 https://www.anthropic.com/claude-opus-5-5 是否真实存在、是否为官方页面，也无法确认 Claude Opus 5.5 是否被正式发布。",
+      "输入中的发布时间 2026-09-22T16:29:05Z 与抓取时间 2026-09-22T22:24:28.380638Z 来自来源元数据，其准确性无法独立验证。",
+      "Hacker News 条目获得 997 分和 724 条评论，但社区热度不能作为产品发布属实的直接证据。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "从标题看，tokenizers v1 可能涉及编码、解码以及扩展性方面的实测内容，但输入未提供正文摘要或具体指标，无法验证其性能声称。"
+    ],
+    "canonical_title": "Hugging Face 发布 tokenizers v1：编码、解码与扩展性经实测",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face Blog 于 2026-09-21 发布标题为“tokenizers v1: encode, decode and scaling, measured”的文章。",
+      "该文章链接为 https://huggingface.co/blog/tokenizers-v1。",
+      "该来源被标记为 official_primary，statement_type 为 factual_announcement。"
+    ],
+    "id": "story-5d013c42f5715cf656e1",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/tokenizers-v1",
+    "product_names": [
+      "tokenizers v1"
+    ],
+    "published_at": "2026-09-21T00:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-693b3130e25cc8808f58"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-693b3130e25cc8808f58",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "tokenizers v1: encode, decode and scaling, measured",
+        "url": "https://huggingface.co/blog/tokenizers-v1"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/tokenizers-v1"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供文章正文、摘要或具体数据，tokenizers v1 的具体功能、版本号、性能指标及发布日期以外的细节均无法确认。",
+      "tokenizers v1 是否为正式版本发布、更新或其他状态，输入中未明确说明。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该文章将 AI 安全议题从单一机构的内部规范推向跨机构、跨地区的标准协调层面，评估与报告机制是其中的核心抓手。",
+      "由 OpenAI 这一前沿模型开发方发布标准倡议，可能意在影响后续国际 AI 治理规则的讨论方向。"
+    ],
+    "canonical_title": "OpenAI 呼吁建立全球 AI 标准与协同治理路径",
+    "category": "AI 治理与标准",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布题为《Building standards for the next phase of AI》的文章。",
+      "文章提出一条通往共享全球 AI 标准的路径，并呼吁开展协调的评估、报告和治理，以提升安全性。"
+    ],
+    "id": "story-dba06be734e68a8a06fd",
+    "importance_score": 0.6,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/building-standards-next-phase-ai",
+    "product_names": [],
+    "published_at": "2026-09-21T10:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-10538c022345675d1abd"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-10538c022345675d1abd",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Building standards for the next phase of AI",
+        "url": "https://openai.com/index/building-standards-next-phase-ai"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/building-standards-next-phase-ai"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 标准",
+      "评估",
+      "报告",
+      "治理",
+      "安全"
+    ],
+    "uncertainties": [
+      "文章尚未给出具体的标准条文、实施时间表或参与方名单。",
+      "所呼吁的协调评估、报告与治理将落在哪些国际组织或监管框架下，目前不明确。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "报道将此次融资与市场对 AI 训练数据的需求增长相关联，并将其描述为 Snorkel AI 数据即服务模式的资金支持。"
+    ],
+    "canonical_title": "Snorkel AI 完成 3.5 亿美元 E 轮融资，估值升至 35 亿美元",
+    "category": "AI 融资",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Snorkel AI"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，成立七年的 Snorkel AI 已筹集 3.5 亿美元 E 轮融资。",
+      "TechCrunch AI 报道称，Snorkel AI 的估值升至 35 亿美元。"
+    ],
+    "id": "story-5552adbcb34d2df468c0",
+    "importance_score": 0.4,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/",
+    "product_names": [],
+    "published_at": "2026-09-22T21:56:43Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-16afc5791c45315aa89d"
+    ],
+    "source_refs": [
+      {
+        "author": "Marina Temkin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T21:56:43Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-16afc5791c45315aa89d",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Snorkel AI triples valuation to $3.5B as demand for AI training data booms",
+        "url": "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/22/snorkel-ai-triples-valuation-to-3-5b-as-demand-for-ai-training-data-booms/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 训练数据",
+      "数据即服务",
+      "AI 融资"
+    ],
+    "uncertainties": [
+      "本轮融资的投资方、具体条款、是否已完成交割，以及估值计算方式均未在输入中说明。",
+      "输入仅引用 TechCrunch AI 的报道摘要，未提供 Snorkel AI 官方公告作为原始事实来源。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  },
+  {
+    "analysis": [
+      "该条目的得分 981 与评论数 418 表明在 Hacker News 社区获得较高关注，但输入中未包含正文摘要和内容摘录，因此无法判断具体观点。",
+      "由于来源被标记为 unverified_lead 且非官方来源，不应将其内容视为经过证实的事实。"
+    ],
+    "canonical_title": "博客文章《I don't want to read what you didn't write》引发 Hacker News 讨论",
+    "category": "community_discussion",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Hacker News",
+      "Colin Breck"
+    ],
+    "facts": [
+      "Hacker News 上出现一篇标题为《I don't want to read what you didn't write》的条目。",
+      "该条目链接到博客 https://blog.colinbreck.com/i-dont-want-to-read-what-you-didnt-write/，作者标识为 mooreds。",
+      "该条目发布时间为 2026-09-21T22:30:41Z，抓取时间为 2026-09-22T22:24:28.380638Z。",
+      "该条目的 Hacker News 讨论链接为 https://news.ycombinator.com/item?id=49794330，评论数为 418，得分为 981。",
+      "该条目的来源角色标记为 community_discovery，陈述类型标记为 unverified_lead，官方标记为 false。"
+    ],
+    "id": "story-dacbc0062954ca51bd7a",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://blog.colinbreck.com/i-dont-want-to-read-what-you-didnt-write/",
+    "product_names": [],
+    "published_at": "2026-09-21T22:30:41Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-9a256ca8acf18145f8fa"
+    ],
+    "source_refs": [
+      {
+        "author": "mooreds",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49794330",
+        "fetched_at": "2026-09-22T22:24:28.380638Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T22:30:41Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9a256ca8acf18145f8fa",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "I don't want to read what you didn't write",
+        "url": "https://blog.colinbreck.com/i-dont-want-to-read-what-you-didnt-write/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.colinbreck.com/i-dont-want-to-read-what-you-didnt-write/",
+      "https://news.ycombinator.com/item?id=49794330"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 生成内容与写作",
+      "技术博客写作"
+    ],
+    "uncertainties": [
+      "输入中未提供正文内容或摘要，无法确认文章的核心论点与论证依据。",
+      "标题暗示可能与 AI 生成内容或代写相关，但输入中没有明确说明。",
+      "作者 mooreds 与博客作者 Colin Breck 之间的关系在输入中未说明。"
+    ],
+    "updated_at": "2026-09-22T22:24:58.139580Z"
+  }
+]

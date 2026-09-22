@@ -1,0 +1,189 @@
+{
+  "date": "2026-09-23",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "TOP",
+      "reader_value": 4,
+      "reason": "官方确认发布两款 GPT-6 新模型，能力/成本定位与开发者直接相关，但性能仍属厂商宣称。",
+      "retain_for_trends": true,
+      "story_id": "story-8780c4a4907d733d3d94",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-generation-release",
+        "coding-model-supply-race"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "GitHub 官方确认 Copilot 新增 Opus 5.5 可用，是编码助手模型供给的可验证变化。",
+      "retain_for_trends": true,
+      "story_id": "story-b93c4cb8573b72a61707",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-model-interchangeability"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 4,
+      "reason": "高权限代理被单一 ClickFix 攻击完全劫持，对 agent 安全实践有实质警示，但细节来自单篇报道。",
+      "retain_for_trends": true,
+      "story_id": "story-8da7446153804c97a36b",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-privilege-hijacking-risk",
+        "prompt-injection-to-agent-takeover"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "GitHub 确认 GPT-6 Sol/Luna 进入 Copilot，作为发布故事的落地证据而非独立新闻。",
+      "retain_for_trends": true,
+      "story_id": "story-1f473dda729559af3517",
+      "support_for_story_id": "story-8780c4a4907d733d3d94",
+      "trend_links": [
+        "coding-model-supply-race",
+        "gpt6-model-family-expansion"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "提示缓存命中率、断点与诊断直接关系到 API 延迟和成本，但缺少数值仍需后续实测验证。",
+      "retain_for_trends": true,
+      "story_id": "story-7efdf36fd7dd6cb7eea8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "prompt-cache-cost-latency-optimization"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "SDK 加入模型标识符是可验证的发布前置动作，但本身信息量有限。",
+      "retain_for_trends": true,
+      "story_id": "story-646e0e3d852ee991db45",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpt6-model-family-expansion",
+        "sdk-model-identifier-rollout"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "加州立法要求数据中心承担电网升级成本，可能实质影响 AI 基础设施选址与运营成本。",
+      "retain_for_trends": true,
+      "story_id": "story-e551328fb64c5f39d80f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "data-center-utility-cost-shifting",
+        "ai-infrastructure-energy-regulation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅有官方博客标题与摘要，无版本、性能或部署细节，架构性信息不足。",
+      "retain_for_trends": false,
+      "story_id": "story-f00b644a315bf2a06094",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "拓扑感知调度叙事有价值但无实现机制、版本或量化收益，暂不构成可追踪证据。",
+      "retain_for_trends": false,
+      "story_id": "story-11459483161467aff3c1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "Hacker News 高热线索指向疑似 Anthropic 页面，未经官方确认，仅作低可信弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-ff3247f257edf73a34e0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "claude-opus-release-leak-vs-official-confirmation"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "tokenizers v1 涉及编码解码与扩展性实测，对推理与数据处理 pipeline 有直接价值。",
+      "retain_for_trends": true,
+      "story_id": "story-5d013c42f5715cf656e1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "tokenizer-throughput-scaling",
+        "open-source-inference-tooling"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "抽象标准与治理呼吁无具体条款、时间表或参与方，属装饰性政策表态。",
+      "retain_for_trends": false,
+      "story_id": "story-dba06be734e68a8a06fd",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "融资传闻仅有单一二手报道，无投资方与交割细节，对开发者无实际影响。",
+      "retain_for_trends": false,
+      "story_id": "story-5552adbcb34d2df468c0",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "社区热帖无摘要与论点内容，无法命名可验证趋势或后续用途。",
+      "retain_for_trends": false,
+      "story_id": "story-dacbc0062954ca51bd7a",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-22T22:24:58.139580Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
