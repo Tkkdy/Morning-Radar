@@ -1,0 +1,92 @@
+[
+  {
+    "claim": "Google 发布两个新的 Gemini 文本转语音模型 gemini-3.8-flash-tts 与 gemini-3.8-flash-lite-tts，提供 2000 多种音色，并支持用约 30 秒音频样本创建自定义音色；Simon Willison 据此用 GPT-6 Astra 快速搭了一个自带 API key 的 Playground。",
+    "id": "radar-16537a74c0d628abc216",
+    "missing_evidence": [
+      "Google 官方发布说明与模型卡",
+      "模型 ID、定价、地区可用性与 API 配额",
+      "2000+ 音色数量与 30 秒克隆效果的独立验证",
+      "Playground 本身的可用性与实现细节"
+    ],
+    "observed_at": "2026-09-23T22:27:20.098192Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-942f5e3b838f3db10b90",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/23/gemini-tts-playground/"
+      }
+    ],
+    "uncertainty": "目前仅有 Simon Willison 一条实践者博客作为证据，未抓取官方页面，模型名称、发布时间与能力描述无法独立核实。",
+    "why_notable": "若属实，TTS 音色克隆的门槛降至 30 秒样本量级，且模型发布当天就有实践者做出可直接使用的界面，反映模型发布到工具落地的速度。"
+  },
+  {
+    "claim": "Anthropic 官网出现标题为「Claude discovers a novel enzyme system with CRISPR-like repeats」的条目，声称 Claude 发现了具有类 CRISPR 重复序列的新酶系统。",
+    "id": "radar-dc7c3c7f0f6c9ba75247",
+    "missing_evidence": [
+      "Anthropic 该页面正文内容",
+      "对应的论文或预印本、实验数据",
+      "独立同行评审与实验室复现",
+      "Claude 在发现过程中的具体贡献边界"
+    ],
+    "observed_at": "2026-09-23T22:27:20.098192Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-90554e63532cc17295ed",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
+      }
+    ],
+    "uncertainty": "目前只有标题与 URL，无任何正文证据；「发现」的主体、方法与验证程度均未知，不排除为宣传性表述。",
+    "why_notable": "若属实，这将是 AI 模型直接产出可验证科学发现的案例，涉及 AI 在生物研究中的实际角色，值得追踪。"
+  }
+]

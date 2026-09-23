@@ -1,0 +1,79 @@
+{
+  "date": "2026-09-24",
+  "generated_at": "2026-09-23T22:27:58.230318Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 NVIDIA 是否在后续博文或文档中给出上述就绪验证的具体方法、工具链与 512-GPU 训练失败案例的可复现细节。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-09-23T22:27:58.230318Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-24",
+          "story_id": "story-e4b9ae203e14d6198221"
+        }
+      ],
+      "topic_anchors": [
+        "GPU 集群就绪验证",
+        "512-GPU 训练"
+      ],
+      "watch_id": "watch-ee8e1a8f8efde6d9b846"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 NodeWright 是否出现版本号、支持平台与集成方式的进一步官方说明，以及是否给出与现有 Kubernetes 节点管理工具的关系界定。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NodeWright"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-23T22:27:58.230318Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-24",
+          "story_id": "story-7af9c6e86029876bd61c"
+        }
+      ],
+      "topic_anchors": [
+        "Kubernetes 节点管理",
+        "节点集群运维"
+      ],
+      "watch_id": "watch-74288f2d0a2fc2e4456d"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 GitHub 是否进一步说明该功能所支持的具体 Copilot 套餐层级，以及企业级默认设置包含哪些可配置项。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot code review"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-23T22:27:58.230318Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-24",
+          "story_id": "story-0a649a463350324d66f9"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "code_review"
+      ],
+      "watch_id": "watch-719cf30258810721ab31"
+    }
+  ]
+}

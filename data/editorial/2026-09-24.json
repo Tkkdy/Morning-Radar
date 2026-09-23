@@ -1,0 +1,153 @@
+{
+  "date": "2026-09-24",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认主流框架接入 llama.cpp 量化格式，实质降低本地量化模型工作流门槛。",
+      "retain_for_trends": true,
+      "story_id": "story-4f186bc34839935daabf",
+      "support_for_story_id": null,
+      "trend_links": [
+        "llama.cpp-quant-interop-framework-support",
+        "local-quantized-inference-toolchain-consolidation"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方发布基准可复现方案，直指评估可信度基础设施，但具体方法细节缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-ab5860f1e1b1b8c1b684",
+      "support_for_story_id": null,
+      "trend_links": [
+        "benchmark-reproducibility-infrastructure",
+        "independent-evaluation-tooling"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "GitHub 官方确认 Node 20 在 Actions 不可用且退出开关移除，影响未迁移工作流。",
+      "retain_for_trends": true,
+      "story_id": "story-95ceed32aac32225a36f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ci-runtime-forced-upgrade",
+        "github-actions-node-version-deprecation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA 官方提出健康检查与实际训练能力落差，但技术结论属厂商主张待验证。",
+      "retain_for_trends": true,
+      "story_id": "story-e4b9ae203e14d6198221",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-cluster-readiness-validation-gap",
+        "large-scale-training-failure-diagnostics"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "NVIDIA 宣布节点管理工具 NodeWright，但无版本与可用性细节，证据价值有限。",
+      "retain_for_trends": false,
+      "story_id": "story-7af9c6e86029876bd61c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Copilot 代码审查配置扩展属产品常规迭代，对开发者工作流影响有限。",
+      "retain_for_trends": false,
+      "story_id": "story-0a649a463350324d66f9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "HN 传言的 Claude 酶系统发现未经一手核实，仅作可验证弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-5fe361c6ad79a6a597fb",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-driven-scientific-discovery-claims",
+        "llm-novel-biological-discovery-validation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA 发布 Warp 与 MjWarp 教程，属教育材料，无结构性变化。",
+      "retain_for_trends": false,
+      "story_id": "story-f73c7fd8a0f4cfebf097",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "OpenAI 招募 Patreon 高管透露创作者产品布局，属策略信号但未经官方确认。",
+      "retain_for_trends": true,
+      "story_id": "story-0957f900eeed1b4b825c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-creator-economy-product-strategy",
+        "patreon-talent-acquisition-strategy"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "TechCrunch 转述 Anthropic 生物实验室重大发现，内容笼统需后续核实。",
+      "retain_for_trends": true,
+      "story_id": "story-985672d181c791ddec1f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-driven-scientific-discovery-claims",
+        "claude-ai-for-science-lab-claims"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "openai-python 补丁级修复属普通维护，无趋势或读者注意力价值。",
+      "retain_for_trends": false,
+      "story_id": "story-c6c6feb7c0f2a80bc88f",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-23T22:27:58.230318Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

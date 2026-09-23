@@ -1,0 +1,708 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "Transformers 现已支持运行 llama.cpp 量化模型",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "Hugging Face",
+      "llama.cpp"
+    ],
+    "facts": [
+      "Hugging Face 博客发布文章，标题为“Transformers now runs llama.cpp quants”，发布于 2026-09-22。"
+    ],
+    "id": "story-4f186bc34839935daabf",
+    "importance_score": 0.75,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://huggingface.co/blog/transformers-llama-cpp-quants",
+    "product_names": [
+      "Transformers",
+      "llama.cpp"
+    ],
+    "published_at": "2026-09-22T00:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-689d78c6e007ab8e2c4f"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-689d78c6e007ab8e2c4f",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Transformers now runs llama.cpp quants",
+        "url": "https://huggingface.co/blog/transformers-llama-cpp-quants"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/transformers-llama-cpp-quants"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "该条目的 summary 与 content_excerpt 为空，仅能从标题与来源推断其内容，无法确认具体支持的量化格式、版本要求与使用方式。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "该内容来自 Hugging Face 官方博客，属于官方一手来源，可作为事实基础。",
+      "基准测试结果的可复现性是 AI 评估领域的基础设施性问题，与开放模型评估的可信度相关。"
+    ],
+    "canonical_title": "英国 AISI 与 EvalEval 推出让基准测试结果可复现的新方案",
+    "category": "ai_evaluation",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "UK AISI",
+      "EvalEval",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了题为“How UK AISI and EvalEval Are Making Benchmark Results Reproducible”的文章。",
+      "文章涉及的两个组织为 UK AISI 和 EvalEval。",
+      "文章主题是让基准测试结果可复现。"
+    ],
+    "id": "story-ab5860f1e1b1b8c1b684",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/evaleval-aisi",
+    "product_names": [],
+    "published_at": "2026-09-22T00:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-e9f63aa1f7aaa02f4024"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e9f63aa1f7aaa02f4024",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How UK AISI and EvalEval Are Making Benchmark Results Reproducible",
+        "url": "https://huggingface.co/blog/evaleval-aisi"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/evaleval-aisi"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "benchmark reproducibility",
+      "ai evaluation",
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供文章正文、摘要或具体技术方案，无法确定 UK AISI 与 EvalEval 具体采用的方法、工具或标准。",
+      "输入未说明该方案是否已发布、开源或面向公众可用。",
+      "输入未披露涉及的具体基准测试名称或合作范围。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "这是 GitHub 官方变更日志中的最终通知，属于官方主源事实底座，表明 Node 20 退出已从预告阶段进入不可用状态。",
+      "JavaScript action 的默认运行时由 Node 20 切换至 Node 24，依赖旧运行时的 action 需要改用 Node 24 或调整兼容性。",
+      "此前提供的 ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 临时退出选项被移除，意味着未及时迁移的工作流将无法再通过该开关继续使用 Node 20。"
+    ],
+    "canonical_title": "GitHub Actions 运行器不再支持 Node 20，JavaScript action 改用 Node 24",
+    "category": "开发者工具与平台",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub",
+      "GitHub Actions"
+    ],
+    "facts": [
+      "GitHub Changelog 发布最终通知：Node 20 在 GitHub Actions 运行器上不再可用。",
+      "运行器现在对 JavaScript action 使用 Node 24。",
+      "临时的 ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 退出选项已不再（可用）。"
+    ],
+    "id": "story-95ceed32aac32225a36f",
+    "importance_score": 0.7,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions",
+    "product_names": [
+      "Node 20",
+      "Node 24",
+      "ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION"
+    ],
+    "published_at": "2026-09-23T20:46:07Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-906dd6ad8541fe086da7"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T20:46:07Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-906dd6ad8541fe086da7",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Node 20 is no longer available in GitHub Actions",
+        "url": "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-23-node-20-is-no-longer-available-in-github-actions"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "CI/CD",
+      "运行时升级",
+      "JavaScript Actions"
+    ],
+    "uncertainties": [
+      "输入摘要关于 ACTIONS_ALLOW_USE_UNSECURE_NODE_VERSION 的描述被截断，该选项“已不再可用”还是“已不再被支持”的完整含义无法从输入确认。",
+      "Node 20 不再可用的具体生效范围（是否覆盖所有运行器类型、托管与自托管）未在输入中说明。",
+      "GitHub 是否给出迁移截止日期或额外迁移指引，输入未提供。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "从摘要的表述看，文章关注的痛点是集群健康检查与实际 AI 工作负载运行能力之间的落差，属于部署前验证（readiness validation）环节的议题。",
+      "摘要刻意将“健康检查通过”与“AI 工作负载可运行”区分开，暗示现有健康检查指标不足以覆盖大规模训练所需的连通性、拓扑或集体通信等维度。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客发布：在 AI 工作负载部署前验证 GPU 集群就绪状态",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-09-23 发布标题为《Validate GPU Cluster Readiness Before AI Workloads Land》的文章，作者为 Michelle Horton。",
+      "文章摘要指出：GPU 集群可能通过所有健康检查，但仍然无法运行 AI 工作负载；即使每个 GPU、网络链路和 pod 都报告健康，512-GPU 训练仍可能失败。"
+    ],
+    "id": "story-e4b9ae203e14d6198221",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/validate-gpu-cluster-readiness-before-ai-workloads-land/",
+    "product_names": [],
+    "published_at": "2026-09-23T19:45:19Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-90912ec5cf462463f6ab"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T19:45:19Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-90912ec5cf462463f6ab",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Validate GPU Cluster Readiness Before AI Workloads Land",
+        "url": "https://developer.nvidia.com/blog/validate-gpu-cluster-readiness-before-ai-workloads-land/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/validate-gpu-cluster-readiness-before-ai-workloads-land/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "GPU 集群就绪验证",
+      "AI 工作负载部署",
+      "512-GPU 训练"
+    ],
+    "uncertainties": [
+      "输入仅提供文章标题与开头的摘要片段，未给出文章所述的具体验证方法、工具链、失败案例细节以及 512-GPU 训练示例的完整上下文。",
+      "文章发布行为本身可确认为事实，但文章所主张的技术结论（健康检查为何不足、如何修复）在输入中没有可核验的细节。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "NodeWright 面向的是 Kubernetes 节点生命周期与配置管理这一运维痛点，即节点层面的内核、软件包、存储与安全代理管理，而非工作负载编排本身。",
+      "以官方博客形式发布，说明该产品已进入对外公开介绍阶段，但现有输入未提供版本号、可用性或具体功能细节。"
+    ],
+    "canonical_title": "NVIDIA 发布 NodeWright，用于管理 Kubernetes 节点集群",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇题为「Manage Kubernetes Node Fleets with NodeWright」的文章，作者为 Michelle Horton，发布时间为 2026-09-23T18:25:49Z。",
+      "文章指出 Kubernetes 负责管理节点上运行的内容，而管理节点本身（包括内核设置、系统软件包、存储布局、安全代理等）是难点。",
+      "该内容来自 NVIDIA Developer Blog，属于官方第一手来源（official_primary），陈述类型为 factual_announcement。"
+    ],
+    "id": "story-7af9c6e86029876bd61c",
+    "importance_score": 0.5,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/manage-kubernetes-node-fleets-with-nodewright/",
+    "product_names": [
+      "NodeWright"
+    ],
+    "published_at": "2026-09-23T18:25:49Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-a7e588950be90f90f6fb"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T18:25:49Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a7e588950be90f90f6fb",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Manage Kubernetes Node Fleets with NodeWright",
+        "url": "https://developer.nvidia.com/blog/manage-kubernetes-node-fleets-with-nodewright/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/manage-kubernetes-node-fleets-with-nodewright/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "Kubernetes 节点管理",
+      "节点集群运维"
+    ],
+    "uncertainties": [
+      "NodeWright 的具体功能范围、技术实现方式、发布状态（是否已正式可用或仅为预告）尚不明确。",
+      "除标题与摘要外，输入未包含文章正文，因此无法确认 NodeWright 的版本、支持平台与集成方式。",
+      "未确认 NodeWright 是否与现有 Kubernetes 节点管理工具（如 kubelet 配置、Node Feature Discovery 等）存在替代或互补关系。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "将代码审查配置扩展至更多 Copilot 套餐并引入企业级默认设置，表明 GitHub 正在推动 Copilot 代码审查在团队与企业场景中的标准化采用。",
+      "个人配置与企业级默认设置并行，意味着组织管理员可以在企业层面设定统一策略，同时允许个人进行调整。"
+    ],
+    "canonical_title": "GitHub Copilot 代码审查新增请求与配置方式",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "Copilot"
+    ],
+    "facts": [
+      "GitHub Copilot 代码审查现已提供额外的个人配置，支持范围扩展至更多 Copilot 套餐。",
+      "新增了企业级默认设置。",
+      "这些改进已正式可用（generally available）。",
+      "GitHub 官方博客发布了该公告，发布日期为 2026-09-23。"
+    ],
+    "id": "story-0a649a463350324d66f9",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews",
+    "product_names": [
+      "GitHub Copilot code review"
+    ],
+    "published_at": "2026-09-23T21:25:58Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-63a2ad410a3d1bd18d9b"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T21:25:58Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-63a2ad410a3d1bd18d9b",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "More ways to request and configure Copilot code reviews",
+        "url": "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-23-copilot-code-review-more-ways-to-request-and-configure-reviews"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "code_review"
+    ],
+    "uncertainties": [
+      "输入摘要与内容片段被截断，未完整列出具体的个人配置项与企业级默认设置细节。",
+      "公告未说明哪些具体 Copilot 套餐或层级支持这些配置。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Claude 发现具有 CRISPR 样重复序列的新型酶系统",
+    "category": "AI for Science",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Anthropic",
+      "Claude"
+    ],
+    "facts": [],
+    "id": "story-5fe361c6ad79a6a597fb",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+    "product_names": [
+      "Claude"
+    ],
+    "published_at": "2026-09-23T18:06:47Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-90554e63532cc17295ed"
+    ],
+    "source_refs": [
+      {
+        "author": "raahelb",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49820134",
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T18:06:47Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-90554e63532cc17295ed",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
+        "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
+      }
+    ],
+    "source_urls": [
+      "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
+      "https://news.ycombinator.com/item?id=49820134"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 驱动科学发现",
+      "CRISPR 样重复序列",
+      "酶系统发现"
+    ],
+    "uncertainties": [
+      "一条 Hacker News 社区帖子声称 Claude 发现了一个具有 CRISPR 样重复序列的新型酶系统，链接指向 Anthropic 新闻页面，但该条目的内容摘要为空，且来源被标记为 community_discovery / unverified_lead，未经官方一手来源核实。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "该内容被标记为官方一手来源的 factual_announcement，表明 NVIDIA 通过 Hugging Face Blog 渠道发布面向机器人仿真与学习工作流的使用教程。",
+      "教程涉及 NVIDIA Warp 与 MjWarp 两个工具在机器人仿真加速中的组合使用，属于 AI 基础设施与开源 AI 工具方向。"
+    ],
+    "canonical_title": "NVIDIA 发布教程：如何使用 NVIDIA Warp 和 MjWarp 加速机器人仿真与学习工作流",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face Blog 发布了一篇由 NVIDIA 撰写的教程，标题为《How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows》。",
+      "该条目发布于 2026-09-23T18:41:40Z，来源类型为 rss，来源标记为 official_primary，metadata.official 为 true。"
+    ],
+    "id": "story-f73c7fd8a0f4cfebf097",
+    "importance_score": 0.35,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp",
+    "product_names": [
+      "NVIDIA Warp",
+      "MjWarp"
+    ],
+    "published_at": "2026-09-23T18:41:40Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-30aa7c0acfe7f3809f1c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T18:41:40Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-30aa7c0acfe7f3809f1c",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Use NVIDIA Warp and MjWarp to Accelerate Robotics Simulation and Learning Workflows",
+        "url": "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/nvidia/how-to-use-nvidia-warp-and-mjwarp"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_infrastructure",
+      "robotics_simulation",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入中 summary 与 content_excerpt 均为空，无法从内容片段确认教程涉及的具体技术细节、性能数据或适用场景。",
+      "输入未提供作者信息，无法确认教程的具体撰写者或 NVIDIA 内部团队归属。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "此次招聘表明 OpenAI 正在加强面向创作者群体的产品布局，可能涉及订阅、内容变现或创作者工具方向。",
+      "三位高管均来自 Patreon 的核心产品与工程岗位，其经验可直接迁移至 OpenAI 的创作者产品线。",
+      "Sam Yam 在 X 上亲自宣布加入，而非通过 OpenAI 官方渠道发布，说明该信息目前仍属于高管个人披露阶段。"
+    ],
+    "canonical_title": "OpenAI 聘请三位前 Patreon 高管，组建创作者产品团队",
+    "category": "industry_news",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "OpenAI",
+      "Patreon",
+      "Sam Yam",
+      "Drew Rowny",
+      "Shannon Ma"
+    ],
+    "facts": [
+      "OpenAI 聘请了三位前 Patreon 高管来负责其面向创作者的产品战略。",
+      "Patreon 联合创始人兼技术主管 Sam Yam 在 X 上宣布，他将加入 OpenAI 领导 Creator Product。",
+      "Sam Yam 还带去了 Patreon 前产品负责人 Drew Rowny 和前工程负责人 Shannon Ma。",
+      "Patreon 是一家创作者订阅平台，由 Sam Yam 参与创立，至今已有 13 年。"
+    ],
+    "id": "story-0957f900eeed1b4b825c",
+    "importance_score": 0.4,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/999249/openai-creators-patreon-execs-hire-sam-yam",
+    "product_names": [],
+    "published_at": "2026-09-23T07:02:39-04:00",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-716a82fce17735ae2b46"
+    ],
+    "source_refs": [
+      {
+        "author": "Jess Weatherbed",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T07:02:39-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-716a82fce17735ae2b46",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI nabs key Patreon execs ahead of upcoming announcement",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/999249/openai-creators-patreon-execs-hire-sam-yam"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/999249/openai-creators-patreon-execs-hire-sam-yam"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "creator economy",
+      "AI product strategy",
+      "talent acquisition"
+    ],
+    "uncertainties": [
+      "OpenAI 尚未通过官方渠道确认此次人事任命。",
+      "报道提到招聘发生在“即将发布的公告”之前，但该公告的具体内容、时间与形式尚不明确。",
+      "三位高管在 OpenAI 的具体职责范围、汇报关系与入职时间未在输入中说明。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Anthropic 称其生物实验室已取得重大发现，但 Claude 尚未在实验室中自主运行",
+    "category": "ai_for_science",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Julie Bort",
+      "TechCrunch AI"
+    ],
+    "facts": [],
+    "id": "story-985672d181c791ddec1f",
+    "importance_score": 0.5,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/",
+    "product_names": [
+      "Claude"
+    ],
+    "published_at": "2026-09-23T22:17:39Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-bf0f82f61058abe45705"
+    ],
+    "source_refs": [
+      {
+        "author": "Julie Bort",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T22:17:39Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bf0f82f61058abe45705",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Anthropic says its biology lab has already found something big",
+        "url": "https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/23/anthropic-says-its-biology-lab-has-already-found-something-big/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_for_science",
+      "human_in_the_loop"
+    ],
+    "uncertainties": [
+      "输入仅提供 TechCrunch 报道的标题与摘要，未包含 Anthropic 官方声明或一手研究信息，无法确认该生物学实验室究竟发现了什么。",
+      "“something big”的具体内容、发现时间、参与人员以及是否经过同行评审，均未在输入中给出。",
+      "Anthropic 是否将发布更多细节、Claude 在该实验室中的具体使用方式，均不明确。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  },
+  {
+    "analysis": [
+      "该版本为补丁级发布，主要解决客户端行为类缺陷，而非新增功能。",
+      "Chat Completions seed 限制说明的澄清可能影响用户对结果可复现性的预期。"
+    ],
+    "canonical_title": "openai/openai-python 发布 v3.19.1，修复工具迭代与 HTTP 头部合并问题",
+    "category": "open_source_ai",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 于 2026-09-23 发布 v3.19.1。",
+      "修复 chat 模块：保留单次遍历的工具迭代器（PR #3770）。",
+      "修复 client 模块：以不区分大小写的方式合并 HTTP 头部（PR #3486）。",
+      "维护性变更：澄清 Chat Completions 的 seed 限制（PR #3945）。",
+      "文档变更：澄清仅限协作者的拉取请求政策（PR #3948）。"
+    ],
+    "id": "story-c6c6feb7c0f2a80bc88f",
+    "importance_score": 0.15,
+    "novelty_score": 0.05,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.19.1",
+    "product_names": [
+      "openai-python",
+      "Chat Completions"
+    ],
+    "published_at": "2026-09-23T19:15:40Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-d1a9cd4701cf6b250ac6"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-23T22:27:20.098192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T19:15:40Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d1a9cd4701cf6b250ac6",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.19.1",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.19.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.19.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未说明修复后工具迭代器在多次迭代时的具体行为变化。",
+      "seed 限制的澄清内容未在输入中给出具体数值或规则。"
+    ],
+    "updated_at": "2026-09-23T22:27:58.230318Z"
+  }
+]
