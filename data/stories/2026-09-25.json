@@ -1,0 +1,839 @@
+[
+  {
+    "analysis": [
+      "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别。"
+    ],
+    "canonical_title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
+    "category": "security",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "Cloudflare",
+      "Accomplish"
+    ],
+    "facts": [
+      "Cloudflare 在其博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞。",
+      "该漏洞可能暴露此前工作负载残留的磁盘数据。",
+      "Cloudflare 说明了该问题的成因、调查过程以及所采取的修复措施。"
+    ],
+    "id": "story-b616c609409611e71f4b",
+    "importance_score": 0.68,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/",
+    "product_names": [
+      "Cloudflare Containers"
+    ],
+    "published_at": "2026-09-24T15:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-c657a4eeb7c1b1a54b97"
+    ],
+    "source_refs": [
+      {
+        "author": "Hrushikesh Deshpande",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c657a4eeb7c1b1a54b97",
+        "source_date": null,
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Cloudflare addressed a cross-tenant data exposure vulnerability in Containers",
+        "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "数据安全",
+      "跨租户数据暴露",
+      "漏洞修复"
+    ],
+    "uncertainties": [
+      "输入未披露漏洞的具体技术细节、受影响租户数量及时间范围。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "不可抗力通知若成立，可能为 Oracle 在 Stargate 新墨西哥州数据中心延期上线时提供合同层面的付款延迟空间。"
+    ],
+    "canonical_title": "Oracle 就新墨西哥州 Stargate 数据中心发出不可抗力通知",
+    "category": "AI 基础设施",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Oracle",
+      "Stargate"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称 Oracle 就其新墨西哥州 Stargate 数据中心发出了不可抗力通知。",
+      "报道称该通知允许 Oracle 在该设施未能于 2028 年上线目标时延迟付款。"
+    ],
+    "id": "story-f52d70f5bf5ab2aed951",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+    "product_names": [
+      "Stargate"
+    ],
+    "published_at": "2026-09-24T18:11:44Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-08f261a1fa417fc8143c"
+    ],
+    "source_refs": [
+      {
+        "author": "Aditya Mehta",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T18:11:44Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-08f261a1fa417fc8143c",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Oracle sends force majeure notice on its New Mexico Stargate data center",
+        "url": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "数据中心",
+      "不可抗力",
+      "AI 基础设施"
+    ],
+    "uncertainties": [
+      "Oracle 是否确已发出该通知，以及通知的具体条款和适用范围尚待官方确认。",
+      "新墨西哥州 Stargate 数据中心 2028 年上线目标是否已正式变更尚不明确。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域。",
+      "标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
+    ],
+    "canonical_title": "NVIDIA 发布 NV-Reason-CT：面向放射科医生思维链推理的开放 3D CT 视觉语言模型",
+    "category": "ai_models",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》的文章，作者为 Tanya Lenz，发布时间为 2026-09-23T22:54:56Z。",
+      "文章标题表明 NV-Reason-CT 是一个开放（Open）的 3D CT 视觉语言模型（VLM），用于放射科医生的思维链（Chain-of-Thought）推理。",
+      "文章摘要指出，放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得显著进展，但仍存在临床信息更丰富的领域尚未被充分覆盖。"
+    ],
+    "id": "story-6bb7d81e5ce9e96a85b5",
+    "importance_score": 0.62,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/",
+    "product_names": [
+      "NV-Reason-CT"
+    ],
+    "published_at": "2026-09-23T22:54:56Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-9a85ed91181c3a3222f8"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T22:54:56Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9a85ed91181c3a3222f8",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning",
+        "url": "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "3D CT 视觉语言模型",
+      "放射科思维链推理",
+      "医学影像 AI"
+    ],
+    "uncertainties": [
+      "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围。",
+      "输入未提供 NV-Reason-CT 的可用状态、许可证或代码/权重发布渠道。",
+      "输入未提供除 NVIDIA 官方博客之外的独立验证或第三方评测信息。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该帖子标题将 Claude 的新页面与「Grok bot」并置，暗示社区正在将 Anthropic 的 Claude Code on the Web 视为对 xAI Grok bot 的竞争回应。",
+      "由于该条目被标记为 unverified_lead，且缺少摘要和正文内容，无法据此确认 Claude Code on the Web 的具体功能、发布时间或正式发布状态。",
+      "从 URL 结构看，code.claude.com/docs/en/claude-code-on-the-web 属于 Anthropic 的 Claude 文档域名，可能指向 Claude Code 的网页版文档，但未在输入中提供可验证的官方发布说明。"
+    ],
+    "canonical_title": "Claude 发布 Claude Code on the Web，社区讨论其与 Grok bot 的竞争",
+    "category": "AI 开发者工具 / 产品发布",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Grok",
+      "Hacker News"
+    ],
+    "facts": [
+      "Hacker News 上出现标题为「Goodbye Grok bot? Claude just released a competitor」的社区帖子。",
+      "该帖子指向的 URL 为 https://code.claude.com/docs/en/claude-code-on-the-web ，属于 code.claude.com 文档页面。",
+      "帖子发布者为 rkovashikawa，发布时间为 2026-09-24T13:09:38Z。",
+      "该条目的来源类型为 hacker_news，来源角色为 community_discovery，陈述类型为 unverified_lead。",
+      "该条目没有提供 summary 或 content_excerpt，仅提供了标题和外部链接。"
+    ],
+    "id": "story-0e331c35009b2c0f1d74",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://code.claude.com/docs/en/claude-code-on-the-web",
+    "product_names": [
+      "Claude Code on the Web",
+      "Grok bot"
+    ],
+    "published_at": "2026-09-24T13:09:38Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-ad3050f5d74035a0f345"
+    ],
+    "source_refs": [
+      {
+        "author": "rkovashikawa",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49830095",
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T13:09:38Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ad3050f5d74035a0f345",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Goodbye Grok bot? Claude just released a competitor",
+        "url": "https://code.claude.com/docs/en/claude-code-on-the-web"
+      }
+    ],
+    "source_urls": [
+      "https://code.claude.com/docs/en/claude-code-on-the-web",
+      "https://news.ycombinator.com/item?id=49830095"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 编程助手",
+      "网页版开发工具",
+      "产品竞争"
+    ],
+    "uncertainties": [
+      "Claude Code on the Web 是否已正式发布、具体上线时间及可用范围均未在输入中确认。",
+      "标题中「competitor」所指的竞争对象是否确为 xAI 的 Grok bot，输入中仅有标题暗示，缺少正文佐证。",
+      "该 Hacker News 帖子的讨论内容、社区反响以及是否存在官方公告均未在输入中提供。",
+      "输入中未包含 code.claude.com 页面的实际内容，无法确认该 URL 是否有效或页面是否描述的是 Claude Code on the Web 产品。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该文章来自 NVIDIA 官方开发者博客，属于官方一手来源，可作为事实底座。",
+      "文章主题属于 ai_models 与 ai_infrastructure 范畴，聚焦生物基础模型的 MoE 训练效率问题。"
+    ],
+    "canonical_title": "NVIDIA 发布面向生物基础模型的高效 MoE 训练方法",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA Developer Blog"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为“Efficient MoE Training for Biological Foundation Models”的文章，作者为 Michelle Horton，发布时间为 2026-09-24T15:00:00Z。",
+      "文章指出随着语言模型增长，扩展稠密架构的成本越来越高；在稠密 transformer 中，每个 token 都会经过每一层。"
+    ],
+    "id": "story-ed7397ada28fd1eb3558",
+    "importance_score": 0.42,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/",
+    "product_names": [],
+    "published_at": "2026-09-24T15:00:00Z",
+    "relevance_score": 0.66,
+    "source_item_ids": [
+      "item-6ff053dd07249040e881"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6ff053dd07249040e881",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Efficient MoE Training for Biological Foundation Models",
+        "url": "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "MoE 训练",
+      "生物基础模型",
+      "稀疏架构"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要与内容片段，未给出具体训练方法、性能数字或项目名称，无法确认文中是否包含可追溯的实验结果。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "将 Live Avatar 限定在 Gemini Enterprise 层级，表明 Google 可能将实时虚拟形象定位为企业功能，而非大众消费级功能。",
+      "该摘要来自 The Verge 的编辑报道，未引用 Google 官方公告原文，因此具体技术细节与完整措辞仍需以官方来源核实。"
+    ],
+    "canonical_title": "Google 发布 Gemini 3.8 Live 更新，为 AI 引入 Live Avatar 虚拟形象",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Google",
+      "Gemini"
+    ],
+    "facts": [
+      "Google 发布了 Gemini 3.8 Live 更新。",
+      "该更新允许用户在与模型对话时，观看一个实时响应的动画 AI 虚拟形象。",
+      "该虚拟形象名为 Live Avatar，会在对话过程中进行唇形同步并展示不同的面部表情。",
+      "Live Avatar 目前仅面向 Gemini Enterprise 客户开放。",
+      "据 Google 说明，Live Avatar 可以在 97 […] 之间切换。"
+    ],
+    "id": "story-a742df43d1bb55e2bb12",
+    "importance_score": 0.4,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face",
+    "product_names": [
+      "Gemini 3.8 Live",
+      "Live Avatar",
+      "Gemini Enterprise"
+    ],
+    "published_at": "2026-09-24T15:59:26-04:00",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-4b0e8d72e3ff9980033f"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T15:59:26-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4b0e8d72e3ff9980033f",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Gemini 3.8 Live with Live Avatar gives Google’s AI a face",
+        "url": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入摘要中“Live Avatar can transition between the 97 […]”被截断，97 所对应的具体项目（如表情、语言或形象）不明确。",
+      "输入未提供 Google 官方公告链接，无法确认该功能的技术实现方式及完整发布说明。",
+      "Live Avatar 是否后续会向非企业用户开放，输入未说明。",
+      "输入未给出 Gemini 3.8 Live 更新的具体发布日期，仅提供报道发布时间 2026-09-24。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 将 Daybreak 项目访问权限扩展至乌克兰政府，用于民用基础设施网络防御",
+    "category": "AI 安全与政策",
+    "credibility_score": 0.82,
+    "entity_names": [
+      "OpenAI",
+      "Government of Ukraine"
+    ],
+    "facts": [
+      "OpenAI 宣布将 Daybreak 项目的访问权限扩展至乌克兰政府。",
+      "OpenAI 表示此举旨在支持民用基础设施的网络防御。",
+      "该信息来自 OpenAI 官方新闻页面，发布日期为 2026-09-23。"
+    ],
+    "id": "story-abfc68c7d2012ff8d5ce",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense",
+    "product_names": [
+      "Daybreak"
+    ],
+    "published_at": "2026-09-23T13:00:00Z",
+    "relevance_score": 0.42,
+    "source_item_ids": [
+      "item-9328fa400dd37e6b9e77"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9328fa400dd37e6b9e77",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "OpenAI extends cyber access to Ukraine for civilian defense",
+        "url": "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/openai-extends-cyber-access-to-ukraine-for-civilian-defense"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_security",
+      "cyber_defense",
+      "civilian_infrastructure"
+    ],
+    "uncertainties": [
+      "OpenAI 官方摘要未披露 Daybreak 项目的具体能力、访问范围、部署时间表或合作细节。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该报道显示端侧开放权重模型与可穿戴硬件结合的方向正在受到媒体关注，但摘要未提供模型参数、性能或合作细节。"
+    ],
+    "canonical_title": "PrismML 将其微型大语言模型引入高通芯片智能眼镜",
+    "category": "ai_models",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "PrismML",
+      "Qualcomm"
+    ],
+    "facts": [
+      "TechCrunch AI 于 2026-09-24 报道 PrismML 将其微型 LLM 带到高通芯片驱动的智能眼镜上。",
+      "报道称 Prism 的更大目标是让开放权重 AI 在设备端运行，并更充分利用设备已有算力。"
+    ],
+    "id": "story-269d2bc3eaab28906d3a",
+    "importance_score": 0.4,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/",
+    "product_names": [
+      "PrismML 微型 LLM"
+    ],
+    "published_at": "2026-09-24T19:00:42Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-257f7f1f9fff2515cee7"
+    ],
+    "source_refs": [
+      {
+        "author": "Julie Bort",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T19:00:42Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-257f7f1f9fff2515cee7",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "PrismML brings its tiny LLMs to Qualcomm-powered smart glasses",
+        "url": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "open-weight AI",
+      "on-device AI",
+      "smart glasses"
+    ],
+    "uncertainties": [
+      "Prism 与 Qualcomm 的合作形式、具体芯片型号、模型规格与上市时间均未在输入中说明。",
+      "输入仅含标题与一句话摘要，无法核实技术细节。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该消息来自 Google 官方博客（official_primary），属于官方公告性质，可作为事实底座。",
+      "标题涉及区域、合作伙伴与客户三个维度的扩展，暗示 Google Beam 可能进入商业化或规模化部署阶段，但输入摘要与内容摘录仅为『Google Beam promotional animation』，缺乏具体细节。"
+    ],
+    "canonical_title": "Google Beam 扩展新区域、合作伙伴与客户",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google",
+      "Aaron Luber"
+    ],
+    "facts": [
+      "Google 官方博客发布文章《Google Beam expands with new regions, partners, and customers》。",
+      "该文章由 Aaron Luber 撰写，发布时间为 2026-09-23T18:00:00Z。",
+      "文章标题表明 Google Beam 正在扩展新的区域、合作伙伴和客户。"
+    ],
+    "id": "story-d99ce15c71d5297f399c",
+    "importance_score": 0.35,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/",
+    "product_names": [
+      "Google Beam"
+    ],
+    "published_at": "2026-09-23T18:00:00Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-8772414765b134fe3b88"
+    ],
+    "source_refs": [
+      {
+        "author": "Aaron Luber",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T18:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8772414765b134fe3b88",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Google Beam expands with new regions, partners, and customers",
+        "url": "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/research/google-beam-expansion/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入中的 content_excerpt 仅为『Google Beam promotional animation』，未提供新增区域、合作伙伴和客户的具体名称与数量。",
+      "Google Beam 的具体产品定义与功能范围在输入中未作说明。",
+      "该扩展是否涉及定价、可用性或技术规格变化，输入中无法确认。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该讲话选择在联合国安理会这一多边安全平台进行，体现 OpenAI 试图将 AI 安全议题纳入国际治理框架。"
+    ],
+    "canonical_title": "Sam Altman 在联合国安理会发表关于 AI 安全与国际合作的讲话",
+    "category": "AI 治理与安全",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Sam Altman",
+      "OpenAI",
+      "United Nations Security Council"
+    ],
+    "facts": [
+      "OpenAI CEO Sam Altman 在联合国安理会发表讲话。",
+      "根据 OpenAI 官方新闻页面的表述，讲话内容涉及 AI 安全、人类控制以及国际合作。"
+    ],
+    "id": "story-a9e730893b5b849263af",
+    "importance_score": 0.45,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/sam-altman-un-security-council-remarks",
+    "product_names": [],
+    "published_at": "2026-09-23T12:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-347b65ce144a221e189c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-347b65ce144a221e189c",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Sam Altman’s remarks at the United Nations Security Council",
+        "url": "https://openai.com/index/sam-altman-un-security-council-remarks"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/sam-altman-un-security-council-remarks"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 安全",
+      "人类控制",
+      "国际合作"
+    ],
+    "uncertainties": [
+      "输入仅提供讲话的概括性摘要，未包含讲话的具体主张、承诺或政策建议。",
+      "除官方摘要外，暂无独立来源或第三方记录可核实讲话细节。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "黄仁勋在The Ezra Klein Show谈AI与气候变化：称AI可助力应对气候问题但需先承受巨大痛苦",
+    "category": "ai_industry_commentary",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Jensen Huang",
+      "Nvidia",
+      "The Ezra Klein Show",
+      "The Verge"
+    ],
+    "facts": [
+      "The Verge AI发布了一篇报道，标题为“Jensen Huang talks about AI and climate change like a supervillain”。",
+      "该报道作者为Justine Calma，发布时间为2026-09-24T14:04:44-04:00。",
+      "报道称，Nvidia首席执行官Jensen Huang在The Ezra Klein Show最新一期节目中讨论了能源的未来以及AI对地球的影响。",
+      "报道称，Jensen Huang表示AI可以帮助应对气候变化，但前提是先造成“an enormous amount of pain and suffering”（巨大的痛苦和折磨）。"
+    ],
+    "id": "story-c4d78d03cfd8ea77c46a",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://www.theverge.com/tech/1000140/jensen-huang-nvidia-ai-energy-climate-change-supervillain",
+    "product_names": [],
+    "published_at": "2026-09-24T14:04:44-04:00",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-bcb31d434ed42cb8e10d"
+    ],
+    "source_refs": [
+      {
+        "author": "Justine Calma",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T14:04:44-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bcb31d434ed42cb8e10d",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Jensen Huang talks about AI and climate change like a supervillain",
+        "url": "https://www.theverge.com/tech/1000140/jensen-huang-nvidia-ai-energy-climate-change-supervillain"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1000140/jensen-huang-nvidia-ai-energy-climate-change-supervillain"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_climate_change",
+      "ai_energy"
+    ],
+    "uncertainties": [
+      "The Ezra Klein Show该期节目的具体发布日期与完整对话内容未在输入中提供。",
+      "Jensen Huang原话的完整语境（“an enormous amount of pain and suffering”指代对象）未在输入中明确。",
+      "摘要中“his comments boil down to the […]”被截断，其完整结论含义不明。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "本次发布以文档/注释澄清（web search 位置默认值、Realtime modality 数组定义）和边界修正（fine-tuning bounds、Realtime response 引用）为主，属于维护性更新，未引入显著的新功能。",
+      "保留回退提取路径下的单文件修复可能影响依赖回退提取逻辑的调用方行为。"
+    ],
+    "canonical_title": "openai/openai-python 发布 v3.19.2，修复回退提取路径下的单文件保留问题并更新 API 说明",
+    "category": "open_source_ai",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 发布了 v3.19.2 版本，发布日期为 2026-09-23（发布标注时间 2026-09-24T00:05:23Z）。",
+      "该版本包含一个 Bug Fix：preserve single files for fallback extraction paths（#3875，commit bfd3680）。",
+      "该版本包含若干 Chores：**api:** clarify approximate web search location defaults（#3953，commit a95c95e）。",
+      "该版本包含 **api:** clarify Realtime modality array definitions（#3954，commit e79cf53）。",
+      "该版本包含 **api:** correct fine-tuning bounds and Realtime response reference（#3949，commit 325a948）。",
+      "该仓库 openai/openai-python 在数据抓取时拥有 31691 stars、6085 forks 和 155 个开放 issues。"
+    ],
+    "id": "story-fe3b9f2c2f04883dc6a8",
+    "importance_score": 0.12,
+    "novelty_score": 0.08,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.19.2",
+    "product_names": [
+      "openai-python",
+      "v3.19.2"
+    ],
+    "published_at": "2026-09-24T00:05:23Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-dcd0244d24329b5f17b6"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T00:05:23Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dcd0244d24329b5f17b6",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.19.2",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.19.2"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.19.2"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未说明 v3.19.1 与 v3.19.2 之间除上述条目外是否还有未列出的变更。",
+      "各 issue/commit 的具体影响范围与受影响用户群体未在输入中提供。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "OpenAI Academy 已运营两年，仍以扩大 AI 技能普及为主要方向。"
+    ],
+    "canonical_title": "OpenAI Academy 成立两周年，宣布将 AI 技能推广至更多社区",
+    "category": "企业官方动态",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 官方博客发布文章，纪念 OpenAI Academy 成立两周年。",
+      "文章称将把 AI 技能带给更多社区。"
+    ],
+    "id": "story-f01f16d4150d5a3047a5",
+    "importance_score": 0.2,
+    "novelty_score": 0.05,
+    "primary_source_url": "https://openai.com/index/two-years-of-openai-academy",
+    "product_names": [
+      "OpenAI Academy"
+    ],
+    "published_at": "2026-09-23T16:00:00Z",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-52e46e8371e1f69996c0"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T20:40:39.839281Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-52e46e8371e1f69996c0",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Two years of OpenAI Academy",
+        "url": "https://openai.com/index/two-years-of-openai-academy"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/two-years-of-openai-academy"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 技能普及",
+      "AI 教育"
+    ],
+    "uncertainties": [
+      "公告未说明‘更多社区’的具体范围、数量、地区或新增项目内容。"
+    ],
+    "updated_at": "2026-09-24T20:41:19.739967Z"
+  }
+]

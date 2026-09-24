@@ -7,6 +7,7 @@
     "id": "item-52e46e8371e1f69996c0",
     "language": null,
     "metadata": {
+      "content_version": "dc940214042fe75d6057",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-8772414765b134fe3b88",
     "language": "en-us",
     "metadata": {
+      "content_version": "6f08080a0296dd2b8e51",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-6ff053dd07249040e881",
     "language": null,
     "metadata": {
+      "content_version": "1ed0b6b5585d6f6a0741",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -127,6 +130,7 @@
     "id": "item-c657a4eeb7c1b1a54b97",
     "language": "en-us",
     "metadata": {
+      "content_version": "411688c74c7dc008d4e9",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -157,6 +161,7 @@
     "id": "item-d3d988f207c8c42a78d6",
     "language": "en-US",
     "metadata": {
+      "content_version": "d0030367d85753e22903",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -187,6 +192,7 @@
     "id": "item-4b0e8d72e3ff9980033f",
     "language": "en-US",
     "metadata": {
+      "content_version": "9ae54c0336246be0a90a",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +285,7 @@
     "id": "item-9328fa400dd37e6b9e77",
     "language": null,
     "metadata": {
+      "content_version": "fd4d90fc2f02b2abbf16",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -369,6 +376,7 @@
     "id": "item-9a85ed91181c3a3222f8",
     "language": null,
     "metadata": {
+      "content_version": "5aefcfaeca5a7253158e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -429,6 +437,7 @@
     "id": "item-257f7f1f9fff2515cee7",
     "language": "en-US",
     "metadata": {
+      "content_version": "8c2772afa28619cb73d4",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -459,6 +468,7 @@
     "id": "item-bcb31d434ed42cb8e10d",
     "language": "en-US",
     "metadata": {
+      "content_version": "a352dd69f3b5c528487b",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -551,6 +561,7 @@
     "id": "item-347b65ce144a221e189c",
     "language": null,
     "metadata": {
+      "content_version": "c28cc259f76ce1de9c49",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -701,6 +712,7 @@
     "id": "item-08f261a1fa417fc8143c",
     "language": "en-US",
     "metadata": {
+      "content_version": "42a159d057d7d83e2fc8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -43207,6 +43219,7 @@
     "id": "item-dcd0244d24329b5f17b6",
     "language": "en",
     "metadata": {
+      "content_version": "1f5ae548dcbefe742e63",
       "data_anomaly": false,
       "forks": 6085,
       "official": true,
@@ -47019,6 +47032,7 @@
     "metadata": {
       "comments": 193,
       "community_signal": true,
+      "content_version": "a8a19ecc1fd52dfd680a",
       "discussion_url": "https://news.ycombinator.com/item?id=49831968",
       "official": false,
       "original_url": "https://f-droid.org/2026/09/24/f-droid-2.0-a-new-chapter-for-android-freedom.html",
@@ -47109,11 +47123,19 @@
     "metadata": {
       "comments": 774,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49820134",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
       "score": 755,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -47289,6 +47311,7 @@
     "metadata": {
       "comments": 350,
       "community_signal": true,
+      "content_version": "7c9e8db251e77c230bc2",
       "discussion_url": "https://news.ycombinator.com/item?id=49827794",
       "official": false,
       "original_url": "https://www.reddit.com/r/facebook/comments/1wotwrk/meta_takes_down_a_critical_video_about_meta_ai/",
@@ -47469,11 +47492,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49836364",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.bloomberg.com/news/articles/2026-09-24/anthropic-strikes-12-billion-deal-with-akamai-for-ai-computing",
       "score": 2,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -47633,6 +47664,7 @@
     "metadata": {
       "change_percent": 0.045007461857742556,
       "close": 777.5900268554688,
+      "content_version": "a94edf34064b7df8dbab",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 744.0999755859375,
@@ -49039,38 +49071,6 @@
     "url": "https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman"
   },
   {
-    "author": "mfiguiere",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-24T20:40:39.839281Z",
-    "id": "item-3686509b41ed91c14e3f",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49836364",
-      "hn_submission_time": 1790281668,
-      "lab_id": "anthropic",
-      "original_url": "https://www.bloomberg.com/news/articles/2026-09-24/anthropic-strikes-12-billion-deal-with-akamai-for-ai-computing",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-24T20:27:48Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic Strikes $12B AI Computing Deal with Akamai",
-    "topic_candidates": [],
-    "url": "https://www.bloomberg.com/news/articles/2026-09-24/anthropic-strikes-12-billion-deal-with-akamai-for-ai-computing"
-  },
-  {
     "author": "jeudesprits",
     "company_candidates": [],
     "content_excerpt": "",
@@ -49815,6 +49815,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "30d14ab6425d036dd71e",
       "discovery_paths": [
         "hn_search:anthropic:Claude",
         "hn_search:xai:Grok"
@@ -50129,38 +50130,6 @@
     "title": "Once Claude can measure something, it can make it faster",
     "topic_candidates": [],
     "url": "https://claude.dev/blog/how-we-made-claude-ai-faster/"
-  },
-  {
-    "author": "raahelb",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-24T20:40:39.839281Z",
-    "id": "item-90554e63532cc17295ed",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49820134",
-      "hn_submission_time": 1790186807,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-23T18:06:47Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
   },
   {
     "author": "valk",
