@@ -1,6 +1,131 @@
 [
   {
     "analysis": [
+      "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
+    ],
+    "canonical_title": "GitHub Copilot 应用引入本地沙箱功能",
+    "category": "AI 编程工具",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "GitHub Copilot",
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》。",
+      "该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。"
+    ],
+    "id": "story-1ce6d3c87fb494682454",
+    "importance_score": 0.62,
+    "novelty_score": 0.72,
+    "primary_source_url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
+    "product_names": [
+      "GitHub Copilot app"
+    ],
+    "published_at": "2026-09-23T15:00:57Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-63e0251438a40139e79a"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T15:00:57Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-63e0251438a40139e79a",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Local sandboxing in the GitHub Copilot app",
+        "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
+    ],
+    "status": "available",
+    "topic_names": [
+      "本地沙箱",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
+      "通过企业托管设置开放 OTel 配置，意味着企业可以将 Copilot 代理的调用链、模型与工具交互纳入既有可观测性体系，有助于运维监控与合规审计。"
+    ],
+    "canonical_title": "GitHub Copilot 应用通过企业托管设置支持 OpenTelemetry 配置",
+    "category": "ai_coding",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub Copilot 应用现在支持通过企业托管设置配置 OpenTelemetry（OTel）。",
+      "OpenTelemetry 是一个开源可观测性框架。",
+      "该配置旨在帮助了解 Copilot 代理的运行表现以及其与模型和工具的交互。",
+      "该消息发布于 GitHub Changelog，时间为 2026-09-23T02:14:54Z。"
+    ],
+    "id": "story-affa355ec771c491c672",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
+    "product_names": [
+      "GitHub Copilot app",
+      "OpenTelemetry"
+    ],
+    "published_at": "2026-09-23T02:14:54Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-cf4f876c079667faff55"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T02:14:54Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-cf4f876c079667faff55",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "OpenTelemetry in the GitHub Copilot app",
+        "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未说明 OTel 支持的具体指标、追踪字段、导出协议或已兼容的后端。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
       "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别。"
     ],
     "canonical_title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
@@ -127,6 +252,71 @@
   },
   {
     "analysis": [
+      "该功能属于 AI 代理（agent）能力从信息查询向实际事务代办延伸的一类尝试，初期以订阅与机型限定方式小范围测试，符合 Google 在 Pixel 与 Gemini 生态中捆绑推广新功能的既有做法。",
+      "将适用范围限定为 Pixel 11 且需付费订阅 Gemini，可能同时起到控制测试规模、收集真实通话数据以及推动订阅转化的作用。"
+    ],
+    "canonical_title": "Google 测试让 Gemini 代用户致电商家，初期仅限美国 Pixel 11 订阅用户",
+    "category": "ai_products",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "Google",
+      "Gemini"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，Google 正在测试一项让 Gemini 代用户拨打商家电话的功能。",
+      "Google 表示，该 AI 致电功能将首先面向美国地区、付费订阅 Gemini 的 Pixel 11 用户提供。"
+    ],
+    "id": "story-e121b88da5ff40ac8a4e",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/",
+    "product_names": [
+      "Gemini",
+      "Pixel 11"
+    ],
+    "published_at": "2026-09-24T16:00:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-c4aac87444043708d107"
+    ],
+    "source_refs": [
+      {
+        "author": "Sarah Perez",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c4aac87444043708d107",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google tests letting Gemini call businesses for you",
+        "url": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "AI 代理",
+      "AI 语音助手"
+    ],
+    "uncertainties": [
+      "该功能的具体上线时间、测试时长与覆盖范围尚不明确。",
+      "Gemini 代打电话时的具体交互方式、商家侧体验与隐私处理方式未在现有信息中说明。",
+      "该功能是否以及何时扩展到美国以外地区或非 Pixel 设备尚不确定。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
       "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域。",
       "标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
     ],
@@ -189,6 +379,162 @@
       "输入未提供除 NVIDIA 官方博客之外的独立验证或第三方评测信息。"
     ],
     "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该信息来源被标记为 community_discovery/unverified_lead，只是社区发现信号，不能单独作为事实依据，需回到高通原始页面核实。"
+    ],
+    "canonical_title": "高通宣布 Linux 支持即将登陆 Snapdragon X2 系列",
+    "category": "芯片与平台",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Qualcomm",
+      "Snapdragon"
+    ],
+    "facts": [
+      "高通在其官网 Qualcomm News 发布题为“Linux support is coming to Snapdragon X2 series”的文章（URL 为 https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux）。",
+      "该条目由 Hacker News 用户 aaronday 提交，发布时间为 2026-09-23T22:38:16Z，抓取时间为 2026-09-24T21:19:39.788070Z。"
+    ],
+    "id": "story-8307e2d10f7e25bdc8dc",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
+    "product_names": [
+      "Snapdragon X2"
+    ],
+    "published_at": "2026-09-23T22:38:16Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-0410844be7d5378b059a"
+    ],
+    "source_refs": [
+      {
+        "author": "aaronday",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49823582",
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T22:38:16Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0410844be7d5378b059a",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Linux support is coming to Snapdragon X2 series",
+        "url": "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux"
+      }
+    ],
+    "source_urls": [
+      "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
+      "https://news.ycombinator.com/item?id=49823582"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "Linux support",
+      "Arm PC"
+    ],
+    "uncertainties": [
+      "“Linux support is coming to Snapdragon X2 series”的具体含义、时间表、覆盖范围（哪些芯片型号、哪些发行版/内核版本）尚不明确。",
+      "该帖只有标题与 URL，摘要和正文摘录为空，无法从输入中确认支持细节。",
+      "该条目来自社区发现，非官方发布渠道确认，原始高通页面内容未在输入中提供。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
+      "该版本以功能新增与 Bug 修复并重，重点覆盖多模型提供商（OpenAI、Bedrock Converse、Vertex AI）的兼容性问题，显示项目在扩展模型接入面时持续修补边界情况。",
+      "TypeSafeModel 相关多项改动（PR #8684、#8686、#8685、#8697）表明类型安全建模的默认值处理与选项推断是当前迭代重点。",
+      "新增 GitHubCopilotOAuthFlow 表明项目在身份认证与第三方集成方向上扩展。",
+      "修复 google_proactive_audio 与 realtime 接收端失败（PR #8394、#8138）说明实时音频会话此前存在连接与错误传播缺陷。"
+    ],
+    "canonical_title": "pydantic-ai 发布 v2.49.0，新增 GitHub Copilot OAuth 流程与 BoolCriteria 等特性",
+    "category": "open_source_ai",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "pydantic",
+      "pydantic-ai",
+      "DouweM",
+      "Kludex",
+      "GitHub Copilot",
+      "OpenAI",
+      "Bedrock Converse",
+      "Vertex AI"
+    ],
+    "facts": [
+      "pydantic-ai 发布了 v2.49.0 版本，发布日期为 2026-09-23，GitHub release 标签为 v2.49.0。",
+      "该版本新增 GitHubCopilotOAuthFlow 用于设备授权（device authorization）（PR #8618，作者 @Kludex）。",
+      "该版本新增 BoolCriteria，用于说明 bool 字段的 yes 和 no 含义，并允许 True/False Enum 实现相同功能（PR #8586，作者 @DouweM）。",
+      "该版本在 TypeSafeModel 中使用用户对 None 的描述作为 \"none of these\" 选项（PR #8684，作者 @DouweM）。",
+      "该版本在 TypeSafeModel 中把非评分标准的整数作为 Choice 提供（PR #8686，作者 @DouweM）。",
+      "该版本新增 RealtimeSession.wait_for_reply()（PR #8514，作者 @DouweM）。",
+      "Bug 修复：在 provider_details['logprobs'] 中保留所有流式 OpenAIChatModel logprobs（PR #8653，作者 @adtyavrdhn）。",
+      "Bug 修复：在 Bedrock Converse 上允许 gpt-6-sol、gpt-6-luna 和 gpt-6-astra（PR #8656，作者 @sevakva）。",
+      "Bug 修复：修复 graph joins 中 fanned producer 贡献的保留问题（PR #8385，作者 @FIITAY）。",
+      "Bug 修复：在 graph.iter() 期间将 @GraphBuilder.stream 节点错误就地暴露（PR #8304）。",
+      "Bug 修复：在 Vertex AI 上的 GoogleImageGenerationModel 中将 Cloud Storage gs:// 引用作为 fileData 转发（PR #8225，作者 @dorukgezici）。",
+      "Bug 修复：为 Annotated 模型类型保留输出工具名称和描述（PR #8608，作者 @ikriv）。",
+      "Bug 修复：在 Bedrock Converse 上对 OpenAI GPT-5.6 和 GPT-6 丢弃 temperature 和 top_p，而不是返回 400 错误（PR #8668，作者 @kimnamu）。",
+      "Bug 修复：在 OpenAICodexModel 上使用原生工具搜索发送延迟工具，而不是返回 400 错误（PR #8693，作者 @aweis89）。",
+      "该版本新增贡献者 @FIITAY、@ikriv、@aweis89。",
+      "完整变更日志对比链接为 https://github.com/pydantic/pydantic-ai/compare/v2.48.0...v2.49.0。"
+    ],
+    "id": "story-cf5be366709f3675a268",
+    "importance_score": 0.42,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0",
+    "product_names": [
+      "pydantic-ai v2.49.0",
+      "GitHubCopilotOAuthFlow",
+      "BoolCriteria",
+      "TypeSafeModel",
+      "RealtimeSession.wait_for_reply()",
+      "OpenAIChatModel",
+      "OpenAICodexModel",
+      "GoogleImageGenerationModel"
+    ],
+    "published_at": "2026-09-24T03:09:53Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-723ac1f70a166fbceb0f"
+    ],
+    "source_refs": [
+      {
+        "author": "DouweM",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T03:09:53Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-723ac1f70a166fbceb0f",
+        "source_date": null,
+        "source_name": "GitHub · pydantic/pydantic-ai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "pydantic/pydantic-ai: v2.49.0 (2026-09-23)",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明中的 gpt-6-sol、gpt-6-luna、gpt-6-astra、GPT-5.6 和 GPT-6 等模型名称仅来自本次 release notes，未提供独立来源确认其真实存在或可用。",
+      "发布于 2026-09-23 但发布时间戳显示为 2026-09-24，日期口径以 release 标签为准，差异原因未在输入中说明。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
   },
   {
     "analysis": [
@@ -266,6 +612,74 @@
   },
   {
     "analysis": [
+      "该消息由 OpenAI 官方渠道发布，属于官方事实性公告，可作为事件主要事实底座。",
+      "公告将产品价值定位于文档结构化与上下文利用，而非替代律师的判断，指向法律工作流中“起草—策略”分工的产品叙事。"
+    ],
+    "canonical_title": "OpenAI 宣布 Harvey 使用 GPT-6 Astra 提升法律文档起草能力",
+    "category": "ai_models",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "OpenAI",
+      "Harvey",
+      "GPT-6 Astra"
+    ],
+    "facts": [
+      "OpenAI 发布消息称，Harvey 使用 GPT-6 Astra 生成更结构化、更具上下文感知能力的法律文档。",
+      "OpenAI 表示，该能力使律师能够将精力集中于策略。",
+      "该公告的发布时间为 2026-09-23T12:00:00Z，来源为 OpenAI News（RSS）。"
+    ],
+    "id": "story-5854871dac9792453fa9",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
+    "product_names": [
+      "GPT-6 Astra",
+      "Harvey"
+    ],
+    "published_at": "2026-09-23T12:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-52b80abd4e046c041ffb"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-52b80abd4e046c041ffb",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+        "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "法律科技",
+      "法律文档起草"
+    ],
+    "uncertainties": [
+      "公告未披露 Harvey 的具体使用范围、部署阶段或可量化效果指标。",
+      "公告未说明 GPT-6 Astra 在法律场景下的评测数据、合规或数据安全安排。",
+      "摘要中“更强”“更结构化”等表述为官方宣传口径，缺少第三方验证。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
       "该文章来自 NVIDIA 官方开发者博客，属于官方一手来源，可作为事实底座。",
       "文章主题属于 ai_models 与 ai_infrastructure 范畴，聚焦生物基础模型的 MoE 训练效率问题。"
     ],
@@ -324,6 +738,68 @@
       "输入仅提供摘要与内容片段，未给出具体训练方法、性能数字或项目名称，无法确认文中是否包含可追溯的实验结果。"
     ],
     "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "LiquidAI 发布 LFM2.5-VL-DSpark：加速视觉语言模型",
+    "category": "ai_models",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "LiquidAI",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face Blog 于 2026-09-24T14:08:57Z 发布了一篇博文，标题为“Accelerating vision-language models with LFM2.5-VL-DSpark”。",
+      "该博文 URL 为 https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark。",
+      "该来源被标记为 official_primary，且 statement_type 为 factual_announcement。"
+    ],
+    "id": "story-6bdd5f76da07c5ffaeed",
+    "importance_score": 0.4,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+    "product_names": [
+      "LFM2.5-VL-DSpark"
+    ],
+    "published_at": "2026-09-24T14:08:57Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-280bf64dcca75cee1131"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T14:08:57Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-280bf64dcca75cee1131",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
+        "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入的 summary 和 content_excerpt 为空，无法获取该发布的具体技术细节、性能数据或可用性信息。",
+      "除标题外，输入未提供 LFM2.5-VL-DSpark 的模型规模、许可证、基准测试结果或发布时间等细节。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
   },
   {
     "analysis": [
@@ -454,6 +930,136 @@
       "OpenAI 官方摘要未披露 Daybreak 项目的具体能力、访问范围、部署时间表或合作细节。"
     ],
     "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该采访同时覆盖财务指标（利润率）、资本市场计划（IPO 时机）与产品伦理/合规议题（是否披露 AI 身份），表明 ElevenLabs 正处于从技术供应商向规模化商业实体过渡的阶段。",
+      "CEO 关于披露 AI 身份的表述反映当前监管与用户预期尚未稳定，企业披露义务可能随用户习惯变化而调整。"
+    ],
+    "canonical_title": "ElevenLabs CEO 谈利润率、IPO 时机与告知用户正在与机器人对话",
+    "category": "AI 语音/商业动态",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "ElevenLabs",
+      "TechCrunch",
+      "Connie Loizos"
+    ],
+    "facts": [
+      "TechCrunch AI 于 2026-09-24 发布了一篇由 Connie Loizos 撰写的对 ElevenLabs CEO 的采访文章。",
+      "文章标题涉及利润率、IPO 时机以及告知客户正在与机器人对话三个话题。",
+      "TechCrunch 文章标题称 ElevenLabs 目前据报估值 220 亿美元。",
+      "ElevenLabs 为大量客户服务通话提供 AI 语音。",
+      "ElevenLabs CEO 在采访中表示，企业应当告知用户其正在与机器对话，至少在看到机器是所有人预期之前应当如此。"
+    ],
+    "id": "story-df0b7d82f8946fa41846",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/",
+    "product_names": [],
+    "published_at": "2026-09-24T16:35:13Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-1a6a7ee1f4b800d0389a"
+    ],
+    "source_refs": [
+      {
+        "author": "Connie Loizos",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T16:35:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1a6a7ee1f4b800d0389a",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "ElevenLabs’ CEO on margins, IPO timing, and telling customers they’re talking to a bot",
+        "url": "https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/twenty-minutes-with-the-ceo-of-elevenlabs-now-reportedly-valued-at-22-billion/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "AI 语音",
+      "客户服务",
+      "IPO",
+      "利润率"
+    ],
+    "uncertainties": [
+      "ElevenLabs 当前估值 220 亿美元来自 TechCrunch 标题中的“据报”，并非公司官方确认。",
+      "采访中是否披露了具体的利润率数字或 IPO 时间表，输入内容未提供。",
+      "ElevenLabs 官方是否已就披露 AI 身份形成正式政策，输入内容未说明。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
+      "该消息源自 OpenAI 官方渠道，属于官方口径的合作案例发布，具体效果数据由厂商提供，尚无第三方独立验证。"
+    ],
+    "canonical_title": "invideo 借助 GPT‑6 Astra 将调色与色彩分级效率提升三倍",
+    "category": "ai_models",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "OpenAI",
+      "invideo",
+      "GPT‑6 Astra"
+    ],
+    "facts": [
+      "OpenAI 官方博客称，invideo 使用 GPT‑6 Astra 后，剪辑规划精度提高、色彩校正与调色效率提升三倍，并在一天内产出 50 个自定义效果。"
+    ],
+    "id": "story-abd6750abb5e36c08631",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/invideo-builds-with-gpt-6-astra",
+    "product_names": [
+      "GPT‑6 Astra"
+    ],
+    "published_at": "2026-09-23T12:00:00Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-f2ff7f76056120414cf0"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f2ff7f76056120414cf0",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How invideo improves color grading 3x with GPT‑6 Astra",
+        "url": "https://openai.com/index/invideo-builds-with-gpt-6-astra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/invideo-builds-with-gpt-6-astra"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "“调色效率提升三倍”的具体衡量口径、基准与方法未在输入中说明。",
+      "“一天产出 50 个自定义效果”的统计方式与质量评估标准未在输入中说明。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
   },
   {
     "analysis": [
@@ -647,6 +1253,61 @@
   },
   {
     "analysis": [],
+    "canonical_title": "Google Photos 的“Clueless”风格虚拟衣橱功能已在 Android 和 iOS 上线",
+    "category": "产品发布",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google Photos 的“Clueless”风格虚拟衣橱功能现已在 Android 和 iOS 上可用。",
+      "该功能此前于 2026 年 6 月率先面向 Android 用户推出。"
+    ],
+    "id": "story-99e8c3b544ec4542f475",
+    "importance_score": 0.25,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/",
+    "product_names": [
+      "Google Photos"
+    ],
+    "published_at": "2026-09-24T17:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-ff3779e3fc84e1f8a3d5"
+    ],
+    "source_refs": [
+      {
+        "author": "Sarah Perez",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ff3779e3fc84e1f8a3d5",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google Photos ‘Clueless’-inspired virtual closet is now available on Android and iOS",
+        "url": "https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/google-photos-clueless-inspired-virtual-closet-is-now-available-on-android-and-ios/"
+    ],
+    "status": "available",
+    "topic_names": [],
+    "uncertainties": [
+      "该报道未提供关于此功能的具体 AI 模型、使用细节或功能范围的独立验证信息。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [],
     "canonical_title": "黄仁勋在The Ezra Klein Show谈AI与气候变化：称AI可助力应对气候问题但需先承受巨大痛苦",
     "category": "ai_industry_commentary",
     "credibility_score": 0.45,
@@ -775,6 +1436,69 @@
       "各 issue/commit 的具体影响范围与受影响用户群体未在输入中提供。"
     ],
     "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "该项目在 Hacker News 上获得 4 分、0 条评论，属于低热度社区发现，表明其尚未得到广泛讨论或验证。",
+      "项目标题宣称提供面向 AI 编码代理的生产工作流，但输入内容未包含任何功能细节、版本或使用证据。"
+    ],
+    "canonical_title": "GitHub 项目 Vibe Coding Production Kit 在 Hacker News 上出现",
+    "category": "开发者工具",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Moeeryani",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-4e8c13c1bccd31ac405b",
+    "importance_score": 0.25,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/Moeeryani/Vibe-Coding-Production-Kit",
+    "product_names": [
+      "Vibe Coding Production Kit"
+    ],
+    "published_at": "2026-09-24T21:02:34Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-fd1af74fab026e1f608b"
+    ],
+    "source_refs": [
+      {
+        "author": "Moeeryani",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49836678",
+        "fetched_at": "2026-09-24T21:19:39.788070Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T21:02:34Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-fd1af74fab026e1f608b",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Vibe Coding Production Kit – a production workflow for AI coding agents",
+        "url": "https://github.com/Moeeryani/Vibe-Coding-Production-Kit"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/Moeeryani/Vibe-Coding-Production-Kit",
+      "https://news.ycombinator.com/item?id=49836678"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 编码代理",
+      "生产工作流"
+    ],
+    "uncertainties": [
+      "该项目的具体功能、实现方式及成熟度未知。",
+      "项目是否真正可用于生产环境无法从现有输入判断。",
+      "该项目在 Hacker News 上获得 4 分、0 条评论，其社区认可度极低，传播动机与质量不确定。",
+      "输入中无仓库 star 数、更新日期、维护状态或作者背景信息。"
+    ],
+    "updated_at": "2026-09-24T21:20:12.618941Z"
   },
   {
     "analysis": [

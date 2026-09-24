@@ -167,6 +167,134 @@
         "稀疏架构"
       ],
       "watch_id": "watch-3374e94f4bb8e565ff37"
+    },
+    {
+      "entity_anchors": [
+        "Oracle",
+        "Stargate"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Oracle 或 Stargate 官方是否就新墨西哥州数据中心的不可抗力通知、2028 年上线目标及付款安排作出确认或说明。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Stargate"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T21:20:12.618941Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-f52d70f5bf5ab2aed951"
+        }
+      ],
+      "topic_anchors": [
+        "数据中心",
+        "不可抗力",
+        "AI 基础设施"
+      ],
+      "watch_id": "watch-cad514cf648082fc92b1"
+    },
+    {
+      "entity_anchors": [
+        "Cloudflare",
+        "Accomplish"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Cloudflare 是否发布关于 Containers 跨租户数据暴露漏洞的后续技术说明、租户通知或修复验证。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Cloudflare Containers"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T21:20:12.618941Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-b616c609409611e71f4b"
+        }
+      ],
+      "topic_anchors": [
+        "数据安全",
+        "跨租户数据暴露",
+        "漏洞修复"
+      ],
+      "watch_id": "watch-9d90ad29eb0f1a122e6b"
+    },
+    {
+      "entity_anchors": [
+        "GitHub Copilot",
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub Copilot 应用本地沙箱的默认启用状态、平台支持范围及用户配置方式是否进一步公布。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot app"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T21:20:12.618941Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-1ce6d3c87fb494682454"
+        }
+      ],
+      "topic_anchors": [
+        "本地沙箱",
+        "ai_coding"
+      ],
+      "watch_id": "watch-a018f8cafbebcc19a725"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否公布 NV-Reason-CT 的架构细节、性能指标、许可证及代码或权重发布渠道。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NV-Reason-CT"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T21:20:12.618941Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-6bb7d81e5ce9e96a85b5"
+        }
+      ],
+      "topic_anchors": [
+        "3D CT 视觉语言模型",
+        "放射科思维链推理",
+        "医学影像 AI"
+      ],
+      "watch_id": "watch-7312e9047825aa5ae6ad"
+    },
+    {
+      "entity_anchors": [
+        "Google",
+        "Gemini"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Google 是否公布 Gemini 代打电话功能的具体上线时间、支持机型与地区范围，以及是否从 Pixel 11 付费订阅用户扩展至更多设备。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Gemini",
+        "Pixel 11"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T21:20:12.618941Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-e121b88da5ff40ac8a4e"
+        }
+      ],
+      "topic_anchors": [
+        "AI 代理",
+        "AI 语音助手"
+      ],
+      "watch_id": "watch-4840a3f02b2ccff305d2"
     }
   ]
 }

@@ -5,8 +5,232 @@
       "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
-      "id": "brief-77f36abaa3e6075b2e7c",
+      "id": "brief-409ad8ec333d8d1382a9",
       "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域。",
+            "标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
+          ],
+          "canonical_title": "NVIDIA 发布 NV-Reason-CT：面向放射科医生思维链推理的开放 3D CT 视觉语言模型",
+          "category": "ai_models",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布了题为《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》的文章，作者为 Tanya Lenz，发布时间为 2026-09-23T22:54:56Z。",
+            "文章标题表明 NV-Reason-CT 是一个开放（Open）的 3D CT 视觉语言模型（VLM），用于放射科医生的思维链（Chain-of-Thought）推理。",
+            "文章摘要指出，放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得显著进展，但仍存在临床信息更丰富的领域尚未被充分覆盖。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/",
+          "product_names": [
+            "NV-Reason-CT"
+          ],
+          "published_at": "2026-09-23T22:54:56Z",
+          "source_refs": [
+            {
+              "author": "Tanya Lenz",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-23T22:54:56Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-9a85ed91181c3a3222f8",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning",
+              "url": "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-6bb7d81e5ce9e96a85b5",
+          "topic_names": [
+            "3D CT 视觉语言模型",
+            "放射科思维链推理",
+            "医学影像 AI"
+          ],
+          "uncertainties": [
+            "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围。",
+            "输入未提供 NV-Reason-CT 的可用状态、许可证或代码/权重发布渠道。",
+            "输入未提供除 NVIDIA 官方博客之外的独立验证或第三方评测信息。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6bb7d81e5ce9e96a85b5"
+      ],
+      "title": "NVIDIA 发布 NV-Reason-CT：面向放射科医生思维链推理的开放 3D CT 视觉语言模型",
+      "uncertainty": "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围；也未提供可用状态、许可证或代码/权重发布渠道，以及除 NVIDIA 官方博客之外的独立验证或第三方评测信息。",
+      "what_happened": "NVIDIA Developer Blog 发布文章《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》，标题表明 NV-Reason-CT 是一个开放的 3D CT 视觉语言模型，用于放射科医生的思维链推理；文章摘要指出放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得进展，但临床信息更丰富的领域尚未被充分覆盖。",
+      "why_it_matters": "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域；标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-4a7baa9c2ade9a94df32",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该功能属于 AI 代理（agent）能力从信息查询向实际事务代办延伸的一类尝试，初期以订阅与机型限定方式小范围测试，符合 Google 在 Pixel 与 Gemini 生态中捆绑推广新功能的既有做法。",
+            "将适用范围限定为 Pixel 11 且需付费订阅 Gemini，可能同时起到控制测试规模、收集真实通话数据以及推动订阅转化的作用。"
+          ],
+          "canonical_title": "Google 测试让 Gemini 代用户致电商家，初期仅限美国 Pixel 11 订阅用户",
+          "category": "ai_products",
+          "entity_names": [
+            "Google",
+            "Gemini"
+          ],
+          "facts": [
+            "TechCrunch AI 报道称，Google 正在测试一项让 Gemini 代用户拨打商家电话的功能。",
+            "Google 表示，该 AI 致电功能将首先面向美国地区、付费订阅 Gemini 的 Pixel 11 用户提供。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/",
+          "product_names": [
+            "Gemini",
+            "Pixel 11"
+          ],
+          "published_at": "2026-09-24T16:00:00Z",
+          "source_refs": [
+            {
+              "author": "Sarah Perez",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-24T16:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-c4aac87444043708d107",
+              "source_date": null,
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Google tests letting Gemini call businesses for you",
+              "url": "https://techcrunch.com/2026/09/24/google-tests-letting-gemini-make-phone-calls-initially-for-us-pixel-owners/"
+            }
+          ],
+          "status": "official_teaser",
+          "story_id": "story-e121b88da5ff40ac8a4e",
+          "topic_names": [
+            "AI 代理",
+            "AI 语音助手"
+          ],
+          "uncertainties": [
+            "该功能的具体上线时间、测试时长与覆盖范围尚不明确。",
+            "Gemini 代打电话时的具体交互方式、商家侧体验与隐私处理方式未在现有信息中说明。",
+            "该功能是否以及何时扩展到美国以外地区或非 Pixel 设备尚不确定。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-e121b88da5ff40ac8a4e"
+      ],
+      "title": "Google 测试让 Gemini 代用户致电商家，初期仅限美国 Pixel 11 付费订阅用户",
+      "uncertainty": "该功能的具体上线时间、测试时长与覆盖范围尚不明确；Gemini 代打电话时的具体交互方式、商家侧体验与隐私处理方式未在现有信息中说明；是否以及何时扩展到美国以外地区或非 Pixel 设备尚不确定。",
+      "what_happened": "TechCrunch AI 报道称，Google 正在测试一项让 Gemini 代用户拨打商家电话的功能。Google 表示，该 AI 致电功能将首先面向美国地区、付费订阅 Gemini 的 Pixel 11 用户提供。",
+      "why_it_matters": "这属于 AI 代理能力从信息查询向实际事务代办延伸的尝试，初期以订阅与机型限定方式小范围测试，符合 Google 在 Pixel 与 Gemini 生态中捆绑推广新功能的既有做法；限定范围可能同时起到控制测试规模、收集真实通话数据以及推动订阅转化的作用。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-6481a4f4be975aa7b7f7",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "通过企业托管设置开放 OTel 配置，意味着企业可以将 Copilot 代理的调用链、模型与工具交互纳入既有可观测性体系，有助于运维监控与合规审计。"
+          ],
+          "canonical_title": "GitHub Copilot 应用通过企业托管设置支持 OpenTelemetry 配置",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot"
+          ],
+          "facts": [
+            "GitHub Copilot 应用现在支持通过企业托管设置配置 OpenTelemetry（OTel）。",
+            "OpenTelemetry 是一个开源可观测性框架。",
+            "该配置旨在帮助了解 Copilot 代理的运行表现以及其与模型和工具的交互。",
+            "该消息发布于 GitHub Changelog，时间为 2026-09-23T02:14:54Z。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app",
+          "product_names": [
+            "GitHub Copilot app",
+            "OpenTelemetry"
+          ],
+          "published_at": "2026-09-23T02:14:54Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-23T02:14:54Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-cf4f876c079667faff55",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "OpenTelemetry in the GitHub Copilot app",
+              "url": "https://github.blog/changelog/2026-09-22-opentelemetry-in-the-github-copilot-app"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-affa355ec771c491c672",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入未说明 OTel 支持的具体指标、追踪字段、导出协议或已兼容的后端。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-affa355ec771c491c672"
+      ],
+      "title": "GitHub Copilot 应用支持通过企业托管设置配置 OpenTelemetry",
+      "uncertainty": "输入未说明 OTel 支持的具体指标、追踪字段、导出协议或已兼容的后端。",
+      "what_happened": "GitHub Copilot 应用现在支持通过企业托管设置配置 OpenTelemetry（OTel）。OpenTelemetry 是一个开源可观测性框架，该配置旨在帮助了解 Copilot 代理的运行表现以及其与模型和工具的交互。消息发布于 GitHub Changelog，时间为 2026-09-23T02:14:54Z。",
+      "why_it_matters": "通过企业托管设置开放 OTel 配置，意味着企业可以将 Copilot 代理的调用链、模型与工具交互纳入既有可观测性体系，有助于运维监控与合规审计。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "该条目标记为 unverified_lead，缺少官方公告佐证，仅作为社区讨论信号呈现。",
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-77f36abaa3e6075b2e7c",
+      "market_or_community_reaction": "讨论出现在 Hacker News，讨论链接为 https://news.ycombinator.com/item?id=49830095 ，但输入未提供具体讨论内容或社区反响细节。",
       "section": "ai_and_open_source",
       "source_urls": [
         "https://code.claude.com/docs/en/claude-code-on-the-web",
@@ -79,162 +303,336 @@
       "story_ids": [
         "story-0e331c35009b2c0f1d74"
       ],
-      "title": "Claude Code on the Web 页面出现，社区讨论其与 Grok bot 的竞争",
-      "uncertainty": "Claude Code on the Web 是否已正式发布、具体上线时间及可用范围均未在输入中确认；标题中「competitor」所指的竞争对象是否确为 xAI 的 Grok bot，输入中仅有标题暗示，缺少正文佐证；该 Hacker News 帖子的讨论内容、社区反响以及是否存在官方公告均未在输入中提供；输入中未包含 code.claude.com 页面的实际内容，无法确认该 URL 是否有效或页面是否描述的是 Claude Code on the Web 产品。",
-      "what_happened": "Hacker News 上出现标题为「Goodbye Grok bot? Claude just released a competitor」的社区帖子，指向 code.claude.com 文档页面 https://code.claude.com/docs/en/claude-code-on-the-web ；帖子发布者为 rkovashikawa，发布时间为 2026-09-24T13:09:38Z。该条目来源类型为 hacker_news，来源角色为 community_discovery，陈述类型为 unverified_lead，未提供 summary 或 content_excerpt。",
+      "title": "社区讨论 Claude Code on the Web，并将其与 Grok bot 并置比较",
+      "uncertainty": "Claude Code on the Web 是否已正式发布、具体上线时间及可用范围均未在输入中确认；标题中「competitor」所指竞争对象是否确为 xAI 的 Grok bot 仅有标题暗示，缺少正文佐证；输入中未包含 code.claude.com 页面的实际内容，无法确认该 URL 是否有效或页面是否描述的是该产品。",
+      "what_happened": "Hacker News 上出现标题为「Goodbye Grok bot? Claude just released a competitor」的社区帖子，指向 code.claude.com 文档页面 https://code.claude.com/docs/en/claude-code-on-the-web ，发布者为 rkovashikawa，发布时间为 2026-09-24T13:09:38Z。该条目来源类型为 hacker_news、来源角色为 community_discovery、陈述类型为 unverified_lead，且没有提供摘要或正文摘录。",
       "why_it_matters": "该帖子标题将 Claude 的新页面与「Grok bot」并置，暗示社区正在将 Anthropic 的 Claude Code on the Web 视为对 xAI Grok bot 的竞争回应。"
     },
     {
       "continuity_contexts": [],
-      "generation_note": null,
+      "generation_note": "该条目标记为 unverified_lead，摘要与正文缺失，仅作为社区发现信号呈现。",
       "generation_reason": null,
       "generation_status": "generated",
-      "id": "brief-99706e24eb430b87fe0a",
-      "market_or_community_reaction": "报道来自 The Verge 的编辑报道，未引用 Google 官方公告原文，社区反应尚未在输入中体现。",
+      "id": "brief-86bce05e488c6fed0f2a",
+      "market_or_community_reaction": "该内容由 Hacker News 用户提交，讨论链接为 https://news.ycombinator.com/item?id=49823582 。",
       "section": "ai_and_open_source",
       "source_urls": [
-        "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face"
+        "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
+        "https://news.ycombinator.com/item?id=49823582"
       ],
       "story_contexts": [
         {
           "analysis": [
-            "将 Live Avatar 限定在 Gemini Enterprise 层级，表明 Google 可能将实时虚拟形象定位为企业功能，而非大众消费级功能。",
-            "该摘要来自 The Verge 的编辑报道，未引用 Google 官方公告原文，因此具体技术细节与完整措辞仍需以官方来源核实。"
+            "该信息来源被标记为 community_discovery/unverified_lead，只是社区发现信号，不能单独作为事实依据，需回到高通原始页面核实。"
           ],
-          "canonical_title": "Google 发布 Gemini 3.8 Live 更新，为 AI 引入 Live Avatar 虚拟形象",
-          "category": "ai_models",
+          "canonical_title": "高通宣布 Linux 支持即将登陆 Snapdragon X2 系列",
+          "category": "芯片与平台",
           "entity_names": [
-            "Google",
-            "Gemini"
+            "Qualcomm",
+            "Snapdragon"
           ],
           "facts": [
-            "Google 发布了 Gemini 3.8 Live 更新。",
-            "该更新允许用户在与模型对话时，观看一个实时响应的动画 AI 虚拟形象。",
-            "该虚拟形象名为 Live Avatar，会在对话过程中进行唇形同步并展示不同的面部表情。",
-            "Live Avatar 目前仅面向 Gemini Enterprise 客户开放。",
-            "据 Google 说明，Live Avatar 可以在 97 […] 之间切换。"
+            "高通在其官网 Qualcomm News 发布题为“Linux support is coming to Snapdragon X2 series”的文章（URL 为 https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux）。",
+            "该条目由 Hacker News 用户 aaronday 提交，发布时间为 2026-09-23T22:38:16Z，抓取时间为 2026-09-24T21:19:39.788070Z。"
           ],
-          "primary_source_url": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face",
+          "primary_source_url": "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
           "product_names": [
-            "Gemini 3.8 Live",
-            "Live Avatar",
-            "Gemini Enterprise"
+            "Snapdragon X2"
           ],
-          "published_at": "2026-09-24T15:59:26-04:00",
+          "published_at": "2026-09-23T22:38:16Z",
           "source_refs": [
             {
-              "author": "Emma Roth",
+              "author": "aaronday",
               "date_precision": null,
-              "discussion_url": null,
-              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "discussion_url": "https://news.ycombinator.com/item?id=49823582",
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
               "practice_signal_kind": null,
-              "published_at": "2026-09-24T15:59:26-04:00",
-              "published_at_role": "feed_entry_time",
+              "published_at": "2026-09-23T22:38:16Z",
+              "published_at_role": "hn_submission_time",
               "published_date_role": null,
-              "raw_item_id": "item-4b0e8d72e3ff9980033f",
+              "raw_item_id": "item-0410844be7d5378b059a",
               "source_date": null,
-              "source_name": "The Verge AI",
-              "source_role": "editorial",
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
               "source_timezone": null,
-              "source_type": "rss",
-              "statement_type": "unknown",
-              "title": "Gemini 3.8 Live with Live Avatar gives Google’s AI a face",
-              "url": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face"
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Linux support is coming to Snapdragon X2 series",
+              "url": "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux"
             }
           ],
-          "status": "announced",
-          "story_id": "story-a742df43d1bb55e2bb12",
+          "status": "unknown",
+          "story_id": "story-8307e2d10f7e25bdc8dc",
           "topic_names": [
-            "ai_models"
+            "Linux support",
+            "Arm PC"
           ],
           "uncertainties": [
-            "输入摘要中“Live Avatar can transition between the 97 […]”被截断，97 所对应的具体项目（如表情、语言或形象）不明确。",
-            "输入未提供 Google 官方公告链接，无法确认该功能的技术实现方式及完整发布说明。",
-            "Live Avatar 是否后续会向非企业用户开放，输入未说明。",
-            "输入未给出 Gemini 3.8 Live 更新的具体发布日期，仅提供报道发布时间 2026-09-24。"
+            "“Linux support is coming to Snapdragon X2 series”的具体含义、时间表、覆盖范围（哪些芯片型号、哪些发行版/内核版本）尚不明确。",
+            "该帖只有标题与 URL，摘要和正文摘录为空，无法从输入中确认支持细节。",
+            "该条目来自社区发现，非官方发布渠道确认，原始高通页面内容未在输入中提供。"
           ]
         }
       ],
       "story_ids": [
-        "story-a742df43d1bb55e2bb12"
+        "story-8307e2d10f7e25bdc8dc"
       ],
-      "title": "Google 发布 Gemini 3.8 Live 更新，为企业版 Gemini 引入 Live Avatar 虚拟形象",
-      "uncertainty": "输入摘要中关于 Live Avatar 可在 97 项之间切换的表述被截断，具体所指不明确；缺少 Google 官方公告链接，技术实现与完整发布说明无法核实；是否后续向非企业用户开放未见说明；Gemini 3.8 Live 更新的具体发布日期也仅能参考报道时间。",
-      "what_happened": "Google 发布 Gemini 3.8 Live 更新，允许用户在与模型对话时看到一个实时响应的动画 AI 虚拟形象。该形象名为 Live Avatar，会在对话中进行唇形同步并展示不同的面部表情，目前仅面向 Gemini Enterprise 客户开放。",
-      "why_it_matters": "将实时虚拟形象限定在企业层级，说明 Google 可能把具备面部反馈的实时交互定位为企业功能，而非大众消费级功能；这类交互形态若被企业用户接受，可能改变对话式 AI 的产品形态预期。"
+      "title": "高通官网出现「Linux 支持即将登陆 Snapdragon X2 系列」文章，经 Hacker News 传播",
+      "uncertainty": "「Linux support is coming to Snapdragon X2 series」的具体含义、时间表、覆盖范围（哪些芯片型号、哪些发行版/内核版本）尚不明确；该帖只有标题与 URL，摘要和正文摘录为空，无法从输入中确认支持细节；原始高通页面内容未在输入中提供。",
+      "what_happened": "高通官网 Qualcomm News 发布题为「Linux support is coming to Snapdragon X2 series」的文章，URL 为 https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux 。该条目由 Hacker News 用户 aaronday 提交，发布时间为 2026-09-23T22:38:16Z，抓取时间为 2026-09-24T21:19:39.788070Z。",
+      "why_it_matters": "该信息来源被标记为 community_discovery/unverified_lead，只是社区发现信号，不能单独作为事实依据，需回到高通原始页面核实。"
     },
     {
       "continuity_contexts": [],
       "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
-      "id": "brief-b69d1ad965fbb4be7ea9",
-      "market_or_community_reaction": "输入中未包含市场或开发者社区的明确反应。",
+      "id": "brief-cc39b17f22c2b85f19de",
+      "market_or_community_reaction": null,
       "section": "ai_and_open_source",
       "source_urls": [
-        "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/"
+        "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
       ],
       "story_contexts": [
         {
           "analysis": [
-            "该报道显示端侧开放权重模型与可穿戴硬件结合的方向正在受到媒体关注，但摘要未提供模型参数、性能或合作细节。"
+            "该消息由 OpenAI 官方渠道发布，属于官方事实性公告，可作为事件主要事实底座。",
+            "公告将产品价值定位于文档结构化与上下文利用，而非替代律师的判断，指向法律工作流中“起草—策略”分工的产品叙事。"
           ],
-          "canonical_title": "PrismML 将其微型大语言模型引入高通芯片智能眼镜",
+          "canonical_title": "OpenAI 宣布 Harvey 使用 GPT-6 Astra 提升法律文档起草能力",
           "category": "ai_models",
           "entity_names": [
-            "PrismML",
-            "Qualcomm"
+            "OpenAI",
+            "Harvey",
+            "GPT-6 Astra"
           ],
           "facts": [
-            "TechCrunch AI 于 2026-09-24 报道 PrismML 将其微型 LLM 带到高通芯片驱动的智能眼镜上。",
-            "报道称 Prism 的更大目标是让开放权重 AI 在设备端运行，并更充分利用设备已有算力。"
+            "OpenAI 发布消息称，Harvey 使用 GPT-6 Astra 生成更结构化、更具上下文感知能力的法律文档。",
+            "OpenAI 表示，该能力使律师能够将精力集中于策略。",
+            "该公告的发布时间为 2026-09-23T12:00:00Z，来源为 OpenAI News（RSS）。"
           ],
-          "primary_source_url": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/",
+          "primary_source_url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
           "product_names": [
-            "PrismML 微型 LLM"
+            "GPT-6 Astra",
+            "Harvey"
           ],
-          "published_at": "2026-09-24T19:00:42Z",
+          "published_at": "2026-09-23T12:00:00Z",
           "source_refs": [
             {
-              "author": "Julie Bort",
+              "author": null,
               "date_precision": null,
               "discussion_url": null,
-              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
               "practice_signal_kind": null,
-              "published_at": "2026-09-24T19:00:42Z",
+              "published_at": "2026-09-23T12:00:00Z",
               "published_at_role": "feed_entry_time",
               "published_date_role": null,
-              "raw_item_id": "item-257f7f1f9fff2515cee7",
+              "raw_item_id": "item-52b80abd4e046c041ffb",
               "source_date": null,
-              "source_name": "TechCrunch AI",
-              "source_role": "editorial",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
               "source_timezone": null,
               "source_type": "rss",
-              "statement_type": "unknown",
-              "title": "PrismML brings its tiny LLMs to Qualcomm-powered smart glasses",
-              "url": "https://techcrunch.com/2026/09/24/prismml-brings-its-tiny-llms-to-qualcomm-powered-smart-glasses/"
+              "statement_type": "factual_announcement",
+              "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
+              "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
             }
           ],
           "status": "announced",
-          "story_id": "story-269d2bc3eaab28906d3a",
+          "story_id": "story-5854871dac9792453fa9",
           "topic_names": [
-            "open-weight AI",
-            "on-device AI",
-            "smart glasses"
+            "ai_models",
+            "法律科技",
+            "法律文档起草"
           ],
           "uncertainties": [
-            "Prism 与 Qualcomm 的合作形式、具体芯片型号、模型规格与上市时间均未在输入中说明。",
-            "输入仅含标题与一句话摘要，无法核实技术细节。"
+            "公告未披露 Harvey 的具体使用范围、部署阶段或可量化效果指标。",
+            "公告未说明 GPT-6 Astra 在法律场景下的评测数据、合规或数据安全安排。",
+            "摘要中“更强”“更结构化”等表述为官方宣传口径，缺少第三方验证。"
           ]
         }
       ],
       "story_ids": [
-        "story-269d2bc3eaab28906d3a"
+        "story-5854871dac9792453fa9"
       ],
-      "title": "PrismML 将微型大语言模型带入高通芯片智能眼镜",
-      "uncertainty": "Prism 与 Qualcomm 的合作形式、具体芯片型号、模型规格与上市时间均未在输入中说明；输入仅含标题与一句话摘要，技术细节无法核实。",
-      "what_happened": "TechCrunch AI 报道，PrismML 将其微型 LLM 带到高通芯片驱动的智能眼镜上，其更大目标是让开放权重 AI 在设备端运行，并更充分地利用设备已有算力。",
-      "why_it_matters": "端侧开放权重模型与可穿戴硬件的结合方向正在受到媒体关注，若此类合作落地，可能推动 AI 能力从云端向眼镜等低功耗设备迁移。"
+      "title": "OpenAI 称 Harvey 采用 GPT-6 Astra 提升法律文档起草能力",
+      "uncertainty": "公告未披露 Harvey 的使用范围、部署阶段或可量化效果指标，也未说明 GPT-6 Astra 在法律场景下的评测数据、合规与数据安全安排；“更强”“更结构化”等表述属于官方口径，缺少第三方验证。",
+      "what_happened": "OpenAI 官方发布消息称，法律科技产品 Harvey 使用 GPT-6 Astra 生成更结构化、更具上下文感知能力的法律文档，并将此定位为让律师把精力集中在策略上。公告发布于 2026-09-23，来源为 OpenAI News。",
+      "why_it_matters": "这是 OpenAI 官方渠道对具体行业产品（法律科技）能力的公开背书，指向大模型在法律起草工作流中的实际嵌入，而不只是通用能力展示。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-bbd2351b8e6e30492fad",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本以功能新增与 Bug 修复并重，重点覆盖多模型提供商（OpenAI、Bedrock Converse、Vertex AI）的兼容性问题，显示项目在扩展模型接入面时持续修补边界情况。",
+            "TypeSafeModel 相关多项改动（PR #8684、#8686、#8685、#8697）表明类型安全建模的默认值处理与选项推断是当前迭代重点。",
+            "新增 GitHubCopilotOAuthFlow 表明项目在身份认证与第三方集成方向上扩展。",
+            "修复 google_proactive_audio 与 realtime 接收端失败（PR #8394、#8138）说明实时音频会话此前存在连接与错误传播缺陷。"
+          ],
+          "canonical_title": "pydantic-ai 发布 v2.49.0，新增 GitHub Copilot OAuth 流程与 BoolCriteria 等特性",
+          "category": "open_source_ai",
+          "entity_names": [
+            "pydantic",
+            "pydantic-ai",
+            "DouweM",
+            "Kludex",
+            "GitHub Copilot",
+            "OpenAI",
+            "Bedrock Converse",
+            "Vertex AI"
+          ],
+          "facts": [
+            "pydantic-ai 发布了 v2.49.0 版本，发布日期为 2026-09-23，GitHub release 标签为 v2.49.0。",
+            "该版本新增 GitHubCopilotOAuthFlow 用于设备授权（device authorization）（PR #8618，作者 @Kludex）。",
+            "该版本新增 BoolCriteria，用于说明 bool 字段的 yes 和 no 含义，并允许 True/False Enum 实现相同功能（PR #8586，作者 @DouweM）。",
+            "该版本在 TypeSafeModel 中使用用户对 None 的描述作为 \"none of these\" 选项（PR #8684，作者 @DouweM）。",
+            "该版本在 TypeSafeModel 中把非评分标准的整数作为 Choice 提供（PR #8686，作者 @DouweM）。",
+            "该版本新增 RealtimeSession.wait_for_reply()（PR #8514，作者 @DouweM）。",
+            "Bug 修复：在 provider_details['logprobs'] 中保留所有流式 OpenAIChatModel logprobs（PR #8653，作者 @adtyavrdhn）。",
+            "Bug 修复：在 Bedrock Converse 上允许 gpt-6-sol、gpt-6-luna 和 gpt-6-astra（PR #8656，作者 @sevakva）。",
+            "Bug 修复：修复 graph joins 中 fanned producer 贡献的保留问题（PR #8385，作者 @FIITAY）。",
+            "Bug 修复：在 graph.iter() 期间将 @GraphBuilder.stream 节点错误就地暴露（PR #8304）。",
+            "Bug 修复：在 Vertex AI 上的 GoogleImageGenerationModel 中将 Cloud Storage gs:// 引用作为 fileData 转发（PR #8225，作者 @dorukgezici）。",
+            "Bug 修复：为 Annotated 模型类型保留输出工具名称和描述（PR #8608，作者 @ikriv）。",
+            "Bug 修复：在 Bedrock Converse 上对 OpenAI GPT-5.6 和 GPT-6 丢弃 temperature 和 top_p，而不是返回 400 错误（PR #8668，作者 @kimnamu）。",
+            "Bug 修复：在 OpenAICodexModel 上使用原生工具搜索发送延迟工具，而不是返回 400 错误（PR #8693，作者 @aweis89）。",
+            "该版本新增贡献者 @FIITAY、@ikriv、@aweis89。",
+            "完整变更日志对比链接为 https://github.com/pydantic/pydantic-ai/compare/v2.48.0...v2.49.0。"
+          ],
+          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0",
+          "product_names": [
+            "pydantic-ai v2.49.0",
+            "GitHubCopilotOAuthFlow",
+            "BoolCriteria",
+            "TypeSafeModel",
+            "RealtimeSession.wait_for_reply()",
+            "OpenAIChatModel",
+            "OpenAICodexModel",
+            "GoogleImageGenerationModel"
+          ],
+          "published_at": "2026-09-24T03:09:53Z",
+          "source_refs": [
+            {
+              "author": "DouweM",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-24T03:09:53Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-723ac1f70a166fbceb0f",
+              "source_date": null,
+              "source_name": "GitHub · pydantic/pydantic-ai",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "pydantic/pydantic-ai: v2.49.0 (2026-09-23)",
+              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-cf5be366709f3675a268",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "发布说明中的 gpt-6-sol、gpt-6-luna、gpt-6-astra、GPT-5.6 和 GPT-6 等模型名称仅来自本次 release notes，未提供独立来源确认其真实存在或可用。",
+            "发布于 2026-09-23 但发布时间戳显示为 2026-09-24，日期口径以 release 标签为准，差异原因未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-cf5be366709f3675a268"
+      ],
+      "title": "pydantic-ai 发布 v2.49.0：新增 GitHub Copilot OAuth 流程与 BoolCriteria",
+      "uncertainty": "release notes 中出现的 gpt-6-sol、gpt-6-luna、gpt-6-astra、GPT-5.6、GPT-6 等模型名称未提供独立来源确认其真实存在或可用；发布日期 2026-09-23 与时间戳 2026-09-24 存在口径差异，输入未说明原因。",
+      "what_happened": "pydantic-ai 发布 v2.49.0（release 标签 v2.49.0，日期 2026-09-23）。新增 GitHubCopilotOAuthFlow 设备授权流程、用于说明 bool 字段 yes/no 含义的 BoolCriteria、RealtimeSession.wait_for_reply() 等特性；同时修复了 OpenAIChatModel 流式 logprobs、Bedrock Converse 上的模型参数丢弃、Vertex AI GoogleImageGenerationModel 的 gs:// 引用转发、OpenAICodexModel 延迟工具发送等一系列多提供商兼容性问题。",
+      "why_it_matters": "该版本显示项目正在同时扩展第三方身份集成（GitHub Copilot）与类型安全建模默认值推断，并持续修补 OpenAI、Bedrock Converse、Vertex AI 之间的边界差异，说明多提供商兼容性仍是 Agent 框架迭代的主要成本来源。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-59cab5f402b09b19e0e6",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "LiquidAI 发布 LFM2.5-VL-DSpark：加速视觉语言模型",
+          "category": "ai_models",
+          "entity_names": [
+            "LiquidAI",
+            "Hugging Face"
+          ],
+          "facts": [
+            "Hugging Face Blog 于 2026-09-24T14:08:57Z 发布了一篇博文，标题为“Accelerating vision-language models with LFM2.5-VL-DSpark”。",
+            "该博文 URL 为 https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark。",
+            "该来源被标记为 official_primary，且 statement_type 为 factual_announcement。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
+          "product_names": [
+            "LFM2.5-VL-DSpark"
+          ],
+          "published_at": "2026-09-24T14:08:57Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-24T14:08:57Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-280bf64dcca75cee1131",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
+              "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-6bdd5f76da07c5ffaeed",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入的 summary 和 content_excerpt 为空，无法获取该发布的具体技术细节、性能数据或可用性信息。",
+            "除标题外，输入未提供 LFM2.5-VL-DSpark 的模型规模、许可证、基准测试结果或发布时间等细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6bdd5f76da07c5ffaeed"
+      ],
+      "title": "LiquidAI 在 Hugging Face 发布 LFM2.5-VL-DSpark，聚焦视觉语言模型加速",
+      "uncertainty": "输入摘要与内容片段为空，无法获取具体技术细节、模型规模、许可证、基准测试结果或可用性信息，目前只有标题层面的信息。",
+      "what_happened": "Hugging Face Blog 于 2026-09-24 发布 LiquidAI 的博文《Accelerating vision-language models with LFM2.5-VL-DSpark》，来源标记为官方一手事实性公告。",
+      "why_it_matters": "视觉语言模型的推理与训练加速是当前多模态模型落地的主要瓶颈之一，LiquidAI 的公开方案值得关注其后续是否开放权重或基准数据。"
     },
     {
       "continuity_contexts": [],
@@ -242,7 +640,7 @@
       "generation_reason": null,
       "generation_status": "generated",
       "id": "brief-eadc29c9143cf3a0875e",
-      "market_or_community_reaction": "输入中未包含市场或社区的具体反应。",
+      "market_or_community_reaction": null,
       "section": "ai_and_open_source",
       "source_urls": [
         "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/"
@@ -302,81 +700,86 @@
       "story_ids": [
         "story-ed7397ada28fd1eb3558"
       ],
-      "title": "NVIDIA 发布面向生物基础模型的高效 MoE 训练方法文章",
+      "title": "NVIDIA 开发者博客发文探讨生物基础模型的高效 MoE 训练",
       "uncertainty": "输入仅提供摘要与片段，未给出具体训练方法、性能数字或项目名称，无法确认文中是否包含可追溯的实验结果。",
-      "what_happened": "NVIDIA Developer Blog 发布题为“Efficient MoE Training for Biological Foundation Models”的文章，作者为 Michelle Horton。文章指出，随着语言模型增长，扩展稠密架构的成本越来越高；在稠密 transformer 中，每个 token 都会经过每一层。",
-      "why_it_matters": "该文章来自 NVIDIA 官方开发者博客，属于官方一手来源，主题聚焦生物基础模型的 MoE 训练效率，反映出 MoE 稀疏架构在生物领域的应用讨论正在进入官方技术输出。"
+      "what_happened": "NVIDIA Developer Blog 于 2026-09-24 发布由 Michelle Horton 撰写的文章《Efficient MoE Training for Biological Foundation Models》，指出随着语言模型增长，稠密架构扩展成本上升，稠密 transformer 中每个 token 都要经过每一层。",
+      "why_it_matters": "这是 NVIDIA 官方开发者渠道对生物基础模型领域稀疏架构训练效率的公开讨论，指向 MoE 在生命科学模型训练中的适用性叙事。"
     }
   ],
-  "cognitive_extension": "如果 Oracle 的不可抗力通知确实以 2028 年上线目标为前提，那么大型 AI 数据中心项目的合同履约机制是否会围绕“上线时间”这一变量被重新设计？",
+  "cognitive_extension": "如果不可抗力通知确实允许 Oracle 在 Stargate 延期时延迟付款，那么 AI 数据中心建设合同中还有哪些条款可能被用来重新分配延期风险？",
   "date": "2026-09-25",
   "developer_discussions": [],
-  "direction_observation": null,
-  "generated_at": "2026-09-24T20:41:19.739967Z",
+  "direction_observation": "AI 模型相关话题在 2026-09-23 至 2026-09-25 的 3 日窗口内持续升温，事件量由 1 条增至 3 条、再增至 6 条，且获得 10 个来源和 20 家公司支持，显示该主题的讨论与报道密度在扩大。",
+  "generated_at": "2026-09-24T21:20:12.618941Z",
   "market_and_companies": [],
   "other_reading": [],
   "radar_signals": [],
   "run_stats": {
     "active_channel_count": 4,
-    "after_global_cap": 1654,
-    "ai_brief_batches": 2,
+    "after_global_cap": 2401,
+    "ai_brief_batches": 3,
     "ai_brief_item_fallbacks": 0,
     "ai_brief_recovery_attempts": 0,
     "ai_brief_recovery_successes": 0,
-    "ai_brief_story_inputs": 7,
-    "ai_classify_completion_tokens": 1378,
-    "ai_classify_finish_stop": 1,
-    "ai_classify_prompt_tokens": 6371,
+    "ai_brief_story_inputs": 12,
+    "ai_classify_completion_tokens": 2586,
+    "ai_classify_finish_stop": 2,
+    "ai_classify_prompt_tokens": 12859,
     "ai_classify_reasoning_tokens": 0,
-    "ai_completion_tokens": 13533,
-    "ai_evaluate_editorial_completion_tokens": 1100,
-    "ai_evaluate_editorial_finish_stop": 1,
-    "ai_evaluate_editorial_prompt_tokens": 9859,
-    "ai_evaluate_editorial_reasoning_tokens": 0,
-    "ai_input_characters": 113863,
+    "ai_completion_tokens": 20164,
+    "ai_direction_observation_completion_tokens": 1515,
+    "ai_direction_observation_finish_stop": 1,
+    "ai_direction_observation_prompt_tokens": 1026,
+    "ai_direction_observation_reasoning_tokens": 1196,
+    "ai_input_characters": 108973,
     "ai_maximum_input_characters": 120000,
-    "ai_merge_story_completion_tokens": 4831,
-    "ai_merge_story_finish_stop": 13,
-    "ai_merge_story_prompt_tokens": 12018,
+    "ai_merge_story_completion_tokens": 4465,
+    "ai_merge_story_finish_stop": 11,
+    "ai_merge_story_prompt_tokens": 11111,
     "ai_merge_story_reasoning_tokens": 0,
     "ai_model": "deepseek-v4-flash",
-    "ai_prompt_tokens": 52142,
+    "ai_prompt_tokens": 61531,
     "ai_provider": "deepseek",
-    "ai_reasoning_tokens": 679,
-    "ai_resolve_research_cases_completion_tokens": 887,
+    "ai_reasoning_tokens": 4272,
+    "ai_resolve_continuity_completion_tokens": 1510,
+    "ai_resolve_continuity_finish_stop": 3,
+    "ai_resolve_continuity_prompt_tokens": 6312,
+    "ai_resolve_continuity_reasoning_tokens": 1304,
+    "ai_resolve_research_cases_completion_tokens": 2526,
     "ai_resolve_research_cases_finish_stop": 1,
-    "ai_resolve_research_cases_prompt_tokens": 1457,
-    "ai_resolve_research_cases_reasoning_tokens": 679,
-    "ai_score_story_completion_tokens": 1936,
-    "ai_score_story_finish_stop": 13,
-    "ai_score_story_prompt_tokens": 14840,
+    "ai_resolve_research_cases_prompt_tokens": 2217,
+    "ai_resolve_research_cases_reasoning_tokens": 1772,
+    "ai_score_story_completion_tokens": 1965,
+    "ai_score_story_finish_stop": 11,
+    "ai_score_story_prompt_tokens": 13160,
     "ai_score_story_reasoning_tokens": 0,
-    "ai_signal_inputs": 0,
-    "ai_write_brief_completion_tokens": 3401,
-    "ai_write_brief_finish_stop": 2,
-    "ai_write_brief_prompt_tokens": 7597,
+    "ai_signal_inputs": 2,
+    "ai_write_brief_completion_tokens": 5597,
+    "ai_write_brief_finish_stop": 3,
+    "ai_write_brief_prompt_tokens": 14846,
     "ai_write_brief_reasoning_tokens": 0,
     "aihot_enabled": false,
-    "completion_tokens": 13533,
+    "completion_tokens": 20164,
     "configured_seed_count": 10,
-    "continuity_budget_skipped": 1,
-    "continuity_candidates": 6,
-    "continuity_character_budget_available": 0,
-    "continuity_input_chars": 0,
-    "continuity_judgement_inputs": 0,
-    "continuity_logical_ai_calls": 0,
-    "continuity_network_requests": 0,
-    "continuity_relation_inputs": 0,
-    "continuity_watch_inputs": 0,
-    "direction_signal_inputs": 0,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 15,
+    "continuity_character_budget_available": 9760,
+    "continuity_input_chars": 5575,
+    "continuity_judgement_inputs": 1,
+    "continuity_logical_ai_calls": 4,
+    "continuity_network_requests": 4,
+    "continuity_relation_inputs": 1,
+    "continuity_watch_inputs": 1,
+    "direction_signal_inputs": 2,
     "dry_run": false,
-    "editorial_decisions": 13,
-    "editorial_degraded": false,
+    "editorial_decisions": 0,
+    "editorial_degraded": true,
     "editorial_enabled": true,
     "editorial_shadow_mode": true,
+    "fast_continuity_degraded": 0,
     "fixture_mode": false,
     "historical_story_candidates": 145,
-    "judgement_candidates": 0,
+    "judgement_candidates": 1,
     "judgement_created": 0,
     "judgement_deep_review_calls": 0,
     "judgement_deep_review_triggers": 0,
@@ -385,15 +788,15 @@
     "judgements_created": 0,
     "logical_ai_calls": 31,
     "logical_ai_tasks": 31,
-    "main_brief_items": 7,
+    "main_brief_items": 12,
     "model": "deepseek-v4-flash",
     "needs_review": 0,
-    "network_ai_requests": 31,
+    "network_ai_requests": 32,
     "open_watches_considered": 20,
     "other_reading_items": 0,
     "overturned": 0,
     "practitioners_with_active_channels": 4,
-    "prompt_tokens": 52142,
+    "prompt_tokens": 61531,
     "provider": "deepseek",
     "provider_circuit_opened": false,
     "provider_circuit_reason": "",
@@ -401,39 +804,39 @@
     "radar_signals_displayed": 0,
     "radar_signals_generated": 0,
     "radar_signals_suppressed_as_visible_brief_duplicates": 0,
-    "reasoning_tokens": 679,
-    "recent_24h": 109,
-    "relation_ai_inputs": 0,
+    "reasoning_tokens": 4272,
+    "recent_24h": 106,
+    "relation_ai_inputs": 1,
     "relation_confirmed": 1,
     "relation_deterministic": 1,
-    "relation_rejected": 0,
-    "relation_unresolved": 5,
+    "relation_rejected": 1,
+    "relation_unresolved": 13,
     "relations_confirmed": 1,
-    "relations_rejected": 0,
-    "relations_unresolved": 5,
-    "research_cases": 1,
+    "relations_rejected": 1,
+    "relations_unresolved": 13,
+    "research_cases": 3,
     "research_duplicate_cases": 0,
-    "research_input_characters": 2143,
+    "research_input_characters": 4637,
     "research_invalid_cases": 0,
     "research_logical_ai_calls": 1,
     "research_missing_cases": 0,
     "research_omitted_cases": 0,
-    "research_truncated_fields": 0,
+    "research_truncated_fields": 1,
     "research_unknown_cases": 0,
-    "research_unresolved": 1,
+    "research_unresolved": 3,
     "research_verified_story_candidates": 0,
     "revised": 0,
-    "routine_market_suppressed": 0,
-    "signals": 0,
-    "stories": 13,
-    "story_candidate_input": 17,
+    "routine_market_suppressed": 1,
+    "signals": 2,
+    "stories": 24,
+    "story_candidate_input": 14,
     "structured_watches_opened": 5,
     "task": "daily_pipeline",
     "tendency_logical_ai_calls": 0,
     "tendency_workflow_status": "persisted_projection",
-    "threshold_eligible_stories": 7,
-    "total_displayed_items": 7,
-    "watch_inputs": 0,
+    "threshold_eligible_stories": 16,
+    "total_displayed_items": 12,
+    "watch_inputs": 1,
     "watch_matches": 0
   },
   "tendencies": [],
@@ -507,10 +910,10 @@
       "story_ids": [
         "story-f52d70f5bf5ab2aed951"
       ],
-      "title": "Oracle 就其新墨西哥州 Stargate 数据中心发出不可抗力通知",
-      "uncertainty": "Oracle 是否确已发出该通知，以及通知的具体条款和适用范围尚待官方确认；新墨西哥州 Stargate 数据中心 2028 年上线目标是否已正式变更尚不明确。",
-      "what_happened": "TechCrunch AI 报道称，Oracle 已就其新墨西哥州 Stargate 数据中心发出不可抗力通知，报道指出该通知允许 Oracle 在该设施未能于 2028 年上线目标时延迟付款。",
-      "why_it_matters": "若该不可抗力通知成立，可能为 Oracle 在 Stargate 新墨西哥州数据中心延期上线时提供合同层面的付款延迟空间，意味着这一大型 AI 基础设施项目的时间表与合同履约安排存在调整可能。"
+      "title": "Oracle 就新墨西哥州 Stargate 数据中心发出不可抗力通知",
+      "uncertainty": "Oracle 是否确已发出该通知，以及通知的具体条款和适用范围尚待官方确认；新墨西哥州 Stargate 数据中心 2028 年上线目标是否已正式变更也不明确。",
+      "what_happened": "TechCrunch AI 报道称，Oracle 就其新墨西哥州 Stargate 数据中心发出了不可抗力通知，该通知允许 Oracle 在该设施未能于 2028 年上线目标时延迟付款。",
+      "why_it_matters": "若该通知成立，可能为 Oracle 在 Stargate 新墨西哥州数据中心延期上线时提供合同层面的付款延迟空间，从而改变该项目的财务与建设节奏预期。"
     },
     {
       "continuity_contexts": [],
@@ -582,91 +985,93 @@
       ],
       "title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
       "uncertainty": "输入未披露漏洞的具体技术细节、受影响租户数量及时间范围。",
-      "what_happened": "Cloudflare 在其博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞，该漏洞可能暴露此前工作负载残留的磁盘数据；Cloudflare 说明了该问题的成因、调查过程以及所采取的修复措施。",
-      "why_it_matters": "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别。"
+      "what_happened": "Cloudflare 在其博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞，该漏洞可能暴露此前工作负载残留的磁盘数据；Cloudflare 说明了问题的成因、调查过程以及所采取的修复措施。",
+      "why_it_matters": "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别，对使用 Containers 的租户的隔离假设具有直接影响。"
     },
     {
       "continuity_contexts": [],
       "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
-      "id": "brief-b7a8bd6702429499fa4a",
+      "id": "brief-849a4b59799d26f80b18",
       "market_or_community_reaction": null,
       "section": "top_stories",
       "source_urls": [
-        "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/"
+        "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
       ],
       "story_contexts": [
         {
           "analysis": [
-            "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域。",
-            "标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
+            "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
           ],
-          "canonical_title": "NVIDIA 发布 NV-Reason-CT：面向放射科医生思维链推理的开放 3D CT 视觉语言模型",
-          "category": "ai_models",
+          "canonical_title": "GitHub Copilot 应用引入本地沙箱功能",
+          "category": "AI 编程工具",
           "entity_names": [
-            "NVIDIA"
+            "GitHub Copilot",
+            "GitHub"
           ],
           "facts": [
-            "NVIDIA Developer Blog 发布了题为《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》的文章，作者为 Tanya Lenz，发布时间为 2026-09-23T22:54:56Z。",
-            "文章标题表明 NV-Reason-CT 是一个开放（Open）的 3D CT 视觉语言模型（VLM），用于放射科医生的思维链（Chain-of-Thought）推理。",
-            "文章摘要指出，放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得显著进展，但仍存在临床信息更丰富的领域尚未被充分覆盖。"
+            "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》。",
+            "该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。"
           ],
-          "primary_source_url": "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/",
+          "primary_source_url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
           "product_names": [
-            "NV-Reason-CT"
+            "GitHub Copilot app"
           ],
-          "published_at": "2026-09-23T22:54:56Z",
+          "published_at": "2026-09-23T15:00:57Z",
           "source_refs": [
             {
-              "author": "Tanya Lenz",
+              "author": "Allison",
               "date_precision": null,
               "discussion_url": null,
-              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
               "practice_signal_kind": null,
-              "published_at": "2026-09-23T22:54:56Z",
+              "published_at": "2026-09-23T15:00:57Z",
               "published_at_role": "feed_entry_time",
               "published_date_role": null,
-              "raw_item_id": "item-9a85ed91181c3a3222f8",
+              "raw_item_id": "item-63e0251438a40139e79a",
               "source_date": null,
-              "source_name": "NVIDIA Developer Blog",
+              "source_name": "GitHub Changelog",
               "source_role": "official_primary",
               "source_timezone": null,
               "source_type": "rss",
               "statement_type": "factual_announcement",
-              "title": "Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning",
-              "url": "https://developer.nvidia.com/blog/introducing-nv-reason-ct-open-3d-ct-vlm-for-radiologist-chain-of-thought-reasoning/"
+              "title": "Local sandboxing in the GitHub Copilot app",
+              "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
             }
           ],
-          "status": "announced",
-          "story_id": "story-6bb7d81e5ce9e96a85b5",
+          "status": "available",
+          "story_id": "story-1ce6d3c87fb494682454",
           "topic_names": [
-            "3D CT 视觉语言模型",
-            "放射科思维链推理",
-            "医学影像 AI"
+            "本地沙箱",
+            "ai_coding"
           ],
           "uncertainties": [
-            "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围。",
-            "输入未提供 NV-Reason-CT 的可用状态、许可证或代码/权重发布渠道。",
-            "输入未提供除 NVIDIA 官方博客之外的独立验证或第三方评测信息。"
+            "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。"
           ]
         }
       ],
       "story_ids": [
-        "story-6bb7d81e5ce9e96a85b5"
+        "story-1ce6d3c87fb494682454"
       ],
-      "title": "NVIDIA 发布 NV-Reason-CT：面向放射科医生思维链推理的开放 3D CT 视觉语言模型",
-      "uncertainty": "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围；输入未提供其可用状态、许可证或代码/权重发布渠道，也未提供除 NVIDIA 官方博客之外的独立验证或第三方评测信息。",
-      "what_happened": "NVIDIA Developer Blog 发布了题为《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》的文章，作者为 Tanya Lenz，发布时间为 2026-09-23T22:54:56Z。文章标题表明 NV-Reason-CT 是一个开放的 3D CT 视觉语言模型，用于放射科医生的思维链推理；文章摘要指出放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得进展，但临床信息更丰富的领域尚未被充分覆盖。",
-      "why_it_matters": "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域；标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
+      "title": "GitHub Copilot 应用引入本地沙箱功能",
+      "uncertainty": "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。",
+      "what_happened": "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》，该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。",
+      "why_it_matters": "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
     }
   ],
   "trend_radar": [],
   "watch_next": [
-    "观察 Oracle 是否就新墨西哥州 Stargate 数据中心的不可抗力通知发布官方确认或更多条款说明，以及 2028 年上线目标是否被正式调整。",
-    "观察 Cloudflare 是否发布关于 Cloudflare Containers 跨租户数据暴露漏洞的后续技术说明、受影响租户范围或额外修复措施。",
-    "观察 NVIDIA 是否公布 NV-Reason-CT 的架构细节、训练数据、性能指标、许可证及代码或权重发布渠道。",
-    "观察 Anthropic 是否正式发布 Claude Code on the Web，以及其功能范围与竞争定位是否有官方说明。",
-    "观察 NVIDIA 是否在该文章基础上补充具体训练方法、性能数字或相关项目名称，以验证其 MoE 训练效率主张是否可复现。"
+    "观察 Oracle 或 Stargate 官方是否就新墨西哥州数据中心的不可抗力通知、2028 年上线目标及付款安排作出确认或说明。",
+    "观察 Cloudflare 是否发布关于 Containers 跨租户数据暴露漏洞的后续技术说明、租户通知或修复验证。",
+    "观察 GitHub Copilot 应用本地沙箱的默认启用状态、平台支持范围及用户配置方式是否进一步公布。",
+    "观察 NVIDIA 是否公布 NV-Reason-CT 的架构细节、性能指标、许可证及代码或权重发布渠道。",
+    "观察 Google 是否公布 Gemini 代打电话功能的具体上线时间、支持机型与地区范围，以及是否从 Pixel 11 付费订阅用户扩展至更多设备。",
+    "观察 GitHub 是否发布 Copilot 应用 OTel 支持的具体指标字段、导出协议与兼容后端文档。",
+    "观察 Anthropic 是否正式发布 Claude Code on the Web 并给出功能范围说明，以及社区将其与 Grok bot 比较的讨论是否持续。",
+    "观察高通是否就 Snapdragon X2 系列的 Linux 支持给出芯片型号、时间表与发行版/内核版本等具体信息。",
+    "观察 Harvey 是否公开 GPT-6 Astra 在其法律文档起草中的使用范围、部署阶段或可量化效果指标，以及是否披露法律场景下的合规与数据安全安排。",
+    "观察 pydantic-ai 后续版本是否继续扩展 GitHubCopilotOAuthFlow 与 TypeSafeModel 相关改动，以及是否修正 release notes 中模型名称与日期口径的差异。",
+    "观察 NVIDIA 是否在后续开发者博客或技术材料中给出该 MoE 训练方法的具体实现、性能数字或可追溯实验结果。"
   ]
 }

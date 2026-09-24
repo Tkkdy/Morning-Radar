@@ -67,6 +67,7 @@
     "id": "item-b0878320c6bd0cfba3b3",
     "language": "en-US",
     "metadata": {
+      "content_version": "2b391397098db88471d9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-280bf64dcca75cee1131",
     "language": "en-US",
     "metadata": {
+      "content_version": "82a85d6ce946a19cc95d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +190,7 @@
     "id": "item-e166ab84e4cc888aa636",
     "language": "en-us",
     "metadata": {
+      "content_version": "204bab652dcc963b661f",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -400,6 +403,7 @@
     "id": "item-d5905d2268c744148018",
     "language": "en-us",
     "metadata": {
+      "content_version": "9fc03eeef64fbe9ab9ad",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -643,6 +647,7 @@
     "id": "item-52b80abd4e046c041ffb",
     "language": null,
     "metadata": {
+      "content_version": "743242b97d7f9c5bab3b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -703,6 +708,7 @@
     "id": "item-63e0251438a40139e79a",
     "language": "en-US",
     "metadata": {
+      "content_version": "1c5a654dcd30b9299d0e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -764,6 +770,7 @@
     "id": "item-ec3ff7bbf331001cecb4",
     "language": "en-US",
     "metadata": {
+      "content_version": "1244e419457bab7ab120",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -855,6 +862,7 @@
     "id": "item-f2ff7f76056120414cf0",
     "language": null,
     "metadata": {
+      "content_version": "9dcd56cea26b2733cd61",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -915,6 +923,7 @@
     "id": "item-cf4f876c079667faff55",
     "language": "en-US",
     "metadata": {
+      "content_version": "16f652473e718c086a28",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -976,6 +985,7 @@
     "id": "item-ff3779e3fc84e1f8a3d5",
     "language": "en-US",
     "metadata": {
+      "content_version": "a823945430ca81d61b25",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1188,6 +1198,7 @@
     "id": "item-d0323408eb6a3b2c3690",
     "language": "en-US",
     "metadata": {
+      "content_version": "fd9184d1b6d4cb68b864",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1400,6 +1411,7 @@
     "id": "item-1a6a7ee1f4b800d0389a",
     "language": "en-US",
     "metadata": {
+      "content_version": "74aaa332ac23e2467040",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1824,6 +1836,7 @@
     "id": "item-c4aac87444043708d107",
     "language": "en-US",
     "metadata": {
+      "content_version": "445f4f0bb35eeaceb43e",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -69565,6 +69578,7 @@
     "id": "item-723ac1f70a166fbceb0f",
     "language": "en",
     "metadata": {
+      "content_version": "a59fd8e7e24663cfed98",
       "data_anomaly": false,
       "forks": 2777,
       "official": true,
@@ -70417,11 +70431,19 @@
     "metadata": {
       "comments": 777,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49820134",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
       "score": 755,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -70567,6 +70589,7 @@
     "metadata": {
       "comments": 248,
       "community_signal": true,
+      "content_version": "d789b8e957528a984c05",
       "discussion_url": "https://news.ycombinator.com/item?id=49823582",
       "official": false,
       "original_url": "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
@@ -70777,6 +70800,7 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "content_version": "db2c7eeb48f5ae477568",
       "discussion_url": "https://news.ycombinator.com/item?id=49836678",
       "official": false,
       "original_url": "https://github.com/Moeeryani/Vibe-Coding-Production-Kit",
@@ -70907,6 +70931,7 @@
     "metadata": {
       "change_percent": 0.013409108010984268,
       "close": 342.3599853515625,
+      "content_version": "a3c37f8c9d3123ec9bd9",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 337.8299865722656,
@@ -73437,38 +73462,6 @@
     "title": "Once Claude can measure something, it can make it faster",
     "topic_candidates": [],
     "url": "https://claude.dev/blog/how-we-made-claude-ai-faster/"
-  },
-  {
-    "author": "raahelb",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-24T21:19:39.788070Z",
-    "id": "item-90554e63532cc17295ed",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49820134",
-      "hn_submission_time": 1790186807,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-23T18:06:47Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude discovers a novel enzyme system with CRISPR-like repeats",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/news/claude-discovers-novel-enzyme-system"
   },
   {
     "author": "valk",
