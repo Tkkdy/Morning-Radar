@@ -5,6 +5,234 @@
       "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
+      "id": "brief-e6fb44b1e703da4466be",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "全代码库索引旨在解决 C++ 仓库规模庞大、文件依赖复杂所带来的代码智能性能问题。"
+          ],
+          "canonical_title": "GitHub Copilot CLI 通过全代码库索引加速 C++ 代码智能",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot CLI"
+          ],
+          "facts": [
+            "GitHub Copilot CLI 的 C++ 代码智能现已通过支持全代码库索引而变得更快。",
+            "C++ 仓库可能包含数百万行代码，分布在深度关联的源文件中。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
+          "product_names": [
+            "GitHub Copilot CLI"
+          ],
+          "published_at": "2026-09-22T22:24:48Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T22:43:56.831394Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-22T22:24:48Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-566dfe7d34b559d7ec3b",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Faster C++ code intelligence with whole codebase indexing",
+              "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-05018e247b84f51c0b77",
+          "topic_names": [
+            "ai_coding",
+            "code intelligence",
+            "whole codebase indexing",
+            "C++"
+          ],
+          "uncertainties": []
+        }
+      ],
+      "story_ids": [
+        "story-05018e247b84f51c0b77"
+      ],
+      "title": "GitHub Copilot CLI 通过全代码库索引加速 C++ 代码智能",
+      "uncertainty": null,
+      "what_happened": "GitHub Copilot CLI 的 C++ 代码智能现已通过支持全代码库索引而变得更快。C++ 仓库可能包含数百万行代码，分布在深度关联的源文件中。",
+      "why_it_matters": "全代码库索引旨在解决 C++ 仓库规模庞大、文件依赖复杂所带来的代码智能性能问题。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-b616c609409611e71f4b",
+          "judgement_cues": [],
+          "previous_story_date": null,
+          "previous_story_id": null,
+          "previous_story_title": null,
+          "relation_type": null,
+          "watch_matches": [
+            "观察 Cloudflare 是否发布关于 Containers 跨租户数据暴露漏洞的后续技术说明、租户通知或修复验证。"
+          ],
+          "what_changed": null
+        }
+      ],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-5aadbd843f6ccb2d95b0",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别。"
+          ],
+          "canonical_title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
+          "category": "security",
+          "entity_names": [
+            "Cloudflare",
+            "Accomplish"
+          ],
+          "facts": [
+            "Cloudflare 在其博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞。",
+            "该漏洞可能暴露此前工作负载残留的磁盘数据。",
+            "Cloudflare 说明了该问题的成因、调查过程以及所采取的修复措施。"
+          ],
+          "primary_source_url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/",
+          "product_names": [
+            "Cloudflare Containers"
+          ],
+          "published_at": "2026-09-24T15:00:00Z",
+          "source_refs": [
+            {
+              "author": "Hrushikesh Deshpande",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-24T15:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-c657a4eeb7c1b1a54b97",
+              "source_date": null,
+              "source_name": "Cloudflare Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "How Cloudflare addressed a cross-tenant data exposure vulnerability in Containers",
+              "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-b616c609409611e71f4b",
+          "topic_names": [
+            "数据安全",
+            "跨租户数据暴露",
+            "漏洞修复"
+          ],
+          "uncertainties": [
+            "输入未披露漏洞的具体技术细节、受影响租户数量及时间范围。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-b616c609409611e71f4b"
+      ],
+      "title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
+      "uncertainty": "输入未披露漏洞的具体技术细节、受影响租户数量及时间范围。",
+      "what_happened": "Cloudflare 在其官方博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞，该漏洞可能暴露此前工作负载残留的磁盘数据。Cloudflare 说明了问题的成因、调查过程以及所采取的修复措施。",
+      "why_it_matters": "该问题涉及容器运行环境中的残余磁盘数据隔离，属于多租户基础设施的数据泄露风险类别，直接关系到租户之间的数据边界是否可靠。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-de7b006506db1a55580e",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
+          ],
+          "canonical_title": "GitHub Copilot 应用引入本地沙箱功能",
+          "category": "AI 编程工具",
+          "entity_names": [
+            "GitHub Copilot",
+            "GitHub"
+          ],
+          "facts": [
+            "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》。",
+            "该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
+          "product_names": [
+            "GitHub Copilot app"
+          ],
+          "published_at": "2026-09-23T15:00:57Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T21:19:39.788070Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-23T15:00:57Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-63e0251438a40139e79a",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Local sandboxing in the GitHub Copilot app",
+              "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-1ce6d3c87fb494682454",
+          "topic_names": [
+            "本地沙箱",
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-1ce6d3c87fb494682454"
+      ],
+      "title": "GitHub Copilot 应用引入本地沙箱功能",
+      "uncertainty": "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。",
+      "what_happened": "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》。该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。",
+      "why_it_matters": "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
       "id": "brief-409ad8ec333d8d1382a9",
       "market_or_community_reaction": null,
       "section": "ai_and_open_source",
@@ -71,9 +299,90 @@
         "story-6bb7d81e5ce9e96a85b5"
       ],
       "title": "NVIDIA 发布 NV-Reason-CT：面向放射科医生思维链推理的开放 3D CT 视觉语言模型",
-      "uncertainty": "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围；也未提供可用状态、许可证或代码/权重发布渠道，以及除 NVIDIA 官方博客之外的独立验证或第三方评测信息。",
-      "what_happened": "NVIDIA Developer Blog 发布文章《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》，标题表明 NV-Reason-CT 是一个开放的 3D CT 视觉语言模型，用于放射科医生的思维链推理；文章摘要指出放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得进展，但临床信息更丰富的领域尚未被充分覆盖。",
-      "why_it_matters": "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域；标题中强调的思维链推理，暗示该模型不仅用于异常检测，还试图建模放射科医生的诊断推理过程。"
+      "uncertainty": "输入摘要和正文摘录在关键处被截断，无法确认 NV-Reason-CT 的具体架构、训练数据、性能指标和开放范围，也未提供可用状态、许可证或代码/权重发布渠道，且缺少第三方独立验证或评测信息。",
+      "what_happened": "NVIDIA Developer Blog 发布了题为《Introducing NV-Reason-CT Open 3D CT VLM for Radiologist Chain-of-Thought Reasoning》的文章，发布时间为 2026-09-23。文章标题表明 NV-Reason-CT 是一个开放的 3D CT 视觉语言模型，用于放射科医生的思维链推理。文章摘要指出，放射学 AI 在检测胸部 X 光、病理切片和 2D 扫描异常方面已取得显著进展，但仍存在临床信息更丰富的领域尚未被充分覆盖。",
+      "why_it_matters": "NVIDIA 通过官方博客发布 NV-Reason-CT，表明其正在将视觉语言模型能力从 2D 医学影像扩展至 3D CT 领域，并试图建模放射科医生的诊断推理过程，而不仅是异常检测。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-ab2d1aab3c675d1720e7",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该功能将 AI 代理从文本交互扩展到实时语音电话场景，可能减少用户在等待接通和沟通上的时间成本。",
+            "以“早期实验”形式在 Pixel 11 上推出，表明 Google 仍在验证该功能的可靠性与适用范围，尚未全面铺开。",
+            "若代打电话涉及商家侧交互，其实际体验将取决于语音识别、对话管理和异常处理在真实电话线路中的表现。"
+          ],
+          "canonical_title": "Google 在 Pixel 11 上推出 Gemini 代打电话早期实验功能",
+          "category": "AI 产品与功能",
+          "entity_names": [
+            "Google",
+            "Gemini",
+            "Pixel 11",
+            "The Verge"
+          ],
+          "facts": [
+            "Google 正在 Pixel 11 上推出一项“早期实验”功能，允许用户将本地商家电话委托给 Gemini 处理。",
+            "根据 Google 的说法，用户无需自己拨号即可让 Gemini 代为处理电话。",
+            "该功能可处理的场景包括：预订、查询产品是否有货、重新安排预约。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls",
+          "product_names": [
+            "Gemini",
+            "Pixel 11"
+          ],
+          "published_at": "2026-09-24T12:04:31-04:00",
+          "source_refs": [
+            {
+              "author": "Stevie Bonifield",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T22:43:56.831394Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-24T12:04:31-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-62bb527af0cd61f319d3",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Gemini can now call businesses for you so you don’t have to wait on hold",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-20bf0b1f33141dd02459",
+          "topic_names": [
+            "AI 助手",
+            "智能代打电话",
+            "本地商务服务"
+          ],
+          "uncertainties": [
+            "该功能在 Pixel 11 上的具体上线时间、覆盖地区与支持语言尚未在输入中明确。",
+            "输入未说明 Gemini 代打电话时是否会自动向商家披露其为 AI 助手。",
+            "输入未提供该功能在复杂对话或通话中断场景下的失败处理机制。",
+            "输入未说明该功能是否收费、是否需要特定订阅或账号条件。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-20bf0b1f33141dd02459"
+      ],
+      "title": "Google 在 Pixel 11 上推出 Gemini 代打电话早期实验功能",
+      "uncertainty": "该功能在 Pixel 11 上的具体上线时间、覆盖地区与支持语言尚未在输入中明确；输入未说明 Gemini 代打电话时是否会自动向商家披露其为 AI 助手，也未提供复杂对话或通话中断场景下的失败处理机制，以及是否收费或需要特定订阅、账号条件。",
+      "what_happened": "Google 正在 Pixel 11 上推出一项“早期实验”功能，允许用户将本地商家电话委托给 Gemini 处理。根据 Google 的说法，用户无需自己拨号即可让 Gemini 代为处理电话，可处理的场景包括：预订、查询产品是否有货、重新安排预约。",
+      "why_it_matters": "该功能将 AI 代理从文本交互扩展到实时语音电话场景，可能减少用户在等待接通和沟通上的时间成本；以“早期实验”形式在 Pixel 11 上推出，表明 Google 仍在验证其可靠性与适用范围，尚未全面铺开。若代打电话涉及商家侧交互，其实际体验将取决于语音识别、对话管理和异常处理在真实电话线路中的表现。"
     },
     {
       "continuity_contexts": [],
@@ -145,10 +454,10 @@
       "story_ids": [
         "story-e121b88da5ff40ac8a4e"
       ],
-      "title": "Google 测试让 Gemini 代用户致电商家，初期仅限美国 Pixel 11 付费订阅用户",
+      "title": "Google 测试让 Gemini 代用户致电商家，初期仅限美国 Pixel 11 订阅用户",
       "uncertainty": "该功能的具体上线时间、测试时长与覆盖范围尚不明确；Gemini 代打电话时的具体交互方式、商家侧体验与隐私处理方式未在现有信息中说明；是否以及何时扩展到美国以外地区或非 Pixel 设备尚不确定。",
       "what_happened": "TechCrunch AI 报道称，Google 正在测试一项让 Gemini 代用户拨打商家电话的功能。Google 表示，该 AI 致电功能将首先面向美国地区、付费订阅 Gemini 的 Pixel 11 用户提供。",
-      "why_it_matters": "这属于 AI 代理能力从信息查询向实际事务代办延伸的尝试，初期以订阅与机型限定方式小范围测试，符合 Google 在 Pixel 与 Gemini 生态中捆绑推广新功能的既有做法；限定范围可能同时起到控制测试规模、收集真实通话数据以及推动订阅转化的作用。"
+      "why_it_matters": "AI 代理能力正从信息查询向实际事务代办延伸，将适用范围限定为 Pixel 11 且需付费订阅 Gemini，可能同时起到控制测试规模、收集真实通话数据以及推动订阅转化的作用。"
     },
     {
       "continuity_contexts": [],
@@ -219,102 +528,91 @@
       "story_ids": [
         "story-affa355ec771c491c672"
       ],
-      "title": "GitHub Copilot 应用支持通过企业托管设置配置 OpenTelemetry",
+      "title": "GitHub Copilot 应用通过企业托管设置支持 OpenTelemetry 配置",
       "uncertainty": "输入未说明 OTel 支持的具体指标、追踪字段、导出协议或已兼容的后端。",
-      "what_happened": "GitHub Copilot 应用现在支持通过企业托管设置配置 OpenTelemetry（OTel）。OpenTelemetry 是一个开源可观测性框架，该配置旨在帮助了解 Copilot 代理的运行表现以及其与模型和工具的交互。消息发布于 GitHub Changelog，时间为 2026-09-23T02:14:54Z。",
+      "what_happened": "GitHub Copilot 应用现在支持通过企业托管设置配置 OpenTelemetry（OTel）。OpenTelemetry 是一个开源可观测性框架，该配置旨在帮助了解 Copilot 代理的运行表现以及其与模型和工具的交互。消息发布于 GitHub Changelog。",
       "why_it_matters": "通过企业托管设置开放 OTel 配置，意味着企业可以将 Copilot 代理的调用链、模型与工具交互纳入既有可观测性体系，有助于运维监控与合规审计。"
     },
     {
       "continuity_contexts": [],
-      "generation_note": "该条目标记为 unverified_lead，缺少官方公告佐证，仅作为社区讨论信号呈现。",
+      "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
-      "id": "brief-77f36abaa3e6075b2e7c",
-      "market_or_community_reaction": "讨论出现在 Hacker News，讨论链接为 https://news.ycombinator.com/item?id=49830095 ，但输入未提供具体讨论内容或社区反响细节。",
+      "id": "brief-8bb9eeae365c93f5f9c4",
+      "market_or_community_reaction": null,
       "section": "ai_and_open_source",
       "source_urls": [
-        "https://code.claude.com/docs/en/claude-code-on-the-web",
-        "https://news.ycombinator.com/item?id=49830095"
+        "https://openai.com/index/introducing-mentalhealthbench"
       ],
       "story_contexts": [
         {
           "analysis": [
-            "该帖子标题将 Claude 的新页面与「Grok bot」并置，暗示社区正在将 Anthropic 的 Claude Code on the Web 视为对 xAI Grok bot 的竞争回应。",
-            "由于该条目被标记为 unverified_lead，且缺少摘要和正文内容，无法据此确认 Claude Code on the Web 的具体功能、发布时间或正式发布状态。",
-            "从 URL 结构看，code.claude.com/docs/en/claude-code-on-the-web 属于 Anthropic 的 Claude 文档域名，可能指向 Claude Code 的网页版文档，但未在输入中提供可验证的官方发布说明。"
+            "该发布属于官方一手公告，为心理健康场景下 AI 回复质量与安全性评估提供了公开基准。",
+            "基准聚焦真实心理健康对话，意味着评估维度同时覆盖帮助性回复与安全性风险控制。"
           ],
-          "canonical_title": "Claude 发布 Claude Code on the Web，社区讨论其与 Grok bot 的竞争",
-          "category": "AI 开发者工具 / 产品发布",
+          "canonical_title": "OpenAI 发布 MentalHealthBench 基准，用于评估心理健康场景下 AI 回复的有用性与安全性",
+          "category": "ai_benchmark",
           "entity_names": [
-            "Anthropic",
-            "Claude",
-            "Grok",
-            "Hacker News"
+            "OpenAI"
           ],
           "facts": [
-            "Hacker News 上出现标题为「Goodbye Grok bot? Claude just released a competitor」的社区帖子。",
-            "该帖子指向的 URL 为 https://code.claude.com/docs/en/claude-code-on-the-web ，属于 code.claude.com 文档页面。",
-            "帖子发布者为 rkovashikawa，发布时间为 2026-09-24T13:09:38Z。",
-            "该条目的来源类型为 hacker_news，来源角色为 community_discovery，陈述类型为 unverified_lead。",
-            "该条目没有提供 summary 或 content_excerpt，仅提供了标题和外部链接。"
+            "OpenAI News 于 2026-09-23 发布 MentalHealthBench。",
+            "MentalHealthBench 被描述为专家参与构建的基准，用于评估 AI 在真实心理健康对话中回复的有用性和安全性。"
           ],
-          "primary_source_url": "https://code.claude.com/docs/en/claude-code-on-the-web",
+          "primary_source_url": "https://openai.com/index/introducing-mentalhealthbench",
           "product_names": [
-            "Claude Code on the Web",
-            "Grok bot"
+            "MentalHealthBench"
           ],
-          "published_at": "2026-09-24T13:09:38Z",
+          "published_at": "2026-09-23T10:00:00Z",
           "source_refs": [
             {
-              "author": "rkovashikawa",
+              "author": null,
               "date_precision": null,
-              "discussion_url": "https://news.ycombinator.com/item?id=49830095",
-              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T22:43:56.831394Z",
               "practice_signal_kind": null,
-              "published_at": "2026-09-24T13:09:38Z",
-              "published_at_role": "hn_submission_time",
+              "published_at": "2026-09-23T10:00:00Z",
+              "published_at_role": "feed_entry_time",
               "published_date_role": null,
-              "raw_item_id": "item-ad3050f5d74035a0f345",
+              "raw_item_id": "item-3d7b9aab56c8f4fe22c0",
               "source_date": null,
-              "source_name": "Hacker News",
-              "source_role": "community_discovery",
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
               "source_timezone": null,
-              "source_type": "hacker_news",
-              "statement_type": "unverified_lead",
-              "title": "Goodbye Grok bot? Claude just released a competitor",
-              "url": "https://code.claude.com/docs/en/claude-code-on-the-web"
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Introducing MentalHealthBench",
+              "url": "https://openai.com/index/introducing-mentalhealthbench"
             }
           ],
-          "status": "unknown",
-          "story_id": "story-0e331c35009b2c0f1d74",
+          "status": "announced",
+          "story_id": "story-231b48737bbed791e8a1",
           "topic_names": [
-            "AI 编程助手",
-            "网页版开发工具",
-            "产品竞争"
+            "ai_models",
+            "mental_health_ai_safety",
+            "ai_evaluation_benchmark"
           ],
           "uncertainties": [
-            "Claude Code on the Web 是否已正式发布、具体上线时间及可用范围均未在输入中确认。",
-            "标题中「competitor」所指的竞争对象是否确为 xAI 的 Grok bot，输入中仅有标题暗示，缺少正文佐证。",
-            "该 Hacker News 帖子的讨论内容、社区反响以及是否存在官方公告均未在输入中提供。",
-            "输入中未包含 code.claude.com 页面的实际内容，无法确认该 URL 是否有效或页面是否描述的是 Claude Code on the Web 产品。"
+            "输入未披露 MentalHealthBench 的具体评估指标、数据集规模、评测方法或参与专家信息。",
+            "输入未说明该基准的开放程度、使用方式及是否已有模型评测结果。"
           ]
         }
       ],
       "story_ids": [
-        "story-0e331c35009b2c0f1d74"
+        "story-231b48737bbed791e8a1"
       ],
-      "title": "社区讨论 Claude Code on the Web，并将其与 Grok bot 并置比较",
-      "uncertainty": "Claude Code on the Web 是否已正式发布、具体上线时间及可用范围均未在输入中确认；标题中「competitor」所指竞争对象是否确为 xAI 的 Grok bot 仅有标题暗示，缺少正文佐证；输入中未包含 code.claude.com 页面的实际内容，无法确认该 URL 是否有效或页面是否描述的是该产品。",
-      "what_happened": "Hacker News 上出现标题为「Goodbye Grok bot? Claude just released a competitor」的社区帖子，指向 code.claude.com 文档页面 https://code.claude.com/docs/en/claude-code-on-the-web ，发布者为 rkovashikawa，发布时间为 2026-09-24T13:09:38Z。该条目来源类型为 hacker_news、来源角色为 community_discovery、陈述类型为 unverified_lead，且没有提供摘要或正文摘录。",
-      "why_it_matters": "该帖子标题将 Claude 的新页面与「Grok bot」并置，暗示社区正在将 Anthropic 的 Claude Code on the Web 视为对 xAI Grok bot 的竞争回应。"
+      "title": "OpenAI 发布 MentalHealthBench 基准，用于评估心理健康场景下 AI 回复的有用性与安全性",
+      "uncertainty": "输入未披露 MentalHealthBench 的具体评估指标、数据集规模、评测方法或参与专家信息；也未说明该基准的开放程度、使用方式及是否已有模型评测结果。",
+      "what_happened": "OpenAI News 于 2026-09-23 发布 MentalHealthBench。该基准被描述为专家参与构建，用于评估 AI 在真实心理健康对话中回复的有用性和安全性。",
+      "why_it_matters": "该发布属于官方一手公告，为心理健康场景下 AI 回复质量与安全性评估提供了公开基准，评估维度同时覆盖帮助性回复与安全性风险控制。"
     },
     {
       "continuity_contexts": [],
-      "generation_note": "该条目标记为 unverified_lead，摘要与正文缺失，仅作为社区发现信号呈现。",
+      "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
       "id": "brief-86bce05e488c6fed0f2a",
-      "market_or_community_reaction": "该内容由 Hacker News 用户提交，讨论链接为 https://news.ycombinator.com/item?id=49823582 。",
+      "market_or_community_reaction": null,
       "section": "ai_and_open_source",
       "source_urls": [
         "https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux",
@@ -377,400 +675,73 @@
       "story_ids": [
         "story-8307e2d10f7e25bdc8dc"
       ],
-      "title": "高通官网出现「Linux 支持即将登陆 Snapdragon X2 系列」文章，经 Hacker News 传播",
-      "uncertainty": "「Linux support is coming to Snapdragon X2 series」的具体含义、时间表、覆盖范围（哪些芯片型号、哪些发行版/内核版本）尚不明确；该帖只有标题与 URL，摘要和正文摘录为空，无法从输入中确认支持细节；原始高通页面内容未在输入中提供。",
-      "what_happened": "高通官网 Qualcomm News 发布题为「Linux support is coming to Snapdragon X2 series」的文章，URL 为 https://www.qualcomm.com/news/onq/2026/09/snapdragon-summit-agentic-ai-pcs-linux 。该条目由 Hacker News 用户 aaronday 提交，发布时间为 2026-09-23T22:38:16Z，抓取时间为 2026-09-24T21:19:39.788070Z。",
-      "why_it_matters": "该信息来源被标记为 community_discovery/unverified_lead，只是社区发现信号，不能单独作为事实依据，需回到高通原始页面核实。"
-    },
-    {
-      "continuity_contexts": [],
-      "generation_note": null,
-      "generation_reason": null,
-      "generation_status": "generated",
-      "id": "brief-cc39b17f22c2b85f19de",
-      "market_or_community_reaction": null,
-      "section": "ai_and_open_source",
-      "source_urls": [
-        "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
-      ],
-      "story_contexts": [
-        {
-          "analysis": [
-            "该消息由 OpenAI 官方渠道发布，属于官方事实性公告，可作为事件主要事实底座。",
-            "公告将产品价值定位于文档结构化与上下文利用，而非替代律师的判断，指向法律工作流中“起草—策略”分工的产品叙事。"
-          ],
-          "canonical_title": "OpenAI 宣布 Harvey 使用 GPT-6 Astra 提升法律文档起草能力",
-          "category": "ai_models",
-          "entity_names": [
-            "OpenAI",
-            "Harvey",
-            "GPT-6 Astra"
-          ],
-          "facts": [
-            "OpenAI 发布消息称，Harvey 使用 GPT-6 Astra 生成更结构化、更具上下文感知能力的法律文档。",
-            "OpenAI 表示，该能力使律师能够将精力集中于策略。",
-            "该公告的发布时间为 2026-09-23T12:00:00Z，来源为 OpenAI News（RSS）。"
-          ],
-          "primary_source_url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra",
-          "product_names": [
-            "GPT-6 Astra",
-            "Harvey"
-          ],
-          "published_at": "2026-09-23T12:00:00Z",
-          "source_refs": [
-            {
-              "author": null,
-              "date_precision": null,
-              "discussion_url": null,
-              "fetched_at": "2026-09-24T21:19:39.788070Z",
-              "practice_signal_kind": null,
-              "published_at": "2026-09-23T12:00:00Z",
-              "published_at_role": "feed_entry_time",
-              "published_date_role": null,
-              "raw_item_id": "item-52b80abd4e046c041ffb",
-              "source_date": null,
-              "source_name": "OpenAI News",
-              "source_role": "official_primary",
-              "source_timezone": null,
-              "source_type": "rss",
-              "statement_type": "factual_announcement",
-              "title": "Harvey turns legal context into stronger drafts with GPT-6 Astra",
-              "url": "https://openai.com/index/harvey-from-context-to-confidence-with-astra"
-            }
-          ],
-          "status": "announced",
-          "story_id": "story-5854871dac9792453fa9",
-          "topic_names": [
-            "ai_models",
-            "法律科技",
-            "法律文档起草"
-          ],
-          "uncertainties": [
-            "公告未披露 Harvey 的具体使用范围、部署阶段或可量化效果指标。",
-            "公告未说明 GPT-6 Astra 在法律场景下的评测数据、合规或数据安全安排。",
-            "摘要中“更强”“更结构化”等表述为官方宣传口径，缺少第三方验证。"
-          ]
-        }
-      ],
-      "story_ids": [
-        "story-5854871dac9792453fa9"
-      ],
-      "title": "OpenAI 称 Harvey 采用 GPT-6 Astra 提升法律文档起草能力",
-      "uncertainty": "公告未披露 Harvey 的使用范围、部署阶段或可量化效果指标，也未说明 GPT-6 Astra 在法律场景下的评测数据、合规与数据安全安排；“更强”“更结构化”等表述属于官方口径，缺少第三方验证。",
-      "what_happened": "OpenAI 官方发布消息称，法律科技产品 Harvey 使用 GPT-6 Astra 生成更结构化、更具上下文感知能力的法律文档，并将此定位为让律师把精力集中在策略上。公告发布于 2026-09-23，来源为 OpenAI News。",
-      "why_it_matters": "这是 OpenAI 官方渠道对具体行业产品（法律科技）能力的公开背书，指向大模型在法律起草工作流中的实际嵌入，而不只是通用能力展示。"
-    },
-    {
-      "continuity_contexts": [],
-      "generation_note": null,
-      "generation_reason": null,
-      "generation_status": "generated",
-      "id": "brief-bbd2351b8e6e30492fad",
-      "market_or_community_reaction": null,
-      "section": "ai_and_open_source",
-      "source_urls": [
-        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0"
-      ],
-      "story_contexts": [
-        {
-          "analysis": [
-            "该版本以功能新增与 Bug 修复并重，重点覆盖多模型提供商（OpenAI、Bedrock Converse、Vertex AI）的兼容性问题，显示项目在扩展模型接入面时持续修补边界情况。",
-            "TypeSafeModel 相关多项改动（PR #8684、#8686、#8685、#8697）表明类型安全建模的默认值处理与选项推断是当前迭代重点。",
-            "新增 GitHubCopilotOAuthFlow 表明项目在身份认证与第三方集成方向上扩展。",
-            "修复 google_proactive_audio 与 realtime 接收端失败（PR #8394、#8138）说明实时音频会话此前存在连接与错误传播缺陷。"
-          ],
-          "canonical_title": "pydantic-ai 发布 v2.49.0，新增 GitHub Copilot OAuth 流程与 BoolCriteria 等特性",
-          "category": "open_source_ai",
-          "entity_names": [
-            "pydantic",
-            "pydantic-ai",
-            "DouweM",
-            "Kludex",
-            "GitHub Copilot",
-            "OpenAI",
-            "Bedrock Converse",
-            "Vertex AI"
-          ],
-          "facts": [
-            "pydantic-ai 发布了 v2.49.0 版本，发布日期为 2026-09-23，GitHub release 标签为 v2.49.0。",
-            "该版本新增 GitHubCopilotOAuthFlow 用于设备授权（device authorization）（PR #8618，作者 @Kludex）。",
-            "该版本新增 BoolCriteria，用于说明 bool 字段的 yes 和 no 含义，并允许 True/False Enum 实现相同功能（PR #8586，作者 @DouweM）。",
-            "该版本在 TypeSafeModel 中使用用户对 None 的描述作为 \"none of these\" 选项（PR #8684，作者 @DouweM）。",
-            "该版本在 TypeSafeModel 中把非评分标准的整数作为 Choice 提供（PR #8686，作者 @DouweM）。",
-            "该版本新增 RealtimeSession.wait_for_reply()（PR #8514，作者 @DouweM）。",
-            "Bug 修复：在 provider_details['logprobs'] 中保留所有流式 OpenAIChatModel logprobs（PR #8653，作者 @adtyavrdhn）。",
-            "Bug 修复：在 Bedrock Converse 上允许 gpt-6-sol、gpt-6-luna 和 gpt-6-astra（PR #8656，作者 @sevakva）。",
-            "Bug 修复：修复 graph joins 中 fanned producer 贡献的保留问题（PR #8385，作者 @FIITAY）。",
-            "Bug 修复：在 graph.iter() 期间将 @GraphBuilder.stream 节点错误就地暴露（PR #8304）。",
-            "Bug 修复：在 Vertex AI 上的 GoogleImageGenerationModel 中将 Cloud Storage gs:// 引用作为 fileData 转发（PR #8225，作者 @dorukgezici）。",
-            "Bug 修复：为 Annotated 模型类型保留输出工具名称和描述（PR #8608，作者 @ikriv）。",
-            "Bug 修复：在 Bedrock Converse 上对 OpenAI GPT-5.6 和 GPT-6 丢弃 temperature 和 top_p，而不是返回 400 错误（PR #8668，作者 @kimnamu）。",
-            "Bug 修复：在 OpenAICodexModel 上使用原生工具搜索发送延迟工具，而不是返回 400 错误（PR #8693，作者 @aweis89）。",
-            "该版本新增贡献者 @FIITAY、@ikriv、@aweis89。",
-            "完整变更日志对比链接为 https://github.com/pydantic/pydantic-ai/compare/v2.48.0...v2.49.0。"
-          ],
-          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0",
-          "product_names": [
-            "pydantic-ai v2.49.0",
-            "GitHubCopilotOAuthFlow",
-            "BoolCriteria",
-            "TypeSafeModel",
-            "RealtimeSession.wait_for_reply()",
-            "OpenAIChatModel",
-            "OpenAICodexModel",
-            "GoogleImageGenerationModel"
-          ],
-          "published_at": "2026-09-24T03:09:53Z",
-          "source_refs": [
-            {
-              "author": "DouweM",
-              "date_precision": null,
-              "discussion_url": null,
-              "fetched_at": "2026-09-24T21:19:39.788070Z",
-              "practice_signal_kind": null,
-              "published_at": "2026-09-24T03:09:53Z",
-              "published_at_role": "github_release_published_time",
-              "published_date_role": null,
-              "raw_item_id": "item-723ac1f70a166fbceb0f",
-              "source_date": null,
-              "source_name": "GitHub · pydantic/pydantic-ai",
-              "source_role": "official_primary",
-              "source_timezone": null,
-              "source_type": "github",
-              "statement_type": "factual_announcement",
-              "title": "pydantic/pydantic-ai: v2.49.0 (2026-09-23)",
-              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.49.0"
-            }
-          ],
-          "status": "available",
-          "story_id": "story-cf5be366709f3675a268",
-          "topic_names": [
-            "ai_coding",
-            "open_source_ai"
-          ],
-          "uncertainties": [
-            "发布说明中的 gpt-6-sol、gpt-6-luna、gpt-6-astra、GPT-5.6 和 GPT-6 等模型名称仅来自本次 release notes，未提供独立来源确认其真实存在或可用。",
-            "发布于 2026-09-23 但发布时间戳显示为 2026-09-24，日期口径以 release 标签为准，差异原因未在输入中说明。"
-          ]
-        }
-      ],
-      "story_ids": [
-        "story-cf5be366709f3675a268"
-      ],
-      "title": "pydantic-ai 发布 v2.49.0：新增 GitHub Copilot OAuth 流程与 BoolCriteria",
-      "uncertainty": "release notes 中出现的 gpt-6-sol、gpt-6-luna、gpt-6-astra、GPT-5.6、GPT-6 等模型名称未提供独立来源确认其真实存在或可用；发布日期 2026-09-23 与时间戳 2026-09-24 存在口径差异，输入未说明原因。",
-      "what_happened": "pydantic-ai 发布 v2.49.0（release 标签 v2.49.0，日期 2026-09-23）。新增 GitHubCopilotOAuthFlow 设备授权流程、用于说明 bool 字段 yes/no 含义的 BoolCriteria、RealtimeSession.wait_for_reply() 等特性；同时修复了 OpenAIChatModel 流式 logprobs、Bedrock Converse 上的模型参数丢弃、Vertex AI GoogleImageGenerationModel 的 gs:// 引用转发、OpenAICodexModel 延迟工具发送等一系列多提供商兼容性问题。",
-      "why_it_matters": "该版本显示项目正在同时扩展第三方身份集成（GitHub Copilot）与类型安全建模默认值推断，并持续修补 OpenAI、Bedrock Converse、Vertex AI 之间的边界差异，说明多提供商兼容性仍是 Agent 框架迭代的主要成本来源。"
-    },
-    {
-      "continuity_contexts": [],
-      "generation_note": null,
-      "generation_reason": null,
-      "generation_status": "generated",
-      "id": "brief-59cab5f402b09b19e0e6",
-      "market_or_community_reaction": null,
-      "section": "ai_and_open_source",
-      "source_urls": [
-        "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
-      ],
-      "story_contexts": [
-        {
-          "analysis": [],
-          "canonical_title": "LiquidAI 发布 LFM2.5-VL-DSpark：加速视觉语言模型",
-          "category": "ai_models",
-          "entity_names": [
-            "LiquidAI",
-            "Hugging Face"
-          ],
-          "facts": [
-            "Hugging Face Blog 于 2026-09-24T14:08:57Z 发布了一篇博文，标题为“Accelerating vision-language models with LFM2.5-VL-DSpark”。",
-            "该博文 URL 为 https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark。",
-            "该来源被标记为 official_primary，且 statement_type 为 factual_announcement。"
-          ],
-          "primary_source_url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark",
-          "product_names": [
-            "LFM2.5-VL-DSpark"
-          ],
-          "published_at": "2026-09-24T14:08:57Z",
-          "source_refs": [
-            {
-              "author": null,
-              "date_precision": null,
-              "discussion_url": null,
-              "fetched_at": "2026-09-24T21:19:39.788070Z",
-              "practice_signal_kind": null,
-              "published_at": "2026-09-24T14:08:57Z",
-              "published_at_role": "feed_entry_time",
-              "published_date_role": null,
-              "raw_item_id": "item-280bf64dcca75cee1131",
-              "source_date": null,
-              "source_name": "Hugging Face Blog",
-              "source_role": "official_primary",
-              "source_timezone": null,
-              "source_type": "rss",
-              "statement_type": "factual_announcement",
-              "title": "Accelerating vision-language models with LFM2.5-VL-DSpark",
-              "url": "https://huggingface.co/blog/LiquidAI/lfm2-5-vl-dspark"
-            }
-          ],
-          "status": "announced",
-          "story_id": "story-6bdd5f76da07c5ffaeed",
-          "topic_names": [
-            "ai_models",
-            "ai_infrastructure",
-            "open_source_ai"
-          ],
-          "uncertainties": [
-            "输入的 summary 和 content_excerpt 为空，无法获取该发布的具体技术细节、性能数据或可用性信息。",
-            "除标题外，输入未提供 LFM2.5-VL-DSpark 的模型规模、许可证、基准测试结果或发布时间等细节。"
-          ]
-        }
-      ],
-      "story_ids": [
-        "story-6bdd5f76da07c5ffaeed"
-      ],
-      "title": "LiquidAI 在 Hugging Face 发布 LFM2.5-VL-DSpark，聚焦视觉语言模型加速",
-      "uncertainty": "输入摘要与内容片段为空，无法获取具体技术细节、模型规模、许可证、基准测试结果或可用性信息，目前只有标题层面的信息。",
-      "what_happened": "Hugging Face Blog 于 2026-09-24 发布 LiquidAI 的博文《Accelerating vision-language models with LFM2.5-VL-DSpark》，来源标记为官方一手事实性公告。",
-      "why_it_matters": "视觉语言模型的推理与训练加速是当前多模态模型落地的主要瓶颈之一，LiquidAI 的公开方案值得关注其后续是否开放权重或基准数据。"
-    },
-    {
-      "continuity_contexts": [],
-      "generation_note": null,
-      "generation_reason": null,
-      "generation_status": "generated",
-      "id": "brief-eadc29c9143cf3a0875e",
-      "market_or_community_reaction": null,
-      "section": "ai_and_open_source",
-      "source_urls": [
-        "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/"
-      ],
-      "story_contexts": [
-        {
-          "analysis": [
-            "该文章来自 NVIDIA 官方开发者博客，属于官方一手来源，可作为事实底座。",
-            "文章主题属于 ai_models 与 ai_infrastructure 范畴，聚焦生物基础模型的 MoE 训练效率问题。"
-          ],
-          "canonical_title": "NVIDIA 发布面向生物基础模型的高效 MoE 训练方法",
-          "category": "ai_infrastructure",
-          "entity_names": [
-            "NVIDIA",
-            "NVIDIA Developer Blog"
-          ],
-          "facts": [
-            "NVIDIA Developer Blog 发布了题为“Efficient MoE Training for Biological Foundation Models”的文章，作者为 Michelle Horton，发布时间为 2026-09-24T15:00:00Z。",
-            "文章指出随着语言模型增长，扩展稠密架构的成本越来越高；在稠密 transformer 中，每个 token 都会经过每一层。"
-          ],
-          "primary_source_url": "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/",
-          "product_names": [],
-          "published_at": "2026-09-24T15:00:00Z",
-          "source_refs": [
-            {
-              "author": "Michelle Horton",
-              "date_precision": null,
-              "discussion_url": null,
-              "fetched_at": "2026-09-24T20:40:39.839281Z",
-              "practice_signal_kind": null,
-              "published_at": "2026-09-24T15:00:00Z",
-              "published_at_role": "feed_entry_time",
-              "published_date_role": null,
-              "raw_item_id": "item-6ff053dd07249040e881",
-              "source_date": null,
-              "source_name": "NVIDIA Developer Blog",
-              "source_role": "official_primary",
-              "source_timezone": null,
-              "source_type": "rss",
-              "statement_type": "factual_announcement",
-              "title": "Efficient MoE Training for Biological Foundation Models",
-              "url": "https://developer.nvidia.com/blog/efficient-moe-training-for-biological-foundation-models/"
-            }
-          ],
-          "status": "announced",
-          "story_id": "story-ed7397ada28fd1eb3558",
-          "topic_names": [
-            "MoE 训练",
-            "生物基础模型",
-            "稀疏架构"
-          ],
-          "uncertainties": [
-            "输入仅提供摘要与内容片段，未给出具体训练方法、性能数字或项目名称，无法确认文中是否包含可追溯的实验结果。"
-          ]
-        }
-      ],
-      "story_ids": [
-        "story-ed7397ada28fd1eb3558"
-      ],
-      "title": "NVIDIA 开发者博客发文探讨生物基础模型的高效 MoE 训练",
-      "uncertainty": "输入仅提供摘要与片段，未给出具体训练方法、性能数字或项目名称，无法确认文中是否包含可追溯的实验结果。",
-      "what_happened": "NVIDIA Developer Blog 于 2026-09-24 发布由 Michelle Horton 撰写的文章《Efficient MoE Training for Biological Foundation Models》，指出随着语言模型增长，稠密架构扩展成本上升，稠密 transformer 中每个 token 都要经过每一层。",
-      "why_it_matters": "这是 NVIDIA 官方开发者渠道对生物基础模型领域稀疏架构训练效率的公开讨论，指向 MoE 在生命科学模型训练中的适用性叙事。"
+      "title": "高通官网文章称 Linux 支持即将登陆 Snapdragon X2 系列",
+      "uncertainty": "“Linux support is coming to Snapdragon X2 series”的具体含义、时间表、覆盖范围（哪些芯片型号、哪些发行版/内核版本）尚不明确；该条目来自社区发现，非官方发布渠道确认，原始高通页面内容未在输入中提供。",
+      "what_happened": "高通在其官网 Qualcomm News 发布题为“Linux support is coming to Snapdragon X2 series”的文章。该条目由 Hacker News 用户 aaronday 提交，发布时间为 2026-09-23T22:38:16Z。",
+      "why_it_matters": "若该支持落地，Snapdragon X2 平台在 Arm PC 上的 Linux 可用性可能提升，但当前信息来自社区发现信号，需回到高通原始页面核实。"
     }
   ],
-  "cognitive_extension": "如果不可抗力通知确实允许 Oracle 在 Stargate 延期时延迟付款，那么 AI 数据中心建设合同中还有哪些条款可能被用来重新分配延期风险？",
+  "cognitive_extension": "如果 Meta Muse 确实可以在极少提示下被打包并分享整个文件系统，那么当前 AI 编程工具在“能访问多少文件”与“该被允许访问多少文件”之间的边界，应由谁、依据什么标准来设定？",
   "date": "2026-09-25",
   "developer_discussions": [],
-  "direction_observation": "AI 模型相关话题在 2026-09-23 至 2026-09-25 的 3 日窗口内持续升温，事件量由 1 条增至 3 条、再增至 6 条，且获得 10 个来源和 20 家公司支持，显示该主题的讨论与报道密度在扩大。",
-  "generated_at": "2026-09-24T21:20:12.618941Z",
+  "direction_observation": "开源 AI 相关事件量在 3 天窗口内由 2 增至 5，且获得 11 个来源、17 家公司支撑，显示该话题关注度呈连续升温方向。该观察仅描述讨论热度，不构成对技术路线或市场表现的判断。",
+  "generated_at": "2026-09-24T22:44:32.392809Z",
   "market_and_companies": [],
   "other_reading": [],
   "radar_signals": [],
   "run_stats": {
     "active_channel_count": 4,
-    "after_global_cap": 2401,
+    "after_global_cap": 1523,
     "ai_brief_batches": 3,
     "ai_brief_item_fallbacks": 0,
     "ai_brief_recovery_attempts": 0,
     "ai_brief_recovery_successes": 0,
     "ai_brief_story_inputs": 12,
-    "ai_classify_completion_tokens": 2586,
-    "ai_classify_finish_stop": 2,
-    "ai_classify_prompt_tokens": 12859,
+    "ai_classify_completion_tokens": 1420,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6043,
     "ai_classify_reasoning_tokens": 0,
-    "ai_completion_tokens": 20164,
-    "ai_direction_observation_completion_tokens": 1515,
+    "ai_completion_tokens": 18290,
+    "ai_direction_observation_completion_tokens": 3603,
     "ai_direction_observation_finish_stop": 1,
-    "ai_direction_observation_prompt_tokens": 1026,
-    "ai_direction_observation_reasoning_tokens": 1196,
-    "ai_input_characters": 108973,
+    "ai_direction_observation_prompt_tokens": 1376,
+    "ai_direction_observation_reasoning_tokens": 3290,
+    "ai_input_characters": 114308,
     "ai_maximum_input_characters": 120000,
-    "ai_merge_story_completion_tokens": 4465,
-    "ai_merge_story_finish_stop": 11,
-    "ai_merge_story_prompt_tokens": 11111,
+    "ai_merge_story_completion_tokens": 4291,
+    "ai_merge_story_finish_stop": 12,
+    "ai_merge_story_prompt_tokens": 10920,
     "ai_merge_story_reasoning_tokens": 0,
     "ai_model": "deepseek-v4-flash",
-    "ai_prompt_tokens": 61531,
+    "ai_prompt_tokens": 57016,
     "ai_provider": "deepseek",
-    "ai_reasoning_tokens": 4272,
-    "ai_resolve_continuity_completion_tokens": 1510,
+    "ai_reasoning_tokens": 4615,
+    "ai_resolve_continuity_completion_tokens": 1796,
     "ai_resolve_continuity_finish_stop": 3,
-    "ai_resolve_continuity_prompt_tokens": 6312,
-    "ai_resolve_continuity_reasoning_tokens": 1304,
-    "ai_resolve_research_cases_completion_tokens": 2526,
-    "ai_resolve_research_cases_finish_stop": 1,
-    "ai_resolve_research_cases_prompt_tokens": 2217,
-    "ai_resolve_research_cases_reasoning_tokens": 1772,
-    "ai_score_story_completion_tokens": 1965,
-    "ai_score_story_finish_stop": 11,
-    "ai_score_story_prompt_tokens": 13160,
+    "ai_resolve_continuity_prompt_tokens": 10238,
+    "ai_resolve_continuity_reasoning_tokens": 1325,
+    "ai_score_story_completion_tokens": 2006,
+    "ai_score_story_finish_stop": 12,
+    "ai_score_story_prompt_tokens": 13428,
     "ai_score_story_reasoning_tokens": 0,
-    "ai_signal_inputs": 2,
-    "ai_write_brief_completion_tokens": 5597,
+    "ai_signal_inputs": 3,
+    "ai_write_brief_completion_tokens": 5174,
     "ai_write_brief_finish_stop": 3,
-    "ai_write_brief_prompt_tokens": 14846,
+    "ai_write_brief_prompt_tokens": 15011,
     "ai_write_brief_reasoning_tokens": 0,
     "aihot_enabled": false,
-    "completion_tokens": 20164,
+    "completion_tokens": 18290,
     "configured_seed_count": 10,
     "continuity_budget_skipped": 0,
-    "continuity_candidates": 15,
-    "continuity_character_budget_available": 9760,
-    "continuity_input_chars": 5575,
+    "continuity_candidates": 20,
+    "continuity_character_budget_available": 17460,
+    "continuity_input_chars": 16031,
     "continuity_judgement_inputs": 1,
     "continuity_logical_ai_calls": 4,
     "continuity_network_requests": 4,
-    "continuity_relation_inputs": 1,
-    "continuity_watch_inputs": 1,
-    "direction_signal_inputs": 2,
+    "continuity_relation_inputs": 3,
+    "continuity_watch_inputs": 3,
+    "direction_signal_inputs": 3,
     "dry_run": false,
     "editorial_decisions": 0,
     "editorial_degraded": true,
@@ -786,8 +757,8 @@
     "judgement_direct_revisions": 0,
     "judgement_updates": 0,
     "judgements_created": 0,
-    "logical_ai_calls": 31,
-    "logical_ai_tasks": 31,
+    "logical_ai_calls": 32,
+    "logical_ai_tasks": 32,
     "main_brief_items": 12,
     "model": "deepseek-v4-flash",
     "needs_review": 0,
@@ -796,52 +767,129 @@
     "other_reading_items": 0,
     "overturned": 0,
     "practitioners_with_active_channels": 4,
-    "prompt_tokens": 61531,
+    "prompt_tokens": 57016,
     "provider": "deepseek",
     "provider_circuit_opened": false,
     "provider_circuit_reason": "",
-    "radar_signals": 0,
     "radar_signals_displayed": 0,
     "radar_signals_generated": 0,
     "radar_signals_suppressed_as_visible_brief_duplicates": 0,
-    "reasoning_tokens": 4272,
-    "recent_24h": 106,
-    "relation_ai_inputs": 1,
+    "reasoning_tokens": 4615,
+    "recent_24h": 100,
+    "relation_ai_inputs": 3,
     "relation_confirmed": 1,
     "relation_deterministic": 1,
-    "relation_rejected": 1,
-    "relation_unresolved": 13,
+    "relation_rejected": 3,
+    "relation_unresolved": 16,
     "relations_confirmed": 1,
-    "relations_rejected": 1,
-    "relations_unresolved": 13,
-    "research_cases": 3,
-    "research_duplicate_cases": 0,
-    "research_input_characters": 4637,
-    "research_invalid_cases": 0,
-    "research_logical_ai_calls": 1,
-    "research_missing_cases": 0,
+    "relations_rejected": 3,
+    "relations_unresolved": 16,
+    "research_budget_skipped": false,
+    "research_cases": 0,
+    "research_input_characters": 1070,
+    "research_logical_ai_calls": 0,
     "research_omitted_cases": 0,
-    "research_truncated_fields": 1,
-    "research_unknown_cases": 0,
-    "research_unresolved": 3,
-    "research_verified_story_candidates": 0,
+    "research_truncated_fields": 0,
+    "research_unexecuted": false,
+    "research_unresolved": 0,
     "revised": 0,
     "routine_market_suppressed": 1,
-    "signals": 2,
-    "stories": 24,
-    "story_candidate_input": 14,
+    "signals": 3,
+    "stories": 36,
+    "story_candidate_input": 16,
     "structured_watches_opened": 5,
     "task": "daily_pipeline",
     "tendency_logical_ai_calls": 0,
     "tendency_workflow_status": "persisted_projection",
-    "threshold_eligible_stories": 16,
+    "threshold_eligible_stories": 25,
     "total_displayed_items": 12,
-    "watch_inputs": 1,
-    "watch_matches": 0
+    "watch_inputs": 3,
+    "watch_matches": 1
   },
   "tendencies": [],
   "timezone": "Asia/Singapore",
   "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-4d68a34e47fb25a7e950",
+      "market_or_community_reaction": "同一交易日 Meta 股价变动约 4.5%，但该价格变化可能由多种因素共同导致，与本次安全说法不构成因果确认。",
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "若该说法成立，Muse 可能对提示注入或文件系统访问边界缺乏足够防护，风险范围覆盖根文件系统、系统文件、应用模板与内部文档。",
+            "两名开发者独立复现的说法提升了该报告的可信度，但当前仍仅有 The Verge AI 的编辑转述，需等待原始技术披露或 Meta 回应以确认细节与影响范围。"
+          ],
+          "canonical_title": "两名开发者称 Meta Muse 在极少提示下可被诱导打包并分享整个文件系统",
+          "category": "ai_models",
+          "entity_names": [
+            "Meta",
+            "Muse",
+            "Peter James",
+            "Jonny L. Saunders",
+            "The Verge AI"
+          ],
+          "facts": [
+            "The Verge AI 报道称，两名开发者 Peter James 和 Jonny L. Saunders 表示，他们分别以极少的提示诱导 Meta 的 Muse 打包并分享其整个根文件系统、Ubuntu 系统文件、应用模板和内部文档。",
+            "Saunders 在相关帖子中发布了这一说法。",
+            "该报道的发布时间为 2026-09-24T13:14:12-04:00，作者为 Terrence O’Brien。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem",
+          "product_names": [
+            "Muse"
+          ],
+          "published_at": "2026-09-24T13:14:12-04:00",
+          "source_refs": [
+            {
+              "author": "Terrence O’Brien",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-24T22:43:56.831394Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-24T13:14:12-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-16dae4c7c5cb5aa1c5e6",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Muse will apparently let you download its entire filesystem",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-93bf7ad8e3ee46ca82d5",
+          "topic_names": [
+            "ai_models",
+            "ai_coding",
+            "prompt_injection",
+            "filesystem_exfiltration"
+          ],
+          "uncertainties": [
+            "Peter James 和 Jonny L. Saunders 的原始帖子全文、具体提示内容及可复现证据尚未在输入中提供。",
+            "Meta 是否已确认、否认或回应此事，输入中未提及。",
+            "Muse 的版本、部署环境和访问控制配置未知。",
+            "泄露内容是否包含敏感数据、影响范围如何，输入未提供。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-93bf7ad8e3ee46ca82d5"
+      ],
+      "title": "两名开发者称 Meta Muse 在极少提示下可被诱导打包并分享整个文件系统",
+      "uncertainty": "Peter James 和 Jonny L. Saunders 的原始帖子全文、具体提示内容及可复现证据尚未在输入中提供；Meta 是否已确认、否认或回应此事未知；Muse 的版本、部署环境和访问控制配置未知；泄露内容是否包含敏感数据、影响范围如何，输入未提供。",
+      "what_happened": "The Verge AI 报道称，两名开发者 Peter James 和 Jonny L. Saunders 分别以极少的提示诱导 Meta 的 Muse 打包并分享其整个根文件系统、Ubuntu 系统文件、应用模板和内部文档。Saunders 在相关帖子中发布了这一说法。报道发布时间为 2026-09-24，由 Terrence O’Brien 撰写。",
+      "why_it_matters": "若该说法成立，说明 Muse 可能对提示注入或文件系统访问边界缺乏足够防护，风险范围不仅限于单一目录，还覆盖根文件系统、系统文件、应用模板与内部文档。两名开发者独立复现的说法提升了报告可信度。"
+    },
     {
       "continuity_contexts": [],
       "generation_note": null,
@@ -911,167 +959,93 @@
         "story-f52d70f5bf5ab2aed951"
       ],
       "title": "Oracle 就新墨西哥州 Stargate 数据中心发出不可抗力通知",
-      "uncertainty": "Oracle 是否确已发出该通知，以及通知的具体条款和适用范围尚待官方确认；新墨西哥州 Stargate 数据中心 2028 年上线目标是否已正式变更也不明确。",
-      "what_happened": "TechCrunch AI 报道称，Oracle 就其新墨西哥州 Stargate 数据中心发出了不可抗力通知，该通知允许 Oracle 在该设施未能于 2028 年上线目标时延迟付款。",
-      "why_it_matters": "若该通知成立，可能为 Oracle 在 Stargate 新墨西哥州数据中心延期上线时提供合同层面的付款延迟空间，从而改变该项目的财务与建设节奏预期。"
+      "uncertainty": "Oracle 是否确已发出该通知，以及通知的具体条款和适用范围尚待官方确认；新墨西哥州 Stargate 数据中心 2028 年上线目标是否已正式变更尚不明确。",
+      "what_happened": "TechCrunch AI 报道称 Oracle 就其新墨西哥州 Stargate 数据中心发出了不可抗力通知，该通知允许 Oracle 在该设施未能于 2028 年上线目标时延迟付款。",
+      "why_it_matters": "不可抗力通知若成立，可能为 Oracle 在 Stargate 新墨西哥州数据中心延期上线时提供合同层面的付款延迟空间，影响该项目的交付节奏与相关方的合同预期。"
     },
     {
       "continuity_contexts": [],
       "generation_note": null,
       "generation_reason": null,
       "generation_status": "generated",
-      "id": "brief-1ed7794d6d96c803e635",
+      "id": "brief-90da5895207a14bf1dd7",
       "market_or_community_reaction": null,
       "section": "top_stories",
       "source_urls": [
-        "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+        "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/"
       ],
       "story_contexts": [
         {
           "analysis": [
-            "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别。"
+            "年化收入突破 6 亿美元且平台应用月访问量接近 10 亿，显示 vibe coding 类产品正在获得较大的用户规模与商业化进展。"
           ],
-          "canonical_title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
-          "category": "security",
+          "canonical_title": "Lovable 年化收入突破 6 亿美元，平台应用月访问量近 10 亿",
+          "category": "ai_coding",
           "entity_names": [
-            "Cloudflare",
-            "Accomplish"
+            "Lovable",
+            "Fabian Hedin"
           ],
           "facts": [
-            "Cloudflare 在其博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞。",
-            "该漏洞可能暴露此前工作负载残留的磁盘数据。",
-            "Cloudflare 说明了该问题的成因、调查过程以及所采取的修复措施。"
+            "Lovable 联合创始人 Fabian Hedin 表示，Lovable 的年化收入已突破 6 亿美元。",
+            "Fabian Hedin 表示，在 Lovable 平台上创建的应用每月获得接近 10 亿次访问。"
           ],
-          "primary_source_url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/",
+          "primary_source_url": "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/",
           "product_names": [
-            "Cloudflare Containers"
+            "Lovable"
           ],
-          "published_at": "2026-09-24T15:00:00Z",
+          "published_at": "2026-09-24T14:43:25Z",
           "source_refs": [
             {
-              "author": "Hrushikesh Deshpande",
+              "author": "Ivan Mehta",
               "date_precision": null,
               "discussion_url": null,
-              "fetched_at": "2026-09-24T20:40:39.839281Z",
+              "fetched_at": "2026-09-24T22:43:56.831394Z",
               "practice_signal_kind": null,
-              "published_at": "2026-09-24T15:00:00Z",
+              "published_at": "2026-09-24T14:43:25Z",
               "published_at_role": "feed_entry_time",
               "published_date_role": null,
-              "raw_item_id": "item-c657a4eeb7c1b1a54b97",
+              "raw_item_id": "item-120ba149dd221b26cf22",
               "source_date": null,
-              "source_name": "Cloudflare Blog",
-              "source_role": "official_primary",
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
               "source_timezone": null,
               "source_type": "rss",
-              "statement_type": "factual_announcement",
-              "title": "How Cloudflare addressed a cross-tenant data exposure vulnerability in Containers",
-              "url": "https://blog.cloudflare.com/containers-cross-tenant-vulnerability/"
+              "statement_type": "unknown",
+              "title": "Lovable’s annualized revenue crosses $600M as vibe coding takes off",
+              "url": "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/"
             }
           ],
-          "status": "updated",
-          "story_id": "story-b616c609409611e71f4b",
+          "status": "unknown",
+          "story_id": "story-f307c80aa562833b0fdc",
           "topic_names": [
-            "数据安全",
-            "跨租户数据暴露",
-            "漏洞修复"
+            "vibe coding",
+            "AI 编程平台"
           ],
           "uncertainties": [
-            "输入未披露漏洞的具体技术细节、受影响租户数量及时间范围。"
+            "年化收入与月访问量的具体统计口径、时间范围及是否经过独立审计尚未说明。"
           ]
         }
       ],
       "story_ids": [
-        "story-b616c609409611e71f4b"
+        "story-f307c80aa562833b0fdc"
       ],
-      "title": "Cloudflare 修复 Containers 跨租户数据暴露漏洞",
-      "uncertainty": "输入未披露漏洞的具体技术细节、受影响租户数量及时间范围。",
-      "what_happened": "Cloudflare 在其博客中表示，外部安全研究人员 Accomplish 在 Cloudflare Containers 中发现了一个漏洞，该漏洞可能暴露此前工作负载残留的磁盘数据；Cloudflare 说明了问题的成因、调查过程以及所采取的修复措施。",
-      "why_it_matters": "该事件涉及容器运行环境中的残余磁盘数据隔离问题，属于多租户基础设施的数据泄露风险类别，对使用 Containers 的租户的隔离假设具有直接影响。"
-    },
-    {
-      "continuity_contexts": [],
-      "generation_note": null,
-      "generation_reason": null,
-      "generation_status": "generated",
-      "id": "brief-849a4b59799d26f80b18",
-      "market_or_community_reaction": null,
-      "section": "top_stories",
-      "source_urls": [
-        "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
-      ],
-      "story_contexts": [
-        {
-          "analysis": [
-            "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
-          ],
-          "canonical_title": "GitHub Copilot 应用引入本地沙箱功能",
-          "category": "AI 编程工具",
-          "entity_names": [
-            "GitHub Copilot",
-            "GitHub"
-          ],
-          "facts": [
-            "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》。",
-            "该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。"
-          ],
-          "primary_source_url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app",
-          "product_names": [
-            "GitHub Copilot app"
-          ],
-          "published_at": "2026-09-23T15:00:57Z",
-          "source_refs": [
-            {
-              "author": "Allison",
-              "date_precision": null,
-              "discussion_url": null,
-              "fetched_at": "2026-09-24T21:19:39.788070Z",
-              "practice_signal_kind": null,
-              "published_at": "2026-09-23T15:00:57Z",
-              "published_at_role": "feed_entry_time",
-              "published_date_role": null,
-              "raw_item_id": "item-63e0251438a40139e79a",
-              "source_date": null,
-              "source_name": "GitHub Changelog",
-              "source_role": "official_primary",
-              "source_timezone": null,
-              "source_type": "rss",
-              "statement_type": "factual_announcement",
-              "title": "Local sandboxing in the GitHub Copilot app",
-              "url": "https://github.blog/changelog/2026-09-23-local-sandboxing-in-the-github-copilot-app"
-            }
-          ],
-          "status": "available",
-          "story_id": "story-1ce6d3c87fb494682454",
-          "topic_names": [
-            "本地沙箱",
-            "ai_coding"
-          ],
-          "uncertainties": [
-            "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。"
-          ]
-        }
-      ],
-      "story_ids": [
-        "story-1ce6d3c87fb494682454"
-      ],
-      "title": "GitHub Copilot 应用引入本地沙箱功能",
-      "uncertainty": "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。",
-      "what_happened": "GitHub Changelog 于 2026-09-23 发布《Local sandboxing in the GitHub Copilot app》，该功能在 GitHub Copilot 应用中提供本地沙箱，通过限制对机器上文件、网络资源和凭据的访问，降低意外命令的潜在影响。",
-      "why_it_matters": "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
+      "title": "Lovable 年化收入突破 6 亿美元，平台应用月访问量近 10 亿",
+      "uncertainty": "年化收入与月访问量的具体统计口径、时间范围及是否经过独立审计尚未说明。",
+      "what_happened": "Lovable 联合创始人 Fabian Hedin 表示，Lovable 的年化收入已突破 6 亿美元；在 Lovable 平台上创建的应用每月获得接近 10 亿次访问。",
+      "why_it_matters": "年化收入突破 6 亿美元且平台应用月访问量接近 10 亿，显示 vibe coding 类产品正在获得较大的用户规模与商业化进展。"
     }
   ],
   "trend_radar": [],
   "watch_next": [
-    "观察 Oracle 或 Stargate 官方是否就新墨西哥州数据中心的不可抗力通知、2028 年上线目标及付款安排作出确认或说明。",
-    "观察 Cloudflare 是否发布关于 Containers 跨租户数据暴露漏洞的后续技术说明、租户通知或修复验证。",
-    "观察 GitHub Copilot 应用本地沙箱的默认启用状态、平台支持范围及用户配置方式是否进一步公布。",
-    "观察 NVIDIA 是否公布 NV-Reason-CT 的架构细节、性能指标、许可证及代码或权重发布渠道。",
-    "观察 Google 是否公布 Gemini 代打电话功能的具体上线时间、支持机型与地区范围，以及是否从 Pixel 11 付费订阅用户扩展至更多设备。",
-    "观察 GitHub 是否发布 Copilot 应用 OTel 支持的具体指标字段、导出协议与兼容后端文档。",
-    "观察 Anthropic 是否正式发布 Claude Code on the Web 并给出功能范围说明，以及社区将其与 Grok bot 比较的讨论是否持续。",
-    "观察高通是否就 Snapdragon X2 系列的 Linux 支持给出芯片型号、时间表与发行版/内核版本等具体信息。",
-    "观察 Harvey 是否公开 GPT-6 Astra 在其法律文档起草中的使用范围、部署阶段或可量化效果指标，以及是否披露法律场景下的合规与数据安全安排。",
-    "观察 pydantic-ai 后续版本是否继续扩展 GitHubCopilotOAuthFlow 与 TypeSafeModel 相关改动，以及是否修正 release notes 中模型名称与日期口径的差异。",
-    "观察 NVIDIA 是否在后续开发者博客或技术材料中给出该 MoE 训练方法的具体实现、性能数字或可追溯实验结果。"
+    "观察 Meta 是否对 Muse 可在极少提示下打包并分享文件系统的说法作出确认或否认，以及是否发布技术说明或修复措施。",
+    "观察 Oracle 新墨西哥州 Stargate 数据中心的 2028 年上线目标是否出现正式变更，以及不可抗力通知的条款是否获得官方确认。",
+    "观察 Cloudflare 是否进一步披露该跨租户数据暴露漏洞的技术细节、受影响租户数量与时间范围，以及是否发布正式的事后复盘或安全公告。",
+    "观察 GitHub 是否公布本地沙箱的默认启用状态、配置方式、支持平台与用户开放范围。",
+    "观察 NVIDIA 是否发布 NV-Reason-CT 的架构、训练数据、性能指标、许可证以及代码或权重发布渠道等更完整信息。",
+    "观察 Google 是否公布 Gemini 代打电话功能在 Pixel 11 上的具体上线时间、覆盖地区与支持语言，以及是否向商家披露 AI 身份和复杂通话场景的失败处理机制。",
+    "Gemini 代用户致电商家功能的测试范围是否扩大，或出现具体交互方式、商家侧体验与隐私处理方式的说明。",
+    "GitHub Copilot 应用 OTel 支持是否公布具体指标、追踪字段、导出协议或已兼容的后端。",
+    "MentalHealthBench 是否公开具体评估指标、数据集规模、评测方法、专家信息或已有模型评测结果。",
+    "高通是否就 Snapdragon X2 系列的 Linux 支持发布更明确的官方细节，包括时间表、芯片型号与发行版/内核版本覆盖。"
   ]
 }

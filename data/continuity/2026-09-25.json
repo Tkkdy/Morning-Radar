@@ -295,6 +295,160 @@
         "AI 语音助手"
       ],
       "watch_id": "watch-4840a3f02b2ccff305d2"
+    },
+    {
+      "entity_anchors": [
+        "Cloudflare",
+        "Accomplish"
+      ],
+      "event_type": "matched",
+      "expectation": "观察 Cloudflare 是否发布关于 Containers 跨租户数据暴露漏洞的后续技术说明、租户通知或修复验证。",
+      "matched_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-b616c609409611e71f4b"
+        }
+      ],
+      "product_anchors": [
+        "Cloudflare Containers"
+      ],
+      "rationale": "Cloudflare 就 Containers 跨租户数据暴露漏洞发布了成因、调查过程与修复措施说明，直接回应了后续技术说明与修复验证的期待。",
+      "recorded_at": "2026-09-24T22:44:32.392809Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-b616c609409611e71f4b"
+        }
+      ],
+      "topic_anchors": [
+        "数据安全",
+        "跨租户数据暴露",
+        "漏洞修复"
+      ],
+      "watch_id": "watch-9d90ad29eb0f1a122e6b"
+    },
+    {
+      "entity_anchors": [
+        "Meta",
+        "Peter James",
+        "Jonny L. Saunders"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Meta 是否对 Muse 可在极少提示下打包并分享文件系统的说法作出确认或否认，以及是否发布技术说明或修复措施。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Muse"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T22:44:32.392809Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-93bf7ad8e3ee46ca82d5"
+        }
+      ],
+      "topic_anchors": [
+        "prompt_injection",
+        "filesystem_exfiltration"
+      ],
+      "watch_id": "watch-f76589c5ccddb6f0757d"
+    },
+    {
+      "entity_anchors": [
+        "Oracle"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Oracle 新墨西哥州 Stargate 数据中心的 2028 年上线目标是否出现正式变更，以及不可抗力通知的条款是否获得官方确认。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Stargate"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T22:44:32.392809Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-f52d70f5bf5ab2aed951"
+        }
+      ],
+      "topic_anchors": [
+        "数据中心",
+        "不可抗力"
+      ],
+      "watch_id": "watch-41f65592e40d2d858b32"
+    },
+    {
+      "entity_anchors": [
+        "Cloudflare",
+        "Accomplish"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Cloudflare 是否进一步披露该跨租户数据暴露漏洞的技术细节、受影响租户数量与时间范围，以及是否发布正式的事后复盘或安全公告。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Cloudflare Containers"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T22:44:32.392809Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-b616c609409611e71f4b"
+        }
+      ],
+      "topic_anchors": [
+        "跨租户数据暴露",
+        "漏洞修复"
+      ],
+      "watch_id": "watch-71a19cba9e73825c9def"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布本地沙箱的默认启用状态、配置方式、支持平台与用户开放范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot app"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T22:44:32.392809Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-1ce6d3c87fb494682454"
+        }
+      ],
+      "topic_anchors": [
+        "本地沙箱"
+      ],
+      "watch_id": "watch-cd822be13eec84954f6e"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否发布 NV-Reason-CT 的架构、训练数据、性能指标、许可证以及代码或权重发布渠道等更完整信息。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NV-Reason-CT"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-24T22:44:32.392809Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-25",
+          "story_id": "story-6bb7d81e5ce9e96a85b5"
+        }
+      ],
+      "topic_anchors": [
+        "3D CT 视觉语言模型",
+        "放射科思维链推理"
+      ],
+      "watch_id": "watch-2c83a154c176a9869af9"
     }
   ]
 }

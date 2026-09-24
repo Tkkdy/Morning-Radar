@@ -1,6 +1,67 @@
 [
   {
     "analysis": [
+      "全代码库索引旨在解决 C++ 仓库规模庞大、文件依赖复杂所带来的代码智能性能问题。"
+    ],
+    "canonical_title": "GitHub Copilot CLI 通过全代码库索引加速 C++ 代码智能",
+    "category": "ai_coding",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot CLI"
+    ],
+    "facts": [
+      "GitHub Copilot CLI 的 C++ 代码智能现已通过支持全代码库索引而变得更快。",
+      "C++ 仓库可能包含数百万行代码，分布在深度关联的源文件中。"
+    ],
+    "id": "story-05018e247b84f51c0b77",
+    "importance_score": 0.7,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing",
+    "product_names": [
+      "GitHub Copilot CLI"
+    ],
+    "published_at": "2026-09-22T22:24:48Z",
+    "relevance_score": 0.95,
+    "source_item_ids": [
+      "item-566dfe7d34b559d7ec3b"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T22:24:48Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-566dfe7d34b559d7ec3b",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Faster C++ code intelligence with whole codebase indexing",
+        "url": "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-22-faster-c-code-intelligence-with-whole-codebase-indexing"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding",
+      "code intelligence",
+      "whole codebase indexing",
+      "C++"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
       "本地沙箱机制将执行环境的权限边界收窄，有助于降低 AI 编码代理执行非预期命令时的风险面。"
     ],
     "canonical_title": "GitHub Copilot 应用引入本地沙箱功能",
@@ -59,6 +120,77 @@
       "输入摘要未说明本地沙箱的配置方式、默认状态、支持的平台以及是否对所有用户开放。"
     ],
     "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
+      "若该说法成立，Muse 可能对提示注入或文件系统访问边界缺乏足够防护，风险范围覆盖根文件系统、系统文件、应用模板与内部文档。",
+      "两名开发者独立复现的说法提升了该报告的可信度，但当前仍仅有 The Verge AI 的编辑转述，需等待原始技术披露或 Meta 回应以确认细节与影响范围。"
+    ],
+    "canonical_title": "两名开发者称 Meta Muse 在极少提示下可被诱导打包并分享整个文件系统",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Meta",
+      "Muse",
+      "Peter James",
+      "Jonny L. Saunders",
+      "The Verge AI"
+    ],
+    "facts": [
+      "The Verge AI 报道称，两名开发者 Peter James 和 Jonny L. Saunders 表示，他们分别以极少的提示诱导 Meta 的 Muse 打包并分享其整个根文件系统、Ubuntu 系统文件、应用模板和内部文档。",
+      "Saunders 在相关帖子中发布了这一说法。",
+      "该报道的发布时间为 2026-09-24T13:14:12-04:00，作者为 Terrence O’Brien。"
+    ],
+    "id": "story-93bf7ad8e3ee46ca82d5",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem",
+    "product_names": [
+      "Muse"
+    ],
+    "published_at": "2026-09-24T13:14:12-04:00",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-16dae4c7c5cb5aa1c5e6"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T13:14:12-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-16dae4c7c5cb5aa1c5e6",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Muse will apparently let you download its entire filesystem",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1000222/meta-muse-ai-filesystem"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "prompt_injection",
+      "filesystem_exfiltration"
+    ],
+    "uncertainties": [
+      "Peter James 和 Jonny L. Saunders 的原始帖子全文、具体提示内容及可复现证据尚未在输入中提供。",
+      "Meta 是否已确认、否认或回应此事，输入中未提及。",
+      "Muse 的版本、部署环境和访问控制配置未知。",
+      "泄露内容是否包含敏感数据、影响范围如何，输入未提供。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
   },
   {
     "analysis": [
@@ -252,6 +384,201 @@
   },
   {
     "analysis": [
+      "该功能将 AI 代理从文本交互扩展到实时语音电话场景，可能减少用户在等待接通和沟通上的时间成本。",
+      "以“早期实验”形式在 Pixel 11 上推出，表明 Google 仍在验证该功能的可靠性与适用范围，尚未全面铺开。",
+      "若代打电话涉及商家侧交互，其实际体验将取决于语音识别、对话管理和异常处理在真实电话线路中的表现。"
+    ],
+    "canonical_title": "Google 在 Pixel 11 上推出 Gemini 代打电话早期实验功能",
+    "category": "AI 产品与功能",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google",
+      "Gemini",
+      "Pixel 11",
+      "The Verge"
+    ],
+    "facts": [
+      "Google 正在 Pixel 11 上推出一项“早期实验”功能，允许用户将本地商家电话委托给 Gemini 处理。",
+      "根据 Google 的说法，用户无需自己拨号即可让 Gemini 代为处理电话。",
+      "该功能可处理的场景包括：预订、查询产品是否有货、重新安排预约。"
+    ],
+    "id": "story-20bf0b1f33141dd02459",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls",
+    "product_names": [
+      "Gemini",
+      "Pixel 11"
+    ],
+    "published_at": "2026-09-24T12:04:31-04:00",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-62bb527af0cd61f319d3"
+    ],
+    "source_refs": [
+      {
+        "author": "Stevie Bonifield",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T12:04:31-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-62bb527af0cd61f319d3",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Gemini can now call businesses for you so you don’t have to wait on hold",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1000116/google-gemini-business-phone-calls"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 助手",
+      "智能代打电话",
+      "本地商务服务"
+    ],
+    "uncertainties": [
+      "该功能在 Pixel 11 上的具体上线时间、覆盖地区与支持语言尚未在输入中明确。",
+      "输入未说明 Gemini 代打电话时是否会自动向商家披露其为 AI 助手。",
+      "输入未提供该功能在复杂对话或通话中断场景下的失败处理机制。",
+      "输入未说明该功能是否收费、是否需要特定订阅或账号条件。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
+      "年化收入突破 6 亿美元且平台应用月访问量接近 10 亿，显示 vibe coding 类产品正在获得较大的用户规模与商业化进展。"
+    ],
+    "canonical_title": "Lovable 年化收入突破 6 亿美元，平台应用月访问量近 10 亿",
+    "category": "ai_coding",
+    "credibility_score": 0.48,
+    "entity_names": [
+      "Lovable",
+      "Fabian Hedin"
+    ],
+    "facts": [
+      "Lovable 联合创始人 Fabian Hedin 表示，Lovable 的年化收入已突破 6 亿美元。",
+      "Fabian Hedin 表示，在 Lovable 平台上创建的应用每月获得接近 10 亿次访问。"
+    ],
+    "id": "story-f307c80aa562833b0fdc",
+    "importance_score": 0.74,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/",
+    "product_names": [
+      "Lovable"
+    ],
+    "published_at": "2026-09-24T14:43:25Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-120ba149dd221b26cf22"
+    ],
+    "source_refs": [
+      {
+        "author": "Ivan Mehta",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T14:43:25Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-120ba149dd221b26cf22",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Lovable’s annualized revenue crosses $600M as vibe coding takes off",
+        "url": "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/lovables-annualized-revenue-crosses-600m-as-vibe-coding-takes-off/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "vibe coding",
+      "AI 编程平台"
+    ],
+    "uncertainties": [
+      "年化收入与月访问量的具体统计口径、时间范围及是否经过独立审计尚未说明。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
+      "该发布属于官方一手公告，为心理健康场景下 AI 回复质量与安全性评估提供了公开基准。",
+      "基准聚焦真实心理健康对话，意味着评估维度同时覆盖帮助性回复与安全性风险控制。"
+    ],
+    "canonical_title": "OpenAI 发布 MentalHealthBench 基准，用于评估心理健康场景下 AI 回复的有用性与安全性",
+    "category": "ai_benchmark",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI News 于 2026-09-23 发布 MentalHealthBench。",
+      "MentalHealthBench 被描述为专家参与构建的基准，用于评估 AI 在真实心理健康对话中回复的有用性和安全性。"
+    ],
+    "id": "story-231b48737bbed791e8a1",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/introducing-mentalhealthbench",
+    "product_names": [
+      "MentalHealthBench"
+    ],
+    "published_at": "2026-09-23T10:00:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-3d7b9aab56c8f4fe22c0"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-3d7b9aab56c8f4fe22c0",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing MentalHealthBench",
+        "url": "https://openai.com/index/introducing-mentalhealthbench"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-mentalhealthbench"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "mental_health_ai_safety",
+      "ai_evaluation_benchmark"
+    ],
+    "uncertainties": [
+      "输入未披露 MentalHealthBench 的具体评估指标、数据集规模、评测方法或参与专家信息。",
+      "输入未说明该基准的开放程度、使用方式及是否已有模型评测结果。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
       "该功能属于 AI 代理（agent）能力从信息查询向实际事务代办延伸的一类尝试，初期以订阅与机型限定方式小范围测试，符合 Google 在 Pixel 与 Gemini 生态中捆绑推广新功能的既有做法。",
       "将适用范围限定为 Pixel 11 且需付费订阅 Gemini，可能同时起到控制测试规模、收集真实通话数据以及推动订阅转化的作用。"
     ],
@@ -314,6 +641,70 @@
       "该功能是否以及何时扩展到美国以外地区或非 Pixel 设备尚不确定。"
     ],
     "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub Copilot for JetBrains 1.18.0 发布：新增 AI 辅助工具审批、Agent 对话控制与组织共享技能",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "JetBrains"
+    ],
+    "facts": [
+      "GitHub Copilot for JetBrains 发布 1.18.0 版本。",
+      "该版本引入 AI 辅助的工具审批（AI-assisted tool approvals）。",
+      "该版本提供对 agent 对话的更多控制。",
+      "该版本支持为组织共享技能和指令（shared skills and instructions）。",
+      "该版本支持使用 Codex 审查计划（review plans with the Codex）。"
+    ],
+    "id": "story-a12f1f6c2ef37583792d",
+    "importance_score": 0.48,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains",
+    "product_names": [
+      "GitHub Copilot for JetBrains",
+      "Copilot",
+      "Codex"
+    ],
+    "published_at": "2026-09-23T00:34:18Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-18036a2d23f1f8494acf"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T00:34:18Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-18036a2d23f1f8494acf",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "New features and improvements in Copilot for JetBrains",
+        "url": "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-22-new-features-and-improvements-in-copilot-for-jetbrains"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "摘要中提到的 Codex 功能仅以省略号截断形式出现，具体交互方式和适用范围尚不明确。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
   },
   {
     "analysis": [
@@ -379,6 +770,70 @@
       "输入未提供除 NVIDIA 官方博客之外的独立验证或第三方评测信息。"
     ],
     "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "Meta 此举意在降低游戏创作门槛，为其 Horizon 社交平台吸引更多用户生成内容。",
+      "移动端与浏览器端双形态覆盖了轻量创作与更进阶编辑两类需求。"
+    ],
+    "canonical_title": "Meta 发布 Horizon Create 与 Horizon Studio，让用户用 AI 提示在手机上制作游戏",
+    "category": "product_launch",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Meta",
+      "Horizon"
+    ],
+    "facts": [
+      "Meta 宣布推出两款新的开发工具，允许用户通过 AI 提示创建游戏：移动应用 Horizon Create 和提供更细粒度控制的浏览器应用 Horizon Studio。",
+      "这两款工具面向 Meta 的 Horizon 社交平台。"
+    ],
+    "id": "story-6806ac483fb05761ffbb",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/games/999972/meta-horizon-create-studio-ai-games",
+    "product_names": [
+      "Horizon Create",
+      "Horizon Studio"
+    ],
+    "published_at": "2026-09-24T13:52:29-04:00",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-d0c09943ed7a0f81eaab"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T13:52:29-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d0c09943ed7a0f81eaab",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Meta is going to let you build games with AI right on your phone",
+        "url": "https://www.theverge.com/games/999972/meta-horizon-create-studio-ai-games"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/games/999972/meta-horizon-create-studio-ai-games"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "Horizon Create 和 Horizon Studio 的具体上线时间尚不明确。",
+      "两款工具的实际生成能力与可用区域尚未披露。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
   },
   {
     "analysis": [
@@ -803,6 +1258,142 @@
   },
   {
     "analysis": [
+      "报道将 Muse 和 Instinct 的出现描述为 AI 代理复兴的一部分。",
+      "标题暗示 Muse 在外观上与 OpenClaw 高度相似，但摘要未提供具体设计对比细节。"
+    ],
+    "canonical_title": "Meta 的消费者 AI 代理 Muse 上线后登上 App Store 榜单，与 OpenClaw 外观相似引发关注",
+    "category": "ai_agent",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Meta",
+      "Muse",
+      "OpenClaw",
+      "Instinct",
+      "Apptopia",
+      "App Store",
+      "The Verge"
+    ],
+    "facts": [
+      "Meta 推出了面向消费者的 AI 代理 Muse。",
+      "根据 Apptopia 的估算，Muse 在美国拥有 60 万日活跃用户。",
+      "Muse 在发布后不久登顶 App Store 榜单。",
+      "AI 代理平台 Instinct 的同名创建者正在以 25 亿美元估值进行融资。",
+      "该报道由 The Verge 的 Hayden Field 于 2026 年 9 月 24 日发布。"
+    ],
+    "id": "story-dcc1a70f478aad918cc1",
+    "importance_score": 0.5,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/report/1000180/muse-openclaw-instinct-lookalike",
+    "product_names": [
+      "Muse",
+      "OpenClaw",
+      "Instinct"
+    ],
+    "published_at": "2026-09-24T13:10:38-04:00",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-dac80f12a88a9c0ac84f"
+    ],
+    "source_refs": [
+      {
+        "author": "Hayden Field",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T13:10:38-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dac80f12a88a9c0ac84f",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Muse sure looks a lot like OpenClaw",
+        "url": "https://www.theverge.com/report/1000180/muse-openclaw-instinct-lookalike"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/report/1000180/muse-openclaw-instinct-lookalike"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "Muse 与 OpenClaw 外观相似的具体依据和程度未知。",
+      "Apptopia 对 Muse 日活跃用户的估算方法及准确性未在摘要中说明。",
+      "Instinct 的融资状态（是否已完成）和估值细节未明确。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
+      "该产品将智能体视为通讯录中的独立参与者，而非仅作为对话中的被动工具，这一定位与 Slack 等以人类账户为中心的通讯工具存在差异。"
+    ],
+    "canonical_title": "Ando 推出团队通讯应用，主打人类与 AI 智能体协作",
+    "category": "product_launch",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Ando",
+      "Slack"
+    ],
+    "facts": [
+      "Ando 正在打造一款团队通讯应用，定位为 Slack 的竞争产品。",
+      "该应用为 AI 智能体提供独立的身份和收件箱（inbox），让智能体能像人一样自然地参与对话。"
+    ],
+    "id": "story-8a7384558b8eeacf3721",
+    "importance_score": 0.4,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/",
+    "product_names": [
+      "Ando"
+    ],
+    "published_at": "2026-09-24T14:31:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-bc94cd8c048492efc845"
+    ],
+    "source_refs": [
+      {
+        "author": "Dominic-Madori Davis",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T14:31:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bc94cd8c048492efc845",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Ando wants to take on Slack with a team messaging app that lets humans and agents work together",
+        "url": "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/24/ando-eyes-slack-as-it-builds-team-messaging-platform-for-humans-and-agents-to-work-together/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "目前仅有 TechCrunch 的报道摘要，尚无官方发布信息、功能细节、定价或可用时间表。",
+      "该应用当前是否已上线或处于何种开发阶段尚不明确。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
       "将 Live Avatar 限定在 Gemini Enterprise 层级，表明 Google 可能将实时虚拟形象定位为企业功能，而非大众消费级功能。",
       "该摘要来自 The Verge 的编辑报道，未引用 Google 官方公告原文，因此具体技术细节与完整措辞仍需以官方来源核实。"
     ],
@@ -999,6 +1590,73 @@
       "ElevenLabs 官方是否已就披露 AI 身份形成正式政策，输入内容未说明。"
     ],
     "updated_at": "2026-09-24T21:20:12.618941Z"
+  },
+  {
+    "analysis": [
+      "OpenAI 官方将 Ringg 定位为客服场景的案例，强调模型升级带来解决率与成本的双重收益。",
+      "该案例涉及语音、聊天、WhatsApp 和网页多入口，暗示多语言代理正从单一渠道扩展到全渠道客服。"
+    ],
+    "canonical_title": "Ringg 使用 GPT-5.6 的 AI 客服代理解决高达 65% 的客户来电",
+    "category": "ai_models",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Ringg",
+      "OpenAI"
+    ],
+    "facts": [
+      "Ringg 的 AI 代理使用 GPT-5.6，可解决高达 65% 的客户来电。",
+      "Ringg 的 AI 代理覆盖语音、聊天、WhatsApp 和网页渠道。",
+      "Ringg 的 AI 代理支持多语言。",
+      "相比 GPT-4.1，Ringg 的成本降低 90%。"
+    ],
+    "id": "story-9a814518140166b6f564",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/ringg",
+    "product_names": [
+      "GPT-5.6",
+      "GPT-4.1"
+    ],
+    "published_at": "2026-09-23T12:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-4e56c7312349a760a0ed"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-23T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4e56c7312349a760a0ed",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Ringg’s AI agents resolve up to 65% of customer calls with OpenAI",
+        "url": "https://openai.com/index/ringg"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/ringg"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "customer service",
+      "multilingual AI agents"
+    ],
+    "uncertainties": [
+      "65% 的来电解决率与 90% 的成本降幅由 OpenAI 官方页面给出的摘要陈述，缺乏独立第三方验证。",
+      "GPT-5.6 与 GPT-4.1 对比的具体评测口径、时间窗口和成本计算方式未在输入中说明。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
   },
   {
     "analysis": [
@@ -1502,6 +2160,68 @@
   },
   {
     "analysis": [
+      "该帖子属于社区观点征集性质，反映了用户对 AI 代理交互体验中挫折感与情绪反应的自省式讨论，但帖子本身不包含任何技术事实或产品发布信息。"
+    ],
+    "canonical_title": "Ask HN 讨论：你会对你的 AI 代理爆粗口吗？",
+    "category": "社区讨论",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Hacker News",
+      "ak39"
+    ],
+    "facts": [
+      "Hacker News 用户 ak39 于 2026-09-24T22:38:08Z 发布帖子《Ask HN: Do you cuss at your agent?》，网址为 https://news.ycombinator.com/item?id=49837715。",
+      "帖子正文询问读者是否会在 AI 代理反复犯错、做出荒谬假设或提出显而易见的问题时向其发泄情绪，并提到作者首次这样做后感到羞愧。",
+      "该帖子在抓取时（2026-09-24T22:43:56.831394Z）评论数为 0，社区分数为 1。"
+    ],
+    "id": "story-35a728ef608b7832d90c",
+    "importance_score": 0.15,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://news.ycombinator.com/item?id=49837715",
+    "product_names": [],
+    "published_at": "2026-09-24T22:38:08Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-b2c1fef9d359e7dd5863"
+    ],
+    "source_refs": [
+      {
+        "author": "ak39",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49837715",
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T22:38:08Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b2c1fef9d359e7dd5863",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Ask HN: Do you cuss at your agent?",
+        "url": "https://news.ycombinator.com/item?id=49837715"
+      }
+    ],
+    "source_urls": [
+      "https://news.ycombinator.com/item?id=49837715"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 代理",
+      "人机交互"
+    ],
+    "uncertainties": [
+      "该帖为 Hacker News 社区帖子，其描述的现象和情绪反应仅代表发帖人个人体验，无法核实其普遍性。",
+      "该帖子无评论回复，无法获知社区其他成员的观点或经验。",
+      "无法确认帖子中提到的「agent」具体指代哪款 AI 代理产品或工具。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
+  },
+  {
+    "analysis": [
       "OpenAI Academy 已运营两年，仍以扩大 AI 技能普及为主要方向。"
     ],
     "canonical_title": "OpenAI Academy 成立两周年，宣布将 AI 技能推广至更多社区",
@@ -1559,5 +2279,65 @@
       "公告未说明‘更多社区’的具体范围、数量、地区或新增项目内容。"
     ],
     "updated_at": "2026-09-24T20:41:19.739967Z"
+  },
+  {
+    "analysis": [
+      "The Verge专栏作者Victoria Song在Optimizer通讯中讨论了Meta的Muse AI吉祥物形象，认为其过于可爱而带有令人不安的意味。"
+    ],
+    "canonical_title": "The Verge专栏讨论Meta的Muse AI吉祥物过于可爱",
+    "category": "editorial",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Meta",
+      "Muse AI",
+      "The Verge",
+      "Victoria Song"
+    ],
+    "facts": [],
+    "id": "story-4f23a6e61f151481725f",
+    "importance_score": 0.1,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://www.theverge.com/column/999999/optimizer-meta-muse-ai-cute",
+    "product_names": [
+      "Muse AI",
+      "Blorbo"
+    ],
+    "published_at": "2026-09-24T13:00:00-04:00",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-6472fdda6395fafae552"
+    ],
+    "source_refs": [
+      {
+        "author": "Victoria Song",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-24T22:43:56.831394Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-24T13:00:00-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6472fdda6395fafae552",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "It’s sinister that Meta’s Muse AI mascot is so cute",
+        "url": "https://www.theverge.com/column/999999/optimizer-meta-muse-ai-cute"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/column/999999/optimizer-meta-muse-ai-cute"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "该条目仅为专栏观点，未提供Muse AI吉祥物的具体外观细节或Meta的官方设计说明。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z"
   }
 ]

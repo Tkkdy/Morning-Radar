@@ -1,46 +1,7 @@
 [
   {
-    "created_at": "2026-09-24T21:20:12.618941Z",
-    "explanation": "open_source_ai 连续 3 天保持或增加事件量，且有 10 个来源支持。",
-    "id": "signal-8593a46a36f755f28f5d",
-    "metric_history": [
-      {
-        "date": "2026-09-23",
-        "story_count": 2
-      },
-      {
-        "date": "2026-09-24",
-        "story_count": 4
-      },
-      {
-        "date": "2026-09-25",
-        "story_count": 4
-      }
-    ],
-    "signal_type": "topic_heating",
-    "strength": 1.0,
-    "supporting_company_count": 16,
-    "supporting_source_count": 10,
-    "supporting_story_ids": [
-      "story-646e0e3d852ee991db45",
-      "story-5d013c42f5715cf656e1",
-      "story-4f186bc34839935daabf",
-      "story-ab5860f1e1b1b8c1b684",
-      "story-f73c7fd8a0f4cfebf097",
-      "story-c6c6feb7c0f2a80bc88f",
-      "story-affa355ec771c491c672",
-      "story-cf5be366709f3675a268",
-      "story-6bdd5f76da07c5ffaeed",
-      "story-fe3b9f2c2f04883dc6a8"
-    ],
-    "topic": "open_source_ai",
-    "uncertainties": [],
-    "updated_at": "2026-09-24T21:20:12.618941Z",
-    "window_days": 3
-  },
-  {
-    "created_at": "2026-09-24T21:20:12.618941Z",
-    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 10 个来源支持。",
+    "created_at": "2026-09-24T22:44:32.392809Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 17 个来源支持。",
     "id": "signal-7b5057fb0018be3b87c7",
     "metric_history": [
       {
@@ -53,28 +14,102 @@
       },
       {
         "date": "2026-09-25",
-        "story_count": 6
+        "story_count": 13
       }
     ],
     "signal_type": "topic_heating",
     "strength": 1.0,
-    "supporting_company_count": 20,
-    "supporting_source_count": 10,
+    "supporting_company_count": 36,
+    "supporting_source_count": 17,
     "supporting_story_ids": [
       "story-8780c4a4907d733d3d94",
       "story-4f186bc34839935daabf",
       "story-ab5860f1e1b1b8c1b684",
       "story-985672d181c791ddec1f",
+      "story-93bf7ad8e3ee46ca82d5",
+      "story-231b48737bbed791e8a1",
+      "story-6806ac483fb05761ffbb",
       "story-5854871dac9792453fa9",
       "story-6bdd5f76da07c5ffaeed",
+      "story-dcc1a70f478aad918cc1",
+      "story-8a7384558b8eeacf3721",
       "story-a742df43d1bb55e2bb12",
       "story-df0b7d82f8946fa41846",
+      "story-9a814518140166b6f564",
       "story-abd6750abb5e36c08631",
-      "story-d99ce15c71d5297f399c"
+      "story-d99ce15c71d5297f399c",
+      "story-4f23a6e61f151481725f"
     ],
     "topic": "ai_models",
     "uncertainties": [],
-    "updated_at": "2026-09-24T21:20:12.618941Z",
+    "updated_at": "2026-09-24T22:44:32.392809Z",
     "window_days": 3
+  },
+  {
+    "created_at": "2026-09-24T22:44:32.392809Z",
+    "explanation": "open_source_ai 连续 3 天保持或增加事件量，且有 11 个来源支持。",
+    "id": "signal-8593a46a36f755f28f5d",
+    "metric_history": [
+      {
+        "date": "2026-09-23",
+        "story_count": 2
+      },
+      {
+        "date": "2026-09-24",
+        "story_count": 4
+      },
+      {
+        "date": "2026-09-25",
+        "story_count": 5
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 17,
+    "supporting_source_count": 11,
+    "supporting_story_ids": [
+      "story-646e0e3d852ee991db45",
+      "story-5d013c42f5715cf656e1",
+      "story-4f186bc34839935daabf",
+      "story-ab5860f1e1b1b8c1b684",
+      "story-f73c7fd8a0f4cfebf097",
+      "story-c6c6feb7c0f2a80bc88f",
+      "story-affa355ec771c491c672",
+      "story-a12f1f6c2ef37583792d",
+      "story-cf5be366709f3675a268",
+      "story-6bdd5f76da07c5ffaeed",
+      "story-fe3b9f2c2f04883dc6a8"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-09-24T22:44:32.392809Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-09-24T22:44:32.392809Z",
+    "explanation": "Meta 最近交易日变动 4.5%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-b9da72d1bcff7d41de13",
+    "metric_history": [
+      {
+        "change_percent": 0.045007461857742556,
+        "trading_date": "2026-09-24"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.7501243642957093,
+    "supporting_company_count": 13,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-93bf7ad8e3ee46ca82d5",
+      "story-6806ac483fb05761ffbb",
+      "story-dcc1a70f478aad918cc1",
+      "story-4f23a6e61f151481725f"
+    ],
+    "topic": "Meta",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-09-24T22:44:32.392809Z",
+    "window_days": 1
   }
 ]
