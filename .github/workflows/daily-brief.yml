@@ -123,17 +123,43 @@ jobs:
           fi
 
       - name: Configure GitHub Pages
-        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        if: ${{ always() && !cancelled() && !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
         uses: actions/configure-pages@v5
 
+      - name: Publish failed Radar status
+        if: ${{ failure() && !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        id: radar_failure_status
+        shell: bash
+        run: |
+          mkdir -p site
+          python - <<'PY'
+          import json
+          from datetime import UTC, datetime
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+
+          now = datetime.now(UTC)
+          status = {
+              "run_date": str(now.astimezone(ZoneInfo("Asia/Singapore")).date()),
+              "status": "FAILED",
+              "updated_at": now.isoformat(),
+              "detail": "Daily Morning Radar workflow failed",
+          }
+          Path("site/status.json").write_text(
+              json.dumps(status, ensure_ascii=False, separators=(",", ":")),
+              encoding="utf-8",
+          )
+          PY
+
       - name: Upload Pages artifact
-        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        if: ${{ always() && !cancelled() && (success() || steps.radar_failure_status.outcome == 'success') && !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        id: pages_artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: site
 
       - name: Deploy GitHub Pages
-        if: ${{ !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
+        if: ${{ always() && !cancelled() && steps.pages_artifact.outcome == 'success' && !(inputs.dry_run || false) && !(inputs.fixtures || false) }}
         id: deployment
         uses: actions/deploy-pages@v4
 

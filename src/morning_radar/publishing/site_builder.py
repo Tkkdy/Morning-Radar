@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import UTC, datetime
 import shutil
 from pathlib import Path
 from urllib.parse import urlsplit
@@ -69,7 +70,12 @@ class SiteBuilder:
         """Write the public readiness contract for the latest generated brief."""
         (self.output_dir / "status.json").write_text(
             json.dumps(
-                {"date": str(brief.date), "status": "ready"},
+                {
+                    "run_date": str(brief.date),
+                    "status": "SUCCESS",
+                    "updated_at": datetime.now(UTC).isoformat(),
+                    "detail": "Morning brief generated",
+                },
                 ensure_ascii=False,
                 separators=(",", ":"),
             ),

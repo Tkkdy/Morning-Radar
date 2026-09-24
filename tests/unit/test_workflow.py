@@ -11,6 +11,14 @@ def test_workflow_has_manual_schedule_pages_and_safety_controls() -> None:
     assert "timeout-minutes: 45" in workflow
     assert "concurrency:" in workflow
     assert "actions/deploy-pages@v4" in workflow
+    assert "- name: Publish failed Radar status" in workflow
+    assert '"status": "FAILED"' in workflow
+    assert 'ZoneInfo("Asia/Singapore")' in workflow
+    assert "steps.radar_failure_status.outcome == 'success'" in workflow
+    assert "steps.pages_artifact.outcome == 'success'" in workflow
+    assert workflow.index("- name: Publish failed Radar status") < workflow.index(
+        "- name: Upload Pages artifact"
+    )
     assert "secrets.DEEPSEEK_API_KEY" in workflow
     assert "secrets.DEEPSEEK_MODEL" in workflow
     assert "secrets.DEEPSEEK_BASE_URL" in workflow
