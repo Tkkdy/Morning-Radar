@@ -1,6 +1,8 @@
 from datetime import UTC, date, datetime
+from pathlib import Path
+from types import SimpleNamespace
 
-from morning_radar.ai import AIOutputError, FakeAIProvider
+from morning_radar.ai import AIBudget, AIOutputError, DeepSeekProvider, FakeAIProvider
 from morning_radar.ai.models import (
     TendencyDecisionDraft,
     TendencyEvaluationBatch,
@@ -603,6 +605,64 @@ def test_tendency_failure_preserves_prior_current_view() -> None:
     assert result.daily.decisions == []
     assert result.current_views[0].standing is TendencyStanding.EMERGING
     assert result.stats["tendency_unavailable"] is True
+    assert result.stats["tendency_network_ai_requests"] == 0
+
+
+class AlwaysTruncatedCompletions:
+    def __init__(self) -> None:
+        self.calls = []
+
+    def create(self, **kwargs):
+        self.calls.append(kwargs)
+        return SimpleNamespace(
+            choices=[
+                SimpleNamespace(
+                    message=SimpleNamespace(content=""),
+                    finish_reason="length",
+                )
+            ],
+            usage=SimpleNamespace(
+                prompt_tokens=10_267,
+                completion_tokens=6_000,
+                completion_tokens_details=SimpleNamespace(reasoning_tokens=6_000),
+            ),
+        )
+
+
+def test_repeated_tendency_truncation_preserves_prior_view_without_third_request() -> None:
+    completions = AlwaysTruncatedCompletions()
+    provider = DeepSeekProvider(
+        model="configured-test-model",
+        api_key="test-key",
+        base_url="https://api.deepseek.test",
+        budget=AIBudget(
+            maximum_calls=3,
+            maximum_input_characters=24_000,
+            maximum_items=40,
+            maximum_network_requests=4,
+        ),
+        prompt_dir=Path("prompts"),
+        client=SimpleNamespace(chat=SimpleNamespace(completions=completions)),
+    )
+
+    result = evaluate_daily_tendencies(
+        current_date=date(2026, 8, 18),
+        generated_at=datetime(2026, 8, 18, 1, 0, tzinfo=UTC),
+        story_memory=three_memories(),
+        continuities=[],
+        history=[formed_history()],
+        provider=provider,
+        maximum_clusters=12,
+    )
+
+    assert len(completions.calls) == 2
+    assert provider.budget.calls_used == 1
+    assert provider.budget.network_requests_used == 2
+    assert result.daily.decisions == []
+    assert result.current_views[0].standing is TendencyStanding.EMERGING
+    assert result.stats["tendency_unavailable"] is True
+    assert result.stats["tendency_network_ai_requests"] == 2
+    assert result.stats["tendency_structured_retries"] == 1
 
 
 def test_tendency_batch_never_exceeds_its_character_cap() -> None:
@@ -621,3 +681,5 @@ def test_tendency_batch_never_exceeds_its_character_cap() -> None:
 
     assert provider.calls == 0
     assert result.stats["tendency_budget_skipped"] is True
+    assert result.stats["tendency_network_ai_requests"] == 0
+    assert result.stats["tendency_structured_retries"] == 0

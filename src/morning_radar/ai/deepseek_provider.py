@@ -105,7 +105,13 @@ TASK_POLICIES = {
         "enabled", 6144, 8192, "low", AITaskPriority.IMPORTANT, 2
     ),
     "evaluate_tendencies": DeepSeekTaskPolicy(
-        "enabled", 6000, 6000, "medium", AITaskPriority.OPTIONAL, 1
+        "enabled",
+        6000,
+        6000,
+        "low",
+        AITaskPriority.OPTIONAL,
+        2,
+        "low",
     ),
     "evaluate_editorial": DeepSeekTaskPolicy(
         "disabled", 6144, 6144, None, AITaskPriority.EXPERIMENTAL, 1
@@ -316,6 +322,7 @@ class DeepSeekProvider:
 
         last_error: Exception | None = None
         for structured_attempt in range(1, maximum_structured_attempts + 1):
+            call_meta["structured_retry"] = max(0, structured_attempt - 1)
             try:
                 response = invoke(structured_attempt=structured_attempt)
             except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded) as exc:

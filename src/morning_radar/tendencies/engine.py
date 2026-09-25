@@ -10,6 +10,7 @@ from datetime import date, datetime
 
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.provider import AIProvider
+from morning_radar.ai.request_payload import get_call_meta
 from morning_radar.continuity.candidates import StoryMemory
 from morning_radar.models import (
     BriefTendency,
@@ -236,15 +237,28 @@ def evaluate_daily_tendencies(
                 "tendency_clusters": len(clusters),
                 "tendency_input_characters": tendency_input_characters,
                 "tendency_logical_ai_calls": 0,
+                "tendency_network_ai_requests": 0,
+                "tendency_structured_retries": 0,
                 "tendency_budget_skipped": (tendency_input_characters > maximum_input_characters),
             },
         )
     budget = getattr(provider, "budget", None)
     calls_before = getattr(budget, "calls_used", 0)
+    requests_before = getattr(budget, "network_requests_used", 0)
     try:
         output = provider.evaluate_tendencies(clusters, evaluation_views)
     except (AIOutputError, AIBudgetExceeded):
-        LOGGER.exception("Tendency degradation: evaluation failed; preserving prior view")
+        network_requests = (
+            getattr(budget, "network_requests_used", requests_before) - requests_before
+        )
+        call_meta = getattr(provider, "last_call_meta", {}) or {}
+        structured_retries = int(call_meta.get("structured_retry") or 0)
+        LOGGER.exception(
+            "Tendency degradation: evaluation failed; preserving prior view "
+            "network_requests=%d structured_retries=%d",
+            network_requests,
+            structured_retries,
+        )
         daily = DailyTendencies(date=current_date, generated_at=generated_at)
         return TendencyRunResult(
             daily=daily,
@@ -254,6 +268,8 @@ def evaluate_daily_tendencies(
                 "tendency_clusters": len(clusters),
                 "tendency_input_characters": tendency_input_characters,
                 "tendency_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
+                "tendency_network_ai_requests": network_requests,
+                "tendency_structured_retries": structured_retries,
                 "tendency_unavailable": True,
             },
         )
@@ -287,6 +303,18 @@ def evaluate_daily_tendencies(
             used_existing.add(draft.existing_tendency_id)
     daily = DailyTendencies(date=current_date, generated_at=generated_at, decisions=decisions)
     updated_views = reduce_tendencies([*history, daily])
+    call_meta = get_call_meta(output) or {}
+    network_requests = (
+        getattr(budget, "network_requests_used", requests_before) - requests_before
+    )
+    structured_retries = int(call_meta.get("structured_retry") or 0)
+    LOGGER.info(
+        "Tendency evaluation completed: decisions=%d network_requests=%d "
+        "structured_retries=%d",
+        len(decisions),
+        network_requests,
+        structured_retries,
+    )
     return TendencyRunResult(
         daily=daily,
         current_views=updated_views,
@@ -296,6 +324,8 @@ def evaluate_daily_tendencies(
             "tendency_input_characters": tendency_input_characters,
             "tendency_decisions": len(decisions),
             "tendency_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
+            "tendency_network_ai_requests": network_requests,
+            "tendency_structured_retries": structured_retries,
         },
     )
 
