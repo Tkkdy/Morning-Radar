@@ -105,13 +105,13 @@ TASK_POLICIES = {
         "enabled", 6144, 8192, "low", AITaskPriority.IMPORTANT, 2
     ),
     "evaluate_tendencies": DeepSeekTaskPolicy(
-        "enabled",
+        "disabled",
         6000,
         6000,
-        "low",
+        None,
         AITaskPriority.OPTIONAL,
         2,
-        "low",
+        None,
     ),
     "evaluate_editorial": DeepSeekTaskPolicy(
         "disabled", 6144, 6144, None, AITaskPriority.EXPERIMENTAL, 1
