@@ -24,6 +24,8 @@ from morning_radar.ai.models import (
     GeneratedBriefItem,
     MergedStoryDraft,
     ResearchResolutionBatch,
+    TendencyDecisionDraft,
+    TendencyEvaluationBatch,
 )
 from morning_radar.briefing import BriefLimits, generate_daily_brief
 from morning_radar.editorial.evaluator import evaluate_editorial
@@ -36,6 +38,10 @@ from morning_radar.models import (
     SourceRole,
     StatementType,
     Story,
+    StoryOccurrenceRef,
+    TendencyAssessment,
+    TendencyEvidenceCluster,
+    TendencyStanding,
 )
 
 
@@ -209,6 +215,40 @@ def classification_json() -> str:
     ).model_dump_json()
 
 
+def tendency_cluster() -> TendencyEvidenceCluster:
+    return TendencyEvidenceCluster(
+        cluster_id="cluster-1",
+        story_refs=[StoryOccurrenceRef(date=date(2026, 9, 25), story_id="story-1")],
+        observed_dates=[date(2026, 9, 25)],
+        actor_keys=["openai"],
+        event_identity="OpenAI ships a governed workflow integration",
+        source_roles=[SourceRole.OFFICIAL_PRIMARY],
+        source_count=1,
+        titles=["OpenAI ships a governed workflow integration"],
+        facts=["The integration executes a bounded organizational workflow."],
+    )
+
+
+def tendency_json() -> str:
+    return TendencyEvaluationBatch(
+        decisions=[
+            TendencyDecisionDraft(
+                standing_after=TendencyStanding.CANDIDATE,
+                claim="AI 产品正把受治理的组织工作流作为能力边界。",
+                assessment=TendencyAssessment(
+                    shared_mechanism="产品通过受控权限进入真实组织流程。",
+                    baseline="此前能力主要停留在孤立对话界面。",
+                    falsifier="厂商撤回工作流访问且用户回到孤立对话。",
+                    observable_impacts=["用户可完成一个受控的多步骤流程。"],
+                    counterevidence_considered=True,
+                    decision_rationale="当前只有一个独立事件，因此保持候选状态。",
+                ),
+                supporting_cluster_ids=["cluster-1"],
+            )
+        ]
+    ).model_dump_json()
+
+
 @pytest.mark.parametrize(
     ("missing_name", "expected_message"),
     [
@@ -328,7 +368,7 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
         ("resolve_continuity", 4096, "medium"),
         ("direction_observation", 4096, "medium"),
         ("resolve_research_cases", 6144, "low"),
-        ("evaluate_tendencies", 6000, "medium"),
+        ("evaluate_tendencies", 6000, "low"),
     ],
 )
 def test_semantic_tasks_use_bounded_policy(
@@ -370,6 +410,70 @@ def test_research_truncation_retry_uses_low_reasoning_and_larger_cap() -> None:
     assert all(
         request["extra_body"] == {"thinking": {"type": "enabled"}}
         for request in requests
+    )
+
+
+def test_tendency_valid_first_response_uses_one_low_reasoning_request() -> None:
+    configured = provider([tendency_json()])
+
+    result = configured.evaluate_tendencies([tendency_cluster()], [])
+
+    assert result.decisions[0].standing_after is TendencyStanding.CANDIDATE
+    assert result.decisions[0].supporting_cluster_ids == ["cluster-1"]
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 1
+    [request] = configured.client.chat.completions.requests
+    assert request["reasoning_effort"] == "low"
+    assert request["max_tokens"] == 6000
+
+
+def test_tendency_truncation_retries_once_with_concise_regeneration() -> None:
+    configured = provider(
+        [
+            chat_response(
+                "",
+                finish_reason="length",
+                prompt_tokens=10_267,
+                completion_tokens=6000,
+                reasoning_tokens=6000,
+            ),
+            tendency_json(),
+        ]
+    )
+
+    result = configured.evaluate_tendencies([tendency_cluster()], [])
+
+    assert result.decisions[0].claim
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+    requests = configured.client.chat.completions.requests
+    assert [request["reasoning_effort"] for request in requests] == ["low", "low"]
+    assert [request["max_tokens"] for request in requests] == [6000, 6000]
+    retry_prompt = requests[1]["messages"][0]["content"]
+    assert "Regenerate the entire response from scratch" in retry_prompt
+    assert "Be concise" in retry_prompt
+    stats = configured.budget.usage_run_stats()
+    assert stats["ai_evaluate_tendencies_finish_length"] == 1
+    assert stats["ai_evaluate_tendencies_finish_stop"] == 1
+
+
+def test_tendency_repeated_truncation_stops_after_two_requests() -> None:
+    configured = provider(
+        [
+            chat_response("", finish_reason="length"),
+            chat_response("", finish_reason="length"),
+        ]
+    )
+
+    with pytest.raises(AIOutputError, match="after retry"):
+        configured.evaluate_tendencies([tendency_cluster()], [])
+
+    assert configured.client.chat.completions.calls == 2
+    assert configured.budget.calls_used == 1
+    assert configured.budget.network_requests_used == 2
+    assert (
+        configured.budget.usage_run_stats()["ai_evaluate_tendencies_finish_length"]
+        == 2
     )
 
 
