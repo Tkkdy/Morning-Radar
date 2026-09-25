@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime
+from datetime import date, datetime
 from pathlib import Path
 
 from morning_radar.logging_config import configure_logging
@@ -67,6 +67,19 @@ def build_parser() -> argparse.ArgumentParser:
     )
     record.add_argument("--date")
     record.add_argument("--brief-hash", dest="brief_hash")
+    write_status = commands.add_parser(
+        "write-status",
+        help="write the validated public Radar status document",
+    )
+    write_status.add_argument("--path", type=Path, default=Path("site/status.json"))
+    write_status.add_argument("--run-date")
+    write_status.add_argument("--status", choices=("SUCCESS", "FAILED"), required=True)
+    write_status.add_argument("--detail", required=True)
+    read_status_date = commands.add_parser(
+        "read-status-date",
+        help="validate public Radar status and print its canonical business date",
+    )
+    read_status_date.add_argument("--path", type=Path, default=Path("site/status.json"))
     return parser
 
 
@@ -242,6 +255,22 @@ def main(argv: list[str] | None = None) -> int:
                 )
         ledger.save()
         print(json.dumps(record.model_dump(mode="json"), ensure_ascii=False, sort_keys=True))
+    elif args.command == "write-status":
+        from morning_radar.publishing.status import write_radar_status
+
+        now = utc_now()
+        run_date = date.fromisoformat(args.run_date) if args.run_date else display_date(now)
+        write_radar_status(
+            args.path,
+            run_date=run_date,
+            status=args.status,
+            detail=args.detail,
+            updated_at=now,
+        )
+    elif args.command == "read-status-date":
+        from morning_radar.publishing.status import read_radar_status
+
+        print(read_radar_status(args.path).run_date.isoformat())
     return 0
 
 

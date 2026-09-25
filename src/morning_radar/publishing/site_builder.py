@@ -2,15 +2,14 @@
 
 from __future__ import annotations
 
-import json
 import shutil
-from datetime import UTC, datetime
 from pathlib import Path
 from urllib.parse import urlsplit
 
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 from morning_radar.models import DailyBrief, DailyContinuity, JudgementUpdateKind
+from morning_radar.publishing.status import write_radar_status
 
 
 class SiteBuilder:
@@ -68,18 +67,11 @@ class SiteBuilder:
 
     def _write_status(self, brief: DailyBrief) -> None:
         """Write the public readiness contract for the latest generated brief."""
-        (self.output_dir / "status.json").write_text(
-            json.dumps(
-                {
-                    "run_date": str(brief.date),
-                    "status": "SUCCESS",
-                    "updated_at": datetime.now(UTC).isoformat(),
-                    "detail": "Morning brief generated",
-                },
-                ensure_ascii=False,
-                separators=(",", ":"),
-            ),
-            encoding="utf-8",
+        write_radar_status(
+            self.output_dir / "status.json",
+            run_date=brief.date,
+            status="SUCCESS",
+            detail="Morning brief generated",
         )
 
 

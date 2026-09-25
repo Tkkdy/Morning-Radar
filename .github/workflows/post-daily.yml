@@ -77,26 +77,7 @@ jobs:
         id: post_date
         shell: bash
         run: |
-          if ! business_date="$(python - <<'PY'
-          import json
-          from datetime import date
-          from pathlib import Path
-
-          status_path = Path("site/status.json")
-          try:
-              status = json.loads(status_path.read_text(encoding="utf-8"))
-              business_date = status["date"]
-              if not isinstance(business_date, str):
-                  raise TypeError("date must be a string")
-              print(date.fromisoformat(business_date).isoformat())
-          except (OSError, KeyError, TypeError, ValueError, json.JSONDecodeError) as exc:
-              raise SystemExit(
-                  f"Unable to read canonical business date from {status_path}: {exc}"
-              ) from exc
-          PY
-          )"; then
-            exit 1
-          fi
+          business_date="$(python -m morning_radar read-status-date)"
           echo "business_date=${business_date}" >> "$GITHUB_OUTPUT"
 
       - name: Commit generated intelligence once

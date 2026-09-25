@@ -12,8 +12,8 @@ def test_workflow_has_manual_schedule_pages_and_safety_controls() -> None:
     assert "concurrency:" in workflow
     assert "actions/deploy-pages@v4" in workflow
     assert "- name: Publish failed Radar status" in workflow
-    assert '"status": "FAILED"' in workflow
-    assert 'ZoneInfo("Asia/Singapore")' in workflow
+    assert "python -m morning_radar write-status" in workflow
+    assert "--status FAILED" in workflow
     assert "steps.radar_failure_status.outcome == 'success'" in workflow
     assert "steps.pages_artifact.outcome == 'success'" in workflow
     assert workflow.index("- name: Publish failed Radar status") < workflow.index(
@@ -115,6 +115,13 @@ def test_post_daily_orders_isolated_intelligence_and_redeploys_without_notificat
     assert workflow.count("git push") == 1
     assert "notify-latest" not in workflow
     assert "WXPUSHER" not in workflow
+
+
+def test_post_daily_reads_business_date_through_canonical_status_contract() -> None:
+    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
+
+    assert "python -m morning_radar read-status-date" in workflow
+    assert 'status["date"]' not in workflow
 
 
 def test_post_daily_is_the_only_optional_generated_data_writer() -> None:
