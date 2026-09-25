@@ -1,0 +1,170 @@
+{
+  "date": "2026-09-26",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v3.19.1 之前，openai-python 在单次遍历工具迭代器保留、HTTP 头部大小写合并等方面存在缺陷，可能导致工具调用流程或请求头处理不一致。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-adb1f05a63efc3a99e3d 包含 openai-python v3.19.1 和 v3.19.2 的官方发布，事实显示其继续修复工具迭代、HTTP 头部合并和文件保留等可靠性问题，与既有候选方向一致；但证据仍来自 OpenAI 单一产品，未新增独立 actor，因此保持 Candidate 并标记为 supported。",
+        "falsifier": "如果 openai-python 后续版本不再修复此类可靠性问题，或开发者未采用这些补丁导致问题持续，则本 Tendency 被削弱。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "使用 openai-python 构建工具调用流程的开发者可获得更稳定的单次遍历工具迭代器行为。",
+          "HTTP 头部大小写不敏感合并修复可能减少代理或自定义客户端场景下的请求头冲突。",
+          "回退提取路径下保留单文件的修复影响文件处理类开发工作流的可靠性。"
+        ],
+        "shared_mechanism": "openai-python 通过连续补丁版本修复工具迭代器、HTTP 头部合并以及回退提取路径下的单文件保留问题，提升 SDK 在工具调用、代理工作流和网络请求场景下的可靠性；这一机制与既有候选方向一致，但由于新增证据全部来自 OpenAI 同一产品的版本修复，并未引入新的 actor 或跨产品结构性变化，因此仅构成对既有 Candidate 的持续支持，而非升级为 Emerging 的独立证据。"
+      },
+      "claim": "OpenAI 的 openai-python SDK 正在持续修复面向工具使用和多端点场景的可靠性问题，通过 v3.19.1 与 v3.19.2 的增量修复，强化其作为稳定开发者运行时的定位。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-24",
+            "story_id": "story-c6c6feb7c0f2a80bc88f"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-25",
+            "story_id": "story-fe3b9f2c2f04883dc6a8"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-54f3c169a08c1185b520",
+      "record_id": "tendency-record-8239977e2087389d4a72",
+      "recorded_at": "2026-09-25T18:37:48.575335Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-adb1f05a63efc3a99e3d"
+      ],
+      "tendency_id": "tendency-ca9547f23f47baf824c6",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 GitHub Copilot 应用缺少本地沙箱能力，AI 生成的命令可能直接访问机器文件和凭据，用户需依赖外部工具隔离风险。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-afdbfd904f60603a0784 显示 GitHub Copilot 应用引入本地沙箱，与既有 Copilot 平台化候选方向一致，并增加安全执行维度；但证据仍来自 GitHub 单一产品官方更新，未新增独立 actor 或第三方采用证据，因此保持 Candidate 并标记为 supported。",
+        "falsifier": "如果本地沙箱未被实际采用、不能有效限制访问，或 GitHub 后续移除该功能，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Copilot 应用用户可获得本地沙箱，降低意外命令对文件、网络和凭据的潜在影响。",
+          "开发者采用 Copilot 进行代理式操作时安全边界更明确，可能影响企业审批和部署决策。"
+        ],
+        "shared_mechanism": "GitHub Copilot 通过在应用内引入本地沙箱，限制代理式编码操作对机器文件、网络和凭据的访问，将 AI 开发助手从单纯代码生成推进到受控执行环境；这一机制与既有 Copilot 平台化候选方向部分一致，但新增证据仅来自 GitHub 官方单一产品更新，未引入跨 actor 或独立第三方采用证据，因此保持 Candidate。"
+      },
+      "claim": "GitHub 正在将 Copilot 从代码补全工具扩展为具备本地沙箱能力的开发助手，通过限制对文件、网络资源和凭据的访问来降低意外命令的潜在影响。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-25",
+            "story_id": "story-1ce6d3c87fb494682454"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-52e95186446dea187eae",
+      "record_id": "tendency-record-168d28265727e1b113a2",
+      "recorded_at": "2026-09-25T18:37:48.575335Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-afdbfd904f60603a0784"
+      ],
+      "tendency_id": "tendency-3cacfa35032765e8f8a1",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 Claude Code 主要作为本地或终端编码代理提供，未以 Web 文档站点形式提供可直接访问的 Web 版本，也未公开与 Grok bot 等竞品形成直接对标。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-bfa36aa5f9324feeafa2 显示 Anthropic 发布 Claude Code on the Web，社区将其与 Grok bot 对比；该证据与既有 Anthropic SDK 代理化候选方向一致，但仅来自社区发现和单一产品文档，未新增独立产品采用或跨 actor 结构性证据，因此保持 Candidate 并标记为 supported。",
+        "falsifier": "如果 Claude Code on the Web 未实际推出、开发者采用率极低，或 Anthropic 撤回 Web 版本，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者可通过 code.claude.com 文档访问 Claude Code on the Web，扩展编码代理的使用入口。",
+          "Hacker News 社区将 Claude Code on the Web 与 Grok bot 直接对比，显示 AI 编码机器人竞争格局正在形成。"
+        ],
+        "shared_mechanism": "Anthropic 将 Claude Code 从本地编码代理扩展到 Web 平台，使开发者可通过浏览器访问编码代理能力，从而扩大使用场景并进入与其他 AI 编码机器人的竞争；该机制与既有 Anthropic SDK 向代理型客户端演进的候选方向一致，但新增证据仅来自社区发现和单一产品文档，缺乏跨 actor 或第三方采用证据，因此作为 Candidate 保留。"
+      },
+      "claim": "Anthropic 正在通过 Claude Code on the Web 将 Claude Code 从本地开发工具扩展为可 Web 访问的编码代理，并因此进入与 Grok bot 等产品的直接竞争。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-25",
+            "story_id": "story-0e331c35009b2c0f1d74"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-d119d28526547540697a",
+      "record_id": "tendency-record-229d48187b032addfe12",
+      "recorded_at": "2026-09-25T18:37:48.575335Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-bfa36aa5f9324feeafa2"
+      ],
+      "tendency_id": "tendency-17866ae66b643d74fe6a",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前团队通讯应用如 Slack 主要面向人类成员，AI 智能体通常作为机器人或集成存在，缺少独立身份和收件箱以自然参与对话。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-febc9e8a16096408117a 显示 Ando 推出面向人机协作的团队通讯应用；该证据机制清晰且具有产品创新性，但仅来自单一编辑来源，未出现其他 actor 或采用证据，因此作为 Candidate 内部观察。",
+        "falsifier": "如果 Ando 未能吸引真实团队采用、AI 智能体身份未被实际使用，或产品关闭，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "团队通讯中 AI 智能体获得独立身份和收件箱，可能改变人机协作的工作流设计。",
+          "Ando 作为 Slack 竞品出现，可能推动现有团队通讯平台增加类似智能体身份功能。"
+        ],
+        "shared_mechanism": "Ando 通过为 AI 智能体提供独立身份和收件箱，将团队通讯从纯人类协作扩展到人机混合协作，使智能体能够以类似成员的方式参与对话；这一机制可能改变团队通讯工具的设计假设，但目前仅为一个产品的编辑报道，缺乏跨 actor 或采用证据，因此保持 Candidate。"
+      },
+      "claim": "Ando 正在推出面向人类与 AI 智能体协作的团队通讯应用，为 AI 智能体提供独立身份和收件箱，使其能像人一样参与对话。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-25",
+            "story_id": "story-8a7384558b8eeacf3721"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-dd0dd1505be2765c4863",
+      "recorded_at": "2026-09-25T18:37:48.575335Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-febc9e8a16096408117a"
+      ],
+      "tendency_id": "tendency-734a25b4d0539b608bad",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-09-25T18:37:48.575335Z"
+}
