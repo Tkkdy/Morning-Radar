@@ -27,6 +27,7 @@ from morning_radar.ai.models import (
     TendencyDecisionDraft,
     TendencyEvaluationBatch,
 )
+from morning_radar.ai.request_payload import get_call_meta
 from morning_radar.briefing import BriefLimits, generate_daily_brief
 from morning_radar.editorial.evaluator import evaluate_editorial
 from morning_radar.models import (
@@ -362,18 +363,19 @@ def test_mechanical_tasks_disable_thinking_and_use_small_output_caps(
 
 
 @pytest.mark.parametrize(
-    ("task", "max_tokens", "effort"),
+    ("task", "max_tokens", "thinking", "effort"),
     [
-        ("write_brief", 4096, None),
-        ("resolve_continuity", 4096, "medium"),
-        ("direction_observation", 4096, "medium"),
-        ("resolve_research_cases", 6144, "low"),
-        ("evaluate_tendencies", 6000, "low"),
+        ("write_brief", 4096, "disabled", None),
+        ("resolve_continuity", 4096, "enabled", "medium"),
+        ("direction_observation", 4096, "enabled", "medium"),
+        ("resolve_research_cases", 6144, "enabled", "low"),
+        ("evaluate_tendencies", 6000, "disabled", None),
     ],
 )
 def test_semantic_tasks_use_bounded_policy(
     task: str,
     max_tokens: int,
+    thinking: str,
     effort: str | None,
 ) -> None:
     configured = provider([classification_json()])
@@ -387,9 +389,7 @@ def test_semantic_tasks_use_bounded_policy(
     )
 
     request = configured.client.chat.completions.last_request
-    assert request["extra_body"] == {
-        "thinking": {"type": "disabled" if task == "write_brief" else "enabled"}
-    }
+    assert request["extra_body"] == {"thinking": {"type": thinking}}
     assert request.get("reasoning_effort") == effort
     assert request["max_tokens"] == max_tokens
 
@@ -413,7 +413,7 @@ def test_research_truncation_retry_uses_low_reasoning_and_larger_cap() -> None:
     )
 
 
-def test_tendency_valid_first_response_uses_one_low_reasoning_request() -> None:
+def test_tendency_valid_first_response_uses_one_non_thinking_request() -> None:
     configured = provider([tendency_json()])
 
     result = configured.evaluate_tendencies([tendency_cluster()], [])
@@ -423,20 +423,16 @@ def test_tendency_valid_first_response_uses_one_low_reasoning_request() -> None:
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 1
     [request] = configured.client.chat.completions.requests
-    assert request["reasoning_effort"] == "low"
+    assert request["extra_body"] == {"thinking": {"type": "disabled"}}
+    assert "reasoning_effort" not in request
     assert request["max_tokens"] == 6000
+    assert get_call_meta(result)["structured_retry"] == 0
 
 
-def test_tendency_truncation_retries_once_with_concise_regeneration() -> None:
+def test_tendency_malformed_json_retries_once_without_thinking() -> None:
     configured = provider(
         [
-            chat_response(
-                "",
-                finish_reason="length",
-                prompt_tokens=10_267,
-                completion_tokens=6000,
-                reasoning_tokens=6000,
-            ),
+            chat_response("{invalid", finish_reason="stop"),
             tendency_json(),
         ]
     )
@@ -447,14 +443,18 @@ def test_tendency_truncation_retries_once_with_concise_regeneration() -> None:
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
     requests = configured.client.chat.completions.requests
-    assert [request["reasoning_effort"] for request in requests] == ["low", "low"]
+    assert all(
+        request["extra_body"] == {"thinking": {"type": "disabled"}}
+        for request in requests
+    )
+    assert all("reasoning_effort" not in request for request in requests)
     assert [request["max_tokens"] for request in requests] == [6000, 6000]
     retry_prompt = requests[1]["messages"][0]["content"]
     assert "Regenerate the entire response from scratch" in retry_prompt
     assert "Be concise" in retry_prompt
     stats = configured.budget.usage_run_stats()
-    assert stats["ai_evaluate_tendencies_finish_length"] == 1
-    assert stats["ai_evaluate_tendencies_finish_stop"] == 1
+    assert stats["ai_evaluate_tendencies_finish_stop"] == 2
+    assert get_call_meta(result)["structured_retry"] == 1
 
 
 def test_tendency_repeated_truncation_stops_after_two_requests() -> None:
@@ -471,6 +471,14 @@ def test_tendency_repeated_truncation_stops_after_two_requests() -> None:
     assert configured.client.chat.completions.calls == 2
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2
+    assert all(
+        request["extra_body"] == {"thinking": {"type": "disabled"}}
+        for request in configured.client.chat.completions.requests
+    )
+    assert all(
+        "reasoning_effort" not in request
+        for request in configured.client.chat.completions.requests
+    )
     assert (
         configured.budget.usage_run_stats()["ai_evaluate_tendencies_finish_length"]
         == 2
