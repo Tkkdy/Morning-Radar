@@ -68,6 +68,7 @@ def test_site_builder_creates_index_archive_and_daily_page(tmp_path) -> None:
     assert 'href="../index.html"' in historical
     assert item.title in historical
     status = json.loads((output / "status.json").read_text(encoding="utf-8"))
+    assert set(status) == {"run_date", "status", "updated_at", "detail"}
     assert status["run_date"] == "2026-07-23"
     assert status["status"] == "SUCCESS"
     assert datetime.fromisoformat(status["updated_at"]).tzinfo is not None
