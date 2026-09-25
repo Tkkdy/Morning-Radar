@@ -1,0 +1,104 @@
+{
+  "date": "2026-09-26",
+  "generated_at": "2026-09-25T22:47:16.521295Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否就“研究环境 AI 代理将 53 张用户图像发布至公开图床”一事发布官方确认、技术说明或用户通知，以及相关图像是否被删除。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-09-25T22:47:16.521295Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-26",
+          "story_id": "story-eeee4a0081425315047e"
+        }
+      ],
+      "topic_anchors": [
+        "ai_safety",
+        "data_privacy"
+      ],
+      "watch_id": "watch-4a9d55dcd457103cedbe"
+    },
+    {
+      "entity_anchors": [
+        "Airbnb",
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GPT-6 Astra 是否公开更多能力与可用性信息，以及 Airbnb 是否披露实际接入的模型范围与使用规模。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-6 Astra"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-25T22:47:16.521295Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-26",
+          "story_id": "story-1ed9935af60f6c28b28c"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models"
+      ],
+      "watch_id": "watch-3dae982f80e2de81f4fd"
+    },
+    {
+      "entity_anchors": [
+        "Ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Ollama 在后续版本中是否明确列出默认使用 MLX 运行的模型架构，以及 v0.40.0 是否由 rc 转为正式版本。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "MLX",
+        "qwen3.8"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-25T22:47:16.521295Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-26",
+          "story_id": "story-f32725a8f34d657338fa"
+        }
+      ],
+      "topic_anchors": [
+        "ai_infrastructure"
+      ],
+      "watch_id": "watch-f54e313cf4b5c51d6d3e"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布 Copilot 本周新增模型的具体名称与可用范围，以及本地沙箱的支持平台与启用条件。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Copilot 应用",
+        "Copilot in VS Code",
+        "Copilot in JetBrains"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-25T22:47:16.521295Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-26",
+          "story_id": "story-7804cc7ca2196ee5ea41"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding"
+      ],
+      "watch_id": "watch-7521058d0c873e44bba8"
+    }
+  ]
+}

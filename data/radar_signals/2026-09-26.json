@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Simon Willison 引用 John Gruber 称，Meta 的 Muse 是首个消费者可用的 agentic AI 系统，每位用户在 Meta 云中获得持久的完整 Linux VM，且安装使用简便。",
+    "id": "radar-445021f8d463324c9d0a",
+    "missing_evidence": [
+      "Meta 官方对 Muse 架构与可用性的说明",
+      "独立验证每位用户获得持久 Linux VM 的技术细节",
+      "消费者实际使用体验与安全性评估"
+    ],
+    "observed_at": "2026-09-25T22:46:32.682240Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-81bc4a3546b40a0d9344",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/25/john-gruber/"
+      }
+    ],
+    "uncertainty": "仅有单一引述来源，未提供 Meta 官方信息或独立测试，Muse 的实际可用范围、成本与持久 VM 的安全影响均不明确。",
+    "why_notable": "若属实，这代表 agentic AI 首次以消费级产品形态落地，持久 VM 架构可能改变 agent 运行环境与安全边界。"
+  },
+  {
+    "claim": "Google 宣布 Gemini 3.8 Live 与 Live Avatar 正式可用（GA），可用于驱动 agents。",
+    "id": "radar-8c679719c83f8b7c3dce",
+    "missing_evidence": [
+      "Google 官方博客正文或发布说明",
+      "模型版本、接口、定价与可用区域信息",
+      "Live Avatar 的技术细节与独立演示"
+    ],
+    "observed_at": "2026-09-25T22:46:32.682240Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-1ffeac906896d3009760",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available"
+      }
+    ],
+    "uncertainty": "仅有标题和链接，无正文；无法确认模型能力、版本真实性及 GA 的具体范围。",
+    "why_notable": "若属实，这是 Google 多模态实时模型与 avatar 能力的商业可用里程碑，可能影响 agent 交互形态。"
+  }
+]

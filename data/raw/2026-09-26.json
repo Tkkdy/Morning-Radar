@@ -7,6 +7,7 @@
     "id": "item-9de028fbe46cac8b155a",
     "language": null,
     "metadata": {
+      "content_version": "1fb79e5588f9a6cd2c7d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-10030137c3a01f3444e2",
     "language": "en-US",
     "metadata": {
+      "content_version": "0ed86fe2123ab0e2483a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -127,6 +129,7 @@
     "id": "item-7fc672768bdc43f8027b",
     "language": "en-US",
     "metadata": {
+      "content_version": "c8342a8274c27da651a8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -218,6 +221,7 @@
     "id": "item-81bc4a3546b40a0d9344",
     "language": "en-us",
     "metadata": {
+      "content_version": "ae64fd612c467ab76aae",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -340,6 +344,7 @@
     "id": "item-de36fa73b8545f5faefd",
     "language": "en-US",
     "metadata": {
+      "content_version": "996117fd2c9fd9d610cb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -613,6 +618,7 @@
     "id": "item-2653f5794fb9985f870e",
     "language": "en-US",
     "metadata": {
+      "content_version": "a331873042302c137b7c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -886,6 +892,7 @@
     "id": "item-48eaa8bbafaa8bc422c9",
     "language": "en-US",
     "metadata": {
+      "content_version": "6291d26ea6bc174921b8",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2191,6 +2198,7 @@
     "id": "item-bb71e409dd7f29f762c2",
     "language": null,
     "metadata": {
+      "content_version": "9bfa653b3e9aec86ce90",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2251,6 +2259,7 @@
     "id": "item-b0dcef92ac9905685f7b",
     "language": "en-US",
     "metadata": {
+      "content_version": "784192d70911edfb2cb3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2464,6 +2473,7 @@
     "id": "item-0765deb144589280c16b",
     "language": null,
     "metadata": {
+      "content_version": "932be04f8848820d48c6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2737,6 +2747,7 @@
     "id": "item-5ab590850491008e2cef",
     "language": null,
     "metadata": {
+      "content_version": "9969edfd92f41ad6f6fe",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -43827,6 +43838,7 @@
     "id": "item-699595b3b94d9b754c12",
     "language": "en",
     "metadata": {
+      "content_version": "f263291126f997cdabe3",
       "data_anomaly": false,
       "forks": 18005,
       "official": true,
@@ -44217,6 +44229,7 @@
     "id": "item-ff94713669a843bf3409",
     "language": "en",
     "metadata": {
+      "content_version": "f9857828985624024706",
       "data_anomaly": false,
       "forks": 2784,
       "official": true,
@@ -44979,11 +44992,20 @@
     "metadata": {
       "comments": 82,
       "community_signal": true,
+      "content_version": "7f82471ea0d48759c1ac",
+      "discovery_paths": [
+        "hn_search:meta:Llama"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49848269",
+      "lab_id": "meta",
       "official": false,
       "original_url": "https://ollaya.dev/",
       "score": 256,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -45069,6 +45091,7 @@
     "metadata": {
       "comments": 536,
       "community_signal": true,
+      "content_version": "1f8a4add69c3e0ced923",
       "discussion_url": "https://news.ycombinator.com/item?id=49841563",
       "official": false,
       "original_url": "https://www.dawo.community/en/",
@@ -45793,6 +45816,7 @@
     "metadata": {
       "change_percent": -0.015425774070442844,
       "close": 372.1099853515625,
+      "content_version": "c10dbf1ea96650120e07",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 377.94000244140625,
@@ -47465,6 +47489,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "c88d8c6461d1de2b98df",
       "discovery_paths": [
         "hn_search:google_deepmind:Gemini"
       ],
@@ -47551,38 +47576,6 @@
     "title": "Gemini 3.8 with Live Avatar",
     "topic_candidates": [],
     "url": "https://cloud.google.com/blog/products/ai-machine-learning/gemini-3-8-live-with-live-avatar-is-now-generally-available"
-  },
-  {
-    "author": "Ardakilic",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-25T22:46:32.682240Z",
-    "id": "item-7aeed159167e932dc806",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:meta:Llama"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49848269",
-      "hn_submission_time": 1790361230,
-      "lab_id": "meta",
-      "original_url": "https://ollaya.dev/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-25T18:33:50Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Ollaya – Ollama for open-source, Jev-style decision models",
-    "topic_candidates": [],
-    "url": "https://ollaya.dev/"
   },
   {
     "author": "neuralll",
