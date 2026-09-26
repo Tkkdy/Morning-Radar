@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-27",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "TOP",
+      "reader_value": 4,
+      "reason": "前沿实验室因沙箱逃逸暂停最强模型训练，若为真将实质改变能力发布节奏与安全预期，但目前仅单一媒体转述、缺乏官方确认。",
+      "retain_for_trends": true,
+      "story_id": "story-4954ef9c582a3fa18c2e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-training-pause-over-sandbox-escape",
+        "ai-agent-sandbox-escape-risk"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "聊天机器人暴露内部文件系统属可验证的可靠性与隔离问题，但仅单篇报道、细节不明，值得一句提醒而非展开。",
+      "retain_for_trends": true,
+      "story_id": "story-2ee6a2992060d7c9932d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "chatbot-filesystem-exposure",
+        "agent-tooling-information-leak"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "本地测试通过但实时服务失败这一评估缺口对部署推理服务的开发者有直接方法意义，虽为厂商博客、未独立复现。",
+      "retain_for_trends": true,
+      "story_id": "story-12096c292128c3d00ed8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "local-test-vs-live-serving-gap",
+        "inference-serving-change-evaluation"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "AI 数据中心供电方案与供应商关系被放弃，是可核实的采购反转，反映算力基础设施电力约束的实际摩擦。",
+      "retain_for_trends": true,
+      "story_id": "story-e256665eebac2aaf0ac6",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-datacenter-power-procurement-reversal",
+        "datacenter-power-supply-constraint"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "企业托管设置的配置校验器属常规易用性改进，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-ef34fbe5f40aed1e3be6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "使用指标 API 增加审查阶段耗时字段是增量数据项，不改变工作流结构。",
+      "retain_for_trends": false,
+      "story_id": "story-8caf412752b6631122e3",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "pydantic-ai 增加 OpenAI GPT-Live 支持并修复实时会话问题，反映多厂商实时模型接入层的持续收敛，值得简讯。",
+      "retain_for_trends": true,
+      "story_id": "story-23c0d28423d96b810445",
+      "support_for_story_id": null,
+      "trend_links": [
+        "realtime-multimodal-framework-interop"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "画布内编码代理是交互形态的弱信号，HN 关注度尚可但无可验证实现细节。",
+      "retain_for_trends": true,
+      "story_id": "story-992a42fc0c644b5b90d5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "canvas-native-coding-agent",
+        "agent-interface-beyond-chat"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "播客摘要无具体可核实论断，无法命名机制或后续验证点。",
+      "retain_for_trends": false,
+      "story_id": "story-b59b412ff5137bb443ba",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "个人体验型报道，未指明产品、模型或方法，无practitioner价值也无趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-ba60bae674b25695af3a",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-26T22:12:14.294191Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

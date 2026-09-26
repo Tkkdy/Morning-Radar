@@ -1,0 +1,141 @@
+{
+  "date": "2026-09-27",
+  "generated_at": "2026-09-26T22:12:14.294191Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "从 pydantic-ai v2.50.0 发布推进到 v2.51.0 发布，新增 OpenAI GPT-Live 支持、实时会话 context_window_used，并包含多项实时会话兼容性与缺陷修复。",
+      "current_story": {
+        "date": "2026-09-27",
+        "story_id": "story-23c0d28423d96b810445"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-26",
+            "story_id": "story-e02820627ac31fad3db1"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-27",
+            "story_id": "story-23c0d28423d96b810445"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-09-26",
+        "story_id": "story-e02820627ac31fad3db1"
+      },
+      "rationale": "当前发布说明明确以 v2.50.0...v2.51.0 对比链接承接前一版本，属于同一发布序列的直接版本推进。",
+      "recorded_at": "2026-09-26T22:12:14.294191Z",
+      "relation_id": "relation-2f868d20d64463d98f4a",
+      "relation_type": "status_transition",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Crusoe",
+        "Boom Supersonic",
+        "Blake Scholl"
+      ],
+      "event_type": "opened",
+      "expectation": "Crusoe 是否公布替代 Boom 涡轮机的 AI 数据中心供电方案或新供应商。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Boom 涡轮机",
+        "Boom 固定式发电厂"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-26T22:12:14.294191Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-27",
+          "story_id": "story-e256665eebac2aaf0ac6"
+        }
+      ],
+      "topic_anchors": [
+        "ai_data_center_power"
+      ],
+      "watch_id": "watch-0ef92e35f123661cdd8a"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "NVIDIA 是否发布 SWE-Serve 的完整技术细节、工具形态或后续评估结果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "SWE-Serve"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-26T22:12:14.294191Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-27",
+          "story_id": "story-12096c292128c3d00ed8"
+        }
+      ],
+      "topic_anchors": [
+        "推理服务软件评估"
+      ],
+      "watch_id": "watch-9fa55a3fbfadb75005be"
+    },
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 后续是否公布该验证器的可用范围、正式发布状态，以及是否补全可检测的错误类型清单。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-26T22:12:14.294191Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-27",
+          "story_id": "story-ef34fbe5f40aed1e3be6"
+        }
+      ],
+      "topic_anchors": [
+        "enterprise managed settings",
+        "configuration validation"
+      ],
+      "watch_id": "watch-d74f83893d76e4a5e07c"
+    },
+    {
+      "entity_anchors": [
+        "Drawgent",
+        "Excalidraw"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Drawgent 是否出现官方仓库说明、README 或作者声明，以确认其是否已发布、可运行及具体能力边界。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Drawgent",
+        "Excalidraw"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-26T22:12:14.294191Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-27",
+          "story_id": "story-992a42fc0c644b5b90d5"
+        }
+      ],
+      "topic_anchors": [
+        "coding_agent",
+        "canvas_integration"
+      ],
+      "watch_id": "watch-421d89662715854a9a66"
+    }
+  ]
+}

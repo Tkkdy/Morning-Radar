@@ -67,6 +67,7 @@
     "id": "item-07dade88210664e3a861",
     "language": "en-US",
     "metadata": {
+      "content_version": "3e39437338ba837a3065",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -127,6 +128,7 @@
     "id": "item-bb61eb14b50af1ee9bfc",
     "language": "en-US",
     "metadata": {
+      "content_version": "1435228c4e1ca06cc41a",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -157,6 +159,7 @@
     "id": "item-960b51012f8d643a2607",
     "language": "en-US",
     "metadata": {
+      "content_version": "6cd1e5378fde8a9a57d4",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -187,6 +190,7 @@
     "id": "item-4725dbce23cbbadbf4e1",
     "language": "en-US",
     "metadata": {
+      "content_version": "f289f9b51fc3af4faaf8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -309,6 +313,7 @@
     "id": "item-0a10d0252c63a3f9d568",
     "language": "en-US",
     "metadata": {
+      "content_version": "f3fe0ec05416844ab350",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -369,6 +374,7 @@
     "id": "item-804c74d256d5e7443c05",
     "language": "en-US",
     "metadata": {
+      "content_version": "f541dadcb6247282c5e7",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -399,6 +405,7 @@
     "id": "item-89f9618650b31d06afa5",
     "language": "en-US",
     "metadata": {
+      "content_version": "68bf9eb937163b500c76",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -611,6 +618,7 @@
     "id": "item-2a6767ccfa8566031e0f",
     "language": "en-US",
     "metadata": {
+      "content_version": "d8eafa05063d1a10dfa7",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -641,6 +649,7 @@
     "id": "item-ded5f30056dbe56f778e",
     "language": "en-US",
     "metadata": {
+      "content_version": "cf9fa3cbc5f69ec21360",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -853,6 +862,7 @@
     "id": "item-c356bc7c63b5222179e6",
     "language": "en-US",
     "metadata": {
+      "content_version": "ea8f51c95a4a0a4df17c",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1065,6 +1075,7 @@
     "id": "item-dacd7422e86ef85a0868",
     "language": null,
     "metadata": {
+      "content_version": "181108eefbdbddf2835a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -45687,6 +45698,7 @@
     "id": "item-1441ff2ab9fdc9be50b6",
     "language": "en",
     "metadata": {
+      "content_version": "3d3e9116bd1588f1e9c6",
       "data_anomaly": false,
       "forks": 2788,
       "official": true,
@@ -46539,11 +46551,19 @@
     "metadata": {
       "comments": 439,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49849985",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://swarmtraces.org/",
       "score": 695,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -46629,6 +46649,7 @@
     "metadata": {
       "comments": 234,
       "community_signal": true,
+      "content_version": "e5cb675a0394a162ca0d",
       "discussion_url": "https://news.ycombinator.com/item?id=49855315",
       "official": false,
       "original_url": "https://gultsch.de/posts/breaking-up-with-google-play/",
@@ -46659,11 +46680,19 @@
     "metadata": {
       "comments": 139,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:meta:Llama"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49848269",
+      "lab_id": "meta",
       "official": false,
       "original_url": "https://ollaya.dev/",
       "score": 580,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -46719,6 +46748,7 @@
     "metadata": {
       "comments": 30,
       "community_signal": true,
+      "content_version": "b20f69c22d3635df1081",
       "discussion_url": "https://news.ycombinator.com/item?id=49857729",
       "official": false,
       "original_url": "https://tangled.org/yanndegat.tngl.sh/drawgent",
@@ -46839,6 +46869,7 @@
     "metadata": {
       "comments": 162,
       "community_signal": true,
+      "content_version": "536ed8180397c58cd925",
       "discussion_url": "https://news.ycombinator.com/item?id=49857899",
       "official": false,
       "original_url": "https://themomoftheyear.substack.com/p/im-the-mom-in-that-viral-giants-clip",
@@ -46869,6 +46900,7 @@
     "metadata": {
       "comments": 96,
       "community_signal": true,
+      "content_version": "72d1425c796d98834ed2",
       "discussion_url": "https://news.ycombinator.com/item?id=49852302",
       "official": false,
       "original_url": "https://www.cbsnews.com/news/facebook-liable-deceiving-users-cambridge-analytica/",
@@ -46931,6 +46963,7 @@
     "metadata": {
       "change_percent": 0.0021818750074313388,
       "close": 225.07000732421875,
+      "content_version": "aadcad456f6ea82120b9",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 224.5800018310547,
@@ -48864,38 +48897,6 @@
     "url": "https://doug.sh/posts/oh-my-pi-custom-models/"
   },
   {
-    "author": "Ardakilic",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-26T22:11:37.116962Z",
-    "id": "item-7aeed159167e932dc806",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:meta:Llama"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49848269",
-      "hn_submission_time": 1790361230,
-      "lab_id": "meta",
-      "original_url": "https://ollaya.dev/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-25T18:33:50Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Ollaya – Ollama for open-source, Jev-style decision models",
-    "topic_candidates": [],
-    "url": "https://ollaya.dev/"
-  },
-  {
     "author": "srcreigh",
     "company_candidates": [],
     "content_excerpt": "",
@@ -49598,38 +49599,6 @@
     "title": "Unsecured OpenAI agents posted 53 user images on the internet",
     "topic_candidates": [],
     "url": "https://techcrunch.com/2026/09/25/unsecured-openai-agents-posted-53-user-images-on-the-internet-without-the-labs-knowledge/"
-  },
-  {
-    "author": "specked-citrus",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-26T22:11:37.116962Z",
-    "id": "item-2fab6f9b03ab4a0289b2",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49849985",
-      "hn_submission_time": 1790370567,
-      "lab_id": "openai",
-      "original_url": "https://swarmtraces.org/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-25T21:09:27Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Revealing the details of how OpenAI agents hacked Hugging Face",
-    "topic_candidates": [],
-    "url": "https://swarmtraces.org/"
   },
   {
     "author": "iambateman",
