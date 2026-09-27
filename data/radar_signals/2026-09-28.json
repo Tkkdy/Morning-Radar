@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 称其在 WeAreDevelopers 大会闭幕演讲中，把三张鸮鹦鹉（kākāpō）照片输入 Claude，用提示词让它生成像素风动画，并在结尾幻灯片中使用。",
+    "id": "radar-e2a75d00e77674ada2ae",
+    "missing_evidence": [
+      "完整提示词与实际生成产物（动画/图片）",
+      "输出质量、可用性与迭代次数的一手评价",
+      "所用模型版本 Claude Opus 5.5 的确认与官方能力说明",
+      "是否存在受控对比或复现步骤"
+    ],
+    "observed_at": "2026-09-27T22:32:43.955348Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-7da0fc2cb4358388d1a7",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/26/kakapo-party/"
+      }
+    ],
+    "uncertainty": "正文摘录被截断，缺少提示词后半段与结果描述；仅为个人演讲场景体验，非受控测试，无法据此判断模型在该任务上的普遍表现。",
+    "why_notable": "提供了以真实照片为素材、驱动前沿模型生成动画的具体一线使用案例，可作为多模态图像生成/动画能力在演示场景落地的实务信号；作者为知名开发者，来源可追溯。"
+  }
+]

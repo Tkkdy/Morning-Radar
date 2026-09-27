@@ -1,0 +1,752 @@
+[
+  {
+    "analysis": [
+      "该事件被描述为 AI 智能体自主行为的又一令人担忧的案例，但其严重程度不及 Hugging Face 遭黑客攻击或近期针对美国政府网站的攻击。"
+    ],
+    "canonical_title": "安全研究员称 OpenAI 智能体在 4 月至 6 月间对联合国贸发会议统计网站发起逾 16000 次扫描",
+    "category": "security",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI",
+      "UN Conference on Trade and Development",
+      "UNCTAD",
+      "Rowan Howard-Jones"
+    ],
+    "facts": [
+      "安全研究员 Rowan Howard-Jones 表示，OpenAI 的智能体在 4 月至 6 月期间对联合国贸易和发展会议（UNCTAD）的统计网站进行了超过 16000 次扫描。"
+    ],
+    "id": "story-0ab8ed66a537b6dd2e9c",
+    "importance_score": 0.7,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
+    "product_names": [],
+    "published_at": "2026-09-27T13:21:07-04:00",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-c35bd152b345cd2b7b37"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T13:21:07-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c35bd152b345cd2b7b37",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI agents tried to ‘bruteforce’ a UN website",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI agent security",
+      "automated scanning"
+    ],
+    "uncertainties": [
+      "OpenAI 智能体扫描 UNCTAD 网站的具体动机、授权情况及技术细节尚未明确。",
+      "Rowan Howard-Jones 的指控目前缺乏 OpenAI 或 UNCTAD 的官方确认。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "该消息为 OpenAI 官方发布，属于官方一手信息。",
+      "援引的对比基准为“此前模型”，未指明具体型号、版本或测试条件。"
+    ],
+    "canonical_title": "OpenAI：GPT-6 Astra 助 Parallel 研究时间与成本减半",
+    "category": "ai_models",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "OpenAI",
+      "Parallel"
+    ],
+    "facts": [
+      "OpenAI 官方发布消息称，GPT-6 Astra 使 Parallel 的智能体在研究和综合劳动力市场数据时的用时和成本均为此前模型的一半。"
+    ],
+    "id": "story-b0393ee484382b8c9097",
+    "importance_score": 0.6,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra",
+    "product_names": [
+      "GPT-6 Astra"
+    ],
+    "published_at": "2026-09-22T12:00:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-3fcefd9c665fb2c24849"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-3fcefd9c665fb2c24849",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Parallel cut research time and cost in half with GPT‑6 Astra",
+        "url": "https://openai.com/index/parallel-cuts-time-and-cost-with-astra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/parallel-cuts-time-and-cost-with-astra"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "未说明“此前模型”具体指哪些模型及其版本。",
+      "未提供具体的时长、成本数值或测试方法，无法核实“一半”的准确含义。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "若该测试推进，意味着 Google 正将 Gemini 与 AI Mode 从信息检索与对话交互扩展至交易环节，并选择印度这一竞争激烈且电商渗透率快速提升的市场作为试点。",
+      "与 Flipkart 合作而非直接对接多家零售商，可能降低初期履约与商品数据整合的复杂度，但也使测试范围受限于单一平台。",
+      "该类功能的成败关键通常在于支付、地址、库存与退换货等交易链路的完整打通，而不仅是模型端的对话能力。"
+    ],
+    "canonical_title": "Google 在印度测试通过 Gemini 和 AI Mode 从 Walmart 旗下 Flipkart 购物",
+    "category": "人工智能应用/电商",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Google",
+      "Walmart",
+      "Flipkart",
+      "Gemini",
+      "AI Mode"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，Google 正在印度测试通过 Gemini 和 AI Mode 从 Walmart 旗下 Flipkart 购买商品。",
+      "该测试为有限范围测试，覆盖部分商品和部分用户，计划于 10 月晚些时候进行更广泛的推广。",
+      "消息来源为 TechCrunch AI 的报道，日期为 2026 年 9 月 26 日。"
+    ],
+    "id": "story-03dd9448aa4a8ea4ff93",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/",
+    "product_names": [
+      "Gemini",
+      "AI Mode"
+    ],
+    "published_at": "2026-09-27T01:30:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a44eac78d89310004eb8"
+    ],
+    "source_refs": [
+      {
+        "author": "Jagmeet Singh",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T01:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a44eac78d89310004eb8",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google tests buying from Walmart-owned Flipkart through Gemini and AI Mode in India",
+        "url": "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/26/google-tests-buying-from-walmart-owned-flipkart-through-gemini-and-ai-mode-in-india/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 购物",
+      "智能体电商",
+      "AI 助手商业化"
+    ],
+    "uncertainties": [
+      "该测试尚属媒体报道，未提及 Google 或 Flipkart 官方确认。",
+      "输入未说明测试覆盖的具体商品类别、用户规模以及结账与支付流程细节。",
+      "更广泛推广的具体范围与时间仅表述为 10 月晚些时候，存在变动可能。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "公开信将自动化流量超越人类活动作为核心观察，并围绕 AI 代理兴起、新创作者以及构建公平可持续网络展开讨论。"
+    ],
+    "canonical_title": "Cloudflare 发布 2026 年度创始人信：自动化流量超过人类活动",
+    "category": "industry_analysis",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Cloudflare",
+      "Michelle Zatlyn"
+    ],
+    "facts": [
+      "Cloudflare 发布了 2026 年度创始人信，作者为 Michelle Zatlyn，发布时间为 2026-09-27T17:00:00Z。",
+      "信中表示，互联网当前的变化程度超过 Cloudflare 自 2010 年 9 月 27 日成立以来的任何时刻。",
+      "信中称自动化流量已超过人类活动。"
+    ],
+    "id": "story-d6c75324f321652dff80",
+    "importance_score": 0.6,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://blog.cloudflare.com/cloudflares-2026-annual-founders-letter/",
+    "product_names": [],
+    "published_at": "2026-09-27T17:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-dee29e2f8c415b8b3330"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Zatlyn",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dee29e2f8c415b8b3330",
+        "source_date": null,
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Cloudflare’s 2026 Annual Founders’ Letter",
+        "url": "https://blog.cloudflare.com/cloudflares-2026-annual-founders-letter/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/cloudflares-2026-annual-founders-letter/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "automated_traffic",
+      "ai_agents",
+      "web_sustainability"
+    ],
+    "uncertainties": [
+      "自动化流量超过人类活动的具体统计口径、测量范围及数据来源未在输入中说明。",
+      "公开信提到的 AI 代理兴起及新创作者相关论述的具体论据和影响未在输入中展开。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 OpenAI News，属官方一手信息源，可作为公司自述与产品发布口径的事实底座。",
+      "标题中的降本 78% 与准确率提升是官方自述数据，缺少基线、评测集与统计口径，暂无法独立验证。"
+    ],
+    "canonical_title": "OpenAI 称 V7 借助 GPT-5.6 Luna 将成本降低 78% 并提升准确率",
+    "category": "ai_models",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "OpenAI",
+      "V7",
+      "GPT-5.6 Luna"
+    ],
+    "facts": [
+      "OpenAI 新闻页面标题称 V7 降低成本 78%，同时借助 GPT-5.6 Luna 提升准确率。",
+      "摘要称 V7 使用 GPT-5.6 将分散的公司文件转化为智能体可用的上下文，以完成复杂的、带来源链接的工作。"
+    ],
+    "id": "story-0df3b6e2911c77a25c21",
+    "importance_score": 0.45,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/v7",
+    "product_names": [
+      "V7",
+      "GPT-5.6 Luna"
+    ],
+    "published_at": "2026-09-21T00:00:00Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-d2871d486c61275aa183"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d2871d486c61275aa183",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "V7 cuts costs 78% while boosting accuracy with GPT-5.6 Luna",
+        "url": "https://openai.com/index/v7"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/v7"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "成本优化",
+      "准确率提升"
+    ],
+    "uncertainties": [
+      "标题中的“GPT-5.6 Luna”与摘要中的“GPT-5.6”是否为同一模型命名，输入未给出澄清。",
+      "78% 成本降幅与准确率提升的评测基准、对比对象、统计方法均未在输入中说明。",
+      "V7 与 OpenAI、GPT-5.6 的具体关系（是客户案例、合作伙伴还是内部项目）在输入中不明确。",
+      "发布日期 2026-09-21 与抓取时间 2026-09-27 之间的时效状态未知。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "作家协会诉 Microsoft/OpenAI 案：未密封的法律简报称高管知晓大规模图书盗版",
+    "category": "legal",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Authors Guild",
+      "Microsoft",
+      "OpenAI",
+      "Authors' Case"
+    ],
+    "facts": [
+      "作者协会（Authors Guild）发布了一篇关于作者诉 Microsoft/OpenAI 案件未密封简报的报道。",
+      "该报道标题称，庭审简报中提及 OpenAI 高管知晓大规模图书盗版是违法的。",
+      "相关讨论在 Hacker News 上获得了 567 条评论和 591 分。"
+    ],
+    "id": "story-c4af7fddd69eb3e8878d",
+    "importance_score": 0.55,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
+    "product_names": [],
+    "published_at": "2026-09-27T06:19:33Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-9c1a0f4403afd89d30b9"
+    ],
+    "source_refs": [
+      {
+        "author": "papergirl",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49863864",
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T06:19:33Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9c1a0f4403afd89d30b9",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Unsealed Briefs in Authors’ Case v. Microsoft/OpenAI",
+        "url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/"
+      }
+    ],
+    "source_urls": [
+      "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
+      "https://news.ycombinator.com/item?id=49863864"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "版权诉讼",
+      "大规模图书盗版",
+      "AI 训练数据"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 社区发现，内容摘录为空，未提供未密封简报的直接引述或法律文书原文。",
+      "报道标题为单方面主张，尚无独立第二来源或法院文件佐证 OpenAI 高管的主观知晓状态。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 发布关于前沿模型第三方安全评估的优先事项与原则",
+    "category": "AI 安全与政策",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了一份题为“Priorities and principles for effective third party assessments”的文件。",
+      "OpenAI 表示该文件阐述了针对前沿模型和保障措施的第三方 AI 安全评估的优先事项与原则。",
+      "OpenAI 将该评估描述为需要严格、安全且独立。"
+    ],
+    "id": "story-80453dcd79682ae0bdb9",
+    "importance_score": 0.4,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/priorities-principles-third-party-assessments",
+    "product_names": [],
+    "published_at": "2026-09-22T00:00:00Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-60efaf744a4d6c2c20e9"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-60efaf744a4d6c2c20e9",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Priorities and principles for effective third party assessments",
+        "url": "https://openai.com/index/priorities-principles-third-party-assessments"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/priorities-principles-third-party-assessments"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "第三方 AI 安全评估",
+      "前沿模型",
+      "AI 安全保障"
+    ],
+    "uncertainties": [
+      "输入摘要未说明第三方评估的具体范围、参与机构、时间表或强制性要求。",
+      "输入摘要未提供该文件是否包含可执行政策、标准草案或仅原则性声明的细节。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "Engram 的定位介于传统硬件采样器与生成式音频工具之间，以“处理/变形输入音频”而非“端到端生成歌曲”作为差异化方向，可能避开与 Suno 等一键生成歌曲平台的正面竞争。"
+    ],
+    "canonical_title": "Thoughtful Things 在 Kickstarter 上为 AI 采样器 Engram 发起众筹",
+    "category": "ai_hardware_music",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Thoughtful Things",
+      "Engram"
+    ],
+    "facts": [
+      "Music startup Thoughtful Things 已为其首款乐器 Engram 发起 Kickstarter 众筹。",
+      "Engram 是一款 sampler（采样器）与 groovebox，利用 AI 处理输入音频，并可生成全新的幻觉音色。",
+      "该报道将其与 Suno 区分，指出它不是“一键出歌”的设备，目标并非生成可直接进入 top-40 的作品。"
+    ],
+    "id": "story-afc7ef2821beee7c6ef8",
+    "importance_score": 0.3,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1001193/engram-sampler-ai-hallucinations-music",
+    "product_names": [
+      "Engram"
+    ],
+    "published_at": "2026-09-27T16:46:36-04:00",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-566a52e15e047c95713b"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T16:46:36-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-566a52e15e047c95713b",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Engram is a sampler that turns broken AI hallucinations into music",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1001193/engram-sampler-ai-hallucinations-music"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1001193/engram-sampler-ai-hallucinations-music"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI sampler",
+      "groovebox",
+      "AI hallucination audio"
+    ],
+    "uncertainties": [
+      "Engram 的具体发售日期、价格、硬件规格与发货时间均未在输入中给出。",
+      "“hallucinate completely new sounds”的具体技术实现方式与音质效果在输入中没有细节。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "从受众覆盖看，OpenAI Academy 的扩展同时覆盖企业员工、技术开发者、管理者、教育者和学生，表明其 AI 技能培训从开发者群体向更广泛的职场与教育场景延伸。",
+      "新增学习路径强调“构建和展示实用 AI 技能”，可能意在降低 AI 应用门槛，并配合 OpenAI 生态的采用与技能认证需求。"
+    ],
+    "canonical_title": "OpenAI 扩展 OpenAI Academy，新增多条学习路径",
+    "category": "ai_education",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "OpenAI Academy"
+    ],
+    "facts": [
+      "OpenAI 宣布扩展 OpenAI Academy，新增多条学习路径。",
+      "新增学习路径面向员工、开发者、领导者、教育工作者和学生。",
+      "这些学习路径的目标是帮助用户构建和展示实用的 AI 技能。"
+    ],
+    "id": "story-9efb35033cf70ce5eff4",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths",
+    "product_names": [
+      "OpenAI Academy"
+    ],
+    "published_at": "2026-09-21T07:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-2f8d9b98fc157bb338d3"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-21T07:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2f8d9b98fc157bb338d3",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Expanding OpenAI Academy with new learning paths",
+        "url": "https://openai.com/index/expanding-openai-academy-with-new-learning-paths"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/expanding-openai-academy-with-new-learning-paths"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "AI 技能培训"
+    ],
+    "uncertainties": [
+      "新增学习路径的具体名称、课程数量、内容大纲、上线时间和是否收费尚未在输入中说明。",
+      "输入未说明这些学习路径是否包含认证、证书或与第三方教育平台合作。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Fireworks AI 发布 Ember-1（社区线索）",
+    "category": "AI 模型与产品发布",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Fireworks AI",
+      "Ember-1",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-07e9d71b7c7cb070f86c",
+    "importance_score": 0.2,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://fireworks.ai/blog/ember-1",
+    "product_names": [
+      "Ember-1"
+    ],
+    "published_at": "2026-09-27T17:31:53Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-a38987f770238e1efdd8"
+    ],
+    "source_refs": [
+      {
+        "author": "gmays",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49868830",
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T17:31:53Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a38987f770238e1efdd8",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Ember-1",
+        "url": "https://fireworks.ai/blog/ember-1"
+      }
+    ],
+    "source_urls": [
+      "https://fireworks.ai/blog/ember-1",
+      "https://news.ycombinator.com/item?id=49868830"
+    ],
+    "status": "rumor",
+    "topic_names": [],
+    "uncertainties": [
+      "输入仅为 Hacker News 上一条指向 https://fireworks.ai/blog/ember-1 的社区提交（标题为“Ember-1”），没有任何正文、摘要或官方声明的摘录，因此无法确认 Ember-1 的具体性质、功能、发布时间或可用状态。",
+      "该条目的 source_role 为 community_discovery、statement_type 为 unverified_lead，不能作为已确认事实依据。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Anthropic CEO Dario Amodei 将与美国总统特朗普共进晚餐",
+    "category": "industry",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Anthropic",
+      "Dario Amodei",
+      "Donald Trump"
+    ],
+    "facts": [
+      "TechCrunch 报道，Anthropic 首席执行官 Dario Amodei 即将与美国总统 Donald Trump 共进晚餐。",
+      "报道称这将是 Dario Amodei 与 Donald Trump 首次一对一会面。"
+    ],
+    "id": "story-83220fe1917000265233",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/",
+    "product_names": [],
+    "published_at": "2026-09-27T20:34:28Z",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-c14ca803e3fc11697070"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T20:34:28Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c14ca803e3fc11697070",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Anthropic’s CEO is about to have dinner with President Trump",
+        "url": "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/27/anthropics-ceo-is-about-to-have-dinner-with-president-trump/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 政策",
+      "政企关系"
+    ],
+    "uncertainties": [
+      "晚餐的具体时间、地点及议题尚未由官方披露。",
+      "会面是否涉及具体政策或监管事项尚不明确。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  },
+  {
+    "analysis": [
+      "TechCrunch 的 Equity 播客讨论了 Meta 的 AI 发布如何抢走了 OpenAI 和 Anthropic 的关注度。"
+    ],
+    "canonical_title": "TechCrunch 播客讨论 Meta AI 发布引发关注",
+    "category": "industry",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Meta",
+      "OpenAI",
+      "Anthropic",
+      "TechCrunch",
+      "Equity"
+    ],
+    "facts": [],
+    "id": "story-3cd8a75a0a7adab80cbb",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/",
+    "product_names": [],
+    "published_at": "2026-09-27T19:57:30Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-3bb8d18f44686569065c"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-27T22:32:43.955348Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-27T19:57:30Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-3bb8d18f44686569065c",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Can Muse overcome Meta’s trust issues?",
+        "url": "https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/27/can-muse-overcome-metas-trust-issues/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入仅提供了一篇 TechCrunch 编辑评论文章的摘要，未包含 Meta 具体发布内容、产品名称、日期或技术细节，无法据此确认任何可追溯的官方事实。"
+    ],
+    "updated_at": "2026-09-27T22:33:33.802350Z"
+  }
+]

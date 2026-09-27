@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-28",
+  "generated_at": "2026-09-27T22:33:33.802350Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "UNCTAD",
+        "Rowan Howard-Jones"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 OpenAI 或 UNCTAD 是否就安全研究员 Rowan Howard-Jones 关于 OpenAI 智能体扫描 UNCTAD 统计网站超过 16000 次的指控作出官方回应或确认。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-09-27T22:33:33.802350Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-28",
+          "story_id": "story-0ab8ed66a537b6dd2e9c"
+        }
+      ],
+      "topic_anchors": [
+        "AI agent security",
+        "automated scanning"
+      ],
+      "watch_id": "watch-abc5c1f3cda7299eb052"
+    },
+    {
+      "entity_anchors": [
+        "Google",
+        "Flipkart",
+        "Walmart"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 Google 在印度通过 Gemini 和 AI Mode 从 Flipkart 购物的测试是否在 10 月晚些时候按计划扩大推广范围，以及 Google 或 Flipkart 是否发布官方说明。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Gemini",
+        "AI Mode"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-27T22:33:33.802350Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-28",
+          "story_id": "story-03dd9448aa4a8ea4ff93"
+        }
+      ],
+      "topic_anchors": [
+        "AI 购物",
+        "智能体电商"
+      ],
+      "watch_id": "watch-5201da898134facdf5b6"
+    }
+  ]
+}

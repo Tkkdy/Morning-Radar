@@ -67,6 +67,7 @@
     "id": "item-dee29e2f8c415b8b3330",
     "language": "en-us",
     "metadata": {
+      "content_version": "cc19ce96f8e775f0a4d0",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -97,6 +98,7 @@
     "id": "item-c14ca803e3fc11697070",
     "language": "en-US",
     "metadata": {
+      "content_version": "a4a691adb86a944e7cc5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -127,6 +129,7 @@
     "id": "item-566a52e15e047c95713b",
     "language": "en-US",
     "metadata": {
+      "content_version": "10e1670b4dddacbe7096",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -188,6 +191,7 @@
     "id": "item-7da0fc2cb4358388d1a7",
     "language": "en-us",
     "metadata": {
+      "content_version": "658a3addd10b1370b556",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -340,6 +344,7 @@
     "id": "item-3bb8d18f44686569065c",
     "language": "en-US",
     "metadata": {
+      "content_version": "414be4e95104727ff642",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -370,6 +375,7 @@
     "id": "item-c35bd152b345cd2b7b37",
     "language": "en-US",
     "metadata": {
+      "content_version": "6dae0df697f874e70ccd",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -583,6 +589,7 @@
     "id": "item-a776633a7f7c7026cb15",
     "language": "en-US",
     "metadata": {
+      "content_version": "0ea4f3c691c9ca8d3211",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -826,6 +833,7 @@
     "id": "item-a44eac78d89310004eb8",
     "language": "en-US",
     "metadata": {
+      "content_version": "97dae1b210f56c5a429c",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -2983,6 +2991,7 @@
     "id": "item-3fcefd9c665fb2c24849",
     "language": null,
     "metadata": {
+      "content_version": "47cba38ddb3969522b0f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -3165,6 +3174,7 @@
     "id": "item-60efaf744a4d6c2c20e9",
     "language": null,
     "metadata": {
+      "content_version": "a338f0764bc38250092c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -3893,6 +3903,7 @@
     "id": "item-2f8d9b98fc157bb338d3",
     "language": null,
     "metadata": {
+      "content_version": "5277025ce43de46bfea9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -4075,6 +4086,7 @@
     "id": "item-d2871d486c61275aa183",
     "language": null,
     "metadata": {
+      "content_version": "8f732a99b756ad0735fc",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -44679,6 +44691,7 @@
     "metadata": {
       "comments": 211,
       "community_signal": true,
+      "content_version": "92c8d91a5cc0a250c743",
       "discussion_url": "https://news.ycombinator.com/item?id=49870367",
       "official": false,
       "original_url": "https://sancho.bearblog.dev/google-weird/",
@@ -44739,6 +44752,7 @@
     "metadata": {
       "comments": 152,
       "community_signal": true,
+      "content_version": "cfb4ffea6be2f54e6af0",
       "discussion_url": "https://news.ycombinator.com/item?id=49868830",
       "official": false,
       "original_url": "https://fireworks.ai/blog/ember-1",
@@ -44769,11 +44783,20 @@
     "metadata": {
       "comments": 567,
       "community_signal": true,
+      "content_version": "bf6a4e4c5ea6ae72370b",
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49863864",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
       "score": 591,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -44889,11 +44912,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49871351",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://gizmodo.com/openai-to-halt-training-of-some-models-2000817912",
       "score": 2,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -44949,6 +44980,7 @@
     "metadata": {
       "comments": 279,
       "community_signal": true,
+      "content_version": "c5047f80d04ab4031dc7",
       "discussion_url": "https://news.ycombinator.com/item?id=49864642",
       "official": false,
       "original_url": "https://www.reddit.com/r/worldnews/comments/1wr3id3/meta_blocks_president_lulas_facebook_page_and/",
@@ -45399,6 +45431,7 @@
     "metadata": {
       "change_percent": -0.0011969601068991238,
       "close": 450.6099853515625,
+      "content_version": "4b11a2c8a86881752acf",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 451.1499938964844,
@@ -46153,38 +46186,6 @@
     "url": "https://arxiv.org/abs/2609.22978"
   },
   {
-    "author": "HiroProtagonist",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-27T22:32:43.955348Z",
-    "id": "item-7abd15d2be844c70d0ed",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49871351",
-      "hn_submission_time": 1790546983,
-      "lab_id": "openai",
-      "original_url": "https://gizmodo.com/openai-to-halt-training-of-some-models-2000817912",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-27T22:09:43Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI to Halt Training of Some Models",
-    "topic_candidates": [],
-    "url": "https://gizmodo.com/openai-to-halt-training-of-some-models-2000817912"
-  },
-  {
     "author": "gmays",
     "company_candidates": [],
     "content_excerpt": "",
@@ -46547,38 +46548,6 @@
     "title": "OpenAI and Anthropic are investigating cases of AI misbehaving, report says",
     "topic_candidates": [],
     "url": "https://madrobot.blog/2026/09/26/openai-anthropic-tens-of-thousands-ai-misbehaviour-incidents-axios/"
-  },
-  {
-    "author": "papergirl",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-27T22:32:43.955348Z",
-    "id": "item-9c1a0f4403afd89d30b9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49863864",
-      "hn_submission_time": 1790489973,
-      "lab_id": "openai",
-      "original_url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-27T06:19:33Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Unsealed Briefs in Authors’ Case v. Microsoft/OpenAI",
-    "topic_candidates": [],
-    "url": "https://authorsguild.org/news/ag-v-openai-top-execs-knew-mass-book-piracy-was-illegal/"
   },
   {
     "author": "justinc8687",
