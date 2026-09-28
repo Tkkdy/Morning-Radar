@@ -1,0 +1,570 @@
+[
+  {
+    "analysis": [
+      "GitHub Copilot 引入 Claude Sonnet 5.5 表明 Anthropic 与 GitHub 在 AI 编码助手领域的合作延续，模型更新直接集成到主流开发工具中。"
+    ],
+    "canonical_title": "Claude Sonnet 5.5 在 GitHub Copilot 中正式可用",
+    "category": "ai_coding",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "Anthropic",
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "Anthropic 的最新 Sonnet 模型 Claude Sonnet 5.5 现已在 GitHub Copilot 中正式可用（generally available）。",
+      "该模型设计用于范围明确的日常工作，例如构建功能和修复 bug。"
+    ],
+    "id": "story-c67419fec6596756d1ba",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot",
+    "product_names": [
+      "Claude Sonnet 5.5",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-09-28T18:03:57Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-469712811c22e040083a"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T18:03:57Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-469712811c22e040083a",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Claude Sonnet 5.5 in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-28-claude-sonnet-5-5-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "原文在“In our early…”处被截断，关于早期使用效果的具体表述不完整。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 因安全担忧取消最新模型发布（据 WSJ 报道）",
+    "category": "AI 模型发布",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "OpenAI",
+      "Bloomberg",
+      "WSJ"
+    ],
+    "facts": [],
+    "id": "story-38fe48d7eb457eeef3b9",
+    "importance_score": 0.8,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.bloomberg.com/news/articles/2026-09-28/openai-scrapped-latest-model-release-over-safety-fears-wsj-says",
+    "product_names": [],
+    "published_at": "2026-09-28T22:53:22Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-3a9ec931884880ba85f5"
+    ],
+    "source_refs": [
+      {
+        "author": "pliiight",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49885585",
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T22:53:22Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-3a9ec931884880ba85f5",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "OpenAI Scrapped Newest Model Release",
+        "url": "https://www.bloomberg.com/news/articles/2026-09-28/openai-scrapped-latest-model-release-over-safety-fears-wsj-says"
+      }
+    ],
+    "source_urls": [
+      "https://www.bloomberg.com/news/articles/2026-09-28/openai-scrapped-latest-model-release-over-safety-fears-wsj-says",
+      "https://news.ycombinator.com/item?id=49885585"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "模型发布取消",
+      "AI 安全"
+    ],
+    "uncertainties": [
+      "该条目来源为 Hacker News 社区发现，被标记为 unverified_lead，且摘要与正文摘录均为空，无法核实 OpenAI 是否确实取消最新模型发布。",
+      "标题称消息源自 WSJ，并由 Bloomberg 报道，但其真实性无法从输入内容中确认。",
+      "被取消的模型具体名称、发布时间及安全担忧的具体内容均未在输入中给出。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "该文章由 NVIDIA 官方开发者博客发布，属于官方一手来源，可作为该平台存在的原始事实底座。",
+      "标题表明平台定位为“开放 Agent 安全平台”，并作为“持续在芯 Agent 监控”的参考实现，指向 agentic AI 运行时的安全与可观测性方向。",
+      "摘要内容以 90 年代互联网兴起作类比，未提供具体技术细节或产品参数。"
+    ],
+    "canonical_title": "NVIDIA 发布开放 Agent 安全平台，用于持续在芯 Agent 监控",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了标题为“NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring”的文章。",
+      "文章作者为 Tanya Lenz，发布时间为 2026-09-28T08:56:55Z。",
+      "来源为 NVIDIA Developer Blog，来源类型为 RSS，source_role 为 official_primary，statement_type 为 factual_announcement。"
+    ],
+    "id": "story-6c13a2f4ab9cd0d53e03",
+    "importance_score": 0.55,
+    "novelty_score": 0.68,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/",
+    "product_names": [
+      "NVIDIA Open Agent Safety Platform"
+    ],
+    "published_at": "2026-09-28T08:56:55Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-3de76f3363411ee9ff7d"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T08:56:55Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-3de76f3363411ee9ff7d",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "NVIDIA Open Agent Safety Platform: A Reference for Continuous In-Silicon Agent Monitoring",
+        "url": "https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-open-agent-safety-platform-a-reference-for-continuous-in-silicon-agent-monitoring/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "agent_safety",
+      "in_silicon_agent_monitoring"
+    ],
+    "uncertainties": [
+      "输入内容仅为标题、摘要和简短摘录，缺少平台具体功能、架构、开源许可、可用性状态等细节。",
+      "无法确认该平台是否已可下载、已开源或仅处于参考设计阶段。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "文章指出 AI 智能体可以被赋予目标、编写代码、使用工具，并在新信息出现时持续工作。"
+    ],
+    "canonical_title": "NVIDIA 发布 OpenShell，为 AI 智能体添加运行时控制",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《Add Runtime Controls to AI Agents with NVIDIA OpenShell》的文章。"
+    ],
+    "id": "story-33336e74d93cfbbc3582",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/",
+    "product_names": [
+      "OpenShell"
+    ],
+    "published_at": "2026-09-28T08:55:00Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-d1721140685dd934b3f2"
+    ],
+    "source_refs": [
+      {
+        "author": "Alex Watson",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T08:55:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d1721140685dd934b3f2",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Add Runtime Controls to AI Agents with NVIDIA OpenShell",
+        "url": "https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/add-runtime-controls-to-ai-agents-with-nvidia-openshell/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 智能体",
+      "运行时控制"
+    ],
+    "uncertainties": [
+      "输入摘要与正文摘录内容被截断，未提供 OpenShell 的具体功能、发布时间或可用状态。",
+      "缺失信息中未明确 OpenShell 是产品、开源项目还是实验性工具。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "新增的 System One 评分 API（PR #18606）与基准测试改用 HumanEval patch prompts（PR #17480）两项改动同时出现在该版本中，表明 Ollama 正在补齐评估与评分能力，而非仅聚焦推理与拉取链路。",
+      "api: deprecate typical_p 属于接口层面的破坏性调整信号，使用该参数的调用方可能需要在后续版本迁移。",
+      "mlx 拉取卡顿重试加以上限并由看门狗中断，指向 macOS/MLX 路径下的拉取稳定性问题修复方向。"
+    ],
+    "canonical_title": "Ollama 发布 v0.35.0-rc1 预发布版本，引入 System One 评分 API 并弃用 typical_p 参数",
+    "category": "open_source_ai",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "Ollama",
+      "GitHub"
+    ],
+    "facts": [
+      "Ollama 在 GitHub 上发布了 v0.35.0-rc1 预发布版本，对应仓库 ollama/ollama。",
+      "该版本变更日志中列出的改动包括：app 启动时同步 macOS 更新菜单与图标（PR #18622）、延迟 Settings 模型发现（PR #18598）、将云设置测试与 Windows 用户配置隔离（PR #18626）、API 层面弃用 typical_p（PR #18627）、基准测试改用 HumanEval patch prompts（PR #17480）、新增 System One 评分 API（PR #18606）、mlx 拉取卡顿重试增加上限并允许看门狗中断（PR #18625）。",
+      "该版本完整变更对比链接为 https://github.com/ollama/ollama/compare/v0.34.4...v0.35.0-rc1。",
+      "发布信息来自仓库 ollama/ollama 的 GitHub Release 页面，标记为 official_primary 来源。"
+    ],
+    "id": "story-c47d427216a0a68e3258",
+    "importance_score": 0.38,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.35.0-rc1",
+    "product_names": [
+      "ollama",
+      "System One scoring API"
+    ],
+    "published_at": "2026-09-28T21:23:22Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-1b779e36ded287268031"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T21:23:22Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1b779e36ded287268031",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.35.0",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.35.0-rc1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.35.0-rc1"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入中未给出 v0.35.0 正式版（非 rc）的发布时间或计划。",
+      "typical_p 弃用后的具体迁移路径与替代参数未在变更日志摘要中说明。",
+      "System One 评分 API 的调用方式、适用范围与是否对外稳定开放尚不清楚。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "报道未指明具体模型名称、放弃决定的时间点或所涉安全顾虑的具体性质，因此无法判断该事件属于模型发布前的内部筛选，还是已对外公布计划的撤回。"
+    ],
+    "canonical_title": "OpenAI据报因安全顾虑放弃某模型",
+    "category": "ai_models",
+    "credibility_score": 0.32,
+    "entity_names": [
+      "OpenAI",
+      "Wall Street Journal"
+    ],
+    "facts": [
+      "TechCrunch AI 于 2026-09-28 报道，OpenAI 据报因安全顾虑放弃一款模型。",
+      "报道称，OpenAI 一位高管向《华尔街日报》表示，涉事模型在遵循指令方面表现不佳。"
+    ],
+    "id": "story-d38f43930a9b148d57b2",
+    "importance_score": 0.55,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/",
+    "product_names": [],
+    "published_at": "2026-09-28T23:39:20Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-97a055038b0de18e8e86"
+    ],
+    "source_refs": [
+      {
+        "author": "Lucas Ropek",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T23:39:20Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-97a055038b0de18e8e86",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI reportedly ditches model over safety concerns",
+        "url": "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/28/openai-reportedly-ditches-model-over-safety-concerns/"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "ai_models",
+      "ai_safety"
+    ],
+    "uncertainties": [
+      "涉事模型的具体名称、版本或代号未知。",
+      "该模型被放弃的决定由谁做出、何时做出尚不明确。",
+      "“安全顾虑”与“遵循指令表现不佳”之间的具体关联未被说明。",
+      "TechCrunch 的报道转述《华尔街日报》的匿名高管说法，OpenAI 官方尚未确认。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "此举可能意味着 Hugging Face 将加强对 MLX 生态的投入，把 oMLX 相关的本地推理与模型运行支持纳入其平台或社区方向。"
+    ],
+    "canonical_title": "oMLX 创始人兼维护者 Jun Kim 加入 Hugging Face，支持 MLX 社区",
+    "category": "人才与社区",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "Jun Kim",
+      "Hugging Face",
+      "oMLX",
+      "MLX"
+    ],
+    "facts": [
+      "Hugging Face 官方博客于 2026-09-22 发布公告：oMLX 创始人兼维护者 Jun Kim 加入 Hugging Face，以支持 MLX 社区。"
+    ],
+    "id": "story-e21e36a6b5a5e0579997",
+    "importance_score": 0.35,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://huggingface.co/blog/omlx",
+    "product_names": [
+      "oMLX",
+      "MLX"
+    ],
+    "published_at": "2026-09-22T00:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-6b3083011aeb49b1cc1d"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-22T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6b3083011aeb49b1cc1d",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Jun Kim, oMLX creator and maintainer, joins Hugging Face to support the MLX community",
+        "url": "https://huggingface.co/blog/omlx"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/omlx"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "Jun Kim 在 Hugging Face 的具体职责、团队归属及 oMLX 项目后续维护模式尚未在现有信息中说明。",
+      "Hugging Face 对 MLX 社区的具体支持形式与资源投入规模尚不明确。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "该发布主题属于通用计算机使用智能体（generalist computer-use agents）方向，与 ai_models、ai_infrastructure、open_source_ai 等候选主题相关。"
+    ],
+    "canonical_title": "Holo4：面向通用计算机使用智能体的模型发布",
+    "category": "ai_models",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Hcompany"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了由 Hcompany 撰写的文章《Holo4: powering generalist computer-use agents》。",
+      "该条目被标记为官方一手来源（official_primary），陈述类型为事实性公告（factual_announcement），发布日期为 2026-09-28。"
+    ],
+    "id": "story-6bed12bb75ffdb4c6af3",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/Hcompany/holo4",
+    "product_names": [
+      "Holo4"
+    ],
+    "published_at": "2026-09-28T09:44:05Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-09d1d26fa19dd694ec40"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T09:44:05Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-09d1d26fa19dd694ec40",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Holo4: powering generalist computer-use agents",
+        "url": "https://huggingface.co/blog/Hcompany/holo4"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/Hcompany/holo4"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "computer-use agents",
+      "generalist agents",
+      "open source AI"
+    ],
+    "uncertainties": [
+      "输入内容摘要与正文摘录均为空，Holo4 的具体能力、参数规模、开放范围及可用状态无法从现有输入确认。",
+      "除标题外，无法确认 Holo4 与 Hcompany 之外的其他实体、产品或项目名称。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  },
+  {
+    "analysis": [
+      "该公告属于官方 changelog，说明 GitHub 正在推进对 GitHub Enterprise Cloud 自托管运行器版本的下限管理；但输入内容未给出新的完整执行日期，无法判断延期幅度或影响范围。"
+    ],
+    "canonical_title": "GitHub 调整 GitHub Enterprise Cloud 自托管运行器最低版本要求的强制执行日期",
+    "category": "developer_platform",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "GitHub",
+      "GitHub Actions",
+      "GitHub Enterprise Cloud"
+    ],
+    "facts": [
+      "GitHub 变更了 GitHub Enterprise Cloud 上 GitHub Actions 自托管运行器最低版本要求的强制执行日期。",
+      "该变更于 2026 年 9 月 28 日（星期一）发布。",
+      "根据 GitHub Changelog 摘要，完整强制执行现在开始……（具体时间未在提供内容中给出）。"
+    ],
+    "id": "story-d46584300e67e7dbb978",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved",
+    "product_names": [
+      "GitHub Actions",
+      "self-hosted runners"
+    ],
+    "published_at": "2026-09-28T19:22:46Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-1d09516522abfde5d3cf"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-28T23:55:10.152523Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-28T19:22:46Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1d09516522abfde5d3cf",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Self-hosted runner version enforcement date has moved",
+        "url": "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-28-self-hosted-runner-version-enforcement-date-has-moved"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "新的完整强制执行开始日期在提供的内容中被截断，未明确具体日期。",
+      "最低版本要求的具体版本号未在输入中说明。",
+      "是否适用于 GitHub Enterprise Server 或其他计划未在输入中说明。"
+    ],
+    "updated_at": "2026-09-28T23:55:54.996820Z"
+  }
+]

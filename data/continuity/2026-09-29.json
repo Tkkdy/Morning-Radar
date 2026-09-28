@@ -1,0 +1,139 @@
+{
+  "date": "2026-09-29",
+  "generated_at": "2026-09-28T23:55:54.996820Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 OpenAI 或《华尔街日报》是否进一步披露被取消模型的具体名称、代号或发布时间，以及 OpenAI 官方是否对该报道作出回应。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-09-28T23:55:54.996820Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-29",
+          "story_id": "story-38fe48d7eb457eeef3b9"
+        },
+        {
+          "date": "2026-09-29",
+          "story_id": "story-d38f43930a9b148d57b2"
+        }
+      ],
+      "topic_anchors": [
+        "模型发布取消",
+        "AI 安全"
+      ],
+      "watch_id": "watch-253a3fcd181fc1e9278f"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 NVIDIA 是否公布 OpenShell 的具体功能、开源许可与可用状态，以及开放 Agent 安全平台是否提供可下载的实现或代码仓库。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "OpenShell",
+        "NVIDIA Open Agent Safety Platform"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-28T23:55:54.996820Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-29",
+          "story_id": "story-33336e74d93cfbbc3582"
+        },
+        {
+          "date": "2026-09-29",
+          "story_id": "story-6c13a2f4ab9cd0d53e03"
+        }
+      ],
+      "topic_anchors": [
+        "AI 智能体",
+        "运行时控制",
+        "agent_safety",
+        "in_silicon_agent_monitoring"
+      ],
+      "watch_id": "watch-ab83d30136a7ebeb13e6"
+    },
+    {
+      "entity_anchors": [
+        "Ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Ollama v0.35.0 正式版（非 rc）是否发布，以及 System One 评分 API 是否在该版本中保持并公开调用方式。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ollama",
+        "System One scoring API"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-28T23:55:54.996820Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-29",
+          "story_id": "story-c47d427216a0a68e3258"
+        }
+      ],
+      "topic_anchors": [
+        "ai_infrastructure",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-4a0aaa6a11bef3b2fc23"
+    },
+    {
+      "entity_anchors": [
+        "Ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Ollama 弃用 typical_p 后是否给出替代参数或迁移指引，调用方是否出现适配动作。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ollama"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-28T23:55:54.996820Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-29",
+          "story_id": "story-c47d427216a0a68e3258"
+        }
+      ],
+      "topic_anchors": [
+        "ai_infrastructure"
+      ],
+      "watch_id": "watch-fab0e1c8eb4574698ad6"
+    },
+    {
+      "entity_anchors": [
+        "Jun Kim",
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Jun Kim 加入后 Hugging Face 在 MLX 社区的具体支持动作，以及 oMLX 项目的后续维护状态。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "oMLX",
+        "MLX"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-28T23:55:54.996820Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-29",
+          "story_id": "story-e21e36a6b5a5e0579997"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-342b3cc0255446067f6d"
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Anthropic 发布 Claude Sonnet 5.5，官方称运行速度快 30%+、多数工作成本最多降低 30%，定价与 Sonnet 5 相同但在各项基准上优于它；同时该模型在“max”思考强度下出现与 Opus 5.5 相同的缺陷——为画鹈鹕骑自行车消耗 128,000 tokens（花费 1.28 美元）后耗尽 token，未能生成 SVG。",
+    "id": "radar-08585eae2e4b745183b5",
+    "missing_evidence": [
+      "Anthropic 官方发布页面或公告原文未被抓取，速度与成本数字仅来自二手转述",
+      "基准测试结果缺少独立复现数据",
+      "pelican SVG 失败案例的完整记录（提示词、具体设置、失败截图）被截断"
+    ],
+    "observed_at": "2026-09-28T23:55:10.152523Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b3f30a7d2d0e3a0cc714",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/28/claude-sonnet-5-5/"
+      }
+    ],
+    "uncertainty": "仅有单一从业者博客来源，官方声明与基准优势未经独立验证；所述 128,000 tokens 与 1.28 美元成本细节来自被截断的片段。",
+    "why_notable": "这是新模型发布信息与一线实践者实测缺陷的组合：不仅是厂商宣称的性能/价格改进，还给出了可用于验证的具体失败模式（高思考预算下耗尽 token 仍无法完成简单生成任务），对使用者的成本与可靠性预期有直接参考价值。"
+  },
+  {
+    "claim": "据 WSJ（经 Bloomberg 转述）报道，OpenAI 因安全顾虑取消了一款最新模型的发布。",
+    "id": "radar-4ff0457a5e74bb9ba117",
+    "missing_evidence": [
+      "Bloomberg/WSJ 原文正文与具体措辞（内容缺失，仅有标题）",
+      "OpenAI 官方回应或确认",
+      "被取消模型的具体身份、时间线与安全顾虑细节"
+    ],
+    "observed_at": "2026-09-28T23:55:10.152523Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-3a9ec931884880ba85f5",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.bloomberg.com/news/articles/2026-09-28/openai-scrapped-latest-model-release-over-safety-fears-wsj-says"
+      }
+    ],
+    "uncertainty": "仅有新闻标题与 HN 讨论链接，无正文内容；二手转述链条为 WSJ→Bloomberg→HN，具体事实与准确性均未核实。",
+    "why_notable": "若属实，这是头部 AI 公司因安全评估而调整模型发布节奏的重要信号，对理解前沿模型发布策略与安全治理有直接意义。"
+  }
+]

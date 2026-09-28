@@ -1,0 +1,123 @@
+{
+  "date": "2026-09-29",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认 Claude Sonnet 5.5 进入 Copilot，属编码助手模型供应链事实，值得知道但无机制新意。",
+      "retain_for_trends": true,
+      "story_id": "story-c67419fec6596756d1ba",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-model-supply-landscape"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "来源仅为 HN 传递的未证实传闻，无可验证细节，与另一同类条目重复。",
+      "retain_for_trends": false,
+      "story_id": "story-38fe48d7eb457eeef3b9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA 官方发布 agent 安全监控参考平台，可作为 agent 运行时安全体系演进的证据。",
+      "retain_for_trends": true,
+      "story_id": "story-6c13a2f4ab9cd0d53e03",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-runtime-safety-monitoring"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "OpenShell 与同日 NVIDIA 安全平台同向，补充 agent 运行时控制这一侧面。",
+      "retain_for_trends": true,
+      "story_id": "story-33336e74d93cfbbc3582",
+      "support_for_story_id": "story-6c13a2f4ab9cd0d53e03",
+      "trend_links": [
+        "agent-runtime-safety-monitoring"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Ollama 预发布新增评分 API 并弃用 typical_p，对本地推理工具链使用者有迁移意义。",
+      "retain_for_trends": true,
+      "story_id": "story-c47d427216a0a68e3258",
+      "support_for_story_id": null,
+      "trend_links": [
+        "local-inference-runtime-eval-integration",
+        "ollama-api-breaking-changes"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "TechCrunch 转述 WSJ 的单一匿名消息，只能作为发布前安全筛选机制的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-d38f43930a9b148d57b2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-release-safety-gating"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方人事公告，可作 MLX 生态投入信号，但无具体职责与资源细节。",
+      "retain_for_trends": true,
+      "story_id": "story-e21e36a6b5a5e0579997",
+      "support_for_story_id": null,
+      "trend_links": [
+        "mlx-local-inference-ecosystem-investment"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "除标题外无能力、许可或可用性信息，无法支撑任何趋势判断。",
+      "retain_for_trends": false,
+      "story_id": "story-6bed12bb75ffdb4c6af3",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅调整自托管运行器强制日期且新日期缺失，属普通平台维护通知。",
+      "retain_for_trends": false,
+      "story_id": "story-d46584300e67e7dbb978",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-28T23:55:54.996820Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

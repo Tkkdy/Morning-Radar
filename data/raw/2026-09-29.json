@@ -37,6 +37,7 @@
     "id": "item-7ba7170e114ec367c0ae",
     "language": "en-us",
     "metadata": {
+      "content_version": "77b33012e0db186d0c55",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-1d09516522abfde5d3cf",
     "language": "en-US",
     "metadata": {
+      "content_version": "8271f3061de7f1e1330f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-09d1d26fa19dd694ec40",
     "language": "en-US",
     "metadata": {
+      "content_version": "933f33f86ea2c3e8d790",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-3de76f3363411ee9ff7d",
     "language": null,
     "metadata": {
+      "content_version": "7a1247bc458b91e5118a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-97a055038b0de18e8e86",
     "language": "en-US",
     "metadata": {
+      "content_version": "542a6b222c2c4ed0a7b6",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +284,7 @@
     "id": "item-b3f30a7d2d0e3a0cc714",
     "language": "en-us",
     "metadata": {
+      "content_version": "a6ef03d7bda69d5eef1f",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +407,7 @@
     "id": "item-469712811c22e040083a",
     "language": "en-US",
     "metadata": {
+      "content_version": "11907dd481d9be78a306",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +469,7 @@
     "id": "item-d1721140685dd934b3f2",
     "language": null,
     "metadata": {
+      "content_version": "3584575ea12c8c5967b9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1281,6 +1289,7 @@
     "id": "item-a068c50324a9ff73a939",
     "language": "en-us",
     "metadata": {
+      "content_version": "898a8ac5ee54808c40f3",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1615,6 +1624,7 @@
     "id": "item-bb331b54f566e32ba209",
     "language": "en-us",
     "metadata": {
+      "content_version": "e6e1e1eab9ebfd28e48e",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1767,6 +1777,7 @@
     "id": "item-6b3083011aeb49b1cc1d",
     "language": "en-US",
     "metadata": {
+      "content_version": "68d1336e40a086dcd523",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1949,6 +1960,7 @@
     "id": "item-f60e0a4876d679877061",
     "language": "en-us",
     "metadata": {
+      "content_version": "16ef0fd02e95527a633f",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -73856,6 +73868,7 @@
     "id": "item-1b779e36ded287268031",
     "language": "en",
     "metadata": {
+      "content_version": "2b4a0fea6720c7348ee2",
       "data_anomaly": false,
       "forks": 18032,
       "official": true,
@@ -75128,6 +75141,7 @@
     "metadata": {
       "comments": 447,
       "community_signal": true,
+      "content_version": "30ee6ef6cdfeb0953185",
       "discussion_url": "https://news.ycombinator.com/item?id=49872723",
       "official": false,
       "original_url": "https://colo.to/nvidia-stock-narrative.html",
@@ -75218,11 +75232,19 @@
     "metadata": {
       "comments": 1,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49886005",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.reuters.com/business/finance/anthropics-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-2026-09-28/",
       "score": 7,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -75398,6 +75420,7 @@
     "metadata": {
       "comments": 382,
       "community_signal": true,
+      "content_version": "35f3e75f18ce2b097932",
       "discussion_url": "https://news.ycombinator.com/item?id=49875148",
       "official": false,
       "original_url": "https://thecivilian.co.nz/2026/09/27/ai-companies-in-fierce-arms-race-to-demonstrate-their-model-is-the-most-existentially-threatening-to-humanity/",
@@ -75750,6 +75773,7 @@
     "metadata": {
       "change_percent": -0.007828344241351832,
       "close": 338.3999938964844,
+      "content_version": "427540fb29546c57f49c",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 341.07000732421875,
@@ -76684,6 +76708,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "af324874fd0ab04ed217",
       "discovery_paths": [
         "hn_search:openai:OpenAI"
       ],
@@ -77174,38 +77199,6 @@
     "title": "Australia Senate Requests OpenAI, Anthropic CEOs Face AI Inquiry",
     "topic_candidates": [],
     "url": "https://www.bloomberg.com/news/articles/2026-09-27/australia-senate-requests-openai-anthropic-ceos-face-ai-inquiry"
-  },
-  {
-    "author": "6thbit",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-28T23:55:10.152523Z",
-    "id": "item-d48fc284f8f534fe5357",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49886005",
-      "hn_submission_time": 1790638859,
-      "lab_id": "anthropic",
-      "original_url": "https://www.reuters.com/business/finance/anthropics-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-2026-09-28/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-28T23:40:59Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic's IPO prospectus shows AI vision, surging costs",
-    "topic_candidates": [],
-    "url": "https://www.reuters.com/business/finance/anthropics-ipo-prospectus-shows-sweeping-ai-vision-surging-costs-2026-09-28/"
   },
   {
     "author": "ilamont",
