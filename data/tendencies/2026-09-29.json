@@ -1,0 +1,147 @@
+{
+  "date": "2026-09-29",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 Anthropic 的 Sonnet 模型主要通过自有 API、Claude 应用及 Amazon Bedrock 等渠道提供，未在 GitHub Copilot 中作为可选模型正式可用。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "单一事件簇显示 Anthropic 模型进入 GitHub Copilot，属于模型提供商与开发平台的产品集成；该变化方向明确但仅为一个 actor 的一个集成动作，缺乏跨 actor 或跨产品的结构性证据，因此保持 Candidate。",
+        "falsifier": "如果 Claude Sonnet 5.5 在 GitHub Copilot 中未被开发者实际采用，或 Anthropic 后续撤回该集成且未扩展至其他第三方开发平台，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Copilot 用户可在日常编码任务中选择 Claude Sonnet 5.5 完成功能构建和 bug 修复。",
+          "Anthropic 通过 GitHub 的开发者生态触达更广泛的编码助手用户，改变模型分发渠道。"
+        ],
+        "shared_mechanism": "前沿 AI 模型提供商通过与第三方开发平台集成，将模型能力嵌入开发者已有的编码工作流，使模型从自有产品扩展为多平台可调用的开发组件，改变开发者对模型的选择和使用方式。"
+      },
+      "claim": "Anthropic 的 Claude Sonnet 5.5 正在进入 GitHub Copilot 等第三方编码助手，推动前沿模型从自有界面扩展到多平台开发者工具链。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-c67419fec6596756d1ba"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-2aec36144e19ad6754fa",
+      "recorded_at": "2026-09-28T23:58:27.719768Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-be5a2d85a64f8c33b3c7"
+      ],
+      "tendency_id": "tendency-1c6a4b610b70640ea74c",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI 智能体的运行时控制和安全监控多由应用开发者自行实现或依赖第三方工具，NVIDIA 未以开放平台形式提供此类基础设施级能力。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个事件簇均来自 NVIDIA 官方博客，属于同一 actor 在同一方向上的连续产品发布；虽共享机制清晰且为官方一手来源，但缺乏其他 actor 或第三方采用证据，未达到 Emerging 所需的独立跨事件支撑，因此保持 Candidate。",
+        "falsifier": "如果 OpenShell 和开放 Agent 安全平台未被开发者或企业采用，或 NVIDIA 后续停止维护这些项目，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者可以通过 OpenShell 为 AI 智能体添加运行时控制，减少自行实现安全控制的成本。",
+          "NVIDIA 开放 Agent 安全平台为持续在芯 Agent 监控提供参考实现，可能影响智能体安全基础设施的标准方向。"
+        ],
+        "shared_mechanism": "NVIDIA 通过 OpenShell 提供运行时控制和开放 Agent 安全平台提供持续在芯监控，将 AI 智能体的安全与治理能力下沉到基础设施层，使智能体部署从依赖应用层自行实现控制转向平台级标准化能力。"
+      },
+      "claim": "NVIDIA 正在通过 OpenShell 和开放 Agent 安全平台，将 AI 智能体的运行时控制与持续安全监控产品化，推动智能体治理从应用层功能转向基础设施层能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-6c13a2f4ab9cd0d53e03"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-33336e74d93cfbbc3582"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-a3be6866992c6ab5401d",
+      "recorded_at": "2026-09-28T23:58:27.719768Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-a7a19678226c7f69e253",
+        "cluster-5d903e052e84c4391a66"
+      ],
+      "tendency_id": "tendency-5aa1f733b79af7c277ab",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿 AI 实验室较少公开因安全顾虑取消已接近发布的模型，智能体运行时控制也多由应用层自行处理。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "证据包含 OpenAI 取消发布的编辑报道与 NVIDIA 安全平台发布，但两者属于不同性质的事件，关联性较弱；OpenAI 取消发布为单一编辑来源且无官方确认，NVIDIA 平台为同一厂商发布，未形成同一机制的独立跨事件支撑，因此保持 Candidate。",
+        "falsifier": "如果 OpenAI 否认取消发布或该报道被证伪，且 NVIDIA 的智能体安全平台未被实际采用，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 取消模型发布可能影响开发者对模型可用时间表的预期。",
+          "NVIDIA 推出智能体安全与运行时控制平台，为企业部署智能体提供安全工具。"
+        ],
+        "shared_mechanism": "前沿 AI 模型的能力提升与安全可控性之间的张力正在改变发布决策：OpenAI 因指令遵循问题取消模型发布，NVIDIA 则通过 OpenShell 和安全平台提供运行时控制作为应对，两者共同表明安全考量开始直接影响模型的发布与部署方式。"
+      },
+      "claim": "OpenAI 因安全顾虑取消一款模型发布，而 NVIDIA 等厂商同期推出 Agent 安全与运行时控制平台，显示前沿 AI 实验室在模型部署中面临安全能力与发布节奏之间的张力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-d38f43930a9b148d57b2"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-6c13a2f4ab9cd0d53e03"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-33336e74d93cfbbc3582"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-7da6f5d19ae64f0f57d5",
+      "recorded_at": "2026-09-28T23:58:27.719768Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-013b7f8217342cf53b0f",
+        "cluster-a7a19678226c7f69e253",
+        "cluster-5d903e052e84c4391a66"
+      ],
+      "tendency_id": "tendency-52862425eba32636bbed",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-09-28T23:58:27.719768Z"
+}
