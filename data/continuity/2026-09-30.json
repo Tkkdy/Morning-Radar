@@ -1,0 +1,126 @@
+{
+  "date": "2026-09-30",
+  "generated_at": "2026-09-29T23:11:34.468540Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GPT-6.1 Sol 在 GitHub Copilot 中的推送范围是否扩大，以及是否披露上下文窗口、定价与不同 Copilot 计划中的可用性差异。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-6.1 Sol",
+        "GitHub Copilot"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-29T23:11:34.468540Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-30",
+          "story_id": "story-08215ecfc3e55a2a33a2"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding"
+      ],
+      "watch_id": "watch-ffb9d69af9ebdeaeabfd"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否进一步披露 DSX MaxLPS 的技术机制、量化收益与产品发布状态。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "DSX MaxLPS"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-29T23:11:34.468540Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-30",
+          "story_id": "story-930887b753f629a37f3e"
+        }
+      ],
+      "topic_anchors": [
+        "ai_infrastructure",
+        "ai_factory"
+      ],
+      "watch_id": "watch-33f8457134e063e3aa50"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA TensorRT Model Connect 项目是否公开更多设计细节与开源进展，包括并行工作、模型族隔离、可逆变更与 GPU 加持验证的具体做法。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "TensorRT Model Connect"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-29T23:11:34.468540Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-30",
+          "story_id": "story-1727c044bb6799e52aae"
+        }
+      ],
+      "topic_anchors": [
+        "ai_infrastructure",
+        "ai_models"
+      ],
+      "watch_id": "watch-b022753a5ba38bda1a58"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 前沿 AI 训练安全案例指南是否后续披露具体条款、适用范围，以及是否对外部训练合作伙伴形成约束。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-09-29T23:11:34.468540Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-30",
+          "story_id": "story-3b41198e82b537708355"
+        }
+      ],
+      "topic_anchors": [
+        "前沿 AI 训练",
+        "安全案例"
+      ],
+      "watch_id": "watch-c7d286b5c87db6f7a27f"
+    },
+    {
+      "entity_anchors": [
+        "Ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Ollama 是否在 v0.35.1 正式版中保留或调整“单次响应最多十次网络搜索”的上限，以及该变更对联网检索调用成本与响应延迟的实际影响。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Ollama v0.35.1-rc0"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-09-29T23:11:34.468540Z",
+      "source_story_refs": [
+        {
+          "date": "2026-09-30",
+          "story_id": "story-8d60de0ea3c069b3f997"
+        }
+      ],
+      "topic_anchors": [
+        "open_source_ai"
+      ],
+      "watch_id": "watch-4432609939c380b3273c"
+    }
+  ]
+}

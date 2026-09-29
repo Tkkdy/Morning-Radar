@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Anthropic Frontier Red Team 报告：在其内部 Binary Exploitation 基准中随机抽取的 100 个任务上，GLM-5.3 在 4% 的试验中实现了完整的控制流劫持，Claude Mythos Preview 为 6%，而更早的模型（Claude Opus 4.6、GLM-5.2）无一成功。",
+    "id": "radar-60fb4aeb5712b9b3c247",
+    "missing_evidence": [
+      "Anthropic Frontier Red Team 的原始报告或基准说明链接",
+      "基准任务构造方式、评分标准（“完整控制流劫持”的判定条件）与 100 个任务的抽样细节",
+      "除 Simon Willison 转引之外的独立来源或可复现实验记录"
+    ],
+    "observed_at": "2026-09-29T23:10:35.766180Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "test_experiment",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-91181d37d0594606800c",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/29/anthropic-frontier-red-team/"
+      }
+    ],
+    "uncertainty": "唯一依据是 Simon Willison 博客中一段被截断的引用，原始报告未抓取，评测方法与数字无法独立核实；文中模型名称与结果均按引文原样记录。",
+    "why_notable": "若属实，这是模型在自主漏洞利用上跨过“从零成功到可成功”阈值的具体量化证据，且开源权重模型（GLM-5.3）与前沿闭源模型差距已缩至几个百分点，对 AI 安全评估、开源模型滥用风险与红队实践都有直接参考价值。"
+  }
+]

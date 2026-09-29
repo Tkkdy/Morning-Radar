@@ -1,0 +1,39 @@
+[
+  {
+    "created_at": "2026-09-29T23:11:34.468540Z",
+    "explanation": "ai_infrastructure 连续 3 天保持或增加事件量，且有 8 个来源支持。",
+    "id": "signal-fee714c0baf6911b6657",
+    "metric_history": [
+      {
+        "date": "2026-09-28",
+        "story_count": 1
+      },
+      {
+        "date": "2026-09-29",
+        "story_count": 3
+      },
+      {
+        "date": "2026-09-30",
+        "story_count": 4
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 12,
+    "supporting_source_count": 8,
+    "supporting_story_ids": [
+      "story-d6c75324f321652dff80",
+      "story-6c13a2f4ab9cd0d53e03",
+      "story-c47d427216a0a68e3258",
+      "story-e21e36a6b5a5e0579997",
+      "story-930887b753f629a37f3e",
+      "story-1727c044bb6799e52aae",
+      "story-7e24fa74f8f6561b5fc1",
+      "story-8d60de0ea3c069b3f997"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-09-29T23:11:34.468540Z",
+    "window_days": 3
+  }
+]

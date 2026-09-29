@@ -1,0 +1,128 @@
+{
+  "date": "2026-09-30",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认最新模型进入 Copilot 智能体与终端工作流，直接影响开发工具链。",
+      "retain_for_trends": true,
+      "story_id": "story-08215ecfc3e55a2a33a2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-in-copilot-agentic-coding",
+        "coding-agent-model-integration-cadence"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "AI 工厂供电配置效率属结构性议题，但机制与收益缺乏可验证细节。",
+      "retain_for_trends": true,
+      "story_id": "story-930887b753f629a37f3e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-datacenter-power-provisioning-efficiency"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "工程经验总结可作编码代理设计模式弱信号，无具体可复现数据。",
+      "retain_for_trends": true,
+      "story_id": "story-1727c044bb6799e52aae",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-native-infra-design-patterns"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "前沿训练安全案例指南目前仅为框架性材料，宜作后台政策证据。",
+      "retain_for_trends": true,
+      "story_id": "story-3b41198e82b537708355",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-training-safety-case-frameworks"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "厂商单方面宣称新精度-效率前沿，缺少基线与复现，只作可验证线索。",
+      "retain_for_trends": true,
+      "story_id": "story-817eac0ad13e812945ec",
+      "support_for_story_id": null,
+      "trend_links": [
+        "tabular-prediction-accuracy-efficiency-benchmark-claims",
+        "vendor-benchmark-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "蓝图例行版本更新，成本降低无量化证据，无独立趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-7e24fa74f8f6561b5fc1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "政府术语行政令对技术无直接影响，但属可跟踪的政策表述信号。",
+      "retain_for_trends": true,
+      "story_id": "story-47020d42ef9785e8340d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "government-ai-terminology-policy-shift",
+        "ai-policy-branding-vs-technical-standard"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "本地推理运行时候选版含后端升级与能力声明，属开源本地部署跟踪点。",
+      "retain_for_trends": true,
+      "story_id": "story-8d60de0ea3c069b3f997",
+      "support_for_story_id": null,
+      "trend_links": [
+        "local-inference-runtime-backend-tracking",
+        "ollama-mlx-llamacpp-upgrade-cadence"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "来源为未验证社区线索，事实与价格宣称均不可核实，不保留为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-37a625958ee87e41b239",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-09-29T23:11:34.468540Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

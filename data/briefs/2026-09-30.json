@@ -1,0 +1,802 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-25d8c848ea71fce042b5",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/ai-native-by-design-lessons-learned-from-building-nvidia-tensorrt-model-connect/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章以工程经验总结的形式呈现，属于官方一手来源，可作为了解 NVIDIA 在 AI 原生开发与编码代理相关开源项目实践的参考。",
+            "摘要中提及的并行工作、模型族隔离、可逆变更和 GPU 加持验证等做法，如果文章有更详细展开，可作为 AI 基础设施项目设计模式的观察素材。"
+          ],
+          "canonical_title": "NVIDIA 开发者博客总结构建 TensorRT Model Connect 的 AI 原生工程经验",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布了由 Tanya Lenz 撰写的文章《AI Native by Design: Lessons Learned from Building NVIDIA TensorRT Model Connect》，发布时间为 2026-09-29T19:10:51Z。",
+            "文章摘要指出，该项目是一个围绕编码代理（coding agents）设计的开源项目，其设计受到并行工作、模型族隔离、可逆变更和 GPU 加持验证的影响。",
+            "文章源自 NVIDIA Developer Blog，属于官方一手来源。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/ai-native-by-design-lessons-learned-from-building-nvidia-tensorrt-model-connect/",
+          "product_names": [
+            "TensorRT Model Connect"
+          ],
+          "published_at": "2026-09-29T19:10:51Z",
+          "source_refs": [
+            {
+              "author": "Tanya Lenz",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-29T19:10:51Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-28e0aed416585dcf80ad",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "AI Native by Design: Lessons Learned from Building NVIDIA TensorRT Model Connect",
+              "url": "https://developer.nvidia.com/blog/ai-native-by-design-lessons-learned-from-building-nvidia-tensorrt-model-connect/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-1727c044bb6799e52aae",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure"
+          ],
+          "uncertainties": [
+            "文章正文并未在输入中给出，摘要仅提供高层关键词，TensorRT Model Connect 的具体功能、发布时间与开源状态尚不明确。",
+            "company_candidates 与 product_candidates 为空，TensorRT Model Connect 是否已作为独立产品发布或仅作为开源项目存在，无法从当前输入确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-1727c044bb6799e52aae"
+      ],
+      "title": "NVIDIA 分享构建 TensorRT Model Connect 的 AI 原生工程经验",
+      "uncertainty": "输入未给出文章正文，摘要仅提供高层关键词，TensorRT Model Connect 的具体功能、发布时间与开源状态尚不明确；其是否已作为独立产品发布或仅作为开源项目存在，无法从当前输入确认。",
+      "what_happened": "NVIDIA Developer Blog 发布由 Tanya Lenz 撰写的文章《AI Native by Design: Lessons Learned from Building NVIDIA TensorRT Model Connect》。文章摘要指出，该项目是一个围绕编码代理设计的开源项目，其设计受到并行工作、模型族隔离、可逆变更和 GPU 加持验证的影响。",
+      "why_it_matters": "该文章以官方工程经验总结的形式呈现，摘要中提及的并行工作、模型族隔离、可逆变更与 GPU 加持验证等做法，可作为观察 AI 基础设施项目与编码代理相关开源实践设计模式的素材。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-d22a1282b4568de91417",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/policy/1002468/trump-ai-superintelligence-executive-order-ai"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该行政令改变的是美国联邦政府公文与官方传播中的用词，而非技术标准或产品命名，因此对 AI 技术研发的直接影响有限，但可能影响政府文件、采购与对外表述的一致性。",
+            "停用“artificial intelligence”这一既有术语，可能给政府与产业界、学术界的沟通带来术语映射成本。"
+          ],
+          "canonical_title": "特朗普签署行政令，要求美国联邦政府将“人工智能”改称为“Super Intelligence”",
+          "category": "policy",
+          "entity_names": [
+            "Donald Trump",
+            "US executive branch",
+            "The Verge"
+          ],
+          "facts": [
+            "The Verge 报道称，美国总统 Donald Trump 签署了一项新的行政令。",
+            "该行政令要求美国行政部门的官方网站、政策文件和新闻稿今后只使用“Super Intelligence”这一称谓，不再承认“artificial intelligence”的存在。",
+            "报道引述 Trump 的说法：“The word super is the best word of all, and it's the simplest.”"
+          ],
+          "primary_source_url": "https://www.theverge.com/policy/1002468/trump-ai-superintelligence-executive-order-ai",
+          "product_names": [],
+          "published_at": "2026-09-29T18:25:45-04:00",
+          "source_refs": [
+            {
+              "author": "Lauren Feiner",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-29T18:25:45-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-1f2684ece82a4b595a8c",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Trump orders US government to call AI ‘Super Intelligence’",
+              "url": "https://www.theverge.com/policy/1002468/trump-ai-superintelligence-executive-order-ai"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-47020d42ef9785e8340d",
+          "topic_names": [
+            "ai_policy",
+            "government_terminology"
+          ],
+          "uncertainties": [
+            "该行政令的具体生效日期、适用范围细则（是否涵盖独立机构、承包商文件）尚不明确。",
+            "除 The Verge 报道外，输入中未提供白宫官方行政令原文或官方新闻稿链接，行政令文本细节无法独立核实。",
+            "该行政令是否具有法律约束力、是否存在豁免情形，输入未说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-47020d42ef9785e8340d"
+      ],
+      "title": "特朗普签署行政令，要求美国联邦政府将“人工智能”改称为“Super Intelligence”",
+      "uncertainty": "该行政令的具体生效日期、适用范围细则（是否涵盖独立机构、承包商文件）尚不明确；除 The Verge 报道外，输入中未提供白宫官方行政令原文或官方新闻稿链接，行政令文本细节无法独立核实；该行政令是否具有法律约束力、是否存在豁免情形，输入未说明。",
+      "what_happened": "The Verge 报道称，美国总统 Donald Trump 签署了一项新的行政令，要求美国行政部门的官方网站、政策文件和新闻稿今后只使用“Super Intelligence”这一称谓，不再承认“artificial intelligence”。报道引述 Trump 的说法：“The word super is the best word of all, and it's the simplest.”",
+      "why_it_matters": "该行政令改变的是美国联邦政府公文与官方传播中的用词，而非技术标准或产品命名，因此对 AI 技术研发的直接影响有限，但可能影响政府文件、采购与对外表述的一致性。停用“artificial intelligence”这一既有术语，可能给政府与产业界、学术界的沟通带来术语映射成本。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-85baa82a45e53ddb68bc",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/nvidia/kumo-tabular"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该条目仅由官方博客标题与元数据构成，缺少正文摘要；对精度和效率提升的具体幅度、基准测试与实验设置尚无法从该输入中验证。"
+          ],
+          "canonical_title": "NVIDIA 发布 Kumo Tabular，宣称在表格预测上树立新的精度-效率前沿",
+          "category": "ai_models",
+          "entity_names": [
+            "NVIDIA",
+            "Hugging Face"
+          ],
+          "facts": [
+            "NVIDIA 在 Hugging Face Blog 发布标题为 “NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction” 的文章。",
+            "该条目来源为 Hugging Face Blog，来源角色为 official_primary，发布时间为 2026-09-29T15:30:38Z。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/nvidia/kumo-tabular",
+          "product_names": [
+            "Kumo Tabular"
+          ],
+          "published_at": "2026-09-29T15:30:38Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-29T15:30:38Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-dc53fce90c6f36f5c727",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction",
+              "url": "https://huggingface.co/blog/nvidia/kumo-tabular"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-817eac0ad13e812945ec",
+          "topic_names": [
+            "表格预测",
+            "精度-效率权衡"
+          ],
+          "uncertainties": [
+            "Kumo Tabular 的具体模型架构、参数规模与训练数据未在输入中说明。",
+            "“新的精度-效率前沿”所对应的基线、评测数据集与评测指标未在输入中给出。",
+            "输入内容为空，无法确认该产品的可用状态、许可证与发布形态。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-817eac0ad13e812945ec"
+      ],
+      "title": "NVIDIA 发布 Kumo Tabular，宣称在表格预测上树立新的精度-效率前沿",
+      "uncertainty": "Kumo Tabular 的具体模型架构、参数规模与训练数据未在输入中说明；“新的精度-效率前沿”所对应的基线、评测数据集与评测指标未在输入中给出；输入内容为空，无法确认该产品的可用状态、许可证与发布形态。",
+      "what_happened": "NVIDIA 在 Hugging Face Blog 发布标题为 “NVIDIA Kumo Tabular Sets a New Accuracy-Efficiency Frontier for Tabular Prediction” 的文章。该条目来源为 Hugging Face Blog，来源角色为 official_primary，发布时间为 2026-09-29T15:30:38Z。",
+      "why_it_matters": "待补充：该条目仅由官方博客标题与元数据构成，缺少正文摘要，对精度和效率提升的具体幅度、基准测试与实验设置尚无法从该输入中验证，其实际影响有待更多信息确认。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-ffb589d3b9a70b9ef05c",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/lower-the-cost-of-building-and-running-visual-ai-agents-with-nvidia-vss-blueprint-3-3/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "NVIDIA VSS Blueprint 3.3 的定位是降低视觉 AI 智能体在构建和运行阶段的门槛与成本，这符合 NVIDIA 通过蓝图（Blueprint）形式推动视觉 AI 工作负载落地的既有路线。"
+          ],
+          "canonical_title": "NVIDIA 发布 VSS Blueprint 3.3，降低构建与运行视觉 AI 智能体的成本",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA",
+            "Elizabeth Goodman"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布了一篇由 Elizabeth Goodman 撰写的文章，标题为《Lower the Cost of Building and Running Visual AI Agents with NVIDIA VSS Blueprint 3.3》。",
+            "该文章于 2026-09-29T18:35:09Z 发布在 NVIDIA Developer Blog。",
+            "文章摘要指出，视觉语言模型已使构建能够以生产规模理解视频的视觉 AI 智能体成为可能，而更困难的问题是将这种能力转化为实际部署。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/lower-the-cost-of-building-and-running-visual-ai-agents-with-nvidia-vss-blueprint-3-3/",
+          "product_names": [
+            "NVIDIA VSS Blueprint 3.3"
+          ],
+          "published_at": "2026-09-29T18:35:09Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-29T18:35:09Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a50201dcd38e1ac4b162",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Lower the Cost of Building and Running Visual AI Agents with NVIDIA VSS Blueprint 3.3",
+              "url": "https://developer.nvidia.com/blog/lower-the-cost-of-building-and-running-visual-ai-agents-with-nvidia-vss-blueprint-3-3/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-7e24fa74f8f6561b5fc1",
+          "topic_names": [
+            "visual_ai_agents",
+            "vision_language_models",
+            "ai_infrastructure"
+          ],
+          "uncertainties": [
+            "VSS Blueprint 3.3 的具体功能、性能提升幅度、成本降低的量化指标以及是否正式开放使用，均未在提供的摘要与摘录中明确说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-7e24fa74f8f6561b5fc1"
+      ],
+      "title": "NVIDIA 发布 VSS Blueprint 3.3，降低构建与运行视觉 AI 智能体的成本",
+      "uncertainty": "VSS Blueprint 3.3 的具体功能、性能提升幅度、成本降低的量化指标以及是否正式开放使用，均未在提供的摘要与摘录中明确说明。",
+      "what_happened": "NVIDIA Developer Blog 发布了一篇由 Elizabeth Goodman 撰写的文章，标题为《Lower the Cost of Building and Running Visual AI Agents with NVIDIA VSS Blueprint 3.3》。该文章于 2026-09-29T18:35:09Z 发布在 NVIDIA Developer Blog。文章摘要指出，视觉语言模型已使构建能够以生产规模理解视频的视觉 AI 智能体成为可能，而更困难的问题是将这种能力转化为实际部署。",
+      "why_it_matters": "NVIDIA VSS Blueprint 3.3 的定位是降低视觉 AI 智能体在构建和运行阶段的门槛与成本，这符合 NVIDIA 通过蓝图（Blueprint）形式推动视觉 AI 工作负载落地的既有路线。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-26b6f2d461f44bb42e87",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/ollama/ollama/releases/tag/v0.35.1-rc0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "v0.35.1-rc0 是候选版本（rc0），并非稳定正式版，其功能与行为在正式发布前仍可能调整。",
+            "本次更新涉及推理后端（MLX、llama.cpp）版本升级与模型能力声明支持，表明该项目持续跟进底层推理框架的迭代。",
+            "单次响应允许最多十次网络搜索的改动，可能影响使用联网检索能力时的调用成本与响应延迟。"
+          ],
+          "canonical_title": "Ollama 发布 v0.35.1-rc0 候选版本",
+          "category": "开源AI基础设施",
+          "entity_names": [
+            "Ollama",
+            "GitHub",
+            "ParthSareen",
+            "dhiltgen"
+          ],
+          "facts": [
+            "Ollama 在 GitHub 上发布了 v0.35.1-rc0 版本。",
+            "该版本变更包括：允许每次响应最多进行十次网络搜索（PR #18602，作者 @ParthSareen）。",
+            "该版本变更包括：MLX 版本升级（PR #18651，作者 @dhiltgen）。",
+            "该版本变更包括：llama.cpp 版本升级至 b11232（PR #18652，作者 @dhiltgen）。",
+            "该版本变更包括：create 支持显式模型能力声明（PR #18708，作者 @dhiltgen）。",
+            "完整变更日志对比范围为 v0.35.0 至 v0.35.1-rc0。",
+            "该仓库当前有 181929 个 star、18044 个 fork、4120 个 open issues。"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.35.1-rc0",
+          "product_names": [
+            "Ollama v0.35.1-rc0",
+            "MLX",
+            "llama.cpp b11232"
+          ],
+          "published_at": "2026-09-29T20:14:22Z",
+          "source_refs": [
+            {
+              "author": "github-actions[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-29T20:14:22Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-121946e928c2e8a76d63",
+              "source_date": null,
+              "source_name": "GitHub · ollama/ollama",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "ollama/ollama: v0.35.1",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.35.1-rc0"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-8d60de0ea3c069b3f997",
+          "topic_names": [
+            "ai_infrastructure",
+            "open_source_ai",
+            "ai_models"
+          ],
+          "uncertainties": [
+            "该候选版本的具体发布日期未在输入中提供，仅给出了发布时间戳 2026-09-29T20:14:22Z。",
+            "输入未说明这些变更对最终用户可见行为的具体影响程度。",
+            "输入未说明 v0.35.1 正式版的计划发布时间。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8d60de0ea3c069b3f997"
+      ],
+      "title": "Ollama 发布 v0.35.1-rc0 候选版本",
+      "uncertainty": "该候选版本的具体发布日期未在输入中提供，仅给出了发布时间戳 2026-09-29T20:14:22Z；输入未说明这些变更对最终用户可见行为的具体影响程度；输入未说明 v0.35.1 正式版的计划发布时间。",
+      "what_happened": "Ollama 在 GitHub 上发布了 v0.35.1-rc0 版本。该版本变更包括：允许每次响应最多进行十次网络搜索（PR #18602，作者 @ParthSareen）；MLX 版本升级（PR #18651，作者 @dhiltgen）；llama.cpp 版本升级至 b11232（PR #18652，作者 @dhiltgen）；create 支持显式模型能力声明（PR #18708，作者 @dhiltgen）。完整变更日志对比范围为 v0.35.0 至 v0.35.1-rc0。",
+      "why_it_matters": "v0.35.1-rc0 是候选版本（rc0），并非稳定正式版，其功能与行为在正式发布前仍可能调整。本次更新涉及推理后端（MLX、llama.cpp）版本升级与模型能力声明支持，表明该项目持续跟进底层推理框架的迭代。单次响应允许最多十次网络搜索的改动，可能影响使用联网检索能力时的调用成本与响应延迟。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-09-30",
+  "developer_discussions": [],
+  "direction_observation": "AI 基础设施是过去三天持续升温的单一主题：该主题在 2026-09-28 至 2026-09-30 的事件量从 1 增至 4，并获 8 个来源、12 家公司共同支持，显示关注度跨日扩散而非单点事件。",
+  "generated_at": "2026-09-29T23:11:34.468540Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "Anthropic Frontier Red Team 报告：在其内部 Binary Exploitation 基准中随机抽取的 100 个任务上，GLM-5.3 在 4% 的试验中实现了完整的控制流劫持，Claude Mythos Preview 为 6%，而更早的模型（Claude Opus 4.6、GLM-5.2）无一成功。",
+      "id": "radar-60fb4aeb5712b9b3c247",
+      "missing_evidence": [
+        "Anthropic Frontier Red Team 的原始报告或基准说明链接",
+        "基准任务构造方式、评分标准（“完整控制流劫持”的判定条件）与 100 个任务的抽样细节",
+        "除 Simon Willison 转引之外的独立来源或可复现实验记录"
+      ],
+      "observed_at": "2026-09-29T23:10:35.766180Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "test_experiment",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-91181d37d0594606800c",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Sep/29/anthropic-frontier-red-team/"
+        }
+      ],
+      "uncertainty": "唯一依据是 Simon Willison 博客中一段被截断的引用，原始报告未抓取，评测方法与数字无法独立核实；文中模型名称与结果均按引文原样记录。",
+      "why_notable": "若属实，这是模型在自主漏洞利用上跨过“从零成功到可成功”阈值的具体量化证据，且开源权重模型（GLM-5.3）与前沿闭源模型差距已缩至几个百分点，对 AI 安全评估、开源模型滥用风险与红队实践都有直接参考价值。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2603,
+    "ai_brief_batches": 2,
+    "ai_brief_item_fallbacks": 0,
+    "ai_brief_recovery_attempts": 0,
+    "ai_brief_recovery_successes": 0,
+    "ai_brief_story_inputs": 8,
+    "ai_classify_completion_tokens": 1192,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 4926,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 17231,
+    "ai_direction_observation_completion_tokens": 998,
+    "ai_direction_observation_finish_stop": 1,
+    "ai_direction_observation_prompt_tokens": 663,
+    "ai_direction_observation_reasoning_tokens": 746,
+    "ai_evaluate_editorial_completion_tokens": 815,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 7740,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 108696,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3879,
+    "ai_merge_story_finish_stop": 9,
+    "ai_merge_story_prompt_tokens": 8252,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 53191,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 4254,
+    "ai_resolve_continuity_completion_tokens": 1232,
+    "ai_resolve_continuity_finish_stop": 3,
+    "ai_resolve_continuity_prompt_tokens": 8854,
+    "ai_resolve_continuity_reasoning_tokens": 950,
+    "ai_resolve_research_cases_completion_tokens": 3924,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 3055,
+    "ai_resolve_research_cases_reasoning_tokens": 2558,
+    "ai_score_story_completion_tokens": 1443,
+    "ai_score_story_finish_stop": 9,
+    "ai_score_story_prompt_tokens": 10641,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 3748,
+    "ai_write_brief_finish_stop": 2,
+    "ai_write_brief_prompt_tokens": 9060,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 17231,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 16,
+    "continuity_character_budget_available": 12092,
+    "continuity_input_chars": 11647,
+    "continuity_judgement_inputs": 2,
+    "continuity_logical_ai_calls": 4,
+    "continuity_network_requests": 4,
+    "continuity_relation_inputs": 2,
+    "continuity_watch_inputs": 2,
+    "direction_signal_inputs": 1,
+    "dry_run": false,
+    "editorial_decisions": 9,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fast_continuity_degraded": 0,
+    "fixture_mode": false,
+    "historical_story_candidates": 172,
+    "judgement_candidates": 2,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 27,
+    "logical_ai_tasks": 27,
+    "main_brief_items": 8,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 27,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 53191,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 1,
+    "radar_signals_displayed": 1,
+    "radar_signals_generated": 1,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 4254,
+    "recent_24h": 165,
+    "relation_ai_inputs": 2,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 2,
+    "relation_unresolved": 14,
+    "relations_confirmed": 0,
+    "relations_rejected": 2,
+    "relations_unresolved": 14,
+    "research_cases": 5,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 7585,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 3,
+    "research_unknown_cases": 0,
+    "research_unresolved": 4,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 1,
+    "stories": 9,
+    "story_candidate_input": 13,
+    "structured_watches_opened": 5,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 8,
+    "total_displayed_items": 8,
+    "watch_inputs": 2,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-8feaafd512239fa602dc",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将最新模型接入 GitHub Copilot 并明确支持智能体编码与终端工作流，表明 GitHub 正在强化 Copilot 在多步骤自主编码场景中的能力。",
+            "公告表述为“正式可用并逐步推送”，说明该能力可能先面向部分用户开放，再逐步扩大范围。"
+          ],
+          "canonical_title": "GPT-6.1 Sol 在 GitHub Copilot 中正式可用",
+          "category": "ai_coding",
+          "entity_names": [
+            "OpenAI",
+            "GitHub",
+            "GitHub Copilot"
+          ],
+          "facts": [
+            "GitHub 官方更新日志显示，GPT-6.1 Sol 是 OpenAI 的最新模型，现已正式可用（generally available），并正在 GitHub Copilot 中逐步推送。",
+            "根据该更新日志，用户可在 GitHub Copilot 的智能体编码（agentic coding）和终端工作流中使用 GPT-6.1 Sol，其具备较强的多步骤能力。",
+            "该公告由 GitHub Changelog 于 2026-09-29 发布，作者为 Allison。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot",
+          "product_names": [
+            "GPT-6.1 Sol",
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-09-29T17:02:27Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-29T17:02:27Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-27fa41ed5cc26a14950e",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GPT-6.1 Sol in GitHub Copilot",
+              "url": "https://github.blog/changelog/2026-09-29-gpt-6-1-sol-in-github-copilot"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-08215ecfc3e55a2a33a2",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "GitHub Copilot 中 GPT-6.1 Sol 的推送范围和完成时间尚不明确。",
+            "公告未披露该模型的具体参数、上下文窗口、定价或在不同 Copilot 计划中的可用性差异。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-08215ecfc3e55a2a33a2"
+      ],
+      "title": "GPT-6.1 Sol 在 GitHub Copilot 中正式可用",
+      "uncertainty": "推送范围和完成时间尚不明确；公告未披露该模型的参数、上下文窗口、定价，也未说明在不同 Copilot 计划中的可用性差异。",
+      "what_happened": "GitHub 更新日志显示，OpenAI 的最新模型 GPT-6.1 Sol 已正式可用，并正在 GitHub Copilot 中逐步推送。用户可在 Copilot 的智能体编码与终端工作流中使用该模型，其具备较强的多步骤能力。公告由 GitHub Changelog 于 2026 年 9 月 29 日发布，作者为 Allison。",
+      "why_it_matters": "将最新模型接入 Copilot 并明确支持智能体编码与终端工作流，意味着 GitHub 正在强化 Copilot 在多步骤自主编码场景中的能力，可能影响开发者对 Copilot 与竞品编码代理的使用选择。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-82cd3d4beee0e41699f3",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/how-nvidia-dsx-maxlps-maximizes-ai-factory-throughput-and-efficiency/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章将 AI 工厂的供电配置问题定义为“为 unlikely 的 GPU 全局峰值功耗时刻做预留”，并以此作为 DSX MaxLPS 价值主张的出发点。",
+            "从摘要逻辑看，DSX MaxLPS 的定位是提升 AI 工厂吞吐量与能效，与 topic_candidates 中的 ai_infrastructure 方向一致。"
+          ],
+          "canonical_title": "NVIDIA DSX MaxLPS 面向 AI 工厂吞吐与能效的优化方案",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布了由 Sarah McKenney 撰写的文章《How NVIDIA DSX MaxLPS Maximizes AI Factory Throughput and Efficiency》，发布时间为 2026-09-28T01:00:00Z。",
+            "文章摘要指出：AI 工厂通常按每个 GPU 都达到峰值功耗这一不太可能发生的时刻来配置供电，从而造成未使用功率即被闲置的产能。",
+            "NVIDIA Developer Blog 被标记为 official_primary 来源，官方属性为 true。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/how-nvidia-dsx-maxlps-maximizes-ai-factory-throughput-and-efficiency/",
+          "product_names": [
+            "DSX MaxLPS"
+          ],
+          "published_at": "2026-09-28T01:00:00Z",
+          "source_refs": [
+            {
+              "author": "Sarah McKenney",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-28T01:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ecbe218b01f6c3e2fb01",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "How NVIDIA DSX MaxLPS Maximizes AI Factory Throughput and Efficiency",
+              "url": "https://developer.nvidia.com/blog/how-nvidia-dsx-maxlps-maximizes-ai-factory-throughput-and-efficiency/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-930887b753f629a37f3e",
+          "topic_names": [
+            "ai_infrastructure",
+            "ai_factory"
+          ],
+          "uncertainties": [
+            "文章正文仅提供了截断的摘要内容，DSX MaxLPS 的具体技术机制、量化收益与适用条件无法从现有输入中确认。",
+            "输入未提供 NVIDIA DSX MaxLPS 的产品发布状态（是否已可用、处于预览或仅为概念），因此无法判断其成熟度。",
+            "company_candidates 与 product_candidates 字段为空，DSX MaxLPS 作为产品名仅来自标题与摘要文本。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-930887b753f629a37f3e"
+      ],
+      "title": "NVIDIA 介绍 DSX MaxLPS 面向 AI 工厂吞吐与能效的优化方案",
+      "uncertainty": "输入仅提供截断的摘要内容，DSX MaxLPS 的具体技术机制、量化收益与适用条件无法确认；产品发布状态（已可用、预览或概念）不明；DSX MaxLPS 作为产品名仅来自标题与摘要文本。",
+      "what_happened": "NVIDIA Developer Blog 发布文章《How NVIDIA DSX MaxLPS Maximizes AI Factory Throughput and Efficiency》，作者为 Sarah McKenney。文章摘要指出，AI 工厂通常按每个 GPU 都达到峰值功耗这一不太可能发生的时刻来配置供电，从而造成未使用功率被闲置的产能问题，并以此作为 DSX MaxLPS 价值主张的出发点。",
+      "why_it_matters": "该文章把 AI 工厂供电配置问题定义为为不太可能出现的 GPU 全局峰值功耗时刻做预留，指向提升 AI 工厂吞吐量与能效的方向，是观察 AI 基础设施能效优化的一个官方口径。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-56821313f197f4527e8e",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/towards-safety-cases-for-frontier-ai-training"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "作为官方一手发布，该指南可作为 OpenAI 在安全案例方向上的原始事实底座；其中“早期指南”的措辞表明这属于框架性初步材料，而非已落地的强制标准或已验证效果。",
+            "将技术保障、运营实践与失准事件调查并列，显示 OpenAI 把安全案例定位为覆盖事前防护、过程运行与事后调查的完整链路。"
+          ],
+          "canonical_title": "OpenAI 发布面向前沿 AI 训练的安全案例早期指南",
+          "category": "ai_safety",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 发布了关于前沿 AI 训练安全案例的早期指南。",
+            "该指南涵盖技术保障、运营实践以及失准事件调查。",
+            "该内容由 OpenAI News 于 2026-09-28T19:00:00Z 发布，来源类型为 RSS，来源角色为 official_primary。"
+          ],
+          "primary_source_url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training",
+          "product_names": [],
+          "published_at": "2026-09-28T19:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-09-29T23:10:35.766180Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-09-28T19:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-2fc54b690d7b20a2e143",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Towards safety cases for frontier AI training",
+              "url": "https://openai.com/index/towards-safety-cases-for-frontier-ai-training"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-3b41198e82b537708355",
+          "topic_names": [
+            "前沿 AI 训练",
+            "安全案例",
+            "技术保障",
+            "运营实践",
+            "失准事件调查"
+          ],
+          "uncertainties": [
+            "输入未提供指南的具体条款、适用范围、是否具有约束力，也未说明是否已对外部训练合作伙伴生效。",
+            "输入未说明该指南与既有安全框架、监管要求之间的关系。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-3b41198e82b537708355"
+      ],
+      "title": "OpenAI 发布面向前沿 AI 训练的安全案例早期指南",
+      "uncertainty": "输入未提供指南的具体条款、适用范围与是否具有约束力，也未说明是否已对外部训练合作伙伴生效，以及其与既有安全框架、监管要求之间的关系。",
+      "what_happened": "OpenAI 发布了关于前沿 AI 训练安全案例的早期指南，内容涵盖技术保障、运营实践以及失准事件调查。该内容由 OpenAI News 于 2026 年 9 月 28 日发布，来源角色为官方一手来源。",
+      "why_it_matters": "作为官方发布，该指南可作为 OpenAI 在安全案例方向上的原始事实底座；其中早期指南的措辞表明这属于框架性初步材料，而非已落地的强制标准或已验证效果。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "观察 GPT-6.1 Sol 在 GitHub Copilot 中的推送范围是否扩大，以及是否披露上下文窗口、定价与不同 Copilot 计划中的可用性差异。",
+    "观察 NVIDIA 是否进一步披露 DSX MaxLPS 的技术机制、量化收益与产品发布状态。",
+    "观察 NVIDIA TensorRT Model Connect 项目是否公开更多设计细节与开源进展，包括并行工作、模型族隔离、可逆变更与 GPU 加持验证的具体做法。",
+    "观察 OpenAI 前沿 AI 训练安全案例指南是否后续披露具体条款、适用范围，以及是否对外部训练合作伙伴形成约束。",
+    "观察 Ollama 是否在 v0.35.1 正式版中保留或调整“单次响应最多十次网络搜索”的上限，以及该变更对联网检索调用成本与响应延迟的实际影响。",
+    "观察 NVIDIA 是否公布 Kumo Tabular 的模型架构、参数量、评测数据集与基线，以及文中“新的精度-效率前沿”对应的可核验指标。",
+    "观察 NVIDIA 是否发布 VSS Blueprint 3.3 的完整功能清单与成本降低量化数据，并确认其是否正式开放使用。"
+  ]
+}

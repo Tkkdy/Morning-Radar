@@ -67,6 +67,7 @@
     "id": "item-20d614df3f96df84d10b",
     "language": "en-US",
     "metadata": {
+      "content_version": "6e435fb4f69c3cfd23a3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-dc53fce90c6f36f5c727",
     "language": "en-US",
     "metadata": {
+      "content_version": "25ce8a0e72705d965cf7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +130,7 @@
     "id": "item-28e0aed416585dcf80ad",
     "language": null,
     "metadata": {
+      "content_version": "0144e83ca3aabf77427e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -218,6 +221,7 @@
     "id": "item-1f2684ece82a4b595a8c",
     "language": "en-US",
     "metadata": {
+      "content_version": "60c4cc74586120a62075",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +283,7 @@
     "id": "item-91181d37d0594606800c",
     "language": "en-us",
     "metadata": {
+      "content_version": "213b081f00186cada576",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +406,7 @@
     "id": "item-d259a5a11ae20b4989eb",
     "language": "en-US",
     "metadata": {
+      "content_version": "cf3fbef26b2f5e3a1e97",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +468,7 @@
     "id": "item-a50201dcd38e1ac4b162",
     "language": null,
     "metadata": {
+      "content_version": "e52c9c7b5a699c4dc359",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -613,6 +620,7 @@
     "id": "item-0dc9ce3083b6cf682baf",
     "language": "en-us",
     "metadata": {
+      "content_version": "70dcf621496a4f148f4d",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -735,6 +743,7 @@
     "id": "item-27fa41ed5cc26a14950e",
     "language": "en-US",
     "metadata": {
+      "content_version": "dce3c68a83aee35bc7e3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1009,6 +1018,7 @@
     "id": "item-2fc54b690d7b20a2e143",
     "language": null,
     "metadata": {
+      "content_version": "7a0d29a09c3fbf9491cb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1281,6 +1291,7 @@
     "id": "item-1681d41fd145f3847f2a",
     "language": "en-us",
     "metadata": {
+      "content_version": "ed94ef78124be5fe5477",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1343,6 +1354,7 @@
     "id": "item-50d71cd52400f551c336",
     "language": null,
     "metadata": {
+      "content_version": "1922d921f5950a0e6135",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1464,6 +1476,7 @@
     "id": "item-ecbe218b01f6c3e2fb01",
     "language": null,
     "metadata": {
+      "content_version": "1915d737b1c792670324",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -74006,6 +74019,7 @@
     "id": "item-121946e928c2e8a76d63",
     "language": "en",
     "metadata": {
+      "content_version": "6d7e14c53e34dc53e39e",
       "data_anomaly": false,
       "forks": 18044,
       "official": true,
@@ -75188,11 +75202,20 @@
     "metadata": {
       "comments": 663,
       "community_signal": true,
+      "content_version": "146e4ac15e7f37271d7d",
+      "discovery_paths": [
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49896586",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
       "score": 730,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -75308,6 +75331,7 @@
     "metadata": {
       "comments": 644,
       "community_signal": true,
+      "content_version": "3080de6f3fe0bd1f65aa",
       "discussion_url": "https://news.ycombinator.com/item?id=49891295",
       "official": false,
       "original_url": "https://www.derekthompson.org/p/the-death-of-the-american-host",
@@ -75942,6 +75966,7 @@
     "metadata": {
       "change_percent": -0.012896952613532303,
       "close": 352.8399963378906,
+      "content_version": "7c56abef6f9d411260a8",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 357.45001220703125,
@@ -79900,38 +79925,6 @@
     "title": "GPT-6.1-Sol",
     "topic_candidates": [],
     "url": "https://developers.openai.com/api/docs/models/gpt-6.1-sol"
-  },
-  {
-    "author": "crorella",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-09-29T23:10:35.766180Z",
-    "id": "item-27064b9d25522de26b0a",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:GPT"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49896586",
-      "hn_submission_time": 1790701605,
-      "lab_id": "openai",
-      "original_url": "https://openai.com/index/introducing-gpt-6-1-sol/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-29T17:06:45Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "GPT 6.1 Sol: Near-Astra intelligence for a fifth of the price",
-    "topic_candidates": [],
-    "url": "https://openai.com/index/introducing-gpt-6-1-sol/"
   },
   {
     "author": "gmays",
