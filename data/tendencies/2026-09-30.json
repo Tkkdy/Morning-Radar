@@ -1,0 +1,89 @@
+{
+  "date": "2026-09-30",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前前沿模型的发布多聚焦于能力基准，运行时控制、安全案例和能效优化通常由应用层开发者自行处理，第三方编码助手对最新模型的支持也较滞后。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "证据簇虽指向同一大方向（模型能力工程化与运行时控制），但分别来自 OpenAI、NVIDIA、Anthropic 与 GitHub 的不同产品线，机制并不完全统一，且多为官方博客或 changelog，缺乏第三方采用证据。按规则不强行升级为 Emerging，仅作为新的 Candidate 内部观察。",
+        "falsifier": "如果 OpenAI 的安全案例指南未被开发者或企业采用，NVIDIA 的运行时与能效方案仅停留在官方博客而未落地，且 GitHub Copilot 中的新模型未被实际用于 agentic 工作流，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Copilot 用户可在 agentic coding 和终端工作流中使用 GPT-6.1 Sol，改变日常多步骤编码任务的执行方式。",
+          "OpenAI 发布安全案例早期指南，涵盖技术保障、运营实践与失准事件调查，可能影响前沿训练的合规与审查流程。",
+          "NVIDIA 通过 DSX MaxLPS 提出按实际功耗配置 AI 工厂供电，改变数据中心能效优化方向。",
+          "Claude Sonnet 5.5 进入 GitHub Copilot，使模型选择从单一厂商扩展到多平台开发者工具链。"
+        ],
+        "shared_mechanism": "前沿模型提供商正将模型能力从单一 API 调用重新包装为面向开发者的工程化工作流与运行时控制：OpenAI 发布前沿训练安全案例指南、NVIDIA 推出 DSX MaxLPS 与 TensorRT Model Connect 的 AI 原生工程实践，同时 GitHub Copilot 引入 OpenAI 与 Anthropic 新模型的 agentic coding 支持。这些动作共同把模型部署中的安全、能效和编码代理控制下沉为平台级能力，改变开发者构建和运行 AI 智能体的方式。"
+      },
+      "claim": "OpenAI、NVIDIA 与 Anthropic 等厂商正通过官方指南、运行时/安全平台和第三方编码工具集成，将前沿模型能力与智能体运行控制从单一模型 API 扩展为开发者可复用的工程化、安全化工作流。",
+      "counterevidence_cluster_ids": [
+        "cluster-450477a87d3a56b502fc"
+      ],
+      "counterevidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-38fe48d7eb457eeef3b9"
+          }
+        }
+      ],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-30",
+            "story_id": "story-3b41198e82b537708355"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-30",
+            "story_id": "story-930887b753f629a37f3e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-30",
+            "story_id": "story-1727c044bb6799e52aae"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-30",
+            "story_id": "story-08215ecfc3e55a2a33a2"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-09-29",
+            "story_id": "story-c67419fec6596756d1ba"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-a958f2c647e4deeee071",
+      "recorded_at": "2026-09-29T23:13:57.174841Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-c88121c6e445a2d7b92d",
+        "cluster-c98c6c4bf46efc2c6744",
+        "cluster-a75d1924151f2048950a",
+        "cluster-6eba6db5a134a04f41ad",
+        "cluster-be5a2d85a64f8c33b3c7"
+      ],
+      "tendency_id": "tendency-6e56702497264a6e985f",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-09-29T23:13:57.174841Z"
+}
