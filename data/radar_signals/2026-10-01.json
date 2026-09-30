@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "在一则关于『GPT 6.1 Sol：以五分之一价格获得接近 Astra 的智能』的 Hacker News 讨论中，Simon Willison 记录了他在 OpenAI DevDay 2026 主题演讲直播后对 GPT-6.1-Sol 做的 pelican 渲染测试，并表示其输出与 GPT-6 系列相比并无明显差异。",
+    "id": "radar-8c8535f37d20ddeb24d8",
+    "missing_evidence": [
+      "OpenAI 官方关于 GPT-6.1-Sol 的发布页、定价与能力说明",
+      "独立第三方基准测试结果",
+      "pelican 测试的具体输入、输出与对比图片的可访问存档"
+    ],
+    "observed_at": "2026-09-30T23:11:53.621618Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-2fd483a5ede3dbd83dd2",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Sep/29/hn-49898129/"
+      }
+    ],
+    "uncertainty": "现有片段仅为个人评论与测试转述，标题中的『接近 Astra 智能、五分之一价格』来自讨论帖标题而非经核实的官方数据，模型能力与定价均未获独立证实。",
+    "why_notable": "若属实，说明新一代模型在既定对比测试中的可观察行为与此前家族接近，同时价格大幅下降，属于模型迭代与性价比信号；且该观察来自长期做同类测试的实践者。"
+  }
+]

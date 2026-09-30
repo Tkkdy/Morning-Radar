@@ -1,0 +1,781 @@
+[
+  {
+    "analysis": [
+      "DevDay 2026 的发布范围横跨模型、应用入口、开发者工具与安全，显示 OpenAI 在平台化与开发者生态上继续加码。",
+      "将 GPT-6 Astra 与 Codex、API 并列提及，暗示模型能力与编程/接口产品可能是本次开发者大会的核心叙事线。"
+    ],
+    "canonical_title": "OpenAI 在 DevDay 2026 发布超过 20 项更新，包括 GPT-6 Astra、ChatGPT、Codex 与 API",
+    "category": "AI 产品与生态",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 官方发布 DevDay 2026 回顾，称包含超过 20 项发布。",
+      "发布内容覆盖 GPT-6 Astra、ChatGPT、Codex、API、安全以及面向构建者的新工具。",
+      "该回顾发布于 2026-09-29（官方来源 OpenAI News）。"
+    ],
+    "id": "story-687bf0cc4540b37086f7",
+    "importance_score": 0.85,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://openai.com/index/devday-2026-recap",
+    "product_names": [
+      "GPT-6 Astra",
+      "ChatGPT",
+      "Codex"
+    ],
+    "published_at": "2026-09-29T10:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-6071f63e21f6425413eb"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-29T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6071f63e21f6425413eb",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "DevDay 2026 Recap",
+        "url": "https://openai.com/index/devday-2026-recap"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/devday-2026-recap"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "DevDay 2026",
+      "AI 模型发布",
+      "开发者工具",
+      "API",
+      "安全"
+    ],
+    "uncertainties": [
+      "官方摘要未逐一列出 20 多项发布的具体内容，各条目细节需以官方原文为准。",
+      "GPT-6 Astra 的模型定位、可用范围与性能信息在现有输入中缺失。",
+      "Codex、API 与安全相关更新的具体变化未在输入中说明。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 发布 GPT-6.1 Sol",
+    "category": "ai_models",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了 GPT-6.1 Sol。",
+      "GPT-6.1 Sol 的 API 输入和输出 token 价格是 Astra 标准价格的五分之一。",
+      "GPT-6.1 Sol 被描述为面向编程、计算机使用和专业工作的 near-Astra 智能。"
+    ],
+    "id": "story-cf353e8c1e1d58f096e3",
+    "importance_score": 0.85,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/introducing-gpt-6-1-sol",
+    "product_names": [
+      "GPT-6.1 Sol",
+      "Astra"
+    ],
+    "published_at": "2026-09-29T10:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-d6b9f5e651b1891e950e"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-29T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d6b9f5e651b1891e950e",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing GPT-6.1 Sol",
+        "url": "https://openai.com/index/introducing-gpt-6-1-sol"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-gpt-6-1-sol"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "将模型访问限制为“受信任网络防御者”可能反映 Google 对 Gemini 4 Argon 双用途能力的谨慎态度，尤其在网络安全领域。"
+    ],
+    "canonical_title": "Google 发布 Gemini 4 Argon，仅限“受信任网络防御者”访问",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google",
+      "Google DeepMind"
+    ],
+    "facts": [
+      "Google 发布了其称为 Gemini 4 Argon 的下一代 AI 前沿模型。",
+      "Google DeepMind 高级副总裁兼首席 AI 架构师 Koray Kavukcuoglu 表示，该模型在真实世界软件工程、法律和金融等企业知识工作以及网络安全防御等复杂工作流中提供“前沿性能”。",
+      "Google 正在限制对该模型的访问。"
+    ],
+    "id": "story-0cf46bec8e15d1468108",
+    "importance_score": 0.7,
+    "novelty_score": 0.75,
+    "primary_source_url": "https://www.theverge.com/tech/1002980/google-gemini-4-argon",
+    "product_names": [
+      "Gemini 4 Argon"
+    ],
+    "published_at": "2026-09-30T16:41:41-04:00",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-b18259a085cce7754425"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T16:41:41-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b18259a085cce7754425",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google announces Gemini 4 and says it’s so capable that only ‘trusted cyber defenders’ can have it right now",
+        "url": "https://www.theverge.com/tech/1002980/google-gemini-4-argon"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1002980/google-gemini-4-argon"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 前沿模型",
+      "网络安全防御",
+      "企业知识工作"
+    ],
+    "uncertainties": [
+      "The Verge 报道未明确说明“受信任网络防御者”的具体定义或访问限制的持续时间。",
+      "该模型在软件工程、法律、金融和网络安全等领域的“前沿性能”声明缺乏独立验证。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "NVIDIA 发布 NeMo Relay，用于追踪 Agent Harness 行为",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA",
+      "William Markito Oliveira"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《Tracing Agent Harness Behavior with NVIDIA NeMo Relay》的文章，作者为 William Markito Oliveira，发布时间为 2026-09-30T16:00:00Z。",
+      "文章指出，Agent 可能完成任务但仍走低效路径，例如一次失败的搜索可能触发另一次搜索，一次被截断的文件读取可能导致某条命令去抓取内容。"
+    ],
+    "id": "story-c6f1083de701c4821d23",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/tracing-agent-harness-behavior-with-nvidia-nemo-relay/",
+    "product_names": [
+      "NeMo Relay"
+    ],
+    "published_at": "2026-09-30T16:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-ba8133a0e65d65f160a5"
+    ],
+    "source_refs": [
+      {
+        "author": "William Markito Oliveira",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ba8133a0e65d65f160a5",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Tracing Agent Harness Behavior with NVIDIA NeMo Relay",
+        "url": "https://developer.nvidia.com/blog/tracing-agent-harness-behavior-with-nvidia-nemo-relay/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/tracing-agent-harness-behavior-with-nvidia-nemo-relay/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "agent tracing",
+      "agent harness",
+      "AI infrastructure"
+    ],
+    "uncertainties": [
+      "除文章摘要与正文节选外，NeMo Relay 的具体功能、可用状态、集成方式和发布形态在输入中未给出更多细节。",
+      "输入未说明 NeMo Relay 是新产品发布、功能更新还是既有工具的用法介绍。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 通过 cuObject 和 SCADA Server SDK 扩展 AI 存储访问能力，可能意在将 GPU 计算生态与存储栈更紧密集成，降低 AI 工作负载访问高容量文件与对象存储的延迟与安全成本。",
+      "该发布面向 AI 基础设施工程师、存储开发者和云服务提供商，表明 NVIDIA 正在向数据存储层扩展其 AI 基础设施影响力。"
+    ],
+    "canonical_title": "NVIDIA 发布 cuObject 与 SCADA Server SDK，扩展 AI 存储访问能力",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇由 Harish Arora 撰写的文章，标题为“Expanding AI Storage Access with NVIDIA cuObject and the NVIDIA SCADA Server SDK”。",
+      "该文章于 2026-09-30T19:13:02Z 发布，来源为 NVIDIA Developer Blog，来源角色为 official_primary。",
+      "文章摘要指出，AI 基础设施工程师、存储开发者和云服务提供商需要快速且安全地访问高容量文件与对象存储以支持 AI。",
+      "文章提及的产品包括 NVIDIA cuObject 和 NVIDIA SCADA Server SDK。"
+    ],
+    "id": "story-3efa6f920991cba07079",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/expanding-ai-storage-access-with-nvidia-cuobject-and-the-nvidia-scada-server-sdk/",
+    "product_names": [
+      "NVIDIA cuObject",
+      "NVIDIA SCADA Server SDK"
+    ],
+    "published_at": "2026-09-30T19:13:02Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-7f13e679aeee10fa5f70"
+    ],
+    "source_refs": [
+      {
+        "author": "Harish Arora",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T19:13:02Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7f13e679aeee10fa5f70",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Expanding AI Storage Access with NVIDIA cuObject and the NVIDIA SCADA Server SDK",
+        "url": "https://developer.nvidia.com/blog/expanding-ai-storage-access-with-nvidia-cuobject-and-the-nvidia-scada-server-sdk/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/expanding-ai-storage-access-with-nvidia-cuobject-and-the-nvidia-scada-server-sdk/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 存储访问",
+      "AI 基础设施",
+      "文件与对象存储"
+    ],
+    "uncertainties": [
+      "输入内容仅包含标题、摘要和少量摘录，未提供 cuObject 与 SCADA Server SDK 的具体功能、可用性、版本或性能数据。",
+      "无法确认这两个产品是首次发布、功能更新还是既有的正式可用产品。",
+      "输入未说明 NVIDIA cuObject 和 NVIDIA SCADA Server SDK 的发布时间是否与文章发布时间一致。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "新增支出限额列表接口表明 SDK 在 API 层面扩展了成本/用量管理能力。",
+      "弃用 sonnet 4.5 意味着该模型在客户端层面的支持进入退场流程。"
+    ],
+    "canonical_title": "anthropic-sdk-python 发布 v1.11.0，新增支出限额列表接口并弃用 sonnet 4.5",
+    "category": "ai_coding",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "facts": [
+      "anthropic-sdk-python 发布 v1.11.0，发布日期为 2026-09-30。",
+      "该版本新增 list spend limits 接口（提交 e8f0cac）。",
+      "该版本在 client 中弃用 sonnet 4.5（提交 22b36b1）。",
+      "完整变更日志链接覆盖 v1.10.0 至 v1.11.0 的对比。"
+    ],
+    "id": "story-f646f7df6e464a7636d9",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.11.0",
+    "product_names": [
+      "anthropic-sdk-python",
+      "Sonnet 4.5"
+    ],
+    "published_at": "2026-09-30T22:58:09Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-fd51b96744f279e1a66e"
+    ],
+    "source_refs": [
+      {
+        "author": "stainless-app[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T22:58:09Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-fd51b96744f279e1a66e",
+        "source_date": null,
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v1.11.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.11.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.11.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "发布说明未说明 sonnet 4.5 的替代模型或完全移除的时间表。",
+      "发布说明未说明 list spend limits 接口的具体参数与返回结构。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "面向 GitHub Team 的自助试用降低了评估 GitHub 高级安全能力的门槛，企业安全团队可以在正式采购前先验证代码安全与密钥保护的实际效果。"
+    ],
+    "canonical_title": "GitHub Team 用户可自助试用 GitHub Advanced Security",
+    "category": "开发者工具与安全",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Team 客户现在可以自助启动 GitHub Advanced Security 试用，以评估 GitHub Code Security 和 GitHub Secret Protection。",
+      "试用可从组织（organization）的 Overview 页面、Billing 处启动。"
+    ],
+    "id": "story-8f757862fd133128cc41",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team",
+    "product_names": [
+      "GitHub Advanced Security",
+      "GitHub Team",
+      "GitHub Code Security",
+      "GitHub Secret Protection"
+    ],
+    "published_at": "2026-09-30T16:48:24Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-83c42770fe17223cd904"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T16:48:24Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-83c42770fe17223cd904",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Advanced Security trials for GitHub Team",
+        "url": "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-30-github-advanced-security-trials-for-github-team"
+    ],
+    "status": "available",
+    "topic_names": [
+      "代码安全",
+      "密钥保护",
+      "自助试用"
+    ],
+    "uncertainties": [
+      "试用时长、可用区域、定价以及试用包含的具体功能范围在输入中未说明。",
+      "输入仅给出“Billing…”截断内容，完整启动路径的后续步骤不明确。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "Meta 与 OpenAI 选择相近的硬件切入方式，可能表明行业正从纯软件代理向实体形态延伸。",
+      "历史上专用 AI 硬件的失败案例，使得此次尝试的市场接受度存在较高不确定性。"
+    ],
+    "canonical_title": "Meta 与 OpenAI 计划推出以可爱软件代理为核心的实体 AI 硬件设备",
+    "category": "AI 硬件与消费产品",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Meta",
+      "OpenAI",
+      "The Verge"
+    ],
+    "facts": [
+      "The Verge 报道称，Meta 和 OpenAI 将在未来一年内尝试推出实体 AI 硬件设备。",
+      "报道指出，AI 在手机和电脑上已取得大量进展，但在专用设备上基本未能成功。",
+      "报道称两家公司押注相似路径：用可爱的软件代理测试用户对实体硬件的接受度。"
+    ],
+    "id": "story-eb00b90d0791bfc29f48",
+    "importance_score": 0.6,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1002779/openai-dots-meta-muse-ai-agents-hardware-devices",
+    "product_names": [
+      "OpenAI Dots",
+      "Meta Muse"
+    ],
+    "published_at": "2026-09-30T14:07:38-04:00",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-e1f60c1c2506179f52db"
+    ],
+    "source_refs": [
+      {
+        "author": "Hayden Field",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T14:07:38-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e1f60c1c2506179f52db",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "The AI Tamagotchis are coming",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1002779/openai-dots-meta-muse-ai-agents-hardware-devices"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1002779/openai-dots-meta-muse-ai-agents-hardware-devices"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 硬件",
+      "AI 代理",
+      "消费级 AI 设备"
+    ],
+    "uncertainties": [
+      "The Verge 报道中的硬件产品名称具体指向（如 OpenAI Dots 和 Meta Muse）与两家公司实际产品规划之间的对应关系尚不明确。",
+      "两家公司均未发布正式产品公告，报道仅基于媒体信息。",
+      "报道未提供产品发布时间、形态、价格或功能的具体细节。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "生成式推荐被视为大规模个性化的新兴方向，与传统将推荐视为一组任务的思路不同（依据来源摘要表述）。",
+      "若 HSTU 生成式推荐器可借助 NVIDIA Dynamo-Triton 部署，可能有利于将生成式推荐系统落地到推理基础设施中，但具体性能与架构细节尚未在现有输入中体现。"
+    ],
+    "canonical_title": "NVIDIA 发布博客：使用 NVIDIA Dynamo-Triton 部署 HSTU 生成式推荐系统",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-09-30 发布了一篇博客，标题为《Deploying an HSTU Generative Recommender with NVIDIA Dynamo-Triton》，作者署名为 Tanya Lenz。",
+      "该博客的主题涉及生成式推荐（GR）系统，将其描述为面向大规模个性化的新方法。",
+      "博客标题提及在 NVIDIA Dynamo-Triton 上部署 HSTU 生成式推荐器。"
+    ],
+    "id": "story-5fb7e363e4b2c389c911",
+    "importance_score": 0.4,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/deploying-an-hstu-generative-recommender-with-nvidia-dynamo-triton/",
+    "product_names": [
+      "NVIDIA Dynamo-Triton",
+      "HSTU"
+    ],
+    "published_at": "2026-09-30T20:54:59Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-eb1ce0dec8df622c877e"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T20:54:59Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-eb1ce0dec8df622c877e",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Deploying an HSTU Generative Recommender with NVIDIA Dynamo-Triton",
+        "url": "https://developer.nvidia.com/blog/deploying-an-hstu-generative-recommender-with-nvidia-dynamo-triton/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/deploying-an-hstu-generative-recommender-with-nvidia-dynamo-triton/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "generative_recommender"
+    ],
+    "uncertainties": [
+      "输入仅提供标题与摘要截断内容，未包含 HSTU 部署的架构、性能数据、可用版本或发布状态等具体细节。",
+      "博客摘要内容被截断（“Instead of treating recommendation as a set of...”），无法确认生成式推荐系统定义的完整表述。",
+      "无法确认该博客是产品发布、技术教程还是概念介绍，官方状态尚不明确。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "该变更延续了 npm 可信发布使用短期 OIDC 凭证替代长期令牌的方向，将凭证范围从发布扩展到 dist-tag 管理。",
+      "将 dist-tag 管理纳入可信发布权限，可能减少发布流程中对长期 npm 令牌的依赖，但需要配置方显式开启。"
+    ],
+    "canonical_title": "GitHub 为 npm 可信发布新增可选的 dist-tag 权限",
+    "category": "开发者工具与软件供应链",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub",
+      "npm"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-09-30 发布条目，宣布 npm 的可信发布配置现在可以授予管理 dist-tag 的权限。",
+      "该权限允许的操作示例包括：将某个版本提升为 latest，以及更新 next 和 beta 指针。",
+      "这些操作使用短期的 OIDC 凭证完成，而非长期凭证。",
+      "该功能为可选（opt-in）权限。"
+    ],
+    "id": "story-e621bb6bbc365130543d",
+    "importance_score": 0.35,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing",
+    "product_names": [
+      "npm trusted publishing",
+      "dist-tag"
+    ],
+    "published_at": "2026-09-30T21:03:09Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-8f738e218bb88ed3b1aa"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T21:03:09Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8f738e218bb88ed3b1aa",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Opt-in dist-tag permissions for npm trusted publishing",
+        "url": "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-09-30-opt-in-dist-tag-permissions-for-npm-trusted-publishing"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入摘要以省略号截断，未提供 dist-tag 权限的完整细节，例如具体 API、配置字段以及是否对全部 npm 用户或部分范围开放。",
+      "输入未说明该权限默认是否关闭、是否需要组织级或仓库级配置。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "若报道属实，Roelof Botha 以天使身份加入董事会，可能为这家将 AI 智能体用于硬件设计的初创公司带来更强的资本与治理背书。"
+    ],
+    "canonical_title": "Flow Engineering 获 Valor、Atreides、Sequoia 投资，估值 7.5 亿美元",
+    "category": "funding",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Flow Engineering",
+      "Valor",
+      "Atreides",
+      "Sequoia",
+      "Roelof Botha"
+    ],
+    "facts": [
+      "TechCrunch AI 报道，Flow Engineering 在 2026 年 9 月 30 日获得 Valor、Atreides 和 Sequoia 的投资。",
+      "报道称该轮融资对 Flow Engineering 的估值为 7.5 亿美元。",
+      "报道称 Flow Engineering 将 AI 智能体引入硬件设计。",
+      "报道称 Roelof Botha 以天使投资人身份参与，并加入董事会。"
+    ],
+    "id": "story-7183a56c8ddfc3346395",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/",
+    "product_names": [],
+    "published_at": "2026-09-30T21:07:40Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-a2de1f1933fb76867c1c"
+    ],
+    "source_refs": [
+      {
+        "author": "Julie Bort",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-30T21:07:40Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a2de1f1933fb76867c1c",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Valor, Atreides, and Sequoia back AI startup Flow Engineering at $750M valuation",
+        "url": "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/09/30/valor-atreides-and-sequoia-back-ai-startup-flow-engineering-at-750m-valuation/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入仅有 TechCrunch AI 的编辑性摘要，未提供融资轮次、具体金额、领投方或官方公告等一手证据。",
+      "Flow Engineering 的融资细节（轮次名称、各投资方出资额、估值计算方式）未在输入中披露。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  },
+  {
+    "analysis": [
+      "该文章主题聚焦 MCP 智能体的来源感知验证，属于 AI 基础设施与智能体可信性方向。",
+      "Hugging Face Blog 作为发布渠道，可能意味着该方法或相关工具面向开源 AI 社区推广。"
+    ],
+    "canonical_title": "Hugging Face 博客发文介绍面向 MCP 智能体的来源感知验证方法",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Hugging Face",
+      "MultiverseComputingCAI"
+    ],
+    "facts": [
+      "Hugging Face Blog 于 2026-09-29T13:07:00Z 发布了一篇题为《Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents》的博客文章。",
+      "该文章 URL 为 https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source，发布方标识为 MultiverseComputingCAI。",
+      "该来源被标注为 official_primary，statement_type 为 factual_announcement。"
+    ],
+    "id": "story-7bec0b5ee8abe78920d2",
+    "importance_score": 0.35,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source",
+    "product_names": [
+      "MCP"
+    ],
+    "published_at": "2026-09-29T13:07:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-afa8c33f8eb7996a3941"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-09-30T23:11:53.621618Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-09-29T13:07:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-afa8c33f8eb7996a3941",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Getting the Source Right, Not Just the Fact: Source-Aware Verification for MCP Agents",
+        "url": "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/MultiverseComputingCAI/getting-the-source-right-not-just-the-fact-source"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供文章正文内容，无法确认其具体技术方案、实现细节或是否附带开源代码。",
+      "MultiverseComputingCAI 与 Hugging Face 的具体关系（如是否为官方账号或第三方作者）在输入中未说明。"
+    ],
+    "updated_at": "2026-09-30T23:12:37.052957Z"
+  }
+]
