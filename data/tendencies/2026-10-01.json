@@ -1,0 +1,258 @@
+{
+  "date": "2026-10-01",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前前沿模型的发布多聚焦于能力基准，运行时追踪、来源验证、存储访问与供应链安全通常由应用层开发者自行处理，第三方编码助手对最新模型的支持也较滞后。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增多个证据簇覆盖 OpenAI、NVIDIA、Hugging Face 与 GitHub，方向一致且机制清晰，但 OpenAI 的低价模型与 DevDay 回顾、NVIDIA 的多项开发者博客仍以官方一手发布为主，尚缺乏第三方采用或实际落地证据；Google 的受信任访问模型和 Flow Engineering 融资属于相邻方向，不纳入支持。按规则维持 Candidate，不升级 Emerging。",
+        "falsifier": "如果 OpenAI 的低价模型与 DevDay 工具未被开发者采用，NVIDIA 的 Agent 追踪、cuObject/SCADA 与 Dynamo-Triton 部署仅停留在官方博客而未落地，Hugging Face 的来源验证和 GitHub 的安全自助试用未进入实际工作流，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 发布 GPT-6.1 Sol，其 API 输入输出价格仅为 Astra 标准价的五分之一，直接降低开发者在编程、计算机使用和专业工作中的模型成本。",
+          "OpenAI DevDay 2026 一次发布超过 20 项更新，覆盖 GPT-6 Astra、ChatGPT、Codex、API 与安全工具，扩展开发者可用的工程化组件。",
+          "NVIDIA 发布 NeMo Relay 追踪 Agent Harness 行为，帮助开发者发现任务完成但路径低效的 Agent 执行问题。",
+          "NVIDIA 推出 cuObject 与 SCADA Server SDK，将 AI 存储访问能力扩展为面向基础设施工程师的官方开发套件。",
+          "NVIDIA 发布 Dynamo-Triton 部署 HSTU 生成式推荐系统的博客，把生成式推荐从研究概念推向可部署的运行时栈。",
+          "Hugging Face 发布面向 MCP Agent 的来源感知验证方法，将可信来源验证纳入 Agent 工作流。",
+          "GitHub Team 客户可自助试用 GitHub Advanced Security，把代码安全与密钥保护评估下沉到团队级工作流。"
+        ],
+        "shared_mechanism": "前沿模型提供商正把模型能力从单一 API 调用重新包装为面向开发者的工程化工作流与运行时控制：OpenAI 以 GPT-6.1 Sol 降低编程与专业工作成本、以 DevDay 一次性发布二十余项开发者工具，NVIDIA 以 NeMo Relay、cuObject/SCADA SDK 与 Dynamo-Triton 提供 Agent 行为追踪与存储/推荐部署能力，Hugging Face 与 GitHub 分别提供来源感知验证与安全自助试用。这些动作共同把模型部署中的安全、能效、可观测与供应链控制下沉为平台级能力，改变开发者构建和运行 AI 智能体的方式。"
+      },
+      "claim": "OpenAI、NVIDIA、Google 与 Anthropic 等厂商正通过模型发布、官方安全案例、运行时追踪与第三方编码工具集成，将前沿模型能力从单一模型 API 扩展为开发者可复用的工程化、可观测、可治理工作流。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-cf353e8c1e1d58f096e3"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-687bf0cc4540b37086f7"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-c6f1083de701c4821d23"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-3efa6f920991cba07079"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-5fb7e363e4b2c389c911"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-7bec0b5ee8abe78920d2"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-8f757862fd133128cc41"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-a958f2c647e4deeee071",
+      "record_id": "tendency-record-352c7b2530050ee8b328",
+      "recorded_at": "2026-09-30T23:15:12.326080Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-7471e064ac68661d4efc",
+        "cluster-fdbdeaa30868f5bd1f79",
+        "cluster-6d872c582742fb4137af",
+        "cluster-e47d4ecfb8bd3d87b9fd",
+        "cluster-c6882d056aa9a5e8c407",
+        "cluster-91c78a1cb1246cc4a167",
+        "cluster-8941b3f0958d3c602028"
+      ],
+      "tendency_id": "tendency-6e56702497264a6e985f",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 GitHub Copilot 主要作为 IDE 内的代码补全工具，Advanced Security 面向更高层级客户且未对 Team 客户自助开放，npm 可信发布也不支持通过短期 OIDC 凭证管理 dist-tag。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 GitHub Team 可自助试用 Advanced Security 以及 npm 可信发布支持 dist-tag OIDC 权限两个官方变更，均来自 GitHub 同一平台产品线，支持平台化与治理下沉的既有方向；但仍是单一 actor 的产品更新，缺乏第三方采用或跨 actor 证据，因此保持 Candidate 并标记为 supported。",
+        "falsifier": "如果 Copilot 团队功能或 Advanced Security 试用未被团队采用，npm dist-tag 可信发布权限未被使用，或 GitHub 撤回这些方向，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Team 客户可自助启动 GitHub Advanced Security 试用，评估 Code Security 和 Secret Protection，降低安全功能评估门槛。",
+          "npm 可信发布配置可借助短期 OIDC 凭证授予 dist-tag 管理权限，将版本提升为 latest 或更新 next/beta 指针时不再依赖长期凭证。",
+          "GitHub 继续把 Copilot 与安全、发布治理整合进同一组织级平台，强化团队开发工作流的统一入口。"
+        ],
+        "shared_mechanism": "GitHub 通过多项官方产品更新，将 Copilot 的交互表面和控制权从单一 IDE 补全扩展到团队协作与开发工作流管理，并进一步把安全与发布凭证治理纳入同一平台：Copilot 在 Slack/Teams 与 Visual Studio 提供团队会话与推理/模型控制；Advanced Security 试用让团队自助评估代码安全与密钥保护；npm 可信发布新增 dist-tag 权限，用短期 OIDC 凭证替代长期凭证。这些变化共同降低团队采用和定制 AI 开发助手及供应链安全控制的成本，使 GitHub 从个人代码补全工具转向团队可配置的开发者平台。"
+      },
+      "claim": "GitHub 正在将 Copilot 从代码补全工具升级为跨 IDE、CLI、Slack/Teams 的可定制、团队化开发平台，并进一步向 Advanced Security 等安全与供应链治理能力延伸，通过策略、计费与 OIDC 可信发布机制巩固开发者平台化方向。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-8f757862fd133128cc41"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-e621bb6bbc365130543d"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-52e95186446dea187eae",
+      "record_id": "tendency-record-6d76f34c25e13fa28e9d",
+      "recorded_at": "2026-09-30T23:15:12.326080Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-8941b3f0958d3c602028",
+        "cluster-21e39e54c783b00705bd"
+      ],
+      "tendency_id": "tendency-3cacfa35032765e8f8a1",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿模型多通过单一旗舰模型和统一 API 渠道发布，较少出现显著低于旗舰价格的同代模型，也较少对同一代模型采用受信任访问限制或通过 SDK 弃用旧版本管理生命周期。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "三个事件簇分别涉及 OpenAI、Google 与 Anthropic，方向一致但分属不同产品策略：低价、受控访问与 SDK 生命周期管理，机制尚未完全收敛为同一结构性变化，且多为官方发布。维持 Candidate 并标记为 supported，不升级 Emerging。",
+        "falsifier": "如果 GPT-6.1 Sol 的低价定位未被开发者采用，Gemini 4 Argon 的受信任访问未形成实际部署，或 Anthropic SDK 的支出限额与弃用机制未影响使用，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 发布 GPT-6.1 Sol，API 输入输出价格为 Astra 标准价的五分之一，面向编程、计算机使用和专业工作。",
+          "Google 发布 Gemini 4 Argon，并限制为受信任网络防御者访问，在企业知识工作与网络安全工作流中提供前沿性能。",
+          "anthropic-sdk-python v1.11.0 新增 list spend limits 接口，并在 client 中弃用 sonnet 4.5。"
+        ],
+        "shared_mechanism": "前沿模型提供商正通过价格分层、受控访问与 SDK 生命周期管理，把模型能力从单一旗舰发布扩展为多种可分发形态：OpenAI 以 GPT-6.1 Sol 提供五分之一的 token 价格面向编程与专业工作，Google 以 Gemini 4 Argon 面向受信任网络防御者限制访问，Anthropic 在 anthropic-sdk-python v1.11.0 中新增支出限额接口并弃用 sonnet 4.5。三者共同改变开发者获取和治理前沿模型能力的路径。"
+      },
+      "claim": "前沿模型正在扩展其分发渠道：OpenAI 以低价 GPT-6.1 Sol 覆盖编程与专业工作，Google 以受信任访问方式发布 Gemini 4 Argon，Anthropic 通过 SDK 版本管理模型生命周期，显示模型能力不再只依赖单一旗舰发布，而是通过价格分层、受控访问和 SDK 迭代进入开发者工具链。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-cf353e8c1e1d58f096e3"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-0cf46bec8e15d1468108"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-f646f7df6e464a7636d9"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-2aec36144e19ad6754fa",
+      "record_id": "tendency-record-307698c0f9d3ee356ec6",
+      "recorded_at": "2026-09-30T23:15:12.326080Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-7471e064ac68661d4efc",
+        "cluster-7eb08a8650dd3b1010e8",
+        "cluster-12f058fd855361c41e1e"
+      ],
+      "tendency_id": "tendency-1c6a4b610b70640ea74c",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI 智能体的运行时追踪、存储访问与生成式推荐部署多由应用开发者自行拼装或依赖分散的第三方工具，NVIDIA 未以统一的开发者 SDK 和运行时栈形式集中提供。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "三个新增事件簇均来自 NVIDIA 官方开发者博客，共享机制清晰且围绕 Agent 可观测性、存储与推理部署，但仍是同一 actor 的连续产品发布，缺乏第三方采用证据，因此保持 Candidate 并标记为 supported。",
+        "falsifier": "如果 NeMo Relay、cuObject/SCADA SDK 与 Dynamo-Triton 未被开发者或企业采用，或 NVIDIA 停止维护这些项目，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者可以通过 NVIDIA NeMo Relay 追踪 Agent Harness 的低效路径，例如失败搜索或截断文件读取引发的额外命令。",
+          "NVIDIA cuObject 与 SCADA Server SDK 为 AI 基础设施工程师提供快速安全访问高容量文件与对象存储的官方工具。",
+          "开发者可以在 NVIDIA Dynamo-Triton 上部署 HSTU 生成式推荐系统，把生成式推荐从研究概念推向运行时部署。"
+        ],
+        "shared_mechanism": "NVIDIA 通过 NeMo Relay 提供 Agent Harness 行为追踪、通过 cuObject 与 SCADA Server SDK 扩展高容量文件/对象存储访问、通过 Dynamo-Triton 支持 HSTU 生成式推荐部署，把 Agent 可观测性、存储访问和推荐推理置于同一基础设施工具层，使开发者从自行实现控制转向采用 NVIDIA 官方平台能力。"
+      },
+      "claim": "NVIDIA 正在通过 NeMo Relay、cuObject/SCADA SDK 与 Dynamo-Triton 等开发者工具，将 Agent 运行时可观测性、AI 存储访问和生成式推荐部署产品化，推动 AI 基础设施控制从应用层功能转向平台层能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-c6f1083de701c4821d23"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-3efa6f920991cba07079"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-01",
+            "story_id": "story-5fb7e363e4b2c389c911"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-a3be6866992c6ab5401d",
+      "record_id": "tendency-record-e4e498b7919ea3cb3b0d",
+      "recorded_at": "2026-09-30T23:15:12.326080Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-6d872c582742fb4137af",
+        "cluster-e47d4ecfb8bd3d87b9fd",
+        "cluster-c6882d056aa9a5e8c407"
+      ],
+      "tendency_id": "tendency-5aa1f733b79af7c277ab",
+      "update_kind": "supported"
+    }
+  ],
+  "generated_at": "2026-09-30T23:15:12.326080Z"
+}
