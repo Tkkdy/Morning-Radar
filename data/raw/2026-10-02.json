@@ -67,6 +67,7 @@
     "id": "item-b3abbf9a49122235f36a",
     "language": "en-US",
     "metadata": {
+      "content_version": "95c2e50c0f29d0463c11",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +189,7 @@
     "id": "item-fd0285610cdb9c3a38eb",
     "language": "en-US",
     "metadata": {
+      "content_version": "516f7650a4bae0b5c537",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +281,7 @@
     "id": "item-8720b7379face7c7f85d",
     "language": "en-us",
     "metadata": {
+      "content_version": "e8f3eb150c90ebf64dbd",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +404,7 @@
     "id": "item-771239a6e9a1d8742447",
     "language": "en-US",
     "metadata": {
+      "content_version": "7399274b85c10d69c615",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +435,7 @@
     "id": "item-74c2ff7e2707d1f61043",
     "language": "en-US",
     "metadata": {
+      "content_version": "5c29381e1261d6b7ccc4",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -735,6 +740,7 @@
     "id": "item-e11a5d7f0be16c7ae710",
     "language": "en-US",
     "metadata": {
+      "content_version": "e1c023f10c9c9c260d40",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -886,6 +892,7 @@
     "id": "item-3c93c11303b90f3e0dd5",
     "language": "en-US",
     "metadata": {
+      "content_version": "a1d3a7773552c75e0340",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -916,6 +923,7 @@
     "id": "item-4b5832547292d5169bf5",
     "language": "en-US",
     "metadata": {
+      "content_version": "c0b9e61a7bf5933a6dee",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1009,6 +1017,7 @@
     "id": "item-90249c2a3882c6d31b88",
     "language": null,
     "metadata": {
+      "content_version": "be0ec52067d66a460aa4",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1069,6 +1078,7 @@
     "id": "item-038fee3588d7f55541e3",
     "language": "en-US",
     "metadata": {
+      "content_version": "d6b5c1c18769db117f33",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1343,6 +1353,7 @@
     "id": "item-061338e668ed697490e5",
     "language": null,
     "metadata": {
+      "content_version": "d32003b16a438b28cda0",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1403,6 +1414,7 @@
     "id": "item-d8efb6ae3f1c14fd22be",
     "language": "en-US",
     "metadata": {
+      "content_version": "e88033375586a8cb0c00",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -71528,6 +71540,7 @@
     "id": "item-eb59ea8627f0aa9d94e6",
     "language": "en",
     "metadata": {
+      "content_version": "a462dd7977b967eaa5f5",
       "data_anomaly": false,
       "forks": 6774,
       "official": true,
@@ -75340,6 +75353,7 @@
     "metadata": {
       "comments": 198,
       "community_signal": true,
+      "content_version": "ef60296858831f6a278c",
       "discussion_url": "https://news.ycombinator.com/item?id=49926069",
       "official": false,
       "original_url": "https://earendil.com/posts/pi-1-0/",
@@ -75370,11 +75384,19 @@
     "metadata": {
       "comments": 1120,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49913571",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
       "score": 1637,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -75610,6 +75632,7 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "content_version": "c4def8f9857577c3d5ec",
       "discussion_url": "https://news.ycombinator.com/item?id=49928126",
       "official": false,
       "original_url": "https://github.com/DragonMinded/libdragon/issues/1012",
@@ -76018,6 +76041,7 @@
     "metadata": {
       "change_percent": -0.0036925474271837584,
       "close": 248.22999572753906,
+      "content_version": "166c08b2f5c9f1343f08",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 249.14999389648438,
@@ -78179,38 +78203,6 @@
     "url": "https://twitter.com/OfficialLoganK/status/2105388054274080946"
   },
   {
-    "author": "bradleyg223",
-    "company_candidates": [],
-    "content_excerpt": "See also: Gemini 4 Argon (High): Intelligence, Performance and Price Analysis - https://news.ycombinator.com/item?id=49914236",
-    "fetched_at": "2026-10-01T23:24:41.030639Z",
-    "id": "item-584a6a0abae5d3f684e9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49913571",
-      "hn_submission_time": 1790798677,
-      "lab_id": "google_deepmind",
-      "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-09-30T20:04:37Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "See also: Gemini 4 Argon (High): Intelligence, Performance and Price Analysis - https://news.ycombinator.com/item?id=49914236",
-    "title": "Gemini 4 Argon",
-    "topic_candidates": [],
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/"
-  },
-  {
     "author": "iamben",
     "company_candidates": [],
     "content_excerpt": "",
@@ -78827,6 +78819,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "3d22dcb283dcdb0aa33d",
       "discovery_paths": [
         "hn_search:anthropic:Claude"
       ],

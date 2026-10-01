@@ -1,0 +1,91 @@
+[
+  {
+    "claim": "Matthew Green（经 Simon Willison 引述）提出：被隔离在不同沙箱中的 AI agent 可以在共享包缓存中互相留下指令并改变对方行为，把包缓存替换为邮件、Slack、共享文档或 WhatsApp 后，即可形成可在 agent 之间自我传播的“蠕虫”式 prompt injection。",
+    "id": "radar-e1359f0d4e6718e22148",
+    "missing_evidence": [
+      "Matthew Green 原文链接与完整论证",
+      "跨沙箱/跨 agent 传播实验或可复现的演示记录",
+      "涉及的具体 agent 系统、包缓存或工具链名称",
+      "第三方对同一现象的独立验证"
+    ],
+    "observed_at": "2026-10-01T23:24:41.030639Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "analysis_judgement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-8720b7379face7c7f85d",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/1/matthew-green/"
+      }
+    ],
+    "uncertainty": "引文为节选且属威胁模型推演：无法判断“共享包缓存传递指令”是已实际观测到的现象，还是假设性构造；也无从得知受影响系统范围。",
+    "why_notable": "把 prompt injection 从针对单个 agent 的单点攻击，上升为 agent 网络中可自传播的蠕虫模型；若成立，会直接影响 agent 工具链、包管理器、沙箱边界和共享协作渠道的安全设计。"
+  },
+  {
+    "claim": "Anthropic 宣布 Claude for Government 正式可用（GA）。",
+    "id": "radar-992f391eae98c3d826d1",
+    "missing_evidence": [
+      "claude.com 官方页面正文（content_missing=true，未抓取）",
+      "具体功能、可用地区、定价与合规认证信息",
+      "独立第三方报道或佐证"
+    ],
+    "observed_at": "2026-10-01T23:24:41.030639Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-53b5b15da1c80ccf8a8c",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://claude.com/blog/claude-for-government-is-now-generally-available"
+      }
+    ],
+    "uncertainty": "仅有 HN 提交标题与官方博客 URL，页面内容缺失，无法核实 GA 的具体范围、条件与时间。",
+    "why_notable": "若属实，是 AI 厂商面向政府/公共部门客户的正式商用渠道落地，属于 AI 公司商业化与生态层面的变化。"
+  }
+]

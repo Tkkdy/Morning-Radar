@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-02",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认 Copilot computer use 公开预览，扩展 coding agent 到桌面应用控制，值得展开其权限与安全含义。",
+      "retain_for_trends": true,
+      "story_id": "story-d4395376f8516393e7f2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "desktop-app-computer-use",
+        "coding-agent-scope-expansion"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方月度汇总确认 agent merge 与 Automations 推进端到端自动化，但缺少单点机制细节。",
+      "retain_for_trends": true,
+      "story_id": "story-e56bb4dfdc7b8252aa8f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-driven-development",
+        "automated-merge-workflow"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅二手报道转述 GPT-6 Astra 与 Dots，缺少官方公告和可核验指标。",
+      "retain_for_trends": false,
+      "story_id": "story-bf1e2be447b46c50c6cf",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 4,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方声明确认防御动作存在，但未披露攻击方与手法，对模型安全和蒸馏攻防演化有长期证据价值。",
+      "retain_for_trends": true,
+      "story_id": "story-8b6a6ced52480b530bc1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "adversarial-model-distillation",
+        "model-reasoning-extraction-defense"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方发布 TTS 与语音克隆可扩展评估榜单，有助于建立标准化对比基准。",
+      "retain_for_trends": true,
+      "story_id": "story-4b4e00e0505fcd445ec2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "tts-evaluation-standardization",
+        "mulilingual-voice-cloning-benchmark"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "SDK 版本更新确认 Agents 类型化流与实时翻译接口推进，影响开发者集成体验。",
+      "retain_for_trends": true,
+      "story_id": "story-0061e4bec9d4c6923fee",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agents-sdk-typed-streams",
+        "realtime-translation-api"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "GitHub 对私有漏洞报告限速以应对低质量自动化提交，属常规平台治理。",
+      "retain_for_trends": false,
+      "story_id": "story-f6a94192b8c26205ee85",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "私有漏洞报告引入结构化表单，属常规维护性更新。",
+      "retain_for_trends": false,
+      "story_id": "story-99d63c706ebde3771a1d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅 TechCrunch 二手报道，缺少原始对话或官方回应，可信度低。",
+      "retain_for_trends": false,
+      "story_id": "story-c9c999ff2c7b15d62949",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅有 HN 提交标题与链接，缺乏正文和合规细节，暂作轻量已知。",
+      "retain_for_trends": false,
+      "story_id": "story-0420f190eb6badfdcfc1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "企业合作与培训公告对开发者工具与能力变化无实质影响。",
+      "retain_for_trends": false,
+      "story_id": "story-cbe3e4303f4eb7425663",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-01T23:25:27.152118Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
