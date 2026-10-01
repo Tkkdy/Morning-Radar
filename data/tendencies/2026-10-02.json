@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-02",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v3.23.0 之前，openai-python 的 Agents 会话流以非类型化输出为主，不提供回合产物暂存与下载，也缺少 session traces 与 Realtime translations；重连与发送队列控制依赖开发者自行实现，长会话的可靠性保障不在 SDK 职责范围内。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "本批次只有一个与既有 Tendency 相关的证据簇 cluster-cb34872c715e738ef877，且其来源为该项目的官方发布说明，属于同一 actor、同一产品线的版本迭代。它确实直接支持既有的企业级/可观测/多后端方向，并新增了 Agents 会话类型化输出与文件暂存等运行时能力，但仅一个簇无法构成跨事件的独立支撑，也不足以证明该方向已超越内部候选观察。因此维持 candidate，标记 update_kind=supported，不升级为 emerging 或 persistent。",
+        "falsifier": "如果后续版本撤回类型化会话输出或移除文件暂存与回合产物下载能力，或者开发者未采用 Agents 会话相关 API 而继续自行封装流处理与重连逻辑，则本 Tendency 被削弱；若 openai-python 退回为纯粹的单一 API 客户端，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "openai-python v3.23.0 新增 agents: return typed answers from session streams（#4007），开发者可以用类型化结构消费 Agent 会话输出，不再需要手工解析流事件。",
+          "agents: stage files and download turn artifacts（#4009）使文件输入与回合产物进入会话生命周期，改变多步 Agent 任务中文件交接的实现方式。",
+          "api: Add session traces and Realtime translations（#4001）为 Agent 会话提供追踪能力并扩展实时翻译通道。",
+          "beta: expose typed application actions as agent tools（#4006）把应用动作以类型化形式暴露为 Agent 工具，扩展工具调用契约。",
+          "Bug Fixes 中 responses: avoid replaying uncertain typed sends on reconnect（#4011）与 respect send queue limits during reconnect（#4000）针对重连场景做去重与队列控制，use monotonic clock for file processing timeout（#3748）修正超时计时，表明 SDK 开始承担长会话运行的可靠性职责。"
+        ],
+        "shared_mechanism": "OpenAI 在 openai-python v3.23.0 中沿同一工程化路径推进：以 typed answers from session streams 与 collect final output 把 Agent 会话输出从自由文本流变为可编程消费的类型化结构；以 stage files 与 download turn artifacts 把文件输入输出纳入会话生命周期；以 session traces 与 Realtime translations 扩展可观测与多模态通道；并以重连去重、发送队列限制、单调时钟超时等修复提升长会话运行时可靠性。这些变更共同改变开发者构建和运维 Agent 的方式，使官方 SDK 承担更多运行时职责，而非仅转发 HTTP 请求。"
+      },
+      "claim": "OpenAI 正在通过官方 openai-python SDK 的连续版本迭代，把 Agents 会话从非结构化流输出升级为类型化返回、可暂存文件并下载回合产物、支持 session traces 与 Realtime 翻译，并同时修复重连与队列控制的可靠性问题，使官方 Python 客户端从单一 API 封装演进为可承载多步 Agent 工作流的工程化运行时。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-02",
+            "story_id": "story-0061e4bec9d4c6923fee"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-54f3c169a08c1185b520",
+      "record_id": "tendency-record-89f260609fb8069c5c7e",
+      "recorded_at": "2026-10-01T23:27:58.490943Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-cb34872c715e738ef877"
+      ],
+      "tendency_id": "tendency-ca9547f23f47baf824c6",
+      "update_kind": "supported"
+    }
+  ],
+  "generated_at": "2026-10-01T23:27:58.490943Z"
+}
