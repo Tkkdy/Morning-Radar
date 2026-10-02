@@ -1,0 +1,894 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 推出名为 Dots 的智能体平台，定位为企业软件",
+    "category": "ai_product",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 宣布推出名为 Dots 的智能体平台。",
+      "Dots 被描述为企业软件，强调工作用途，同时也能完成订餐等日常任务。",
+      "The Verge 发表了针对 Dots 的上手体验文章，作者为 Allison Johnson，发布时间为 2026-10-02。"
+    ],
+    "id": "story-3ecd37f14afb391da5c4",
+    "importance_score": 0.85,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent",
+    "product_names": [
+      "Dots",
+      "ChatGPT",
+      "Meta Muse"
+    ],
+    "published_at": "2026-10-02T14:00:00-04:00",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-b19a7eb5407edebb14dd"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison Johnson",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T14:00:00-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b19a7eb5407edebb14dd",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI’s Dot agent is enterprise software that can also order your dinner",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1004096/openai-chatgpt-dots-hands-on-agent"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_agent",
+      "enterprise_software"
+    ],
+    "uncertainties": [
+      "Dots 的具体功能细节、可用性和定价尚未从现有输入中明确。",
+      "OpenAI 官方公告的具体内容、发布日期和技术架构未知。",
+      "The Verge 上手体验中描述的订餐功能细节和实际体验效果无法从摘要中确认。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "报道将内存供应持续紧张与 2027 年内存定价显著上涨联系起来，指向供需失衡可能延续至 2028 年。"
+    ],
+    "canonical_title": "内存高管预计 RAM 短缺将持续至 2028 年",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Micron"
+    ],
+    "facts": [
+      "Ars Technica Technology Lab 报道称，内存高管预计 RAM 短缺将持续到 2028 年。",
+      "报道指出，2027 年售出的内存价格“远高于 2026 年的价格”。"
+    ],
+    "id": "story-3e4594deab1bd2ae4492",
+    "importance_score": 0.8,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+    "product_names": [
+      "RAM"
+    ],
+    "published_at": "2026-10-01T17:49:56Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-c102307d638b04f9c4df"
+    ],
+    "source_refs": [
+      {
+        "author": "Scharon Harding",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-01T17:49:56Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c102307d638b04f9c4df",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Memory executives expect RAM shortage to continue through 2028",
+        "url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "内存短缺",
+      "内存价格",
+      "供应链"
+    ],
+    "uncertainties": [
+      "报道标题提到“Micron CEO says”，但输入未提供 Micron CEO 的完整原话、具体发布时间或发言场合。",
+      "输入未说明该判断涉及的具体内存类型（如 DRAM、HBM 或 NAND）。",
+      "输入未提供 2027 年与 2026 年价格的具体数字或对比基准。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "v2.3.0 的定位是修复版本，但同时要求 `httpx2>=2.10.0`，使用方若把 httpx2 固定在 2.10 以下可能受此依赖提升影响。",
+      "把无效 `x-mcp-header` 注解从“服务器启动、客户端静默丢弃工具”改为注册时报错，属于可观测性提升，但会改变现有工具的注册行为。",
+      "不再发送空 `_meta`/`params`，以及 `ctx.meta` 变成 `None`，对读取或判断这些字段的客户端和中间件代码构成兼容性变更。",
+      "OAuth 登录不再触发请求超时，修复了 `Client(mode=\"auto\")` 在登录超过 10 秒时落到 `2025-11-25` 的问题。"
+    ],
+    "canonical_title": "modelcontextprotocol/python-sdk 发布 v2.3.0",
+    "category": "open_source_ai",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "modelcontextprotocol/python-sdk"
+    ],
+    "facts": [
+      "GitHub 上 modelcontextprotocol/python-sdk 发布 v2.3.0，作者为 maxisbey，发布时间为 2026-10-02T22:02:27Z。",
+      "安装命令为 `pip install -U mcp`，文档地址为 https://py.sdk.modelcontextprotocol.io/。",
+      "该版本以修复为主，另新增三个选项，并包含若干行为变更。",
+      "行为变更：`httpx2>=2.10.0` 现在成为必需依赖（#3600），此前要求为 `>=2.5.0`；这是新的 `max_sse_event_size` 选项所需。",
+      "行为变更：带有无效 `x-mcp-header` 注解的工具会在注册时失败（#3620），`@mcp.tool()`、`add_tool` 和 `Tool.from_function` 会抛出 `InvalidSignature`，并指明工具名与问题。",
+      "行为变更：除普通 `str`、`int` 或 `bool` 参数外（包括 `str | None`、`float`、列表和枚举），以及非合法 token 的 header 名称、大小写不同但名称相同的两个 header，都会被拒绝。",
+      "行为变更：不再发送空的 `_meta` 和 `params`（#3628）；在 2025-11-25 及更早连接上，2.x 曾对每个请求发送 `\"_meta\": {}`，现已省略。",
+      "行为变更：没有游标的 `ping` 和列表请求不再携带 `params` 成员；接收侧 `ctx.meta` 为 `None` 而非 `{}`，中间件对无参数请求看到 `ctx.params` 为 `None`。",
+      "行为变更：`initialize` 在未配置 `experimental` 时不再发送该字段（#3614）；此前会发送 `\"experimental\": {}`，而 `server/discover` 已省略。",
+      "行为变更：`Mcp-Param-*` 校验按名称查找工具（#3630）；`MCPServer` 不再为每次 `tools/call` 运行 `tools/list`，中间件不再看到该额外请求。",
+      "行为变更：交互式 OAuth 登录不再计入请求超时（#3635）；超时在 `OAuthClientProvider` 等待 `redirect_handler` 和 `callback_handler` 时暂停。",
+      "新增：`streamable_http_client` 和 `StreamableHttpParameters` 上的 `max_sse_event_size=`，默认保持每个 SSE 事件 1 MiB，可调大或传 `None` 以支持更大的工具结果（#3600）。",
+      "新增：`MCPServer(subscriptions=False)` 停止提供 `subscriptions/listen`，并将 `listChanged` 和 `subscribe` 通告为 false（#3626）。",
+      "新增：`Server(get_tool_input_schema=...)` 允许底层服务器在不运行 `tools/list` 处理器的情况下，为 header 校验提供工具的 schema（#3630）。",
+      "新增：`Client.call_tool` 在收到 `HeaderMismatch`（-32020）拒绝后重新列出工具并重试一次（#3627）。",
+      "修复：`ctx: Context[AppState]` 可在 prompts 和资源模板上使用，不再仅限于工具（#3624）。",
+      "修复：显式的 `\"structuredContent\": null` 会按输出 schema 校验，而不是被当作缺失处理（#3621）。",
+      "修复：在进程内 `Client(server)` 上，抛出异常的 `progress_callback` 不再导致调用失败（#3623）。",
+      "修复：客户端 OpenTelemetry span 记录 JSON-RPC 错误响应；使用 `mode=\"auto\"` 连接没有 `server/discover` 的服务器时，探测会产生一个 `ERROR` span（#3629）。",
+      "修复：`stdio_client` 在 Windows 上于事件循环之外解析可执行文件（#3510）。",
+      "文档：新增 Cancellation 和 Header parameters 页面，以及一个中间件教程；全部十二种翻译已刷新（#3636）。"
+    ],
+    "id": "story-7be57f03394472cd56f3",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.3.0",
+    "product_names": [
+      "mcp",
+      "python-sdk",
+      "httpx2"
+    ],
+    "published_at": "2026-10-02T22:02:27Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-987dd82c392616bec538"
+    ],
+    "source_refs": [
+      {
+        "author": "maxisbey",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T22:02:27Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-987dd82c392616bec538",
+        "source_date": null,
+        "source_name": "GitHub · modelcontextprotocol/python-sdk",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "modelcontextprotocol/python-sdk: v2.3.0",
+        "url": "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.3.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/modelcontextprotocol/python-sdk/releases/tag/v2.3.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "通过 REST 和 GraphQL API 暴露代码审查能力，意味着 Copilot 代码审查可以嵌入到 CI/CD 流水线或自定义工具链中，而不仅限于 GitHub 界面操作。",
+      "允许按请求设置审查强度，使团队能够在审查覆盖率与延迟、成本之间做粒度化权衡；将 Balanced 设为默认值反映了官方对该平衡点的推荐。"
+    ],
+    "canonical_title": "GitHub Copilot 代码审查支持 REST 与 GraphQL API，并将默认审查强度改为 Balanced",
+    "category": "AI 编码工具",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 现在支持通过 REST 和 GraphQL API 请求 GitHub Copilot 代码审查。",
+      "该 API 支持为每次审查请求设置审查强度级别。",
+      "Balanced 现在是默认的审查强度级别。"
+    ],
+    "id": "story-cca45ef927e1505dbfc3",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level",
+    "product_names": [
+      "GitHub Copilot code review",
+      "REST API",
+      "GraphQL API"
+    ],
+    "published_at": "2026-10-02T19:13:50Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-be3b1d34107991259e7d"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T19:13:50Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-be3b1d34107991259e7d",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Copilot code review: API support and new default effort level",
+        "url": "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-02-copilot-code-review-api-support-and-new-default-effort-level"
+    ],
+    "status": "available",
+    "topic_names": [
+      "代码审查",
+      "API 集成",
+      "AI 编码"
+    ],
+    "uncertainties": [
+      "官方公告未在摘要中列出可选的审查强度级别及其具体差异。",
+      "公告未提供 API 调用示例、速率限制或定价细节。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub 完成无状态 GitHub App 安装令牌的阶段性发布",
+    "category": "开发者平台/安全",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub App"
+    ],
+    "facts": [
+      "GitHub 于 2026 年 4 月 27 日启动的无状态 GitHub App 安装令牌格式的阶段性发布已完成。",
+      "默认情况下，所有新签发的 GitHub App 安装令牌都将采用该格式。"
+    ],
+    "id": "story-fbd9c88bb1f943f77e0d",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out",
+    "product_names": [
+      "GitHub App installation token"
+    ],
+    "published_at": "2026-10-02T22:18:23Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-4ce371788dc0c71f8814"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T22:18:23Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4ce371788dc0c71f8814",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Stateless GitHub App installation tokens rolled out",
+        "url": "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-02-stateless-github-app-installation-tokens-rolled-out"
+    ],
+    "status": "available",
+    "topic_names": [
+      "无状态令牌",
+      "GitHub App 认证",
+      "令牌发布"
+    ],
+    "uncertainties": [
+      "摘要仅提及新签发令牌默认采用新格式，未说明已存在令牌的兼容性或迁移时间表。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "该指南面向初创公司，强调从模型选择到生产部署的工程实践，表明 OpenAI 正推动 GPT-6 系列在企业与开发场景中的落地。",
+      "指南中提及调整推理力度、改进提示词与技能、协调工具等主题，反映出 GPT-6 系列可能继承了可调节推理与工具调用能力。"
+    ],
+    "canonical_title": "OpenAI 发布 GPT-6 系列模型实用指南",
+    "category": "ai_models",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了标题为“A model guide for the GPT-6 family”的指南，网址为 https://openai.com/index/practical-guide-building-gpt-6。",
+      "该指南的发布日期为 2026-10-02T16:15:00Z。",
+      "该指南内容涵盖初创公司如何选择 GPT-6 模型、调整推理力度、改进提示词与技能、协调工具，以及为生产环境准备工作流。"
+    ],
+    "id": "story-449e74984fdbe4c2fecd",
+    "importance_score": 0.6,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://openai.com/index/practical-guide-building-gpt-6",
+    "product_names": [
+      "GPT-6"
+    ],
+    "published_at": "2026-10-02T16:15:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-c38af6e5cae43e23a64c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T16:15:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c38af6e5cae43e23a64c",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "A model guide for the GPT-6 family",
+        "url": "https://openai.com/index/practical-guide-building-gpt-6"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/practical-guide-building-gpt-6"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入未提供 GPT-6 系列的具体模型名称、参数规模、定价或可用区域等信息。",
+      "输入未说明该指南是文档、博客文章还是其他形式。",
+      "输入未提供指南中具体建议或技术细节。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "该公告由 GitHub 官方 Changelog 发布，属于官方一手信息，可作为事实底座。",
+      "摘要文本仅说明“部分模型”被弃用，未列出具体模型名称与替代方案，因此事件的实际影响范围尚不明确。"
+    ],
+    "canonical_title": "GitHub Copilot 于 2026 年 10 月 2 日弃用部分模型",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 于 2026 年 10 月 2 日宣布，已在所有 GitHub Copilot 体验中弃用部分模型。",
+      "公告称受影响的体验包括 Copilot Chat、inline edits、ask 和 agent 模式以及 code completions。"
+    ],
+    "id": "story-1f9660c17e9e1a192182",
+    "importance_score": 0.45,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated",
+    "product_names": [
+      "GitHub Copilot",
+      "Copilot Chat"
+    ],
+    "published_at": "2026-10-02T18:24:19Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-705956e4f1fcd62c79bb"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T18:24:19Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-705956e4f1fcd62c79bb",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Selected models in GitHub Copilot deprecated",
+        "url": "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-02-selected-models-in-github-copilot-deprecated"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "被弃用的具体模型名称未在提供的内容片段中列出。",
+      "是否提供替代模型或迁移路径未在提供的内容片段中说明。",
+      "弃用是否会导致相关功能行为变化或 API 变更，目前未知。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "googleapis/python-genai 发布 v2.28.0，新增 lyria-3.5、gemini-omni-1.1-flash 等模型并支持 continuation_token",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "googleapis",
+      "python-genai",
+      "Google"
+    ],
+    "facts": [
+      "googleapis/python-genai 于 2026-10-02 发布 v2.28.0（对比版本 v2.27.0）。",
+      "该版本在 Interactions 的 Model 枚举中新增了 lyria-3.5、gemini-omni-1.1-flash 和 gemini-omni-flash-preview。",
+      "该版本在 Interactions 中支持 continuation_token。"
+    ],
+    "id": "story-763c27a42f0c7583007c",
+    "importance_score": 0.4,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v2.28.0",
+    "product_names": [
+      "lyria-3.5",
+      "gemini-omni-1.1-flash",
+      "gemini-omni-flash-preview",
+      "python-genai"
+    ],
+    "published_at": "2026-10-02T17:30:42Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-67003172c902a1028989"
+    ],
+    "source_refs": [
+      {
+        "author": "release-please[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T17:30:42Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-67003172c902a1028989",
+        "source_date": null,
+        "source_name": "GitHub · googleapis/python-genai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "googleapis/python-genai: v2.28.0",
+        "url": "https://github.com/googleapis/python-genai/releases/tag/v2.28.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/googleapis/python-genai/releases/tag/v2.28.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入仅来自官方发布说明，未提供各新增模型的能力、可用性范围或 continuation_token 的具体使用细节。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "该发布来自官方一手渠道（Hugging Face Blog，官方标记），属于 factual_announcement 类型，可作为开源发布这一事实的基础。",
+      "从主题候选 ai_models、ai_infrastructure、open_source_ai 可见，该发布被归入模型与开源 AI 方向。"
+    ],
+    "canonical_title": "Allen AI 在 Asta 中开源快速报告生成模型 AstaBrief",
+    "category": "open_source_ai",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Allen Institute for AI",
+      "Asta",
+      "AstaBrief"
+    ],
+    "facts": [
+      "Allen Institute for AI 在 Hugging Face Blog 发布博文，标题为《Open-sourcing AstaBrief, the fast report-generation model in Asta》。",
+      "该博文将 AstaBrief 描述为 Asta 中快速的报告生成模型，并宣布将其开源。"
+    ],
+    "id": "story-916b84c59aafb070d73a",
+    "importance_score": 0.45,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://huggingface.co/blog/allenai/astabrief",
+    "product_names": [
+      "AstaBrief",
+      "Asta"
+    ],
+    "published_at": "2026-10-02T15:19:50Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-e81b1dea7ce0fb42c978"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T15:19:50Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e81b1dea7ce0fb42c978",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Open-sourcing AstaBrief, the fast report-generation model in Asta",
+        "url": "https://huggingface.co/blog/allenai/astabrief"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/astabrief"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供博文正文或摘要，AstaBrief 的模型规模、架构、训练数据、许可证及基准表现均未知。",
+      "Asta 与 AstaBrief 的具体产品形态和可用范围在输入中没有说明。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Albertsons Companies 使用 ChatGPT Enterprise 和 OpenAI API 重塑零售业务",
+    "category": "ai_adoption",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Albertsons Companies",
+      "OpenAI"
+    ],
+    "facts": [
+      "Albertsons Cos. 正在使用 ChatGPT Enterprise 和 OpenAI API。",
+      "OpenAI 官方表示，Albertsons Cos. 此举旨在帮助团队更快工作，并让数百万顾客的购物体验更便捷。"
+    ],
+    "id": "story-8279dca22d8a9b0db9b2",
+    "importance_score": 0.35,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://openai.com/index/albertsons-reimagining-retail",
+    "product_names": [
+      "ChatGPT Enterprise",
+      "OpenAI API"
+    ],
+    "published_at": "2026-10-01T16:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-637d3dfa247fa816a4c4"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-01T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-637d3dfa247fa816a4c4",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Albertsons Companies is reimagining retail from the inside out",
+        "url": "https://openai.com/index/albertsons-reimagining-retail"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/albertsons-reimagining-retail"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "AI 首次在隐藏信息游戏 Stratego 中击败人类顶尖选手",
+    "category": "AI Research",
+    "credibility_score": 0.2,
+    "entity_names": [],
+    "facts": [],
+    "id": "story-c547ce882f97b8aa9b12",
+    "importance_score": 0.5,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/",
+    "product_names": [
+      "Stratego"
+    ],
+    "published_at": "2026-10-02T14:11:24Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-0338ccc6b10fc595a8e3"
+    ],
+    "source_refs": [
+      {
+        "author": "PaulHoule",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49933740",
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T14:11:24Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0338ccc6b10fc595a8e3",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "With most information hidden, the game Stratego had stumped AI until now",
+        "url": "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/science/2026/10/ai-finally-beat-the-best-stratego-player-in-history-and-did-it-on-a-budget/",
+      "https://news.ycombinator.com/item?id=49933740"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 博弈",
+      "隐藏信息游戏",
+      "强化学习"
+    ],
+    "uncertainties": [
+      "Hacker News 社区帖子仅提供标题和两个不明来源链接（nature.com 与 arxiv.org），未包含可核验的正文内容，无法确认该 AI 系统的具体方法、实验设置和结果细节。",
+      "来源为社区发现帖，属于 unverified_lead，不包含官方或一手可追溯证据，因此不能作为事实写入。",
+      "标题中提及‘击败史上最强 Stratego 玩家’和‘低成本预算’（on a budget），但输入未提供任何可追溯的具体数字、日期或机构名称，无法确认这些表述的准确性。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "该报道暗示 Stability AI 的业务重心可能转向音乐相关方向。",
+      "文章提到唱片公司给予支持与资金，可能表明其音乐业务方向已获得部分行业参与方背书。"
+    ],
+    "canonical_title": "Sean Parker 正在围绕音乐业务重塑 Stability AI",
+    "category": "公司战略与业务重组",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Stability AI",
+      "Sean Parker"
+    ],
+    "facts": [
+      "TechCrunch AI 于 2026-10-02 发布了一篇由 Connie Loizos 撰写的文章，标题为 Sean Parker is rebuilding Stability AI around music。",
+      "TechCrunch AI 文章摘要称，Sean Parker 如今带着唱片公司的支持与资金回归。",
+      "该文章将 Sean Parker 描述为曾让音乐行业体会到“先做后道歉”模式的人。"
+    ],
+    "id": "story-028cf04a4dc5ca6a5c6f",
+    "importance_score": 0.4,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/",
+    "product_names": [],
+    "published_at": "2026-10-02T21:09:14Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-674f9eeb677b6aa6c1b0"
+    ],
+    "source_refs": [
+      {
+        "author": "Connie Loizos",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T21:09:14Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-674f9eeb677b6aa6c1b0",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Sean Parker is rebuilding Stability AI around music",
+        "url": "https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/02/sean-parker-is-rebuilding-stability-ai-around-music/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "音乐",
+      "AI 音乐",
+      "公司重组"
+    ],
+    "uncertainties": [
+      "Stability AI 围绕音乐进行重塑的具体形式、时间表与产品尚未在输入中明确。",
+      "“唱片公司的支持与资金”涉及哪些具体唱片公司、出资规模与交易结构，输入未提供。",
+      "Sean Parker 在 Stability AI 中的具体职位与职责范围，输入未说明。",
+      "该消息属于媒体报道而非官方发布，Stability AI 或 Sean Parker 是否正式确认尚不清楚。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "该文章属于 OpenAI 官方发布，来源类型为 official_primary，可作为 OpenAI 对先进 AI 经济影响这一议题的官方观点记录。",
+      "文章将议题从单纯模型能力转向先进 AI 在常规执行工作中的角色，可能反映 OpenAI 对 AI 生产力叙事方向的关注。"
+    ],
+    "canonical_title": "OpenAI 发布文章《The eternal complement》，探讨先进 AI 对突破性创意背后常规工作的影响",
+    "category": "ai_industry_analysis",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI News 于 2026-10-01T17:00:00Z 发布文章《The eternal complement》，URL 为 https://openai.com/index/the-eternal-complement。",
+      "文章摘要称，先进 AI 可能对突破性创意背后的常规工作最为重要，并探讨执行力为何可能塑造下一阶段经济与进步速度。"
+    ],
+    "id": "story-25af027662aabd09354c",
+    "importance_score": 0.3,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/the-eternal-complement",
+    "product_names": [],
+    "published_at": "2026-10-01T17:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-b8087b88cb63ae7fc829"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-01T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b8087b88cb63ae7fc829",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The eternal complement",
+        "url": "https://openai.com/index/the-eternal-complement"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/the-eternal-complement"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "先进AI与经济影响",
+      "执行力与创新"
+    ],
+    "uncertainties": [
+      "输入仅包含标题、摘要与链接，缺少文章全文、具体论证、数据引用与发布形式，因此无法确认文中具体主张的详细依据。",
+      "无法从输入判断该文章是否伴随任何产品、模型或政策发布。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  },
+  {
+    "analysis": [
+      "该内容为 Google 官方渠道发布的月度汇总，属于一级来源事实性公告。"
+    ],
+    "canonical_title": "Google 发布 2026 年 9 月 AI 更新汇总",
+    "category": "ai_updates",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google AI 博客于 2026 年 10 月 2 日发布标题为《The latest AI news we announced in September 2026》的文章，汇总 2026 年 9 月的 AI 更新。",
+      "该文章包含一个展示 9 月 AI 更新的视频。"
+    ],
+    "id": "story-9d11d5654fcd58647ced",
+    "importance_score": 0.2,
+    "novelty_score": 0.15,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/",
+    "product_names": [],
+    "published_at": "2026-10-02T15:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-aacb8ca8a4a96bc0cfec"
+    ],
+    "source_refs": [
+      {
+        "author": "Blog Team",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-02T23:14:12.820698Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-02T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-aacb8ca8a4a96bc0cfec",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The latest AI news we announced in September 2026",
+        "url": "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/ai/google-ai-updates-september-2026/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "输入仅提供文章摘要和内容摘录，未列出 9 月具体更新项目，需打开原文视频或正文获取细节。"
+    ],
+    "updated_at": "2026-10-02T23:14:58.775662Z"
+  }
+]

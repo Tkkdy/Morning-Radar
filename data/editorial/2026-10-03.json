@@ -1,0 +1,192 @@
+{
+  "date": "2026-10-03",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "企业级智能体平台仍处 announced 状态，功能与定价未明，值得展开但需标注厂商未验证声明。",
+      "retain_for_trends": true,
+      "story_id": "story-3ecd37f14afb391da5c4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-agent-platform-launch",
+        "vendor-agent-capability-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "内存短缺持续至2028的预期直接影响本地部署与推理硬件成本，属可后续验证的供应链信号。",
+      "retain_for_trends": true,
+      "story_id": "story-3e4594deab1bd2ae4492",
+      "support_for_story_id": null,
+      "trend_links": [
+        "memory-supply-shortage-2028",
+        "ai-infrastructure-cost-pressure"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "MCP python-sdk 以修复为主但含破坏性依赖与协议行为变更，对集成方有迁移影响。",
+      "retain_for_trends": true,
+      "story_id": "story-7be57f03394472cd56f3",
+      "support_for_story_id": null,
+      "trend_links": [
+        "mcp-sdk-protocol-compatibility-evolution"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "代码审查开放 REST/GraphQL 意味着可嵌入 CI/CD 流水线，是编码工具链结构变化的一手事实。",
+      "retain_for_trends": true,
+      "story_id": "story-cca45ef927e1505dbfc3",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ci-cd-embedded-ai-code-review",
+        "coding-agent-api-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "无状态安装令牌默认铺开改变 GitHub App 认证方式，属开发者平台兼容性变动。",
+      "retain_for_trends": true,
+      "story_id": "story-fbd9c88bb1f943f77e0d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "stateless-token-auth-migration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅为一篇厂商使用指南，无模型能力或价格新事实，一句话即可。",
+      "retain_for_trends": true,
+      "story_id": "story-449e74984fdbe4c2fecd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-model-adoption-playbook"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Copilot 弃用部分模型影响现有用户工作流，但摘要未列具体模型名，事实价值高于读者信息量。",
+      "retain_for_trends": true,
+      "story_id": "story-1f9660c17e9e1a192182",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-model-deprecation-churn",
+        "coding-model-lifecycle-shortening"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方 SDK 新增模型枚举与 continuation_token 是一手发布事实，可追踪模型目录扩张。",
+      "retain_for_trends": true,
+      "story_id": "story-763c27a42f0c7583007c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gemini-model-catalog-expansion",
+        "sdk-model-enumeration-updates"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "开源报告生成模型发布值得知道，但许可证、规模与基准均未在输入中给出。",
+      "retain_for_trends": true,
+      "story_id": "story-916b84c59aafb070d73a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weights-report-generation",
+        "allen-ai-open-model-releases"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "客户案例宣传无独立效果证据，属装饰性企业营销内容。",
+      "retain_for_trends": false,
+      "story_id": "story-8279dca22d8a9b0db9b2",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "隐藏信息博弈突破具研究价值，但仅来源为社区未验证线索，缺乏可追溯细节。",
+      "retain_for_trends": true,
+      "story_id": "story-c547ce882f97b8aa9b12",
+      "support_for_story_id": null,
+      "trend_links": [
+        "imperfect-information-game-rl",
+        "low-budget-training-efficiency"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "公司战略人事传闻，无产品、能力或价格实质变化，未获官方确认。",
+      "retain_for_trends": false,
+      "story_id": "story-028cf04a4dc5ca6a5c6f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "官方观点文章无产品、能力或政策动作，无趋势验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-25af027662aabd09354c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "月度更新汇总属装饰性聚合内容，无结构性新信息。",
+      "retain_for_trends": false,
+      "story_id": "story-9d11d5654fcd58647ced",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-02T23:14:58.775662Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

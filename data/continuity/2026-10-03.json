@@ -1,0 +1,107 @@
+{
+  "date": "2026-10-03",
+  "generated_at": "2026-10-02T23:14:58.775662Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布已存在的 GitHub App 安装令牌的兼容性说明或迁移时间表。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub App installation token"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-02T23:14:58.775662Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-03",
+          "story_id": "story-fbd9c88bb1f943f77e0d"
+        }
+      ],
+      "topic_anchors": [
+        "无状态令牌",
+        "令牌发布"
+      ],
+      "watch_id": "watch-d1a799001b612936950e"
+    },
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布 Copilot 代码审查 API 的可选审查强度级别列表、调用示例、速率限制与定价细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot code review",
+        "REST API",
+        "GraphQL API"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-02T23:14:58.775662Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-03",
+          "story_id": "story-cca45ef927e1505dbfc3"
+        }
+      ],
+      "topic_anchors": [
+        "代码审查",
+        "API 集成"
+      ],
+      "watch_id": "watch-887a0b2f7570aabb2cbf"
+    },
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布被弃用的具体模型名称及其替代模型或迁移路径。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot",
+        "Copilot Chat"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-02T23:14:58.775662Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-03",
+          "story_id": "story-1f9660c17e9e1a192182"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding"
+      ],
+      "watch_id": "watch-49fa128e9b2327555509"
+    },
+    {
+      "entity_anchors": [
+        "Allen Institute for AI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Allen AI 是否公布 AstaBrief 的模型规模、架构、训练数据、许可证与基准表现。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "AstaBrief",
+        "Asta"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-02T23:14:58.775662Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-03",
+          "story_id": "story-916b84c59aafb070d73a"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-4fb83cb89b2221df0eb9"
+    }
+  ]
+}
