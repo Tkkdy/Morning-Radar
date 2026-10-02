@@ -1,0 +1,223 @@
+{
+  "date": "2026-10-03",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v2.1.0 之前，MCP Python SDK 的 Client 不直接接受 StdioServerParameters，提示消息不支持 Image 和 Audio，FastMCP Settings 模型导入也未完成。开发者需要额外封装来启动本地服务器并处理多模态消息。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增簇 cluster-e3f323b260d5bc3b9b40 与既有 Tendency 同属 modelcontextprotocol/python-sdk 一个 project 的产品线版本迭代，直接支持既有方向。按规则同一 actor 或同一产品线的连续版本发布不能凑成两个独立 actor，因此不能升级为 Emerging；机制清晰、产品变化真实，继续作为 Candidate 内部观察，update_kind=supported。",
+        "falsifier": "如果后续版本撤回 StdioServerParameters 直连或 Image/Audio 支持，v2.3.0 之后 SDK 迭代停滞或方向逆转，或开发者未采用这些 API 而继续自行封装，则本 Tendency 被削弱；若 SDK 退回为仅转发基础协议的薄封装，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "开发者可以用一行 Client(StdioServerParameters(...)) 启动本地标准 I/O MCP 服务器，减少样板代码。",
+          "提示消息接受 Image 和 Audio，使 MCP 提示可传递多模态内容，扩展视觉/音频场景可用性。",
+          "FastMCP Settings 模型在导入时完成，改善配置类型提示和开发体验。",
+          "modelcontextprotocol/python-sdk 发布 v2.3.0，安装命令为 pip install -U mcp，文档位于 py.sdk.modelcontextprotocol.io。",
+          "v2.3.0 以修复为主，另新增三个选项，并包含若干行为变更，说明 SDK 仍在活跃维护与演进。"
+        ],
+        "shared_mechanism": "MCP Python SDK 通过同一产品线的连续版本发布，持续降低开发者启动、配置和消息处理的样板代码：v2.1.0 让 Client 直接接受 StdioServerParameters 并把提示消息扩展到 Image/Audio，v2.3.0 继续以修复为主并新增选项、引入行为变更。版本迭代方向一致，使 SDK 逐步从实验性协议封装演进为可承载生产工作流的开发工具。"
+      },
+      "claim": "MCP Python SDK 正在通过连续版本迭代，把 MCP 从实验性协议封装推向生产级开发工具：v2.1.0 支持 Client 直接接受 StdioServerParameters 与 Image/Audio 提示消息，v2.3.0 则以修复为主并新增三个选项、包含行为变更，使开发者在启动、配置和消息处理上持续减少样板代码。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-7be57f03394472cd56f3"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-64e341f35190998505de",
+      "recorded_at": "2026-10-02T23:17:15.789556Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e3f323b260d5bc3b9b40"
+      ],
+      "tendency_id": "tendency-b97b9d9684c7190f61dc",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 OpenAI 的智能体能力主要通过通用模型 API 与对话产品呈现，未以专门的企业软件品牌 Dots 承载工作用途，也较少以官方长文把价值主张聚焦到常规工作与执行力。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个簇同属 OpenAI 一个 actor，且分别为新品发布与官方文章，产品线不同但机制方向一致，均指向智能体从通用模型向企业工作流延伸。由于是同一 actor、缺乏第三方采用证据，不足以升级 Emerging，作为 Candidate 内部观察。",
+        "falsifier": "如果 Dots 未被企业实际采用或仅停留在上手体验而缺乏工作用途落地，且《The eternal complement》所述执行力论点未反映在产品与客户案例中，则本 Tendency 被削弱；若 OpenAI 撤回 Dots 并回到纯模型 API 策略，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 推出企业软件 Dots，强调工作用途，同时也能完成订餐等日常任务。",
+          "The Verge 发表 Dots 上手体验文章，表明产品已进入可被评测的实际使用阶段。",
+          "OpenAI 官方文章《The eternal complement》提出先进 AI 对突破性创意背后的常规工作最为重要，并讨论执行力如何塑造下一阶段经济与进步速度。"
+        ],
+        "shared_mechanism": "OpenAI 通过产品发布与叙事两条线把智能体能力推向具体工作场景：Dots 以企业软件形态承载工作用途及日常任务，官方文章则强调先进 AI 对突破性创意背后常规工作与执行力的价值。两者共同把 OpenAI 的智能体定位从通用对话模型转向企业工作流中的执行型平台，改变企业采用和评估 AI 智能体的方式。"
+      },
+      "claim": "OpenAI 正在拓展其智能体产品形态：一方面以企业软件 Dots 承载工作用途与日常任务的智能体平台，另一方面通过官方文章《The eternal complement》把先进 AI 的价值主张转向执行力与常规工作，显示其智能体叙事从通用模型能力向具体产品与企业工作流延伸。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-3ecd37f14afb391da5c4"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-25af027662aabd09354c"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-098d27bc5c60dd81c13a",
+      "recorded_at": "2026-10-02T23:17:15.789556Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-b4a52d1657096ab6d805",
+        "cluster-6c26e3a12647970d907e"
+      ],
+      "tendency_id": "tendency-4e6a3ce6da2681d8ffbc",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 GitHub Copilot 代码审查主要通过 IDE 交互触发，不提供 REST/GraphQL 的审查请求与强度级别控制，默认审查强度也未公开为 Balanced；模型弃用对 Copilot 各体验的影响缺少集中公告。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "cluster-59d1681a1cb4a5639fac 与 cluster-05754443627ef0477880 同属 GitHub/Copilot 一个 actor 的产品线，前者支持 API 化与强度控制，后者体现模型生命周期治理。方向一致但为同一 actor，且缺乏第三方采用证据，按规则不升级 Emerging，保持 Candidate。",
+        "falsifier": "如果 API 暴露的审查请求与强度控制未被团队采用，Balanced 默认值被回退，或 Copilot 模型弃用未进入实际生命周期管理，则本 Tendency 被削弱；若 GitHub 撤回 API 化的代码审查控制，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub 现在支持通过 REST 和 GraphQL API 请求 GitHub Copilot 代码审查。",
+          "该 API 支持为每次审查请求设置审查强度级别，Balanced 成为默认级别。",
+          "GitHub 于 2026 年 10 月 2 日宣布弃用部分模型，影响 Copilot Chat、inline edits、ask 与 agent 模式以及 code completions。"
+        ],
+        "shared_mechanism": "GitHub 通过 API 开放与默认策略调整，把 Copilot 代码审查从 IDE 交互功能变为可编程、可治理的团队服务：REST/GraphQL 支持请求审查并设置强度级别，Balanced 成为默认强度；同时以弃用部分模型的机制管理底层模型生命周期。三者共同改变团队在 CI 与治理流程中调用和控制 AI 代码审查的方式。"
+      },
+      "claim": "GitHub 正在把 Copilot 从 IDE 补全扩展为可编程、可配置的团队级代码审查服务：通过 REST 与 GraphQL API 暴露代码审查请求与审查强度控制，并把默认强度改为 Balanced，同时以版本弃用机制管理底层模型生命周期。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-cca45ef927e1505dbfc3"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-1f9660c17e9e1a192182"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-5473f9b72aaaadac8d3d",
+      "recorded_at": "2026-10-02T23:17:15.789556Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-59d1681a1cb4a5639fac",
+        "cluster-05754443627ef0477880"
+      ],
+      "tendency_id": "tendency-aeb0d295555d74c2c788",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "在 v2.28.0 之前，python-genai 的 Interactions Model 枚举不包含 lyria-3.5、gemini-omni-1.1-flash 和 gemini-omni-flash-preview，Interactions 也不支持 continuation_token，开发者无法通过官方 SDK 直接使用这些模型与延续机制。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "目前只有 cluster-099ea28a4143783b4be1 一个 OA 官方发布簇，虽直接支持『官方 SDK 作为新模型分发通道』的机制，但单一 actor、单一事件不足以升级 Emerging，作为 Candidate 内部观察。",
+        "falsifier": "如果后续版本移除这些模型或 continuation_token 支持，或开发者未通过 python-genai 采用这些模型而转向其他渠道，则本 Tendency 被削弱；若 SDK 停止作为新模型分发通道，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "googleapis/python-genai v2.28.0 在 Interactions 的 Model 枚举中新增 lyria-3.5、gemini-omni-1.1-flash 和 gemini-omni-flash-preview。",
+          "该版本在 Interactions 中支持 continuation_token，使长交互可被延续。",
+          "版本由 googleapis 官方发布，表明新模型进入官方开发者工具链。"
+        ],
+        "shared_mechanism": "Google 通过官方 python-genai SDK 的版本发布，把新模型与交互能力交付给开发者：在 Interactions 的 Model 枚举中新增音频与多模态模型，并以 continuation_token 支持长交互延续。SDK 成为新模型进入开发者工作流的通道，改变开发者获取和使用 Google 模型能力的方式。"
+      },
+      "claim": "Google 正在把新模型能力通过官方 Python SDK 暴露给开发者：googleapis/python-genai v2.28.0 在 Interactions 的 Model 枚举中新增 lyria-3.5、gemini-omni-1.1-flash 与 gemini-omni-flash-preview，并支持 continuation_token，使新模型进入开发者工具链。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-763c27a42f0c7583007c"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-f5cff946b00b6d3104c1",
+      "recorded_at": "2026-10-02T23:17:15.789556Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-099ea28a4143783b4be1"
+      ],
+      "tendency_id": "tendency-d425118511af86d831cc",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 Asta 中的报告生成模型未以开源形式发布，研究者与开发者无法在自有工作流中复现或集成该能力。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "只有 cluster-8b5aa118d5da066f34c0 一个官方发布簇，机制清晰但为单一 actor、单一产品动作，缺乏跨事件或第三方采用证据，不足以升级 Emerging，作为 Candidate 内部观察。",
+        "falsifier": "如果 AstaBrief 未被研究社区采用，或在 Asta 后续版本中被替换、撤回开源，则本 Tendency 被削弱；若该模型从未真正可用于 Asta 工作流，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Allen Institute for AI 在 Hugging Face Blog 发布博文，宣布开源 Asta 中快速的报告生成模型 AstaBrief。",
+          "该发布使研究者可在自有工作流中复用 AstaBrief 生成报告，而不必仅依赖 Asta 产品本身。"
+        ],
+        "shared_mechanism": "Allen Institute for AI 通过开源 Asta 中的快速报告生成模型 AstaBrief，把报告生成能力从闭源产品功能变为可被开发者与研究社区复用的开源组件，改变研究者在 AI 辅助文献工作流中生成报告的方式。"
+      },
+      "claim": "开源报告生成能力正在面向特定研究工作流产品化：Allen Institute for AI 在 Asta 中开源 AstaBrief，把快速报告生成模型作为 Asta 内的组件开放，降低研究者在 AI 辅助文献工作流中生成报告的门槛。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-03",
+            "story_id": "story-916b84c59aafb070d73a"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-287f97478c83d86ea8af",
+      "recorded_at": "2026-10-02T23:17:15.789556Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-8b5aa118d5da066f34c0"
+      ],
+      "tendency_id": "tendency-7f83e080bfd7f2f321cb",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-02T23:17:15.789556Z"
+}
