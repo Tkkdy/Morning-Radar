@@ -1,0 +1,176 @@
+{
+  "date": "2026-10-04",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "官方发版事实可验证，但属常规迭代，仅一句提及并作为生态演进弱证据保留。",
+      "retain_for_trends": true,
+      "story_id": "story-03bdb04ab4de0160b4b6",
+      "support_for_story_id": null,
+      "trend_links": [
+        "pydantic-ai-framework-release-cadence",
+        "multi-backend-fallback-semantics"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "操作系统级权限收紧会实质影响本地代理可用性，但当前仅为媒体转述，需独立核实。",
+      "retain_for_trends": true,
+      "story_id": "story-258b0533d1137aad67fd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "os-level-agent-permission-tightening",
+        "ai-agent-filesystem-access-risk"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "负责模型发布安全报告的员工离职属治理信号，但缺少原文细节，轻量处理并留档。",
+      "retain_for_trends": true,
+      "story_id": "story-7b295a39b4516b40ce2c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-lab-safety-reporting-governance",
+        "model-release-safety-process-attrition"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商自述的效率数字无独立复现，只作一句并保留为待验证落地证据。",
+      "retain_for_trends": true,
+      "story_id": "story-df5510678d6af269bf4d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-case-study-efficiency-claims",
+        "coding-agent-enterprise-workflow-adoption"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "同一 Muse 开源事件的较早报道，信息量低，仅作为另一条主 Story 的补充。",
+      "retain_for_trends": true,
+      "story_id": "story-4aaf17320f410cf3078f",
+      "support_for_story_id": "story-436e15e8b607100d50a4",
+      "trend_links": [
+        "open-weights-agent-embedding-into-hardware"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "开源代码使智能体可嵌入第三方硬件，改变本地与硬件可用性，但许可证与仓库未确认。",
+      "retain_for_trends": true,
+      "story_id": "story-436e15e8b607100d50a4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weights-agent-embedding-into-hardware",
+        "agent-hardware-hackability"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "数据中心社会阻力影响基础设施建设节奏，属客观动向但报道细节不足。",
+      "retain_for_trends": true,
+      "story_id": "story-66e080c74b3efc90c81e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "data-center-community-opposition",
+        "ai-infrastructure-social-license"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "同一 OpenAI 安全员工离职事件的重复报道，仅补充给主 Story。",
+      "retain_for_trends": true,
+      "story_id": "story-41b24a1fdf5feb2a9f31",
+      "support_for_story_id": "story-7b295a39b4516b40ce2c",
+      "trend_links": [
+        "frontier-lab-safety-reporting-governance"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "游戏引擎 AI 前景演示缺乏可验证技术细节与时间表，不构成结构性证据。",
+      "retain_for_trends": false,
+      "story_id": "story-34be1e555f8d7617d6ec",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅有社区发现线索，模型发布、许可与能力均未确认，无法命名可复用趋势。",
+      "retain_for_trends": false,
+      "story_id": "story-f3c2e02f05b517d191c0",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "厂商营销型客户故事，无方法论与独立验证，缺乏读者与趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-48248409c6b51b10bc63",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "编辑整理的清单文章，无新事实与机制，一句带过即可。",
+      "retain_for_trends": false,
+      "story_id": "story-3a706ca7cb40d4f9f9c0",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "inference",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "个人观点式访谈，无可验证事实与开发实践影响。",
+      "retain_for_trends": false,
+      "story_id": "story-e1841b2b19829728e77f",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-03T22:25:35.508528Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

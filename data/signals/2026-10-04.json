@@ -1,0 +1,89 @@
+[
+  {
+    "created_at": "2026-10-03T22:25:35.508528Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 14 个来源支持。",
+    "id": "signal-ce99d67fb0ff8bb5dbe8",
+    "metric_history": [
+      {
+        "date": "2026-10-02",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-03",
+        "story_count": 6
+      },
+      {
+        "date": "2026-10-04",
+        "story_count": 6
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 24,
+    "supporting_source_count": 14,
+    "supporting_story_ids": [
+      "story-bf1e2be447b46c50c6cf",
+      "story-c9c999ff2c7b15d62949",
+      "story-449e74984fdbe4c2fecd",
+      "story-763c27a42f0c7583007c",
+      "story-916b84c59aafb070d73a",
+      "story-8279dca22d8a9b0db9b2",
+      "story-25af027662aabd09354c",
+      "story-9d11d5654fcd58647ced",
+      "story-df5510678d6af269bf4d",
+      "story-4aaf17320f410cf3078f",
+      "story-436e15e8b607100d50a4",
+      "story-41b24a1fdf5feb2a9f31",
+      "story-48248409c6b51b10bc63",
+      "story-e1841b2b19829728e77f"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-10-03T22:25:35.508528Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-03T22:25:35.508528Z",
+    "explanation": "ai_coding 连续 3 天保持或增加事件量，且有 15 个来源支持。",
+    "id": "signal-f6a895c1f6bffcdd8628",
+    "metric_history": [
+      {
+        "date": "2026-10-02",
+        "story_count": 3
+      },
+      {
+        "date": "2026-10-03",
+        "story_count": 6
+      },
+      {
+        "date": "2026-10-04",
+        "story_count": 6
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 29,
+    "supporting_source_count": 15,
+    "supporting_story_ids": [
+      "story-0061e4bec9d4c6923fee",
+      "story-99d63c706ebde3771a1d",
+      "story-c9c999ff2c7b15d62949",
+      "story-7be57f03394472cd56f3",
+      "story-449e74984fdbe4c2fecd",
+      "story-1f9660c17e9e1a192182",
+      "story-763c27a42f0c7583007c",
+      "story-8279dca22d8a9b0db9b2",
+      "story-25af027662aabd09354c",
+      "story-03bdb04ab4de0160b4b6",
+      "story-df5510678d6af269bf4d",
+      "story-4aaf17320f410cf3078f",
+      "story-436e15e8b607100d50a4",
+      "story-41b24a1fdf5feb2a9f31",
+      "story-e1841b2b19829728e77f"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-10-03T22:25:35.508528Z",
+    "window_days": 3
+  }
+]

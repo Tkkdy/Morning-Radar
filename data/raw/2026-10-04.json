@@ -67,6 +67,7 @@
     "id": "item-67165811a40faf8fe74f",
     "language": "en-US",
     "metadata": {
+      "content_version": "0496fd2974c1c4f2d338",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -97,6 +98,7 @@
     "id": "item-5cb80ade64def456af8e",
     "language": "en-US",
     "metadata": {
+      "content_version": "75b7c6f2d5cd1f0f8ee7",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -158,6 +160,7 @@
     "id": "item-b6daf017b51efbe8e4a6",
     "language": "en-us",
     "metadata": {
+      "content_version": "1d9882faae8981f49d47",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -220,6 +223,7 @@
     "id": "item-882596cbc7639eb42bf2",
     "language": null,
     "metadata": {
+      "content_version": "38214d788a27a5f7221b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -280,6 +284,7 @@
     "id": "item-801ec396652be12bf447",
     "language": "en-US",
     "metadata": {
+      "content_version": "b8f00e40d37595f562f9",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -310,6 +315,7 @@
     "id": "item-12f1c0f583e5ec7e2401",
     "language": "en-US",
     "metadata": {
+      "content_version": "dc05f580f3e0a0480894",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -371,6 +377,7 @@
     "id": "item-1c386bddda81bbff2b4b",
     "language": "en-us",
     "metadata": {
+      "content_version": "0d9daf0c85e31eae0d8c",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -493,6 +500,7 @@
     "id": "item-7096cbc634e5d7d26867",
     "language": "en-US",
     "metadata": {
+      "content_version": "bb2142b7611cae301a34",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -523,6 +531,7 @@
     "id": "item-46c63a0311a23e0ded31",
     "language": "en-US",
     "metadata": {
+      "content_version": "17068296929122df3de5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -706,6 +715,7 @@
     "id": "item-b6aee1da4c9da9519c63",
     "language": "en-US",
     "metadata": {
+      "content_version": "1ad80febee2850213e6e",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -736,6 +746,7 @@
     "id": "item-038134d95b4f933ef0d5",
     "language": "en-US",
     "metadata": {
+      "content_version": "ca825d5b6f02bb182727",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -859,6 +870,7 @@
     "id": "item-2167384f51e2a4466793",
     "language": null,
     "metadata": {
+      "content_version": "e535ed4d32b63db3989b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -949,6 +961,7 @@
     "id": "item-ac153d8f7821405e727c",
     "language": "en-US",
     "metadata": {
+      "content_version": "804e3aa8f28fbe31ad5e",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -43767,6 +43780,7 @@
     "id": "item-25c2d34baf331a4e16b0",
     "language": "en",
     "metadata": {
+      "content_version": "151705129f9921b7fc8d",
       "data_anomaly": false,
       "forks": 2854,
       "official": true,
@@ -44739,6 +44753,7 @@
     "metadata": {
       "comments": 113,
       "community_signal": true,
+      "content_version": "b15630a46fc910e01ada",
       "discussion_url": "https://news.ycombinator.com/item?id=49941114",
       "official": false,
       "original_url": "https://www.extrabigassintelligence.com/",
@@ -44799,11 +44814,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49948332",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken",
       "score": 4,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -44889,6 +44912,7 @@
     "metadata": {
       "comments": 11,
       "community_signal": true,
+      "content_version": "7fa421324b9de3ea7315",
       "discussion_url": "https://news.ycombinator.com/item?id=49943034",
       "official": false,
       "original_url": "https://tej.as/blog/aleph-alpha-kolibri",
@@ -45075,6 +45099,7 @@
     "metadata": {
       "change_percent": 0.009223950110185838,
       "close": 517.530029296875,
+      "content_version": "55f21d6530871fce5ceb",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 512.7999877929688,
@@ -46127,38 +46152,6 @@
     "title": "DeepSeek open sourced their Huawei Ascend programming stack",
     "topic_candidates": [],
     "url": "https://aistockwire.com/blog/deepseek-huawei-ascend-tilelang-open-source-nvidia-nvda-cuda-september-2026"
-  },
-  {
-    "author": "jethronethro",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-03T22:24:36.614939Z",
-    "id": "item-f631caa3ccb34c88201e",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49948332",
-      "hn_submission_time": 1791065893,
-      "lab_id": "openai",
-      "original_url": "https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-03T22:18:13Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI safety leader quits, warning AI company's culture is 'broken'",
-    "topic_candidates": [],
-    "url": "https://www.theguardian.com/technology/2026/oct/03/openai-safety-leader-quits-warning-ai-companys-culture-is-broken"
   },
   {
     "author": "ForHackernews",
