@@ -1,0 +1,133 @@
+{
+  "date": "2026-10-05",
+  "generated_at": "2026-10-04T22:32:20.166008Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Google 是否发布关于开源漏洞赏金计划冻结的官方说明，以及是否公布恢复条件或改为筛选机制。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-04T22:32:20.166008Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-05",
+          "story_id": "story-b5c056025ec530b07494"
+        }
+      ],
+      "topic_anchors": [
+        "漏洞赏金",
+        "开源安全",
+        "AI 生成提交"
+      ],
+      "watch_id": "watch-721957ddf846704ffc7d"
+    },
+    {
+      "entity_anchors": [
+        "Niko1221",
+        "Strata",
+        "RTX 4090"
+      ],
+      "event_type": "opened",
+      "expectation": "观察是否有独立第三方复现 Niko1221/Strata 仓库在 RTX 4090 上的 Qwen 3.8 Flash Next（125B）推理速度，或对该性能声明提出质疑。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Qwen 3.8 Flash Next",
+        "Strata"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-04T22:32:20.166008Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-05",
+          "story_id": "story-53116f59a5ff8fa436f9"
+        }
+      ],
+      "topic_anchors": [
+        "大语言模型推理优化",
+        "消费级硬件推理",
+        "模型量化"
+      ],
+      "watch_id": "watch-4b7b9664ac20f52a78cb"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否公布 dots 的可用范围、上线阶段与定价等具体产品信息。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "dots"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-04T22:32:20.166008Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-05",
+          "story_id": "story-edf2e668241ce1de1f66"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-a91cdc7e9411d323924a"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "Claude"
+      ],
+      "event_type": "opened",
+      "expectation": "StarSkirmish 上 GPT-6 Astra、Claude Opus 5.5 与人类机器人 Stardust、Pluto 的后续对战结果与作弊判定是否公布。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPT-6 Astra",
+        "Claude Opus 5.5",
+        "StarSkirmish",
+        "Stardust",
+        "Pluto"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-04T22:32:20.166008Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-05",
+          "story_id": "story-25c4118329de345503df"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models"
+      ],
+      "watch_id": "watch-372af9ed43f6a25e72b3"
+    },
+    {
+      "entity_anchors": [
+        "Simon Willison"
+      ],
+      "event_type": "opened",
+      "expectation": "Simon Willison 提出的默认硬预算上限是否会形成具体提案或落地到某些服务的默认配置中。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-04T22:32:20.166008Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-05",
+          "story_id": "story-0d4cc51313362c77e361"
+        }
+      ],
+      "topic_anchors": [
+        "硬预算上限",
+        "成本控制"
+      ],
+      "watch_id": "watch-5252d6003b40f540949b"
+    }
+  ]
+}

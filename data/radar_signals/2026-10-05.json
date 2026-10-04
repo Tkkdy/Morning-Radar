@@ -1,0 +1,118 @@
+[
+  {
+    "claim": "Simon Willison 主张：按量付费的 AI 服务与 API 应当提供默认的硬性预算上限（达到 $X/月即切断调用并返回错误），仅发送告警邮件的软上限不够；coding agent 与个人 agent 会显著放大这类支出风险。",
+    "id": "radar-a3a7f1f4713944bbf27e",
+    "missing_evidence": [
+      "原文正文被截断，未能看到完整论证",
+      "缺少具体产品案例与真实超支/事故数据",
+      "缺少现有服务是否已提供硬性上限的横向对比",
+      "agent 推高支出的幅度没有量化数据"
+    ],
+    "observed_at": "2026-10-04T22:31:15.571929Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner",
+      "community_discovery"
+    ],
+    "statement_type": "analysis_judgement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-47be91cd52d348ebb727",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
+      },
+      {
+        "association_basis": "same_url",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-99eba0e69920a3a683a1",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/3/default-hard-budget-caps/"
+      }
+    ],
+    "uncertainty": "该文属于资深实践者的判断与建议，并非实测或统计数据；'agent 会大幅提高支出'的具体程度、以及硬上限是否应作为默认行为，均未经独立验证。",
+    "why_notable": "随着 coding agent 和个人 agent 大量调用按量付费 API，成本可在无人值守时快速膨胀，硬性预算上限可能成为 AI 产品的基础能力要求，对 agent 产品设计与计费策略有直接参考价值。"
+  },
+  {
+    "claim": "有线索称可通过 GitHub 项目 Strata，在消费级 RTX 4090 上以约 100 tokens/s 运行 Qwen 3.8 Flash Next（125B）。",
+    "id": "radar-518957c6c730e1d02921",
+    "missing_evidence": [
+      "仓库 README、代码与实现细节",
+      "量化方案、显存占用与 offload 策略",
+      "可复现的吞吐量实测数据与测试条件（batch、上下文长度、精度）",
+      "独立第三方复现"
+    ],
+    "observed_at": "2026-10-04T22:31:15.571929Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-ff026524965453950e1a",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/Niko1221/Strata"
+      }
+    ],
+    "uncertainty": "125B 模型在 24GB 显存的单张 4090 上达到 100 tokens/s 与现行硬件条件差距很大，可能依赖激进的量化/权重换出，或吞吐量口径（如含缓存命中、仅解码阶段）不同；该线索无任何正文内容，需实测验证。",
+    "why_notable": "若属实，将意味着百亿至千亿参数级模型可在单张消费级显卡上以可用速度本地推理，对本地 AI 部署与推理优化有重要意义。"
+  }
+]

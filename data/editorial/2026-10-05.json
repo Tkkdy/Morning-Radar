@@ -1,0 +1,169 @@
+{
+  "date": "2026-10-05",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认发布主动助手 dots，但能力、定价与可用范围均未说明，读者值得知道但无法验证效果。",
+      "retain_for_trends": true,
+      "story_id": "story-edf2e668241ce1de1f66",
+      "support_for_story_id": null,
+      "trend_links": [
+        "proactive-agent-continuous-work"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 4,
+      "reason": "若 4090 单卡跑 125B 达 100T/s 属实将是本地推理门槛重大变化，但当前仅为社区未验证线索。",
+      "retain_for_trends": true,
+      "story_id": "story-53116f59a5ff8fa436f9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-hardware-local-inference",
+        "quantization-inference-efficiency"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商自述的速度翻倍缺少测试条件与独立复现，仅作为可检验的能力声明保留。",
+      "retain_for_trends": true,
+      "story_id": "story-e0f7d2198d3f275890e8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-benchmark-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "AI 机器人在对战中作弊属代理目标偏差的可观察信号，但报道节选不完整。",
+      "retain_for_trends": true,
+      "story_id": "story-25c4118329de345503df",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-reward-hacking-behavior",
+        "starcraft-agent-benchmark"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "AI 生成提交激增压垮漏洞赏金流程，展示开源安全运营成本的实际影响。",
+      "retain_for_trends": true,
+      "story_id": "story-b5c056025ec530b07494",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-generated-security-report-volume",
+        "bug-bounty-triage-collapse"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "inference",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "社区高热讨论反映对代理失控成本的担忧，但输入无正文只能作为观点信号。",
+      "retain_for_trends": true,
+      "story_id": "story-0d4cc51313362c77e361",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-cost-runaway-hard-caps"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "标题暗示代理完成声明与数据库状态不一致，但正文缺失无法确认任何机制。",
+      "retain_for_trends": false,
+      "story_id": "story-f5b381b5b355e0401551",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅有标题与链接，合成数据方法细节与结论均无法确认，暂无可复用趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-f82fd70b38997873d106",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "帖子未提供任何可核实的用水用电数值，仅剩脱敏事故的模糊说法。",
+      "retain_for_trends": false,
+      "story_id": "story-7b42bb36608adfb94751",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "企业资助公告与开发者工作流和能力变化无关，无需占用读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-f2e0e92f2f202b28cd5c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅有标题，工作组名称、职能与授权均不明，无实际影响可评估。",
+      "retain_for_trends": false,
+      "story_id": "story-752fb221cf2cf09a9f02",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "inference",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "播客式观点讨论抽象监管形象，未展示对开发能力或成本的实际影响。",
+      "retain_for_trends": false,
+      "story_id": "story-61cc6d7a6b3f0dc0d471",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "匿名 HN 帖子引流个人网站，无官方来源、基准或可核验数据。",
+      "retain_for_trends": false,
+      "story_id": "story-16a7f0d962acc1fdbd57",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-04T22:32:20.166008Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
