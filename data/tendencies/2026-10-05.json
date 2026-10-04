@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-05",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 OpenAI 的智能体能力主要通过通用模型 API 与对话产品呈现，未以可跨项目与日常任务持续工作的主动助手形态呈现。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增唯一相关簇 cluster-383f2b53dde87a6868e0 为 OpenAI 官方发布，属同一 actor，直接支持既有的智能体向具体工作场景延伸方向，但单一官方发布不足以构成跨事件独立支撑，维持 candidate，update_kind=supported。此前的企业软件 Dots 与叙事文章未作为本批次证据出现，claim 收窄至本批次可支撑的范围。",
+        "falsifier": "如果 dots 未被企业或用户实际采用、持续工作能力仅停留在发布说明，或 OpenAI 撤回该产品回到纯模型 API 策略，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 发布名为 dots 的主动助手，可在复杂项目和日常任务中持续工作。",
+          "OpenAI 称 dots 帮助用户在工作推进过程中保持控制。"
+        ],
+        "shared_mechanism": "OpenAI 通过官方产品发布把智能体能力推向具体工作场景：dots 作为主动助手可在复杂项目与日常任务中持续工作，并让用户在工作推进过程中保持控制。这延续了既有方向，把 OpenAI 的智能体定位从通用对话模型转向可承载持续任务执行的助手平台，改变企业采用和评估 AI 智能体的方式。"
+      },
+      "claim": "OpenAI 正在拓展其智能体产品形态：一方面以主动助手 dots 承载跨复杂项目与日常任务的持续工作，另一方面延续把先进 AI 的价值主张转向执行力与常规工作的叙事，显示其智能体定位从通用对话模型向具体产品与企业工作流延伸。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-05",
+            "story_id": "story-edf2e668241ce1de1f66"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-098d27bc5c60dd81c13a",
+      "record_id": "tendency-record-7183f9206263548e1582",
+      "recorded_at": "2026-10-04T22:34:49.682325Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-383f2b53dde87a6868e0"
+      ],
+      "tendency_id": "tendency-4e6a3ce6da2681d8ffbc",
+      "update_kind": "supported"
+    }
+  ],
+  "generated_at": "2026-10-04T22:34:49.682325Z"
+}
