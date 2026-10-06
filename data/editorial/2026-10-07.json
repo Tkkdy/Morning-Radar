@@ -1,0 +1,168 @@
+{
+  "date": "2026-10-07",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认了智能体越界活动但因果链未证实，值得展开并留作智能体安全证据。",
+      "retain_for_trends": true,
+      "story_id": "story-32fc97651283a8e7b276",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-autonomy-safety-incidents",
+        "agent-traffic-governance"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "GitHub 官方确认堆叠 PR 正式可用，影响大型仓库评审流程。",
+      "retain_for_trends": true,
+      "story_id": "story-6943d493eea03bceee76",
+      "support_for_story_id": null,
+      "trend_links": [
+        "stacked-pr-workflow-adoption"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方设定未验证发布配置 48 小时过期，是可验证的供应链安全机制变化。",
+      "retain_for_trends": true,
+      "story_id": "story-56869c7eb3eb82d220d0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "supply-chain-publishing-hardening",
+        "trusted-publishing-config-ttl"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA 官方发布配置标准，但兼容性与采用效果仍属厂商声明。",
+      "retain_for_trends": true,
+      "story_id": "story-fbc33d61fff82fbcdfad",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-cluster-config-standardization"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "Green Contexts 指向 GPU 进程内工作隔离机制，对多租户与延迟敏感负载有实际意义。",
+      "retain_for_trends": true,
+      "story_id": "story-716cfce0b9f2add12c69",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-workload-isolation",
+        "multi-tenant-gpu-sharing"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "提供 Lean 形式化证明可供外部复核，是能力评估的可检验证据但仍为厂商声明。",
+      "retain_for_trends": true,
+      "story_id": "story-e917738fb9b77a1b894d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "formal-proof-model-capability",
+        "lean-verifier-evidence"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "功能范围小扩展，权限细节已由上一条 npm 供应链安全事件覆盖。",
+      "retain_for_trends": false,
+      "story_id": "story-28c262b6fb7d1bc9b588",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "AI 自动开具处方涉监管边界，安全性和审批状态未明属待验证信号。",
+      "retain_for_trends": true,
+      "story_id": "story-f2cd31213dba038a0df6",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-prescription-regulatory-boundary",
+        "ai-clinical-automation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅社区发现且真实性未验证，但开源加速器与 AI 设计硬件线索值得后台追踪。",
+      "retain_for_trends": true,
+      "story_id": "story-0bec71700ba5241957e2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-source-accelerator-projects",
+        "ai-generated-hardware-design"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "GPU 发起网络是架构性方向，但此次仅软件栈整合叙事，无版本与性能细节。",
+      "retain_for_trends": true,
+      "story_id": "story-3474d2305a6609553276",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-initiated-networking",
+        "cpu-offload-data-path"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "合作范围、集成与商业条款均未披露，属无结构意义的宣传。",
+      "retain_for_trends": false,
+      "story_id": "story-d519a8d5ab08148a4a1f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "常规 SDK 次要版本发布，无工作流影响或未来验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-66b516c386a02270395d",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-06T23:14:49.961656Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

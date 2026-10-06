@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Mistral 发布 Mistral Large 4 预览版：1 万亿参数、490 亿激活参数，使用自有 3800 块 NVIDIA Grace Blackwell GPU 集群训练，通过 API 提供且仅支持 none/high 两档推理等级，承诺月底发布开放权重。",
+    "id": "radar-29f9e13bae2e8e070176",
+    "missing_evidence": [
+      "Mistral 官方发布博客或模型文档的完整内容",
+      "模型卡、基准测试结果和技术报告",
+      "开放权重发布的具体时间与许可证"
+    ],
+    "observed_at": "2026-10-06T23:13:56.379120Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-fbfc97815a55d85698bc",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/6/le-chonk/"
+      }
+    ],
+    "uncertainty": "当前细节来自 Simon Willison 的引述，官方页面未抓取；参数量、训练集群和推理等级等关键数据尚未得到 Mistral 官方文档独立证实。",
+    "why_notable": "若属实，这是 Mistral 迄今最大规模模型，自建集群与开放权重承诺可能对开源模型生态和推理算力格局产生显著影响。"
+  }
+]
