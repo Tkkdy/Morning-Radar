@@ -1,0 +1,918 @@
+[
+  {
+    "analysis": [
+      "v0.31.0 是 vLLM 的一次大规模版本更新，提交数量和贡献者覆盖面显示社区活跃度较高。",
+      "该版本重点优化 DeepSeek-V4.1-Flash 在 SM100 上的推理性能，涉及 attention、KV cache、MoE 融合及通信重叠等多个层面。",
+      "`vllm preload`、CRIU 快照和 Model Runner V2 的改进指向降低重启/恢复延迟与增强推测解码能力两个工程方向。",
+      "大规模服务相关变更（MoonEP、context parallelism、NCCL M2N 等）表明项目在强化多节点与 RL 场景下的扩展性。",
+      "多项破坏性变更集中在多模态安全、量化接口和废弃后端，升级时可能需要调整配置。"
+    ],
+    "canonical_title": "vLLM 发布 v0.31.0",
+    "category": "open_source_ai",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "vllm-project",
+      "vllm-project/vllm"
+    ],
+    "facts": [
+      "vLLM 发布 v0.31.0，共包含 717 个提交，来自 307 位贡献者（其中 96 位新贡献者）。",
+      "该版本为 DeepSeek-V4.1-Flash 引入 FlashMLA mega attention，并搭配 V4.1 NVFP4 压缩 KV cache，已成为 SM100 默认配置（#56935）。",
+      "新增 DeepGEMM sparse MQA logits 用于 indexer（#56254），以及 Mega-Gate 将 gate GEMM 与 expert selection 融合（#56266）。",
+      "新 CLI `vllm preload` 启动 weight-cache daemon，在引擎重启期间将量化后权重保留在 GPU 内存中（#56680），支持数据并行（#57386）、MTP draft 模型（#57312）、`/health` 端点（#58552）和就绪等待（#58370）。",
+      "实验性的 initialized-engine 快照（`vllm snapshot create/restore`）使用 CRIU 恢复完整初始化的 TP1 引擎（#51360）。",
+      "Model Runner V2 支持 draft-model speculative decoding（#43091）和自定义 logits processors（#56497）；新增 LiLiCorr drafter（#57934）。",
+      "大规模服务方面新增 MoonEP balanced EP all2all 后端，通过 `--all2all-backend moonep` 启用（#52101）；支持 prefill context parallelism 与数据并行（#57075）。",
+      "调度控制新增 `--max-num-active-seqs`，可独立于 `max_num_seqs` 限制 RUNNING 准入（#56758）。",
+      "破坏性变更包括：按请求的多模态 kwargs 被门控（#58830）；移除 `tokenizer_mode=\"slow\"`（#58545）；`--enable-mamba-fine-grained-prefix-cache` 重命名为 `--enable-mamba-shared-prefix-checkpoint`（#57382）；在线量化 `quantization=\"fp8\"` 被 `fp8_per_tensor` 简写取代（#53585）；移除 Quark 静默在线量化（#51800）；移除 AllSpark INT8 W8A16 后端（#58001）。",
+      "`--enforce-eager` 现在也会禁用 JIT kernel warmup（#58197）；XPU graphs 被启用。"
+    ],
+    "id": "story-db24ee4a1b99c3599fcb",
+    "importance_score": 0.75,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.31.0",
+    "product_names": [
+      "vLLM",
+      "vLLM v0.31.0",
+      "DeepSeek-V4.1-Flash",
+      "Model Runner V2",
+      "vllm preload",
+      "FlashMLA",
+      "DeepGEMM",
+      "MoonEP",
+      "HiSparse",
+      "LiLiCorr",
+      "DFlash",
+      "DSpark",
+      "Kimi-K3",
+      "Gemma4"
+    ],
+    "published_at": "2026-10-05T06:44:55Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-9668af85ed2e1acf35b7"
+    ],
+    "source_refs": [
+      {
+        "author": "khluu",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T06:44:55Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9668af85ed2e1acf35b7",
+        "source_date": null,
+        "source_name": "GitHub · vllm-project/vllm",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "vllm-project/vllm: v0.31.0",
+        "url": "https://github.com/vllm-project/vllm/releases/tag/v0.31.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/vllm-project/vllm/releases/tag/v0.31.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入为 GitHub Release 说明，未提供独立性能基准或第三方复现结果。",
+      "XPU graphs 启用的具体范围与影响在摘要中未完整展开。",
+      "CRIU 快照功能标注为实验性，其生产环境稳定性尚不明确。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "从报道摘要的表述看，该报道将 MCP 的信任缺口描述为结构性问题，而非单一实现中的偶发漏洞。",
+      "根据输入摘要，风险针对的是智能体间通信场景，而非仅用户与模型之间的单点交互。"
+    ],
+    "canonical_title": "Ars Technica 报道 MCP 协议存在信任缺口，恶意提示可在智能体之间传播",
+    "category": "security",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Ars Technica",
+      "Dan Goodin"
+    ],
+    "facts": [
+      "Ars Technica Technology Lab 于 2026-10-05 发布由 Dan Goodin 撰写的报道，标题为“MCP for agent-to-agent comms may be the riskiest protocol you've never heard of”。",
+      "该报道摘要称，新协议中的信任缺口会让恶意提示从一个智能体传播到另一个智能体。"
+    ],
+    "id": "story-17ee4ef3d4a3cbf3fc4a",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/",
+    "product_names": [
+      "MCP"
+    ],
+    "published_at": "2026-10-05T22:26:35Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-38a23f681b4cd66dc332"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T22:26:35Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-38a23f681b4cd66dc332",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "MCP for agent-to-agent comms may be the riskiest protocol you've never heard of",
+        "url": "https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/10/vulnerability-in-agents-from-google-and-others-exposes-structural-flaw-in-mcp/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未给出受影响的具体智能体产品或厂商名称，标题仅泛指“来自 Google 及其他公司的智能体”。",
+      "输入未提供 MCP 漏洞的技术细节、CVE 编号、披露时间线或修复状态，因此无法确认具体影响范围。",
+      "输入未给出除 Ars Technica 之外的独立来源或厂商公告，事件真实性仍待交叉验证。",
+      "输入未说明“恶意提示在智能体之间传播”的具体攻击链路与利用条件。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "该举措将内容溯源要求落到 ChatGPT 与 Codex 的文本输出层面，属于 AI Act 透明度义务下的具体合规动作。",
+      "水印对编辑的脆弱性意味着其实际约束力和可验证性可能有限，具体效果取决于检测机制与监管执行方式。"
+    ],
+    "canonical_title": "OpenAI 将在欧盟为 ChatGPT 文本添加水印以满足 AI Act 合规要求",
+    "category": "ai_policy",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT",
+      "Codex",
+      "EU"
+    ],
+    "facts": [
+      "TechCrunch 报道，OpenAI 将在欧盟为 ChatGPT 和 Codex 生成的文本添加水印，以遵守欧盟 AI Act。",
+      "报道称 OpenAI 表示编辑可能使这些不可见水印更难被检测。"
+    ],
+    "id": "story-d792ca89ef32eeeb93c9",
+    "importance_score": 0.75,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/",
+    "product_names": [
+      "ChatGPT",
+      "Codex"
+    ],
+    "published_at": "2026-10-05T20:36:48Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-62770fe3e19fe1d0e42a"
+    ],
+    "source_refs": [
+      {
+        "author": "Aditya Mehta",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T20:36:48Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-62770fe3e19fe1d0e42a",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI will start watermarking ChatGPT’s text in the EU",
+        "url": "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/05/openai-will-start-watermarking-chatgpts-text-in-the-eu/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "watermarking",
+      "AI Act",
+      "content provenance"
+    ],
+    "uncertainties": [
+      "水印的具体技术实现方式、检测机制和生效日期未在输入中说明。",
+      "OpenAI 官方声明原文未提供，上述内容均来自 TechCrunch 报道。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "OpenAI 选择以研究人员为起点开放水印检测能力，可能是在合规要求与滥用风险之间采取的渐进式策略。"
+    ],
+    "canonical_title": "OpenAI 公布在欧盟文本溯源规则下对文本水印的处理方式",
+    "category": "ai_policy",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "European Union"
+    ],
+    "facts": [
+      "OpenAI 发布官方文章，说明其在欧盟文本溯源规则下对文本水印的处理方式。",
+      "该文章提到水印的适用范围、检测方式，以及为何访问权限先从研究人员开始。"
+    ],
+    "id": "story-0b22e965790c00df0c9c",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://openai.com/index/eu-text-provenance",
+    "product_names": [],
+    "published_at": "2026-10-05T15:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-d2b5b29b4c8155256199"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d2b5b29b4c8155256199",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Our approach to EU text provenance rules",
+        "url": "https://openai.com/index/eu-text-provenance"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/eu-text-provenance"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "文本水印",
+      "文本溯源",
+      "EU 规则",
+      "AI 内容检测"
+    ],
+    "uncertainties": [
+      "文章未在可见摘要中给出水印具体技术方案、检测准确率或面向公众开放的明确时间表。",
+      "“访问先从研究人员开始”的具体范围、申请条件与地区限制尚不明确。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "此次更新扩展了 GitHub Secret Scanning 对 AI 编码工具和云服务相关密钥的覆盖范围。",
+      "将 Lovable、Pydantic 和 Supabase 纳入检测范围，说明这些服务的凭据泄露风险开始受到平台层面的关注。"
+    ],
+    "canonical_title": "GitHub Secret Scanning 新增对 Lovable、Pydantic 及 Supabase 的密钥检测器",
+    "category": "Security/DevOps",
+    "credibility_score": 0.92,
+    "entity_names": [
+      "GitHub",
+      "Lovable Labs",
+      "Pydantic Services Inc.",
+      "Supabase"
+    ],
+    "facts": [
+      "GitHub Secret Scanning 现在可以检测来自 Lovable Labs、Pydantic Services Inc. 和 Supabase 的新型密钥。",
+      "发布方 GitHub Changelog 于 2026-10-05T22:42:14Z 发布了该变更日志。",
+      "该公告提到有一个新的密钥扫描合作伙伴加入了 secret scanning partnership program。"
+    ],
+    "id": "story-bab8d39d0140149abb15",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more",
+    "product_names": [
+      "GitHub Secret Scanning"
+    ],
+    "published_at": "2026-10-05T22:42:14Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-517fdc831c7b1edb72c4"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T22:42:14Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-517fdc831c7b1edb72c4",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Secret scanning adds detectors for Lovable, Supabase, and more",
+        "url": "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-05-secret-scanning-adds-detectors-for-lovable-supabase-and-more"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "secret scanning",
+      "credential detection"
+    ],
+    "uncertainties": [
+      "公告正文中未明确新加入 partnership program 的具体供应商是哪一家。",
+      "未披露新增检测器的具体匹配规则或上线细节。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 通过为 BlueField 和 DOCA 提供 agent skills，意在降低专用基础设施软件的开发门槛，将 AI agent 引入网络与数据处理加速卡的开发流程。"
+    ],
+    "canonical_title": "NVIDIA 发布 DOCA Agent Skills，加速在 BlueField 上构建应用",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA BlueField",
+      "NVIDIA DOCA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布了题为“Build Applications on NVIDIA BlueField Faster with NVIDIA DOCA Agent Skills”的文章。",
+      "文章作者为 Tanya Lenz，发布时间为 2026-10-01T18:13:29Z。",
+      "文章摘要指出，AI agent 正成为开发工作流的标准组成部分，但通用 agent 并未针对此类专用基础设施软件构建。"
+    ],
+    "id": "story-76e8c0ae860f155cd3d3",
+    "importance_score": 0.55,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://developer.nvidia.com/blog/build-applications-on-nvidia-bluefield-faster-with-nvidia-doca-agent-skills/",
+    "product_names": [
+      "NVIDIA DOCA Agent Skills",
+      "NVIDIA BlueField"
+    ],
+    "published_at": "2026-10-01T18:13:29Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-57fe7402c0ac11ed0826"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-01T18:13:29Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-57fe7402c0ac11ed0826",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Build Applications on NVIDIA BlueField Faster with NVIDIA DOCA Agent Skills",
+        "url": "https://developer.nvidia.com/blog/build-applications-on-nvidia-bluefield-faster-with-nvidia-doca-agent-skills/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/build-applications-on-nvidia-bluefield-faster-with-nvidia-doca-agent-skills/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "DOCA Agent Skills 的具体能力、可用范围与获取方式尚未在现有输入中明确。",
+      "摘要内容被截断，尚不清楚文章完整论述及是否包含实际示例或基准数据。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "该文章定位为开发者教程/示例，面向希望在本地 C++ 应用中集成 AI 推理的开发者。",
+      "TensorRT RTX Samples 的发布旨在降低在本地环境中部署和加速 AI 模型的门槛，属于 NVIDIA 推动本地 AI 推理生态的常规举措。"
+    ],
+    "canonical_title": "NVIDIA 发布 TensorRT RTX Samples，帮助开发者用 C++ 构建本地 AI 应用",
+    "category": "developer_tools",
+    "credibility_score": 0.78,
+    "entity_names": [
+      "NVIDIA",
+      "TensorRT RTX"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇由 Luca Spindler 撰写的文章，标题为“Build Local AI Apps with C++ and NVIDIA TensorRT RTX Samples”。",
+      "文章发布日期为 2026-10-01T17:59:27Z。",
+      "文章摘要指出，将 AI 模型添加到本地应用需要可移植的模型格式、可靠的运行时以及能在目标系统上工作的加速能力。"
+    ],
+    "id": "story-f2a820d2044acc600aee",
+    "importance_score": 0.45,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/build-local-ai-apps-with-c-and-nvidia-tensorrt-rtx-samples/",
+    "product_names": [
+      "TensorRT RTX Samples",
+      "TensorRT RTX"
+    ],
+    "published_at": "2026-10-01T17:59:27Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-c56a6beca21f2d8f664d"
+    ],
+    "source_refs": [
+      {
+        "author": "Luca Spindler",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-01T17:59:27Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c56a6beca21f2d8f664d",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Build Local AI Apps with C++ and NVIDIA TensorRT RTX Samples",
+        "url": "https://developer.nvidia.com/blog/build-local-ai-apps-with-c-and-nvidia-tensorrt-rtx-samples/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/build-local-ai-apps-with-c-and-nvidia-tensorrt-rtx-samples/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "local AI",
+      "C++",
+      "model deployment",
+      "inference runtime"
+    ],
+    "uncertainties": [
+      "文章具体涵盖哪些示例、支持的模型格式和硬件范围，仅凭摘要无法确认。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Cloudflare 推出 Web Search API",
+    "category": "developer_tools",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Cloudflare"
+    ],
+    "facts": [],
+    "id": "story-c2123bfdf79dfcf70f09",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/",
+    "product_names": [
+      "Web Search API"
+    ],
+    "published_at": "2026-10-05T10:47:06Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-534d5b4c19a22d2663e2"
+    ],
+    "source_refs": [
+      {
+        "author": "tosh",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49963171",
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T10:47:06Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-534d5b4c19a22d2663e2",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Web Search API",
+        "url": "https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/"
+      }
+    ],
+    "source_urls": [
+      "https://developers.cloudflare.com/changelog/post/2026-10-02-introducing-web-search-api/",
+      "https://news.ycombinator.com/item?id=49963171"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "Web Search API",
+      "API"
+    ],
+    "uncertainties": [
+      "目前仅有社区发现来源（Hacker News 讨论，2026-10-05 发布，221 条评论、479 分），且为 unverified_lead，尚无官方一手来源确认；Cloudflare 是否于 2026-10-02 正式推出 Web Search API、功能范围与定价均待核实。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "该报道将这些宣称置于硅谷“快速行动、打破常规”的文化框架下，暗示对 AI 数学突破的兴奋与质疑并存。",
+      "由于摘要未提供具体已解决的千禧年难题名称，也未见原始论文或官方技术报告，当前输入不足以独立验证其真实性。"
+    ],
+    "canonical_title": "AI 实验室宣称攻克多个数学难题引发争议：The Verge 综述",
+    "category": "ai_research",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "OpenAI",
+      "Anthropic",
+      "The Verge"
+    ],
+    "facts": [
+      "The Verge 发表了一篇由 Robert Hart 撰写的报道，标题为《All the drama around AI’s takeover of mathematics》，发布时间为 2026-10-05。",
+      "报道称过去一年 OpenAI、Anthropic 及其他实验室宣布在多个长期存在的数学问题上取得突破，某些进展超出研究者对当前系统能力的预期，其中包括解决一个著名的千禧年大奖难题（Millennium Prize problem）。"
+    ],
+    "id": "story-0315602fdebdd5f0979a",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution",
+    "product_names": [],
+    "published_at": "2026-10-05T15:28:59-04:00",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-d678673f82769ab31847"
+    ],
+    "source_refs": [
+      {
+        "author": "Robert Hart",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T15:28:59-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d678673f82769ab31847",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "All the drama around AI’s takeover of mathematics",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1004933/ai-math-openai-breakthrough-solution"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "mathematics"
+    ],
+    "uncertainties": [
+      "具体是哪一项千禧年大奖难题被宣称解决，输入中未说明。",
+      "OpenAI 和 Anthropic 官方是否正式确认相关突破，以及是否有同行评议或可复现证据，输入中未说明。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "NVIDIA 作为官方主体发布该内容，说明其在语音识别方言适配方向上有工程实践层面的推进，可能为其他语言路径提供可复制方案。",
+      "文章强调预训练数据偏差问题，暗示方言数据稀缺是当前 ASR 系统的主要瓶颈之一。"
+    ],
+    "canonical_title": "NVIDIA 发布针对沙特阿拉伯方言的 NVIDIA Nemotron 微调方案",
+    "category": "人工智能/模型开发",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "NVIDIA",
+      "Nemotron"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为“Fine-Tuning NVIDIA Nemotron for Saudi Arabic Dialects, with a Path to Other Languages”的文章。",
+      "文章作者为 Elizabeth Goodman，发布于 2026-10-01T05:00:00Z，来源为 NVIDIA Developer Blog（official_primary）。",
+      "文章指出自动语音识别必须处理人们实际说话的方式，而不仅是预训练数据中占主导地位的语言和风格，并提到区域方言。"
+    ],
+    "id": "story-ef503b013646c5cb8274",
+    "importance_score": 0.45,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-for-saudi-arabic-dialects-with-a-path-to-other-languages/",
+    "product_names": [
+      "NVIDIA Nemotron"
+    ],
+    "published_at": "2026-10-01T05:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-5c5d854609738814f627"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-01T05:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5c5d854609738814f627",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Fine-Tuning NVIDIA Nemotron for Saudi Arabic Dialects, with a Path to Other Languages",
+        "url": "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-for-saudi-arabic-dialects-with-a-path-to-other-languages/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-for-saudi-arabic-dialects-with-a-path-to-other-languages/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "自动语音识别",
+      "方言微调",
+      "多语言路径"
+    ],
+    "uncertainties": [
+      "输入摘要被截断，无法确认微调的具体方法、数据集、模型版本或评测结果。",
+      "文章是否同步发布模型权重或代码尚不明确。",
+      "“with a Path to Other Languages”的具体语言覆盖范围未在输入中说明。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "从公告数量与方向看，Cloudflare 正将开源、后量子安全与 AI 智能体作为本年度重点叙事方向。"
+    ],
+    "canonical_title": "Cloudflare 2026 生日周启动，共发布 46 项公告",
+    "category": "公司动态",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Cloudflare",
+      "Meagan Gamache"
+    ],
+    "facts": [
+      "Cloudflare 于2026年迎来成立16周年。",
+      "Cloudflare 2026 生日周共包含46项公告。",
+      "公告涵盖开源、后量子安全、AI 智能体和开发者平台升级。",
+      "Cloudflare 官方博客发布了逐日汇总的文章。"
+    ],
+    "id": "story-f7ef17dddabc113e1136",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://blog.cloudflare.com/birthday-week-2026-wrap-up/",
+    "product_names": [],
+    "published_at": "2026-10-05T13:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-b898bf00014d48c5dcea"
+    ],
+    "source_refs": [
+      {
+        "author": "Meagan Gamache",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b898bf00014d48c5dcea",
+        "source_date": null,
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Everything we launched during Birthday Week 2026",
+        "url": "https://blog.cloudflare.com/birthday-week-2026-wrap-up/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/birthday-week-2026-wrap-up/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "开源",
+      "后量子安全",
+      "AI 智能体",
+      "开发者平台"
+    ],
+    "uncertainties": [
+      "46 项公告的具体内容、落地时间与可用状态在摘要中未逐项列出。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "佛罗里达一名女性据报因使用 Claude 记录日记内容被 Anthropic 报警，面临重罪指控",
+    "category": "其他",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic",
+      "Claude"
+    ],
+    "facts": [],
+    "id": "story-45742c2f36b58c8db67d",
+    "importance_score": 0.6,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html",
+    "product_names": [
+      "Claude"
+    ],
+    "published_at": "2026-10-05T05:37:40Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-644ca7a08194c194fc45"
+    ],
+    "source_refs": [
+      {
+        "author": "emptybits",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=49961057",
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T05:37:40Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-644ca7a08194c194fc45",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Anthropic reported diary entry to police, woman faces felony charge",
+        "url": "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html"
+      }
+    ],
+    "source_urls": [
+      "https://www.techspot.com/news/114091-florida-woman-used-claude-diary-anthropic-reported-shoot.html",
+      "https://news.ycombinator.com/item?id=49961057"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 平台内容上报",
+      "用户隐私",
+      "执法协作"
+    ],
+    "uncertainties": [
+      "该条目仅为社区发现（Hacker News）上的未验证线索，来源为转载报道，未提供原始一手证据，具体指控细节、日记内容性质及 Anthropic 上报的法律依据均无法确认。",
+      "报道称事件发生在佛罗里达，一名女性因日记内容被 Anthropic 上报而面临重罪指控，但缺少官方通报或法院文件佐证。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "The Verge 报道称 Google 可能将「Call for Me」功能从商务通话扩展到向亲友发送消息。",
+      "Android Authority 据称在 APK 拆解中发现了一个「Gemini Calling」引导界面。"
+    ],
+    "canonical_title": "Google 可能将 Gemini「Call for Me」扩展至个人通话场景",
+    "category": "AI 产品功能扩展",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Google",
+      "Gemini",
+      "Android Authority",
+      "The Verge"
+    ],
+    "facts": [],
+    "id": "story-35eaf6a1fadff53384a9",
+    "importance_score": 0.45,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
+    "product_names": [
+      "Gemini Call for Me",
+      "Gemini Calling"
+    ],
+    "published_at": "2026-10-05T19:09:55-04:00",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-19745539452346e87dcc"
+    ],
+    "source_refs": [
+      {
+        "author": "Stevie Bonifield",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T19:09:55-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-19745539452346e87dcc",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Gemini Call for Me might tell your mom you’re running late",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 助理",
+      "AI 通话",
+      "功能扩展"
+    ],
+    "uncertainties": [
+      "Google 是否真的会扩展「Call for Me」功能尚不明确。",
+      "「Gemini Calling」引导界面是否来自正式版本、具体上线时间与可用范围均不确定。",
+      "Android Authority 的 APK 拆解发现尚未得到 Google 官方确认。",
+      "「Call Mom and tell her I will be 15 minutes late」等示例是否代表最终功能界面尚不清楚。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  },
+  {
+    "analysis": [
+      "此举表明 OpenAI 正在加强 ChatGPT 的广告商业化能力，为品牌提供更丰富的投放和效果衡量手段。"
+    ],
+    "canonical_title": "OpenAI 在 ChatGPT 中推出新视觉广告格式并扩展测量工具",
+    "category": "产品发布",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT"
+    ],
+    "facts": [
+      "OpenAI 在 ChatGPT 中引入了新的视觉广告格式。",
+      "OpenAI 为广告商扩展了测量工具、归因合作伙伴关系和品牌适用性功能。"
+    ],
+    "id": "story-615ed003e2044b119625",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement",
+    "product_names": [
+      "ChatGPT"
+    ],
+    "published_at": "2026-10-05T10:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-2d8e70fb45cef7470a5b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-06T00:56:48.846439Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-05T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2d8e70fb45cef7470a5b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Building advertising for the way people use AI",
+        "url": "https://openai.com/index/new-chatgpt-ads-format-and-measurement"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/new-chatgpt-ads-format-and-measurement"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "广告格式",
+      "测量工具",
+      "归因合作伙伴",
+      "品牌适用性"
+    ],
+    "uncertainties": [
+      "新视觉广告格式的具体样式、展示位置和投放机制尚未披露。",
+      "扩展的测量工具、归因合作伙伴关系和品牌适用性的具体细节未在摘要中说明。"
+    ],
+    "updated_at": "2026-10-06T00:57:59.418607Z"
+  }
+]

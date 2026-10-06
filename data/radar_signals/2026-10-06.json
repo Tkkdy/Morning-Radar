@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Simon Willison 引述 Felix Rieseberg 称，旧版 Cowork 在云端完成模型推理，而工具调用在随软件下发到用户电脑的 Anthropic 虚拟机中执行；引入该 VM 是出于能力、安全与安保考虑，仅映射用户显式加入会话的数据。用户不满本地运行 VM 带来的磁盘、电量与性能开销，也不满合上笔记本后工作即中断，因此推出了新版本。",
+    "id": "radar-49dedd7039b5120ed873",
+    "missing_evidence": [
+      "完整引文，尤其是“新版”采用何种架构与数据映射方式",
+      "Anthropic 官方文档或公告对上述描述的确认",
+      "磁盘、电量、性能开销与安全收益的量化数据"
+    ],
+    "observed_at": "2026-10-06T00:56:48.846439Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-1452e1cfc9374ea1270b",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/5/felix-rieseberg/"
+      }
+    ],
+    "uncertainty": "证据为被截断的二手引述，新版的具体做法与后半段论述缺失；无法判断该描述是正式发布口径还是个人回顾。",
+    "why_notable": "正面呈现了编码 Agent 在“本地 VM 沙箱 vs 云端执行”之间的架构权衡：本地 VM 换来了能力与安全边界，却付出磁盘、电量、性能与可用性代价，且数据映射范围是明确的设计约束，对理解 Agent 运行时与隐私边界有参考价值。"
+  },
+  {
+    "claim": "Simon Willison 受 Colin Frasier 两年前用 GPT-4o 做的实验启发，在本地硬件（DGX Spark）上用 Qwen3.8 27B 重跑了“计算大数之和、但用文字返回答案”的实验，以观察模型在数字计算与文字输出上的表现。",
+    "id": "radar-a437705c44ae00b4f393",
+    "missing_evidence": [
+      "完整实验结果与数值，以及与 GPT-4o 旧结果的对比结论",
+      "实验所用的提示词、数值范围与评分方法",
+      "复现代码或原始帖子链接"
+    ],
+    "observed_at": "2026-10-06T00:56:48.846439Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "test_experiment",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-2c11d5f3ded9d76f9f6b",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/4/qwen38-addition-in-words/"
+      }
+    ],
+    "uncertainty": "摘录被截断，只有实验设置的前半段；尚未看到结果、结论或作者判断，标题中的模型名与具体版本也未经二级来源确认。",
+    "why_notable": "展示了一种低成本、可自行复现的本地模型行为评测方式：用同一提示词跨模型、跨硬件重跑，用于比较推理与数字处理表现，对关注本地模型实际能力的人有直接参考意义。"
+  }
+]

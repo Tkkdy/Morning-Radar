@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-06",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "大规模版本更新包含多项推理优化与破坏性变更，对开发者有实际部署价值，保留为推理引擎演进证据。",
+      "retain_for_trends": true,
+      "story_id": "story-db24ee4a1b99c3599fcb",
+      "support_for_story_id": null,
+      "trend_links": [
+        "inference-engine-release-cadence",
+        "deepseek-model-optimization",
+        "kv-cache-compression",
+        "cli-assisted-serving"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "MCP 结构性信任缺口对智能体开发者重要，但仅单一媒体未验证，保留为安全趋势弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-17ee4ef3d4a3cbf3fc4a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "mcp-agent-trust-gap",
+        "agent-to-agent-prompt-injection"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅为媒体报道的合规动作，未含独立验证机制细节，前台短讯即可，不单独保留为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-d792ca89ef32eeeb93c9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方一手说明可确认合规动作，保留为欧盟文本溯源与水印检测开放路径的证据。",
+      "retain_for_trends": true,
+      "story_id": "story-0b22e965790c00df0c9c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "eu-ai-act-text-provenance",
+        "watermark-detection-researcher-access"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "常规密钥检测器扩展，只属轻量开发者更新，无结构趋势意义。",
+      "retain_for_trends": false,
+      "story_id": "story-bab8d39d0140149abb15",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商博客宣传专用基础设施 agent skills，无具体能力与可用信息，装饰性更新。",
+      "retain_for_trends": false,
+      "story_id": "story-76e8c0ae860f155cd3d3",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA 发布本地 AI C++ 示例属开发者教程，常规生态更新，无需趋势保留。",
+      "retain_for_trends": false,
+      "story_id": "story-f2a820d2044acc600aee",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅有 HN 未验证线索，Cloudflare Web Search API 需核实，不提升前台且暂不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-c2123bfdf79dfcf70f09",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "AI 数学突破宣称争议是持续可验证的弱信号，但当前无原始证据，只作一句话处理。",
+      "retain_for_trends": true,
+      "story_id": "story-0315602fdebdd5f0979a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-math-breakthrough-claims",
+        "peer-review-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "NVIDIA 方言 ASR 微调博客为常规教程，未见模型或权重发布，无趋势保留价值。",
+      "retain_for_trends": false,
+      "story_id": "story-ef503b013646c5cb8274",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "Cloudflare 生日周汇总为营销性官方叙事，无单一结构性影响，轻量处理即可。",
+      "retain_for_trends": false,
+      "story_id": "story-f7ef17dddabc113e1136",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "用户日记被平台上报属高信号隐私争议，但仅为转载未验证线索，保留为平台上报机制证据。",
+      "retain_for_trends": true,
+      "story_id": "story-45742c2f36b58c8db67d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-platform-content-reporting",
+        "user-privacy-law-enforcement"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "Gemini 通话功能扩展为 APK 拆解传闻，未确认且无实质开发影响，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-35eaf6a1fadff53384a9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "ChatGPT 广告格式与测量工具扩展属商业化更新，对开发者影响有限，轻量报道即可。",
+      "retain_for_trends": false,
+      "story_id": "story-615ed003e2044b119625",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-06T00:57:59.418607Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
