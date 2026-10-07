@@ -1,0 +1,155 @@
+{
+  "date": "2026-10-08",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 GitHub Copilot 的 Agent 执行缺少平台内置的本地沙箱，泄露密钥检测主要依赖既有的模式匹配机制，平台未以专用模型形式提供上下文感知的密钥保护，安全与运行时治理多由开发者或团队自行搭建。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增两个证据簇（cluster-6e37ac741ea8d51130bc、cluster-bfa8d11416ee92a6716e）均来自 GitHub 官方 Changelog，直接支持既有 Candidate 中『Copilot 平台化并向安全与供应链治理延伸』的方向，机制清晰且产品变化真实。但两个簇同属 GitHub 一个 actor、同一官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate 并标记 update_kind=supported。",
+        "falsifier": "如果 Copilot 本地沙箱未被 CLI、Copilot app 或 VS Code Agent Host 会话采用，或专用泄露密钥检测模型未被实际启用/被撤回，或 GitHub 停止在官方 Changelog 中沿该方向迭代，则本 Tendency 被削弱；若 GitHub 撤回 Copilot 平台化与安全治理方向，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Copilot 本地沙箱功能正式可用（GA），适用于 GitHub Copilot CLI、GitHub Copilot app 以及使用 Agent Host 的 VS Code 会话，为开发者提供安全执行环境。",
+          "GitHub 推出专用模型用于泄露密钥检测，提供上下文感知能力，旨在让密钥保护跟上编写代码或与 AI agent 协作的软件开发方式。"
+        ],
+        "shared_mechanism": "GitHub 通过同一官方 Changelog 通道连续发布 Copilot 与安全能力：Copilot 本地沙箱让 Agent 在受控环境中执行，把运行时安全边界下沉到平台；专用的上下文感知泄露密钥检测模型把密钥保护从规则匹配升级为模型驱动，并明确面向『编写代码或与 AI agent 协作』的开发方式。两者共同把安全与运行时治理从开发者自建能力转为 GitHub 平台能力，延续既有把 Copilot 从个人补全工具升级为团队可治理开发平台的方向。"
+      },
+      "claim": "GitHub 正在通过官方 Changelog 连续发布，把 Copilot 从代码补全工具升级为可编程、可治理、团队化的开发平台，并向安全与供应链治理能力延伸：Copilot 本地沙箱进入 GA 并覆盖 CLI、Copilot app 与 VS Code Agent Host 会话，专用泄露密钥检测模型以上下文感知方式保障 AI 协作时代的密钥安全，延续既有的策略、计费与 OIDC 可信发布治理方向。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-6cd94593500ec0c7c2d5"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-c0ab9ec53159dff5253c"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-06e095f56ad0c6a914a7",
+      "record_id": "tendency-record-ea776acfffef5da6961b",
+      "recorded_at": "2026-10-07T23:51:04.464819Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-6e37ac741ea8d51130bc",
+        "cluster-bfa8d11416ee92a6716e"
+      ],
+      "tendency_id": "tendency-3cacfa35032765e8f8a1",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿模型能力主要通过旗舰云端模型与统一 API 提供，轻量级模型较少在官方渠道与第三方编码助手同步上线，面向边缘设备的多模态开放决策模型也较少以官方开源形式发布。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增两个证据簇涉及 Anthropic 与 LiquidAI 两个不同 actor，分别覆盖第三方编码助手集成与边缘多模态开放模型，机制方向一致但均以官方一手发布为主，缺乏第三方采用或实际部署证据，尚不足以支撑 Emerging。按规则作为新的 Candidate 内部观察。",
+        "falsifier": "如果 Claude Haiku 5.5 未在 GitHub Copilot 中被采用或很快被替换，LiquidAI 的 d1 决策模型未被边缘设备开发者采用或被撤回开放，则本 Tendency 被削弱；若轻量/边缘模型方向被厂商放弃，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Anthropic 发布 Claude Haiku 5.5，并在 GitHub Copilot 中正式可用，面向子代理、快速编辑和终端任务等快速、高负载场景。",
+          "LiquidAI 在 Hugging Face 博客发布面向边缘设备的多模态开放 d1 决策模型（发布日期 2026-10-07）。"
+        ],
+        "shared_mechanism": "模型厂商正通过官方发布与第三方平台集成，把能力从旗舰云端模型向轻量级、边缘与高负载形态扩展：Anthropic 发布 Claude Haiku 5.5 并使其在 GitHub Copilot 中正式可用，覆盖子代理、快速编辑与终端任务等快速高负载场景；LiquidAI 在 Hugging Face 发布面向边缘设备的多模态开放 d1 决策模型。两者共同改变开发者获取模型能力的方式——从调用单一旗舰模型转向按延迟、场景与部署位置选择轻量或边缘模型。"
+      },
+      "claim": "轻量级与边缘侧模型正在通过官方发布渠道进入开发者与产品工作流：Anthropic 发布 Claude Haiku 5.5 并同步在 GitHub Copilot 中正式可用，LiquidAI 在 Hugging Face 发布面向边缘设备的多模态开放 d1 决策模型，显示模型厂商正把能力从旗舰云端模型向低延迟、高负载与边缘部署形态扩展。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-03b986bb193eb15f77dc"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-13373a00351880c5e9a6"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-e38a082a3ac3f13d8105"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-0f1e9d7e493f79ec3794",
+      "recorded_at": "2026-10-07T23:51:04.464819Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-c49472a13c91280ab6d8",
+        "cluster-ef5408d5e7ec9481825b",
+        "cluster-939742bec2f52a58fdc1"
+      ],
+      "tendency_id": "tendency-a0e36b1934c54951795d",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI agent 多停留在开发者工具或通用助手层面，企业级 agent 产品与真实企业研究工作流中的长时间运行 agent 案例较少公开。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增两个证据簇涉及 Nous Research（融资与企业 agent 产品）与 OpenAI/Jump Trading（企业研究工作流落地），actor 与场景不同，机制方向一致。但 Nous Research 为单一编辑来源，Jump Trading 案例为单一官方博客，缺乏跨事件独立佐证与实际采用数据，不足以升级 Emerging，作为 Candidate 内部观察。",
+        "falsifier": "如果 Nous Research 的企业 agent 未被企业采用或其融资/产品方向被撤回，Jump Trading 的 AI 工作流未被持续使用或未推广到其他企业，则本 Tendency 被削弱；若企业 agent 落地被证伪，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Nous Research 确认 15 亿美元估值，完成 9000 万美元 B 轮融资，并推出面向企业用户的 AI agents。",
+          "OpenAI 官网介绍 Jump Trading 使用 OpenAI 扩展量化研究，采用更长时间运行的 AI 工作流、结合多个数据源并辅以人工审查。"
+        ],
+        "shared_mechanism": "企业级 AI agent 正通过融资背书与实际工作流集成两条路径进入生产：Nous Research 完成 B 轮融资并以 15 亿美元估值推出面向企业用户的 AI agents，为 agent 企业化提供资本与产品信号；OpenAI 介绍 Jump Trading 使用 ChatGPT 扩展量化研究，采用长时间运行的 AI 工作流、结合多数据源并辅以人工审查，显示 agent 已在真实企业研究工作流中落地。两者共同表明 agent 从通用助手转向企业可用的工作流组件。"
+      },
+      "claim": "AI agent 的企业化与平台化正在同时出现在模型厂商融资与集成工作流两端：Nous Research 以 15 亿美元估值完成 9000 万美元 B 轮并推出面向企业用户的 AI agents，OpenAI 介绍 Jump Trading 使用 ChatGPT 扩展量化研究并采用长时间运行的 AI 工作流结合多数据源与人工审查，显示企业级 agent 从概念走向实际研究与企业工作流。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-7f8b8702587460b780f1"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-08",
+            "story_id": "story-5c994ece9adcda51a4ba"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-27df0e4d16b9256fbba2",
+      "recorded_at": "2026-10-07T23:51:04.464819Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-b74fad4af2b010e9f433",
+        "cluster-6335ef827da8d7197363"
+      ],
+      "tendency_id": "tendency-400a405fe1039d26256c",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-07T23:51:04.464819Z"
+}
