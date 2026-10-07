@@ -7,6 +7,7 @@
     "id": "item-661f64ddb5f472a2675e",
     "language": "en-US",
     "metadata": {
+      "content_version": "d285ac98aed3d5a0a93a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-d309be13e53a281a3c73",
     "language": "en-US",
     "metadata": {
+      "content_version": "0407b5e0b5f4c732513b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-88e871d5a8d26738db20",
     "language": "en-US",
     "metadata": {
+      "content_version": "f3d7d2fdb79d577dc595",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-3edacba82f9b35c28494",
     "language": null,
     "metadata": {
+      "content_version": "f179627a55fae5772bb3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-702bba9db21cf6ecff35",
     "language": "en-US",
     "metadata": {
+      "content_version": "93b454f0f540d939847d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +253,7 @@
     "id": "item-c8c4649f074ad75f0128",
     "language": "en-US",
     "metadata": {
+      "content_version": "ad82d3c8ac8b18188b38",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +285,7 @@
     "id": "item-6218fed10e32f470e028",
     "language": "en-us",
     "metadata": {
+      "content_version": "b0d6f8f2c28a0e299906",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +408,7 @@
     "id": "item-d6b735286b3739eabb6b",
     "language": "en-US",
     "metadata": {
+      "content_version": "72bb88deffb500e75ebb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +470,7 @@
     "id": "item-2b3b48d8e55439fa1f3d",
     "language": null,
     "metadata": {
+      "content_version": "4ac98bcea6c64046b0d7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -492,6 +501,7 @@
     "id": "item-7d1f26adcec2d6657c42",
     "language": "en-us",
     "metadata": {
+      "content_version": "b30f6ba9195e0a622f88",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -735,6 +745,7 @@
     "id": "item-1e174328109aea325ae3",
     "language": "en-US",
     "metadata": {
+      "content_version": "9530f8178c4b20f09195",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1009,6 +1020,7 @@
     "id": "item-ebb413cc5359756bf923",
     "language": "en-US",
     "metadata": {
+      "content_version": "5b3a8103e6888aaa7576",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1403,6 +1415,7 @@
     "id": "item-f833eccb65deeb7db0bf",
     "language": "en-US",
     "metadata": {
+      "content_version": "31d668c36c59e952154b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -74641,6 +74654,7 @@
     "id": "item-eb25002de2a733371d4c",
     "language": "en",
     "metadata": {
+      "content_version": "ed3ad7d6441da85ca6c9",
       "data_anomaly": false,
       "forks": 18142,
       "official": true,
@@ -75793,11 +75807,20 @@
     "metadata": {
       "comments": 306,
       "community_signal": true,
+      "content_version": "18fbd614dd43b131487e",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49996437",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/claude-haiku-5-5",
       "score": 625,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -75943,11 +75966,19 @@
     "metadata": {
       "comments": 231,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=49996425",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://openai.com/index/gpt-6-for-everyone/",
       "score": 456,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -76153,6 +76184,7 @@
     "metadata": {
       "comments": 303,
       "community_signal": true,
+      "content_version": "48701d97ee20b30dff66",
       "discussion_url": "https://news.ycombinator.com/item?id=49991227",
       "official": false,
       "original_url": "https://developer.chrome.com/blog/jpeg-xl-in-chrome",
@@ -76407,6 +76439,7 @@
     "metadata": {
       "change_percent": -0.02377924318984025,
       "close": 721.3099975585938,
+      "content_version": "c39b7e529b0b7a2dbf87",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 738.8800048828125,
@@ -78333,38 +78366,6 @@
     "url": "https://openai.com/index/practical-guide-building-gpt-6/"
   },
   {
-    "author": "joshuawright11",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-07T23:46:55.093419Z",
-    "id": "item-e96168cd6f4e70d27658",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:GPT"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49996425",
-      "hn_submission_time": 1791396058,
-      "lab_id": "openai",
-      "original_url": "https://openai.com/index/gpt-6-for-everyone/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-07T18:00:58Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "GPT‑6 and Intelligent UI for everyone",
-    "topic_candidates": [],
-    "url": "https://openai.com/index/gpt-6-for-everyone/"
-  },
-  {
     "author": "delexw",
     "company_candidates": [],
     "content_excerpt": "",
@@ -78715,38 +78716,6 @@
     "title": "Claude Haiku 5.5",
     "topic_candidates": [],
     "url": "https://twitter.com/claudeai/status/2107894039626277339"
-  },
-  {
-    "author": "sfkgtbor",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-07T23:46:55.093419Z",
-    "id": "item-fedd212338ebf0f41a99",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=49996437",
-      "hn_submission_time": 1791396092,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/claude-haiku-5-5",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-07T18:01:32Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Haiku 5.5",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/claude-haiku-5-5"
   },
   {
     "author": "denysvitali",
