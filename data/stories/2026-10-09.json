@@ -1,0 +1,761 @@
+[
+  {
+    "analysis": [
+      "此举表明谷歌正将 Gemini 从聊天助手扩展为可跨应用执行任务的智能体平台。"
+    ],
+    "canonical_title": "谷歌在 Gemini at Work 活动上发布面向工作任务的通用 Gemini 智能体",
+    "category": "AI 产品发布",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Google",
+      "Gemini Enterprise"
+    ],
+    "facts": [
+      "Google 正在推出一个“通用”Gemini AI 智能体，可在后台跨应用和设备工作。",
+      "该工具在周四的 Gemini at Work 活动上宣布，将在 Gemini Enterprise 应用内提供。",
+      "用户可在单一界面中与 Gemini 智能体聊天并分配任务。"
+    ],
+    "id": "story-aa9305356428069ac95d",
+    "importance_score": 0.75,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.theverge.com/tech/1007904/google-gemini-ai-agent-enterprise",
+    "product_names": [
+      "Gemini",
+      "Gemini Enterprise"
+    ],
+    "published_at": "2026-10-08T10:28:03-04:00",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-651222944a43adc3f428"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T10:28:03-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-651222944a43adc3f428",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google is launching a one-stop Gemini agent for your work tasks",
+        "url": "https://www.theverge.com/tech/1007904/google-gemini-ai-agent-enterprise"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1007904/google-gemini-ai-agent-enterprise"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "该智能体具体支持哪些应用和设备、可用地区及定价尚未在摘要中说明。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "该信息来自官方渠道的标题与元数据，尚未提供正文细节，因此目前只能确认官方宣称了 IOI 与 IMO 双金牌级结果，无法从输入中核对具体赛制、评测配置、成绩口径或微调方法。",
+      "若该结果成立，可能意味着同一模型家族通过微调即可覆盖竞赛编程与数学奥林匹克两类任务，但输入未提供任何支撑证据或对照基线。"
+    ],
+    "canonical_title": "NVIDIA 发布 Nemotron 模型家族：微调后在 IOI 和 IMO 均获金牌级成绩",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "NVIDIA",
+      "Nemotron"
+    ],
+    "facts": [
+      "Hugging Face 博客发布标题为《One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO》的文章，URL 为 https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026。",
+      "该文章发布时间为 2026-10-07T12:45:31Z。",
+      "文章标题称 Nemotron 为同一模型家族，并在 IOI 和 IMO 两个场景中获得金牌级（Gold-Level）结果。",
+      "文章标题将成绩归因于对 Nemotron 进行微调（Fine-Tuning）。",
+      "来源为 Hugging Face Blog，标记为官方一手来源（official_primary），元数据中 official 为 true，优先级为 high。"
+    ],
+    "id": "story-640e51584c0185037289",
+    "importance_score": 0.85,
+    "novelty_score": 0.82,
+    "primary_source_url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026",
+    "product_names": [
+      "Nemotron"
+    ],
+    "published_at": "2026-10-07T12:45:31Z",
+    "relevance_score": 0.92,
+    "source_item_ids": [
+      "item-67f5f61696a2949df273"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-07T12:45:31Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-67f5f61696a2949df273",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "One Model Family, Two Gold-Level Results: Fine-Tuning Nemotron for IOI and IMO",
+        "url": "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/nvidia/nemotron-ioi-and-imo-2026"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "模型微调",
+      "IOI",
+      "IMO",
+      "开源模型"
+    ],
+    "uncertainties": [
+      "文章正文与摘要均为空，无法确认 IOI 和 IMO 具体指哪一届赛事、采用何种评测协议、模型版本号、微调数据规模及是否与人类选手或官方榜单可比。",
+      "“Gold-Level Results” 的具体定义与判定标准未知，可能不同于正式赛事金牌。",
+      "Nemotron 的具体版本与模型规模未在输入中说明。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "该文章面向开发者，说明将 CAD 资产转为适用于机器人仿真的 SimReady 资产存在标准化流程，而 OpenUSD 转换只是其中一步。",
+      "文中提到使用前沿 AI 模型，可能意味着这些步骤涉及 AI 辅助的材质、碰撞或物理属性生成与校验，但输入未提供具体模型名称或技术细节。"
+    ],
+    "canonical_title": "NVIDIA 发布使用前沿 AI 模型为机器人创建 SimReady 资产的操作指南",
+    "category": "developer_guide",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇题为《5 Steps to Create SimReady Assets for Robotics with Frontier AI Models》的文章，作者是 Elizabeth Goodman，发布时间为 2026-10-08。",
+      "文章摘要指出，为机器人仿真准备 CAD 资产需要的不只是将几何体转换为 OpenUSD，开发者还必须配置和验证材质、碰撞等属性。"
+    ],
+    "id": "story-caec085771edcb101139",
+    "importance_score": 0.5,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://developer.nvidia.com/blog/5-steps-to-create-simready-assets-for-robotics-with-frontier-ai-models/",
+    "product_names": [
+      "SimReady",
+      "OpenUSD"
+    ],
+    "published_at": "2026-10-08T20:57:55Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-d5fea414d61e112a2560"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T20:57:55Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d5fea414d61e112a2560",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "5 Steps to Create SimReady Assets for Robotics with Frontier AI Models",
+        "url": "https://developer.nvidia.com/blog/5-steps-to-create-simready-assets-for-robotics-with-frontier-ai-models/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/5-steps-to-create-simready-assets-for-robotics-with-frontier-ai-models/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "robotics simulation",
+      "CAD asset preparation",
+      "AI models"
+    ],
+    "uncertainties": [
+      "输入摘要未完整列出文章所述的五步流程。",
+      "文中所述“前沿 AI 模型”具体指代哪些模型，输入未说明。",
+      "除 OpenUSD 外，是否还涉及其他文件格式或工具，输入未明确。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Oracle 借助 ChatGPT 与 Codex 将招聘、工程和运营工作流从数天缩短至数分钟",
+    "category": "ai_coding",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Oracle",
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 官方新闻页面标题称：Oracle 借助 ChatGPT 和 Codex 将数天工作量缩短为几分钟。",
+      "OpenAI 官方摘要称，在招聘、工程和运营领域，Oracle 借助 ChatGPT Work 和 Codex 将专业知识转化为快速、可重复的工作流。"
+    ],
+    "id": "story-4ba58599ac819829da2f",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/index/oracle",
+    "product_names": [
+      "ChatGPT Work",
+      "Codex"
+    ],
+    "published_at": "2026-10-08T16:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-db7b9e6fe248e3146f87"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-db7b9e6fe248e3146f87",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Oracle turns days of work into minutes with ChatGPT and Codex",
+        "url": "https://openai.com/index/oracle"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/oracle"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入未提供具体缩短的时间数据、涉及的团队规模或工作流细节，实际效果无法从现有信息核实。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 的社区发现，原文标题质疑为何行业未对 DeepSeek 4.1 Flash 产生强烈反应，但输入中未提供模型发布方、发布日期或技术细节等可核实事实，因此无法确认该产品是否真实存在或已发布。"
+    ],
+    "canonical_title": "DeepSeek 4.1 Flash 发布后社区讨论行业反应平平",
+    "category": "AI 行业动态",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "DeepSeek"
+    ],
+    "facts": [],
+    "id": "story-30fe8c037c4b6705d0d4",
+    "importance_score": 0.65,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+    "product_names": [
+      "DeepSeek 4.1 Flash"
+    ],
+    "published_at": "2026-10-08T00:14:48Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-27f74968b7ec229dd623"
+    ],
+    "source_refs": [
+      {
+        "author": "jonotime",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50000488",
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T00:14:48Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-27f74968b7ec229dd623",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
+        "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/"
+      }
+    ],
+    "source_urls": [
+      "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
+      "https://news.ycombinator.com/item?id=50000488"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "模型发布",
+      "行业影响",
+      "社区讨论"
+    ],
+    "uncertainties": [
+      "DeepSeek 4.1 Flash 是否真实存在、由 DeepSeek 发布以及具体发布日期均无法从输入确认。",
+      "输入未提供模型的功能、性能或官方公告信息。",
+      "社区讨论中 296 条评论的具体内容未知，无法评估其观点分布。",
+      "文章发布博客（dgt.is）的权威性未经验证，属于 unverified lead。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "NVIDIA KGMON 团队在 KDD Cup 2026 Data Agents 竞赛中获得第二名",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA KGMON",
+      "KDD Cup"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布文章《Building Reliable Data Analytics Agents: Lessons from the KDD Cup》，作者为 Jiwei Liu，发布时间为 2026-10-08T18:30:02Z。",
+      "NVIDIA KGMON 团队在 KDD Cup 2026 Data Agents 竞赛中获得第二名。",
+      "该团队的系统围绕一个简单理念构建：让 agent 的 harness 更小。"
+    ],
+    "id": "story-304992ce728911244d4e",
+    "importance_score": 0.5,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/",
+    "product_names": [],
+    "published_at": "2026-10-08T18:30:02Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-983129a3016b1868b983"
+    ],
+    "source_refs": [
+      {
+        "author": "Jiwei Liu",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T18:30:02Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-983129a3016b1868b983",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Building Reliable Data Analytics Agents: Lessons from the KDD Cup",
+        "url": "https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/building-reliable-data-analytics-agents-lessons-from-the-kdd-cup/"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "data analytics agents",
+      "agent harness"
+    ],
+    "uncertainties": [
+      "摘要与内容摘录均被截断，关于“让 agent harness 更小”的具体技术细节、实现方式与效果尚不明确。",
+      "文章所总结的经验与教训的具体内容未在给定输入中呈现。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "该资助形式为 Grok token 算力而非现金，可能将 Omarchy 的生态与 Grok 模型绑定。",
+      "SpaceXAI 由 Elon Musk 关联，其选择资助 Omarchy 与两者在开发者社区中的定位存在一致性。"
+    ],
+    "canonical_title": "SpaceXAI 以 150 万美元 Grok token 算力支持 Omarchy Linux 发行版，并加入 Omacom Foundation 成为创始企业赞助方",
+    "category": "ai_industry_partnership",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "SpaceXAI",
+      "Omarchy",
+      "Omacom Foundation",
+      "David Heinemeier Hansson",
+      "Elon Musk",
+      "Grok"
+    ],
+    "facts": [
+      "The Verge AI 于 2026-10-08 报道称，SpaceXAI 宣布加入负责管理 Omarchy 的 Omacom Foundation，成为 Founding Corporate Patron。",
+      "该报道称，SpaceXAI 向 David Heinemeier Hansson 的 Linux 项目 Omarchy 捐赠价值 150 万美元的 Grok tokens。",
+      "Omarchy 被该报道描述为具有争议性的 Linux 发行版。"
+    ],
+    "id": "story-762187b26d7150e35726",
+    "importance_score": 0.55,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.theverge.com/tech/1008148/spacexai-omarchy-grok-david-heinemeier-hansson",
+    "product_names": [
+      "Omarchy",
+      "Grok"
+    ],
+    "published_at": "2026-10-08T13:57:01-04:00",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-9b144d58de64884fde4f"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T13:57:01-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9b144d58de64884fde4f",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "SpaceXAI backs Omarchy, the controversial Linux distro, with $1.5 million in compute",
+        "url": "https://www.theverge.com/tech/1008148/spacexai-omarchy-grok-david-heinemeier-hansson"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1008148/spacexai-omarchy-grok-david-heinemeier-hansson"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "open_source_funding"
+    ],
+    "uncertainties": [
+      "摘录未说明 Hansson 的具体表态内容。",
+      "Grok token 的具体使用范围、兑换方式与到位时间未在摘录中披露。",
+      "Omacom Foundation 的治理结构与其他赞助方信息尚未明确。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "该服务可能使开源项目更早获知潜在安全问题。但报道同时提到存在权衡（trade-off），具体取舍内容在提供的摘要中被截断，未在可用输入中展开。"
+    ],
+    "canonical_title": "Anthropic 推出面向开源项目的免费安全扫描服务 OSS Scanner",
+    "category": "AI 安全与开源生态",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Anthropic",
+      "The Verge"
+    ],
+    "facts": [
+      "Anthropic 推出了名为 OSS Scanner 的新服务，用于帮助开源项目发现安全漏洞（来源：The Verge AI 报道）。",
+      "Opt-in 的开源项目将获得“由我们最强的模型进行彻底、定期的安全扫描，且不收取费用”（来源：Anthropic 表述，经 The Verge 引述）。"
+    ],
+    "id": "story-1767c800a9f41e01ea3b",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
+    "product_names": [
+      "OSS Scanner"
+    ],
+    "published_at": "2026-10-08T17:53:51-04:00",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-0856c1a27e7e11a7096c"
+    ],
+    "source_refs": [
+      {
+        "author": "Stevie Bonifield",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T17:53:51-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0856c1a27e7e11a7096c",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Anthropic launches free AI security scans for open-source projects",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_security",
+      "open_source",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "OSS Scanner 的权衡或代价具体指什么，输入内容未完整说明。",
+      "该服务的实际扫描频率、覆盖范围、数据处理方式与隐私条款等细节，输入未提供。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "此次权限调整将归档 Pull Request 的能力从仓库管理员下放至 Triage 角色，可能简化有信任 triager 的仓库中日常 PR 管理流程。"
+    ],
+    "canonical_title": "GitHub 允许 Triage 角色及以上用户归档 Pull Request",
+    "category": "开发工具",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 宣布，拥有仓库中 Triage 角色或更高权限的用户现在可以归档和取消归档 Pull Request。",
+      "此前，归档操作仅限于仓库管理员。",
+      "该变更于 2026 年 10 月 8 日发布在 GitHub Changelog。"
+    ],
+    "id": "story-a7ed5ed2c2b1fd9bcbc4",
+    "importance_score": 0.35,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests",
+    "product_names": [
+      "Pull Request"
+    ],
+    "published_at": "2026-10-08T19:01:42Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-8b64b8f7c1061221034f"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T19:01:42Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8b64b8f7c1061221034f",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Triage role users or higher can now archive pull requests",
+        "url": "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-08-triage-role-users-or-higher-can-now-archive-pull-requests"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "权限管理",
+      "代码托管"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "该条目来自官方一手渠道（official_primary），可作为 Falcon ASR 发布这一事件的原始事实底座。",
+      "由于输入未提供正文内容（content_excerpt 为空）和摘要（summary 为空），目前只能确认发布这一动作，无法提取模型架构、参数规模、支持语言、性能指标或开源许可等细节。"
+    ],
+    "canonical_title": "TII 在 Hugging Face 发布 Falcon ASR 语音识别模型",
+    "category": "ai_models",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "TII",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布题为 \"Introducing Falcon ASR\" 的文章，URL 为 https://huggingface.co/blog/tiiuae/falcon-asr。",
+      "该文章发布时间为 2026-10-07T13:21:03Z。",
+      "该来源被标记为 official_primary，元数据中 official 为 true。",
+      "URL 路径中包含 \"tiiuae\"，产品名称为 Falcon ASR。"
+    ],
+    "id": "story-e0a80837872bfd0c93f9",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://huggingface.co/blog/tiiuae/falcon-asr",
+    "product_names": [
+      "Falcon ASR"
+    ],
+    "published_at": "2026-10-07T13:21:03Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-16b7810afb00bdc03cf9"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-07T13:21:03Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-16b7810afb00bdc03cf9",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing Falcon ASR",
+        "url": "https://huggingface.co/blog/tiiuae/falcon-asr"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/tiiuae/falcon-asr"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai",
+      "语音识别"
+    ],
+    "uncertainties": [
+      "输入未包含文章正文或摘要，Falcon ASR 的具体能力、支持语言、模型规模、开放许可和可用平台均不明确。",
+      "仅凭 URL 中的 \"tiiuae\" 无法从输入中确认 TII 与 Falcon ASR 的完整归属关系。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "将时间线标记为列表结构，使辅助技术能够向用户传达条目数量与当前位置，有助于屏幕阅读器用户理解时间线的层级与进度。"
+    ],
+    "canonical_title": "GitHub 时间线支持屏幕阅读器按列表方式导航",
+    "category": "产品更新",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Changelog 发布公告：屏幕阅读器现在可以将 issue 和 pull request 时间线作为列表进行导航。",
+      "当用户在时间线中移动时，辅助技术可以播报列表结构、条目数量、当前位置等信息。"
+    ],
+    "id": "story-13952f614d3172ed5796",
+    "importance_score": 0.35,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists",
+    "product_names": [
+      "GitHub issues",
+      "GitHub pull requests"
+    ],
+    "published_at": "2026-10-08T16:00:56Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-18d441cbd3f99a19e751"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T16:00:56Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-18d441cbd3f99a19e751",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Screen readers can navigate timelines as lists",
+        "url": "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-08-screen-readers-can-navigate-timelines-as-lists"
+    ],
+    "status": "available",
+    "topic_names": [
+      "无障碍访问",
+      "屏幕阅读器支持"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  },
+  {
+    "analysis": [
+      "此版本为小幅更新，主要涉及文档和服务器端的细节调整。",
+      "新贡献者的加入可能有助于社区生态发展。"
+    ],
+    "canonical_title": "Ollama 发布 v0.40.2 版本",
+    "category": "open_source_ai",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "Ollama"
+    ],
+    "facts": [
+      "Ollama 发布了 v0.40.2 版本。",
+      "该版本更新包含两项变更：README 中新增 oxi 到社区集成列表（PR #18739），以及服务器端从列表中隐藏重复和下移保护（PR #18874）。",
+      "@maziluiosif 通过 PR #18739 完成了首次贡献。",
+      "完整变更日志链接指向 v0.40.1 与 v0.40.2-rc0 之间的对比。"
+    ],
+    "id": "story-1c0293c8eae3414a883c",
+    "importance_score": 0.1,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.2",
+    "product_names": [
+      "Ollama v0.40.2"
+    ],
+    "published_at": "2026-10-08T16:53:47Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-95b91ef337a82fbc2d20"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-08T23:56:04.793194Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-08T16:53:47Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-95b91ef337a82fbc2d20",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.2",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.2"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.2"
+    ],
+    "status": "available",
+    "topic_names": [
+      "open_source_ai",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "元数据中存在数据异常标记，可能影响仓库指标的可信度。"
+    ],
+    "updated_at": "2026-10-08T23:57:24.305712Z"
+  }
+]

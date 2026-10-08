@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 报道 Anthropic 发布 Claude Haiku 5.5，称其为快速低价模型，10 万 token 以内定价为 $0.10/$0.50（输入/输出每百万 token），与上月的 OpenAI GPT-6 Luna 价格一致；旧版 Haiku 4.5 为 $1/$5。",
+    "id": "radar-2084a7cf3fb0a35c2ff5",
+    "missing_evidence": [
+      "Anthropic 官方发布页与模型卡",
+      "基准测试与能力对比数据",
+      "超过 10 万 token 的定价细则",
+      "独立实测与可用性验证"
+    ],
+    "observed_at": "2026-10-08T23:56:04.793194Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-fdc864340b44ea6ec229",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/7/claude-haiku-5-5/"
+      }
+    ],
+    "uncertainty": "仅有单一来源摘录且被截断，未获取官方页面，价格、规格与发布日期均未经独立证据核实。",
+    "why_notable": "新模型发布同时大幅降价并对齐竞品价格，可能改变低成本推理与 agent 场景的成本结构，是值得关注的模型与价格动态。"
+  }
+]

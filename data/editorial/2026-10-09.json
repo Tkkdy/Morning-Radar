@@ -1,0 +1,159 @@
+{
+  "date": "2026-10-09",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方发布通用工作智能体是平台级动作，但能力与应用范围仍属厂商claim，需独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-aa9305356428069ac95d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-cross-app-agent-platforms",
+        "gemini-agentic-workflow-integration"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅标题宣称双金牌级且无正文与复现证据，适合轻量提示并保留为可验证弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-640e51584c0185037289",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-benchmark-claim-validation-gap",
+        "fine-tuning-for-competition-reasoning"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "面向开发者的操作指南属常规内容，未见可改变工作流的实质机制或可验证增量。",
+      "retain_for_trends": false,
+      "story_id": "story-caec085771edcb101139",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "厂商自述效率提升缺乏独立数据，可作趋势背景但不应独立占用前台。",
+      "retain_for_trends": true,
+      "story_id": "story-4ba58599ac819829da2f",
+      "support_for_story_id": "story-aa9305356428069ac95d",
+      "trend_links": [
+        "vendor-enterprise-productivity-case-study-marketing"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "产品是否真实存在都无法确认，属未验证传闻，缺乏可复用趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-30fe8c037c4b6705d0d4",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "竞赛名次与经验总结属厂商博客常规内容，未展示对开发工具或生产的可验证影响。",
+      "retain_for_trends": false,
+      "story_id": "story-304992ce728911244d4e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "以token算力而非现金资助开源项目是值得记录的新赞助机制，但金额与治理细节仍待确认。",
+      "retain_for_trends": true,
+      "story_id": "story-762187b26d7150e35726",
+      "support_for_story_id": null,
+      "trend_links": [
+        "token-compute-as-sponsorship-in-kind",
+        "ai-model-vendor-open-source-ecosystem-capture"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "免费安全扫描可能影响开源项目安全实践，但权衡与数据条款未披露，仅作轻量新闻与后台证据。",
+      "retain_for_trends": true,
+      "story_id": "story-1767c800a9f41e01ea3b",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-funded-open-source-security-scanning",
+        "model-provider-open-source-ecosystem-services"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "GitHub官方权限下放是事实但属例行功能调整，无持续趋势验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-a7ed5ed2c2b1fd9bcbc4",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Falcon ASR发布仅确认动作，能力与许可细节未知，可作开源语音模型扩张的后台线索。",
+      "retain_for_trends": true,
+      "story_id": "story-e0a80837872bfd0c93f9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weights-asr-model-expansion"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "无障碍列表导航是有益的小改进，但无结构意义或后续验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-13952f614d3172ed5796",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "Ollama补丁仅文档与服务器细节，属常规维护，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-1c0293c8eae3414a883c",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-08T23:57:24.305712Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

@@ -7,6 +7,7 @@
     "id": "item-db7b9e6fe248e3146f87",
     "language": "en-US",
     "metadata": {
+      "content_version": "1555c30225f9af9e3d39",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-e04d1da693503b0f1282",
     "language": "en-us",
     "metadata": {
+      "content_version": "a6a362b2db45656b2039",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +69,7 @@
     "id": "item-8b64b8f7c1061221034f",
     "language": "en-US",
     "metadata": {
+      "content_version": "18647c82fbe124f5814b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-d5fea414d61e112a2560",
     "language": null,
     "metadata": {
+      "content_version": "e6c8b6e68b6a08517dc9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -218,6 +222,7 @@
     "id": "item-0856c1a27e7e11a7096c",
     "language": "en-US",
     "metadata": {
+      "content_version": "88f7a6ecd9684f753413",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +284,7 @@
     "id": "item-3618833fba59bdc647a6",
     "language": "en-us",
     "metadata": {
+      "content_version": "82e2e347fe1996fc4a75",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +407,7 @@
     "id": "item-18d441cbd3f99a19e751",
     "language": "en-US",
     "metadata": {
+      "content_version": "d28bf82cfa7f1252ca40",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +469,7 @@
     "id": "item-983129a3016b1868b983",
     "language": null,
     "metadata": {
+      "content_version": "010809b8cf685c38b443",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -765,6 +773,7 @@
     "id": "item-16b7810afb00bdc03cf9",
     "language": "en-US",
     "metadata": {
+      "content_version": "df4220d5f495f44ad6fc",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -947,6 +956,7 @@
     "id": "item-fdc864340b44ea6ec229",
     "language": "en-us",
     "metadata": {
+      "content_version": "028e5f719e20dd76939e",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1099,6 +1109,7 @@
     "id": "item-67f5f61696a2949df273",
     "language": "en-US",
     "metadata": {
+      "content_version": "8d48919fc45c64e02acb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1220,6 +1231,7 @@
     "id": "item-9b144d58de64884fde4f",
     "language": "en-US",
     "metadata": {
+      "content_version": "9faa5a00ccf02b9f8873",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -2222,6 +2234,7 @@
     "id": "item-651222944a43adc3f428",
     "language": "en-US",
     "metadata": {
+      "content_version": "5e4494b7cf1f5cd35dbf",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -74823,6 +74836,7 @@
     "id": "item-95b91ef337a82fbc2d20",
     "language": "en",
     "metadata": {
+      "content_version": "982f3628f60f1f5d8968",
       "data_anomaly": true,
       "forks": 18166,
       "official": true,
@@ -76095,11 +76109,20 @@
     "metadata": {
       "comments": 296,
       "community_signal": true,
+      "content_version": "083b934f83b7d5ed8795",
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50000488",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
       "score": 344,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -76155,6 +76178,7 @@
     "metadata": {
       "comments": 1378,
       "community_signal": true,
+      "content_version": "ff3e0531c0b871a1d6a6",
       "discussion_url": "https://news.ycombinator.com/item?id=50006832",
       "official": false,
       "original_url": "https://apnews.com/article/h1b-visa-program-vance-microsoft-e7b3a407f822702b269ee277d21343ea",
@@ -76615,6 +76639,7 @@
     "metadata": {
       "change_percent": -0.006305253794802068,
       "close": 348.2900085449219,
+      "content_version": "18b91ec5ed23771340bc",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 350.5,
@@ -77537,38 +77562,6 @@
     "title": "DeepSeek kernel engineer's opinion on automating his own job",
     "topic_candidates": [],
     "url": "https://www.lesswrong.com/posts/o8roRrdisBAjngHJN/a-summary-of-a-viral-chinese-essay-on-what-a-deepseek-kernel"
-  },
-  {
-    "author": "jonotime",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-08T23:56:04.793194Z",
-    "id": "item-27f74968b7ec229dd623",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50000488",
-      "hn_submission_time": 1791418488,
-      "lab_id": "deepseek",
-      "original_url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-08T00:14:48Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Why isn't the industry freaking out about DeepSeek 4.1 Flash?",
-    "topic_candidates": [],
-    "url": "https://www.dgt.is/blog/2026-10-07-deepseek-freek-out/"
   },
   {
     "author": "choult",

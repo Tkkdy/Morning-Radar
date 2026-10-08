@@ -1,0 +1,75 @@
+[
+  {
+    "created_at": "2026-10-08T23:57:24.305712Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 10 个来源支持。",
+    "id": "signal-923bd221e8c7ddd0bc79",
+    "metric_history": [
+      {
+        "date": "2026-10-07",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-08",
+        "story_count": 4
+      },
+      {
+        "date": "2026-10-09",
+        "story_count": 5
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 20,
+    "supporting_source_count": 10,
+    "supporting_story_ids": [
+      "story-d519a8d5ab08148a4a1f",
+      "story-7f8b8702587460b780f1",
+      "story-fdee07f8798f0943bdfd",
+      "story-7989320a29551f1257a1",
+      "story-5c994ece9adcda51a4ba",
+      "story-aa9305356428069ac95d",
+      "story-4ba58599ac819829da2f",
+      "story-762187b26d7150e35726",
+      "story-1767c800a9f41e01ea3b",
+      "story-e0a80837872bfd0c93f9"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-10-08T23:57:24.305712Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-08T23:57:24.305712Z",
+    "explanation": "open_source_ai 连续 3 天保持或增加事件量，且有 5 个来源支持。",
+    "id": "signal-e86fbb41d981a4e0332c",
+    "metric_history": [
+      {
+        "date": "2026-10-07",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-08",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-09",
+        "story_count": 2
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 7,
+    "supporting_source_count": 5,
+    "supporting_story_ids": [
+      "story-66b516c386a02270395d",
+      "story-03b986bb193eb15f77dc",
+      "story-7989320a29551f1257a1",
+      "story-e0a80837872bfd0c93f9",
+      "story-1c0293c8eae3414a883c"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-10-08T23:57:24.305712Z",
+    "window_days": 3
+  }
+]
