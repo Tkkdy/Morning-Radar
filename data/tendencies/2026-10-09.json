@@ -1,0 +1,180 @@
+{
+  "date": "2026-10-09",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 GitHub Copilot 的 Agent 执行缺少平台内置的本地沙箱，泄露密钥检测主要依赖既有的模式匹配机制，归档 PR 仅限于仓库管理员，平台未以更细粒度权限降低协作管理门槛。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-e4b513fe4445b7fda849 来自 GitHub 官方 Changelog，直接支持既有 Candidate 中『Copilot 平台化并向安全与供应链治理延伸』的方向，机制清晰且产品变化真实。但该簇与既有证据同属 GitHub 一个 actor、同一官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate 并标记 update_kind=supported。",
+        "falsifier": "如果 Copilot 本地沙箱未被 CLI、Copilot app 或 VS Code Agent Host 会话采用，或专用泄露密钥检测模型未被实际启用/被撤回，或归档权限变更未降低协作管理门槛，则本 Tendency 被削弱；若 GitHub 撤回 Copilot 平台化与安全治理方向，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Copilot 本地沙箱功能正式可用（GA），适用于 GitHub Copilot CLI、GitHub Copilot app 以及使用 Agent Host 的 VS Code 会话。",
+          "GitHub 推出专用模型用于泄露密钥检测，提供上下文感知能力。",
+          "GitHub 允许 Triage 角色及以上用户归档和取消归档 Pull Request，此前仅限仓库管理员。"
+        ],
+        "shared_mechanism": "GitHub 通过同一官方 Changelog 通道连续发布 Copilot 与协作管理能力：Copilot 本地沙箱把运行时安全边界下沉到平台；专用的上下文感知泄露密钥检测模型把密钥保护从规则匹配升级为模型驱动；归档 PR 权限下放到 Triage 角色则降低协作管理门槛。三者共同把安全、运行时治理与团队协作从开发者自建能力转为 GitHub 平台能力，延续 Copilot 从个人补全工具升级为团队可治理开发平台的方向。"
+      },
+      "claim": "GitHub 正在通过官方 Changelog 连续发布，把 Copilot 从代码补全工具升级为可编程、可治理、团队化的开发平台，并向安全与供应链治理能力延伸：Copilot 本地沙箱进入 GA，专用泄露密钥检测模型以上下文感知方式保障 AI 协作时代的密钥安全，同时归档操作权限下放至 Triage 角色，降低协作管理门槛。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-09",
+            "story_id": "story-a7ed5ed2c2b1fd9bcbc4"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-83396e3be4b2ea67daca",
+      "recorded_at": "2026-10-09T00:00:17.807111Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e4b513fe4445b7fda849"
+      ],
+      "tendency_id": "tendency-d05300a43a67aa1e09cf",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 NVIDIA 的模型微调成果、agent 运行时实践与机器人仿真资产准备多由应用开发者自行实现或依赖分散工具，NVIDIA 未以统一的开发者工具与模型生态形式集中提供。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-d6d63a324ae2db7af2cc、cluster-bc96740748c43fdbf7ab、cluster-98077330c1b050ce8d2c 均来自 NVIDIA 官方渠道，共享机制清晰且围绕平台层能力下沉，直接支持既有 Candidate 方向。但所有簇仍为同一 actor 的连续发布，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate 并标记 update_kind=supported。",
+        "falsifier": "如果 Nemotron 微调结果未被复现或未被采用，KGMON 的 agent harness 方法未被开发者或企业采用，SimReady 资产指南未进入实际机器人仿真工作流，或 NVIDIA 停止维护这些方向，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "NVIDIA 发布 Nemotron 模型家族，经微调后在 IOI 与 IMO 均获得金牌级成绩。",
+          "NVIDIA KGMON 团队在 KDD Cup 2026 Data Agents 竞赛中获得第二名，系统围绕让 agent harness 更小的理念构建。",
+          "NVIDIA 发布使用前沿 AI 模型为机器人创建 SimReady 资产的操作指南，覆盖材质、碰撞等属性的配置与验证。"
+        ],
+        "shared_mechanism": "NVIDIA 通过同一开发者与模型生态层连续发布多项能力：Nemotron 模型家族经微调在 IOI 与 IMO 获得金牌级成绩，KGMON 团队以精简 agent harness 在 KDD Cup 2026 Data Agents 竞赛中取得第二名，SimReady 资产指南把前沿 AI 模型引入机器人仿真工作流。这些动作共同把模型微调、agent 运行时与机器人仿真资产准备下沉为平台级能力，改变开发者构建和运维 AI 基础设施的方式。"
+      },
+      "claim": "NVIDIA 正在把平台层 AI 基础设施能力通过开发者工具与模型优化持续产品化：Nemotron 模型家族经微调后在 IOI 与 IMO 获得金牌级成绩，KGMON 团队在 KDD Cup 2026 Data Agents 竞赛中获得第二名，并以精简 agent harness 的思路构建可靠数据分析 agent，同时发布使用前沿 AI 模型创建 SimReady 机器人资产的操作指南，推动 AI 基础设施控制与机器人仿真从应用层功能转向平台层能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-09",
+            "story_id": "story-640e51584c0185037289"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-09",
+            "story_id": "story-304992ce728911244d4e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-09",
+            "story_id": "story-caec085771edcb101139"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-d14b77ddb4ace44e0554",
+      "recorded_at": "2026-10-09T00:00:17.807111Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-d6d63a324ae2db7af2cc",
+        "cluster-bc96740748c43fdbf7ab",
+        "cluster-98077330c1b050ce8d2c"
+      ],
+      "tendency_id": "tendency-77523f05175868a101c8",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前开源项目主要依赖社区工具或人工审计进行安全扫描，前沿模型驱动的免费定期安全扫描服务较少以官方产品形式提供。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅 cluster-b25ec81574cf20935782 一个编辑来源，涉及 Anthropic 一个 actor，机制清晰但缺乏跨事件或第三方采用证据，不足以升级 Emerging，作为 Candidate 内部观察。",
+        "falsifier": "如果 OSS Scanner 未被开源项目采用或很快被撤回，或扫描结果未被实际用于修复漏洞，则本 Tendency 被削弱；若 Anthropic 停止该服务，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Anthropic 推出 OSS Scanner，用于帮助开源项目发现安全漏洞。",
+          "Opt-in 的开源项目将获得由 Anthropic 最强模型进行的彻底、定期安全扫描，且不收取费用。"
+        ],
+        "shared_mechanism": "Anthropic 通过推出 OSS Scanner，把前沿模型能力转化为面向开源项目的免费安全扫描服务，使开源项目无需自建安全审计能力即可获得定期、由强模型驱动的漏洞发现，改变开源生态获取安全能力的方式。"
+      },
+      "claim": "Anthropic 正在把前沿模型能力通过免费安全扫描服务开放给开源生态：OSS Scanner 面向开源项目提供由最强模型驱动的定期安全扫描，且不收取费用，改变开源项目获取安全审计能力的方式。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-09",
+            "story_id": "story-1767c800a9f41e01ea3b"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-18ce02ce3c07d7030d96",
+      "recorded_at": "2026-10-09T00:00:17.807111Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-b25ec81574cf20935782"
+      ],
+      "tendency_id": "tendency-6ff06ed293c6c43bf3e0",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "在 v0.40.2 之前，Ollama README 未包含 oxi 社区集成，服务器端去重与下移保护可能缺失，开发者本地运行模型时可能遇到重复或异常行为。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-b0d15b1167695c10a56f 为 Ollama 官方发布，直接支持既有本地模型运行工具维护方向。但该簇与既有证据同属 Ollama 一个 actor、同一产品线版本迭代，缺乏第三方采用或跨 actor 独立支撑，按规则不能升级 Emerging，保持 Candidate 并标记 update_kind=supported。",
+        "falsifier": "如果后续版本撤回相关集成或修复，或开发者未采用 Ollama 进行本地模型部署，则本 Tendency 被削弱；若 Ollama 停止维护本地运行方向，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Ollama 发布 v0.40.2 版本。",
+          "该版本在 README 中新增 oxi 到社区集成列表（PR #18739），并在服务器端隐藏重复和下移保护（PR #18874）。"
+        ],
+        "shared_mechanism": "Ollama 通过同一产品线的持续版本发布，维护本地模型运行工具的集成生态与运行时稳定性：新增社区集成扩大可接入工具范围，服务器端去重与保护修复提升运行可靠性，改变开发者本地部署与管理模型的方式。"
+      },
+      "claim": "Ollama 正在通过连续版本迭代持续维护本地模型运行工具：v0.40.2 包含 README 新增社区集成与服务器端去重保护，使开发者在本地部署与管理模型时获得更稳定的运行时行为。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-09",
+            "story_id": "story-1c0293c8eae3414a883c"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-8610e4f1eb5d74ec780a",
+      "recorded_at": "2026-10-09T00:00:17.807111Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-b0d15b1167695c10a56f"
+      ],
+      "tendency_id": "tendency-cc3fb74fdd3a1ba901f8",
+      "update_kind": "supported"
+    }
+  ],
+  "generated_at": "2026-10-09T00:00:17.807111Z"
+}
