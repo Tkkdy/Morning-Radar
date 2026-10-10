@@ -555,3 +555,35 @@ def test_cache_usage_or_cache_price_missing_is_unavailable(tmp_path):
     assert Decimal(
         recorder.finish(record, usage=usage, state="received", price=priced)["cost_cny"]
     ) == Decimal(".00018")
+
+
+def test_complete_release_with_sufficient_synthetic_source_excerpts(tmp_path, monkeypatch):
+    """The real coordinator must complete when the external inputs satisfy prerequisites."""
+    from morning_radar.collectors import FixtureCollector
+
+    original = FixtureCollector.collect
+
+    def sufficient(self):
+        items = original(self)
+        for item in items:
+            # Authored synthetic source detail, not a forced health/status result.
+            item.content_excerpt = (
+                "synthetic source conditions: this fixture verifies pipeline structure only. "
+                "The reported change has bounded scope, requires explicit approval and "
+                "finite retries, and has not been evaluated in real deployments. "
+            ) * 3
+        return items
+
+    monkeypatch.setattr(FixtureCollector, "collect", sufficient)
+    root = tmp_path / "complete-release"
+    result = demo(REPO, root)
+    coordinator = ReleaseCoordinator(
+        root, archive=GitArchive(root, allow_synthetic=True), synthetic=True
+    )
+    manifest = coordinator.verify(result["release_id"])
+    assert manifest["delivery_status"] == "complete"
+    assert manifest["stages"]["daily"]["status"] == "completed"
+    assert manifest["stages"]["tendency"]["status"] == "completed"
+    assert manifest["stages"]["collection"]["status"] == "completed"
+    assert manifest["stages"]["deep_continuity"]["status"] == "no_ai_trigger"
+    assert manifest["cost"]["physical_calls"] == 0

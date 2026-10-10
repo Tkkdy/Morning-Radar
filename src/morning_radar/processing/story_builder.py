@@ -13,7 +13,7 @@ from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
 from morning_radar.ai.request_payload import get_call_meta
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
-from morning_radar.processing.deduplicate import deduplicate_items
+from morning_radar.processing.deduplicate import _comparison_url, deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
@@ -274,6 +274,15 @@ def build_stories(
 
     stories: list[Story] = []
     for group in group_items_by_normalized_title(relevant):
+        # Deduplication allocates one candidate slot, not permission to discard
+        # richer observations of the same page. Preserve source roles and IDs;
+        # the model still checks whether these observations describe one event.
+        group_urls = {_comparison_url(item) for item in group}
+        retained_ids = {item.id for item in group}
+        group = [*group, *(
+            item for item in items
+            if item.id not in retained_ids and _comparison_url(item) in group_urls
+        )]
         try:
             draft = _merge_with_url_recovery(provider, group)
         except AIBudgetExceeded:

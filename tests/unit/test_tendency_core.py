@@ -666,3 +666,29 @@ def test_stale_parallel_discovery_cannot_duplicate_committed_proposition(context
             operation_id="two",
         )
     assert len(CoreStore(tmp_path).revisions()) == 1
+
+
+def test_checkpoint_row_cap_reports_truncation_even_after_deduplication(tmp_path):
+    directory = tmp_path / "data/intake/checkpoints"
+    directory.mkdir(parents=True)
+    row = {
+        "content_version": "synthetic-version",
+        "durable_at": DEMO_TIME.isoformat(),
+        "item": {
+            "id": "synthetic-input",
+            "url": "https://example.org/synthetic",
+            "title": "synthetic source",
+            "summary": "synthetic bounded evidence",
+            "fetched_at": DEMO_TIME.isoformat(),
+        },
+    }
+    payload = {
+        "manifest": {"complete": True, "created_at": DEMO_TIME.isoformat()},
+        "items": [row, copy.deepcopy(row)],
+    }
+    (directory / "synthetic.json").write_text(json.dumps(payload), encoding="utf-8")
+    evidence, diagnostics = read_evidence(
+        tmp_path, CoreStore(tmp_path), through=DEMO_TIME, maximum_evidence=1
+    )
+    assert len(evidence) == 1
+    assert diagnostics["evidence_truncated"] is True

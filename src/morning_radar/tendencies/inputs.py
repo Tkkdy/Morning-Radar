@@ -35,6 +35,7 @@ def read_evidence(
     paths = sorted((root / "data/evidence/v1").glob("*/*.json"), reverse=True)
     checkpoints = sorted((root / "data/intake/checkpoints").glob("*.json"), reverse=True)
     relations, records, errors = {}, [], []
+    checkpoint_truncated = False
     for path in sorted((root / "data/evidence/events").glob("*.json"), reverse=True)[
         :maximum_files
     ]:
@@ -58,7 +59,9 @@ def read_evidence(
                 if not manifest["complete"] or _time(manifest["created_at"]) > through:
                     continue
                 rows = []
-                for record in payload.get("items", payload.get("records", []))[:maximum_evidence]:
+                checkpoint_rows = payload.get("items", payload.get("records", []))
+                checkpoint_truncated |= len(checkpoint_rows) > maximum_evidence
+                for record in checkpoint_rows[:maximum_evidence]:
                     raw = record["item"]
                     rows.append(
                         {
@@ -165,7 +168,7 @@ def read_evidence(
     return result[:maximum_evidence], {
         "scanned_files": len(scan),
         "scan_truncated": len(paths) > maximum_files or len(checkpoints) > maximum_files,
-        "evidence_truncated": len(result) > maximum_evidence,
+        "evidence_truncated": checkpoint_truncated or len(result) > maximum_evidence,
         "errors": errors,
     }
 
