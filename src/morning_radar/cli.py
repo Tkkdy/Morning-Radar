@@ -51,6 +51,8 @@ def build_parser() -> argparse.ArgumentParser:
     )
     collection_inspect.add_argument("--batch-id", required=True)
     collection_inspect.add_argument("--json", action="store_true", dest="as_json")
+    preview = commands.add_parser("preview-b1", help="build an isolated labeled offline B1 preview")
+    preview.add_argument("--output", type=Path, required=True)
     commands.add_parser("build-site", help="rebuild pages from saved brief JSON")
     commands.add_parser("run-tendency", help="run standalone Tendency evaluation")
     commands.add_parser("run-deep-continuity", help="run triggered deep Judgement review")
@@ -95,6 +97,10 @@ def _parse_now(value: str | None) -> datetime | None:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     configure_logging(args.verbose)
+    if args.command == "preview-b1":
+        from morning_radar.publishing.preview import build_b1_preview
+        print(build_b1_preview(Path("."), args.output))
+        return 0
     pipeline = MorningRadarPipeline(Path("."))
     if args.command == "run":
         pipeline.run(

@@ -952,7 +952,25 @@ class MorningRadarPipeline:
         for record in prepared.selection.records:
             if isinstance(record.item.metadata, dict):
                 record.item.metadata.setdefault("content_version", record.content_version)
-        process_items = prepared.selection.items
+        from morning_radar.research.materials import enrich_materials
+        material_pool = [*prepared.selection.records, *prepared.selection.deferred][
+            :max(self.app.candidate_review_limit, self.app.maximum_ai_items)
+        ]
+        important_ids = {
+            r.item.id for r in prepared.selection.records
+            if (prepared.ledger.get(r.input_id, r.content_version).candidate_diagnostics or {}).get(
+                "important"
+            ) or r.item.metadata.get("priority") == "high"
+        }
+        material_result = enrich_materials(
+            [r.item for r in material_pool], root=output_root, now=now,
+            policy=self.app.material_enrichment, important_ids=important_ids,
+            network_allowed=(
+                not fixtures and not dry_run and not isinstance(provider, FakeAIProvider)
+            ),
+        )
+        material_by_id = {item.id: item for item in material_result.items}
+        process_items = [material_by_id.get(item.id, item) for item in prepared.selection.items]
         story_candidate_items, routine_market_suppressed = filter_story_candidate_inputs(
             process_items,
             market_movement_threshold=self.app.market_movement_threshold,
@@ -984,6 +1002,8 @@ class MorningRadarPipeline:
             score_out=score_out,
             classifications=review,
         )
+        from morning_radar.research.materials import save_event_evidence
+        save_event_evidence(output_root, stories, now=now)
         new_stories = stories
         stories = _merge_same_day_stories(
             output_root,
@@ -1156,6 +1176,7 @@ class MorningRadarPipeline:
                     "aihot_enabled": self.app.aihot.enabled,
                     **practitioner_coverage_stats(people),
                     **research_result.stats,
+                    **material_result.stats,
                 },
             )
         finally:

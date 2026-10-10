@@ -344,6 +344,14 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         yield output.canonical_title
         yield from output.facts
         yield from output.analysis
+        if output.technical_reading is not None:
+            for field in (
+                "problem", "method", "engineering_value",
+                "author_evidence", "conditions", "limitations"
+            ):
+                point = getattr(output.technical_reading, field)
+                if point is not None:
+                    yield point.text
         yield from output.opinions
         yield from output.uncertainties
     elif isinstance(output, BriefDraft):

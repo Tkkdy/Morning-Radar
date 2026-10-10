@@ -137,6 +137,8 @@ def _story_context(story: Story) -> BriefStoryContext:
         status=story.status,
         primary_source_url=story.primary_source_url,
         source_refs=story.source_refs,
+        technical_reading=story.technical_reading,
+        evidence_ids=story.evidence_ids,
     )
 
 

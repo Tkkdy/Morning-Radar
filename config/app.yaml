@@ -59,3 +59,12 @@ enabled_sections:
   developer_discussions: true
   direction_observation: true
   cognitive_extension: true
+
+material_enrichment:
+  enabled: true
+  maximum_items: 4
+  maximum_requests: 6
+  deadline_seconds: 30
+  maximum_response_bytes: 524288
+  maximum_excerpt_characters: 1600
+  allowed_hosts: [arxiv.org, openai.com, www.anthropic.com, research.google, blog.google, mistral.ai, reflection.ai]

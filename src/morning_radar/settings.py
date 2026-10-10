@@ -32,6 +32,16 @@ class EditorialConfig(ConfigModel):
     maximum_stories: int = Field(default=20, ge=1, le=40)
 
 
+class MaterialEnrichmentConfig(ConfigModel):
+    enabled: bool = False
+    maximum_items: int = Field(default=4, ge=0, le=8)
+    maximum_requests: int = Field(default=6, ge=0, le=12)
+    deadline_seconds: float = Field(default=30, gt=0, le=60)
+    maximum_response_bytes: int = Field(default=524288, ge=1024, le=1048576)
+    maximum_excerpt_characters: int = Field(default=1600, ge=300, le=2000)
+    allowed_hosts: list[str] = Field(default_factory=list)
+
+
 class AppConfig(ConfigModel):
     timezone: str = "Asia/Singapore"
     news_window_hours: int = Field(gt=0)
@@ -68,6 +78,7 @@ class AppConfig(ConfigModel):
     deep_review_minimum_stories: int = Field(default=4, ge=2, le=20)
     deep_review_minimum_dates: int = Field(default=3, ge=2, le=10)
     deep_review_minimum_sources: int = Field(default=3, ge=2, le=10)
+    material_enrichment: MaterialEnrichmentConfig = Field(default_factory=MaterialEnrichmentConfig)
     aihot: AIHOTConfig = Field(default_factory=AIHOTConfig)
     editorial: EditorialConfig = Field(default_factory=EditorialConfig)
     request_timeout_seconds: float = Field(gt=0)

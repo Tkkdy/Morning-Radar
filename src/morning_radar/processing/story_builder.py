@@ -96,6 +96,9 @@ def _validate_draft_urls(draft: MergedStoryDraft, items: list[RawItem]) -> None:
     returned = set(draft.source_urls)
     if draft.primary_source_url:
         returned.add(draft.primary_source_url)
+    if draft.technical_reading is not None:
+        from morning_radar.research.materials import validate_technical_reading
+        validate_technical_reading(draft.technical_reading, items)
     invented = returned - allowed
     if invented:
         raise StoryValidationError(
@@ -161,6 +164,9 @@ def build_story(
         source_urls=source_urls,
         primary_source_url=primary.url,
         source_refs=[_source_ref(item) for item in items],
+        technical_reading=draft.technical_reading,
+        evidence_ids=[str(item.metadata["evidence_id"]) for item in items
+                      if item.metadata.get("evidence_id")],
         facts=draft.facts,
         analysis=draft.analysis,
         uncertainties=draft.uncertainties,

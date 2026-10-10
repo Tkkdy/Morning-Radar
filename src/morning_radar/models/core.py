@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import date, datetime
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 from urllib.parse import urlsplit
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
@@ -158,6 +158,23 @@ class StorySourceRef(RadarModel):
         return _validate_http_url(value)
 
 
+class GroundedPoint(RadarModel):
+    text: str = Field(min_length=1, max_length=600)
+    source_url: str
+    quote: str = Field(min_length=12, max_length=280)
+    _source_http = field_validator("source_url")(_validate_http_url)
+
+
+class TechnicalReading(RadarModel):
+    kind: Literal["paper", "technical_report", "technical_article"]
+    problem: GroundedPoint | None = None
+    method: GroundedPoint | None = None
+    engineering_value: GroundedPoint | None = None
+    author_evidence: GroundedPoint | None = None
+    conditions: GroundedPoint | None = None
+    limitations: GroundedPoint | None = None
+
+
 class Story(RadarModel):
     id: str = Field(min_length=1)
     canonical_title: str = Field(min_length=1, max_length=500)
@@ -171,6 +188,8 @@ class Story(RadarModel):
     source_urls: list[str] = Field(min_length=1)
     primary_source_url: str
     source_refs: list[StorySourceRef] = Field(default_factory=list)
+    technical_reading: TechnicalReading | None = None
+    evidence_ids: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
     analysis: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)
@@ -324,6 +343,8 @@ class BriefStoryContext(RadarModel):
     status: StoryStatus = StoryStatus.UNKNOWN
     primary_source_url: str
     source_refs: list[StorySourceRef] = Field(default_factory=list)
+    technical_reading: TechnicalReading | None = None
+    evidence_ids: list[str] = Field(default_factory=list)
 
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
     _primary_url_is_http = field_validator("primary_source_url")(_validate_http_url)

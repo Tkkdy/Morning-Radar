@@ -161,6 +161,12 @@ def _candidate_match(left: RawItem, right: RawItem) -> bool:
     if _published_distance_hours(left, right) > 72:
         return False
 
+    # An explicitly observed release-to-paper link is a candidate relation only.
+    # The provider must still distinguish an accompanying paper from cited prior work.
+    if (left.url in right.metadata.get("material_links", [])
+            or right.url in left.metadata.get("material_links", [])):
+        return True
+
     # Cross-title matching requires an official anchor, a shared actor, and
     # specific subject words supported in BOTH records. Generic capability words
     # (e.g. generation/pricing) do not identify an event; suffixes are not evidence.

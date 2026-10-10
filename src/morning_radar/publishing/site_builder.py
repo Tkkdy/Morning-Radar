@@ -29,6 +29,8 @@ class SiteBuilder:
         *,
         stylesheet: Path,
         continuities: list[DailyContinuity] | None = None,
+        preview_notice: str | None = None,
+        preview_labels: dict[str, str] | None = None,
     ) -> None:
         if not briefs:
             raise ValueError("At least one DailyBrief is required to build the site")
@@ -50,6 +52,7 @@ class SiteBuilder:
             brief=latest,
             root_prefix="",
             historical_annotations=annotations.get(latest.date, {}),
+            preview_notice=preview_notice, preview_labels=preview_labels or {},
         )
         self._render("archive.html.j2", self.output_dir / "archive.html", briefs=ordered)
         for brief in ordered:
@@ -59,6 +62,7 @@ class SiteBuilder:
                 brief=brief,
                 root_prefix="../",
                 historical_annotations=annotations.get(brief.date, {}),
+                preview_notice=preview_notice, preview_labels=preview_labels or {},
             )
 
     def _render(self, template: str, destination: Path, **context: object) -> None:

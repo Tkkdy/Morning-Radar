@@ -18,6 +18,7 @@ from morning_radar.models.core import (
     ResearchDisposition,
     StatementType,
     StoryStatus,
+    TechnicalReading,
 )
 from morning_radar.models.tendency import (
     TendencyAssessment,
@@ -61,6 +62,7 @@ class MergedStoryDraft(RadarModel):
     source_urls: list[str] = Field(default_factory=list)
     primary_source_url: str | None = None
     status: StoryStatus = StoryStatus.UNKNOWN
+    technical_reading: TechnicalReading | None = None
 
 
 class StoryScore(RadarModel):

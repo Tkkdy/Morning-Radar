@@ -113,6 +113,8 @@ def daily_details(prepared, brief) -> tuple[str, dict]:
         "candidate_outcomes": counts,
         "pending_candidates": pending,
         "sources": prepared.intake.checkpoint.manifest.discovery_audit,
+        "material_enrichment": {key: value for key, value in stats.items()
+                                if key.startswith("material_")},
         "brief_fallbacks": stats.get("ai_brief_item_fallbacks", 0),
         "continuity": (
             "budget_skipped"
@@ -132,5 +134,6 @@ def daily_details(prepared, brief) -> tuple[str, dict]:
         or bool(gaps["brief_fallbacks"])
         or gaps["continuity"] != "completed"
         or pending > 0
+        or stats.get("material_incomplete", 0) > 0
     )
     return ("partial" if incomplete else "completed"), gaps

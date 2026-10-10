@@ -23,3 +23,9 @@ correction_required_if_false=true。普通价值感叹、当天影响、泛化�
 story_ids 中的每个值都必须从输入 Story 的 id 字段逐字复制。items 按编辑优先级从高到低排列。cognitive_extension 不是预测或结论，只能返回一个值得继续思考的问题。
 不得创建、猜测、缩写、修改、重新格式化或合并 Story ID。top_stories 只用于“今天必须知道”的事件。其他值得阅读的内容应放入对应主题 section。没有可靠问题时返回 null。
 每个输出 item 只能引用实际用于生成该 item 的输入 Story。source_urls 中的每个值都必须来自该 item 所引用 Stories 的 source_urls。
+
+
+B1 阅读约束：what_happened 用 1–3 句讲清事实和关键差异；why_it_matters 只讲具体使用、成本、能力或限制的变化，无法支持时留空。
+不重复背景，不为凑篇幅写泛化判断。没有输入中的此前依据，不编造“相比此前”。
+技术材料的 technical_reading 会独立展示，不在普通正文逐段复述；作者报告的结果与适用条件不能改写成普适事实。
+同一事件和配套论文不可重复占位。补录仍沿用输入事件时间，不写成今天刚发布。

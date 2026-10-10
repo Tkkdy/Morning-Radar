@@ -196,5 +196,6 @@ jobs:
           if-no-files-found: ignore
           path: |
             data/health/
+            data/evidence/
             data/usage/
             site/health-v1.json

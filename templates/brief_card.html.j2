@@ -10,8 +10,8 @@
 {% endif %}
 <article class="brief-card{% if compact %} compact{% endif %}"{% if primary_context %} id="story-{{ primary_context.story_id }}"{% elif item.story_ids %} id="story-{{ item.story_ids[0] }}"{% endif %}>
   <p class="section-label">{% if compact %}延伸阅读{% else %}{{ section_labels.get(item.section, item.section) }}{% endif %}</p>
+  {% if preview_labels is defined and preview_labels.get(item.id) %}<p class="generation-note"><strong>{{ preview_labels[item.id] }}</strong></p>{% endif %}
   <h3>{{ item.title }}</h3>
-  <p>{{ item.what_happened }}</p>
   {% for continuity in item.continuity_contexts %}
     {% if continuity.relation_type %}
     <div class="continuity-note">
@@ -28,6 +28,22 @@
       <strong>{% if cue.update_kind == "weakened" %}此前判断有所削弱{% elif cue.update_kind == "revised" %}此前判断需要修正{% elif cue.update_kind == "overturned" %}此前判断已被推翻{% elif cue.update_kind == "needs_review" %}相关判断需要复查{% else %}当前判断{% endif %}：</strong>{{ cue.claim }}
     </div>
     {% endfor %}
+  {% endfor %}
+  {% set changes = item.continuity_contexts | selectattr("what_changed") | map(attribute="what_changed") | list %}
+  {% if item.what_happened not in changes %}<p>{{ item.what_happened }}</p>{% endif %}
+  {% for context in item.story_contexts %}
+    {% if context.technical_reading %}
+      {% set reading = context.technical_reading %}
+      <section class="technical-reading" aria-label="技术材料解读">
+      <h4>{{ {"paper": "论文解读", "technical_report": "技术报告", "technical_article": "技术长文"}[reading.kind] }}</h4>
+      {% for key, label in [("problem", "解决的问题"), ("method", "主要方法"), ("engineering_value", "差异与工程价值"), ("author_evidence", "作者报告的证据"), ("conditions", "适用条件"), ("limitations", "限制")] %}
+        {% set point = reading[key] %}
+        {% if point %}<p><strong>{{ label }}：</strong>{{ point.text }}</p>
+        <details><summary>{{ label }}的原始依据</summary><blockquote>{{ point.quote }}</blockquote><a href="{{ point.source_url }}" rel="noopener noreferrer">原始材料</a></details>{% endif %}
+      {% endfor %}
+      {% if not reading.conditions or not reading.limitations %}<p class="uncertainty">{% if not reading.conditions %}现有材料未充分说明适用条件。{% endif %}{% if not reading.limitations %}现有材料未充分说明限制。{% endif %}</p>{% endif %}
+      </section>
+    {% endif %}
   {% endfor %}
   {% if not compact and item.why_it_matters %}<p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>{% endif %}
   {% if primary_context and primary_context.status.value != "unknown" %}
