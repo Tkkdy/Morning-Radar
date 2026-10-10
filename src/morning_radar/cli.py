@@ -82,6 +82,8 @@ def build_parser() -> argparse.ArgumentParser:
         help="validate public Radar status and print its canonical business date",
     )
     read_status_date.add_argument("--path", type=Path, default=Path("site/status.json"))
+    from morning_radar.tendencies.web_cli import add_web_parser
+    add_web_parser(commands)
     from morning_radar.tendencies.core_cli import add_core_parser
     add_core_parser(commands)
     return parser
@@ -99,6 +101,9 @@ def _parse_now(value: str | None) -> datetime | None:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     configure_logging(args.verbose)
+    if args.command == "tendency-web":
+        from morning_radar.tendencies.web_cli import dispatch
+        return dispatch(args)
     if args.command == "tendency-core":
         from morning_radar.tendencies.core_cli import dispatch
         return dispatch(args)

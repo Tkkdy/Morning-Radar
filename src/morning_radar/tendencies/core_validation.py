@@ -174,8 +174,10 @@ def materialize(
         revision_id="rev-" + uuid4().hex,
         hypothesis_id=previous.hypothesis_id if previous else "hyp-" + uuid4().hex,
         previous_revision_id=previous.revision_id if previous else None,
-        parent_hypothesis_id=decision.parent_hypothesis_id,
-        parent_revision_id=decision.parent_revision_id,
+        parent_hypothesis_id=(previous.parent_hypothesis_id if previous
+                              else decision.parent_hypothesis_id),
+        parent_revision_id=(previous.parent_revision_id if previous
+                            else decision.parent_revision_id),
         first_recorded_at=previous.first_recorded_at if previous else now,
         recorded_at=now,
         origin=previous.origin if previous else "user" if seed else "system",

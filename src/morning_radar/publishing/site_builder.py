@@ -31,6 +31,7 @@ class SiteBuilder:
         continuities: list[DailyContinuity] | None = None,
         preview_notice: str | None = None,
         preview_labels: dict[str, str] | None = None,
+        tendency_workspace: Path | None = None,
     ) -> None:
         if not briefs:
             raise ValueError("At least one DailyBrief is required to build the site")
@@ -41,6 +42,11 @@ class SiteBuilder:
         stylesheet_destination = self.output_dir / "assets" / "style.css"
         if stylesheet.resolve() != stylesheet_destination.resolve():
             shutil.copyfile(stylesheet, stylesheet_destination)
+        if tendency_workspace is not None:
+            from morning_radar.tendencies.core_store import CoreStore
+            from morning_radar.tendencies.web_pages import build_pages
+            build_pages(CoreStore(tendency_workspace), self.output_dir / "tendency",
+                        repository=Path(self.environment.loader.searchpath[0]).parent)
         latest = ordered[0]
         self._write_status(latest)
         from morning_radar.health import publish_health
@@ -49,16 +55,19 @@ class SiteBuilder:
         self._render(
             "index.html.j2",
             self.output_dir / "index.html",
+            tendency_entry=tendency_workspace is not None,
             brief=latest,
             root_prefix="",
             historical_annotations=annotations.get(latest.date, {}),
             preview_notice=preview_notice, preview_labels=preview_labels or {},
         )
-        self._render("archive.html.j2", self.output_dir / "archive.html", briefs=ordered)
+        self._render("archive.html.j2", self.output_dir / "archive.html", briefs=ordered,
+                     tendency_entry=tendency_workspace is not None)
         for brief in ordered:
             self._render(
                 "brief.html.j2",
                 self.output_dir / "briefs" / f"{brief.date}.html",
+                tendency_entry=tendency_workspace is not None,
                 brief=brief,
                 root_prefix="../",
                 historical_annotations=annotations.get(brief.date, {}),

@@ -75,6 +75,17 @@ class CoreStore:
                         raise ValueError("Conflicting idempotency key")
                     return previous
             current = self.current()
+            acceptance = None
+            if event.get("type") == "web_input":
+                target = event["request"].get("hypothesis_id")
+                previous = current.get(target)
+                expected = event["request"].get("expected_revision")
+                acceptance = {
+                    "status": "conflict" if target and (
+                        previous is None or previous.revision_id != expected
+                    ) else "accepted",
+                    "current_revision": previous.revision_id if previous else None,
+                }
             revisions = [Revision.model_validate(r) for r in event.get("revisions", [])]
             seen = set()
             for revision in revisions:
@@ -98,11 +109,17 @@ class CoreStore:
                     or revision.first_recorded_at != previous.first_recorded_at
                 ):
                     raise StaleRevision("Revision time or first-recorded identity changed")
-                if revision.parent_hypothesis_id:
+                if previous and (
+                    revision.parent_hypothesis_id != previous.parent_hypothesis_id
+                    or revision.parent_revision_id != previous.parent_revision_id
+                ):
+                    raise StaleRevision("Branch ancestry cannot be rewritten")
+                if revision.parent_hypothesis_id and not previous:
                     parent = current.get(revision.parent_hypothesis_id)
                     if not parent or parent.revision_id != revision.parent_revision_id:
                         raise StaleRevision("Branch parent changed")
             record = {
+                "acceptance": acceptance,
                 "schema_version": 2,
                 "sequence": len(events) + 1,
                 "operation_id": operation_id,

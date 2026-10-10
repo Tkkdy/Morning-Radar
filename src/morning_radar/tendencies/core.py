@@ -65,6 +65,8 @@ def run_core(
                 prompt_dir=config_root / "prompts",
             )
             attach_usage(active, root, business_date=str(display_date(now)), module="tendency")
+            from morning_radar.tendencies.web_input import recover_inputs
+            result["input_recovery"] = recover_inputs(store)
             evidence, scan = read_evidence(
                 evidence_root or root,
                 store,
@@ -347,6 +349,7 @@ def run_core(
             result["status"] = (
                 "partial"
                 if scan["errors"]
+                or result["input_recovery"]["pending"]
                 or result["pending_target_ids"]
                 or any(s not in {"completed", "no_changes", "no_input"} for s in statuses)
                 else ("completed" if result["revision_ids"] else "no_changes")

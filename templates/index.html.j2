@@ -10,7 +10,7 @@
 <body>
 {% if preview_notice %}<aside class="preview-notice" role="note" style="padding:1rem;background:#fff4cc;color:#342b00;border-bottom:2px solid #c49320">{{ preview_notice }}</aside>{% endif %}
   <header class="hero">
-    <nav><a class="brand" href="{{ root_prefix }}index.html">Morning Radar</a><a href="{{ root_prefix }}archive.html">历史晨报</a></nav>
+    <nav><a class="brand" href="{{ root_prefix }}index.html">Morning Radar</a><a href="{{ root_prefix }}archive.html">历史晨报</a>{% if tendency_entry %}<a href="{{ root_prefix|default('') }}tendency/index.html">Tendency</a>{% endif %}</nav>
     <p class="eyebrow">{{ brief.date }} · {{ brief.timezone }}</p>
     <h1>少而重要，事实可追溯。</h1>
     <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
