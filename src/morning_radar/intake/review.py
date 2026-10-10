@@ -77,11 +77,12 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
             record.input_id,
         )
 
-    capacity = min(app.maximum_ai_items, max(0, app.maximum_ai_calls - 7) * 2 // 5)
+    capacity = min(
+        app.maximum_ai_items, app.maximum_raw_items,
+        max(0, app.maximum_ai_calls - 7) * 2 // 5,
+    )
     ranked = sorted(unique.values(), key=rank)
-    selected = [r for r in ranked if r.item.id in results and results[r.item.id].relevant][
-        :capacity
-    ]
+    selected = ranked[:capacity]
     selected_keys = {intake_key(r.input_id, r.content_version) for r in selected}
     for record in unique.values():
         key = intake_key(record.input_id, record.content_version)
@@ -120,4 +121,6 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
     original.selected_keys = selected_keys
     original.deferred = [r for key, r in unique.items() if key not in selected_keys]
     prepared.ledger.save()
-    return ClassificationBatch(items=[results[r.item.id] for r in selected])
+    # Ranking from short metadata is provisional. Deep processing must classify
+    # the full evidence, including negatively reviewed inputs when capacity remains.
+    return None

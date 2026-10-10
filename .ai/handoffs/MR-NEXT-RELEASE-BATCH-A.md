@@ -76,3 +76,19 @@
 - health 的 complete 只表示本接口定义的当日模块执行状态，不表示 A–D 整轮产品已完成，也不证明不存在漏报。当前 health 在 prepare_process 之后开始记录；进程尚未进入该阶段就失败时，模块仍显示未运行/不可用，workflow artifact 也可能没有记录。
 - 回滚：保持本分支不合并即可完全隔离；若未来集成，revert 本批提交并重新构建。仅回退代码和配置，不删除生产 raw/ledger，也不回写历史。旧消费者继续读取原 status.json。
 - Tendency 仍在整轮范围。批次 B 完成更完整的晨报处理/交付；C 实现独立发现与校准；D 实现独立页面、批量输入、真实持久化回执及修订历史。本批只交付共享输入、恢复与健康/费用底座，没有提前做页面或移除后续职责。
+
+
+## A 批限定复核（后续提交，不改写 bb3ef351）
+
+结论：PATCH_REQUIRED → 修复后 PASS，可进入 B1。检查了 8ddd314..bb3ef351 的候选、来源、分组、预算、计量、健康及 workflow 差异和必要上下游，没有重新全仓审计。
+
+已证实并修复：
+
+1. `intake/review.py:78` 附近：仅挑预审 relevant=true，且把 120 字摘要分类直接用作深处理分类。摘要误判时同一记录会反复 deferred，不能用完整材料纠正。现按预审排序后取有界队列，剩余额度允许未审/负向候选进入；完整原始材料再次分类，负向预审不终结候选。
+2. `processing/grouping.py:164` 附近：共享 actor、两个词和 ing/tion 词尾即匹配。实际最小反例“OpenAI image generation pricing”与“OpenAI code generation pricing”返回同组。现要求官方锚点、具体共同主题与标题依据，排除通用能力词及明显后续信号；历史 TextGrain 仍进入候选组。原来只是误分候选组，不等于已证明生产最终误合并。
+3. `collectors/official_listing.py:210` 附近：同 URL 的 anchor 空 excerpt 覆盖 article 摘录。现优先保留非空 article evidence；未来日期不再标新鲜。
+4. `health.py:30` 附近：公开健康输出直接带 discovery_audit 的原始异常文本，可能含带查询参数的请求 URL。现公开来源诊断使用字段白名单，collector 不保存任意异常文本为 reason；合成 token/响应内容不会进入公开 health。
+
+候选 identity/content_version、窗口与延期 ledger 衔接已检查；物理调用 UUID 的重试累加/重复导入、缺失 usage 为 unavailable、正文 reservation 释放与旧 status 契约未发现新增阻塞问题。保留风险：规划额度不能证明人民币合规；价格未配置；异常强杀前尚未进入模块的情况只能报告未运行；同事件最终语义仍需要真实模型验证。不得把这些模拟回归当作真实模型质量验证。
+
+验证：59 项针对性测试通过，Ruff passed。初次测试的 13 个 setup errors 来自新 basetemp 父目录未创建，修正目录后均通过；不是业务回归。A 原始 634 项完整测试证据继续复用，B1 完成后对最终代码运行全套。未改变模型、Secrets、定时、发布、通知与源开关。

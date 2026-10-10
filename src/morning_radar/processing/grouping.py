@@ -161,18 +161,27 @@ def _candidate_match(left: RawItem, right: RawItem) -> bool:
     if _published_distance_hours(left, right) > 72:
         return False
 
-    # Some official headlines omit the actor/action present in their own summary.
-    # Require a specific shared subject plus an actor in title/summary, then let
-    # the existing semantic merge confirm; this is never sufficient to force merge.
+    # Cross-title matching requires an official anchor, a shared actor, and
+    # specific subject words supported in BOTH records. Generic capability words
+    # (e.g. generation/pricing) do not identify an event; suffixes are not evidence.
     left_text, right_text = left.title + " " + left.summary, right.title + " " + right.summary
-    shared = _tokens(left_text) & _tokens(right_text)
-    actors = set(re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", left_text)) & set(
-        re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", right_text)
-    )
+    generic = _TITLE_ENTITY_STOP_WORDS | {
+        "our", "their", "will", "can", "text", "generation", "pricing", "training",
+        "reasoning", "performance", "technology", "information", "introduction",
+    }
+    actors = {
+        word.casefold() for word in re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", left_text)
+    } & {
+        word.casefold() for word in re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", right_text)
+    } - generic
+    subjects = (_tokens(left_text) & _tokens(right_text)) - actors - generic
+    shared_title = _tokens(left.title) & _tokens(right.title)
+    followup = {"review", "benchmark", "benchmarks", "revised", "correction", "withdraws"}
     if (
-        actors and len(shared - {a.casefold() for a in actors}) >= 2
+        actors and subjects and shared_title - _TITLE_ENTITY_STOP_WORDS - actors
         and left.source_name != right.source_name
-        and any(word.endswith(("ing", "tion")) and len(word) >= 9 for word in shared)
+        and any(i.source_role.value == "official_primary" for i in (left, right))
+        and not ((_tokens(left.title) ^ _tokens(right.title)) & followup)
     ):
         return True
     shared_strong = _strong_tokens(left).intersection(_strong_tokens(right))

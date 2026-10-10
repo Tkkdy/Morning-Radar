@@ -28,12 +28,29 @@ def publish_health(root: Path, day: str) -> dict:
         "schema_version": 1,
         "business_date": day,
         "delivery_status": "complete" if complete else "partial_or_unavailable",
-        "modules": modules,
+        "modules": _public_modules(modules),
         "cost": usage_summary(root, day),
         "not_run": sorted(required - modules.keys()),
     }
     atomic_json(root / "site/health-v1.json", report)
     return report
+
+
+def _public_modules(modules: dict) -> dict:
+    """Do not publish collector error text/URLs from current or historical audits."""
+    result = json.loads(json.dumps(modules))
+    allowed = {
+        "source_id", "status", "freshness", "requests", "persisted", "truncated",
+        "response_bytes", "http_status", "latest_source_date", "latest_published_at",
+    }
+    for record in result.values():
+        details = record.get("details", {})
+        if "sources" in details:
+            details["sources"] = [
+                {key: value for key, value in source.items() if key in allowed}
+                for source in details["sources"]
+            ]
+    return result
 
 
 @contextmanager

@@ -202,7 +202,11 @@ class OfficialListingCollector:
             parser.feed(response.content.decode(response.encoding or "utf-8", errors="replace"))
             anchors = _AnchorListingParser(base_url=self.source.url)
             anchors.feed(response.content.decode(response.encoding or "utf-8", errors="replace"))
-            by_url = {entry.url: entry for entry in [*parser.entries, *anchors.entries]}
+            by_url = {entry.url: entry for entry in anchors.entries}
+            for entry in parser.entries:
+                previous = by_url.get(entry.url)
+                if previous is None or entry.excerpt:
+                    by_url[entry.url] = entry
             if not by_url:
                 raise RuntimeError("parse_no_entries")
         except Exception as exc:
@@ -210,7 +214,9 @@ class OfficialListingCollector:
                 {
                     "source_id": self.source.id,
                     "status": "failed",
-                    "reason": str(exc),
+                    "reason": str(exc) if str(exc) in {
+                        "response_too_large", "parse_no_entries", "unexpected_not_modified"
+                    } else type(exc).__name__,
                     "requests": self.http.request_attempts - request_start,
                 }
             )
@@ -222,7 +228,7 @@ class OfficialListingCollector:
         self.discovery_audit.append(
             {
                 "source_id": self.source.id,
-                "status": "ok" if age is not None and age * 24 <= (
+                "status": "ok" if age is not None and 0 <= age * 24 <= (
                     self.source.freshness_hours
                 ) else "stale_or_undated",
                 "latest_source_date": latest,

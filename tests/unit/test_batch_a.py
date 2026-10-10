@@ -179,7 +179,7 @@ def test_synthetic_metadata_review_promotes_deferred_without_raw_loss():
         ),
     )
     assert selection.items[0].id == important
-    assert len(review.items) == 1 and len(selection.deferred) == 3
+    assert review is None and len(selection.deferred) == 3
     assert all(r.item.title == snapshots[r.input_id] for r in records)
     assert sum(v["processing"] == ProcessingStatus.DEFERRED_BUDGET for v in updates.values()) == 3
 
