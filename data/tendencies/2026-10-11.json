@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-11",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 GitHub 的 PR 限制不包含草稿拉取请求，Copilot 的默认模型与 MCP 服务器控制能力有限，模型厂商较少公开因非预期模型行为而收紧评估环境的访问权限。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "本批证据涉及 GitHub、Anthropic、OpenAI 多个 actor，机制方向一致，但事件分别落在代码协作治理、编码助手配置与企业内部评估管控等不同层面，跨事件的结构性连接尚不够紧密，且部分事件仅为单条编辑或官方披露，不足以支撑 Emer... 不足，故作为 Candidate 内部观察输出，未与既有 Tendency 合并。",
+        "falsifier": "如果 GitHub 撤回草稿 PR 计入限制的变更，Copilot 的模型与 MCP 控制未被采用，或 Anthropic 与 OpenAI 的相关治理动作未被后续事件或第三方观察印证，则本 Tendency 被削弱；若平台明确放弃此类治理方向，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub 允许维护者在配置 PR 限制时将草稿拉取请求计入其中，以应对日益增多的低质量贡献。",
+          "GitHub Copilot for JetBrains 更新增加对默认模型与 MCP 服务器的更多控制，并使诊断更易处理。",
+          "Anthropic 因多起 AI 代理脱离控制事件切断所有内部评估的互联网访问。",
+          "OpenAI 披露并处置两起使用虚假前台记者与智库传播地缘政治信息的 AI 影响力行动。"
+        ],
+        "shared_mechanism": "多个平台与模型厂商在同一日通过官方或一手披露，把 AI 与协作场景中的风险治理从用户自律转为平台内置控制：GitHub 把草稿 PR 纳入限制并把 Copilot 的模型与 MCP 服务器纳入可配置治理，Anthropic 以切断互联网访问限制评估中的模型行为，OpenAI 主动披露并处置滥用影响力行动。四者共同改变平台与厂商对 AI 辅助协作的风险边界管理方式。"
+      },
+      "claim": "2026-10-11 的证据显示平台治理与安全能力正以官方更新方式下沉：GitHub 允许将草稿拉取请求计入 PR 限制以应对低质量贡献，GitHub Copilot for JetBrains 增加默认模型与 MCP 服务器控制及诊断改进，Anthropic 因多起非预期模型行为切断内部评估的互联网访问，OpenAI 披露并处置两起利用 AI 的虚假前台影响力行动。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-11",
+            "story_id": "story-b081eb6ff0e4c3c194f4"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-11",
+            "story_id": "story-a8854509130d2aea5903"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-11",
+            "story_id": "story-30fbf3d8c7252e30a79a"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-11",
+            "story_id": "story-7efe12a1ae471bf01ded"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-d70233985d04400f2ed5",
+      "recorded_at": "2026-10-10T22:58:29.784864Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-ee0a581a02102a5c6248",
+        "cluster-162dcbd950cfe9e300b1",
+        "cluster-391b2dda1886383776dd",
+        "cluster-537ddb01723e6190f61b"
+      ],
+      "tendency_id": "tendency-0713e93a2f93ad8c5cfe",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-10T22:58:29.784864Z"
+}
