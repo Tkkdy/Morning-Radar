@@ -1,6 +1,6 @@
 # Morning Radar D：Tendency 页面与受控输入交付
 
-状态：正式代码、隔离端到端与本地浏览器演示完成。生产端到端 NOT TESTED；未部署。桌面宽屏视觉检查 NOT TESTED，原因见验证记录。
+状态：正式代码、隔离端到端与本地浏览器演示完成。生产端到端 NOT TESTED；未部署。桌面与窄屏浏览器检查已完成，工具差异及证据见下文。
 
 ## 基线与保留范围
 
@@ -8,7 +8,7 @@
 - 已确认 A `bb3ef351671bc5fcd54eed789e5c3c4306db5be0`、A 复核 `e507d1041cdabfbce1ea3191f9ae8883a7cf4424`、B1 `b7a48efcd67d5afb0672f95612418a9661666207` 均为祖先。未退回 master。
 - D 分支：`codex/radar-next-release-tendency-web`。
 - Worktree：`C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`。
-- D 最终完整 SHA 在本地提交完成后的交付消息中给出；本报告随同该提交保存，不伪造自引用 SHA。
+- D 实施提交：`cdd2da02ae92e147036c767cb4d0584d19c3f1aa`；最终 HEAD 为其后的本报告归档提交，完整 SHA 在交付消息中给出。归档未改变实现代码或测试边界。
 - 已读产品基线、C/D 任务书、C 完整报告及有效工程规则。只检查接入所需的投递、回执、版本、证据与导出接口。
 
 ## 写入路径与部署边界
@@ -64,9 +64,9 @@ GitHub 适配只发固定 GraphQL 查询，未实现任何远端 mutation。超�
 5. 在新版上追加个人观察，仍保留个人适用范围与待处理状态。没有把“我观察到”改成普遍事实。
 6. 停止原服务并启动新进程，重新打开首份回执，原文/seed/关联仍在；打开最初 Early `rev-06ad5d35d21143d1b249db37ffe0ea86`，仍是甲乙范围和当时两份证据，不含后来反例。
 
-截图：`.tmp/d-web/browser/multi-receipt.jpg`、`conflict.jpg`、`original-after-restart.jpg`、`mobile.jpg`。运行证据：`browser-process-1/2.json`、`browser-correction-process.json`、`browser-correction-recovery.json`。最终静态构建：3 个当前假设、6 个修订、4 份网页投递/冲突回执。
+截图：`.tmp/d-web/browser/multi-receipt.jpg`、`conflict.jpg`、`original-after-restart.jpg`、`mobile.jpg`、`desktop.jpg`。运行证据：`browser-process-1/2.json`、`browser-correction-process.json`、`browser-correction-recovery.json`。最终静态构建：3 个当前假设、6 个修订、4 份网页投递/冲突回执。
 
-浏览器窄屏无横向溢出（工具设置 390px，页面实际报告 innerWidth 372 / documentWidth 357）；中文输入、键盘进入链接/展开依据、回执、冲突和重启已实际检查。工具接受 1280px 设置后仍报告 372px，因此**桌面宽屏视觉 NOT TESTED**。未以窄屏截图或模板单测冒充桌面验收，最终已恢复临时视口设置。正常页面浏览器错误/警告日志为空。
+浏览器窄屏无横向溢出（工具设置 390px，页面实际报告 innerWidth 372 / documentWidth 357）；中文输入、键盘进入链接/展开依据、回执、冲突和重启已实际检查。可见侧栏页接受 1280px 设置后仍报告 372px；随后使用同一浏览器的独立后台页，实际报告 innerWidth 1280 / documentWidth 1265，已检查双列桌面布局、无横向溢出，Early 筛选正确显示两个条目，并保存 desktop.jpg。冲突回执的桌面截图也已检查。最终已恢复临时视口设置、关闭临时页。正常页面浏览器错误/警告日志为空。
 
 ## 本地使用
 
@@ -115,7 +115,7 @@ Invoke-RadarLocal tendency-web ingest-github --workspace <隔离运行目录> --
 | 新增接收中断恢复后相关范围 | 62 passed，15.62s |
 | **最终完整 pytest** | **718 passed，75.09s**；`full-final.log` / `full-final.xml` |
 | Ruff / git diff --check | passed |
-| 浏览器实际回执/版本冲突/重启/原始证据 | passed，synthetic；桌面宽屏见上述限制 |
+| 浏览器实际回执/版本冲突/重启/原始证据 | passed，synthetic；包括实际 1280px 桌面与约 372px 窄屏 |
 
 最终完整命令等价于 `python -X utf8 -B -m pytest -o addopts= -q -p no:cacheprovider --basetemp=.tmp/d-web/full-final --junitxml=.tmp/d-web/full-final.xml`，由包装脚本在 pytest 启动前拒绝外部 socket。Ruff 为 `python -X utf8 -B -m ruff check --no-cache src tests`。
 
@@ -143,6 +143,6 @@ B2 必须继续完成：
 3. 继续接入独立证据及 B1 有界补证。不得让 Tendency 永远只重读旧材料，也不能以最终晨报是否入选过滤证据。
 4. 将发现、校准、投递恢复、页面构建与健康/费用汇总接到同一期版本。调用 SiteBuilder 的显式入口或 build_pages，并保留稳定假设/修订链接。
 5. 统一发布回执关联构建版本，正常版本完成后通知一次；partial 与无变化分开。D 页面目前不伪造发布成功。
-6. 另行获批后做限定费用的真实模型、来源、远端授权及端到端验证，并补一次实际桌面宽屏浏览器检查。
+6. 另行获批后做限定费用的真实模型、来源、远端授权及端到端验证；保留桌面与移动端回归。
 
 回滚：本批只保存本地提交，尚未集成。需要回滚代码时用新 revert 提交或停止使用 D 分支；不删除已产生的合法 transactions、原文、回执和历史。没有数据库迁移，不需要重写旧判断。
