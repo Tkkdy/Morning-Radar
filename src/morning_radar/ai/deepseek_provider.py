@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -60,6 +61,7 @@ from morning_radar.ai.request_payload import (
     score_story_payload,
     snapshot_call_meta,
 )
+from morning_radar.ai.tendency_core import TendencyCoreProviderMixin
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
@@ -87,6 +89,13 @@ class DeepSeekTaskPolicy:
 
 
 TASK_POLICIES = {
+    "tendency_discover": DeepSeekTaskPolicy(
+        "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
+    ),
+    "tendency_calibrate": DeepSeekTaskPolicy(
+        "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
+    ),
+    "tendency_split": DeepSeekTaskPolicy("disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1),
     "classify": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
@@ -127,7 +136,7 @@ def _usage_value(value: Any, name: str) -> int:
     return int(getattr(value, name, 0) or 0) if value is not None else 0
 
 
-class DeepSeekProvider:
+class DeepSeekProvider(TendencyCoreProviderMixin):
     provider_name = "deepseek"
 
     def __init__(
@@ -397,6 +406,11 @@ class DeepSeekProvider:
                 content = choice.message.content
                 if not isinstance(content, str) or not content.strip():
                     raise AIOutputError(f"{self.provider_name} response contained no JSON content")
+                if task.startswith("tendency_"):
+                    self.last_core_response = {
+                        "sha256": hashlib.sha256(content.encode()).hexdigest(),
+                        "characters": len(content), "raw_retained": False,
+                    }
                 parsed = json.loads(content)
                 if skip_model_validate:
                     call_meta["structured_retry"] = max(0, structured_attempt - 1)

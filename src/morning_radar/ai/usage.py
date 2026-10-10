@@ -42,6 +42,7 @@ class UsageRecorder:
             "cost_status": "unavailable", "cost_cny": None,
         }
         atomic_json(self.directory / (record["call_id"] + ".json"), record)
+        self.last_call_id = record["call_id"]
         return record
 
     def finish(

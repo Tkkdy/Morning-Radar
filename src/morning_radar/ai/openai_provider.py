@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -56,6 +57,7 @@ from morning_radar.ai.request_payload import (
     score_story_payload,
     snapshot_call_meta,
 )
+from morning_radar.ai.tendency_core import TendencyCoreProviderMixin
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
@@ -79,6 +81,9 @@ class OpenAITaskPolicy:
 
 
 OPENAI_TASK_POLICIES = {
+    "tendency_discover": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
+    "tendency_calibrate": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
+    "tendency_split": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
     "classify": OpenAITaskPolicy(4096, AITaskPriority.CORE, 3),
     "merge_story": OpenAITaskPolicy(4096, AITaskPriority.CORE, 3),
     "score_story": OpenAITaskPolicy(2048, AITaskPriority.CORE, 3),
@@ -116,7 +121,7 @@ def validate_output_urls(output: BaseModel, allowed_urls: set[str]) -> None:
         raise AIOutputError(f"AI returned URL not present in verified source set: {invented[0]}")
 
 
-class OpenAIProvider:
+class OpenAIProvider(TendencyCoreProviderMixin):
     def __init__(
         self,
         *,
@@ -272,6 +277,12 @@ class OpenAIProvider:
                     reasoning_tokens=_usage_value(details, "reasoning_tokens"),
                     finish_reason=str(getattr(response, "status", None) or "unknown"),
                 )
+                if task.startswith("tendency_"):
+                    summary = str(response.output_parsed)
+                    self.last_core_response = {
+                        "sha256": hashlib.sha256(summary.encode()).hexdigest(),
+                        "characters": len(summary), "raw_retained": False,
+                    }
                 parsed = response.output_parsed
             except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded) as exc:
                 if isinstance(exc, AIBudgetExceeded):

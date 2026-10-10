@@ -58,6 +58,20 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
+    def discover_hypotheses(self, context):
+        from morning_radar.tendencies.core_models import CoreOutput
+        return CoreOutput(
+            outcome="insufficient_evidence", gaps=["Fake does not discover hypotheses"]
+        )
+
+    def calibrate_hypotheses(self, context):
+        from morning_radar.tendencies.core_models import CoreOutput
+        return CoreOutput(outcome="no_changes", gaps=["Fake does not assess reasoning quality"])
+
+    def split_hypotheses(self, context):
+        from morning_radar.tendencies.core_models import SplitOutput
+        return SplitOutput(gaps=["Use structured spans or a real provider for free-text splitting"])
+
     def __init__(
         self,
         topic_context: dict | None = None,

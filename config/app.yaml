@@ -68,3 +68,11 @@ material_enrichment:
   maximum_response_bytes: 524288
   maximum_excerpt_characters: 1600
   allowed_hosts: [arxiv.org, openai.com, www.anthropic.com, research.google, blog.google, mistral.ai, reflection.ai]
+
+# C core retrieval caps share the existing Tendency 3-call / 24k / 4-request budget.
+tendency_core:
+  maximum_scan_files: 200
+  maximum_evidence: 200
+  maximum_selected: 12
+  maximum_targets: 4
+  stage_characters: 8000

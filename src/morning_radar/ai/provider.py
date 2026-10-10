@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from typing import Protocol
+from typing import TYPE_CHECKING, Protocol
 
 from morning_radar.ai.models import (
     BriefDraft,
@@ -26,8 +26,17 @@ from morning_radar.models import (
     TendencyEvidenceCluster,
 )
 
+if TYPE_CHECKING:
+    from morning_radar.tendencies.core_models import CoreOutput, SplitOutput
+
 
 class AIProvider(Protocol):
+    def discover_hypotheses(self, context: dict) -> CoreOutput: ...
+
+    def calibrate_hypotheses(self, context: dict) -> CoreOutput: ...
+
+    def split_hypotheses(self, context: dict) -> SplitOutput: ...
+
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch: ...
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft: ...

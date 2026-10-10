@@ -42,7 +42,17 @@ class MaterialEnrichmentConfig(ConfigModel):
     allowed_hosts: list[str] = Field(default_factory=list)
 
 
+class TendencyCoreConfig(ConfigModel):
+    maximum_scan_files: int = Field(default=200, ge=1, le=1000)
+    maximum_evidence: int = Field(default=200, ge=1, le=1000)
+    maximum_selected: int = Field(default=12, ge=1, le=30)
+    maximum_targets: int = Field(default=4, ge=1, le=12)
+    stage_characters: int = Field(default=8000, ge=2000, le=12000)
+
+
 class AppConfig(ConfigModel):
+    tendency_core: TendencyCoreConfig = Field(default_factory=TendencyCoreConfig)
+
     timezone: str = "Asia/Singapore"
     news_window_hours: int = Field(gt=0)
     collection_buffer_hours: int = Field(ge=0)
