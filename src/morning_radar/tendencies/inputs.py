@@ -29,6 +29,8 @@ def read_evidence(
     through: datetime,
     maximum_files: int = 200,
     maximum_evidence: int = 200,
+    maximum_checkpoint_rows: int = 5000,
+    checkpoint_offsets: dict[str, int] | None = None,
 ) -> tuple[list, dict]:
     # Read B1 versions rather than only the latest: a later failed fetch must not
     # hide an earlier useful excerpt. Preserve its real availability time.
@@ -36,6 +38,8 @@ def read_evidence(
     checkpoints = sorted((root / "data/intake/checkpoints").glob("*.json"), reverse=True)
     relations, records, errors = {}, [], []
     checkpoint_truncated = False
+    next_offsets, rows_scanned = {}, 0
+    checkpoint_offsets = checkpoint_offsets or {}
     for path in sorted((root / "data/evidence/events").glob("*.json"), reverse=True)[
         :maximum_files
     ]:
@@ -60,8 +64,15 @@ def read_evidence(
                     continue
                 rows = []
                 checkpoint_rows = payload.get("items", payload.get("records", []))
-                checkpoint_truncated |= len(checkpoint_rows) > maximum_evidence
-                for record in checkpoint_rows[:maximum_evidence]:
+                checkpoint_truncated |= len(checkpoint_rows) > maximum_checkpoint_rows
+                key = path.name
+                start = checkpoint_offsets.get(key, 0) % max(1, len(checkpoint_rows))
+                page = checkpoint_rows[start : start + maximum_checkpoint_rows]
+                next_offsets[key] = (
+                    0 if start + len(page) >= len(checkpoint_rows) else start + len(page)
+                )
+                rows_scanned += len(page)
+                for record in page:
                     raw = record["item"]
                     rows.append(
                         {
@@ -88,7 +99,7 @@ def read_evidence(
                 excerpt = row.get("excerpt", "")[:2000]
                 version = digest(row["content_version"] + excerpt)
                 url = row["source_url"]
-                scope = row.get("scope") or [urlsplit(url).hostname or "unknown-source"]
+                scope = row.get("scope") or []
                 records.append(
                     CoreEvidence(
                         evidence_id="ev-" + digest(url + version),
@@ -165,8 +176,24 @@ def read_evidence(
         ):
             unique[key] = record
     result = sorted(unique.values(), key=lambda r: (r.ingested_at, r.evidence_id), reverse=True)
+    # Interleave publisher queues before the visible-evidence cap. This is read
+    # fairness, not publication quotas or an assertion of independent support.
+    queues = {}
+    for record in result:
+        queues.setdefault(
+            urlsplit(record.source_url or "").hostname or record.source_kind, []
+        ).append(record)
+    result = []
+    while any(queues.values()):
+        for queue in queues.values():
+            if queue:
+                result.append(queue.pop(0))
     return result[:maximum_evidence], {
         "scanned_files": len(scan),
+        "checkpoint_rows_scanned": rows_scanned,
+        "checkpoint_next_offsets": next_offsets,
+        "unique_evidence": len(result),
+        "visible_evidence": min(len(result), maximum_evidence),
         "scan_truncated": len(paths) > maximum_files or len(checkpoints) > maximum_files,
         "evidence_truncated": checkpoint_truncated or len(result) > maximum_evidence,
         "errors": errors,
@@ -183,30 +210,38 @@ def terms(text: str) -> set[str]:
 def select_evidence(
     evidence: list[CoreEvidence], *, query: str, maximum: int, novel_ids: set[str]
 ) -> tuple[list[CoreEvidence], list[dict]]:
-    # Content retrieval over constraints/methods/observations, not company tags.
+    # Current observations are not scored by overlap with a query made from
+    # themselves: that rewards long old prose. Calibration still uses its target.
     query_terms = terms(query)
     ranked = sorted(
         evidence,
         key=lambda e: (
+            bool(e.excerpt.strip()),
             e.evidence_id in novel_ids,
-            len(terms(e.title + " " + e.excerpt) & query_terms),
-            bool(re.search(r"fail|limit|cost|无法|限制|失败|成本|反例", e.excerpt, re.I)),
+            min(12, len(terms(e.title + " " + e.excerpt) & query_terms)) if query else 0,
             e.ingested_at,
         ),
         reverse=True,
     )
-    # Reserve background/counter-context space even with many new observations.
     seeds = ranked[: max(1, maximum // 2)]
+    related_terms = query_terms or terms(" ".join(e.title + " " + e.excerpt[:240] for e in seeds))
     remaining = sorted(
         [e for e in ranked if e not in seeds],
         key=lambda e: (
-            len(terms(e.excerpt) & query_terms),
-            bool(re.search(r"fail|limit|无法|限制|失败|反例", e.excerpt, re.I)),
+            min(12, len(terms(e.title + " " + e.excerpt) & related_terms)),
+            bool(re.search(r"fail|limit|cost|无法|限制|失败|成本|反例", e.excerpt, re.I)),
+            bool(e.excerpt.strip()),
             e.ingested_at,
         ),
         reverse=True,
     )
-    selected = (seeds + remaining)[:maximum]
+    selected = []
+    for index in range(maximum):
+        pool = seeds if index % 2 == 0 and seeds else remaining
+        if not pool:
+            pool = seeds
+        if pool:
+            selected.append(pool.pop(0))
     return selected, [
         {
             "evidence_id": e.evidence_id,
@@ -217,3 +252,64 @@ def select_evidence(
         }
         for e in selected
     ]
+
+
+def pack_evidence(
+    context: dict, selected: list[CoreEvidence], evidence: list[CoreEvidence], limit: int
+):
+    """Short traceable overview, then quote-bearing excerpts under the same cap."""
+    import json
+
+    def size(value):
+        return len(json.dumps(value, ensure_ascii=False, separators=(",", ":")))
+
+    overview = []
+    for item in evidence[:40]:
+        row = {
+            "evidence_id": item.evidence_id,
+            "title": item.title[:70],
+            "observed_at": item.observed_at.isoformat(),
+            "summary": item.excerpt[:100],
+        }
+        if size(overview + [row]) > limit // 5:
+            break
+        overview.append(row)
+    context["evidence_overview"] = overview
+    context["evidence"] = []
+    included = []
+    diagnostics = []
+    for item in selected:
+        row = item.model_dump(mode="json", exclude={"schema_version", "provenance", "synthetic"})
+        row["excerpt"] = item.excerpt[:700]
+        fits = size({**context, "evidence": context["evidence"] + [row]}) <= limit
+        if fits:
+            context["evidence"].append(row)
+            # The validator sees exactly the excerpt given to the model.
+            included.append(item.model_copy(update={"excerpt": row["excerpt"]}))
+        diagnostics.append(
+            {
+                "evidence_id": item.evidence_id,
+                "input_id": item.input_id,
+                "content_version": item.content_version,
+                "ingested_at": item.ingested_at.isoformat(),
+                "reason": "quoted_excerpt" if fits else "request_character_cap",
+                "characters": size(row),
+                "utf8_bytes": len(json.dumps(row, ensure_ascii=False).encode()),
+                "excerpt_truncated": len(item.excerpt) > len(row["excerpt"]),
+                "empty_excerpt": not bool(item.excerpt.strip()),
+            }
+        )
+    chosen = {e.evidence_id for e in selected}
+    diagnostics.extend(
+        {
+            "evidence_id": e.evidence_id,
+            "input_id": e.input_id,
+            "content_version": e.content_version,
+            "ingested_at": e.ingested_at.isoformat(),
+            "reason": "selection_cap",
+            "empty_excerpt": not bool(e.excerpt.strip()),
+        }
+        for e in evidence
+        if e.evidence_id not in chosen
+    )
+    return included, diagnostics

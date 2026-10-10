@@ -82,7 +82,21 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
         max(0, app.maximum_ai_calls - 7) * 2 // 5,
     )
     ranked = sorted(unique.values(), key=rank)
-    selected = ranked[:capacity]
+    from morning_radar.processing.deduplicate import _comparison_url
+    grouped = {}
+    for record in ranked:
+        grouped.setdefault(_comparison_url(record.item), []).append(record)
+    # One deep-processing opportunity per exact page; retain complementary aliases
+    # for the existing Story merge path, bounded by the same item transport cap.
+    selected = []
+    selected_groups = 0
+    for group in grouped.values():
+        if selected_groups >= capacity:
+            break
+        if len(selected) + len(group) > app.maximum_ai_items:
+            continue
+        selected.extend(group)
+        selected_groups += 1
     selected_keys = {intake_key(r.input_id, r.content_version) for r in selected}
     for record in unique.values():
         key = intake_key(record.input_id, record.content_version)

@@ -48,7 +48,9 @@ def render_markdown(payload: dict) -> str:
                 f"首次记录：{revision['first_recorded_at']}；本次：{revision['recorded_at']}",
                 f"前一版：{revision['previous_revision_id']}；父方向：{revision['parent_hypothesis_id']}",
                 f"来源：{revision['origin']}；synthetic={revision['synthetic']}；状态：{revision['standing']}",
-                "范围：" + safe("、".join(hypothesis["scope"])),
+                "范围：" + safe("、".join(hypothesis["scope"]))
+                + ("（待验证外推）" + safe(hypothesis.get("scope_reason", ""))
+                   if hypothesis.get("scope_basis") == "inferred" else ""),
                 "迁移：" + safe(hypothesis["from_state"] + " → " + hypothesis["to_state"]),
                 "机制（系统推断）：" + safe(hypothesis["mechanism"]),
                 "",

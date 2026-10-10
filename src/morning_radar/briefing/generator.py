@@ -150,6 +150,13 @@ def _deterministic_generated_item(
     fallback_reason: str | None = None,
 ) -> GeneratedBriefItem:
     """Create a conservative, schema-valid item from an already verified Story."""
+    if not any(fact.strip() for fact in story.facts):
+        return GeneratedBriefItem(
+            story_ids=[story.id], section="other_reading", title=story.canonical_title,
+            what_happened="已发现这条报道线索，目前尚缺足够正文来确认具体事实。",
+            why_it_matters=None, uncertainty="待补充原文后再判断其内容与影响。",
+            source_urls=story.source_urls,
+        )
     return GeneratedBriefItem(
         story_ids=[story.id],
         section=section,
@@ -249,8 +256,14 @@ def generate_daily_brief_with_memory(
             relevance_threshold=relevance_threshold,
             importance_threshold=importance_threshold,
         )
-        ai_stories = eligible_stories[: limits.maximum_items]
+        ai_stories = [
+            s for s in eligible_stories if any(f.strip() for f in s.facts)
+        ][: limits.maximum_items]
         stats["threshold_eligible_stories"] = len(eligible_stories)
+    ai_stories = [s for s in ai_stories if any(f.strip() for f in s.facts)]
+    stats["evidence_limited_leads"] = sum(
+        not any(f.strip() for f in s.facts) for s in eligible_stories
+    )
     stats["ai_brief_story_inputs"] = len(ai_stories)
     bounded_signals = sorted(
         signals,
@@ -365,7 +378,7 @@ def generate_daily_brief_with_memory(
         draft = BriefDraft(items=[])
     story_by_id = {
         story.id: story
-        for story in (ai_stories if editorial_active else eligible_stories)
+        for story in [*eligible_stories, *ai_stories]
     }
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
@@ -383,6 +396,8 @@ def generate_daily_brief_with_memory(
             for story_id in generated.story_ids
             if story_id in story_by_id
         ]
+        if any(not any(f.strip() for f in story.facts) for story in referenced):
+            continue  # Retain as an explicit lead below; do not let generated prose upgrade it.
         primary_editorial_ids = [
             story_id
             for story_id in generated.story_ids
@@ -451,7 +466,9 @@ def generate_daily_brief_with_memory(
             continue
         if editorial_active:
             decision = editorial_decisions[story.id]
-            if decision.placement in {Placement.TOP, Placement.STORY}:
+            if decision.placement in {Placement.TOP, Placement.STORY} and any(
+                f.strip() for f in story.facts
+            ):
                 section = (
                     "top_stories"
                     if decision.placement is Placement.TOP

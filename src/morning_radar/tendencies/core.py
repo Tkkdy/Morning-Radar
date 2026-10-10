@@ -15,7 +15,7 @@ from morning_radar.settings import AppConfig, load_model
 from morning_radar.tendencies.core_models import CoreDecision, CoreOutput
 from morning_radar.tendencies.core_store import CoreStore, StaleRevision
 from morning_radar.tendencies.core_validation import materialize
-from morning_radar.tendencies.inputs import digest, read_evidence, select_evidence
+from morning_radar.tendencies.inputs import digest, pack_evidence, read_evidence, select_evidence
 from morning_radar.tendencies.submissions import persist_split
 from morning_radar.time_utils import display_date, utc_now
 
@@ -67,13 +67,30 @@ def run_core(
             )
             attach_usage(active, root, business_date=str(display_date(now)), module="tendency")
             from morning_radar.tendencies.web_input import recover_inputs
+
             result["input_recovery"] = recover_inputs(store)
+            earlier_runs = sorted(
+                (store.directory / "runs").glob("*.json"),
+                key=lambda p: p.stat().st_mtime,
+                reverse=True,
+            )
+            offsets = {}
+            for earlier in earlier_runs:
+                if earlier != path:
+                    previous_scan = json.loads(earlier.read_text(encoding="utf-8"))
+                    if datetime.fromisoformat(previous_scan["recorded_at"]) <= now:
+                        offsets = previous_scan.get("input_scan", {}).get(
+                            "checkpoint_next_offsets", {}
+                        )
+                        break
             evidence, scan = read_evidence(
                 evidence_root or root,
                 store,
                 through=now,
                 maximum_files=policy.maximum_scan_files,
                 maximum_evidence=policy.maximum_evidence,
+                maximum_checkpoint_rows=policy.maximum_checkpoint_rows,
+                checkpoint_offsets=offsets,
             )
             result["input_scan"] = scan
             previous_runs = [
@@ -122,6 +139,11 @@ def run_core(
                     for name in ["tendency_discover.md", "tendency_calibrate.md"]
                 )
             )
+            from morning_radar.tendencies.core_models import CoreDecision as DecisionSchema
+
+            analysis_version = digest(
+                analysis_version + encoded(DecisionSchema.model_json_schema())
+            )
             analysis_version += ":" + str(getattr(active, "model", type(active).__name__))
             # Discovery always has first access; calibration and splitting get separate outcomes.
             for phase in ["discovery", "calibration"]:
@@ -149,7 +171,7 @@ def run_core(
                 ):
                     stage["status"] = "no_changes"
                     continue
-                query = " ".join(e.excerpt for e in evidence if e.evidence_id in novel)
+                query = ""
                 if phase_targets:
                     query += " ".join(
                         r.decision.hypothesis.model_dump_json() for r in phase_targets
@@ -201,14 +223,13 @@ def run_core(
                         else seed.get("correction_of") in stage["target_ids"]
                     )
                 ]
-                context["evidence"] = [e.model_dump(mode="json") for e in selected]
                 while len(encoded(context)) > limit and len(context["seeds"]) > 1:
                     context["seeds"].pop()
                 while len(encoded(context)) > limit and len(context["targets"]) > 1:
                     context["targets"].pop()
-                while len(encoded(context)) > limit and len(selected) > 1:
-                    selected.pop()
-                    context["evidence"] = [e.model_dump(mode="json") for e in selected]
+                selected, stage["evidence_disposition"] = pack_evidence(
+                    context, selected, evidence, limit
+                )
                 stage["target_ids"] = [r["hypothesis_id"] for r in context["targets"]]
                 stage["seed_ids"] = [r["seed_id"] for r in context["seeds"]]
                 stage["registry_truncated"] = len(context["registry"]) < len(current)
@@ -231,6 +252,8 @@ def run_core(
                     )
                     output = CoreOutput.model_validate(method(context))
                     stage["output"] = output.model_dump(mode="json")
+                    stage["raw_output"] = getattr(active, "last_core_raw_output", None)
+                    stage["normalization"] = getattr(active, "last_core_normalization", None)
                     stage["gaps"] = output.gaps
                     accepted = 0
                     for index, proposal in enumerate(output.decisions):
@@ -324,6 +347,8 @@ def run_core(
                     split_called = True
                     output = active.split_hypotheses(context)
                     split_stage["output"] = output.model_dump(mode="json")
+                    stage["raw_output"] = getattr(active, "last_core_raw_output", None)
+                    stage["normalization"] = getattr(active, "last_core_normalization", None)
                     saved = persist_split(store, submission, split_stage["output"])
                     split_stage["status"] = (
                         "completed" if saved["status"] == "processed" else "partial"
@@ -352,9 +377,10 @@ def run_core(
                 if scan["errors"]
                 or result["input_recovery"]["pending"]
                 or result["pending_target_ids"]
-                or any(s not in {
-                    "completed", "no_changes", "no_input", "insufficient_evidence"
-                } for s in statuses)
+                or any(
+                    s not in {"completed", "no_changes", "no_input", "insufficient_evidence"}
+                    for s in statuses
+                )
                 else ("completed" if result["revision_ids"] else "no_changes")
             )
             result["cost"] = usage_summary(root, str(display_date(now)))

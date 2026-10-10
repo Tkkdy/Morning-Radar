@@ -54,6 +54,8 @@ LABELS = {
     "system_inference": "系统推断",
     "support": "支持",
     "counter": "反证",
+    "boundary": "适用边界 / 替代方案",
+    "observation": "直接观察",
     "context": "背景",
 }
 

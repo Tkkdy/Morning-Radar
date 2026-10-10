@@ -688,7 +688,8 @@ def test_checkpoint_row_cap_reports_truncation_even_after_deduplication(tmp_path
     }
     (directory / "synthetic.json").write_text(json.dumps(payload), encoding="utf-8")
     evidence, diagnostics = read_evidence(
-        tmp_path, CoreStore(tmp_path), through=DEMO_TIME, maximum_evidence=1
+        tmp_path, CoreStore(tmp_path), through=DEMO_TIME, maximum_evidence=1,
+        maximum_checkpoint_rows=1
     )
     assert len(evidence) == 1
     assert diagnostics["evidence_truncated"] is True

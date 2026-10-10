@@ -27,7 +27,7 @@ class CoreEvidence(RadarModel):
     source_role: str = "unknown"
     title: str
     excerpt: str = Field(max_length=2000)
-    scope: list[str] = Field(min_length=1)
+    scope: list[str] = Field(default_factory=list)
     published_at: datetime | None = None
     observed_at: datetime
     ingested_at: datetime
@@ -44,7 +44,7 @@ class CoreEvidence(RadarModel):
 class Citation(RadarModel):
     evidence_id: str
     quote: str = Field(min_length=8, max_length=280)
-    role: Literal["support", "counter", "context"]
+    role: Literal["support", "counter", "context", "source_claim", "boundary", "observation"]
     condition_key: str = Field(min_length=1, max_length=80)
 
 
@@ -73,6 +73,8 @@ class ObservationTest(RadarModel):
 class Hypothesis(RadarModel):
     claim: str = Field(min_length=1, max_length=1200)
     scope: list[str] = Field(min_length=1, max_length=10)
+    scope_basis: Literal["observed", "inferred"] = "observed"
+    scope_reason: str = Field(default="", max_length=600)
     from_state: str = Field(min_length=1, max_length=600)
     to_state: str = Field(min_length=1, max_length=600)
     baseline: list[Baseline] = Field(min_length=1, max_length=8)

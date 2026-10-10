@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from datetime import datetime
+from urllib.parse import urlsplit
 from uuid import uuid4
 
 from morning_radar.ai.output_validation import is_suspicious_english_prose
@@ -41,10 +42,10 @@ def materialize(
         raise ValueError("Unknown hypothesis")
     if decision.previous_revision_id != (previous.revision_id if previous else None):
         raise StaleRevision("Stale proposed update")
-    if decision.kind == "no_change":
-        if not previous or decision.hypothesis != previous.decision.hypothesis:
-            raise ValueError("No-change cannot replace a proposition")
-        return None
+    if decision.kind == "no_change" and (
+        not previous or decision.hypothesis != previous.decision.hypothesis
+    ):
+        raise ValueError("No-change cannot replace a proposition")
     if previous is None and decision.kind not in {"early", "split"}:
         raise ValueError("New hypotheses require Early or an explicit branch")
     if previous and decision.kind == "early":
@@ -89,6 +90,13 @@ def materialize(
         raise ValueError("Observation test must target a real condition")
     if decision.hypothesis.from_state.strip() == decision.hypothesis.to_state.strip():
         raise ValueError("No structural transition identified")
+    # A hostname identifies a publisher, never the population affected by a mechanism.
+    domains = {urlsplit(e.source_url).hostname for e in evidence.values() if e.source_url}
+    if any(value.lower() in domains for value in decision.hypothesis.scope):
+        raise ValueError("Source hostname is not a semantic hypothesis scope")
+    contradictions = content_issues(decision)
+    if contradictions:
+        raise ValueError("; ".join(contradictions))
     refs = {}
     for citation in decision.citations:
         item = evidence.get(citation.evidence_id)
@@ -103,6 +111,8 @@ def materialize(
             or item.status not in {"captured", "fetched"}
         ):
             raise ValueError("Unverified/unavailable input cannot verify or refute a condition")
+        if citation.role == "observation" and item.source_kind != "original_fact":
+            raise ValueError("A source claim cannot masquerade as an independent observation")
         refs[item.evidence_id] = item
     for condition in decision.hypothesis.conditions:
         if not set(condition.evidence_ids) <= refs.keys() or not any(
@@ -115,10 +125,29 @@ def materialize(
             not baseline.evidence_ids or not set(baseline.evidence_ids) <= refs.keys()
         ):
             raise ValueError("Unverified historical baseline must remain an assumption")
-    supporting = [refs[c.evidence_id] for c in decision.citations if c.role == "support"]
+    supporting = [
+        refs[c.evidence_id]
+        for c in decision.citations
+        if c.role in {"support", "source_claim", "observation"}
+    ]
     scope = {value for item in supporting for value in item.scope}
-    if not set(decision.hypothesis.scope) <= scope:
-        raise ValueError("Claim scope exceeds supporting observations")
+    if decision.hypothesis.scope_basis == "inferred":
+        if (
+            not supporting
+            or not decision.hypothesis.scope_reason.strip()
+            or not decision.hypothesis.unresolved
+        ):
+            raise ValueError(
+                "Inferred scope needs attributed support, rationale and unresolved boundaries"
+            )
+        if decision.kind in {"supported", "strengthened"}:
+            raise ValueError("Inferred scope cannot be promoted as observed support")
+    elif not set(decision.hypothesis.scope) <= scope:
+        raise ValueError(
+            "Claim scope exceeds supporting observations; unknown scope needs explicit inference"
+        )
+    if decision.kind == "no_change":
+        return None  # Only after references, scope and source roles have been checked.
     if previous is None and not decision.hypothesis.unresolved:
         raise ValueError("Early inference must expose remaining conditions")
     if previous is None and any(
@@ -152,10 +181,14 @@ def materialize(
             digest(" ".join(r.excerpt.split()) + ":" + r.source_kind) for r in previous.evidence
         }
         relevant = [
-            refs[c.evidence_id] for c in decision.citations if c.role in {"support", "counter"}
+            refs[c.evidence_id]
+            for c in decision.citations
+            if c.role in {"support", "counter", "source_claim", "observation", "boundary"}
         ]
         if not any(
-            digest(" ".join(item.excerpt.split()) + ":" + item.source_kind) not in old_observations
+            item.evidence_id not in {e.evidence_id for e in previous.evidence}
+            and digest(" ".join(item.excerpt.split()) + ":" + item.source_kind)
+            not in old_observations
             for item in relevant
         ):
             return None  # Same evidence is a check, never a new real-world update.
@@ -174,10 +207,12 @@ def materialize(
         revision_id="rev-" + uuid4().hex,
         hypothesis_id=previous.hypothesis_id if previous else "hyp-" + uuid4().hex,
         previous_revision_id=previous.revision_id if previous else None,
-        parent_hypothesis_id=(previous.parent_hypothesis_id if previous
-                              else decision.parent_hypothesis_id),
-        parent_revision_id=(previous.parent_revision_id if previous
-                            else decision.parent_revision_id),
+        parent_hypothesis_id=(
+            previous.parent_hypothesis_id if previous else decision.parent_hypothesis_id
+        ),
+        parent_revision_id=(
+            previous.parent_revision_id if previous else decision.parent_revision_id
+        ),
         first_recorded_at=previous.first_recorded_at if previous else now,
         recorded_at=now,
         origin=previous.origin if previous else "user" if seed else "system",
@@ -197,3 +232,24 @@ def materialize(
         ),
         synthetic=any(item.synthetic for item in refs.values()),
     )
+
+
+def content_issues(decision: CoreDecision) -> list[str]:
+    """Narrow contradiction guards, not a general truth or causal-certainty evaluator."""
+    h = decision.hypothesis
+    issues = []
+    conclusion = h.claim + " " + h.mechanism
+    caveats = " ".join(h.unresolved + [c.interpretation for c in h.conditions])
+    if re.search(
+        r"正确性.{0,10}(?:不.{0,8}受损|不会下降)|而非任务正确性", conclusion
+    ) and re.search(r"正确性|归因实验|独立验证", caveats):
+        issues.append(
+            "Correctness guarantee conflicts with unresolved correctness/causal validation"
+        )
+    if (
+        re.search(r"子.?agent|子代理", h.claim, re.I)
+        and re.search(r"无法.{0,20}替代|只能保留|绝不可能", h.claim)
+        and any(re.search(r"in theory|理论.{0,6}可行", c.quote, re.I) for c in decision.citations)
+    ):
+        issues.append("Impossibility claim conflicts with the cited feasible alternative")
+    return issues

@@ -204,6 +204,8 @@ class OpenAIProvider(TendencyCoreProviderMixin):
             raise
         self.budget.reset_task_attempts(task)
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
+        from morning_radar.ai.tendency_core import core_instructions
+        instructions = core_instructions(task, instructions)
         self.last_prompt_hash = prompt_hash_for(instructions)
         call_meta["prompt_hash"] = self.last_prompt_hash
         policy = OPENAI_TASK_POLICIES[task]

@@ -43,6 +43,7 @@ class MaterialEnrichmentConfig(ConfigModel):
 
 
 class TendencyCoreConfig(ConfigModel):
+    maximum_checkpoint_rows: int = Field(default=5000, ge=200, le=10000)
     maximum_scan_files: int = Field(default=200, ge=1, le=1000)
     maximum_evidence: int = Field(default=200, ge=1, le=1000)
     maximum_selected: int = Field(default=12, ge=1, le=30)

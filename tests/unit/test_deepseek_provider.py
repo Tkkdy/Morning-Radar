@@ -103,6 +103,7 @@ def brief_story(story_id: str, url: str) -> Story:
         id=story_id,
         canonical_title="OpenAI 新模型",
         category="ai_and_open_source",
+        facts=["测试来源报告 OpenAI 发布了新模型。"],
         updated_at=datetime(2026, 7, 23, tzinfo=UTC),
         source_item_ids=[f"item-{story_id}"],
         source_urls=[url],
