@@ -8,7 +8,7 @@ source_claim 只能称来源报告，personal_observation 只能支持明确个�
 system_inference、failed/offline 等记录只能作为线索或缺口，不能充当已验证现实条件。
 scope 是对象与适用条件，不是来源域名。evidence.scope 为空表示尚未提取范围。
 当超出明确观察范围时用 scope_basis=inferred，scope_reason 说明外推依据，并在 unresolved 中写可推翻的边界；
-这种 Early 外推不能当作已观察到的支持或升级。scope_basis=observed 时才必须使用 evidence.scope 内的范围标识；多 URL 不等于多独立验证，
+真实新增支持可记为 supported/strengthened，但保持 inferred、原适用范围与关键缺口；不等于已验证范围或自动转为 active。scope_basis=observed 时才必须使用 evidence.scope 内的范围标识；多 URL 不等于多独立验证，
 多个公司名不证明行业范围。未知过去限制用 baseline.assumption=true，不能编造依据。
 Hypothesis 包含 claim/scope/from_state/to_state/baseline/conditions/mechanism/unresolved/
 alternatives/tests。conditions 各有 key、observation、interpretation、evidence_ids。
@@ -33,3 +33,5 @@ boundary 是适用边界或替代方案；counter 必须反驳对应条件，不
 首版的边界讨论不是旧判断受到新反证后的修订。claim/mechanism 的力度不得超过 conditions 的解释。
 “理论可行但粗糙”不能写成“不可能”；小样本作者自报不能证明正确性保证或机制归因。
 evidence_overview 仅是检索线索，不能引用其中被裁短的摘要作为正式证据；只引用 evidence 中可见的原文。
+
+excerpt 中 […] 表示省略；excerpt_spans 为冻结摘录内的 Unicode 字符区间（左闭右开），content_version 与 excerpt_source_sha256 标识原版本。引用必须完整落在一个真实片段内，不得跨省略号拼接。

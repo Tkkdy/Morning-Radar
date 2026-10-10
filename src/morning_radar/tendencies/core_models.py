@@ -27,6 +27,8 @@ class CoreEvidence(RadarModel):
     source_role: str = "unknown"
     title: str
     excerpt: str = Field(max_length=2000)
+    excerpt_spans: list[tuple[int, int]] = Field(default_factory=list)
+    excerpt_source_sha256: str | None = None
     scope: list[str] = Field(default_factory=list)
     published_at: datetime | None = None
     observed_at: datetime

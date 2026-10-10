@@ -100,7 +100,10 @@ def materialize(
     refs = {}
     for citation in decision.citations:
         item = evidence.get(citation.evidence_id)
-        if not item or citation.quote not in item.excerpt:
+        if not item or not any(
+            citation.quote in segment
+            for segment in (item.excerpt.split("\n[…]\n") if item.excerpt_spans else [item.excerpt])
+        ):
             raise ValueError("Unknown evidence or fabricated source quote")
         if max(item.observed_at, item.ingested_at) > now:
             raise ValueError("Future knowledge in historical evaluation")
@@ -140,8 +143,7 @@ def materialize(
             raise ValueError(
                 "Inferred scope needs attributed support, rationale and unresolved boundaries"
             )
-        if decision.kind in {"supported", "strengthened"}:
-            raise ValueError("Inferred scope cannot be promoted as observed support")
+
     elif not set(decision.hypothesis.scope) <= scope:
         raise ValueError(
             "Claim scope exceeds supporting observations; unknown scope needs explicit inference"
@@ -161,9 +163,17 @@ def materialize(
         and (
             decision.hypothesis.claim != previous.decision.hypothesis.claim
             or decision.hypothesis.scope != previous.decision.hypothesis.scope
+            or decision.hypothesis.scope_basis != previous.decision.hypothesis.scope_basis
         )
     ):
         raise ValueError("Support cannot silently change a claim or widen its scope")
+    if (
+        previous
+        and previous.decision.hypothesis.scope_basis == "inferred"
+        and decision.kind in {"supported", "strengthened"}
+        and not set(previous.decision.hypothesis.unresolved) <= set(decision.hypothesis.unresolved)
+    ):
+        raise ValueError("Support must retain unresolved inferred-scope boundaries")
     if decision.kind == "overturned" and not any(c.role == "counter" for c in decision.citations):
         raise ValueError("Overturning requires targeted counterevidence")
     if previous and decision.kind not in {"supported", "archived"}:
@@ -183,7 +193,12 @@ def materialize(
         relevant = [
             refs[c.evidence_id]
             for c in decision.citations
-            if c.role in {"support", "counter", "source_claim", "observation", "boundary"}
+            if c.role
+            in (
+                {"support", "source_claim", "observation"}
+                if decision.kind in {"supported", "strengthened"}
+                else {"support", "counter", "source_claim", "observation", "boundary"}
+            )
         ]
         if not any(
             item.evidence_id not in {e.evidence_id for e in previous.evidence}
@@ -199,7 +214,7 @@ def materialize(
     ):
         return None
     standing = "early" if previous is None else previous.standing
-    if decision.kind == "strengthened":
+    if decision.kind == "strengthened" and decision.hypothesis.scope_basis == "observed":
         standing = "active"
     if decision.kind in {"overturned", "archived"}:
         standing = decision.kind
@@ -240,16 +255,29 @@ def content_issues(decision: CoreDecision) -> list[str]:
     issues = []
     conclusion = h.claim + " " + h.mechanism
     caveats = " ".join(h.unresolved + [c.interpretation for c in h.conditions])
-    if re.search(
-        r"正确性.{0,10}(?:不.{0,8}受损|不会下降)|而非任务正确性", conclusion
-    ) and re.search(r"正确性|归因实验|独立验证", caveats):
+    if asserted(conclusion, r"正确性.{0,10}(?:不.{0,8}受损|不会下降)|而非任务正确性") and re.search(
+        r"正确性|归因实验|独立验证", caveats
+    ):
         issues.append(
             "Correctness guarantee conflicts with unresolved correctness/causal validation"
         )
     if (
         re.search(r"子.?agent|子代理", h.claim, re.I)
-        and re.search(r"无法.{0,20}替代|只能保留|绝不可能", h.claim)
+        and asserted(h.claim, r"无法.{0,20}替代|只能保留|绝不可能")
         and any(re.search(r"in theory|理论.{0,6}可行", c.quote, re.I) for c in decision.citations)
     ):
         issues.append("Impossibility claim conflicts with the cited feasible alternative")
     return issues
+
+
+def asserted(text: str, pattern: str) -> bool:
+    """Scope explicit denial of an assertion to its clause, never the whole text."""
+    denial = re.compile(
+        r"(?:(?:不能|无法|不应|不宜|不可|未能|难以).{0,6}"
+        r"(?:断言|保证|证明|判定|认为|视为|认定)|没有证据表明).{0,4}$"
+    )
+    for clause in re.split(r"[。！？；，,;\n]|但是|然而|不过|但", text):
+        for match in re.finditer(pattern, clause):
+            if not denial.search(clause[max(0, match.start() - 24) : match.start()]):
+                return True
+    return False

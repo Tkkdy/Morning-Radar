@@ -212,10 +212,14 @@ def test_current_and_background_selection_compact_quotes_do_not_exceed_cap():
     assert new.evidence_id in {e.evidence_id for e in included}
     assert len(core.encoded(ctx)) <= 4000 and len(included) < len(selected)
     assert any(x["reason"] == "request_character_cap" for x in diagnostic)
-    assert all(
-        row["excerpt"] in next(e.excerpt for e in selected if e.evidence_id == row["evidence_id"])
-        for row in ctx["evidence"]
-    )
+    for row in ctx["evidence"]:
+        original = next(e.excerpt for e in selected if e.evidence_id == row["evidence_id"])
+        assert all(
+            segment == original[start:end]
+            for segment, (start, end) in zip(
+                row["excerpt"].split("\n[…]\n"), row["excerpt_spans"], strict=True
+            )
+        )
 
 
 def test_captured_fact_empty_stories_retained_as_leads_not_headlines():

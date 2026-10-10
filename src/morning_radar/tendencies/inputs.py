@@ -254,6 +254,54 @@ def select_evidence(
     ]
 
 
+def excerpt_segments(text: str, maximum: int = 700) -> tuple[str, list[tuple[int, int]]]:
+    """Select verbatim condition/limitation sentences; offsets refer to frozen excerpt."""
+    if len(text) <= maximum:
+        return text, [(0, len(text))] if text else []
+    sentences = []
+    boundary = re.compile(r"(?<=[.!?。！？])\s+|\n+")
+    start = 0
+    for match in boundary.finditer(text):
+        sentences.append((start, match.start()))
+        start = match.end()
+    sentences.append((start, len(text)))
+
+    def rank(span):
+        sentence = text[span[0] : span[1]]
+        # Prefer qualifying conditions and counter-paths over introductory prose.
+        limitation = bool(
+            re.search(
+                r"in theory|limitation|cannot|can't|tricky|crude|however|but |除非|限制|无法|但是",
+                sentence,
+                re.I,
+            )
+        )
+        condition = bool(
+            re.search(r"\bif\b|because|requires?|need[s]?|依赖|如果|因为", sentence, re.I)
+        )
+        alternative = bool(re.search(r"in theory|theoretically|理论上|理论可行", sentence, re.I))
+        return (limitation + condition + 2 * alternative, limitation, -span[0])
+
+    chosen, used = [], 0
+    for start, end in sorted(sentences, key=rank, reverse=True):
+        index = sentences.index((start, end))
+        if index and re.search(
+            r"in theory|theoretically|理论上|理论可行", text[start:end], re.I
+        ):
+            # A counter-path often refers back to the previous sentence's subject.
+            # Keep both verbatim, instead of assigning the limit to another condition.
+            start = sentences[index - 1][0]
+        if any(start < old_end and end > old_start for old_start, old_end in chosen):
+            continue
+        if end > start and used + end - start + (5 if chosen else 0) <= maximum:
+            chosen.append((start, end))
+            used += end - start + (5 if len(chosen) > 1 else 0)
+    if not chosen:
+        chosen = [(0, maximum)]
+    chosen.sort()
+    return "\n[…]\n".join(text[a:b] for a, b in chosen), chosen
+
+
 def pack_evidence(
     context: dict, selected: list[CoreEvidence], evidence: list[CoreEvidence], limit: int
 ):
@@ -275,17 +323,27 @@ def pack_evidence(
             break
         overview.append(row)
     context["evidence_overview"] = overview
+    context["overview_role"] = "discovery_leads_only; not citable evidence"
     context["evidence"] = []
     included = []
     diagnostics = []
     for item in selected:
         row = item.model_dump(mode="json", exclude={"schema_version", "provenance", "synthetic"})
-        row["excerpt"] = item.excerpt[:700]
+        row["excerpt"], row["excerpt_spans"] = excerpt_segments(item.excerpt)
+        row["excerpt_source_sha256"] = hashlib.sha256(item.excerpt.encode()).hexdigest()
         fits = size({**context, "evidence": context["evidence"] + [row]}) <= limit
         if fits:
             context["evidence"].append(row)
             # The validator sees exactly the excerpt given to the model.
-            included.append(item.model_copy(update={"excerpt": row["excerpt"]}))
+            included.append(
+                item.model_copy(
+                    update={
+                        "excerpt": row["excerpt"],
+                        "excerpt_spans": row["excerpt_spans"],
+                        "excerpt_source_sha256": row["excerpt_source_sha256"],
+                    }
+                )
+            )
         diagnostics.append(
             {
                 "evidence_id": item.evidence_id,
