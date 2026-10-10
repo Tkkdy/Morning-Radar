@@ -788,7 +788,8 @@ def _finalize_publish_status(
 
 
 class MorningRadarPipeline:
-    def __init__(self, project_root: Path = Path(".")) -> None:
+    def __init__(self, project_root: Path = Path("."), *, provider=None) -> None:
+        self.provider = provider
         self.root = project_root.resolve()
         self.app = load_model(self.root / "config/app.yaml", AppConfig)
 
@@ -921,7 +922,10 @@ class MorningRadarPipeline:
 
         topics = load_model_list(self.root / "config/topics.yaml", "topics", TopicConfig)
         topic_context = build_topic_context(topics)
-        if fixtures:
+        if self.provider is not None:
+            provider = self.provider
+            provider.topic_context = topic_context
+        elif fixtures:
             provider = FakeAIProvider()
             provider.topic_context = topic_context
         else:
@@ -1206,7 +1210,7 @@ class MorningRadarPipeline:
                 continuity_result.stats["fast_continuity_degraded"] = 1
             finally:
                 assert continuity_executor is not None
-                continuity_executor.shutdown(wait=False, cancel_futures=True)
+                continuity_executor.shutdown(wait=True, cancel_futures=True)
         brief_result = brief_result.__class__(
             brief=brief_result.brief.model_copy(
                 update={

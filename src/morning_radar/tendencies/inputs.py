@@ -58,7 +58,7 @@ def read_evidence(
                 if not manifest["complete"] or _time(manifest["created_at"]) > through:
                     continue
                 rows = []
-                for record in payload["records"][:maximum_evidence]:
+                for record in payload.get("items", payload.get("records", []))[:maximum_evidence]:
                     raw = record["item"]
                     rows.append(
                         {

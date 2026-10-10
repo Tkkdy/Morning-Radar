@@ -319,6 +319,7 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
             record = recorder.start(
                 provider=self.provider_name, model=self.model, task=task,
                 request_characters=len(json.dumps(request.get("messages"), ensure_ascii=False)),
+                maximum_output_tokens=max_tokens,
             ) if recorder else None
             try:
                 response = self.client.chat.completions.create(**request)

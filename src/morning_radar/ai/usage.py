@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from contextlib import nullcontext
 from datetime import UTC, datetime
 from decimal import Decimal
 from pathlib import Path
@@ -17,6 +18,7 @@ class PriceQuote(BaseModel):
     currency: str = "CNY"
     input_per_million: Decimal = Field(ge=0)
     output_per_million: Decimal = Field(ge=0)
+    cached_input_per_million: Decimal | None = Field(default=None, ge=0)
     source_url: str
     verified_on: str
 
@@ -29,39 +31,49 @@ def atomic_json(path: Path, value: dict) -> None:
 
 
 class UsageRecorder:
-    def __init__(self, root: Path, *, business_date: str, module: str) -> None:
+    def __init__(self, root: Path, *, business_date: str, module: str, accounting=None) -> None:
+        self.accounting = accounting
         self.directory = root / "data/usage" / business_date
         self.business_date, self.module = business_date, module
 
-    def start(self, *, provider: str, model: str, task: str, request_characters: int) -> dict:
+    def start(
+        self, *, provider: str, model: str, task: str, request_characters: int,
+        maximum_output_tokens: int | None = None,
+    ) -> dict:
         record = {
             "schema_version": 1, "call_id": uuid4().hex, "business_date": self.business_date,
             "module": self.module, "provider": provider, "model": model, "task": task,
             "started_at": datetime.now(UTC).isoformat(), "state": "started",
             "request_characters": request_characters, "usage": None, "price": None,
             "cost_status": "unavailable", "cost_cny": None,
+            "maximum_output_tokens": maximum_output_tokens,
         }
-        atomic_json(self.directory / (record["call_id"] + ".json"), record)
+        with self.accounting.lock if self.accounting else nullcontext():
+            if self.accounting:
+                record["reservation_cny"] = str(self.accounting.before(record))
+            atomic_json(self.directory / (record["call_id"] + ".json"), record)
+            if self.accounting:
+                self.accounting.checkpoint()
+                self.accounting.active.add(record["call_id"])
         self.last_call_id = record["call_id"]
         return record
 
     def finish(
         self, record: dict, *, usage: dict | None, state: str, price: PriceQuote | None = None
     ) -> dict:
+        price = price or (self.accounting.policy.price if self.accounting else None)
         result = {**record, "state": state, "usage": usage}
-        if (
-            usage is not None and price is not None and price.model == record["model"]
-            and price.currency == "CNY"
-            and usage.get("prompt_tokens") is not None
-            and usage.get("completion_tokens") is not None
-        ):
+        cost = priced_cost(record, usage, price)
+        if price is not None:
             result["price"] = price.model_dump(mode="json")
-            result["cost_cny"] = str((
-                Decimal(usage["prompt_tokens"]) * price.input_per_million
-                + Decimal(usage["completion_tokens"]) * price.output_per_million
-            ) / Decimal(1_000_000))
+        if cost is not None:
+            result["cost_cny"] = str(cost)
             result["cost_status"] = "estimated"
-        atomic_json(self.directory / (record["call_id"] + ".json"), result)
+        with self.accounting.lock if self.accounting else nullcontext():
+            atomic_json(self.directory / (record["call_id"] + ".json"), result)
+            if self.accounting:
+                self.accounting.checkpoint()
+                self.accounting.active.discard(record["call_id"])
         return result
 
     def import_record(self, record: dict) -> None:
@@ -76,6 +88,33 @@ class UsageRecorder:
                 raise ValueError("Conflicting duplicate call")
             return
         atomic_json(path, record)
+
+
+
+def priced_cost(record: dict, usage: dict | None, price: PriceQuote | None) -> Decimal | None:
+    if usage is None or price is None or price.model != record["model"] or price.currency != "CNY":
+        return None
+    prompt, completion = usage.get("prompt_tokens"), usage.get("completion_tokens")
+    if prompt is None or completion is None:
+        return None
+    cached = 0
+    if record["provider"] == "deepseek":
+        cached, miss = usage.get("cache_hit_tokens"), usage.get("cache_miss_tokens")
+        if cached is None or miss is None or cached + miss != prompt:
+            return None
+    elif record["provider"] == "openai":
+        cached = usage.get("cached_tokens")
+        if cached is None:
+            return None
+    if min(prompt, completion, cached) < 0 or cached > prompt:
+        return None
+    if cached and price.cached_input_per_million is None:
+        return None
+    return (
+        Decimal(prompt - cached) * price.input_per_million
+        + Decimal(cached) * (price.cached_input_per_million or Decimal(0))
+        + Decimal(completion) * price.output_per_million
+    ) / Decimal(1_000_000)
 
 
 def usage_summary(root: Path, business_date: str) -> dict:
@@ -121,4 +160,7 @@ def _summarize_calls(calls: list[dict]) -> dict:
 def attach_usage(provider, root: Path, *, business_date: str, module: str) -> None:
     # Fake providers have no physical billable transport.
     if hasattr(provider, "client"):
-        provider.usage_recorder = UsageRecorder(root, business_date=business_date, module=module)
+        provider.usage_recorder = UsageRecorder(
+            root, business_date=business_date, module=module,
+            accounting=getattr(provider, "release_accounting", None),
+        )

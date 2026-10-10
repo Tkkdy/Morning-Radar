@@ -1,124 +1,16 @@
 name: Post-Daily Intelligence
-
+# Retained as an explicit read-only diagnostic entry; Daily owns all generation/delivery.
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Daily Morning Radar"]
-    types: [completed]
-    branches: [master]
-
 permissions:
-  contents: write
-  pages: write
-  id-token: write
-
-concurrency:
-  group: morning-radar-generated-data
-  cancel-in-progress: false
-
+  contents: read
 jobs:
-  enhance-and-deploy:
-    if: >-
-      ${{ github.event_name == 'workflow_dispatch' ||
-          (github.event.workflow_run.conclusion == 'success' &&
-           !contains(github.event.workflow_run.display_title, '(fixtures)') &&
-           !contains(github.event.workflow_run.display_title, '(dry-run)')) }}
+  inspect:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout master after Daily
-        uses: actions/checkout@v4
-        with:
-          ref: master
-
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-          cache: pip
-
-      - name: Install project
-        run: python -m pip install -e ".[dev]"
-
-      - name: Evaluate Tendency
-        continue-on-error: true
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          DEEPSEEK_MODEL: ${{ secrets.DEEPSEEK_MODEL }}
-          DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
-        run: python -m morning_radar run-tendency
-
-      - name: Run triggered Deep Continuity
-        continue-on-error: true
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          DEEPSEEK_MODEL: ${{ secrets.DEEPSEEK_MODEL }}
-          DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
-        run: python -m morning_radar run-deep-continuity
-
-      - name: Run configured model A/B
-        continue-on-error: true
-        env:
-          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
-          DEEPSEEK_BASE_URL: ${{ secrets.DEEPSEEK_BASE_URL }}
-          MODEL_AB_DEEPSEEK_MODEL: ${{ vars.MODEL_AB_DEEPSEEK_MODEL }}
-          QWEN_API_KEY: ${{ secrets.QWEN_API_KEY }}
-          QWEN_MODEL: ${{ secrets.QWEN_MODEL }}
-          QWEN_BASE_URL: ${{ secrets.QWEN_BASE_URL }}
-        run: python -m morning_radar run-model-ab
-
-      - name: Rebuild site after optional intelligence
-        run: python -m morning_radar build-site
-
-      - name: Read canonical post-daily business date
-        id: post_date
-        shell: bash
-        run: |
-          business_date="$(python -m morning_radar read-status-date)"
-          echo "business_date=${business_date}" >> "$GITHUB_OUTPUT"
-
-      - name: Commit generated intelligence once
-        shell: bash
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/tendencies data/continuity site
-          for directory in data/usage data/health; do
-            if [[ -d "$directory" ]]; then git add "$directory"; fi
-          done
-          if [[ -d data/evaluations/model_ab ]]; then
-            git add data/evaluations/model_ab
-          fi
-          if git diff --cached --quiet; then
-            echo "No post-daily generated changes to commit."
-          else
-            git commit -m "chore: update post-daily intelligence for ${{ steps.post_date.outputs.business_date }}"
-            git push
-          fi
-
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: site
-
-      - name: Deploy enhanced GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
-      - name: Preserve module health and physical call observations
-        if: ${{ always() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: radar-observations-${{ github.run_id }}-${{ github.run_attempt }}
-          retention-days: 7
-          if-no-files-found: ignore
-          path: |
-            data/health/
-            data/usage/
-            site/health-v1.json
+      - run: python -m pip install -e .
+      - run: python -m morning_radar release status

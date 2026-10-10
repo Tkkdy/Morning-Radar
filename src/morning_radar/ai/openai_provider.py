@@ -232,7 +232,10 @@ class OpenAIProvider(TendencyCoreProviderMixin):
             recorder = getattr(self, "usage_recorder", None)
             attempt = recorder.start(
                 provider=self.provider_name, model=self.model, task=task,
-                request_characters=len(payload) + len(instructions),
+                request_characters=(
+                    len(payload) + len(instructions) + len(str(schema.model_json_schema()))
+                ),
+                maximum_output_tokens=policy.max_output_tokens,
             ) if recorder else None
             try:
                 response = self.client.responses.parse(

@@ -93,6 +93,21 @@ def ingest_issue(store: CoreStore, issue: dict, config: InboxConfig, *, syntheti
         "author": author,
         "editor": editor,
     }
+    from datetime import datetime
+    datetime.fromisoformat(version.replace("Z", "+00:00"))
+    prior = [
+        e["payload"].get("source", {}) for e in store.events()
+        if e["payload"].get("source", {}).get("source_id") == source.get("source_id")
+        and e["payload"].get("source", {}).get("repository") == config.repository
+    ]
+    if any(datetime.fromisoformat(row["source_version"].replace("Z", "+00:00"))
+           > datetime.fromisoformat(version.replace("Z", "+00:00"))
+           for row in prior if row.get("source_version")):
+        store.append(
+            {"type": "inbox_rejected", "source": source, "status": "stale_source"},
+            operation_id="stale:" + operation + ":" + digest(body),
+        )
+        return {"number": issue["number"], "status": "stale_source"}
     try:
         request = parse_form(body, operation)
     except ValueError:
@@ -107,6 +122,10 @@ def ingest_issue(store: CoreStore, issue: dict, config: InboxConfig, *, syntheti
             store, request, author="github:" + author.casefold(), source=source, synthetic=synthetic
         )
     except ValueError:
+        store.append(
+            {"type": "inbox_rejected", "source": source, "status": "operation_conflict"},
+            operation_id="conflict:" + operation + ":" + digest(body),
+        )
         return {"number": issue["number"], "status": "operation_conflict"}
     return {
         "number": issue["number"],
@@ -174,8 +193,17 @@ def poll_github(
                 ):
                     raise ValueError("Unexpected repository")
                 page = repository["issues"]
+                failures = []
                 for issue in page["nodes"]:
-                    results.append(ingest_issue(store, issue, config, synthetic=synthetic))
+                    try:
+                        results.append(ingest_issue(store, issue, config, synthetic=synthetic))
+                    except (ValueError, KeyError, TypeError, OSError) as exc:
+                        failures.append({"number": issue.get("number"),
+                                         "error_type": type(exc).__name__})
+                if failures:
+                    return {"results": results, "scan_complete": False,
+                            "next_scan_pending": True, "failed_objects": failures}
+
                 after = page["pageInfo"]["endCursor"] if page["pageInfo"]["hasNextPage"] else None
                 atomic_json(state_path, {"repository": config.repository, "after": after})
                 if after is None:

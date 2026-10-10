@@ -1,0 +1,8 @@
+# Shared across Daily, recovery and independent runs. No unverified price is assumed.
+daily_limit_cny: "0.4"
+per_call_reserve_cny: "0.04"
+maximum_physical_calls: 60
+# Necessary stages retain capacity before daily/Shadow; stage transitions release it.
+tendency_reserve_cny: "0.08"
+continuity_reserve_cny: "0.04"
+price: null

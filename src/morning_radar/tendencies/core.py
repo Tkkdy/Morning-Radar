@@ -32,6 +32,7 @@ def run_core(
     provider=None,
     now: datetime | None = None,
     reanalyze: bool = False,
+    after_commit=None,
 ) -> dict:
     root = root.resolve()
     config_root = (config_root or root).resolve()
@@ -41,7 +42,7 @@ def run_core(
     now = now.astimezone(UTC)
     app = load_model(config_root / "config/app.yaml", AppConfig)
     policy = app.tendency_core
-    store = CoreStore(root)
+    store = CoreStore(root, after_commit=after_commit)
     run_id = uuid4().hex
     result = {
         "schema_version": 2,
@@ -351,7 +352,9 @@ def run_core(
                 if scan["errors"]
                 or result["input_recovery"]["pending"]
                 or result["pending_target_ids"]
-                or any(s not in {"completed", "no_changes", "no_input"} for s in statuses)
+                or any(s not in {
+                    "completed", "no_changes", "no_input", "insufficient_evidence"
+                } for s in statuses)
                 else ("completed" if result["revision_ids"] else "no_changes")
             )
             result["cost"] = usage_summary(root, str(display_date(now)))

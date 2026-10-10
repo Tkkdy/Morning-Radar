@@ -82,6 +82,8 @@ def build_parser() -> argparse.ArgumentParser:
         help="validate public Radar status and print its canonical business date",
     )
     read_status_date.add_argument("--path", type=Path, default=Path("site/status.json"))
+    from morning_radar.release.cli import parser as release_parser
+    release_parser(commands)
     from morning_radar.tendencies.web_cli import add_web_parser
     add_web_parser(commands)
     from morning_radar.tendencies.core_cli import add_core_parser
@@ -101,6 +103,9 @@ def _parse_now(value: str | None) -> datetime | None:
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
     configure_logging(args.verbose)
+    if args.command == "release":
+        from morning_radar.release.cli import dispatch
+        return dispatch(args)
     if args.command == "tendency-web":
         from morning_radar.tendencies.web_cli import dispatch
         return dispatch(args)
@@ -111,6 +116,13 @@ def main(argv: list[str] | None = None) -> int:
         from morning_radar.publishing.preview import build_b1_preview
         print(build_b1_preview(Path("."), args.output))
         return 0
+    if Path("data/releases/v1/runs").exists() and args.command in {
+        "run", "collect", "process", "run-tendency", "run-deep-continuity",
+        "run-model-ab", "record-deploy", "notify-latest", "test-notification",
+    } and not (getattr(args, "fixtures", False) or getattr(args, "dry_run", False)):
+        raise SystemExit(
+            "Coordinated releases enabled: use release commands for durable operations"
+        )
     pipeline = MorningRadarPipeline(Path("."))
     if args.command == "run":
         pipeline.run(

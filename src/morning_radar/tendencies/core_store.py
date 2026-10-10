@@ -45,7 +45,8 @@ def writer_lock(path: Path):
 
 
 class CoreStore:
-    def __init__(self, root: Path):
+    def __init__(self, root: Path, *, after_commit=None):
+        self.after_commit = after_commit
         self.root = root
         self.directory = root / "data/tendency-core/v2"
 
@@ -129,6 +130,8 @@ class CoreStore:
             # Unique destination and atomic replace: orphan .tmp files are never read.
             path = self.directory / "transactions" / f"{len(events) + 1:09d}-{uuid4().hex}.json"
             atomic_json(path, record)
+            if self.after_commit:
+                self.after_commit("C immutable transaction")
             return record
 
     def submissions(self) -> dict[str, dict]:

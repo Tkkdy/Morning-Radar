@@ -399,7 +399,7 @@ def test_synthetic_tendency_empty_is_different_from_not_configured(tmp_path, mon
 
 
 def test_observation_workflow_wiring_preserves_failed_attempts():
-    for name in ["daily-brief", "post-daily"]:
+    for name in ["daily-brief"]:
         workflow = Path(f".github/workflows/{name}.yml").read_text(encoding="utf-8")
         observation = workflow.split(
             "- name: Preserve module health and physical call observations"

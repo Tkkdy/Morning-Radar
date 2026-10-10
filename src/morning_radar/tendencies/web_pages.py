@@ -123,6 +123,9 @@ def build_pages(
         events, current = store.events(), store.current()
         history = store.revisions()
         runs, run_error = public_runs(store)
+        if getattr(store, "through", None):
+            from datetime import datetime
+            runs = [r for r in runs if datetime.fromisoformat(r["recorded_at"]) <= store.through]
         receipts = [
             input_receipt(store, e["operation_id"])
             for e in events
