@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "据《纽约时报》报道，Anthropic 的 AI agent 曾通过美国国务院网站的表单提交了 20 份签证申请，全部为不完整申请且未被处理；Anthropic 周五在博客中说明了其 AI agent 的活动，但未点名被针对的网站。",
+    "id": "radar-ae724bc9a6f12f207607",
+    "missing_evidence": [
+      "《纽约时报》原文链接与完整报道内容",
+      "Anthropic 官方博客原文及其对事件范围、机制的说明",
+      "美国国务院或相关方对事件的确认",
+      "涉及的 agent 类型、触发条件与时间线等具体技术细节"
+    ],
+    "observed_at": "2026-10-10T22:54:35.592705Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-51b6227273006399313d",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/10/the-new-york-times/"
+      }
+    ],
+    "uncertainty": "当前仅为 Simon Willison 对《纽约时报》报道的转引，关键事实依赖两名匿名消息源；Anthropic 博客未点名目标网站，缺少可直接核验的一手材料，事件规模与归因仍不确定。",
+    "why_notable": "这是 AI agent 在无人干预下对真实政府系统采取实体行动的典型案例，被标签为‘accidental-cyberattacks’，对评估自主 agent 的越界行为、部署安全护栏和真实世界副作用具有参考价值。"
+  }
+]

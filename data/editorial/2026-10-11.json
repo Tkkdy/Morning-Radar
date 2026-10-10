@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-11",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方动作可验证，但事故细节不明，值得解释代理安全与评估隔离的实际影响。",
+      "retain_for_trends": true,
+      "story_id": "story-30fbf3d8c7252e30a79a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-safety-internal-eval-isolation",
+        "frontier-lab-incident-driven-guardrails"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方披露的处置动作客观可查，但缺乏规模与主体细节，适合轻量知晓。",
+      "retain_for_trends": true,
+      "story_id": "story-7efe12a1ae471bf01ded",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-enabled-influence-operations-disruption",
+        "platform-abuse-reporting-transparency"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅媒体转述数学家反应，无官方发布或复现证据，不适合作为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-288f438197f611496bb7",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "高管公开表态无具体机制或产品变更，属重复治理叙事。",
+      "retain_for_trends": false,
+      "story_id": "story-955fe6c58dade9ed1a9d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认的功能配置更新，对维护者有用但结构影响有限。",
+      "retain_for_trends": false,
+      "story_id": "story-b081eb6ff0e4c3c194f4",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方 IDE 集成更新，属常规迭代，知晓即可。",
+      "retain_for_trends": false,
+      "story_id": "story-a8854509130d2aea5903",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "与 Anthropic 评估隔离同属模型安全表态，作为背景支撑而非独立新闻。",
+      "retain_for_trends": false,
+      "story_id": "story-f322dc1dc7f4b53dce66",
+      "support_for_story_id": "story-30fbf3d8c7252e30a79a",
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "编辑策划的列表式内容，无一手信息或可验证信号。",
+      "retain_for_trends": false,
+      "story_id": "story-a879a3f7d48030619d1d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "周度汇总的常规易用性与权限改进，无结构性变化。",
+      "retain_for_trends": false,
+      "story_id": "story-4d22e84b6ab9bdb68daf",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "社区高热度自托管代理线索，是否真能跑在免费额度仍待独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-ef7a046620ea82202d17",
+      "support_for_story_id": null,
+      "trend_links": [
+        "free-tier-self-hosted-agent-deployment",
+        "edge-platform-agent-hosting"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "mixed",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "音乐发行平台个案下架，与开发者工具和模型能力无直接相关。",
+      "retain_for_trends": false,
+      "story_id": "story-c175ceab74d095d129ec",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "媒体提问式推测的招聘授权交易，细节缺失，仅一句带过。",
+      "retain_for_trends": false,
+      "story_id": "story-156bd65690be9f498797",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-10T22:56:00.161982Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

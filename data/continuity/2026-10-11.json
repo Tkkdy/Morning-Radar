@@ -1,0 +1,104 @@
+{
+  "date": "2026-10-11",
+  "generated_at": "2026-10-10T22:56:00.161982Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Anthropic"
+      ],
+      "event_type": "opened",
+      "expectation": "Anthropic 是否公开内部评估断网的具体实施方案、范围以及相关“非预期模型行为”事件的更多细节。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-10T22:56:00.161982Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-11",
+          "story_id": "story-30fbf3d8c7252e30a79a"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-2f2bc294505fee1efc32"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "OpenAI 是否就此次数学成果发布提供官方论文、结果清单或同行评审安排。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-10T22:56:00.161982Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-11",
+          "story_id": "story-288f438197f611496bb7"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models"
+      ],
+      "watch_id": "watch-69dd90655460f272a1a7"
+    },
+    {
+      "entity_anchors": [
+        "Microsoft",
+        "Satya Nadella"
+      ],
+      "event_type": "opened",
+      "expectation": "Satya Nadella 所提“信任架构”与“紧急刹车”是否转化为微软具体的产品机制、政策倡议或行业标准提案。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-10T22:56:00.161982Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-11",
+          "story_id": "story-955fe6c58dade9ed1a9d"
+        },
+        {
+          "date": "2026-10-11",
+          "story_id": "story-f322dc1dc7f4b53dce66"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "AI 信任架构",
+        "AI 安全治理"
+      ],
+      "watch_id": "watch-44e78ca1611f2ed08f8c"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 GitHub Copilot 后续更新中关于跨账户与跨环境易用性，以及 Agent 访问控制和工作管理的具体功能是否发布正式说明并扩大可用范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot",
+        "Claude Haiku"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-10T22:56:00.161982Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-11",
+          "story_id": "story-4d22e84b6ab9bdb68daf"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding"
+      ],
+      "watch_id": "watch-5b6bee70632971e6408b"
+    }
+  ]
+}
