@@ -54,7 +54,9 @@ class HttpClient:
         )
         self.client.headers["User-Agent"] = USER_AGENT
 
-    def get(self, url: str, **kwargs: object) -> httpx.Response:
+    def get(
+        self, url: str, *, maximum_response_bytes: int | None = None, **kwargs: object
+    ) -> httpx.Response:
         @retry(
             retry=retry_if_exception_type(
                 (httpx.TimeoutException, httpx.NetworkError, httpx.RemoteProtocolError)
@@ -72,7 +74,25 @@ class HttpClient:
                 # Discovery clients deliberately do not follow redirects: a redirect
                 # is another physical request and must not escape this small budget.
                 request_kwargs = {**request_kwargs, "follow_redirects": False}
-            response = self.client.get(url, **request_kwargs)
+            if maximum_response_bytes is None:
+                response = self.client.get(url, **request_kwargs)
+            else:
+                with self.client.stream("GET", url, **request_kwargs) as streamed:
+                    if streamed.status_code != 304:
+                        streamed.raise_for_status()
+                    body = bytearray()
+                    for chunk in streamed.iter_bytes():
+                        if len(body) + len(chunk) > maximum_response_bytes:
+                            raise RuntimeError("response_too_large")
+                        body.extend(chunk)
+                    headers = {
+                        key: value for key, value in streamed.headers.items()
+                        if key.lower() not in {"content-encoding", "content-length"}
+                    }
+                    response = httpx.Response(
+                        streamed.status_code, headers=headers, content=bytes(body),
+                        request=streamed.request,
+                    )
             if response.status_code == 304:
                 return response
             response.raise_for_status()

@@ -73,14 +73,24 @@ class RSSCollector:
         self.now = now or utc_now()
         self.unconditional_source_ids = set(unconditional_source_ids or ())
         self._pending_state: dict[str, dict[str, str]] | None = None
+        self.discovery_audit: list[dict[str, object]] = []
+        self.failures: dict[str, str] = {}
 
     def collect(self) -> list[RawItem]:
+        self.failures = {}
+        self.discovery_audit = []
         state = read_json(self.state_path) if self.state_path.exists() else {}
         batches: list[list[RawItem]] = []
         for source in self.sources:
             try:
                 batches.append(self._collect_source(source, state))
-            except Exception:
+            except Exception as exc:
+                self.failures[f"rss:{source.id}"] = type(exc).__name__
+                self.discovery_audit.append({
+                    "source_id": source.id, "status": "failed",
+                    "reason": type(exc).__name__,
+                    "http_status": getattr(getattr(exc, "response", None), "status_code", None),
+                })
                 LOGGER.exception("RSS source failed: %s", source.id)
         self._pending_state = state
 
@@ -101,12 +111,24 @@ class RSSCollector:
                 headers["If-None-Match"] = cached["etag"]
             if cached.get("last_modified"):
                 headers["If-Modified-Since"] = cached["last_modified"]
-        response = self.http.get(source.url, headers=headers)
+        response = self.http.get(
+            source.url, headers=headers, maximum_response_bytes=source.maximum_response_bytes
+        )
         if response.status_code == 304:
             previous = dict(cached)
             previous["status"] = "not_modified"
             previous.setdefault("item_ids", [])
             state[source.id] = previous
+            latest = cached.get("latest_published_at")
+            fresh = latest and 0 <= (self.now - parse_datetime(latest)).total_seconds() <= (
+                source.freshness_hours * 3600
+            )
+            self.discovery_audit.append({
+                "source_id": source.id, "status": "not_modified",
+                "freshness": "fresh" if fresh else "stale_or_unavailable",
+                "latest_published_at": cached.get("latest_published_at"),
+                "reason": "cached_payload_requires_checkpoint",
+            })
             return []
 
         parsed = feedparser.parse(response.content)
@@ -162,7 +184,18 @@ class RSSCollector:
                     },
                 )
             )
+        latest = max((item.published_at for item in result if item.published_at), default=None)
+        fresh = latest is not None and 0 <= (self.now - latest).total_seconds() <= (
+            source.freshness_hours * 3600
+        )
+        self.discovery_audit.append({
+            "source_id": source.id,
+            "status": ("ok" if fresh else "stale_or_undated") if result else "empty",
+            "persisted": len(result),
+            "latest_published_at": latest.isoformat() if latest else None,
+        })
         state[source.id] = {
+            "latest_published_at": latest.isoformat() if latest else "",
             "etag": response.headers.get("ETag", ""),
             "last_modified": response.headers.get("Last-Modified", ""),
             "status": "ok" if result else "empty",

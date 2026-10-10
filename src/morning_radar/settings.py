@@ -43,6 +43,10 @@ class AppConfig(ConfigModel):
     maximum_ai_calls: int = Field(gt=0)
     maximum_ai_input_characters: int = Field(gt=0)
     maximum_ai_network_requests: int = Field(default=60, ge=1)
+    candidate_review_limit: int = Field(default=0, ge=0, le=200)
+    candidate_review_characters: int = Field(default=24000, ge=1000, le=40000)
+    planned_brief_characters: int = Field(default=0, ge=0, le=80000)
+    planned_continuity_characters: int = Field(default=0, ge=0, le=30000)
     fast_continuity_join_timeout_seconds: float = Field(default=60, gt=0)
     continuity_history_days: int = Field(default=14, ge=1, le=90)
     maximum_continuity_candidates: int = Field(default=20, ge=1)
@@ -103,6 +107,8 @@ class SourceConfig(ConfigModel):
         | None
     ) = None
     practitioner_id: str | None = None
+    maximum_response_bytes: int = Field(default=1048576, ge=1024, le=4194304)
+    freshness_hours: int = Field(default=168, ge=24, le=720)
 
 
 class LabWatchConfig(ConfigModel):

@@ -99,6 +99,7 @@ def test_story_source_ref_preserves_rss_collector_context() -> None:
             "published_at": NOW,
             "published_at_role": PublishedAtRole.FEED_ENTRY_TIME,
             "fetched_at": NOW,
+            "backfill_recorded_at": None,
                 "discussion_url": None,
                 "source_role": SourceRole.EDITORIAL,
                 "statement_type": StatementType.UNKNOWN,

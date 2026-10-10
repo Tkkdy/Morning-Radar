@@ -169,7 +169,7 @@ def _resolve_fast_continuity(
         maximum_ai_items=app.maximum_ai_items,
         maximum_input_characters=app.maximum_continuity_input_characters,
         reserved_input_characters=(
-            sum(len(story.model_dump_json()) for story in brief_ai_stories) + 5000
+            getattr(getattr(provider, "budget", None), "reserved_core_input_characters", 0)
         ),
         enable_ai=enable_ai,
         deadline_monotonic=deadline_monotonic,
@@ -574,6 +574,10 @@ def _record_processing_outcomes(
                 processing = ProcessingStatus.FAILED_RETRY
                 reason = ReasonCode.CLASSIFICATION_RESPONSE_MISSING
                 evidence = None
+            elif story_item_outcomes.get(record.item.id) == ReasonCode.DEFERRED_BUDGET.value:
+                processing = ProcessingStatus.DEFERRED_BUDGET
+                reason = ReasonCode.DEFERRED_BUDGET
+                evidence = None
             elif story_item_outcomes.get(record.item.id) == ReasonCode.MERGE_FAILED.value:
                 processing = ProcessingStatus.FAILED_RETRY
                 reason = ReasonCode.MERGE_FAILED
@@ -868,6 +872,19 @@ class MorningRadarPipeline:
             batch_id=batch_id,
             now=now,
         )
+        from morning_radar.health import module_run
+        with module_run(
+            prepared.intake.output_root, str(display_date(prepared.process_now)), "daily"
+        ) as health:
+            return self._run_prepared(
+                prepared, fixtures=fixtures, dry_run=dry_run,
+                force_notify=force_notify, notify=notify, health=health,
+            )
+
+    def _run_prepared(
+        self, prepared, *, fixtures: bool, dry_run: bool,
+        force_notify: bool, notify: bool, health: dict,
+    ) -> DailyBrief:
         history_root = self.root
         output_root = prepared.intake.output_root
         now = prepared.process_now
@@ -886,6 +903,10 @@ class MorningRadarPipeline:
                     history_root=history_root,
                     brief=brief,
                 )
+                from morning_radar.health import daily_details
+                health["status"], health["details"] = daily_details(prepared, brief)
+                if health["status"] == "completed":
+                    health["status"] = "no_changes"
                 return brief
         collection = prepared.intake.collection
         people = prepared.people
@@ -914,6 +935,20 @@ class MorningRadarPipeline:
                 prompt_dir=self.root / "prompts",
             )
             provider.topic_context = topic_context
+            if getattr(provider, "budget", None) is not None:
+                provider.budget.plan_tail(
+                    calls=7,
+                    input_characters=self.app.planned_brief_characters
+                    + self.app.planned_continuity_characters,
+                )
+        from morning_radar.ai.usage import attach_usage
+        attach_usage(
+            provider, output_root, business_date=str(display_date(now)), module="daily"
+        )
+        review = None
+        if not fixtures and self.app.candidate_review_limit:
+            from morning_radar.intake.review import review_candidates
+            review = review_candidates(prepared, provider=provider, app=self.app)
         for record in prepared.selection.records:
             if isinstance(record.item.metadata, dict):
                 record.item.metadata.setdefault("content_version", record.content_version)
@@ -947,6 +982,7 @@ class MorningRadarPipeline:
             item_outcomes=story_item_outcomes,
             classification_out=classification_out,
             score_out=score_out,
+            classifications=review,
         )
         new_stories = stories
         stories = _merge_same_day_stories(
@@ -971,7 +1007,9 @@ class MorningRadarPipeline:
         if editorial_result.active:
             assert editorial_result.selection is not None
             story_by_id = {story.id: story for story in stories}
-            primary_ids = editorial_result.selection.visible_story_ids[: brief_limits.maximum_items]
+            primary_ids = editorial_result.selection.visible_story_ids[
+                : brief_limits.maximum_items
+            ]
             support_ids = [
                 support_id
                 for primary_id in primary_ids
@@ -1036,6 +1074,8 @@ class MorningRadarPipeline:
             if editorial_result.active
             else None
         )
+        if getattr(provider, "budget", None) is not None:
+            provider.budget.plan_tail(calls=0, input_characters=0)
         _reserve_brief_core_budget(
             provider,
             brief_ai_stories,
@@ -1056,7 +1096,9 @@ class MorningRadarPipeline:
                 continuity_history = [
                     daily for daily in continuity_history if daily.date < brief_date
                 ]
-            continuity_deadline = time.monotonic() + self.app.fast_continuity_join_timeout_seconds
+            continuity_deadline = (
+                time.monotonic() + self.app.fast_continuity_join_timeout_seconds
+            )
             continuity_executor = ThreadPoolExecutor(
                 max_workers=1, thread_name_prefix="fast-continuity"
             )
@@ -1285,7 +1327,7 @@ class MorningRadarPipeline:
                     "ai_model": getattr(provider, "model", "fixture"),
                     "model": getattr(provider, "model", "fixture"),
                     "provider_circuit_opened": bool(getattr(provider, "circuit_open", False)),
-                    "provider_circuit_reason": (getattr(provider, "circuit_reason", None) or ""),
+                    "provider_circuit_reason": getattr(provider, "circuit_reason", None) or "",
                     **usage_stats,
                 }
             }
@@ -1403,6 +1445,8 @@ class MorningRadarPipeline:
         digest = _artifact_digest(output_root / "data/briefs" / f"{brief_date}.json")
         _mark_brief_generated(output_root, brief)
         _finalize_publish_status(prepared, brief, brief_hash=digest)
+        from morning_radar.health import daily_details
+        health["status"], health["details"] = daily_details(prepared, brief)
         self.build_site(output_root=output_root, history_root=history_root)
         _record_site_build(output_root, brief)
         if notify and not fixtures and not dry_run:

@@ -41,6 +41,8 @@ class SiteBuilder:
             shutil.copyfile(stylesheet, stylesheet_destination)
         latest = ordered[0]
         self._write_status(latest)
+        from morning_radar.health import publish_health
+        publish_health(self.output_dir.parent, str(latest.date))
         annotations = _historical_judgement_annotations(continuities or [])
         self._render(
             "index.html.j2",

@@ -139,11 +139,13 @@ class StorySourceRef(RadarModel):
     practice_signal_kind: PracticeSignalKind | None = None
     source_date: str | None = None
     date_precision: str | None = None
+    backfill_recorded_at: datetime | None = None
     source_timezone: str | None = None
     published_date_role: str | None = None
 
     _url_is_http = field_validator("url")(_validate_http_url)
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
+    _backfill_is_aware = field_validator("backfill_recorded_at")(_validate_aware_datetime)
     _fetched_is_aware = field_validator("fetched_at")(_validate_aware_datetime)
 
     @field_validator("discussion_url")

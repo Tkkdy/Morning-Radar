@@ -210,7 +210,7 @@ class DeepSeekProvider:
         call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
         policy = TASK_POLICIES[task]
         try:
-            self.budget.consume(payload, item_count=item_count, priority=policy.priority)
+            self.budget.consume(payload, item_count=item_count, priority=policy.priority, task=task)
         except AIBudgetExceeded as exc:
             call_meta["blocked_reason"] = str(exc)
             attach_call_meta(exc, call_meta)
@@ -306,9 +306,16 @@ class DeepSeekProvider:
                 max_tokens=max_tokens,
                 request_timeout=request_timeout,
             )
+            recorder = getattr(self, "usage_recorder", None)
+            record = recorder.start(
+                provider=self.provider_name, model=self.model, task=task,
+                request_characters=len(json.dumps(request.get("messages"), ensure_ascii=False)),
+            ) if recorder else None
             try:
-                return self.client.chat.completions.create(**request)
+                response = self.client.chat.completions.create(**request)
             except Exception as exc:
+                if recorder and record:
+                    recorder.finish(record, usage=None, state="transport_failed")
                 normalized = normalize_provider_error(exc, self.provider_name)
                 if isinstance(normalized, AIBillingUnavailable):
                     self.circuit_open = True
@@ -319,6 +326,22 @@ class DeepSeekProvider:
                         self.circuit_reason,
                     )
                 raise normalized from exc
+            if recorder and record:
+                usage = getattr(response, "usage", None)
+                observed = None
+                if usage is not None:
+                    observed = {
+                        "prompt_tokens": getattr(usage, "prompt_tokens", None),
+                        "completion_tokens": getattr(usage, "completion_tokens", None),
+                        "reasoning_tokens": getattr(
+                            getattr(usage, "completion_tokens_details", None),
+                            "reasoning_tokens", None,
+                        ),
+                        "cache_hit_tokens": getattr(usage, "prompt_cache_hit_tokens", None),
+                        "cache_miss_tokens": getattr(usage, "prompt_cache_miss_tokens", None),
+                    }
+                recorder.finish(record, usage=observed, state="response_received")
+            return response
 
         last_error: Exception | None = None
         for structured_attempt in range(1, maximum_structured_attempts + 1):

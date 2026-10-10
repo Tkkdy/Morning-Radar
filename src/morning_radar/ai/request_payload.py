@@ -189,6 +189,12 @@ def score_story_payload(story: Story, topic_context: Mapping[str, Any] | None) -
 def classify_items_payload(
     items: Sequence[RawItem], topic_context: Mapping[str, Any] | None
 ) -> dict[str, Any]:
+    if items and all(item.metadata.get("review_only") for item in items):
+        return wrap_business_payload([
+            {"id": item.id, "title": item.title, "summary": item.summary,
+             "source_role": item.source_role.value}
+            for item in items
+        ], topic_context)
     return wrap_business_payload(
         [item.model_dump(mode="json") for item in items],
         topic_context,

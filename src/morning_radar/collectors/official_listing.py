@@ -112,6 +112,64 @@ class _ListingParser(HTMLParser):
         )
 
 
+class _AnchorListingParser(HTMLParser):
+    """Read observed dated link cards, including heading/span based modern listings."""
+
+    def __init__(self, *, base_url: str) -> None:
+        super().__init__(convert_charrefs=True)
+        self.base_url = base_url
+        self.entries: list[ListingEntry] = []
+        self.href: str | None = None
+        self.text: list[str] = []
+        self.title: list[str] = []
+        self.title_depth = 0
+        self.depth = 0
+        self.date = ""
+
+    def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
+        values = dict(attrs)
+        if tag == "a":
+            href = urljoin(self.base_url, values.get("href") or "")
+            parsed, base = urlsplit(href), urlsplit(self.base_url)
+            if (
+                parsed.scheme in {"http", "https"} and parsed.netloc == base.netloc
+                and parsed.path.startswith(base.path.rstrip("/") + "/")
+            ):
+                self.href, self.text, self.title, self.date = href, [], [], ""
+                self.depth, self.title_depth = 0, 0
+        if self.href is None:
+            return
+        if tag not in {"img", "br", "hr", "input", "meta", "link", "source"}:
+            self.depth += 1
+        if tag in {"h1", "h2", "h3", "h4", "h5", "h6"} or (
+            "title" in str(values.get("class") or "").lower()
+        ):
+            self.title_depth = self.depth
+        if tag == "time" and values.get("datetime"):
+            self.date = values["datetime"] or ""
+
+    def handle_endtag(self, tag: str) -> None:
+        if self.href is None:
+            return
+        if tag == "a":
+            date = _source_date(self.date or " ".join(self.text))
+            title = _clean("".join(self.title))
+            # Navigation links have neither an observed date nor a card heading.
+            if title and date and len(self.entries) < 500:
+                self.entries.append(ListingEntry(self.href, title, date, ""))
+            self.href = None
+            return
+        if self.depth == self.title_depth:
+            self.title_depth = 0
+        self.depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self.href is not None:
+            self.text.append(data)
+            if self.title_depth:
+                self.title.append(data)
+
+
 class OfficialListingCollector:
     """Collect observed metadata from a configured official card-list endpoint."""
 
@@ -133,14 +191,18 @@ class OfficialListingCollector:
     def collect(self) -> list[RawItem]:
         request_start = self.http.request_attempts
         try:
-            response = self.http.get(self.source.url)
+            response = self.http.get(
+                self.source.url, maximum_response_bytes=self.maximum_response_bytes
+            )
             if response.status_code == 304:
                 raise RuntimeError("unexpected_not_modified")
             if len(response.content) > self.maximum_response_bytes:
                 raise RuntimeError("response_too_large")
             parser = _ListingParser(base_url=self.source.url)
             parser.feed(response.content.decode(response.encoding or "utf-8", errors="replace"))
-            by_url = {entry.url: entry for entry in parser.entries}
+            anchors = _AnchorListingParser(base_url=self.source.url)
+            anchors.feed(response.content.decode(response.encoding or "utf-8", errors="replace"))
+            by_url = {entry.url: entry for entry in [*parser.entries, *anchors.entries]}
             if not by_url:
                 raise RuntimeError("parse_no_entries")
         except Exception as exc:
@@ -153,11 +215,19 @@ class OfficialListingCollector:
                 }
             )
             raise
-        items = [self._item(entry) for entry in by_url.values()]
+        items = [self._item(entry) for entry in list(by_url.values())[:500]]
+        latest = max((entry.source_date for entry in by_url.values() if entry.source_date),
+                     default=None)
+        age = (self.now.date() - datetime.fromisoformat(latest).date()).days if latest else None
         self.discovery_audit.append(
             {
                 "source_id": self.source.id,
-                "status": "ok",
+                "status": "ok" if age is not None and age * 24 <= (
+                    self.source.freshness_hours
+                ) else "stale_or_undated",
+                "latest_source_date": latest,
+                "response_bytes": len(response.content),
+                "truncated": len(by_url) > 500,
                 "requests": self.http.request_attempts - request_start,
                 "persisted": len(items),
             }
@@ -168,6 +238,8 @@ class OfficialListingCollector:
         excerpt = entry.excerpt[: self.maximum_excerpt_characters]
         metadata: dict[str, object] = {
             "source_id": self.source.id,
+            "priority": self.source.priority,
+            "official": self.source.official,
             "official_page_fetched": True,
             "excerpt_truncated": len(entry.excerpt) > len(excerpt),
         }

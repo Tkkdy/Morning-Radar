@@ -8,8 +8,8 @@ import math
 from collections import Counter
 from datetime import datetime
 
-from morning_radar.ai import AIOutputError
-from morning_radar.ai.models import MergedStoryDraft
+from morning_radar.ai import AIBudgetExceeded, AIOutputError
+from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
 from morning_radar.ai.request_payload import get_call_meta
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
@@ -129,6 +129,7 @@ def _source_ref(item: RawItem) -> StorySourceRef:
         source_role=item.source_role,
         statement_type=item.statement_type,
         practice_signal_kind=item.practice_signal_kind,
+        backfill_recorded_at=item.metadata.get("backfill_recorded_at"),
         source_date=item.metadata.get("source_date"),
         date_precision=item.metadata.get("date_precision"),
         source_timezone=item.metadata.get("source_timezone"),
@@ -195,6 +196,24 @@ def _capture_failed_score_meta(provider, score_out, items) -> None:
         failed[item.id] = meta
 
 
+def _merge_with_url_recovery(provider, group):
+    try:
+        draft = provider.merge_story(group)
+        _validate_draft_urls(draft, group)
+        return draft
+    except (AIOutputError, StoryValidationError) as exc:
+        if "url" not in str(exc).lower():
+            raise
+    # One smaller reconstruction, never transfer rejected facts onto valid URLs.
+    smaller = [item.model_copy(update={
+        "content_excerpt": item.content_excerpt[:600],
+        "summary": item.summary[:280],
+    }) for item in group]
+    draft = provider.merge_story(smaller)
+    _validate_draft_urls(draft, group)
+    return draft
+
+
 def build_stories(
     items: list[RawItem],
     *,
@@ -204,6 +223,7 @@ def build_stories(
     item_outcomes: dict[str, str] | None = None,
     classification_out: dict[str, object] | None = None,
     score_out: dict[str, object] | None = None,
+    classifications: ClassificationBatch | None = None,
 ) -> list[Story]:
     from morning_radar.intake.models import ReasonCode
 
@@ -224,7 +244,13 @@ def build_stories(
     if not candidates:
         LOGGER.warning("AI candidate budget left no items for classification")
         return []
-    classifications = provider.classify_items(candidates)
+    if classifications is None:
+        try:
+            classifications = provider.classify_items(candidates)
+        except AIBudgetExceeded:
+            for item in candidates:
+                note(item.id, ReasonCode.DEFERRED_BUDGET)
+            return []
     classified_by_id = {item.item_id: item for item in classifications.items}
     if classification_out is not None:
         classification_out.update(classified_by_id)
@@ -243,8 +269,12 @@ def build_stories(
     stories: list[Story] = []
     for group in group_items_by_normalized_title(relevant):
         try:
-            draft = provider.merge_story(group)
-        except AIOutputError:
+            draft = _merge_with_url_recovery(provider, group)
+        except AIBudgetExceeded:
+            for item in group:
+                note(item.id, ReasonCode.DEFERRED_BUDGET)
+            continue
+        except (AIOutputError, StoryValidationError):
             LOGGER.exception(
                 "AI degradation: merge failed; skipping candidate group with %d item(s)",
                 len(group),
@@ -255,7 +285,11 @@ def build_stories(
         if draft.same_event or len(group) == 1:
             try:
                 story = build_story(group, provider=_DraftProvider(provider, draft), now=now)
-            except AIOutputError:
+            except AIBudgetExceeded:
+                for item in group:
+                    note(item.id, ReasonCode.DEFERRED_BUDGET)
+                continue
+            except (AIOutputError, StoryValidationError):
                 LOGGER.exception(
                     "AI degradation: scoring failed; skipping candidate group with %d item(s)",
                     len(group),
@@ -273,7 +307,10 @@ def build_stories(
             for item in group:
                 try:
                     story = build_story([item], provider=provider, now=now)
-                except AIOutputError:
+                except AIBudgetExceeded:
+                    note(item.id, ReasonCode.DEFERRED_BUDGET)
+                    continue
+                except (AIOutputError, StoryValidationError):
                     LOGGER.exception(
                         "AI degradation: single-item story generation failed; skipping item %s",
                         item.id,

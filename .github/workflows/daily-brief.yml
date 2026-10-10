@@ -186,3 +186,15 @@ jobs:
             git commit -m "chore: record morning radar notification state"
             git push
           fi
+
+      - name: Preserve module health and physical call observations
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: radar-observations-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: ignore
+          path: |
+            data/health/
+            data/usage/
+            site/health-v1.json

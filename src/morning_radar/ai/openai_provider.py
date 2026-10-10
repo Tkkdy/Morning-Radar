@@ -189,7 +189,10 @@ class OpenAIProvider:
         self.last_policy_hash = policy_hash(self.topic_context)
         call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
         try:
-            self.budget.consume(payload, item_count=item_count)
+            self.budget.consume(
+                payload, item_count=item_count, task=task,
+                priority=OPENAI_TASK_POLICIES[task].priority
+            )
         except AIBudgetExceeded as exc:
             call_meta["blocked_reason"] = str(exc)
             attach_call_meta(exc, call_meta)
@@ -221,8 +224,13 @@ class OpenAIProvider:
                 task, maximum_task_attempts=policy.max_network_attempts
             )
             call_meta["executed"] = True
+            recorder = getattr(self, "usage_recorder", None)
+            attempt = recorder.start(
+                provider=self.provider_name, model=self.model, task=task,
+                request_characters=len(payload) + len(instructions),
+            ) if recorder else None
             try:
-                return self.client.responses.parse(
+                response = self.client.responses.parse(
                     model=self.model,
                     instructions=instructions,
                     input=payload,
@@ -230,11 +238,26 @@ class OpenAIProvider:
                     max_output_tokens=policy.max_output_tokens,
                 )
             except Exception as exc:
+                if recorder:
+                    recorder.finish(attempt, usage=None, state="transport_failure")
                 normalized = normalize_provider_error(exc, self.provider_name)
                 if isinstance(normalized, AIBillingUnavailable):
                     self.circuit_open = True
                     self.circuit_reason = normalized.kind.value
                 raise normalized from exc
+            if recorder:
+                usage = getattr(response, "usage", None)
+                recorder.finish(attempt, state="response_received", usage={
+                    "prompt_tokens": getattr(usage, "input_tokens", None),
+                    "completion_tokens": getattr(usage, "output_tokens", None),
+                    "reasoning_tokens": getattr(
+                        getattr(usage, "output_tokens_details", None), "reasoning_tokens", None
+                    ),
+                    "cached_tokens": getattr(
+                        getattr(usage, "input_tokens_details", None), "cached_tokens", None
+                    ),
+                } if usage else None)
+            return response
 
         last_error: Exception | None = None
         for structured_attempt in range(1, maximum_structured_attempts + 1):

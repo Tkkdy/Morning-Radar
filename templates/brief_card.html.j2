@@ -106,6 +106,7 @@
         {% if source_ref.source_type == "hacker_news" and source_ref.discussion_url and source_ref.discussion_url != source_ref.url %}<div class="discovery-note">经 Hacker News 发现</div>{% endif %}
         <div>{{ source_ref.title }}</div>
         {% if source_ref.author %}<div>作者：{{ source_ref.author }}</div>{% endif %}
+        {% if source_ref.backfill_recorded_at %}<div class="source-time">补录于 {{ source_ref.backfill_recorded_at.strftime("%Y-%m-%d") }}；来源时间保持原记录。</div>{% endif %}
         {% if source_ref.published_at %}<div class="source-time">
           {% if source_ref.published_at_role.value == "feed_entry_time" %}来源条目时间：{{ source_ref.published_at.strftime("%Y-%m-%d") }}
           {% elif source_ref.published_at_role.value == "hn_submission_time" %}{{ source_ref.published_at.strftime("%Y-%m-%d") }} 在 Hacker News 提交
