@@ -83,10 +83,15 @@ def run_core(
                     maximum_characters=app.maximum_tendency_input_characters,
                 )
                 result["revision_ids"] = result["stages"]["content_review"]["revision_ids"]
-                result["status"] = result["stages"]["content_review"]["status"]
-                result["cost"] = usage_summary(root, str(display_date(now)))
-                health["status"] = result["status"]
-                return result  # Resume saved review, never regenerate its candidate.
+                recovery = result["stages"]["content_review"]
+                if "request" in recovery or pending_candidates(store):
+                    result["status"] = recovery["status"]
+                    result["cost"] = usage_summary(root, str(display_date(now)))
+                    health["status"] = result["status"]
+                    return result  # A bounded retry attempt, never regenerate its candidate.
+                # Permanently ineligible candidates used no model budget. Keep their
+                # diagnostics, then let processable new evidence use the normal path.
+                result["stages"]["content_review_recovery"] = result["stages"].pop("content_review")
             review_queue = []
             earlier_runs = sorted(
                 (store.directory / "runs").glob("*.json"),
@@ -352,6 +357,7 @@ def run_core(
                     maximum_characters=max(
                         0, app.maximum_tendency_input_characters - shared_characters
                     ),
+                    total_character_limit=app.maximum_tendency_input_characters,
                 )
                 result["stages"]["content_review"] = review
                 result["revision_ids"].extend(review["revision_ids"])

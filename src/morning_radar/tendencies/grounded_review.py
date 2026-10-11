@@ -54,7 +54,13 @@ class Assessment(RadarModel):
 
 class ReviewOutput(RadarModel):
     # One malformed assessment must not discard valid siblings.
-    assessments: list[dict[str, Any]] = Field(default_factory=list, max_length=12)
+    # Advertise the unchanged wire contract, but isolate malformed response entries
+    # before strict per-candidate validation (including surplus/unidentified rows).
+    assessments: list[Any] = Field(
+        default_factory=list,
+        json_schema_extra={"items": {"additionalProperties": True, "type": "object"},
+                           "maxItems": 12},
+    )
 
 
 def narratives(decision: dict) -> dict[str, str]:
@@ -172,6 +178,7 @@ def pending_candidates(store) -> list[dict]:
         if payload.get("type") == "content_review" and payload["status"] not in {
             "unavailable",
             "budget_skipped",
+            "batch_deferred",
         }:
             pending.pop(payload["request"]["candidate_id"], None)
     return list(pending.values())
@@ -185,6 +192,7 @@ def review_candidates(
     now: datetime,
     prompt_dir: Path,
     maximum_characters: int,
+    total_character_limit: int | None = None,
 ) -> dict:
     """At most one batch attempt; retries happen in a later run, never regenerate."""
     from morning_radar.tendencies.core_store import StaleRevision
@@ -192,6 +200,7 @@ def review_candidates(
     result = {"status": "no_input", "items": [], "revision_ids": [], "target_ids": []}
     requests, ready = [], []
     version = review_version(prompt_dir)
+    total_limit = maximum_characters if total_character_limit is None else total_character_limit
 
     def finish(item, status, *, assessment=None, error=None):
         request = item["request"]
@@ -237,9 +246,15 @@ def review_candidates(
                 error="Review contract changed; explicit re-evaluation required",
             )
             continue
+        single_size = len(encoded({"candidates": [item["request"]]}))
+        if single_size > total_limit:
+            finish(item, "input_too_large",
+                   error=f"Single candidate {single_size} exceeds total input limit {total_limit}; "
+                         "retained without automatic retry")
+            continue
         proposal = {"candidates": requests + [item["request"]]}
         if len(encoded(proposal)) > maximum_characters or len(ready) >= 12:
-            finish(item, "budget_skipped", error="Bounded review input exhausted")
+            finish(item, "batch_deferred", error="Current batch capacity exhausted; retry later")
             continue
         requests.append(item["request"])
         ready.append(item)
@@ -254,17 +269,28 @@ def review_candidates(
         try:
             output = ReviewOutput.model_validate(provider.review_hypotheses(context))
             result["output"] = output.model_dump(mode="json")
-            result["unexpected_candidate_ids"] = [
-                row.get("candidate_id") for row in output.assessments
-                if row.get("candidate_id") not in {c["candidate_id"] for c in requests}
-            ]
+            result["assessment_errors"] = []
+            result["unexpected_candidate_ids"] = []
+            identified = {}
+            requested_ids = {c["candidate_id"] for c in requests}
+            for index, row in enumerate(output.assessments):
+                error = None
+                if not isinstance(row, dict):
+                    error = "Assessment must be an object"
+                elif not isinstance(row.get("candidate_id"), str) or not row["candidate_id"]:
+                    error = "Assessment needs an explicit nonempty candidate_id"
+                elif row["candidate_id"] not in requested_ids:
+                    result["unexpected_candidate_ids"].append(row["candidate_id"])
+                    error = "Unknown candidate_id"
+                else:
+                    identified.setdefault(row["candidate_id"], []).append(row)
+                if error:
+                    result["assessment_errors"].append(
+                        {"index": index, "raw": row, "error": error}
+                    )
             result["physical_call_id"] = getattr(provider, "last_core_call_id", None)
             for item in ready:
-                rows = [
-                    a
-                    for a in output.assessments
-                    if a.get("candidate_id") == item["request"]["candidate_id"]
-                ]
+                rows = identified.get(item["request"]["candidate_id"], [])
                 try:
                     if len(rows) != 1:
                         raise ValueError("Missing or duplicate candidate assessment")
@@ -287,6 +313,7 @@ def review_candidates(
                 "type": "review_response",
                 "recorded_at": now.isoformat(),
                 "output": result.get("output"),
+                "assessment_errors": result.get("assessment_errors", []),
                 "raw_response": result["raw_response"],
                 "physical_call_id": result.get("physical_call_id"),
             },
@@ -296,6 +323,6 @@ def review_candidates(
     if result["items"]:
         result["status"] = (
             "completed" if all(r["status"] == "approved" for r in result["items"])
-            and not result.get("unexpected_candidate_ids") else "partial"
+            and not result.get("assessment_errors") else "partial"
         )
     return result

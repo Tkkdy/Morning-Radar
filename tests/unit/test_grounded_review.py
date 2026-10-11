@@ -425,3 +425,127 @@ def test_unknown_usage_blocks_review_without_bypassing_public_gate(tmp_path):
     result = run_review(store, p, [c])
     assert result["items"][0]["status"] == "budget_skipped"
     assert not wires and not store.public_current() and pending_candidates(store)
+
+
+@pytest.mark.parametrize("legacy_budget_skip", [False, True])
+def test_oversized_pending_does_not_starve_new_evidence_across_runs(tmp_path, legacy_budget_skip):
+    from morning_radar.settings import AppConfig, load_model
+    from morning_radar.tendencies.core_demo import demo_decision, write_demo_evidence
+    from morning_radar.tendencies.inputs import read_evidence
+
+    store = CoreStore(tmp_path)
+    old = Revision.model_validate(TRANSACTION["revisions"][0]).model_copy(deep=True)
+    old.synthetic = True
+    for index in range(18):
+        evidence = old.evidence[0].model_copy(deep=True)
+        evidence.evidence_id = f"synthetic-large-{index}"
+        evidence.excerpt = "synthetic 保留原始长摘录。" * 90
+        evidence.synthetic = True
+        old.evidence.append(evidence)
+    saved = {"type": "review_candidate", "phase": "discovery",
+             "recorded_at": NOW.isoformat(), "revision": old.model_dump(mode="json"),
+             "request": candidate(old, None, review_version(Path("prompts")))}
+    store.append(saved, operation_id="oversized original candidate")
+    if legacy_budget_skip:
+        run_review(store, provider(lambda ctx: {}, calls=0), [saved], cap=100000)
+    history = copy.deepcopy(store.events())
+    app = load_model(Path("config/app.yaml"), AppConfig)
+    wires = []
+
+    def limited_provider(response=RESPONSE):
+        active = provider(lambda ctx: {"assessments": [assessment(c)
+                          for c in ctx["candidates"]]}, wires=wires, discovery=response)
+        active.budget = AIBudget(app.tendency_maximum_ai_calls,
+                                app.maximum_tendency_input_characters,
+                                app.maximum_ai_items, app.tendency_maximum_network_requests)
+        return active
+
+    first = core.run_core(tmp_path, config_root=Path("."), provider=limited_provider(), now=NOW)
+    receipt = first["stages"]["content_review_recovery"]["items"][0]
+    assert receipt["status"] == "input_too_large" and "24000" in receipt["error"]
+    assert first["stages"]["discovery"]["status"] == "no_input" and not wires
+    assert not pending_candidates(store)
+    # Next run receives a new saved input via the real evidence reader and selector.
+    later = NOW + timedelta(minutes=1)
+    write_demo_evidence(tmp_path, 0, later)
+    evidence, _ = read_evidence(tmp_path, store, through=later)
+    response = copy.deepcopy(RESPONSE)
+    response["choices"][0]["message"]["content"] = json.dumps({
+        "outcome": "proposed", "decisions": [demo_decision({
+            "evidence": [e.model_dump(mode="json") for e in evidence]})]})
+    second = core.run_core(tmp_path, config_root=Path("."),
+                           provider=limited_provider(response), now=later)
+    assert second["stages"]["discovery"]["status"] == "completed"
+    assert second["revision_ids"] and len(wires) == 2
+    assert len(store.public_current()) == 1 and old.hypothesis_id not in store.public_current()
+    assert all(old.revision_id not in json.dumps(w) for w in wires)
+    assert store.events()[:len(history)] == history
+    oversized = [e for e in store.events() if e["payload"].get("status") == "input_too_large"]
+    assert len(oversized) == 1 and oversized[0]["payload"]["request"] == saved["request"]
+    assert store.events()[0]["payload"]["revision"] == saved["revision"]
+    assert not pending_candidates(store)
+
+
+def test_batch_deferral_is_not_permanent_or_provider_budget_failure(tmp_path):
+    from morning_radar.tendencies.grounded_review import encoded
+
+    store = CoreStore(tmp_path)
+    first = item(store, suffix="-1")
+    second = item(store, suffix="-2", text="另一条件下可能形成不同结构。")
+    cap = len(encoded({"candidates": [first["request"]]})) + 10
+    wires = []
+    active = provider(lambda ctx: {"assessments": [assessment(c)
+                      for c in ctx["candidates"]]}, wires=wires)
+    result = review_candidates(store, active, [first, second], now=NOW,
+                              prompt_dir=Path("prompts"), maximum_characters=cap,
+                              total_character_limit=24000)
+    assert {r["candidate_id"]: r["status"] for r in result["items"]} == {
+        first["request"]["candidate_id"]: "approved",
+        second["request"]["candidate_id"]: "batch_deferred"}
+    assert pending_candidates(store) == [second] and len(wires) == 1
+    deferred = review_candidates(store, active, [second], now=NOW + timedelta(seconds=1),
+                                prompt_dir=Path("prompts"), maximum_characters=0,
+                                total_character_limit=24000)
+    assert deferred["items"][0]["status"] == "batch_deferred" and len(wires) == 1
+    resumed = provider(lambda ctx: {"assessments": [assessment(c)
+                       for c in ctx["candidates"]]}, wires=wires)
+    done = run_review(store, resumed, pending_candidates(store))
+    assert done["status"] == "completed" and not pending_candidates(store) and len(wires) == 2
+
+
+@pytest.mark.parametrize("bad", [None, "malformed", {}, {"candidate_id": None},
+                                {"candidate_id": []}])
+@pytest.mark.parametrize("second_verdict", ["approved", "rejected"])
+def test_unidentified_assessment_keeps_valid_siblings_and_raw_error(tmp_path, bad, second_verdict):
+    store = CoreStore(tmp_path)
+    items = [item(store, suffix=f"-{i}", text=f"条件{i}若成立可能形成相应结构。") for i in range(3)]
+    wires = []
+
+    def judge(ctx):
+        return {"assessments": [assessment(ctx["candidates"][0]), bad,
+                                assessment(ctx["candidates"][1], second_verdict)]}
+
+    result = run_review(store, provider(judge, wires=wires), items, cap=100000)
+    assert len(wires) == 1
+    assert [r["status"] for r in result["items"]] == ["approved", second_verdict, "invalid_review"]
+    assert len(store.public_current()) == (2 if second_verdict == "approved" else 1)
+    assert result["status"] == "partial"
+    assert result["assessment_errors"][0]["index"] == 1
+    assert result["assessment_errors"][0]["raw"] == bad
+    assert result["assessment_errors"][0]["error"]
+    response = [e["payload"] for e in store.events()
+                if e["payload"].get("type") == "review_response"][-1]
+    assert json.loads(response["raw_response"])["assessments"][1] == bad
+    assert response["assessment_errors"] == result["assessment_errors"]
+    assert "Missing or duplicate" in result["items"][2]["error"]
+
+
+def test_frozen_review_wire_contract_unchanged():
+    from morning_radar.tendencies.grounded_review import ReviewOutput
+
+    # Strict advertised schema remains unchanged; malformed transport entries are
+    # tolerated only long enough to retain diagnostics and validate siblings.
+    assert ReviewOutput.model_json_schema()["properties"]["assessments"] == {
+        "items": {"additionalProperties": True, "type": "object"},
+        "maxItems": 12, "title": "Assessments", "type": "array"}
+    assert ReviewOutput.model_validate({"assessments": [None] * 13}).assessments == [None] * 13
