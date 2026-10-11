@@ -163,7 +163,10 @@ def test_valid_multi_story_references_and_optional_sanitization_both_work() -> N
 
     result = validate_and_sanitize_brief(draft, [first, second], [])
 
-    assert result.items == draft.items
+    assert result.items[0].story_ids == draft.items[0].story_ids
+    assert result.items[0].what_happened == draft.items[0].what_happened
+    assert result.items[0].why_it_matters is None
+    assert result.items[0]._why_omission_reason == "unstructured_explanation"
     assert result.watch_next == ["观察 OpenAI 是否更新 API。"]
 
 

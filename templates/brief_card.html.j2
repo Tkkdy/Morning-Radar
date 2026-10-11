@@ -46,7 +46,29 @@
       </section>
     {% endif %}
   {% endfor %}
-  {% if not compact and item.why_it_matters %}<p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>{% endif %}
+  {% if not compact and item.why_it_matters %}
+  {% set explanation = item.why_it_matters_evidence %}
+  <p class="why"><strong>为什么重要{% if explanation %} · {{ {"fact": "事实说明", "source_opinion": "来源评价", "inference": "系统推断"}[explanation.kind] }}{% endif %}：</strong>{{ item.why_it_matters }}</p>
+  {% if explanation %}
+  <details class="why-evidence"><summary>这段说明的依据</summary>
+    {% for reference in explanation.references %}
+      {% for context in item.story_contexts if context.story_id == reference.story_id %}
+        {% set basis = context[reference.field][reference.index] %}
+        {% if reference.field == "grounded_analysis" %}
+          <p>已有系统推断：{{ basis.inference }}</p>
+          {% for point in basis.premises %}<p>{{ point.text }}</p><blockquote>{{ point.quote }}</blockquote><a href="{{ point.source_url }}" rel="noopener noreferrer">原始材料</a>{% endfor %}
+        {% else %}
+          <p>{{ "来源评价" if reference.field == "opinions" else "材料中的事实陈述" }}：{{ basis }}</p>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% for premise in explanation.premises %}
+      <p>来源前提：{{ premise.text }}</p><blockquote>{{ premise.quote }}</blockquote>
+      <a href="{{ premise.source_url }}" rel="noopener noreferrer">原始材料</a>
+    {% endfor %}
+  </details>
+  {% endif %}
+  {% endif %}
   {% if primary_context and primary_context.status.value != "unknown" %}
     {% set status_labels = {"rumor": "传闻", "official_teaser": "官方预告", "announced": "已宣布", "available": "已上线", "updated": "已更新"} %}
     <span class="status-badge">{{ status_labels.get(primary_context.status.value, primary_context.status.value) }}</span>

@@ -424,10 +424,14 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                     call_meta["structured_retry"] = max(0, structured_attempt - 1)
                     return parsed
                 validated = schema.model_validate(parsed)
+                # Optional explanation errors degrade locally, without a model retry.
+                brief_validated = isinstance(validated, (BriefDraft, BriefItemRecoveryDraft))
+                if brief_validated and output_validator is not None:
+                    validated = output_validator(validated)
                 validate_output_urls(validated, allowed_urls)
                 if validate_language:
                     validate_core_simplified_chinese_output(validated)
-                if output_validator is not None:
+                if output_validator is not None and not brief_validated:
                     transformed = output_validator(validated)
                     if transformed is not None:
                         validated = transformed

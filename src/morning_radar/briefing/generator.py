@@ -15,7 +15,7 @@ from morning_radar.ai.models import (
     GeneratedWatchDraft,
 )
 from morning_radar.ai.output_validation import (
-    sanitize_memory_drafts,
+    sanitize_brief_explanation,
     validate_and_sanitize_brief,
 )
 from morning_radar.ai.provider import AIProvider
@@ -164,19 +164,13 @@ def _deterministic_generated_item(
         section=section,
         title=story.canonical_title,
         what_happened=story.facts[0] if story.facts else story.canonical_title,
-        why_it_matters=story.analysis[0] if story.analysis else None,
+        why_it_matters=None,
         # Generation health is not an event uncertainty.  Preserve the latter
         # whenever it was already validated on the Story.
         uncertainty=story.uncertainties[0] if story.uncertainties else None,
         source_urls=story.source_urls,
-        generation_status=(
-            "fallback_existing_analysis" if story.analysis else "fallback_no_analysis"
-        ) if fallback else "generated",
-        generation_note=(
-            "本次成稿使用已验证的已有分析。"
-            if story.analysis
-            else "补充分析未生成，已保留已验证事实与来源。"
-        ) if fallback else None,
+        generation_status="fallback_no_analysis" if fallback else "generated",
+        generation_note="补充分析未生成，已保留材料中的事实陈述与来源。" if fallback else None,
         generation_reason=fallback_reason if fallback else None,
     )
 
@@ -198,12 +192,16 @@ def _validated_item(
     }
     if not generated.source_urls or not set(generated.source_urls).issubset(allowed_urls):
         raise BriefValidationError("Brief item URL is missing or not present in its Stories")
+    generated = sanitize_brief_explanation(generated, list(story_by_id.values()))
     return BriefItem(
         id=_brief_item_id(generated.story_ids, section),
         section=section,
         title=generated.title,
         what_happened=generated.what_happened,
         why_it_matters=generated.why_it_matters,
+        why_it_matters_evidence=generated.why_it_matters_evidence,
+        why_it_matters_omission_reason=generated._why_omission_reason,
+        why_quote_normalizations=generated._why_quote_normalizations,
         market_or_community_reaction=generated.market_or_community_reaction,
         uncertainty=generated.uncertainty,
         source_urls=generated.source_urls,
@@ -308,7 +306,9 @@ def generate_daily_brief_with_memory(
                     )
                 else:
                     batch_draft = provider.write_brief(batch, batch_signals)
-                batch_draft = sanitize_memory_drafts(batch_draft, batch)
+                batch_draft = validate_and_sanitize_brief(batch_draft, batch, batch_signals)
+            except ValueError as exc:
+                raise BriefValidationError(str(exc)) from exc
             except (AIBudgetExceeded, AIOutputError):
                 LOGGER.exception("AI degradation: brief batch failed; deferring item recovery")
                 batch_failures += 1

@@ -24,6 +24,7 @@ from morning_radar.models import RawItem
 from morning_radar.models.core import (
     GroundedAnalysis,
     GroundedPoint,
+    ResearchEvidenceRef,
     TechnicalQuoteNormalization,
     TechnicalReading,
 )
@@ -376,8 +377,18 @@ def validate_analysis(
     ]}) for i, analysis in enumerate(analyses)], conversions
 
 
+@dataclass(frozen=True)
+class QuoteSource:
+    """A previously validated premise exposed verbatim in the current request."""
+
+    id: str
+    url: str
+    summary: str
+    content_excerpt: str = ""
+
+
 def validate_grounded_points(
-    points: dict[str, GroundedPoint], items: list[RawItem],
+    points: dict[str, GroundedPoint], items: list[RawItem | ResearchEvidenceRef | QuoteSource],
 ) -> tuple[dict[str, GroundedPoint], list[TechnicalQuoteNormalization]]:
     """Validate literal attribution, not semantic entailment or inference truth."""
     from morning_radar.ai import AIOutputError
@@ -414,7 +425,8 @@ def validate_grounded_points(
         if source_quote != point.quote:
             conversions.append(TechnicalQuoteNormalization(
                 point=name, original_quote=point.quote, source_url=point.source_url,
-                raw_item_id=item.id, source_field=source_field, source_start=start, source_end=end,
+                raw_item_id=item.raw_item_id if isinstance(item, ResearchEvidenceRef) else item.id,
+                source_field=source_field, source_start=start, source_end=end,
                 rule=mode,
             ))
     return updates, conversions

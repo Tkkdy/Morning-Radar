@@ -302,9 +302,13 @@ class OpenAIProvider(TendencyCoreProviderMixin):
                 if parsed is None:
                     raise AIOutputError("OpenAI response contained no parsed structured output")
                 validated = schema.model_validate(parsed)
+                # Optional explanation errors degrade locally, without a model retry.
+                brief_validated = isinstance(validated, (BriefDraft, BriefItemRecoveryDraft))
+                if brief_validated and output_validator is not None:
+                    validated = output_validator(validated)
                 validate_output_urls(validated, allowed_urls)
                 validate_core_simplified_chinese_output(validated)
-                if output_validator is not None:
+                if output_validator is not None and not brief_validated:
                     transformed = output_validator(validated)
                     if transformed is not None:
                         validated = transformed

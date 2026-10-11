@@ -43,3 +43,18 @@ B1 阅读约束：what_happened 用 1–3 句讲清事实和关键差异；why_i
 - source_materials 的短摘录仅代表实际传入部分；注意截断/去重/未装包标记。opinions 保留来源归因，grounded_analysis 的来源前提与系统推断分开；它们都不是独立事实核验。历史无前提分析已从请求省略，不能自行补回。
 - 逐份比较材料中的重要新增信息与 facts，合理选择新增贡献，不以链接数量替代内容，不强制每份来源占正文。来源间矛盾和无法判定之处保留未知。
 - technical_reading.evaluation_results 为空时明确具体评测结果尚未提供，不能因 author_evidence 非空而宣称结果已知。
+
+重要性说明的依据契约（批量写作与单条恢复相同）：
+- 旧 why_it_matters 留 null；新说明填写 why_it_matters_evidence，无法支持时整个字段留 null。
+- kind=fact：准确说明材料已有事实的意义；kind=source_opinion：保留提出者的来源评价；
+  kind=inference：明确为有限系统推断，不把前提或结论升级为已验证事实。不强制生成推断。
+- text 是最终展示文字。references 使用本卡实际引用、且本次请求提供的 Story 的 story_id、
+  field（facts/opinions/grounded_analysis）及零基 index。fact 只引用 facts；source_opinion
+  可引用 facts/opinions；引用 grounded_analysis 必须使用 inference，保留其中前提和限制。
+- 也可用 premises 为同次写作的新说明提供来源前提：每项包含 story_id、保留归因的 text、
+  输入 source_url 和 12–280 字符连续原文 quote。quote 只能取本次 source_materials 或已提供的
+  grounded_analysis/technical_reading 的原始引文，不从标题、整份仓库、未见全文或其他 Story 补找。
+- references/premises 至少一种非空；材料引文只是依据，不表示解释已被机器证明。说明与所选
+  前提必须相关；不得附无关引用装作事实核验。系统推断与来源前提分开写，保留不确定性。
+- 无论哪种类型，都不得扩张主体范围、时间范围、比较基线和可用性。局部评测不能升级为一般
+  能力结论；潜在应用方向不等于实际工程价值或可获得产品。没有对照材料不补出对照事实。

@@ -172,6 +172,25 @@ class GroundedAnalysis(RadarModel):
     inference: str = Field(min_length=1, max_length=600)
 
 
+class BriefEvidenceReference(RadarModel):
+    story_id: str
+    field: Literal["facts", "opinions", "grounded_analysis"]
+    index: int = Field(ge=0)
+
+
+class BriefPremise(GroundedPoint):
+    story_id: str
+
+
+class BriefExplanation(RadarModel):
+    """Typed explanation with input-local references or quoted source premises."""
+
+    kind: Literal["fact", "source_opinion", "inference"]
+    text: str = Field(min_length=1, max_length=600)
+    references: list[BriefEvidenceReference] = Field(default_factory=list, max_length=3)
+    premises: list[BriefPremise] = Field(default_factory=list, max_length=3)
+
+
 class TechnicalReading(RadarModel):
     kind: Literal["paper", "technical_report", "technical_article"]
     problem: GroundedPoint | None = None
@@ -430,6 +449,9 @@ class BriefItem(RadarModel):
     # ``None`` deliberately means that the reader-facing importance block is
     # omitted; it is not an invitation to manufacture a generic explanation.
     why_it_matters: str | None = None
+    why_it_matters_evidence: BriefExplanation | None = None
+    why_it_matters_omission_reason: str | None = None
+    why_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
     market_or_community_reaction: str | None = None
     uncertainty: str | None = None
     source_urls: list[str] = Field(min_length=1)

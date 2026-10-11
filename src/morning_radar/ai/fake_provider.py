@@ -225,9 +225,7 @@ class FakeAIProvider:
                     section=story.category,
                     title=story.canonical_title,
                     what_happened=story.facts[0] if story.facts else story.canonical_title,
-                    why_it_matters=(
-                        story.analysis[0] if story.analysis else "该事件与配置关注主题相关。"
-                    ),
+                    why_it_matters=None,
                     uncertainty=story.uncertainties[0] if story.uncertainties else None,
                     source_urls=story.source_urls,
                 )
@@ -250,9 +248,7 @@ class FakeAIProvider:
                 section=story.category,
                 title=story.canonical_title,
                 what_happened=story.facts[0] if story.facts else story.canonical_title,
-                why_it_matters=(
-                    story.analysis[0] if story.analysis else "该事件与配置关注主题相关。"
-                ),
+                why_it_matters=None,
                 uncertainty=story.uncertainties[0] if story.uncertainties else None,
                 source_urls=story.source_urls,
             )

@@ -14,6 +14,7 @@ from morning_radar.ai.models import (
     BriefItemRecoveryDraft,
     ContinuityResolution,
     DirectionObservation,
+    GeneratedBriefItem,
     GeneratedJudgementDraft,
     GeneratedWatchDraft,
     MergedStoryDraft,
@@ -213,6 +214,83 @@ def sanitize_memory_drafts(output: BriefDraft, stories: list[Story]) -> BriefDra
     return output.model_copy(update={"watch_items": valid_watches, "judgements": valid_judgements})
 
 
+def sanitize_brief_explanation(
+    item: GeneratedBriefItem, stories: list[Story],
+) -> GeneratedBriefItem:
+    """Check attachment and literal evidence, never semantic entailment.
+
+    `stories` must be the actual batch/recovery input. No lookup outside it.
+    Optional rejection never raises into the provider's structured retry loop.
+    """
+    from morning_radar.ai.errors import AIOutputError
+    from morning_radar.research.materials import QuoteSource, validate_grounded_points
+
+    explanation = item.why_it_matters_evidence
+    reason = None
+    restored = []
+    conversions = []
+    try:
+        if explanation is None:
+            if item.why_it_matters:
+                raise ValueError("unstructured_explanation")
+            return item
+        if item.why_it_matters not in (None, explanation.text):
+            raise ValueError("explanation_text_mismatch")
+        if not explanation.references and not explanation.premises:
+            raise ValueError("missing_explanation_basis")
+        scoped = {story.id: story for story in stories if story.id in item.story_ids}
+        allowed_fields = {
+            "fact": {"facts"},
+            "source_opinion": {"facts", "opinions"},
+            "inference": {"facts", "opinions", "grounded_analysis"},
+        }[explanation.kind]
+        for reference in explanation.references:
+            if reference.story_id not in scoped:
+                raise ValueError("explanation_story_outside_input")
+            if reference.field not in allowed_fields:
+                raise ValueError("explanation_statement_type_mismatch")
+            values = getattr(scoped[reference.story_id], reference.field)
+            if reference.index >= len(values):
+                raise ValueError("explanation_reference_missing")
+        for index, premise in enumerate(explanation.premises):
+            if premise.story_id not in scoped:
+                raise ValueError("explanation_story_outside_input")
+            story = scoped[premise.story_id]
+            if premise.source_url not in story.source_urls:
+                raise ValueError("explanation_source_outside_story")
+            # The writing payload includes these bounded materials and previously
+            # validated points. A quote omitted from both cannot be recovered here.
+            sources = list(story.source_materials)
+            prior_points = [p for a in story.grounded_analysis for p in a.premises]
+            if story.technical_reading is not None:
+                prior_points.extend(
+                    point for name in ("problem", "method", "engineering_value",
+                        "author_evidence", "evaluation_results", "conditions", "limitations")
+                    if (point := getattr(story.technical_reading, name)) is not None
+                )
+            sources.extend(QuoteSource(
+                id=f"{story.id}:validated-premise:{i}",
+                url=point.source_url, summary=point.quote,
+            ) for i, point in enumerate(prior_points))
+            key = f"why_it_matters.premises.{index}"
+            points, changes = validate_grounded_points({key: premise}, sources)
+            restored.append(points[key])
+            conversions.extend(changes)
+        result = item.model_copy(update={
+            "why_it_matters": explanation.text,
+            "why_it_matters_evidence": explanation.model_copy(update={"premises": restored}),
+        })
+        result._why_quote_normalizations = [*item._why_quote_normalizations, *conversions]
+        return result
+    except (ValueError, AIOutputError) as exc:
+        reason = str(exc)
+    LOGGER.warning("Omitted optional brief explanation: %s (%s)", reason, item.story_ids)
+    result = item.model_copy(update={"why_it_matters": None, "why_it_matters_evidence": None})
+    result._why_omission_reason = reason
+    result._why_quote_normalizations = []
+    return result
+
+
 def validate_and_sanitize_brief(
     output: BriefDraft,
     stories: list[Story],
@@ -220,6 +298,9 @@ def validate_and_sanitize_brief(
 ) -> BriefDraft:
     """Validate core references before independently degrading optional fields."""
     validate_brief_references(output, stories)
+    output = output.model_copy(update={
+        "items": [sanitize_brief_explanation(item, stories) for item in output.items],
+    })
     sanitized = sanitize_editorial_extensions(output, stories, signals)
     return sanitize_memory_drafts(sanitized, stories)
 
@@ -371,6 +452,9 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         yield item.title
         yield item.what_happened
         yield from _present((item.why_it_matters,))
+        if item.why_it_matters_evidence is not None:
+            yield item.why_it_matters_evidence.text
+            yield from (p.text for p in item.why_it_matters_evidence.premises)
         yield from _present((item.market_or_community_reaction, item.uncertainty))
     elif isinstance(output, DirectionObservation):
         yield from _present((output.observation,))
@@ -413,4 +497,7 @@ def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:
         yield item.title
         yield item.what_happened
         yield from _present((item.why_it_matters,))
+        if item.why_it_matters_evidence is not None:
+            yield item.why_it_matters_evidence.text
+            yield from (p.text for p in item.why_it_matters_evidence.premises)
         yield from _present((item.market_or_community_reaction, item.uncertainty))
