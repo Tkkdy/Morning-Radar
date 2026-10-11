@@ -41,7 +41,7 @@
         {% if point %}<p><strong>{{ label }}：</strong>{{ point.text }}</p>
         <details><summary>{{ label }}的原始依据</summary><blockquote>{{ point.quote }}</blockquote><a href="{{ point.source_url }}" rel="noopener noreferrer">原始材料</a></details>{% endif %}
       {% endfor %}
-      {% if not reading.conditions or not reading.limitations %}<p class="uncertainty">{% if not reading.conditions %}现有材料未充分说明适用条件。{% endif %}{% if not reading.limitations %}现有材料未充分说明限制。{% endif %}</p>{% endif %}
+      {% if not reading.engineering_value or not reading.conditions or not reading.limitations %}<p class="uncertainty">{% if not reading.engineering_value %}现有材料未充分说明工程价值。{% endif %}{% if not reading.conditions %}现有材料未充分说明适用条件。{% endif %}{% if not reading.limitations %}现有材料未充分说明限制。{% endif %}</p>{% endif %}
       </section>
     {% endif %}
   {% endfor %}
