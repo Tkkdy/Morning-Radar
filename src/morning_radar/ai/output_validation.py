@@ -367,7 +367,7 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         item = output.item
         yield item.title
         yield item.what_happened
-        yield item.why_it_matters
+        yield from _present((item.why_it_matters,))
         yield from _present((item.market_or_community_reaction, item.uncertainty))
     elif isinstance(output, DirectionObservation):
         yield from _present((output.observation,))
@@ -409,5 +409,5 @@ def _brief_item_narratives(output: BriefDraft) -> Iterable[str]:
     for item in output.items:
         yield item.title
         yield item.what_happened
-        yield item.why_it_matters
+        yield from _present((item.why_it_matters,))
         yield from _present((item.market_or_community_reaction, item.uncertainty))
