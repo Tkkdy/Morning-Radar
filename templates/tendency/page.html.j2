@@ -8,6 +8,8 @@
 <p class="meta">构建版本 {{ version }} · 构建于 {{ built_at }} · 发布状态未确认</p></header><main>
 {% if reading_error %}<p role="alert" class="notice">读取失败，不能据此判断“没有方向”。原始记录未改写，请查看本机诊断。</p>{% endif %}
 {% if run_error %}<p class="notice">部分运行记录读取失败，检查状态不完整。</p>{% endif %}
+{% if kind in ['list', 'detail', 'history'] %}<p class="meta">此处只展示自动内容审查通过的修订；审查不证明事实真实性或未来必然发生。</p>{% endif %}
+{% if kind == 'unreviewed' %}<p class="notice">该版本未获内容准入，原文仍保留在本地历史档案。</p>{% endif %}
 {% if kind == 'list' %}
 <p>Early 是有待验证的结构假设。列表不按热度或概率排序；检查时间不等于实质更新。</p>
 {% if runs %}<p>最近运行：{{ runs[-1].status|label }} · {{ runs[-1].recorded_at }}</p>{% else %}<p>尚未完成独立检查。</p>{% endif %}

@@ -18,6 +18,11 @@ def core_instructions(task: str, instructions: str) -> str:
         instructions += "\n单条 decision 的完整字段契约：\n" + json.dumps(
             CoreDecision.model_json_schema(), ensure_ascii=False, separators=(",", ":")
         )
+    if task == "tendency_review":
+        from morning_radar.tendencies.grounded_review import Assessment
+        instructions += "\n审查字段契约：\n" + json.dumps(
+            Assessment.model_json_schema(), ensure_ascii=False, separators=(",", ":")
+        )
     return instructions
 
 
@@ -53,12 +58,17 @@ class TendencyCoreProviderMixin:
 
         return self._core_parse("tendency_calibrate", CoreOutput, context)
 
+    def review_hypotheses(self, context: dict):
+        from morning_radar.tendencies.grounded_review import ReviewOutput
+        return self._core_parse("tendency_review", ReviewOutput, context)
+
     def split_hypotheses(self, context: dict) -> SplitOutput:
         from morning_radar.tendencies.core_models import SplitOutput
 
         return self._core_parse("tendency_split", SplitOutput, context)
 
     def _core_parse(self, task, schema, context):
+        self.last_review_response = None
         self.last_core_response = None
         self.last_core_normalization = None
         self.last_core_raw_output = None
@@ -76,7 +86,8 @@ class TendencyCoreProviderMixin:
                 },
                 maximum_structured_attempts=1,
             )
-            if task != "tendency_split":
+            self.last_core_raw_output = output.model_dump(mode="json")
+            if task in {"tendency_discover", "tendency_calibrate"}:
                 self.last_core_raw_output = output.model_dump(mode="json")
                 output, self.last_core_normalization = normalize_core_output(output)
             return output

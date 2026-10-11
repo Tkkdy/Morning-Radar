@@ -69,6 +69,25 @@ def run_core(
             from morning_radar.tendencies.web_input import recover_inputs
 
             result["input_recovery"] = recover_inputs(store)
+            from morning_radar.tendencies.grounded_review import (
+                candidate,
+                pending_candidates,
+                review_candidates,
+                review_version,
+            )
+            retry_candidates = pending_candidates(store)
+            if retry_candidates:
+                result["stages"]["content_review"] = review_candidates(
+                    store, active, retry_candidates, now=now,
+                    prompt_dir=config_root / "prompts",
+                    maximum_characters=app.maximum_tendency_input_characters,
+                )
+                result["revision_ids"] = result["stages"]["content_review"]["revision_ids"]
+                result["status"] = result["stages"]["content_review"]["status"]
+                result["cost"] = usage_summary(root, str(display_date(now)))
+                health["status"] = result["status"]
+                return result  # Resume saved review, never regenerate its candidate.
+            review_queue = []
             earlier_runs = sorted(
                 (store.directory / "runs").glob("*.json"),
                 key=lambda p: p.stat().st_mtime,
@@ -107,6 +126,7 @@ def run_core(
                         "completed",
                         "no_changes",
                         "insufficient_evidence",
+                        "content_review_pending_or_rejected",
                     }:
                         continue
                     checked_seeds.update(stage.get("seed_ids", []))
@@ -255,6 +275,7 @@ def run_core(
                     stage["raw_output"] = getattr(active, "last_core_raw_output", None)
                     stage["normalization"] = getattr(active, "last_core_normalization", None)
                     stage["gaps"] = output.gaps
+                    atomic_json(path, result)  # Original generated output before review.
                     accepted = 0
                     for index, proposal in enumerate(output.decisions):
                         try:
@@ -281,15 +302,17 @@ def run_core(
                                 analysis_version=analysis_version,
                             )
                             if revision is not None:
-                                store.append(
-                                    {
-                                        "type": "revision",
-                                        "revisions": [revision.model_dump(mode="json")],
-                                    },
-                                    operation_id=f"{run_id}:{phase}:{index}",
-                                )
-                                current[revision.hypothesis_id] = revision
-                                result["revision_ids"].append(revision.revision_id)
+                                item = {
+                                    "type": "review_candidate", "phase": phase,
+                                    "recorded_at": now.isoformat(),
+                                    "revision": revision.model_dump(mode="json"),
+                                    "request": candidate(
+                                        revision, current.get(revision.hypothesis_id),
+                                        review_version(config_root / "prompts"),
+                                    ),
+                                }
+                                store.append(item, operation_id=f"{run_id}:{phase}:{index}")
+                                review_queue.append(item)
                                 accepted += 1
                         except (ValueError, StaleRevision) as exc:
                             stage["rejected"].append({"index": index, "reason": str(exc)[:300]})
@@ -322,6 +345,20 @@ def run_core(
                     stage["error_type"] = type(exc).__name__
                 stage["physical_call_id"] = getattr(active, "last_core_call_id", None)
                 stage["response_digest"] = getattr(active, "last_core_response", None)
+                atomic_json(path, result)
+            if review_queue:
+                review = review_candidates(
+                    store, active, review_queue, now=now, prompt_dir=config_root / "prompts",
+                    maximum_characters=max(
+                        0, app.maximum_tendency_input_characters - shared_characters
+                    ),
+                )
+                result["stages"]["content_review"] = review
+                result["revision_ids"].extend(review["revision_ids"])
+                for phase in ["discovery", "calibration"]:
+                    if any(item["phase"] == phase and item["status"] != "approved"
+                           for item in review["items"]):
+                        result["stages"][phase]["status"] = "content_review_pending_or_rejected"
                 atomic_json(path, result)
             pending = [
                 s

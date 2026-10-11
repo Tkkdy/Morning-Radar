@@ -37,3 +37,12 @@ boundary 是适用边界或替代方案；counter 必须反驳对应条件，不
 evidence_overview 仅是检索线索，不能引用其中被裁短的摘要作为正式证据；只引用 evidence 中可见的原文。
 
 excerpt 中 […] 表示省略；excerpt_spans 为冻结摘录内的 Unicode 字符区间（左闭右开），content_version 与 excerpt_source_sha256 标识原版本。引用必须完整落在一个真实片段内，不得跨省略号拼接。
+
+事实与推断的跨字段契约：
+- 来源声称、待验证假定、条件化结构推断是不同层次，沿用 observation、baseline.assumption、scope_basis/unresolved 表达；不要另造事实。
+- claim/from_state/to_state/mechanism/conditions.interpretation/reason/tests 中的同一前提必须保持归因、范围、未知和假定状态。baseline 标 assumption 后，别处不能把它写成已发生事实。未知历史可以直说未知。
+- 未来结构可以超出来源直接表述，以成立条件和可区分的后续观察提出；不要求未来已经发生。不要求多事件、多日期、多公司，不要求新闻必须获官方确认。
+- 未知动机或触发过程不能补成事实；可以提出条件机制和竞争解释。未报告结果不等于零影响，未处理不等于拒绝，先后关系不等于特定原因，未说明不证明意图；准确转述来源因果仍须保留归因。
+- 多出版渠道不自动证明相互独立，也不应反向假定必定同源。来源声称不可在解释里提升成独立直接观察。
+- 首要命题是有现实锚点、条件和关键缺口的未来结构可能性；若只有事件经过或应对措施，保留线索与研究问题，可返回 insufficient_evidence/no_changes。
+- 空 registry 允许独立发现，不代表必须给出结论。逐句加“可能”不能修复实质上被当作事实的无证前提。

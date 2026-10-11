@@ -58,6 +58,10 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
+    def review_hypotheses(self, context):
+        from morning_radar.tendencies.grounded_review import ReviewOutput
+        return ReviewOutput()  # Fake never certifies real content.
+
     def discover_hypotheses(self, context):
         from morning_radar.tendencies.core_models import CoreOutput
         return CoreOutput(

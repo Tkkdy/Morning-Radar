@@ -11,7 +11,7 @@ from morning_radar.tendencies.core_store import CoreStore
 
 def export_core(store: CoreStore, *, legacy_root: Path | None = None) -> dict:
     revisions = store.revisions()
-    current = store.current()
+    current = store.public_current()
     legacy = []
     if legacy_root:
         for path in sorted((legacy_root / "data/tendencies").glob("*.json")):
@@ -24,6 +24,8 @@ def export_core(store: CoreStore, *, legacy_root: Path | None = None) -> dict:
             )
     return {
         "schema_version": 2,
+        "history_scope": "local diagnostic history; unreviewed rows are not public approval",
+        "public_revision_ids": [r.revision_id for r in store.public_revisions()],
         "current": [r.model_dump(mode="json") for r in current.values()],
         "history": [r.model_dump(mode="json") for r in revisions],
         "submissions": list(store.submissions().values()),
@@ -48,6 +50,9 @@ def render_markdown(payload: dict) -> str:
                 f"首次记录：{revision['first_recorded_at']}；本次：{revision['recorded_at']}",
                 f"前一版：{revision['previous_revision_id']}；父方向：{revision['parent_hypothesis_id']}",
                 f"来源：{revision['origin']}；synthetic={revision['synthetic']}；状态：{revision['standing']}",
+                "内容准入：" + ("自动审查通过（非真实性证明）"
+                            if revision["revision_id"] in payload["public_revision_ids"]
+                            else "未审查，不可作为公开当前方向"),
                 "范围：" + safe("、".join(hypothesis["scope"]))
                 + ("（待验证外推）" + safe(hypothesis.get("scope_reason", ""))
                    if hypothesis.get("scope_basis") == "inferred" else ""),

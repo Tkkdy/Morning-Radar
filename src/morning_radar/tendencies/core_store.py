@@ -67,6 +67,23 @@ class CoreStore:
     def current(self, *, through: datetime | None = None) -> dict[str, Revision]:
         return {r.hypothesis_id: r for r in self.revisions(through=through)}
 
+    def public_revisions(self) -> list[Revision]:
+        from morning_radar.tendencies.grounded_review import validate_admission
+
+        result = []
+        for event in self.events():
+            payload = event["payload"]
+            if payload.get("type") != "content_review" or payload.get("status") != "approved":
+                continue
+            for row in event.get("revisions", []):
+                revision = Revision.model_validate(row)
+                validate_admission(payload, revision)
+                result.append(revision)
+        return result
+
+    def public_current(self) -> dict[str, Revision]:
+        return {r.hypothesis_id: r for r in self.public_revisions()}
+
     def append(self, event: dict, *, operation_id: str) -> dict:
         with writer_lock(self.directory / "writer.lock"):
             events = self.events()
@@ -90,6 +107,15 @@ class CoreStore:
             revisions = [Revision.model_validate(r) for r in event.get("revisions", [])]
             seen = set()
             for revision in revisions:
+                if event.get("type") == "content_review":
+                    from morning_radar.tendencies.grounded_review import validate_admission
+                    validate_admission(event, revision)
+                    candidates = [e["payload"] for e in events
+                                  if e["payload"].get("type") == "review_candidate"
+                                  and e["payload"]["request"] == event["request"]
+                                  and e["payload"]["revision"] == revision.model_dump(mode="json")]
+                    if not candidates:
+                        raise ValueError("Reviewed candidate was not durably captured")
                 if revision.hypothesis_id in seen:
                     raise ValueError("Duplicate revision target")
                 seen.add(revision.hypothesis_id)

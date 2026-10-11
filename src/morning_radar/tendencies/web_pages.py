@@ -35,6 +35,7 @@ LABELS = {
     "completed": "处理完成",
     "partial": "部分完成，仍有缺口",
     "provider_or_validation_failed": "处理失败，原文保留",
+    "content_review_pending_or_rejected": "内容审查未准入，候选已保留",
     "validation_failed": "校验未通过",
     "budget_skipped": "额度不足，待处理",
     "running": "处理尚未完成",
@@ -122,8 +123,8 @@ def build_pages(
     environment.globals.update(page=page_name, source_link=source_link)
     template = environment.get_template("page.html.j2")
     try:
-        events, current = store.events(), store.current()
-        history = store.revisions()
+        events, current = store.events(), store.public_current()
+        history = store.public_revisions()
         runs, run_error = public_runs(store)
         if getattr(store, "through", None):
             from datetime import datetime
@@ -179,6 +180,15 @@ def build_pages(
     render("receipts.html", kind="receipts")
     render("history.html", kind="history")
     render("login.html", kind="login")
+    approved_ids = {r.revision_id for r in history}
+    # Replace previously generated local pages with a non-content notice. No deletion,
+    # no history mutation; rebuilding an existing output must not leak old drafts.
+    for stored in ([] if reading_error else store.revisions()):
+        if stored.revision_id not in approved_ids:
+            render(page_name("r", stored.revision_id), kind="unreviewed")
+            if stored.hypothesis_id not in current:
+                render(page_name("h", stored.hypothesis_id), kind="unreviewed")
+                render(page_name("edit", stored.hypothesis_id), kind="unreviewed")
     for revision in history:
         check = next(
             (

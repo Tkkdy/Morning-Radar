@@ -260,7 +260,9 @@ class WireClient:
     def create(self, **kwargs):
         self.requests.append(kwargs)
         context = json.loads(kwargs["messages"][-1]["content"])
-        output = self.output_factory(context)
+        from test_grounded_review import assessment
+        output = ({"assessments": [assessment(c) for c in context["candidates"]]}
+                  if "candidates" in context else self.output_factory(context))
         return SimpleNamespace(
             choices=[
                 SimpleNamespace(
@@ -273,7 +275,10 @@ class WireClient:
 
     def parse(self, **kwargs):
         self.requests.append(kwargs)
-        output = self.output_factory(json.loads(kwargs["input"]))
+        from test_grounded_review import assessment
+        context = json.loads(kwargs["input"])
+        output = ({"assessments": [assessment(c) for c in context["candidates"]]}
+                  if "candidates" in context else self.output_factory(context))
         return SimpleNamespace(output_parsed=output, usage=None, status="completed")
 
 
@@ -427,7 +432,7 @@ def test_formal_calibration_and_split_request_paths(context, tmp_path, backend):
     result = run_core(
         tmp_path,
         config_root=Path("."),
-        provider=wire_provider(client, backend),
+        provider=wire_provider(client, backend, calls=4),
         now=DEMO_TIME + timedelta(hours=2),
     )
     assert result["stages"]["calibration"]["status"] == "completed"
@@ -435,8 +440,8 @@ def test_formal_calibration_and_split_request_paths(context, tmp_path, backend):
     latest = store.current()[first.hypothesis_id]
     assert latest.previous_revision_id == first.revision_id
     assert len(latest.observed_signatures) == 3
-    assert len(client.requests) == 3
-    assert len({s["physical_call_id"] for s in result["stages"].values()}) == 3
+    assert len(client.requests) == 4
+    assert len({s["physical_call_id"] for s in result["stages"].values()}) == 4
     assert (
         receipt(store, submitted["submission"]["submission_id"])["receipt"]["status"] == "processed"
     )
@@ -628,6 +633,9 @@ def test_user_correction_through_runner_has_real_receipt_and_keeps_original(cont
     )
 
     class Correction(FakeAIProvider):
+        from morning_radar.tendencies.core_demo import synthetic_review
+        review_hypotheses = staticmethod(synthetic_review)
+
         def discover_hypotheses(self, context):
             return CoreOutput(outcome="no_changes")
 

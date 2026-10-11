@@ -28,6 +28,16 @@ NOW = datetime.fromisoformat(REQUEST["as_of"])
 def formal(response, wires):
     def transport(request):
         wires.append(json.loads(request.content))
+        payload = json.loads(request.content)
+        context = json.loads(payload["messages"][-1]["content"])
+        if "candidates" in context:
+            from test_grounded_review import assessment
+            reviewed = copy.deepcopy(response)
+            reviewed["choices"][0]["message"]["content"] = json.dumps(
+                {"assessments": [assessment(c) for c in context["candidates"]]},
+                ensure_ascii=False,
+            )
+            return httpx.Response(200, json=reviewed)
         return httpx.Response(200, json=response)
 
     client = OpenAI(
@@ -289,7 +299,7 @@ def test_one_invalid_actual_sibling_does_not_erase_synthetic_valid_transaction(
     result = core.run_core(tmp_path, config_root=Path("."), provider=provider, now=NOW)
     assert len(result["stages"]["discovery"]["rejected"]) == 1
     assert len(CoreStore(tmp_path).revisions()) == 1
-    assert len(CoreStore(tmp_path).events()) == 1
+    assert len([e for e in CoreStore(tmp_path).events() if e["revisions"]]) == 1
 
 
 @pytest.mark.parametrize(

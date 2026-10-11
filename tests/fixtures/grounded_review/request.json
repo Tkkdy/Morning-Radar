@@ -1,0 +1,216 @@
+{
+  "as_of": "2026-10-10T16:13:24.454289+00:00",
+  "evidence": [
+    {
+      "evidence_id": "ev-fe4686d123651313dd86f775",
+      "input_id": "item-51b6227273006399313d",
+      "content_version": "d3c4d2ad5a8f013b40cda503",
+      "event_ids": [],
+      "source_url": "https://simonwillison.net/2026/Oct/10/the-new-york-times/",
+      "source_kind": "source_claim",
+      "source_role": "practitioner",
+      "title": "Quoting The New York Times",
+      "excerpt": "Anthropic detailed the activity of its A.I. agents in a blog post on Friday, without naming the targeted websites. But two sources with knowledge of the incidents said Anthropic’s A.I. agents had submitted 20 visa applications through a form available on the State Department’s website. All the applications were incomplete and were not processed, they said. — The New York Times , Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website Tags: accidental-cyberattacks , anthropic , generative-ai , ai , llms",
+      "excerpt_spans": [
+        [
+          0,
+          520
+        ]
+      ],
+      "excerpt_source_sha256": "103e29b8231a6582f18cff066921ac41f320f807ffccc563be8357c27a2b9b00",
+      "scope": [],
+      "published_at": "2026-10-10T02:04:12Z",
+      "observed_at": "2026-10-10T16:13:24.454289Z",
+      "ingested_at": "2026-10-10T16:13:24.454289Z",
+      "status": "captured",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-7ec3f51682cf827697bf2e27",
+      "input_id": "item-80c7d2c462e2d70adbf2",
+      "content_version": "3873ead23c379431c65454b2",
+      "event_ids": [],
+      "source_url": "https://lucumr.pocoo.org/2026/10/6/codemode/",
+      "source_kind": "source_claim",
+      "source_role": "practitioner",
+      "title": "What is Codemode",
+      "excerpt": "More than a year ago I wrote a few posts here that recommended people not to load custom tools into their context (or MCP servers) but to just use more scripts.\n[…]\nHowever bash has one fundamental limitation which is that it can only compose programs that run.\n[…]\nIf a multimodal model needs to read an image, it cannot use cat for that because the harness needs to inject the actual image payload into the protocol of the LLM.\n[…]\nIn order to spawn and orchestrate sub agents, it’s tricky to avoid tools that are provided by the harness. While in theory the agent could provide a CLI tool that talks to the outer harness via environment variables and Unix sockets, it’s a rather crude process.",
+      "excerpt_spans": [
+        [
+          0,
+          160
+        ],
+        [
+          1148,
+          1244
+        ],
+        [
+          1407,
+          1570
+        ],
+        [
+          1615,
+          1877
+        ]
+      ],
+      "excerpt_source_sha256": "d571a750924fe42bd3339787f34a8dbc8ffee3d485a8e1ab57a42f45d51c2824",
+      "scope": [],
+      "published_at": "2026-10-06T00:00:00Z",
+      "observed_at": "2026-10-06T23:13:56.379120Z",
+      "ingested_at": "2026-10-06T23:13:56.379120Z",
+      "status": "captured",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-cd2f3c790b3fe9b454067aa4",
+      "input_id": "item-818f4dcf830d117b3a34",
+      "content_version": "465c64eec841819288b0a226",
+      "event_ids": [],
+      "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
+      "source_kind": "source_claim",
+      "source_role": "editorial",
+      "title": "Anthropic is cutting off its internal evaluations from the internet",
+      "excerpt": "After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday, the company detailed \"unintended model actions,\" including submitting a false tip regarding an unsolved murder, that led to the decision. Although the impact of these behaviors was minimal […]",
+      "excerpt_spans": [
+        [
+          0,
+          370
+        ]
+      ],
+      "excerpt_source_sha256": "ad47e75744d756847a2c0ca66d1dfd4fab8a6b19ca8f0baf4c60e64f6fb9d5e4",
+      "scope": [],
+      "published_at": "2026-10-10T10:41:16-04:00",
+      "observed_at": "2026-10-10T16:13:24.454289Z",
+      "ingested_at": "2026-10-10T16:13:24.454289Z",
+      "status": "captured",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-929585e9a5c0ef30ccc44e61",
+      "input_id": "item-d1b7828d133bfee68d01",
+      "content_version": "ad2dd14025f822f68e6ff16b",
+      "event_ids": [],
+      "source_url": "https://victorribeiro.com/aimAndShoot/",
+      "source_kind": "source_claim",
+      "source_role": "community_discovery",
+      "title": "Show HN: I used Claude Code to address the HN comments on my 2019 game",
+      "excerpt": "In 2019 I posted Aim and Shoot here, a browser shooter where every enemy is a neural network evolved by a genetic algorithm between rounds: https://news.ycombinator.com/item?id=21353123 The thread had a lot of good feedback that I never got around to.\n[…]\nThis year I gave Claude Code the thread and the repo and worked through it: - \"Give the player full health every round\" (four of you asked): done.\n[…]\n- \"I wish there was a scoreboard, I wanted a screenshot of how far I got\": the game-over screen now shows the round you reached and your best.\n[…]\n- \"The gun sound is jarring\": quieter, and M mutes it.\n[…]\nIt's PHP + SQLite on a small VPS, with a local fallback if the server is down.",
+      "excerpt_spans": [
+        [
+          0,
+          251
+        ],
+        [
+          252,
+          398
+        ],
+        [
+          399,
+          541
+        ],
+        [
+          542,
+          596
+        ],
+        [
+          1489,
+          1567
+        ]
+      ],
+      "excerpt_source_sha256": "a629be5c7b3f60d7fdd06d809c4cb53ff23e5023a630cbba01edee1bdccaa120",
+      "scope": [],
+      "published_at": "2026-10-08T16:40:14Z",
+      "observed_at": "2026-10-08T23:56:04.793194Z",
+      "ingested_at": "2026-10-08T23:56:04.793194Z",
+      "status": "unverified",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-7b635a8f697b160f4365186e",
+      "input_id": "item-ec899f104655cd5da0d3",
+      "content_version": "5c58edec05a630f8f09b03b0",
+      "event_ids": [],
+      "source_url": "https://github.blog/changelog/2026-10-09-github-copilot-weekly-releases-october-5",
+      "source_kind": "source_claim",
+      "source_role": "official_primary",
+      "title": "GitHub Copilot weekly releases — October 5",
+      "excerpt": "This week’s updates make Copilot easier to use across accounts and environments, with more control over what agents can access and how you manage their work. GitHub Copilot Claude Haiku… The post GitHub Copilot weekly releases — October 5 appeared first on The GitHub Blog .",
+      "excerpt_spans": [
+        [
+          0,
+          274
+        ]
+      ],
+      "excerpt_source_sha256": "47402636da3a2918e716a7b7a02ec6417246cebe33c3b185b252c45bdc3a1245",
+      "scope": [],
+      "published_at": "2026-10-09T22:58:23Z",
+      "observed_at": "2026-10-10T16:13:24.454289Z",
+      "ingested_at": "2026-10-10T16:13:24.454289Z",
+      "status": "captured",
+      "information_gaps": [
+        "source_detail"
+      ]
+    }
+  ],
+  "registry": [],
+  "targets": [],
+  "seeds": [],
+  "reanalyze": false,
+  "evidence_overview": [
+    {
+      "evidence_id": "ev-fe4686d123651313dd86f775",
+      "title": "Quoting The New York Times",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": "Anthropic detailed the activity of its A.I. agents in a blog post on Friday, without naming the targ"
+    },
+    {
+      "evidence_id": "ev-fcfe5bc11eac7e338891fe00",
+      "title": "What do you want from AI?",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-f9a89f2c5bea2ac7efee1d0a",
+      "title": "Anthropic can't reliably control its AI agents, cuts internet access",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-f9038458810c09c450d8e550",
+      "title": "Grok 3 Beta — The Age of Reasoning Agents",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-f31a5f8d5e45464628876ce9",
+      "title": "REA Reverse – Engineer Anything",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-e2e7a2222059e9428ff3bb10",
+      "title": "I would like the value of my home to rise, while my property taxes fal",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-e05003803d44cc41e780a1e2",
+      "title": "Anthropic AI Model Goes Rogue, Submits Fake Unsolved Murder Tip",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-dc861caea3ac0ed7371e1fbe",
+      "title": "Is Anthropic a Good Business?",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-d7e42b29356862c10c1f3474",
+      "title": "The hazy OpenAI growth metric driving Wall Street",
+      "observed_at": "2026-10-10T16:13:24.454289+00:00",
+      "summary": ""
+    }
+  ],
+  "overview_role": "discovery_leads_only; not citable evidence"
+}

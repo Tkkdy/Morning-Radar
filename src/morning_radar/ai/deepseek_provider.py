@@ -89,6 +89,9 @@ class DeepSeekTaskPolicy:
 
 
 TASK_POLICIES = {
+    "tendency_review": DeepSeekTaskPolicy(
+        "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
+    ),
     "tendency_discover": DeepSeekTaskPolicy(
         "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
     ),
@@ -414,6 +417,8 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                         "sha256": hashlib.sha256(content.encode()).hexdigest(),
                         "characters": len(content), "raw_retained": False,
                     }
+                if task == "tendency_review":
+                    self.last_review_response = content
                 parsed = json.loads(content)
                 if skip_model_validate:
                     call_meta["structured_retry"] = max(0, structured_attempt - 1)

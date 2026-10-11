@@ -81,6 +81,7 @@ class OpenAITaskPolicy:
 
 
 OPENAI_TASK_POLICIES = {
+    "tendency_review": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
     "tendency_discover": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
     "tendency_calibrate": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
     "tendency_split": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),

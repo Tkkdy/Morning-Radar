@@ -332,7 +332,9 @@ class ReleaseCoordinator:
                 for p in (self.root / "data/briefs").glob("*.json")
                 if p.stem <= context["business_date"]
             },
-            tendency_revisions={key: value.revision_id for key, value in store.current().items()},
+            tendency_revisions={
+                key: value.revision_id for key, value in store.public_current().items()
+            },
             receipt_ids=sorted(store.receipts()),
             evidence_index=hashes(self.root / "data/evidence"),
             health_versions=hashes(self.root / "data/health" / context["business_date"]),

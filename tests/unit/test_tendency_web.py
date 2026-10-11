@@ -348,7 +348,27 @@ def test_branch_lineage_survives_child_update_and_parent_changes(store):
     draft = demo_decision(context, "narrowed")
     # Branch from the saved broad hypothesis in an independent store, then update it.
     target = CoreStore(store.root / "branch")
-    target.append({"revisions": [original.model_dump(mode="json")]}, operation_id="initial")
+    from types import SimpleNamespace
+
+    from morning_radar.tendencies.core_demo import synthetic_review
+    from morning_radar.tendencies.grounded_review import (
+        candidate,
+        review_candidates,
+        review_version,
+    )
+
+    def reviewed_append(revision):
+        entry = {"type": "review_candidate", "phase": "calibration",
+                 "revision": revision.model_dump(mode="json"),
+                 "request": candidate(revision, target.current().get(revision.hypothesis_id),
+                                      review_version(REPO / "prompts"))}
+        target.append(entry, operation_id="candidate:" + revision.revision_id)
+        checked = review_candidates(target, SimpleNamespace(review_hypotheses=synthetic_review),
+                                    [entry], now=DEMO_TIME + timedelta(days=3),
+                                    prompt_dir=REPO / "prompts", maximum_characters=24000)
+        assert checked["items"][0]["status"] == "approved"
+
+    reviewed_append(original)
     draft.update(
         kind="split",
         parent_hypothesis_id=original.hypothesis_id,
@@ -363,11 +383,8 @@ def test_branch_lineage_survives_child_update_and_parent_changes(store):
         run_id="branch",
         analysis_version="synthetic",
     )
-    target.append({"revisions": [child.model_dump(mode="json")]}, operation_id="branch")
-    target.append(
-        {"revisions": [store.revisions()[1].model_dump(mode="json")]},
-        operation_id="parent-advanced",
-    )
+    reviewed_append(child)
+    reviewed_append(store.revisions()[1])
     draft = child.decision.model_dump()
     draft.update(
         kind="analysis_reassessment",
@@ -389,7 +406,7 @@ def test_branch_lineage_survives_child_update_and_parent_changes(store):
         analysis_version="synthetic",
     )
     assert updated.parent_revision_id == original.revision_id
-    target.append({"revisions": [updated.model_dump(mode="json")]}, operation_id="updated")
+    reviewed_append(updated)
     forged = updated.model_copy(
         update={"parent_hypothesis_id": None, "previous_revision_id": updated.revision_id}
     )

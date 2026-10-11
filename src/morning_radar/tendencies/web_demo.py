@@ -7,7 +7,7 @@ from pathlib import Path
 
 from morning_radar.ai import FakeAIProvider
 from morning_radar.tendencies.core import run_core
-from morning_radar.tendencies.core_demo import demo_decision
+from morning_radar.tendencies.core_demo import demo_decision, synthetic_review
 from morning_radar.tendencies.core_models import CoreOutput, SplitOutput
 from morning_radar.tendencies.core_store import CoreStore
 from morning_radar.tendencies.web_input import line_entries
@@ -15,6 +15,8 @@ from morning_radar.tendencies.web_input import line_entries
 
 class SyntheticEditorProvider(FakeAIProvider):
     """Authored demonstration, not model discovery or opinion verification."""
+
+    review_hypotheses = staticmethod(synthetic_review)
 
     def split_hypotheses(self, context):
         return SplitOutput(items=line_entries(context["raw_text"]))

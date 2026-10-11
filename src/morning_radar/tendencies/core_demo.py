@@ -125,7 +125,88 @@ def demo_decision(context: dict, kind: str = "early") -> dict:
     }
 
 
+def synthetic_review(context):
+    """HTTP boundary fixture for the existing authored demo; never reviews real evidence."""
+    import httpx
+    from openai import OpenAI
+
+    from morning_radar.ai import AIBudget, DeepSeekProvider
+    from morning_radar.tendencies.grounded_review import ReviewOutput
+
+    if not all(e["synthetic"] for c in context["candidates"] for e in c["evidence"]):
+        return ReviewOutput()
+
+    def transport(request):
+        value = json.loads(request.content)
+        ctx = json.loads(value["messages"][-1]["content"])
+        rows = []
+        for c in ctx["candidates"]:
+            rows.append(
+                {
+                    **{
+                        k: c[k]
+                        for k in [
+                            "candidate_id",
+                            "body_sha256",
+                            "evidence_sha256",
+                            "analysis_version",
+                            "expected_previous_revision_id",
+                        ]
+                    },
+                    "verdict": "approved",
+                    "checked_fields": c["narratives"],
+                    "rationale": "synthetic：人工预制审查响应，只验证接线。",
+                    "early_reason": "synthetic：条件结构不是已证实未来。",
+                    "findings": [
+                        {
+                            "field_path": "hypothesis.claim",
+                            "text": c["decision"]["hypothesis"]["claim"],
+                            "category": "conditional_inference",
+                            "explanation": "synthetic：保留未知与范围。",
+                        }
+                    ],
+                }
+            )
+        return httpx.Response(
+            200,
+            json={
+                "id": "synthetic",
+                "object": "chat.completion",
+                "created": 0,
+                "model": "synthetic",
+                "choices": [
+                    {
+                        "index": 0,
+                        "finish_reason": "stop",
+                        "message": {
+                            "role": "assistant",
+                            "content": json.dumps({"assessments": rows}, ensure_ascii=False),
+                        },
+                    }
+                ],
+            },
+        )
+
+    client = OpenAI(
+        api_key="offline",
+        base_url="https://replay.invalid/v1",
+        max_retries=0,
+        http_client=httpx.Client(transport=httpx.MockTransport(transport)),
+    )
+    provider = DeepSeekProvider(
+        model="synthetic",
+        api_key="offline",
+        base_url="https://replay.invalid/v1",
+        client=client,
+        budget=AIBudget(1, 24000, 40, 1),
+        prompt_dir=Path(__file__).resolve().parents[3] / "prompts",
+    )
+    return provider.review_hypotheses(context)
+
+
 class SyntheticTrajectoryProvider(FakeAIProvider):
+    review_hypotheses = staticmethod(synthetic_review)
+
     def __init__(self, kind: str):
         self.kind = kind
 
