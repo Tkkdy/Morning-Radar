@@ -38,3 +38,9 @@ B1 材料表达规则：
 - open-weight 译为“开放权重”，不扩大为开源；provided policy 为“给定策略”，不引入“我/我们”视角。
   摘要说包含评测，只能说明作者报告有评测；不能推出结果、适用条件、创新或架构差异。后训练关系也不能
   证明架构相同或差异仅在后训练。缺失项留空并说明缺口，历史材料保留原始日期。
+
+证据传递契约：
+- 新分析只能放入 grounded_analysis，每项 premises 是 GroundedPoint（保留说话者/媒体归因的 text、原 URL、summary/content_excerpt 内的连续短 quote），inference 独立表达系统推断。analysis 旧字段输出空列表；无充分前提时省略，并说明未知。引文匹配不等于推断成立。
+- opinions 保留媒体或作者的评价及提出者，不与事实或系统推断混合；来源角色不决定每句话性质。
+- 逐份对比输入来源的新增贡献。重要后续事实在 facts 保留出处；不强制每个细节占正文，但不因归并同一事件而丢掉新增信息。
+- technical_reading.problem 只表达材料支持的任务或问题，不虚构旧模型缺陷、既有需求。author_evidence 可记录作者说做过哪些评测；evaluation_results 仅记录输入给出的具体结果（有量化则保留条件）。没有具体结果时为 null 并在 uncertainties 说明。不得把“包含评测”当成结果。

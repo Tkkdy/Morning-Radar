@@ -344,10 +344,13 @@ def _user_visible_narratives(output: BaseModel) -> Iterable[str]:
         yield output.canonical_title
         yield from output.facts
         yield from output.analysis
+        for analysis in output.grounded_analysis:
+            yield analysis.inference
+            yield from (point.text for point in analysis.premises)
         if output.technical_reading is not None:
             for field in (
                 "problem", "method", "engineering_value",
-                "author_evidence", "conditions", "limitations"
+                "author_evidence", "evaluation_results", "conditions", "limitations"
             ):
                 point = getattr(output.technical_reading, field)
                 if point is not None:

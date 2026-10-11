@@ -21,7 +21,7 @@ from morning_radar.ai.models import (
     ResearchResolutionBatch,
     ResearchResolutionDraft,
 )
-from morning_radar.ai.request_payload import dumps
+from morning_radar.ai.request_payload import brief_request_payload, dumps
 from morning_radar.briefing import (
     BriefLimits,
     BriefValidationError,
@@ -1085,11 +1085,7 @@ def test_real_provider_reservation_uses_long_payloads_signals_and_editorial_deci
 
 def test_real_provider_released_reservation_allows_remaining_auxiliary_capacity() -> None:
     source_story = story(1)
-    brief_payload = {
-        "stories": [source_story.model_dump(mode="json")],
-        "signals": [],
-        "editorial_decisions": [],
-    }
+    brief_payload = brief_request_payload([source_story], [])
     auxiliary_payload: list[object] = []
 
     def serialize(payload) -> str:
@@ -1141,14 +1137,10 @@ def test_real_provider_insufficient_reservation_degrades_without_exceeding_limit
         return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
 
     first_payload = serialize(
-        {
-            "stories": [item.model_dump(mode="json") for item in stories[:4]],
-            "signals": [],
-            "editorial_decisions": [],
-        }
+        brief_request_payload(stories[:4], [])
     )
     second_payload = serialize(
-        {"stories": [stories[4].model_dump(mode="json")], "signals": [], "editorial_decisions": []}
+        brief_request_payload(stories[4:], [])
     )
     second_batch = BriefDraft(
         items=[

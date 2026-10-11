@@ -162,7 +162,7 @@ class FakeAIProvider:
                 dict.fromkeys(name for item in items for name in item.topic_candidates)
             ),
             facts=[item.summary or item.title for item in items],
-            analysis=["多个 Fixture 来源在离线流程中被结构化合并。"],
+            analysis=[],
             uncertainties=[],
             source_urls=[item.url for item in items],
             primary_source_url=first.url,

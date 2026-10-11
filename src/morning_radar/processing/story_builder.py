@@ -11,7 +11,7 @@ from datetime import datetime
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
-from morning_radar.ai.request_payload import get_call_meta
+from morning_radar.ai.request_payload import get_call_meta, story_materials
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
 from morning_radar.models.core import TechnicalQuoteNormalization, TechnicalReading
 from morning_radar.processing.deduplicate import _comparison_url, deduplicate_items
@@ -103,6 +103,8 @@ def _validate_draft_urls(
     if reading is not None:
         from morning_radar.research.materials import validate_technical_reading
         reading, conversions = validate_technical_reading(reading, items)
+    from morning_radar.research.materials import validate_analysis
+    validate_analysis(draft.grounded_analysis, items)
     invented = returned - allowed
     if invented:
         raise StoryValidationError(
@@ -154,6 +156,12 @@ def build_story(
 ) -> Story:
     draft = provider.merge_story(items)
     reading, conversions = _validate_draft_urls(draft, items)
+    from morning_radar.research.materials import validate_analysis
+    grounded_analysis, analysis_conversions = validate_analysis(draft.grounded_analysis, items)
+    materials, omitted = story_materials(items)
+    uncertainties = list(draft.uncertainties)
+    if draft.analysis:
+        uncertainties.append("部分分析未附可追溯的来源前提，未纳入本次分析。")
     primary = choose_primary_source(items)
     source_urls = list(verified_source_urls_for_items(items))
     published_values = [item.published_at for item in items if item.published_at is not None]
@@ -175,8 +183,13 @@ def build_story(
         evidence_ids=[str(item.metadata["evidence_id"]) for item in items
                       if item.metadata.get("evidence_id")],
         facts=draft.facts,
-        analysis=draft.analysis,
-        uncertainties=draft.uncertainties,
+        analysis=[],
+        opinions=draft.opinions,
+        grounded_analysis=grounded_analysis,
+        analysis_quote_normalizations=analysis_conversions,
+        source_materials=materials,
+        source_materials_omitted=omitted,
+        uncertainties=uncertainties,
         relevance_score=0,
         importance_score=0,
         novelty_score=0,

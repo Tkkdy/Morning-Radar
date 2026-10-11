@@ -36,12 +36,13 @@
       {% set reading = context.technical_reading %}
       <section class="technical-reading" aria-label="技术材料解读">
       <h4>{{ {"paper": "论文解读", "technical_report": "技术报告", "technical_article": "技术长文"}[reading.kind] }}</h4>
-      {% for key, label in [("problem", "解决的问题"), ("method", "主要方法"), ("engineering_value", "差异与工程价值"), ("author_evidence", "作者报告的证据"), ("conditions", "适用条件"), ("limitations", "限制")] %}
+      {% for key, label in [("problem", "材料支持的任务或问题"), ("method", "主要方法"), ("engineering_value", "差异与工程价值"), ("author_evidence", "作者报告的评测依据"), ("evaluation_results", "作者报告的具体结果"), ("conditions", "适用条件"), ("limitations", "限制")] %}
         {% set point = reading[key] %}
         {% if point %}<p><strong>{{ label }}：</strong>{{ point.text }}</p>
         <details><summary>{{ label }}的原始依据</summary><blockquote>{{ point.quote }}</blockquote><a href="{{ point.source_url }}" rel="noopener noreferrer">原始材料</a></details>{% endif %}
       {% endfor %}
       {% if not reading.engineering_value or not reading.conditions or not reading.limitations %}<p class="uncertainty">{% if not reading.engineering_value %}现有材料未充分说明工程价值。{% endif %}{% if not reading.conditions %}现有材料未充分说明适用条件。{% endif %}{% if not reading.limitations %}现有材料未充分说明限制。{% endif %}</p>{% endif %}
+      {% if not reading.evaluation_results %}<p class="uncertainty">尚未提供单独可追溯的具体评测结果；作者声明做过评测不等于材料已给出结果。</p>{% endif %}
       </section>
     {% endif %}
   {% endfor %}
@@ -97,7 +98,7 @@
     {% set additional_facts = context.facts | reject("equalto", item.what_happened) | list %}
     {% set additional_analysis = context.analysis if compact else (context.analysis | reject("equalto", item.why_it_matters) | list) %}
     {% set additional_uncertainties = context.uncertainties if compact else (context.uncertainties | reject("equalto", item.uncertainty) | list) %}
-    {% if additional_facts or additional_analysis or additional_uncertainties or context.entity_names or context.product_names or context.topic_names or context.source_refs %}
+    {% if additional_facts or additional_analysis or context.opinions or context.grounded_analysis or additional_uncertainties or context.entity_names or context.product_names or context.topic_names or context.source_refs %}
       {% set detail_state.available = true %}
     {% endif %}
   {% endfor %}
@@ -109,8 +110,12 @@
       {% set additional_facts = context.facts | reject("equalto", item.what_happened) | list %}
       {% set additional_analysis = context.analysis if compact else (context.analysis | reject("equalto", item.why_it_matters) | list) %}
       {% set additional_uncertainties = context.uncertainties if compact else (context.uncertainties | reject("equalto", item.uncertainty) | list) %}
-      {% if additional_facts %}<div class="detail-block"><h4>已验证事实</h4><ul>{% for fact in additional_facts %}<li>{{ fact }}</li>{% endfor %}</ul></div>{% endif %}
-      {% if additional_analysis %}<div class="detail-block"><h4>分析</h4><ul>{% for analysis in additional_analysis %}<li>{{ analysis }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if additional_facts %}<div class="detail-block"><h4>材料中的事实陈述</h4><ul>{% for fact in additional_facts %}<li>{{ fact }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if additional_analysis %}<div class="detail-block"><h4>历史分析（未记录逐项来源前提）</h4><ul>{% for analysis in additional_analysis %}<li>{{ analysis }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if context.opinions %}<div class="detail-block"><h4>来源评价</h4><ul>{% for opinion in context.opinions %}<li>{{ opinion }}</li>{% endfor %}</ul></div>{% endif %}
+      {% for analysis in context.grounded_analysis %}<div class="detail-block"><h4>系统推断</h4><p>{{ analysis.inference }}</p>
+        <details><summary>来源前提（引文存在不代表推断已验证）</summary>{% for premise in analysis.premises %}<p>{{ premise.text }}</p><blockquote>{{ premise.quote }}</blockquote><a href="{{ premise.source_url }}" rel="noopener noreferrer">前提来源</a>{% endfor %}</details>
+      </div>{% endfor %}
       {% if additional_uncertainties %}<div class="detail-block"><h4>不确定性</h4><ul>{% for uncertainty in additional_uncertainties %}<li>{{ uncertainty }}</li>{% endfor %}</ul></div>{% endif %}
       {% if context.entity_names or context.product_names or context.topic_names %}<div class="detail-tags">
         {% if context.entity_names %}<span>实体：{{ context.entity_names | join("、") }}</span>{% endif %}

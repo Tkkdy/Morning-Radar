@@ -165,12 +165,23 @@ class GroundedPoint(RadarModel):
     _source_http = field_validator("source_url")(_validate_http_url)
 
 
+class GroundedAnalysis(RadarModel):
+    """Source-local premises and an explicitly separate system inference."""
+
+    premises: list[GroundedPoint] = Field(min_length=1, max_length=3)
+    inference: str = Field(min_length=1, max_length=600)
+
+
 class TechnicalReading(RadarModel):
     kind: Literal["paper", "technical_report", "technical_article"]
     problem: GroundedPoint | None = None
     method: GroundedPoint | None = None
     engineering_value: GroundedPoint | None = None
     author_evidence: GroundedPoint | None = None
+    evaluation_results: GroundedPoint | None = Field(
+        default=None,
+        description="材料实际提供的作者评测结果；仅声明做过评测不足以填写。",
+    )
     conditions: GroundedPoint | None = None
     limitations: GroundedPoint | None = None
 
@@ -203,9 +214,14 @@ class Story(RadarModel):
     source_refs: list[StorySourceRef] = Field(default_factory=list)
     technical_reading: TechnicalReading | None = None
     technical_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
+    analysis_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
+    source_materials: list[ResearchEvidenceRef] = Field(default_factory=list, max_length=8)
+    source_materials_omitted: list[str] = Field(default_factory=list)
     evidence_ids: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
-    analysis: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(default_factory=list)  # Legacy records only.
+    opinions: list[str] = Field(default_factory=list)
+    grounded_analysis: list[GroundedAnalysis] = Field(default_factory=list, max_length=3)
     uncertainties: list[str] = Field(default_factory=list)
     relevance_score: float = Field(ge=0, le=1)
     importance_score: float = Field(ge=0, le=1)
@@ -226,6 +242,19 @@ class Story(RadarModel):
         if value not in info.data.get("source_urls", []):
             raise ValueError("primary_source_url must be present in source_urls")
         return value
+
+    @field_validator("source_materials")
+    @classmethod
+    def materials_must_match_story(
+        cls, values: list[ResearchEvidenceRef], info: Any,
+    ) -> list[ResearchEvidenceRef]:
+        for value in values:
+            if (value.raw_item_id not in info.data.get("source_item_ids", [])
+                    or value.url not in info.data.get("source_urls", [])):
+                raise ValueError("source material must belong to this Story")
+        if sum(len(v.summary) + len(v.content_excerpt) for v in values) > 6000:
+            raise ValueError("Story source material exceeds 6000 characters")
+        return values
 
     @field_validator("source_refs")
     @classmethod
@@ -352,7 +381,9 @@ class BriefStoryContext(RadarModel):
     topic_names: list[str] = Field(default_factory=list)
     published_at: datetime | None = None
     facts: list[str] = Field(default_factory=list)
-    analysis: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(default_factory=list)  # Legacy records only.
+    opinions: list[str] = Field(default_factory=list)
+    grounded_analysis: list[GroundedAnalysis] = Field(default_factory=list, max_length=3)
     uncertainties: list[str] = Field(default_factory=list)
     status: StoryStatus = StoryStatus.UNKNOWN
     primary_source_url: str

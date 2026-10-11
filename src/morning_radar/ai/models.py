@@ -13,6 +13,7 @@ from morning_radar.models.continuity import (
     StoryRelationType,
 )
 from morning_radar.models.core import (
+    GroundedAnalysis,
     PracticeSignalKind,
     RadarModel,
     ResearchDisposition,
@@ -61,7 +62,11 @@ class MergedStoryDraft(RadarModel):
     facts: list[str] = Field(default_factory=list)
     analysis: list[str] = Field(
         default_factory=list,
-        description="推断与事实前提分开；前提的时长、范围和状态须有输入依据，不能用不确定措辞掩盖补造。",
+        description="仅兼容旧响应；新输出必须为空，使用 grounded_analysis 表达有来源前提的推断。",
+    )
+    grounded_analysis: list[GroundedAnalysis] = Field(
+        default_factory=list, max_length=3,
+        description="每项包含保留归因的来源前提（text/source_url/连续短引文）及分开的推断；无充分前提则省略。",
     )
     opinions: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)

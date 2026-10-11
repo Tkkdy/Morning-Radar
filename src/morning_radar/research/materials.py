@@ -21,7 +21,12 @@ from morning_radar.ai.usage import atomic_json
 from morning_radar.collectors.http import HttpClient, RequestBudgetExceeded, RequestStartBudget
 from morning_radar.intake.identity import content_version
 from morning_radar.models import RawItem
-from morning_radar.models.core import TechnicalQuoteNormalization, TechnicalReading
+from morning_radar.models.core import (
+    GroundedAnalysis,
+    GroundedPoint,
+    TechnicalQuoteNormalization,
+    TechnicalReading,
+)
 from morning_radar.settings import MaterialEnrichmentConfig
 from morning_radar.time_utils import display_date
 
@@ -352,14 +357,34 @@ def validate_technical_reading(
 
     if reading.problem is None or reading.method is None:
         raise AIOutputError("Technical reading requires a sourced problem and method")
+    points = {name: getattr(reading, name) for name in (
+        "problem", "method", "engineering_value", "author_evidence", "evaluation_results",
+        "conditions", "limitations",
+    ) if getattr(reading, name) is not None}
+    updates, conversions = validate_grounded_points(points, items)
+    return reading.model_copy(update=updates), conversions
+
+
+def validate_analysis(
+    analyses: list[GroundedAnalysis], items: list[RawItem],
+) -> tuple[list[GroundedAnalysis], list[TechnicalQuoteNormalization]]:
+    points = {f"analysis.{i}.premises.{j}": point
+              for i, analysis in enumerate(analyses) for j, point in enumerate(analysis.premises)}
+    restored, conversions = validate_grounded_points(points, items)
+    return [analysis.model_copy(update={"premises": [
+        restored[f"analysis.{i}.premises.{j}"] for j in range(len(analysis.premises))
+    ]}) for i, analysis in enumerate(analyses)], conversions
+
+
+def validate_grounded_points(
+    points: dict[str, GroundedPoint], items: list[RawItem],
+) -> tuple[dict[str, GroundedPoint], list[TechnicalQuoteNormalization]]:
+    """Validate literal attribution, not semantic entailment or inference truth."""
+    from morning_radar.ai import AIOutputError
+
     updates = {}
     conversions = []
-    for name in (
-        "problem", "method", "engineering_value", "author_evidence", "conditions", "limitations",
-    ):
-        point = getattr(reading, name)
-        if point is None:
-            continue
+    for name, point in points.items():
         fragments = [
             (item, source_field, getattr(item, source_field))
             for item in items if item.url == point.source_url
@@ -392,7 +417,7 @@ def validate_technical_reading(
                 raw_item_id=item.id, source_field=source_field, source_start=start, source_end=end,
                 rule=mode,
             ))
-    return reading.model_copy(update=updates), conversions
+    return updates, conversions
 
 
 def save_event_evidence(root: Path, stories, *, now: datetime) -> None:

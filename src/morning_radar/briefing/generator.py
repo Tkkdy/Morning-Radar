@@ -133,6 +133,8 @@ def _story_context(story: Story) -> BriefStoryContext:
         published_at=story.published_at,
         facts=story.facts,
         analysis=story.analysis,
+        opinions=story.opinions,
+        grounded_analysis=story.grounded_analysis,
         uncertainties=story.uncertainties,
         status=story.status,
         primary_source_url=story.primary_source_url,
