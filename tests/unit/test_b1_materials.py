@@ -179,3 +179,42 @@ def test_cancel_preserves_started_candidate_diagnostic(tmp_path):
         )
     assert load_material_evidence(tmp_path, through=NOW)[0]["status"] == "cancelled"
     assert http.before_attempt is None
+
+
+def test_article_body_is_not_displaced_by_long_page_chrome(tmp_path):
+    # Reduced synthetic regression of the observed R1 failure, not saved page HTML.
+    page = Path("tests/fixtures/b1/news-body-after-chrome.html").read_text(encoding="utf-8")
+    item = raw().model_copy(update={"title": "后续新闻", "summary": "", "content_excerpt": ""})
+    result = enrich_materials(
+        [item], root=tmp_path, now=NOW, policy=policy(),
+        important_ids={item.id},
+        http=transport(lambda _: httpx.Response(
+            200, text=page, headers={"Content-Type": "text/html"},
+        )),
+        network_allowed=True,
+    )
+    excerpt = result.snapshots[0]["excerpt"]
+    assert "The company said it suspended internet access" in excerpt
+    assert "REGISTER NOW" not in excerpt
+    assert "Image Credits" not in excerpt
+    assert "unrelated sidebar" not in excerpt
+    assert result.items[0].summary == ""
+    assert len(excerpt) <= 1600 and result.stats["material_http_requests"] == 1
+
+
+def test_title_and_metadata_only_page_does_not_close_source_gap(tmp_path):
+    page = "<html><head><title>" + "News headline " * 40 + "</title></head>"
+    page += "<main><h1>" + "News headline " * 40 + "</h1>"
+    page += "<div>Image Credits: Example. Author Name. Publication time.</div></main></html>"
+    item = raw().model_copy(update={"title": "后续新闻", "summary": "", "content_excerpt": ""})
+    result = enrich_materials(
+        [item], root=tmp_path, now=NOW, policy=policy(),
+        important_ids={item.id},
+        http=transport(lambda _: httpx.Response(
+            200, text=page, headers={"Content-Type": "text/html"},
+        )),
+        network_allowed=True,
+    )
+    assert result.snapshots[0]["status"] == "parse_empty"
+    assert "source_detail" in result.snapshots[0]["remaining_gaps"]
+    assert result.items[0].content_excerpt == ""

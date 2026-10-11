@@ -13,6 +13,7 @@ from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
 from morning_radar.ai.request_payload import get_call_meta
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
+from morning_radar.models.core import TechnicalQuoteNormalization, TechnicalReading
 from morning_radar.processing.deduplicate import _comparison_url, deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
@@ -91,19 +92,24 @@ def choose_primary_source(items: list[RawItem]) -> RawItem:
     return min(items, key=source_key)
 
 
-def _validate_draft_urls(draft: MergedStoryDraft, items: list[RawItem]) -> None:
+def _validate_draft_urls(
+    draft: MergedStoryDraft, items: list[RawItem],
+) -> tuple[TechnicalReading | None, list[TechnicalQuoteNormalization]]:
     allowed = set(verified_source_urls_for_items(items))
     returned = set(draft.source_urls)
     if draft.primary_source_url:
         returned.add(draft.primary_source_url)
-    if draft.technical_reading is not None:
+    reading, conversions = draft.technical_reading, []
+    if reading is not None:
         from morning_radar.research.materials import validate_technical_reading
-        validate_technical_reading(draft.technical_reading, items)
+        reading, conversions = validate_technical_reading(reading, items)
     invented = returned - allowed
     if invented:
         raise StoryValidationError(
             f"AI story draft contains URL outside verified source set: {sorted(invented)[0]}"
         )
+
+    return reading, conversions
 
 
 def _source_ref(item: RawItem) -> StorySourceRef:
@@ -147,7 +153,7 @@ def build_story(
     now: datetime,
 ) -> Story:
     draft = provider.merge_story(items)
-    _validate_draft_urls(draft, items)
+    reading, conversions = _validate_draft_urls(draft, items)
     primary = choose_primary_source(items)
     source_urls = list(verified_source_urls_for_items(items))
     published_values = [item.published_at for item in items if item.published_at is not None]
@@ -164,7 +170,8 @@ def build_story(
         source_urls=source_urls,
         primary_source_url=primary.url,
         source_refs=[_source_ref(item) for item in items],
-        technical_reading=draft.technical_reading,
+        technical_reading=reading,
+        technical_quote_normalizations=conversions,
         evidence_ids=[str(item.metadata["evidence_id"]) for item in items
                       if item.metadata.get("evidence_id")],
         facts=draft.facts,

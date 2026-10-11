@@ -1005,3 +1005,20 @@ def test_continuity_request_timeout_never_exceeds_remaining_deadline() -> None:
 
     timeout = configured.client.chat.completions.last_request["timeout"]
     assert 0 < timeout <= 0.5
+
+
+def test_merge_and_write_receive_attribution_prompts_and_all_raw_fragments():
+    """Verify production message wiring, not a model's semantic compliance."""
+    configured = provider([merged_story_json("测试事件"), BriefDraft(items=[]).model_dump_json()])
+    raw = raw_item().model_copy(update={
+        "summary": "已有摘要。", "content_excerpt": "另有正文短摘录。",
+    })
+    configured.merge_story([raw])
+    configured.write_brief([], [])
+    merge, write = configured.client.chat.completions.requests
+    for name, request in (("merge_story", merge), ("write_brief", write)):
+        prompt = Path(f"prompts/{name}.md").read_text(encoding="utf-8").strip()
+        assert prompt in request["messages"][0]["content"]
+    payload = json.loads(merge["messages"][1]["content"])
+    assert payload[0]["summary"] == raw.summary
+    assert payload[0]["content_excerpt"] == raw.content_excerpt

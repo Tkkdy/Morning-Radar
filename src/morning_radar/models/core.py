@@ -175,6 +175,19 @@ class TechnicalReading(RadarModel):
     limitations: GroundedPoint | None = None
 
 
+class TechnicalQuoteNormalization(RadarModel):
+    """Evidence for restoring a model quote to a contiguous source span."""
+
+    point: str
+    original_quote: str
+    source_url: str
+    raw_item_id: str
+    source_field: Literal["summary", "content_excerpt"]
+    source_start: int
+    source_end: int
+    rule: Literal["whitespace-v1", "quotation-marks-v1"]
+
+
 class Story(RadarModel):
     id: str = Field(min_length=1)
     canonical_title: str = Field(min_length=1, max_length=500)
@@ -189,6 +202,7 @@ class Story(RadarModel):
     primary_source_url: str
     source_refs: list[StorySourceRef] = Field(default_factory=list)
     technical_reading: TechnicalReading | None = None
+    technical_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
     evidence_ids: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
     analysis: list[str] = Field(default_factory=list)

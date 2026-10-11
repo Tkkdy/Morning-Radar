@@ -21,38 +21,60 @@ from morning_radar.ai.usage import atomic_json
 from morning_radar.collectors.http import HttpClient, RequestBudgetExceeded, RequestStartBudget
 from morning_radar.intake.identity import content_version
 from morning_radar.models import RawItem
+from morning_radar.models.core import TechnicalQuoteNormalization, TechnicalReading
 from morning_radar.settings import MaterialEnrichmentConfig
 from morning_radar.time_utils import display_date
 
 
 class MaterialParser(HTMLParser):
+    """Collect body paragraphs, preferring the document's semantic content region."""
+
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
         self.skip = 0
         self.blocks: list[str] = []
+        self.block_scopes: list[int] = []
         self.current: list[str] = []
         self.links: list[str] = []
+        self.body_tag: str | None = None
+        self.block_scope = 0
+        self.main_depth = 0
+        self.article_depth = 0
 
     def handle_starttag(self, tag, attrs):
-        if tag in {"script", "style", "nav", "header", "footer", "form"}:
+        if tag in {"head", "script", "style", "nav", "header", "footer", "form", "aside"}:
             self.skip += 1
         if self.skip:
             return
-        if tag in {"p", "h1", "h2", "h3", "li", "blockquote"}:
+        if tag == "main":
+            self.main_depth += 1
+        elif tag == "article":
+            self.article_depth += 1
+        if tag in {"p", "blockquote", "li"}:
             self.flush()
+            self.body_tag = tag
+            self.block_scope = 2 if self.article_depth else 1 if self.main_depth else 0
         if tag == "a" and len(self.links) < 100:
             href = dict(attrs).get("href")
             if href:
                 self.links.append(href)
 
     def handle_endtag(self, tag):
-        if tag in {"script", "style", "nav", "header", "footer", "form"}:
+        if tag in {"head", "script", "style", "nav", "header", "footer", "form", "aside"}:
             self.skip = max(0, self.skip - 1)
-        if not self.skip and tag in {"p", "h1", "h2", "h3", "li", "blockquote"}:
+            return
+        if self.skip:
+            return
+        if tag in {"p", "blockquote", "li"}:
             self.flush()
+            self.body_tag = None
+        if tag == "main":
+            self.main_depth = max(0, self.main_depth - 1)
+        elif tag == "article":
+            self.article_depth = max(0, self.article_depth - 1)
 
     def handle_data(self, data):
-        if not self.skip:
+        if not self.skip and self.body_tag is not None:
             self.current.append(data)
 
     def flush(self):
@@ -60,7 +82,16 @@ class MaterialParser(HTMLParser):
         self.current = []
         if len(text) >= 20 and len(self.blocks) < 1000:
             self.blocks.append(text)
+            self.block_scopes.append(self.block_scope)
 
+    def content_blocks(self) -> list[str]:
+        if not self.blocks:
+            return []
+        scope = max(self.block_scopes)
+        return [
+            text for text, block_scope in zip(self.blocks, self.block_scopes, strict=True)
+            if block_scope == scope
+        ]
 
 def material_gaps(item: RawItem) -> list[str]:
     text = item.content_excerpt or item.summary
@@ -214,7 +245,7 @@ def enrich_materials(
                                 r"|方法|实验|限制"
                             )
                             blocks = sorted(
-                                enumerate(parser.blocks),
+                                enumerate(parser.content_blocks()),
                                 key=lambda pair: (
                                     not bool(re.search(needles, pair[1], re.I)),
                                     pair[0],
@@ -289,30 +320,79 @@ def load_material_evidence(root: Path, *, through: datetime, maximum: int = 200)
     return sorted(latest.values(), key=lambda s: s["observed_at"], reverse=True)[:maximum]
 
 
-def validate_technical_reading(reading, items: list[RawItem]) -> None:
-    """Quotes must occur in the attributed source excerpt; no invented evidence URLs."""
+# Deliberately finite: no NFKC, case folding, punctuation removal or fuzzy matching.
+_QUOTATION_MARKS = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"'})
+
+
+def _quote_text(text: str, *, typography: bool) -> tuple[str, list[tuple[int, int]]]:
+    """Preserve offsets while applying the existing whitespace equivalence."""
+    chars: list[str] = []
+    spans: list[tuple[int, int]] = []
+    for word in re.finditer(r"\S+", text):
+        if chars:
+            chars.append(" ")
+            spans.append((spans[-1][1], word.start()))
+        for index in range(word.start(), word.end()):
+            char = text[index]
+            chars.append(char.translate(_QUOTATION_MARKS) if typography else char)
+            spans.append((index, index + 1))
+    return "".join(chars), spans
+
+
+def validate_technical_reading(
+    reading: TechnicalReading, items: list[RawItem],
+) -> tuple[TechnicalReading, list[TechnicalQuoteNormalization]]:
+    """Return a validated copy with source-original quotes and conversion evidence.
+
+    Search every attributed fragment for an exact match before allowing whitespace
+    and then the four listed quotation marks. Never concatenate source fragments.
+    The input draft and collected material remain unchanged, including on failure.
+    """
     from morning_radar.ai import AIOutputError
 
-    by_url = {}
-    for item in items:
-        by_url.setdefault(item.url, []).extend([item.summary, item.content_excerpt])
     if reading.problem is None or reading.method is None:
         raise AIOutputError("Technical reading requires a sourced problem and method")
-    for name in [
-        "problem",
-        "method",
-        "engineering_value",
-        "author_evidence",
-        "conditions",
-        "limitations",
-    ]:
+    updates = {}
+    conversions = []
+    for name in (
+        "problem", "method", "engineering_value", "author_evidence", "conditions", "limitations",
+    ):
         point = getattr(reading, name)
         if point is None:
             continue
-        texts = by_url.get(point.source_url, [])
-        quote = " ".join(point.quote.split())
-        if not any(quote in " ".join(text.split()) for text in texts):
+        fragments = [
+            (item, source_field, getattr(item, source_field))
+            for item in items if item.url == point.source_url
+            for source_field in ("summary", "content_excerpt")
+        ]
+        match = None
+        for mode in ("exact", "whitespace-v1", "quotation-marks-v1"):
+            for item, source_field, text in fragments:
+                if mode == "exact":
+                    start = text.find(point.quote)
+                    end = start + len(point.quote)
+                else:
+                    normalized, spans = _quote_text(text, typography=mode == "quotation-marks-v1")
+                    quote, _ = _quote_text(point.quote, typography=mode == "quotation-marks-v1")
+                    offset = normalized.find(quote) if quote else -1
+                    start, end = (-1, -1) if offset < 0 else (
+                        spans[offset][0], spans[offset + len(quote) - 1][1])
+                if start >= 0 and 12 <= end - start <= 280:
+                    match = (item, source_field, text[start:end], start, end, mode)
+                    break
+            if match is not None:
+                break
+        if match is None:
             raise AIOutputError("Technical reading quote is absent from its attributed source")
+        item, source_field, source_quote, start, end, mode = match
+        updates[name] = point.model_copy(update={"quote": source_quote})
+        if source_quote != point.quote:
+            conversions.append(TechnicalQuoteNormalization(
+                point=name, original_quote=point.quote, source_url=point.source_url,
+                raw_item_id=item.id, source_field=source_field, source_start=start, source_end=end,
+                rule=mode,
+            ))
+    return reading.model_copy(update=updates), conversions
 
 
 def save_event_evidence(root: Path, stories, *, now: datetime) -> None:
