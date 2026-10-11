@@ -42,7 +42,10 @@ class ClassificationBatch(RadarModel):
 
 class MergedStoryDraft(RadarModel):
     same_event: bool
-    canonical_title: str = Field(min_length=1, max_length=500)
+    canonical_title: str = Field(
+        min_length=1, max_length=500,
+        description="与事实、意见和未知状态一致；来源的评价或因果解释在标题内保留归因，不升级为确定事实。",
+    )
 
     @field_validator("canonical_title")
     @classmethod
@@ -56,12 +59,18 @@ class MergedStoryDraft(RadarModel):
     product_names: list[str] = Field(default_factory=list)
     topic_names: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
-    analysis: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(
+        default_factory=list,
+        description="推断与事实前提分开；前提的时长、范围和状态须有输入依据，不能用不确定措辞掩盖补造。",
+    )
     opinions: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)
     source_urls: list[str] = Field(default_factory=list)
     primary_source_url: str | None = None
-    status: StoryStatus = StoryStatus.UNKNOWN
+    status: StoryStatus = Field(
+        default=StoryStatus.UNKNOWN,
+        description="仅描述本事件有证据的状态；available须有明确可用性依据，报告发表或计划宣布本身不证明产品可用。",
+    )
     technical_reading: TechnicalReading | None = None
 
 

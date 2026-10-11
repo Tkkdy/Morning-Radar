@@ -1022,3 +1022,11 @@ def test_merge_and_write_receive_attribution_prompts_and_all_raw_fragments():
     payload = json.loads(merge["messages"][1]["content"])
     assert payload[0]["summary"] == raw.summary
     assert payload[0]["content_excerpt"] == raw.content_excerpt
+
+    # Verify descriptions reach the actual wire schema, not just an unused model.
+    system = merge["messages"][0]["content"]
+    wire_schema = json.loads(system[system.rfind("\n{") + 1:])
+    expected = MergedStoryDraft.model_json_schema()["properties"]
+    for field in ("canonical_title", "analysis", "status"):
+        assert expected[field]["description"]
+        assert wire_schema["properties"][field]["description"] == expected[field]["description"]
