@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "有开发者发布日历跟踪器 ResetAlerts，用于追踪其所称的 OpenAI Codex 28 天 reset 挑战（每天一次\"明确改进\"或一次用量重置），并回溯 2025 年 4 月以来的重置记录，附类似航班准时率的图表。",
+    "id": "radar-821613fc5b100d5e1422",
+    "missing_evidence": [
+      "OpenAI 官方关于 28 天 reset 挑战或用量重置规则的公告或说明",
+      "ResetAlerts 所依据的重置数据一手来源与统计口径",
+      "重置\"准时率\"的定义、样本范围与更新频率"
+    ],
+    "observed_at": "2026-10-11T23:07:49.607853Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-02e44ff6cdeb634a3131",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://resetalerts.com/codex-28-day-challenge"
+      }
+    ],
+    "uncertainty": "仅有 Show HN 提交者的自述，未经官方或独立证据核实；28 天挑战是否真实存在、重置频率及\"准时率\"含义均不明确。",
+    "why_notable": "若属实，Codex 的用量重置节奏与\"准时\"程度直接影响依赖该产品的开发者工作流；第三方量化工具的出现也反映社区对该机制的高度关注。"
+  }
+]

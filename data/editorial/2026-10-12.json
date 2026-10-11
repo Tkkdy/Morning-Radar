@@ -1,0 +1,139 @@
+{
+  "date": "2026-10-12",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认发布动作，但性能与定价均未披露，值得展开但不可当已验证能力。",
+      "retain_for_trends": true,
+      "story_id": "story-1b7b78986796b5e62852",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-release-cadence",
+        "chatgpt-interaction-layer-shift"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "代理式能力向专业合同场景延伸的可验证方向，但无指标与产品化证据。",
+      "retain_for_trends": true,
+      "story_id": "story-6b10c623a7ae6a4ab283",
+      "support_for_story_id": null,
+      "trend_links": [
+        "computer-use-professional-workflow"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方 SDK 常规增量与文档更新，无实质工作流影响。",
+      "retain_for_trends": false,
+      "story_id": "story-47c06d05515e558ba726",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "小型兼容性 SDK 更新，无未来验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-6630fe2c941f69cf7b7a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "第三方未验证线索，但反映用户对配额重置节奏的追踪需求，可作弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-b17cc8a19b6a264bcbd8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "codex-quota-reset-transparency"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 1,
+      "reason": "官方确认的垂直行业 ChatGPT 插件合作，装饰性较强，无开发工具影响。",
+      "retain_for_trends": false,
+      "story_id": "story-e4733fd27238e3eccc2b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "警告清理与暂停后台升级属普通维护，无结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-472dff6628f2342c1e4f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "编辑类高管观点，无量化证据，仅作轻量阅读。",
+      "retain_for_trends": false,
+      "story_id": "story-b3c658cc7be1a57ea75c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "播客议题摘要，无具体事实或可验证后续用途。",
+      "retain_for_trends": false,
+      "story_id": "story-f9b24d42f273e5374f1c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "单日股价波动无明确因果，不构成读者价值或趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-180ef63931fbe61794b9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅有社区链接、无官方可验证内容的事故线索，尚不足以保留。",
+      "retain_for_trends": false,
+      "story_id": "story-b38e99bb9e8fc954f2ef",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-11T23:09:13.893683Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
