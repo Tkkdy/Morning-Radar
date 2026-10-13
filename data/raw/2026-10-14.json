@@ -37,6 +37,7 @@
     "id": "item-ed1be8ea5f53c7373a9c",
     "language": "en-us",
     "metadata": {
+      "content_version": "f7dbf895dd152e6a57ac",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-23347420601cd4d27d10",
     "language": "en-US",
     "metadata": {
+      "content_version": "f4b33e45d414a0488d2d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-53911f98c21c784fce1a",
     "language": "en-US",
     "metadata": {
+      "content_version": "0038c9dfa3e19ffc015b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-9105929b3b08daedb2b4",
     "language": null,
     "metadata": {
+      "content_version": "a20d4dbb9eb1480f5f20",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-f581adf32b14cf27ac83",
     "language": "en-US",
     "metadata": {
+      "content_version": "e3eec33319e4c8422268",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +284,7 @@
     "id": "item-7e289d45dfc4cd8f5fef",
     "language": "en-us",
     "metadata": {
+      "content_version": "e252594c0398e293b710",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -370,6 +376,7 @@
     "id": "item-dee213e55b0d0c7e6565",
     "language": "en-US",
     "metadata": {
+      "content_version": "15e8df4c8b2af4d793c4",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -582,6 +589,7 @@
     "id": "item-1ce341749cd1d883ec32",
     "language": "en-us",
     "metadata": {
+      "content_version": "4645768aef620391e8fd",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -673,6 +681,7 @@
     "id": "item-ad0dc492d32241f22ffa",
     "language": "en-US",
     "metadata": {
+      "content_version": "bc3dce2ab2e885c964c8",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2188,6 +2197,7 @@
     "id": "item-9d90bbd97b85568370c7",
     "language": "en-US",
     "metadata": {
+      "content_version": "5c544e2d97c911d2181f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -73513,6 +73523,7 @@
     "id": "item-36f74a1165945d075a5f",
     "language": "en",
     "metadata": {
+      "content_version": "0f663f3e7bf9c01d7c54",
       "data_anomaly": false,
       "forks": 884,
       "official": true,
@@ -73551,6 +73562,7 @@
     "id": "item-3bcb59dfb0fa4c4dce77",
     "language": "en",
     "metadata": {
+      "content_version": "1b2deefd75342a89d978",
       "data_anomaly": false,
       "forks": 884,
       "official": true,
@@ -73589,6 +73601,7 @@
     "id": "item-2ff84b708c87960b9f63",
     "language": "en",
     "metadata": {
+      "content_version": "d35cd8c37f093fb64c91",
       "data_anomaly": false,
       "forks": 884,
       "official": true,
@@ -73893,6 +73906,7 @@
     "id": "item-82f0055625bab53bd313",
     "language": "en",
     "metadata": {
+      "content_version": "6d29f7061b7b38ed6f5c",
       "data_anomaly": false,
       "forks": 1034,
       "official": true,
@@ -76565,11 +76579,19 @@
     "metadata": {
       "comments": 275,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50078141",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/",
       "score": 318,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -76595,11 +76617,20 @@
     "metadata": {
       "comments": 694,
       "community_signal": true,
+      "content_version": "6e9d091efb68a4ca8838",
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50073879",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://deepmind.google/models/gemini/",
       "score": 886,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -76775,11 +76806,19 @@
     "metadata": {
       "comments": 458,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50073633",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/engineering/redesigning-source-control",
       "score": 465,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -76985,6 +77024,7 @@
     "metadata": {
       "comments": 362,
       "community_signal": true,
+      "content_version": "a0c3a0e5ae66fd6e38f0",
       "discussion_url": "https://news.ycombinator.com/item?id=50069499",
       "official": false,
       "original_url": "https://github.com/rust-lang/rust/issues/164250",
@@ -77435,6 +77475,7 @@
     "metadata": {
       "change_percent": 0.0017328434862055534,
       "close": 445.1199951171875,
+      "content_version": "ce0f25e38487f61ab054",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 444.3500061035156,
@@ -78381,38 +78422,6 @@
     "url": "https://bnonews.com/index.php/2026/10/saudi-national-working-at-openai-arrested-for-bugging-executive-conference-room/"
   },
   {
-    "author": "forthwall",
-    "company_candidates": [],
-    "content_excerpt": "https://x.com/OpenAINewsroom/status/2110095403198849132",
-    "fetched_at": "2026-10-13T23:25:29.274905Z",
-    "id": "item-15f5c0fffdfdebe83a70",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50078141",
-      "hn_submission_time": 1791923035,
-      "lab_id": "openai",
-      "original_url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-13T20:23:55Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://x.com/OpenAINewsroom/status/2110095403198849132",
-    "title": "OpenAI engineer arrested in bugging of executive conference room",
-    "topic_candidates": [],
-    "url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/"
-  },
-  {
     "author": "jaredwiener",
     "company_candidates": [],
     "content_excerpt": "",
@@ -78771,38 +78780,6 @@
     "title": "Secret scanning blocks Anthropic keys by default, adds Salesforce",
     "topic_candidates": [],
     "url": "https://github.blog/changelog/2026-10-13-secret-scanning-blocks-anthropic-keys-by-default-adds-salesforce/"
-  },
-  {
-    "author": "Philpax",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-13T23:25:29.274905Z",
-    "id": "item-5c4b3a726135887beb4d",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50073633",
-      "hn_submission_time": 1791906596,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/engineering/redesigning-source-control",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-13T15:49:56Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Redesigning source control at Anthropic",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/engineering/redesigning-source-control"
   },
   {
     "author": "mirzap",
@@ -79351,38 +79328,6 @@
     "title": "Gemini 4 Argon Model Card",
     "topic_candidates": [],
     "url": "https://deepmind.google/models/model-cards/gemini-4-argon/"
-  },
-  {
-    "author": "737max",
-    "company_candidates": [],
-    "content_excerpt": "See also: Gemini 4 Argon for Robotics - https://news.ycombinator.com/item?id=50074869",
-    "fetched_at": "2026-10-13T23:25:29.274905Z",
-    "id": "item-cb3ffeeca93ca7341226",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50073879",
-      "hn_submission_time": 1791907396,
-      "lab_id": "google_deepmind",
-      "original_url": "https://deepmind.google/models/gemini/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-13T16:03:16Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "See also: Gemini 4 Argon for Robotics - https://news.ycombinator.com/item?id=50074869",
-    "title": "Gemini 4 Argon",
-    "topic_candidates": [],
-    "url": "https://deepmind.google/models/gemini/"
   },
   {
     "author": "stwrt",

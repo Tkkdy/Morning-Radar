@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Anthropic 因 AI 辅助编码导致代码变更量激增（2026 年 5 月约每日 2,500 次合并，9 月超过每日 30,000 次），为此自建了 Git 的定制替代方案。",
+    "id": "radar-006ed5a7cd41b373ab25",
+    "missing_evidence": [
+      "Anthropic 原始技术文章的链接与完整内容",
+      "变更计数的口径与统计方法（是否包含 agent 自动提交）",
+      "自研方案与 Git 的具体差异、可用性与落地效果"
+    ],
+    "observed_at": "2026-10-13T23:25:29.274905Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-7e289d45dfc4cd8f5fef",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/13/redesigning-source-control-at-anthropic/"
+      }
+    ],
+    "uncertainty": "数字来自 Anthropic 自身叙述并经 Simon Willison 转述，无独立第三方验证；'由 AI 导致代码量激增'的因果归因亦未被证实。",
+    "why_notable": "若成立，这是 AI 大规模参与生产代码后倒逼版本控制与代码托管基础设施重构的具体信号，并给出了变更速率跃升一个数量级的量化描述。"
+  },
+  {
+    "claim": "Geoffrey Huntley 提出用 pre-commit hook 检查 git diff 中绕过内部 diagnostics 模块的直接调用，命中即阻断提交并向 agent 注入提示，促使其改用指定诊断库。",
+    "id": "radar-362b5ccda3c676c1e56d",
+    "missing_evidence": [
+      "该 pre-commit hook 的具体实现代码",
+      "在多个仓库或不同 agent 上的可复现验证",
+      "失败率、收敛速度等量化对比数据"
+    ],
+    "observed_at": "2026-10-13T23:25:29.274905Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-1ce341749cd1d883ec32",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/13/geoffrey-huntley/"
+      }
+    ],
+    "uncertainty": "属单个实践者的经验叙述与'十分满分'式主观评价，缺少对照实验；效果很可能依赖具体代码库与模型版本。",
+    "why_notable": "给出了一种把团队约束编码为工程门禁（而非仅写入 AGENTS.md 提示）来约束 coding agent 输出、避免规则漂移的可复用做法。"
+  }
+]

@@ -1,0 +1,154 @@
+{
+  "date": "2026-10-14",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "TOP",
+      "reader_value": 4,
+      "reason": "谷歌官方确认发布新一代旗舰模型，但能力与定价细节缺失，属未经验证的一手发布事实。",
+      "retain_for_trends": true,
+      "story_id": "story-54465d4317ea6aaa586c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-release-cadence",
+        "gemini-model-versioning"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "已确认 Gemini 4 Argon 在 Copilot 正式可用，是可核验的编码工具模型接入信号。",
+      "retain_for_trends": true,
+      "story_id": "story-eb6da6cfaa35fb3cc342",
+      "support_for_story_id": null,
+      "trend_links": [
+        "multi-vendor-model-routing-in-coding-agents",
+        "copilot-model-marketplace"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "企业级遥测归因与内容隔离选项对合规团队有实际价值，属可验证功能变更。",
+      "retain_for_trends": true,
+      "story_id": "story-f12ca838185c9e15e1b3",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-telemetry-privacy-controls"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "厂商教程提出 Agent 重写 Spark UDF 路径，方法有用但性能收益未经独立复现。",
+      "retain_for_trends": true,
+      "story_id": "story-b657fa7a9f3b9ff30067",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-assisted-code-migration",
+        "gpu-acceleration-spark-workloads"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "SDK 新增多智能体与统一分析类型定义，对使用 Managed Agents 的开发者有直接意义。",
+      "retain_for_trends": true,
+      "story_id": "story-c13025d59a4fa6b3b4b8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "managed-agents-multiagent-sdk"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "默认阻止 Anthropic 密钥推送是可验证的安全默认值收紧，影响开发者工作流。",
+      "retain_for_trends": true,
+      "story_id": "story-1adbc1b42ff2621294a9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-key-leak-prevention",
+        "secret-scanning-partner-expansion"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "新增 claude-haiku-5-5 与类型化 computer/browser 工具调用，是 SDK 层可验证的能力面扩张。",
+      "retain_for_trends": true,
+      "story_id": "story-a78dd9db365056f60bec",
+      "support_for_story_id": null,
+      "trend_links": [
+        "claude-model-lineup-updates",
+        "typed-agent-tool-calling"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "设备端私有智能体模型契合本地部署主线，但只有厂商发布声明，性能与许可待验证。",
+      "retain_for_trends": true,
+      "story_id": "story-877e03a3f302b17f2382",
+      "support_for_story_id": null,
+      "trend_links": [
+        "on-device-small-moe-agents",
+        "open-weight-local-deployment"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "补丁级 SDK 缺陷修复，无结构性影响也不具未来验证用途。",
+      "retain_for_trends": false,
+      "story_id": "story-8ade318e54ba2b9ec145",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "审计日志新增可视化属装饰性更新，无工作流结构变化。",
+      "retain_for_trends": false,
+      "story_id": "story-cb3518b7da9ff8468784",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "纯 CI 与文档维护性发布，无功能或能力变化。",
+      "retain_for_trends": false,
+      "story_id": "story-b1560f532690dade0649",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-13T23:26:54.264551Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
