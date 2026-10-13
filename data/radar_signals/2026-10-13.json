@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 发布 web-edit 0.1a0：他在手机上使用 Codex Remote 时，为在不把凭据经 LLM 往返的前提下编辑凭据文件，让 Codex 与 GPT-6 Astra Extra High 构建了一个 Python Web 应用，提供查看/编辑文件夹文件的网页 UI，并设计为通过 Tailscale 运行，由 agent 启动后直接经 Tailscale 网络编辑文件。",
+    "id": "radar-6075f38434a73df489dd",
+    "missing_evidence": [
+      "缺少独立来源或第三方复现，仅有作者自述",
+      "未提供代码仓库或发布页链接以核对实现细节",
+      "未说明 GPT-6 Astra Extra High 的实际可用性与生成过程",
+      "未验证该 Web UI 与 Tailscale 组合的安全边界（如鉴权、访问控制）"
+    ],
+    "observed_at": "2026-10-13T01:36:45.048666Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-993bc19082d2d062c86a",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/12/web-edit/"
+      }
+    ],
+    "uncertainty": "仅为单一实践者的第一手描述，模型名称与构建过程无法独立核实；该模式的安全性与可复用性未经检验。",
+    "why_notable": "展示了一种具体的 agent 协作模式：用编码 agent 生成工具，再用该工具绕开模型处理敏感凭据，同时把 agent 启动的服务置于私有网络（Tailscale）中。对关注 agent 工作流与凭据边界的人有参考价值。"
+  }
+]

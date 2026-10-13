@@ -67,6 +67,7 @@
     "id": "item-519145787ddbc1de0b42",
     "language": "en-US",
     "metadata": {
+      "content_version": "d0d0ac7a1ae7e6a0e058",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-c88f4119c47166d435fd",
     "language": null,
     "metadata": {
+      "content_version": "934f6622b69150b51d23",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -127,6 +129,7 @@
     "id": "item-713dc1089bb69aefce6c",
     "language": "en-us",
     "metadata": {
+      "content_version": "95a1fb7e4eb19b2f9252",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -157,6 +160,7 @@
     "id": "item-1e2db47d258dd52efadf",
     "language": "en-US",
     "metadata": {
+      "content_version": "1acd4029adb00828f0b9",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +252,7 @@
     "id": "item-e8d8f43511a9291fb5e3",
     "language": "en-us",
     "metadata": {
+      "content_version": "cdee6080ca8800d51268",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -339,6 +344,7 @@
     "id": "item-938ee56ecdcfa428e21d",
     "language": "en-US",
     "metadata": {
+      "content_version": "34b1a684625305581f07",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -520,6 +526,7 @@
     "id": "item-993bc19082d2d062c86a",
     "language": "en-us",
     "metadata": {
+      "content_version": "36347990797e0d10b1c9",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -792,6 +799,7 @@
     "id": "item-79fb31c209812beb34ed",
     "language": "en-us",
     "metadata": {
+      "content_version": "f12bd5d2187e970bfcc6",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1457,6 +1465,7 @@
     "id": "item-3b31c130485ad58e87a4",
     "language": null,
     "metadata": {
+      "content_version": "4a812795da670c0531cc",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1729,6 +1738,7 @@
     "id": "item-79db3391f4f6b0fd3e34",
     "language": null,
     "metadata": {
+      "content_version": "05a08f3a21931690513b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2001,6 +2011,7 @@
     "id": "item-76db71543697957ec590",
     "language": null,
     "metadata": {
+      "content_version": "f59917c5cabbe8283077",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -45681,6 +45692,7 @@
     "id": "item-1c26a1286d22f24eb4b4",
     "language": "en",
     "metadata": {
+      "content_version": "f77ce8cb090ef5506d82",
       "data_anomaly": false,
       "forks": 7858,
       "official": true,
@@ -46707,6 +46719,7 @@
     "id": "item-b9dbc5431c837823238d",
     "language": "en",
     "metadata": {
+      "content_version": "59df2e903b9ef7ab1f96",
       "data_anomaly": false,
       "forks": 1033,
       "official": true,
@@ -48227,6 +48240,7 @@
     "id": "item-62bd2b4c042758daf6fa",
     "language": "en",
     "metadata": {
+      "content_version": "2166c1a79f02e4d80479",
       "data_anomaly": false,
       "forks": 18245,
       "official": true,
@@ -49589,6 +49603,7 @@
     "metadata": {
       "comments": 20,
       "community_signal": true,
+      "content_version": "42679bbde9ecfb5b998a",
       "discussion_url": "https://news.ycombinator.com/item?id=50063365",
       "official": false,
       "original_url": "https://www.intel.com/content/www/us/en/products/details/discrete-gpus/data-center-gpu/d-series.html",
@@ -49619,11 +49634,19 @@
     "metadata": {
       "comments": 1,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50065402",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
       "score": 3,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -49679,6 +49702,7 @@
     "metadata": {
       "comments": 198,
       "community_signal": true,
+      "content_version": "a0d697d1a92ab90323ca",
       "discussion_url": "https://news.ycombinator.com/item?id=50054207",
       "official": false,
       "original_url": "https://www.bbc.com/news/articles/c64g1l5389kvo",
@@ -49997,6 +50021,7 @@
     "metadata": {
       "change_percent": -0.011050542915905074,
       "close": 259.5299987792969,
+      "content_version": "0b3094ba559e6dd924c6",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 262.42999267578125,
@@ -51115,38 +51140,6 @@
     "title": "OpenAI fires 3 safety researchers in dispute over AI risks",
     "topic_candidates": [],
     "url": "https://apnews.com/article/openai-chatgpt-ai-artificial-intelligence-safety-789d4f5293fba45a22fcb62ebfbc2a41"
-  },
-  {
-    "author": "luispa",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-13T01:36:45.048666Z",
-    "id": "item-3c9ecc76441b8602a317",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50065402",
-      "hn_submission_time": 1791854728,
-      "lab_id": "anthropic",
-      "original_url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-13T01:25:28Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "An Anthropic AI model sent a false homicide tip to Philadelphia police",
-    "topic_candidates": [],
-    "url": "https://techcrunch.com/2026/10/09/an-anthropic-ai-model-sent-a-false-homicide-tip-to-philadelphia-police/"
   },
   {
     "author": "sbulaev",
