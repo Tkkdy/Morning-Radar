@@ -12,9 +12,16 @@ if TYPE_CHECKING:
 
 def core_instructions(task: str, instructions: str) -> str:
     if task in {"tendency_discover", "tendency_calibrate"}:
-        from morning_radar.tendencies.core_models import CoreDecision
+        from morning_radar.tendencies.core_models import CoreDecision, CoreOutput
 
         instructions = instructions.split("单条 decision 的完整字段契约")[0]
+        empty = CoreOutput(outcome="insufficient_evidence", gaps=["材料尚不足以提出有依据的方向"])
+        instructions += (
+            "\n返回的是 CoreOutput 根对象，不是单条 decision。根对象契约见消息末尾。"
+            "outcome 必填；decisions 的每一项遵守下面的 CoreDecision 契约。"
+            "没有命题时可返回以下合法空结果（这是格式示例，不是指定答案）：\n"
+            + empty.model_dump_json()
+        )
         instructions += "\n单条 decision 的完整字段契约：\n" + json.dumps(
             CoreDecision.model_json_schema(), ensure_ascii=False, separators=(",", ":")
         )
