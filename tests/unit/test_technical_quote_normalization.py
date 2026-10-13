@@ -96,3 +96,31 @@ def test_failure_does_not_partially_restore_input():
     with pytest.raises(AIOutputError, match="absent"):
         validate_technical_reading(value, [item()])
     assert value.model_dump() == before
+
+
+def test_real_missing_method_preserves_story_without_technical_card():
+    import json
+    from pathlib import Path
+
+    from morning_radar.ai.models import MergedStoryDraft
+
+    fixture = Path("tests/fixtures/real_acceptance/technical-missing-method.json")
+    evidence = json.loads(fixture.read_text(encoding="utf-8"))
+    inputs = [RawItem.model_validate(x) for x in evidence["inputs"]]
+    draft = MergedStoryDraft.model_validate_json(evidence["content"])
+    before = draft.model_dump()
+    provider = FakeAIProvider()
+    provider.merge_story = lambda _: draft
+    story = build_story(inputs, provider=provider, now=NOW)
+    assert story.technical_reading is None
+    assert story.facts == draft.facts and story.source_urls == draft.source_urls
+    assert any("技术阅读卡未展示" in x and "方法概述" in x for x in story.uncertainties)
+    assert draft.model_dump() == before
+
+
+@pytest.mark.parametrize("missing", ["problem", "method"])
+def test_incomplete_card_still_rejects_invalid_supplied_evidence(missing):
+    value = reading("Invented evidence that is absent from the original source.")
+    setattr(value, missing, None)
+    with pytest.raises(AIOutputError, match="absent"):
+        validate_technical_reading(value, [item()])

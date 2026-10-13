@@ -160,6 +160,12 @@ def build_story(
     grounded_analysis, analysis_conversions = validate_analysis(draft.grounded_analysis, items)
     materials, omitted = story_materials(items)
     uncertainties = list(draft.uncertainties)
+    if draft.technical_reading is not None and reading is None:
+        missing = [label for name, label in (("problem", "问题说明"), ("method", "方法概述"))
+                   if getattr(draft.technical_reading, name) is None]
+        uncertainties.append(
+            "技术阅读卡未展示：模型输出缺少有来源依据的" + "、".join(missing) + "。"
+        )
     if draft.analysis:
         uncertainties.append("部分分析未附可追溯的来源前提，未纳入本次分析。")
     primary = choose_primary_source(items)

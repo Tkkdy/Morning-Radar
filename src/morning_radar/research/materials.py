@@ -347,22 +347,21 @@ def _quote_text(text: str, *, typography: bool) -> tuple[str, list[tuple[int, in
 
 def validate_technical_reading(
     reading: TechnicalReading, items: list[RawItem],
-) -> tuple[TechnicalReading, list[TechnicalQuoteNormalization]]:
+) -> tuple[TechnicalReading | None, list[TechnicalQuoteNormalization]]:
     """Return a validated copy with source-original quotes and conversion evidence.
 
     Search every attributed fragment for an exact match before allowing whitespace
     and then the four listed quotation marks. Never concatenate source fragments.
     The input draft and collected material remain unchanged, including on failure.
     """
-    from morning_radar.ai import AIOutputError
-
-    if reading.problem is None or reading.method is None:
-        raise AIOutputError("Technical reading requires a sourced problem and method")
     points = {name: getattr(reading, name) for name in (
         "problem", "method", "engineering_value", "author_evidence", "evaluation_results",
         "conditions", "limitations",
     ) if getattr(reading, name) is not None}
     updates, conversions = validate_grounded_points(points, items)
+    # Validate supplied evidence before omitting an incomplete optional card.
+    if reading.problem is None or reading.method is None:
+        return None, []
     return reading.model_copy(update=updates), conversions
 
 
