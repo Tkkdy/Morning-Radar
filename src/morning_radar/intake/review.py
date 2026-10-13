@@ -2,13 +2,17 @@
 
 from __future__ import annotations
 
+import logging
 from collections import defaultdict
 
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
+from morning_radar.ai.candidate_classification import validate_candidate_ids
 from morning_radar.ai.models import ClassificationBatch
 from morning_radar.ai.request_payload import classify_items_payload, dumps
 from morning_radar.intake.identity import intake_key
 from morning_radar.intake.models import ProcessingStatus, ReasonCode
+
+LOGGER = logging.getLogger(__name__)
 
 
 def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
@@ -30,6 +34,7 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
                 ordered.append(queues[key].pop(0))
     ordered = ordered[: app.candidate_review_limit]
     results = {}
+    adaptation = defaultdict(list)
     spent = 0
     for index in range(0, len(ordered), min(20, app.maximum_ai_items)):
         batch = ordered[index : index + min(20, app.maximum_ai_items)]
@@ -51,16 +56,25 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
         try:
             output = provider.classify_items(compact)
             ids = {r.item.id for r in batch}
-            if len({item.item_id for item in output.items}) != len(output.items):
-                raise AIOutputError("Duplicate review item")
-            if any(item.item_id not in ids for item in output.items):
-                raise AIOutputError("Unknown review item")
+            output = validate_candidate_ids(output, ids)
+            for note in output._candidate_diagnostics:
+                LOGGER.info("Candidate review adaptation: %s", note)
+                if note.get("item_id") in ids:
+                    adaptation[note["item_id"]].append(note)
         except AIBudgetExceeded:
             break
         except AIOutputError:
             continue
         results.update({item.item_id: item for item in output.items})
     if not results:
+        for record in unique.values():
+            notes = adaptation.get(record.item.id)
+            if notes:
+                prepared.ledger.update(
+                    record.input_id, record.content_version, now=prepared.process_now,
+                    candidate_diagnostics={"reviewed": False, "adaptation": notes},
+                )
+        prepared.ledger.save()
         return None
 
     def rank(record):
@@ -121,6 +135,7 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
                 if review
                 else "review_budget_or_output_unavailable",
                 "review_input_characters": spent,
+                "adaptation": adaptation.get(record.item.id, []),
             },
         )
         if chosen:

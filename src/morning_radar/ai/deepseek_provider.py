@@ -21,6 +21,10 @@ from pydantic import BaseModel, ValidationError
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 from morning_radar.ai.budget import AIBudget, AIBudgetExceeded, AITaskPriority
+from morning_radar.ai.candidate_classification import (
+    CandidateClassificationBatch,
+    validate_candidate_ids,
+)
 from morning_radar.ai.errors import (
     AIAuthenticationError,
     AIBillingUnavailable,
@@ -485,12 +489,18 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
         return request
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
+        candidate_review = bool(items) and all(
+            item.metadata.get("review_only") is True for item in items
+        )
         return self._parse(
             task="classify",
-            schema=ClassificationBatch,
+            schema=CandidateClassificationBatch if candidate_review else ClassificationBatch,
             payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
+            output_validator=(
+                lambda output: validate_candidate_ids(output, {item.id for item in items})
+            ) if candidate_review else None,
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
