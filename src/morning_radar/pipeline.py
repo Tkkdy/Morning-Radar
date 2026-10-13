@@ -16,7 +16,7 @@ from morning_radar.briefing import (
     BriefLimits,
     core_brief_request_payloads,
     generate_daily_brief_with_memory,
-    ranked_eligible_stories,
+    select_brief_stories,
 )
 from morning_radar.continuity.candidates import StoryMemory
 from morning_radar.continuity.engine import ContinuityRunResult, resolve_daily_continuity
@@ -1028,30 +1028,12 @@ class MorningRadarPipeline:
             maximum_stories=self.app.editorial.maximum_stories,
         )
         brief_limits = BriefLimits(maximum_items=self.app.maximum_brief_items)
-        if editorial_result.active:
-            assert editorial_result.selection is not None
-            story_by_id = {story.id: story for story in stories}
-            primary_ids = editorial_result.selection.visible_story_ids[
-                : brief_limits.maximum_items
-            ]
-            support_ids = [
-                support_id
-                for primary_id in primary_ids
-                for support_id in editorial_result.selection.support_by_story_id.get(
-                    primary_id,
-                    [],
-                )
-            ]
-            brief_ai_stories = [
-                story_by_id[story_id]
-                for story_id in dict.fromkeys([*primary_ids, *support_ids])
-            ]
-        else:
-            brief_ai_stories = ranked_eligible_stories(
-                stories,
-                relevance_threshold=self.app.relevance_threshold,
-                importance_threshold=self.app.importance_threshold,
-            )[: brief_limits.maximum_items]
+        _, brief_ai_stories = select_brief_stories(
+            stories, limits=brief_limits,
+            relevance_threshold=self.app.relevance_threshold,
+            importance_threshold=self.app.importance_threshold,
+            editorial_result=editorial_result,
+        )
         story_history = self._story_history(history_root, brief_date)
         story_history[brief_date] = stories
         signals = TrendDetector(
@@ -1103,7 +1085,9 @@ class MorningRadarPipeline:
         _reserve_brief_core_budget(
             provider,
             brief_ai_stories,
-            signals,
+            sorted(signals, key=lambda signal: (signal.strength, signal.id), reverse=True)[
+                : self.app.maximum_ai_items
+            ],
             brief_editorial_decisions,
         )
         try:

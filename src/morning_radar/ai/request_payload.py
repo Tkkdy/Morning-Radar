@@ -321,6 +321,13 @@ def slim_evidence(ref: ResearchEvidenceRef) -> ResearchEvidenceRef:
     )
 
 
+def writing_story_payload(story: Story) -> dict[str, Any]:
+    """Remove only the generated headline from writing; retain original evidence."""
+    payload = story_request_payload(story)
+    payload.pop("canonical_title")
+    return payload
+
+
 def brief_request_payload(
     stories: Sequence[Story],
     signals: Sequence[Signal],
@@ -328,7 +335,7 @@ def brief_request_payload(
 ) -> dict[str, Any]:
     """Build the exact structured payload used by the brief-writing providers."""
     return {
-        "stories": [story_request_payload(story) for story in stories],
+        "stories": [writing_story_payload(story) for story in stories],
         "signals": [signal.model_dump(mode="json") for signal in signals],
         "editorial_decisions": [
             decision.model_dump(mode="json") for decision in editorial_decisions or []
@@ -343,7 +350,7 @@ def brief_item_recovery_request_payload(
 ) -> dict[str, Any]:
     """Build the exact structured payload used for one-item brief recovery."""
     return {
-        "story": story_request_payload(story),
+        "story": writing_story_payload(story),
         "signals": [signal.model_dump(mode="json") for signal in signals],
         "editorial_decision": (
             editorial_decision.model_dump(mode="json")

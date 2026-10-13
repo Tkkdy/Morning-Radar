@@ -241,3 +241,55 @@ def test_malformed_optional_quote_is_dropped_at_schema_boundary():
     assert parsed.items[0]._why_omission_reason == "malformed_explanation_evidence"
     clean = sanitize_brief_explanation(parsed.items[0], [source_story()])
     assert clean._why_omission_reason == "malformed_explanation_evidence"
+
+
+@pytest.mark.parametrize("provider_class", [DeepSeekProvider, OpenAIProvider])
+@pytest.mark.parametrize("recovery", [False, True])
+def test_writing_omits_generated_title_without_losing_real_source_evidence(
+    provider_class, recovery,
+):
+    import json
+
+    from morning_radar.ai.request_payload import story_request_payload
+
+    saved = json.loads(Path("tests/fixtures/real_acceptance/writing-mixed-stories.json").read_text(
+        encoding="utf-8"))
+    story = next(Story.model_validate(row) for row in saved
+                 if row["id"] == "story-ea9e7b9b18ba309e9ece")
+    before = story.model_dump_json()
+    # This is only a transport fixture, not a corrected model answer or semantic proof.
+    item = GeneratedBriefItem(story_ids=[story.id], title="离线接线合成输出",
+        section="top_stories", what_happened=story.facts[0], source_urls=story.source_urls)
+    wire = Wire(BriefItemRecoveryDraft(item=item) if recovery else BriefDraft(items=[item]))
+    provider = provider_class(model="test", api_key="offline", budget=AIBudget(2, 100000, 10),
+        prompt_dir=Path("prompts"), client=SimpleNamespace(chat=SimpleNamespace(completions=wire),
+                                                          responses=wire),
+        **({"base_url": "https://example.test"} if provider_class is DeepSeekProvider else {}))
+    if recovery:
+        provider.recover_brief_item(story, [])
+    else:
+        provider.write_brief([story], [])
+    request = wire.requests[0]
+    payload = json.loads(request["input"] if "input" in request
+                         else request["messages"][-1]["content"])
+    projected = payload["story"] if recovery else payload["stories"][0]
+    expected = story_request_payload(story)
+    expected.pop("canonical_title")
+    assert projected == expected
+    assert story.model_dump_json() == before
+    assert story_request_payload(story)["canonical_title"] == story.canonical_title
+    prompt = request.get("instructions") or request["messages"][0]["content"]
+    assert "记者的解释不得嵌入" in prompt
+    assert "直到满足条件才恢复" in prompt
+
+
+def test_fact_fallback_does_not_reuse_generated_title_but_leads_stay_leads():
+    from morning_radar.briefing.generator import _deterministic_generated_item
+
+    story = source_story().model_copy(update={"canonical_title": "没有材料支持的强标题"})
+    item = _deterministic_generated_item(story, section="top_stories", fallback=True)
+    assert item.title == story.facts[0] and item.what_happened == story.facts[0]
+    lead = _deterministic_generated_item(story.model_copy(update={"facts": []}),
+                                         section="top_stories", fallback=True)
+    assert lead.section == "other_reading"
+    assert "尚缺足够正文" in lead.what_happened

@@ -116,6 +116,39 @@ def ranked_eligible_stories(
     return eligible
 
 
+def select_brief_stories(
+    stories: list[Story],
+    *,
+    limits: BriefLimits,
+    relevance_threshold: float = 0,
+    importance_threshold: float = 0,
+    editorial_result: EditorialRunResult | None = None,
+) -> tuple[list[Story], list[Story]]:
+    """Return display candidates and ordered factual writing inputs for both callers.
+
+    Editorial primary slots and their support attachments keep their existing
+    meaning. Without active editorial selection, leads do not consume body slots.
+    """
+    selection = editorial_result.selection if editorial_result and editorial_result.active else None
+    if selection is not None:
+        by_id = {story.id: story for story in stories}
+        primary_ids = selection.visible_story_ids[:limits.maximum_items]
+        support_ids = [
+            support_id
+            for primary_id in primary_ids
+            for support_id in selection.support_by_story_id.get(primary_id, [])
+        ]
+        eligible = [by_id[story_id] for story_id in primary_ids]
+        writing = [by_id[story_id] for story_id in dict.fromkeys([*primary_ids, *support_ids])]
+        return eligible, [story for story in writing if any(f.strip() for f in story.facts)]
+    eligible = ranked_eligible_stories(
+        stories, relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold,
+    )
+    writing = [story for story in eligible if any(f.strip() for f in story.facts)]
+    return eligible, writing[:limits.maximum_items]
+
+
 def _brief_item_id(story_ids: list[str], section: str) -> str:
     identity = f"{section}:{'|'.join(sorted(story_ids))}"
     return f"brief-{hashlib.sha256(identity.encode()).hexdigest()[:20]}"
@@ -159,11 +192,13 @@ def _deterministic_generated_item(
             why_it_matters=None, uncertainty="待补充原文后再判断其内容与影响。",
             source_urls=story.source_urls,
         )
+    # Reuse a supported statement, not the upstream generated headline.
+    fact = next(fact for fact in story.facts if fact.strip())
     return GeneratedBriefItem(
         story_ids=[story.id],
         section=section,
-        title=story.canonical_title,
-        what_happened=story.facts[0] if story.facts else story.canonical_title,
+        title=fact,
+        what_happened=fact,
         why_it_matters=None,
         # Generation health is not an event uncertainty.  Preserve the latter
         # whenever it was already validated on the Story.
@@ -236,31 +271,17 @@ def generate_daily_brief_with_memory(
         for decision in (editorial_result.daily.decisions if editorial_active else [])
     }
     editorial_selection = editorial_result.selection if editorial_active else None
+    eligible_stories, ai_stories = select_brief_stories(
+        stories, limits=limits, relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold, editorial_result=editorial_result,
+    )
+    stats["threshold_eligible_stories"] = len(eligible_stories)
     if editorial_selection is not None:
-        stories_by_id = {story.id: story for story in stories}
-        primary_ids = editorial_selection.visible_story_ids[: limits.maximum_items]
-        support_ids = [
-            support_id
-            for primary_id in primary_ids
-            for support_id in editorial_selection.support_by_story_id.get(primary_id, [])
-        ]
-        ai_story_ids = list(dict.fromkeys([*primary_ids, *support_ids]))
-        ai_stories = [stories_by_id[story_id] for story_id in ai_story_ids]
-        eligible_stories = [stories_by_id[story_id] for story_id in primary_ids]
-        stats["threshold_eligible_stories"] = len(eligible_stories)
         stats["editorial_visible_stories"] = len(editorial_selection.visible_story_ids)
-        stats["editorial_support_stories"] = len(support_ids)
-    else:
-        eligible_stories = ranked_eligible_stories(
-            stories,
-            relevance_threshold=relevance_threshold,
-            importance_threshold=importance_threshold,
+        stats["editorial_support_stories"] = sum(
+            len(editorial_selection.support_by_story_id.get(story.id, []))
+            for story in eligible_stories
         )
-        ai_stories = [
-            s for s in eligible_stories if any(f.strip() for f in s.facts)
-        ][: limits.maximum_items]
-        stats["threshold_eligible_stories"] = len(eligible_stories)
-    ai_stories = [s for s in ai_stories if any(f.strip() for f in s.facts)]
     stats["evidence_limited_leads"] = sum(
         not any(f.strip() for f in s.facts) for s in eligible_stories
     )
