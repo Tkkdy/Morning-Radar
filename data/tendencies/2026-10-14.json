@@ -1,0 +1,174 @@
+{
+  "date": "2026-10-14",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v1.12.1/v1.13.0 之前，anthropic-sdk-python 的受管智能体配置、多智能体与线程状态过滤不在官方类型系统中，Chat/Cowork 统一分析指标缺少类型定义，CI 中无 changelog 更新检查，Anthropic 密钥类型也未在 GitHub Secret Scanning 中默认阻止推送。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "三个新增簇中，cluster-d2a469082c1ebf9c659b 与 cluster-f6edb40be47ef3db7288 同属 anthropic-sdk-python 一个产品线的官方版本迭代，cluster-eff692b9371e0d99db29 虽由 GitHub 发布但直接针对 Anthropic 密钥类型的默认推送保护，属于同一方向的跨平台治理落地。机制清晰、产品变化真实，但核心支持仍集中于 Anthropic 官方 SDK 版本线，GitHub 侧仅一项且为合作方检测类型新增，缺乏第三方采用或跨 actor 独立结构性支撑，不足以升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果 Managed Agents 工作流与统一分析指标类型未被开发者采用、密钥推送保护未被实际触发或很快被撤回，或 Anthropic 回退为纯粹对话 API 客户端，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "anthropic-sdk-python v1.13.0 新增 Chat 与 Cowork 统一分析指标类型，并为 Managed Agents 提供工作流、多智能体配置与线程状态过滤。",
+          "anthropic-sdk-python v1.12.1 在 CI 中检查 pull request 是否更新 changelog，并在文档中注明查看 Claude Console spend limits 属于 early access。",
+          "GitHub Secret Scanning 新增 Anthropic 密钥类型并默认启用推送保护阻止，同时新增 Salesforce、Cloudsmith 检测类型。"
+        ],
+        "shared_mechanism": "Anthropic 沿同一 SDK 产品线把 Claude 能力从对话调用扩展为工程化平台：anthropic-sdk-python 以 Managed Agents 工作流、多智能体配置与线程状态过滤把受管智能体纳入官方类型系统；以 Chat 与 Cowork 统一分析指标类型固化可观测口径；以 CI changelog 检查与 Claude Console 花费限额文档化提升发布与成本治理纪律；同时 Anthropic 密钥类型在 GitHub Secret Scanning 中默认启用推送保护，把密钥安全治理从用户自律转为跨平台内置控制。这些动作共同改变开发者构建、观测与治理 Claude 应用的方式。"
+      },
+      "claim": "Anthropic 正通过官方 SDK 连续迭代，把 Claude 开发工具从单一对话 API 封装扩展为可承载受管智能体工作流、统一分析指标与密钥安全治理的工程化平台：anthropic-sdk-python 新增 Managed Agents 工作流、多智能体配置与线程状态过滤，新增 Chat/Cowork 统一分析指标类型，同时在官方侧推动 CI changelog 检查与 Claude Console 花费限额文档化，并让 Anthropic 密钥在 GitHub Secret Scanning 中默认启用推送保护。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-c13025d59a4fa6b3b4b8"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-b1560f532690dade0649"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-1adbc1b42ff2621294a9"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-7de91776bc58bc7ca3f7",
+      "recorded_at": "2026-10-13T23:29:35.060687Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-d2a469082c1ebf9c659b",
+        "cluster-f6edb40be47ef3db7288",
+        "cluster-eff692b9371e0d99db29"
+      ],
+      "tendency_id": "tendency-6e33bfb57be08997486d",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿模型能力主要通过旗舰云端模型与统一 API 提供，面向设备端的开放权重智能体模型与在第三方编码助手中同步上线的轻量/前沿模型组合较少同时出现。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增簇涉及 LiquidAI、Google、GitHub Copilot、Anthropic 三个以上 actor，机制方向一致：模型按部署位置与延迟分层，并通过第三方编码助手分发。较既有单厂商 Candidate 有明显扩展，但各簇仍为官方一手发布，缺少第三方采用、下载量或实际部署数据，且『边缘侧』与『Copilot 集成』两种形态之间的结构性连接依赖同一分发渠道叙事，尚未形成跨事件的独立行为改变证据，故作为新的 Candidate 内部观察。",
+        "falsifier": "如果 LFM2.5-24B-A2B 未被设备端开发者采用或被撤回，或 Gemini 4 Argon、Claude Haiku 5.5 在 GitHub Copilot 中很快被替换、下架，则本 Tendency 被削弱；若模型厂商放弃按部署位置分层并提供边缘/轻量形态的方向，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "LiquidAI 在 Hugging Face 发布 LFM2.5-24B-A2B，支持在设备端运行快速、私密的智能体。",
+          "Google 发布 Gemini 4 Argon 模型，并使其在 GitHub Copilot 中正式可用，面向复杂编码、智能体与推理任务。",
+          "Anthropic 的 Claude Haiku 5.5 在 GitHub Copilot 中正式可用，面向子代理、快速编辑与终端任务等快速高负载场景。"
+        ],
+        "shared_mechanism": "模型厂商正通过官方发布与第三方平台集成，把模型能力按部署位置与延迟分层提供：LiquidAI 以 LFM2.5-24B-A2B 面向设备端私密智能体，Google 以 Gemini 4 Argon 覆盖复杂编码、智能体与推理任务并接入 GitHub Copilot，Anthropic 的 Claude Haiku 5.5 在 Copilot 中面向子代理与快速编辑等高频场景。这些动作共同改变开发者获取模型能力的方式——从调用单一旗舰模型转向按延迟、场景与部署位置选择轻量、边缘或前沿模型，并把第三方编码助手作为分发渠道。"
+      },
+      "claim": "轻量级、边缘侧与开放权重模型正通过官方发布与第三方编码助手集成进入开发者工作流：LiquidAI 在 Hugging Face 发布 LFM2.5-24B-A2B 以支持设备端快速私密智能体，Google 发布 Gemini 4 Argon 并在 GitHub Copilot 中正式可用，Anthropic 的 Claude Haiku 5.5 亦在 Copilot 中上线，显示模型厂商把能力按延迟、部署位置与场景分层提供，而非只依赖单一旗舰云端模型。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-877e03a3f302b17f2382"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-54465d4317ea6aaa586c"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-eb6da6cfaa35fb3cc342"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-831c06639f0184767898",
+      "recorded_at": "2026-10-13T23:29:35.060687Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-5bc109e3f51399aff4f6",
+        "cluster-aae5c229670f99eb697f",
+        "cluster-fbcb2ae72cfd95204ed0"
+      ],
+      "tendency_id": "tendency-38dffa6c642cc3bde630",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 Code Quality 发现项的关闭与重新打开不进入组织/企业审计日志，Secret Scanning 未覆盖 Salesforce 等新密钥类型且 Anthropic 密钥无默认推送保护，Copilot 企业遥测也缺少在不采集提示内容前提下的用户归因配置。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "三个新增簇均为 GitHub 官方 Changelog，机制方向一致：审计留痕、密钥推送保护与 Copilot 遥测归因共同把治理能力下沉为平台内置、可配置的能力，产品变化真实可验证。但全部簇来自同一 actor 与同一官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果审计日志未实际记录这些操作、推送保护被组织大量关闭或撤回、或遥测归因功能未被企业采用，则本 Tendency 被削弱；若 GitHub 放弃把治理与审计下沉为默认平台能力，则被推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub Code Quality 发现项的手动关闭与重新打开操作现可在组织或企业审计日志中查看。",
+          "GitHub Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型检测，Anthropic 密钥默认启用推送保护阻止。",
+          "企业管理员可在托管设置中使用 telemetry.capture.identity 等选项，把 GitHub Copilot 活动归因到用户，而无需收集其提示、响应或工具内容。"
+        ],
+        "shared_mechanism": "GitHub 通过同一官方 Changelog 通道把 AI 协作场景中的治理与审计下沉为平台能力：以审计日志记录 Code Quality 发现项的手动关闭与重新打开，使代码质量处置可追溯；以 Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型并对 Anthropic 默认启用推送保护，把密钥外泄防护从检出后处理前移到推送环节；以 Copilot 客户端遥测的 identity 归因与可配置采集，在不收集提示、响应与工具内容的前提下实现使用归因。三者共同改变组织治理 AI 辅助开发与代码协作的方式。"
+      },
+      "claim": "GitHub 正通过官方 Changelog 把代码协作与 AI 辅助开发中的治理与审计能力平台化：Code Quality 发现项的关闭与重新打开操作纳入组织/企业审计日志，Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型并对 Anthropic 默认启用推送保护，同时 Copilot 客户端遥测支持在不收集提示、响应与工具内容的前提下将活动归因到用户，显示审计、密钥保护与遥测治理正从用户自律转为可配置的平台内置能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-cb3518b7da9ff8468784"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-1adbc1b42ff2621294a9"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-14",
+            "story_id": "story-f12ca838185c9e15e1b3"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-064b546d41d669dfec35",
+      "recorded_at": "2026-10-13T23:29:35.060687Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-fbda8fdcd63560c6b92e",
+        "cluster-eff692b9371e0d99db29",
+        "cluster-4d6b441f3e677f5774d4"
+      ],
+      "tendency_id": "tendency-5d072f551dc71c192b0e",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-13T23:29:35.060687Z"
+}
