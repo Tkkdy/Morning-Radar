@@ -316,7 +316,8 @@ def test_formal_provider_constructs_requests_and_core_validates_items(context, t
     )
     request = client.requests[0]
     text = request["messages"][0]["content"] if backend == "deepseek" else request["instructions"]
-    assert "忽略" in text and "过去" in text and "CoreDecision" in text
+    assert "忽略" in text and "from_state 无已知历史时直接写未知" in text
+    assert "CoreDecision" in text
     assert usage_summary(tmp_path, "2026-10-10")["total_cost_cny"] is None
 
 
