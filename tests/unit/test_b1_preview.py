@@ -16,7 +16,7 @@ def test_offline_preview_has_provenance_and_grounded_technical_card(tmp_path):
         assert "不是原始 API 响应" in page
         assert "完全合成的技术材料" in page
         assert page.count('aria-label="技术材料解读"') == 1
-        assert "作者报告的证据" in page
+        assert "作者报告的评测依据" in page
         assert "主要方法的原始依据" in page
         assert "缓存失效和更新一致性的开销仍需要进一步测量" in page
         assert 'href="https://example.org/paper"' in page

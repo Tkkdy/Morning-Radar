@@ -268,7 +268,7 @@ def test_core_brief_url_violation_remains_a_hard_output_failure() -> None:
     )
     configured = provider([invalid, invalid])
 
-    with pytest.raises(AIOutputError, match="not present in verified source set"):
+    with pytest.raises(AIOutputError, match="source URLs do not match its Story IDs"):
         configured.write_brief([source_story], [])
 
     assert configured.client.responses.calls == 2

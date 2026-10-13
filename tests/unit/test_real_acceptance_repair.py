@@ -247,7 +247,12 @@ def test_captured_fact_empty_stories_retained_as_leads_not_headlines():
 
     def captured_layout(selected, signals):
         requested.extend(s.id for s in selected)
-        return saved  # untouched historical draft, layout replay only
+        # Replay only captured cards belonging to this formal batch. The raw
+        # historical response above remains unchanged; this is not a new model result.
+        selected_ids = {s.id for s in selected}
+        return saved.model_copy(update={
+            "items": [item for item in saved.items if set(item.story_ids) <= selected_ids],
+        })
 
     provider.write_brief = captured_layout
     result = generate_daily_brief(

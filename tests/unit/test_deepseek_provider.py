@@ -808,7 +808,7 @@ def test_deepseek_core_brief_url_violation_remains_hard() -> None:
     ).model_dump_json()
     configured = provider([invalid, invalid])
 
-    with pytest.raises(AIOutputError, match="not present in verified source set"):
+    with pytest.raises(AIOutputError, match="source URLs do not match its Story IDs"):
         configured.write_brief([source_story], [])
 
     assert configured.client.chat.completions.calls == 2
