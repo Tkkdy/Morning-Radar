@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from pydantic import Field, field_validator
+from pydantic import Field, PrivateAttr, ValidationError, field_validator, model_validator
 
 from morning_radar.models.continuity import (
     JudgementUpdateKind,
@@ -13,11 +13,15 @@ from morning_radar.models.continuity import (
     StoryRelationType,
 )
 from morning_radar.models.core import (
+    BriefExplanation,
+    GroundedAnalysis,
     PracticeSignalKind,
     RadarModel,
     ResearchDisposition,
     StatementType,
     StoryStatus,
+    TechnicalQuoteNormalization,
+    TechnicalReading,
 )
 from morning_radar.models.tendency import (
     TendencyAssessment,
@@ -41,7 +45,10 @@ class ClassificationBatch(RadarModel):
 
 class MergedStoryDraft(RadarModel):
     same_event: bool
-    canonical_title: str = Field(min_length=1, max_length=500)
+    canonical_title: str = Field(
+        min_length=1, max_length=500,
+        description="与事实、意见和未知状态一致；来源的评价或因果解释在标题内保留归因，不升级为确定事实。",
+    )
 
     @field_validator("canonical_title")
     @classmethod
@@ -55,12 +62,23 @@ class MergedStoryDraft(RadarModel):
     product_names: list[str] = Field(default_factory=list)
     topic_names: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
-    analysis: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(
+        default_factory=list,
+        description="仅兼容旧响应；新输出必须为空，使用 grounded_analysis 表达有来源前提的推断。",
+    )
+    grounded_analysis: list[GroundedAnalysis] = Field(
+        default_factory=list, max_length=3,
+        description="每项包含保留归因的来源前提（text/source_url/连续短引文）及分开的推断；无充分前提则省略。",
+    )
     opinions: list[str] = Field(default_factory=list)
     uncertainties: list[str] = Field(default_factory=list)
     source_urls: list[str] = Field(default_factory=list)
     primary_source_url: str | None = None
-    status: StoryStatus = StoryStatus.UNKNOWN
+    status: StoryStatus = Field(
+        default=StoryStatus.UNKNOWN,
+        description="仅描述本事件有证据的状态；available须有明确可用性依据，报告发表或计划宣布本身不证明产品可用。",
+    )
+    technical_reading: TechnicalReading | None = None
 
 
 class StoryScore(RadarModel):
@@ -68,7 +86,10 @@ class StoryScore(RadarModel):
     importance_score: float = Field(ge=0, le=1)
     novelty_score: float = Field(ge=0, le=1)
     credibility_score: float = Field(ge=0, le=1)
-    explanation: str
+    explanation: str = Field(description=(
+        "评分是编辑判断，但事实前提只能来自输入。保留训练概念的原有精度，不把上位概念收窄为具体方法；"
+        "比较理由须区分相对判断与有来源支持的基线事实，未知保持未知。"
+    ))
 
 
 class GeneratedBriefItem(RadarModel):
@@ -76,13 +97,44 @@ class GeneratedBriefItem(RadarModel):
     section: str
     title: str
     what_happened: str
-    why_it_matters: str | None = None
+    why_it_matters: str | None = Field(
+        default=None, description=(
+            "旧响应兼容字段；新输出留空，展示文字由 why_it_matters_evidence.text 得到。"
+        ),
+    )
+    why_it_matters_evidence: BriefExplanation | None = Field(
+        default=None, description=(
+            "可省略。kind 区分事实说明、来源评价、系统推断；"
+            "text 保留归因、主体/时间/比较/可用性边界。"
+            "references 只能引用本卡实际输入 Story 的 facts/opinions/grounded_analysis 零基索引；"
+            "或 premises 提供 story_id、保留归因的 text、输入 source_url 与连续短引文 quote。"
+            "事实说明不能引用意见或推断作为事实；引用 grounded_analysis 时 kind 必须为 inference。"
+        ),
+    )
+    _why_omission_reason: str | None = PrivateAttr(default=None)
+    _why_quote_normalizations: list[TechnicalQuoteNormalization] = PrivateAttr(default_factory=list)
     market_or_community_reaction: str | None = None
     uncertainty: str | None = None
     source_urls: list[str]
     generation_status: str = "generated"
     generation_note: str | None = None
     generation_reason: str | None = None
+
+    @model_validator(mode="wrap")
+    @classmethod
+    def omit_malformed_optional_explanation(cls, value, handler):
+        """Malformed optional evidence must not retry otherwise usable news."""
+        try:
+            return handler(value)
+        except ValidationError as exc:
+            if not isinstance(value, dict) or any(
+                not error["loc"] or error["loc"][0] != "why_it_matters_evidence"
+                for error in exc.errors()
+            ):
+                raise
+            result = handler({**value, "why_it_matters": None, "why_it_matters_evidence": None})
+            result._why_omission_reason = "malformed_explanation_evidence"
+            return result
 
 
 class BriefItemRecoveryDraft(RadarModel):

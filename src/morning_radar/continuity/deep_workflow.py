@@ -54,97 +54,107 @@ def run_deep_continuity_workflow(
     app = load_model(root / "config/app.yaml", AppConfig)
     now = generated_at or utc_now()
     day = current_date or display_date(now)
-    history = load_continuity_history(root, current_date=day)
-    judgements = reduce_judgements(history)
-    memories = load_story_memory(
-        root,
-        current_date=day + timedelta(days=1),
-        history_days=app.deep_review_window_days + 1,
-    )
-    triggers = scan_deep_review_triggers(
-        current_date=day,
-        judgements=judgements,
-        story_memory=memories,
-        window_days=app.deep_review_window_days,
-        minimum_stories=app.deep_review_minimum_stories,
-        minimum_dates=app.deep_review_minimum_dates,
-        minimum_sources=app.deep_review_minimum_sources,
-    )
-    existing = next((item for item in history if item.date == day), None)
-    empty = existing or DailyContinuity(date=day, generated_at=now)
-    reviewable = [trigger for trigger in triggers if trigger.story_memory]
-    if not reviewable:
-        return DeepContinuityResult(
-            daily=empty,
-            stats={
-                "judgement_deep_review_triggers": len(triggers),
-                "judgement_deep_review_calls": 0,
-                "deep_continuity_status": "no_ai_trigger",
-            },
+    from morning_radar.health import module_run
+
+    with module_run(root, str(day), "deep_continuity") as health:
+        history = load_continuity_history(root, current_date=day)
+        judgements = reduce_judgements(history)
+        memories = load_story_memory(
+            root,
+            current_date=day + timedelta(days=1),
+            history_days=app.deep_review_window_days + 1,
         )
-    active_provider = provider or DeepSeekProvider.from_environment(
-        budget=AIBudget(5, app.maximum_continuity_input_characters, app.maximum_ai_items, 6),
-        prompt_dir=root / "prompts",
-    )
-    by_latest = {view.latest_record.judgement_id: view for view in judgements.values()}
-    updates: list[JudgementRecord] = []
-    calls = 0
-    for trigger in reviewable:
-        view = by_latest[trigger.judgement_id]
-        context = ContinuityResolutionInput(
-            prior_hypotheses=[
-                PriorJudgementInput(
-                    judgement_id=view.latest_record.judgement_id,
-                    root_judgement_id=view.root_judgement_id,
-                    claim=view.latest_record.claim,
-                    rationale=view.latest_record.rationale,
-                    uncertainty=view.latest_record.uncertainty,
-                    current_story_candidates=[_summary(item) for item in trigger.story_memory],
-                )
-            ]
+        triggers = scan_deep_review_triggers(
+            current_date=day,
+            judgements=judgements,
+            story_memory=memories,
+            window_days=app.deep_review_window_days,
+            minimum_stories=app.deep_review_minimum_stories,
+            minimum_dates=app.deep_review_minimum_dates,
+            minimum_sources=app.deep_review_minimum_sources,
         )
-        try:
-            output = active_provider.resolve_continuity(context)
-            validate_continuity_resolution(output, context)
-            calls += 1
-        except (AIOutputError, AIBudgetExceeded, ValueError):
-            continue
-        for draft in output.judgement_updates:
-            identity = "|".join(
-                [
-                    view.root_judgement_id,
-                    str(day),
-                    draft.update_kind.value,
-                    *(ref.story.story_id for ref in draft.evidence_refs),
+        existing = next((item for item in history if item.date == day), None)
+        empty = existing or DailyContinuity(date=day, generated_at=now)
+        reviewable = [trigger for trigger in triggers if trigger.story_memory]
+        if not reviewable:
+            health["status"] = "no_candidates"
+            return DeepContinuityResult(
+                daily=empty,
+                stats={
+                    "judgement_deep_review_triggers": len(triggers),
+                    "judgement_deep_review_calls": 0,
+                    "deep_continuity_status": "no_ai_trigger",
+                },
+            )
+        active_provider = provider or DeepSeekProvider.from_environment(
+            budget=AIBudget(5, app.maximum_continuity_input_characters, app.maximum_ai_items, 6),
+            prompt_dir=root / "prompts",
+        )
+        from morning_radar.ai.usage import attach_usage
+
+        attach_usage(active_provider, root, business_date=str(day), module="deep_continuity")
+        by_latest = {view.latest_record.judgement_id: view for view in judgements.values()}
+        updates: list[JudgementRecord] = []
+        calls = 0
+        for trigger in reviewable:
+            view = by_latest[trigger.judgement_id]
+            context = ContinuityResolutionInput(
+                prior_hypotheses=[
+                    PriorJudgementInput(
+                        judgement_id=view.latest_record.judgement_id,
+                        root_judgement_id=view.root_judgement_id,
+                        claim=view.latest_record.claim,
+                        rationale=view.latest_record.rationale,
+                        uncertainty=view.latest_record.uncertainty,
+                        current_story_candidates=[_summary(item) for item in trigger.story_memory],
+                    )
                 ]
             )
-            updates.append(
-                JudgementRecord(
-                    judgement_id=f"judgement-{hashlib.sha256(identity.encode()).hexdigest()[:20]}",
-                    root_judgement_id=view.root_judgement_id,
-                    recorded_at=now,
-                    claim=draft.claim,
-                    rationale=draft.rationale,
-                    evidence_refs=draft.evidence_refs,
-                    uncertainty=draft.uncertainty,
-                    watch_ids=view.latest_record.watch_ids,
-                    depends_on_judgement_ids=view.latest_record.depends_on_judgement_ids,
-                    updates_judgement_id=view.latest_record.judgement_id,
-                    update_kind=draft.update_kind,
+            try:
+                output = active_provider.resolve_continuity(context)
+                validate_continuity_resolution(output, context)
+                calls += 1
+            except (AIOutputError, AIBudgetExceeded, ValueError) as exc:
+                health["status"] = (
+                    "budget_skipped" if isinstance(exc, AIBudgetExceeded) else "partial"
                 )
-            )
-    daily = merge_daily_continuity(
-        existing,
-        DailyContinuity(date=day, generated_at=now, judgements=updates),
-    )
-    if updates:
-        save_model(root / "data/continuity" / f"{day}.json", daily)
-    return DeepContinuityResult(
-        daily=daily,
-        stats={
-            "judgement_deep_review_triggers": len(triggers),
-            "judgement_deep_review_calls": calls,
-            "judgement_deep_review_updates": len(updates),
-            "deep_continuity_status": "completed",
-        },
-    )
+                continue
+            for draft in output.judgement_updates:
+                identity = "|".join(
+                    [
+                        view.root_judgement_id,
+                        str(day),
+                        draft.update_kind.value,
+                        *(ref.story.story_id for ref in draft.evidence_refs),
+                    ]
+                )
+                updates.append(
+                    JudgementRecord(
+                        judgement_id=f"judgement-{hashlib.sha256(identity.encode()).hexdigest()[:20]}",
+                        root_judgement_id=view.root_judgement_id,
+                        recorded_at=now,
+                        claim=draft.claim,
+                        rationale=draft.rationale,
+                        evidence_refs=draft.evidence_refs,
+                        uncertainty=draft.uncertainty,
+                        watch_ids=view.latest_record.watch_ids,
+                        depends_on_judgement_ids=view.latest_record.depends_on_judgement_ids,
+                        updates_judgement_id=view.latest_record.judgement_id,
+                        update_kind=draft.update_kind,
+                    )
+                )
+        daily = merge_daily_continuity(
+            existing,
+            DailyContinuity(date=day, generated_at=now, judgements=updates),
+        )
+        if updates:
+            save_model(root / "data/continuity" / f"{day}.json", daily)
+        return DeepContinuityResult(
+            daily=daily,
+            stats={
+                "judgement_deep_review_triggers": len(triggers),
+                "judgement_deep_review_calls": calls,
+                "judgement_deep_review_updates": len(updates),
+                "deep_continuity_status": "completed",
+            },
+        )

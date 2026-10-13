@@ -10,8 +10,8 @@
 {% endif %}
 <article class="brief-card{% if compact %} compact{% endif %}"{% if primary_context %} id="story-{{ primary_context.story_id }}"{% elif item.story_ids %} id="story-{{ item.story_ids[0] }}"{% endif %}>
   <p class="section-label">{% if compact %}延伸阅读{% else %}{{ section_labels.get(item.section, item.section) }}{% endif %}</p>
+  {% if preview_labels is defined and preview_labels.get(item.id) %}<p class="generation-note"><strong>{{ preview_labels[item.id] }}</strong></p>{% endif %}
   <h3>{{ item.title }}</h3>
-  <p>{{ item.what_happened }}</p>
   {% for continuity in item.continuity_contexts %}
     {% if continuity.relation_type %}
     <div class="continuity-note">
@@ -29,7 +29,46 @@
     </div>
     {% endfor %}
   {% endfor %}
-  {% if not compact and item.why_it_matters %}<p class="why"><strong>为什么重要：</strong>{{ item.why_it_matters }}</p>{% endif %}
+  {% set changes = item.continuity_contexts | selectattr("what_changed") | map(attribute="what_changed") | list %}
+  {% if item.what_happened not in changes %}<p>{{ item.what_happened }}</p>{% endif %}
+  {% for context in item.story_contexts %}
+    {% if context.technical_reading %}
+      {% set reading = context.technical_reading %}
+      <section class="technical-reading" aria-label="技术材料解读">
+      <h4>{{ {"paper": "论文解读", "technical_report": "技术报告", "technical_article": "技术长文"}[reading.kind] }}</h4>
+      {% for key, label in [("problem", "材料支持的任务或问题"), ("method", "主要方法"), ("engineering_value", "差异与工程价值"), ("author_evidence", "作者报告的评测依据"), ("evaluation_results", "作者报告的具体结果"), ("conditions", "适用条件"), ("limitations", "限制")] %}
+        {% set point = reading[key] %}
+        {% if point %}<p><strong>{{ label }}：</strong>{{ point.text }}</p>
+        <details><summary>{{ label }}的原始依据</summary><blockquote>{{ point.quote }}</blockquote><a href="{{ point.source_url }}" rel="noopener noreferrer">原始材料</a></details>{% endif %}
+      {% endfor %}
+      {% if not reading.engineering_value or not reading.conditions or not reading.limitations %}<p class="uncertainty">{% if not reading.engineering_value %}现有材料未充分说明工程价值。{% endif %}{% if not reading.conditions %}现有材料未充分说明适用条件。{% endif %}{% if not reading.limitations %}现有材料未充分说明限制。{% endif %}</p>{% endif %}
+      {% if not reading.evaluation_results %}<p class="uncertainty">尚未提供单独可追溯的具体评测结果；作者声明做过评测不等于材料已给出结果。</p>{% endif %}
+      </section>
+    {% endif %}
+  {% endfor %}
+  {% if not compact and item.why_it_matters %}
+  {% set explanation = item.why_it_matters_evidence %}
+  <p class="why"><strong>为什么重要{% if explanation %} · {{ {"fact": "事实说明", "source_opinion": "来源评价", "inference": "系统推断"}[explanation.kind] }}{% endif %}：</strong>{{ item.why_it_matters }}</p>
+  {% if explanation %}
+  <details class="why-evidence"><summary>这段说明的依据</summary>
+    {% for reference in explanation.references %}
+      {% for context in item.story_contexts if context.story_id == reference.story_id %}
+        {% set basis = context[reference.field][reference.index] %}
+        {% if reference.field == "grounded_analysis" %}
+          <p>已有系统推断：{{ basis.inference }}</p>
+          {% for point in basis.premises %}<p>{{ point.text }}</p><blockquote>{{ point.quote }}</blockquote><a href="{{ point.source_url }}" rel="noopener noreferrer">原始材料</a>{% endfor %}
+        {% else %}
+          <p>{{ "来源评价" if reference.field == "opinions" else "材料中的事实陈述" }}：{{ basis }}</p>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    {% for premise in explanation.premises %}
+      <p>来源前提：{{ premise.text }}</p><blockquote>{{ premise.quote }}</blockquote>
+      <a href="{{ premise.source_url }}" rel="noopener noreferrer">原始材料</a>
+    {% endfor %}
+  </details>
+  {% endif %}
+  {% endif %}
   {% if primary_context and primary_context.status.value != "unknown" %}
     {% set status_labels = {"rumor": "传闻", "official_teaser": "官方预告", "announced": "已宣布", "available": "已上线", "updated": "已更新"} %}
     <span class="status-badge">{{ status_labels.get(primary_context.status.value, primary_context.status.value) }}</span>
@@ -81,7 +120,7 @@
     {% set additional_facts = context.facts | reject("equalto", item.what_happened) | list %}
     {% set additional_analysis = context.analysis if compact else (context.analysis | reject("equalto", item.why_it_matters) | list) %}
     {% set additional_uncertainties = context.uncertainties if compact else (context.uncertainties | reject("equalto", item.uncertainty) | list) %}
-    {% if additional_facts or additional_analysis or additional_uncertainties or context.entity_names or context.product_names or context.topic_names or context.source_refs %}
+    {% if additional_facts or additional_analysis or context.opinions or context.grounded_analysis or additional_uncertainties or context.entity_names or context.product_names or context.topic_names or context.source_refs %}
       {% set detail_state.available = true %}
     {% endif %}
   {% endfor %}
@@ -93,8 +132,12 @@
       {% set additional_facts = context.facts | reject("equalto", item.what_happened) | list %}
       {% set additional_analysis = context.analysis if compact else (context.analysis | reject("equalto", item.why_it_matters) | list) %}
       {% set additional_uncertainties = context.uncertainties if compact else (context.uncertainties | reject("equalto", item.uncertainty) | list) %}
-      {% if additional_facts %}<div class="detail-block"><h4>已验证事实</h4><ul>{% for fact in additional_facts %}<li>{{ fact }}</li>{% endfor %}</ul></div>{% endif %}
-      {% if additional_analysis %}<div class="detail-block"><h4>分析</h4><ul>{% for analysis in additional_analysis %}<li>{{ analysis }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if additional_facts %}<div class="detail-block"><h4>材料中的事实陈述</h4><ul>{% for fact in additional_facts %}<li>{{ fact }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if additional_analysis %}<div class="detail-block"><h4>历史分析（未记录逐项来源前提）</h4><ul>{% for analysis in additional_analysis %}<li>{{ analysis }}</li>{% endfor %}</ul></div>{% endif %}
+      {% if context.opinions %}<div class="detail-block"><h4>来源评价</h4><ul>{% for opinion in context.opinions %}<li>{{ opinion }}</li>{% endfor %}</ul></div>{% endif %}
+      {% for analysis in context.grounded_analysis %}<div class="detail-block"><h4>系统推断</h4><p>{{ analysis.inference }}</p>
+        <details><summary>来源前提（引文存在不代表推断已验证）</summary>{% for premise in analysis.premises %}<p>{{ premise.text }}</p><blockquote>{{ premise.quote }}</blockquote><a href="{{ premise.source_url }}" rel="noopener noreferrer">前提来源</a>{% endfor %}</details>
+      </div>{% endfor %}
       {% if additional_uncertainties %}<div class="detail-block"><h4>不确定性</h4><ul>{% for uncertainty in additional_uncertainties %}<li>{{ uncertainty }}</li>{% endfor %}</ul></div>{% endif %}
       {% if context.entity_names or context.product_names or context.topic_names %}<div class="detail-tags">
         {% if context.entity_names %}<span>实体：{{ context.entity_names | join("、") }}</span>{% endif %}
@@ -106,6 +149,7 @@
         {% if source_ref.source_type == "hacker_news" and source_ref.discussion_url and source_ref.discussion_url != source_ref.url %}<div class="discovery-note">经 Hacker News 发现</div>{% endif %}
         <div>{{ source_ref.title }}</div>
         {% if source_ref.author %}<div>作者：{{ source_ref.author }}</div>{% endif %}
+        {% if source_ref.backfill_recorded_at %}<div class="source-time">补录于 {{ source_ref.backfill_recorded_at.strftime("%Y-%m-%d") }}；来源时间保持原记录。</div>{% endif %}
         {% if source_ref.published_at %}<div class="source-time">
           {% if source_ref.published_at_role.value == "feed_entry_time" %}来源条目时间：{{ source_ref.published_at.strftime("%Y-%m-%d") }}
           {% elif source_ref.published_at_role.value == "hn_submission_time" %}{{ source_ref.published_at.strftime("%Y-%m-%d") }} 在 Hacker News 提交

@@ -8,6 +8,7 @@ from morning_radar.briefing.generator import (
     generate_daily_brief,
     generate_daily_brief_with_memory,
     ranked_eligible_stories,
+    select_brief_stories,
 )
 
 __all__ = [
@@ -18,4 +19,5 @@ __all__ = [
     "generate_daily_brief",
     "generate_daily_brief_with_memory",
     "ranked_eligible_stories",
+    "select_brief_stories",
 ]
