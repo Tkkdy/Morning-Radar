@@ -1,0 +1,134 @@
+[
+  {
+    "claim": "AI 正被大规模用于对现有游戏进行反编译，催生游戏混搭与旧游戏在新硬件（常在浏览器中经 WebAssembly）上运行的保存项目。",
+    "id": "radar-1b1f31ac78f9e0d31c0b",
+    "missing_evidence": [
+      "具体反编译项目或案例名称与链接",
+      "所用模型/工具及工作流细节",
+      "可独立复核的成果示例"
+    ],
+    "observed_at": "2026-10-14T22:35:35.848961Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-154a39176d886b3bd0ff",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/14/ai-is-mass-decompiling-games/"
+      }
+    ],
+    "uncertainty": "内容为 Simon Willison 对独立开发者 Popcar 观点的转述，缺少一手项目与技术细节，趋势规模无法验证。",
+    "why_notable": "反映 AI 在逆向工程与游戏保存领域出现的新用法，同时带来版权与合法性的双面影响，属于值得追踪的 AI 应用趋势。"
+  },
+  {
+    "claim": "llm-gemini 0.35 发布，为该插件新增对 Gemini 4 Argon 模型的支持，该模型通过 Gemini API 及每月 100 美元订阅计划提供。",
+    "id": "radar-f75d39761ad6e352520b",
+    "missing_evidence": [
+      "Google 官方关于 Gemini 4 Argon 的发布说明与规格",
+      "模型定价、上下文长度、能力等官方细节",
+      "插件代码或独立功能验证"
+    ],
+    "observed_at": "2026-10-14T22:35:35.848961Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-6451d923eed6bbe644db",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/13/llm-gemini/"
+      }
+    ],
+    "uncertainty": "仅来自 Simon Willison 个人博客的单源叙述，Gemini 4 Argon 的官方资料与实测数据均未提供，订阅计划与可用性无法核实。",
+    "why_notable": "可视为新 Gemini 模型上线与开源工具链快速跟进的信号，但核心价值取决于模型本身的可用性与表现。"
+  },
+  {
+    "claim": "开源扩展 VS Code Bridge for Claude Code 试图让 Claude Code 获得 VS Code 编辑器上下文（如发送 Markdown 选区或预览中的文件）、执行 VS Code 命令，并修复聊天中文件链接的打开方式。",
+    "id": "radar-d3d42a3f31081d1911a0",
+    "missing_evidence": [
+      "仓库活跃度、安装量与可复现的功能验证",
+      "是否真正解决所列举的四个问题",
+      "与官方 Claude Code 集成方案的差异"
+    ],
+    "observed_at": "2026-10-14T22:35:35.848961Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-e1c2868437d47e6ea8ef",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/Klaster1/vscode-bridge-for-claude-code"
+      }
+    ],
+    "uncertainty": "仅为 Show HN 提交者的自述与营销式描述，摘录被截断，缺少第三方测试与仓库可信度信息。",
+    "why_notable": "来自实际使用者的痛点清单，反映编码 agent 与 IDE 上下文集成这一具体工作流需求，具有可复用的实践参考价值。"
+  }
+]

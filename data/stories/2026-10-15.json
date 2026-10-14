@@ -1,0 +1,793 @@
+[
+  {
+    "analysis": [
+      "工作流依赖锁文件旨在锁定 GitHub Actions 工作流所引用的外部依赖，防止上游标签或分支变动导致构建结果漂移。",
+      "该功能覆盖从企业版到免费版的多档计划，表明 GitHub 将其作为通用基础能力推广，而非仅面向企业客户的增值特性。"
+    ],
+    "canonical_title": "GitHub Actions 工作流依赖锁文件进入公开预览",
+    "category": "开发者工具与平台更新",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Actions 工作流依赖锁文件现已进入公开预览阶段。",
+      "该功能面向 GitHub Enterprise Cloud、GitHub Enterprise Cloud with data residency、Team 和 Free 计划开放。",
+      "官方说明指出标签和分支在之后可能发生移动。"
+    ],
+    "id": "story-0bb35715187d60194695",
+    "importance_score": 0.75,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview",
+    "product_names": [
+      "GitHub Actions",
+      "GitHub Enterprise Cloud",
+      "GitHub Enterprise Cloud with data residency",
+      "GitHub Team",
+      "GitHub Free"
+    ],
+    "published_at": "2026-10-14T13:49:15Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-f5fa4d6131d7db33f0c9"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T13:49:15Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f5fa4d6131d7db33f0c9",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Actions workflow lockfiles in public preview",
+        "url": "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-14-github-actions-workflow-lockfiles-in-public-preview"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "公开预览的结束时间及正式 GA 时间表尚未在输入中说明。",
+      "锁文件的具体格式、生成方式及与现有工作流的兼容细节未在输入中展开。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "OpenAI 官方公告将此次更新定位为视频时长、视觉精度和语音电影制作三个方向的同步推进。"
+    ],
+    "canonical_title": "Higgsfield 借助 GPT-6 Astra、GPT-Image-2.5 与 GPT-Live 将 AI 视频时长从 1 分钟提升至 10 分钟以上",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Higgsfield",
+      "OpenAI"
+    ],
+    "facts": [
+      "Higgsfield 将 AI 视频时长从 1 分钟提升至 10 分钟以上。",
+      "Higgsfield 使用 GPT-6 Astra 为创作者提供更长的视频。",
+      "Higgsfield 使用 GPT-Image-2.5 提供更精确的视觉效果。",
+      "Higgsfield 通过 GPT-Live 提供通向语音电影制作的路径。"
+    ],
+    "id": "story-350d1e53e6897afc06c2",
+    "importance_score": 0.8,
+    "novelty_score": 0.75,
+    "primary_source_url": "https://openai.com/index/higgsfield-longer-videos-voice",
+    "product_names": [
+      "GPT-6 Astra",
+      "GPT-Image-2.5",
+      "GPT-Live"
+    ],
+    "published_at": "2026-10-13T12:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-8d45898e533e591d4241"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-13T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8d45898e533e591d4241",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Higgsfield takes AI video from 1 minute to over 10",
+        "url": "https://openai.com/index/higgsfield-longer-videos-voice"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/higgsfield-longer-videos-voice"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_video",
+      "voice_filmmaking"
+    ],
+    "uncertainties": [
+      "公告未说明 GPT-6 Astra、GPT-Image-2.5 与 GPT-Live 的具体技术细节、可用范围与上线时间。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "来源角色为 official_primary，因此开源的声明可作为官方公告事实处理，但输入内容仅含摘要片段，具体开源范围、许可证与仓库地址未在输入中出现。",
+      "将 Run:ai 归入 NVIDIA DSX AI Factory 平台，表明这一动作可能被定位为整体 AI 工厂方案的组成部分；输入的 topic_candidates 同时包含 ai_models 与 ai_infrastructure，但未给出进一步依据。",
+      "source_role 为 official_primary 且 priority 为 high，提示该条目在事件聚类中可作为核心来源使用。"
+    ],
+    "canonical_title": "NVIDIA 将 Run:ai 平台完整开源，纳入 NVIDIA DSX AI Factory 平台",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA",
+      "Run:ai",
+      "NVIDIA DSX AI Factory"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布文章《NVIDIA Run:ai Is Now Open Source as Part of NVIDIA DSX AI Factory Platform》，作者 Tanya Lenz。",
+      "文章称 NVIDIA 正在将完整的 NVIDIA Run:ai 平台作为开源软件提供。",
+      "文章称此举面向客户、开发者和生态合作伙伴开放访问。",
+      "发布与抓取时间：published_at 为 2026-10-13T14:19:40Z，fetched_at 为 2026-10-14T22:35:35.848961Z。",
+      "该来源为 NVIDIA Developer Blog，来源类型为 rss，来源角色标记为 official_primary，陈述类型为 factual_announcement。",
+      "输入提供的主题候选为 ai_models 与 ai_infrastructure。",
+      "输入未提供 company_candidates、product_candidates 或 repository_candidates。"
+    ],
+    "id": "story-0936b67b24d4ab8c10c0",
+    "importance_score": 0.7,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform/",
+    "product_names": [
+      "NVIDIA Run:ai",
+      "NVIDIA DSX AI Factory"
+    ],
+    "published_at": "2026-10-13T14:19:40Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-709864dc2d811aa2ce74"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-13T14:19:40Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-709864dc2d811aa2ce74",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "NVIDIA Run:ai Is Now Open Source as Part of NVIDIA DSX AI Factory Platform",
+        "url": "https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-runai-is-now-open-source-as-part-of-nvidia-dsx-ai-factory-platform/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "open source",
+      "AI infrastructure",
+      "GPU orchestration"
+    ],
+    "uncertainties": [
+      "开源的许可证类型、覆盖模块、代码仓库地址均未在输入中说明。",
+      "“完整平台开源”的具体含义（是否包含企业版全部功能）无法从输入确认。",
+      "Run:ai 开源与 NVIDIA DSX AI Factory 平台之间的具体集成方式未在输入中描述。",
+      "输入未提供 company_candidates、product_candidates、repository_candidates，无法交叉验证实体识别范围。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "该案例表明，使用 GPT-6 系列模型和 Codex 等工具，可以支持大规模智能体长时间运行并持续改进。"
+    ],
+    "canonical_title": "Third Moment Research 使用 GPT-6 Astra 和 GPT-6.1 Sol 运行 10,000 个智能体超过 36 小时",
+    "category": "ai_models",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Third Moment Research",
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI News 发布了一篇关于 Third Moment Research 的文章，标题为“How Third Moment Research runs 10,000 agents for 36+ hours”。",
+      "该 AI 实验室使用 GPT-6 Astra、GPT-6.1 Sol、Codex 以及用于网络安全的 Daybreak。",
+      "该实验室构建的智能体可以持续专注数天，并随使用而改进。"
+    ],
+    "id": "story-36f2dd520e743037b16e",
+    "importance_score": 0.7,
+    "novelty_score": 0.75,
+    "primary_source_url": "https://openai.com/index/third-moment-research",
+    "product_names": [
+      "GPT-6 Astra",
+      "GPT-6.1 Sol",
+      "Codex",
+      "Daybreak"
+    ],
+    "published_at": "2026-10-14T07:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a8b8c31de898145e14c8"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T07:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a8b8c31de898145e14c8",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Third Moment Research runs 10,000 agents for 36+ hours",
+        "url": "https://openai.com/index/third-moment-research"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/third-moment-research"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "cybersecurity",
+      "agents"
+    ],
+    "uncertainties": [
+      "智能体“持续专注数天”的具体机制和性能边界未在摘要中说明。",
+      "“随使用而改进”是指模型自身学习、系统优化还是其他机制尚不明确。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub 为 HydraFusion 引入 Max 选项并更新模型池与编排工作流",
+    "category": "ai_coding",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "GitHub",
+      "Allison"
+    ],
+    "facts": [
+      "HydraFusion 更新了模型池并改进了编排工作流。",
+      "GitHub 推出了 HydraFusion Max 选项。",
+      "HydraFusion 和 HydraFusion Max 均可在 VS Code、GitHub Copilot 应用和 GitHub Copilot 中使用。"
+    ],
+    "id": "story-a689ec7f37474a466611",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option",
+    "product_names": [
+      "HydraFusion",
+      "HydraFusion Max",
+      "VS Code",
+      "GitHub Copilot app",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-10-14T20:01:35Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-ffb5a326c8ee4530ec2c"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T20:01:35Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ffb5a326c8ee4530ec2c",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "HydraFusion updates and new Max option",
+        "url": "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-14-hydrafusion-updates-and-new-max-option"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "HydraFusion 更新后的模型池具体包含哪些模型未在输入中说明。",
+      "「改进的编排工作流」的具体改动内容未提供。",
+      "HydraFusion 与 HydraFusion Max 之间的定价或功能差异未明确。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "该文章主题为：AI agent 在复杂芯片设计工作流中可带来生产力提升，但其会生成看似合理却错误的产物，因此需要通过 NVIDIA NeMo Gym 优化可靠性。",
+      "文章聚焦于 agent 可靠性与工具调用效率两个方向，并将其应用场景定位为芯片设计。"
+    ],
+    "canonical_title": "NVIDIA 发布 NeMo Gym，用于优化芯片设计中的 Agent 可靠性与工具调用效率",
+    "category": "AI 基础设施与开发工具",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA",
+      "NeMo Gym"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026 年 10 月 14 日发布文章《Optimizing Agent Reliability and Tool Calling Efficiency for Chip Design Using NVIDIA NeMo Gym》。",
+      "文章作者为 Tanya Lenz，来源为 NVIDIA Developer Blog，属于官方一手来源。"
+    ],
+    "id": "story-73572cf20147c4beaae1",
+    "importance_score": 0.5,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://developer.nvidia.com/blog/optimizing-agent-reliability-and-tool-calling-efficiency-for-chip-design-using-nvidia-nemo-gym/",
+    "product_names": [
+      "NVIDIA NeMo Gym"
+    ],
+    "published_at": "2026-10-14T16:10:45Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-d98fc085b7493311c6d0"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T16:10:45Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d98fc085b7493311c6d0",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Optimizing Agent Reliability and Tool Calling Efficiency for Chip Design Using NVIDIA NeMo Gym",
+        "url": "https://developer.nvidia.com/blog/optimizing-agent-reliability-and-tool-calling-efficiency-for-chip-design-using-nvidia-nemo-gym/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/optimizing-agent-reliability-and-tool-calling-efficiency-for-chip-design-using-nvidia-nemo-gym/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "agent 可靠性",
+      "工具调用",
+      "芯片设计工作流"
+    ],
+    "uncertainties": [
+      "输入仅提供文章摘要与内容摘录片段，未包含 NeMo Gym 的具体功能、使用方式、性能数据或可用性信息。",
+      "输入未说明该文章是产品发布、功能更新还是技术方法介绍，因此其实际状态无法确定。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "专家观点认为，被报道的AI黑客事件应归因于遏制与监控失败，而非AI代理自主失控，前沿实验室在基础安全措施上存在缺失。"
+    ],
+    "canonical_title": "专家称AI黑客报告源于遏制与监控失败，而非AI代理失控",
+    "category": "security",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "CSO Online",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-8adaec9b6be5373980bc",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+    "product_names": [],
+    "published_at": "2026-10-14T17:45:23Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-85d08ffb2c851ed53acd"
+    ],
+    "source_refs": [
+      {
+        "author": "latexr",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50091788",
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T17:45:23Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-85d08ffb2c851ed53acd",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Containment and monitoring failures are to blame for AI hacking reports: experts",
+        "url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html"
+      }
+    ],
+    "source_urls": [
+      "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
+      "https://news.ycombinator.com/item?id=50091788"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI agent security",
+      "containment",
+      "monitoring",
+      "frontier labs"
+    ],
+    "uncertainties": [
+      "该条目仅为社区发现线索（Hacker News 讨论），未经官方或一手证实，具体事件、涉及的实验室与代理细节尚不明确。",
+      "原始文章标题与摘要未提供可追溯的数字、日期或具体项目名。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 社区发现，属于 unverified lead，其描述的功能与问题仅代表作者自述，尚未经独立验证或官方确认。"
+    ],
+    "canonical_title": "开发者推出 VS Code Bridge 扩展与 Claude Code 插件，解决编辑器集成痛点",
+    "category": "developer_tools",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic",
+      "Claude Code",
+      "VS Code"
+    ],
+    "facts": [],
+    "id": "story-8a4a85b9ef054e83067b",
+    "importance_score": 0.4,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.com/Klaster1/vscode-bridge-for-claude-code",
+    "product_names": [
+      "VS Code Bridge for Claude Code",
+      "Claude Code"
+    ],
+    "published_at": "2026-10-14T15:42:45Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-e1c2868437d47e6ea8ef"
+    ],
+    "source_refs": [
+      {
+        "author": "Klaster_1",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50089454",
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T15:42:45Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e1c2868437d47e6ea8ef",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: VS Code Bridge for Claude Code",
+        "url": "https://github.com/Klaster1/vscode-bridge-for-claude-code"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/Klaster1/vscode-bridge-for-claude-code",
+      "https://news.ycombinator.com/item?id=50089454"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "editor_integration",
+      "developer_experience"
+    ],
+    "uncertainties": [
+      "该扩展与插件是否真实可用、功能是否符合描述，尚未验证。",
+      "作者提出的四个痛点是否为 Claude Code 用户在 VS Code 中的普遍问题，未知。",
+      "该项目与 Anthropic 官方是否存在关联，未知。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "该版本为预发布候选版本（rc0），主要用于在正式版本发布前验证将 Metal 自定义内核移植到 CUDA、以及对 MLX 版本进行升级等改动。",
+      "将 Metal 自定义内核移植至 CUDA 表明 Ollama 正在扩展其 GPU 后端覆盖范围，以提升在 NVIDIA 硬件上的推理性能。",
+      "对 OpenAI Responses 历史中自定义工具调用的支持，反映了 Ollama 持续增强与 OpenAI 兼容 API 工作流的互操作性。"
+    ],
+    "canonical_title": "Ollama 发布 v0.40.5-rc0 预发布版本",
+    "category": "开源AI基础设施",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Ollama",
+      "dhiltgen",
+      "anra8571",
+      "hoyyeva",
+      "willietran"
+    ],
+    "facts": [
+      "Ollama 发布了 v0.40.5-rc0 预发布版本，发布于 2026-10-14T19:45:22Z。",
+      "该版本的变更日志包括：mlx: port the Metal custom kernels to CUDA（PR #18657，作者 dhiltgen）。",
+      "变更日志包括：docs: model recs and language standardization（PR #18981，作者 anra8571）。",
+      "变更日志包括：openai: accept custom tool calls in Responses history（PR #18911，作者 hoyyeva）。",
+      "变更日志包括：app: clarify cloud payment errors（PR #18986，作者 willietran）。",
+      "变更日志包括：MLX: version bump（PR #18993，作者 dhiltgen）。",
+      "willietran 通过 PR #18986 成为该项目的新贡献者。",
+      "完整变更对比链接为 https://github.com/ollama/ollama/compare/v0.40.4...v0.40.5-rc0。",
+      "该版本由 GitHub 上的 github-actions[bot] 发布，仓库为 ollama/ollama。"
+    ],
+    "id": "story-63ead37c536620ebb6ee",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.5-rc0",
+    "product_names": [
+      "ollama/ollama",
+      "MLX",
+      "CUDA",
+      "OpenAI Responses API"
+    ],
+    "published_at": "2026-10-14T19:45:22Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-c93c3e8d8c8dfb19f8dd"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T19:45:22Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c93c3e8d8c8dfb19f8dd",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.5",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.5-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.5-rc0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "开源AI",
+      "模型推理框架",
+      "版本发布"
+    ],
+    "uncertainties": [
+      "该 rc0 版本是否会成为 v0.40.5 正式版，以及正式版的具体发布时间均未在来源中说明。",
+      "MLX 版本升级到哪个具体版本号未在变更日志中给出。",
+      "‘port the Metal custom kernels to CUDA’所涉及的具体性能提升幅度未在来源中量化。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "SentinelOne 借助 OpenAI Daybreak 将恶意软件分析从数周缩短至数小时",
+    "category": "ai_news",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI",
+      "SentinelOne"
+    ],
+    "facts": [
+      "OpenAI News 发布消息称，SentinelOne 使用 OpenAI Daybreak 后，将恶意软件分析所需时间从数周缩短至数小时。",
+      "该消息指出，由此释放的产能可用于调查更多威胁。"
+    ],
+    "id": "story-1d3ddbb3016663751fc5",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/sentinelone",
+    "product_names": [
+      "OpenAI Daybreak"
+    ],
+    "published_at": "2026-10-14T12:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-004cd593adabcd24c97d"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-004cd593adabcd24c97d",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "SentinelOne cuts malware analysis from weeks to hours",
+        "url": "https://openai.com/index/sentinelone"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/sentinelone"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_security",
+      "malware_analysis",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "该消息来自 OpenAI 官方博客，但未提供具体技术细节、效率提升的量化指标或独立验证。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "从公告标题看，HiRO-ACEv2 的定位是降低高分辨率极端天气模拟的计算成本，3 公里分辨率通常被视为对流可分辨尺度，对极端降水与风暴模拟具有意义。",
+      "若该能力成立，可能对气象业务预报与气候风险分析中的算力经济性产生影响。"
+    ],
+    "canonical_title": "HiRO-ACEv2：以更低成本实现3公里分辨率的极端天气模拟",
+    "category": "AI模型与研究",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Allen AI",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face Blog 发布了题为“HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost”的公告。",
+      "该公告发布于 2026-10-14T16:12:42Z，来源标记为官方主渠道（official_primary）。",
+      "公告称 HiRO-ACEv2 可在 3 公里分辨率下模拟极端天气，且成本仅为常规方案的一小部分。"
+    ],
+    "id": "story-9c919cf6bea538fcf293",
+    "importance_score": 0.4,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://huggingface.co/blog/allenai/hiro-acev2",
+    "product_names": [
+      "HiRO-ACEv2"
+    ],
+    "published_at": "2026-10-14T16:12:42Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-504a28fcb44d1a3d50f6"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T16:12:42Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-504a28fcb44d1a3d50f6",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "HiRO-ACEv2: Simulating extreme weather at 3 km resolution for a fraction of the cost",
+        "url": "https://huggingface.co/blog/allenai/hiro-acev2"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/hiro-acev2"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "极端天气模拟",
+      "高分辨率气象建模",
+      "AI气象模型"
+    ],
+    "uncertainties": [
+      "输入未提供公告正文或摘要，HiRO-ACEv2 的具体方法、训练数据、基准对比与成本下降幅度均无法从现有信息追溯。",
+      "“for a fraction of the cost”是公告标题中的表述，缺少可核验的成本量化口径。",
+      "该条目未提供模型权重、代码仓库或服务可用性信息，实际可获取状态不明。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  },
+  {
+    "analysis": [
+      "市场价格变化仅能作为信息展示，现有输入未提供可确认该跌幅单一原因的证据。"
+    ],
+    "canonical_title": "AMD 在 2026-10-14 交易日收盘下跌 5.73%",
+    "category": "market",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "AMD"
+    ],
+    "facts": [
+      "AMD 在 2026-10-14 交易日收盘价为 570.82 美元，较前一交易日收盘价 605.53 美元下跌 5.73%。",
+      "该交易日成交量为 22,119,483 股。",
+      "上述数据来自 Yahoo Finance（经 yfinance 获取），属于市场价格变化信息。"
+    ],
+    "id": "story-f2d0fe7225112538a3e8",
+    "importance_score": 0.15,
+    "novelty_score": 0.1,
+    "primary_source_url": "https://finance.yahoo.com/quote/AMD/",
+    "product_names": [],
+    "published_at": "2026-10-14T00:00:00Z",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-0a34f5afc1ae9922434b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-14T22:35:35.848961Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T00:00:00Z",
+        "published_at_role": "market_trading_day",
+        "published_date_role": null,
+        "raw_item_id": "item-0a34f5afc1ae9922434b",
+        "source_date": null,
+        "source_name": "Yahoo Finance via yfinance",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "market",
+        "statement_type": "factual_announcement",
+        "title": "AMD 最近交易日收盘下跌 5.73%",
+        "url": "https://finance.yahoo.com/quote/AMD/"
+      }
+    ],
+    "source_urls": [
+      "https://finance.yahoo.com/quote/AMD/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "AMD 本次下跌的具体原因未在输入中说明，无法确认是否与 AI 基础设施相关消息有关。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z"
+  }
+]

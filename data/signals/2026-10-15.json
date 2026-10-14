@@ -1,0 +1,51 @@
+[
+  {
+    "created_at": "2026-10-14T22:37:23.525003Z",
+    "explanation": "NVIDIA 最近交易日变动 -3.2%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-2aedbe440d005fbfb780",
+    "metric_history": [
+      {
+        "change_percent": -0.03159461353805519,
+        "trading_date": "2026-10-14"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.5265768923009199,
+    "supporting_company_count": 4,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-0936b67b24d4ab8c10c0",
+      "story-73572cf20147c4beaae1"
+    ],
+    "topic": "NVIDIA",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-10-14T22:37:23.525003Z",
+    "explanation": "AMD 最近交易日变动 -5.7%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-3f4e083a7c990d55e1b3",
+    "metric_history": [
+      {
+        "change_percent": -0.05732171864863677,
+        "trading_date": "2026-10-14"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.9553619774772796,
+    "supporting_company_count": 1,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-f2d0fe7225112538a3e8"
+    ],
+    "topic": "AMD",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-10-14T22:37:23.525003Z",
+    "window_days": 1
+  }
+]

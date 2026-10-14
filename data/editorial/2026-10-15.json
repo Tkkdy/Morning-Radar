@@ -1,0 +1,164 @@
+{
+  "date": "2026-10-15",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认的 Actions 锁文件公开预览，直接提升 CI 可复现性并覆盖免费档。",
+      "retain_for_trends": true,
+      "story_id": "story-0bb35715187d60194695",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ci-supply-chain-lockfile-adoption",
+        "actions-pipeline-reproducibility"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "厂商单方面宣称 10 分钟视频时长，缺乏独立复现，仅作可验证弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-350d1e53e6897afc06c2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-video-duration-claim-validation-gap",
+        "long-form-ai-video-generation"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "Run:ai 完整开源可能改变 GPU 编排生态，但许可与范围细节待确认。",
+      "retain_for_trends": true,
+      "story_id": "story-0936b67b24d4ab8c10c0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-orchestration-open-sourcing",
+        "ai-factory-platform-consolidation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "10,000 agent 运行 36 小时为厂商叙事，机制与性能边界不明。",
+      "retain_for_trends": true,
+      "story_id": "story-36f2dd520e743037b16e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "long-running-agent-scale-claims",
+        "vendor-agent-reliability-narrative"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "HydraFusion 模型池与 Max 选项更新，缺具体改动信息，属轻量工具更新。",
+      "retain_for_trends": false,
+      "story_id": "story-a689ec7f37474a466611",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NeMo Gym 用于芯片设计 agent 可靠性的文章，无性能数据或可用性信息。",
+      "retain_for_trends": false,
+      "story_id": "story-73572cf20147c4beaae1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅社区线索，无一手事件细节，无法命名可验证机制。",
+      "retain_for_trends": false,
+      "story_id": "story-8adaec9b6be5373980bc",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "个人开发者的编辑器桥接扩展，未经独立验证，读者价值有限。",
+      "retain_for_trends": false,
+      "story_id": "story-8a4a85b9ef054e83067b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "rc0 含 Metal 内核移植至 CUDA，暗示 Ollama 扩展 GPU 后端覆盖，值得跟踪。",
+      "retain_for_trends": true,
+      "story_id": "story-63ead37c536620ebb6ee",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-backend-coverage-expansion",
+        "ollama-openai-api-compat"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "OpenAI 官方博客的客户案例，无量化指标或独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-1d3ddbb3016663751fc5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-malware-analysis-speedup-claims",
+        "vendor-security-automation-case-studies"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "3 公里分辨率天气模拟降本宣称值得跟踪，但缺成本口径与基准。",
+      "retain_for_trends": true,
+      "story_id": "story-9c919cf6bea538fcf293",
+      "support_for_story_id": null,
+      "trend_links": [
+        "high-resolution-weather-simulation-cost",
+        "ai-weather-model-efficiency"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "AMD 单日跌 5.73% 为客观行情，但原因未明且无持续后果。",
+      "retain_for_trends": false,
+      "story_id": "story-f2d0fe7225112538a3e8",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-14T22:37:23.525003Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

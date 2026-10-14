@@ -67,6 +67,7 @@
     "id": "item-ffb5a326c8ee4530ec2c",
     "language": "en-US",
     "metadata": {
+      "content_version": "485d8ca739c8721da6ea",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-504a28fcb44d1a3d50f6",
     "language": "en-US",
     "metadata": {
+      "content_version": "35cb655d8fab6fb6aa29",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +130,7 @@
     "id": "item-d98fc085b7493311c6d0",
     "language": null,
     "metadata": {
+      "content_version": "e66dfd577c440591ffb7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +191,7 @@
     "id": "item-f128d7374bd21babbc94",
     "language": "en-US",
     "metadata": {
+      "content_version": "a06a11f162c0f9219df8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +283,7 @@
     "id": "item-154a39176d886b3bd0ff",
     "language": "en-us",
     "metadata": {
+      "content_version": "3f79d48854cc358cb3e5",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +315,7 @@
     "id": "item-004cd593adabcd24c97d",
     "language": "en-US",
     "metadata": {
+      "content_version": "579368808668075d9810",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -370,6 +376,7 @@
     "id": "item-f5fa4d6131d7db33f0c9",
     "language": "en-US",
     "metadata": {
+      "content_version": "3e8ec05a7d371e9c200a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -551,6 +558,7 @@
     "id": "item-55d06fe1f460609b623d",
     "language": "en-US",
     "metadata": {
+      "content_version": "6907c90c38c0188a1320",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -613,6 +621,7 @@
     "id": "item-a8b8c31de898145e14c8",
     "language": "en-US",
     "metadata": {
+      "content_version": "33132d4f9ad4c68c7fa1",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -734,6 +743,7 @@
     "id": "item-709864dc2d811aa2ce74",
     "language": null,
     "metadata": {
+      "content_version": "385ee3de04c8dae7b8e0",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -885,6 +895,7 @@
     "id": "item-6451d923eed6bbe644db",
     "language": "en-us",
     "metadata": {
+      "content_version": "67ffe626989e30422ac9",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1219,6 +1230,7 @@
     "id": "item-8d45898e533e591d4241",
     "language": "en-US",
     "metadata": {
+      "content_version": "4ae67f8d3094800bd651",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -75533,6 +75545,7 @@
     "id": "item-c93c3e8d8c8dfb19f8dd",
     "language": "en",
     "metadata": {
+      "content_version": "a1a1dda54d3c179d8227",
       "data_anomaly": false,
       "forks": 18278,
       "official": true,
@@ -76775,6 +76788,7 @@
     "metadata": {
       "comments": 396,
       "community_signal": true,
+      "content_version": "1f4cd471a33d6e7e23a3",
       "discussion_url": "https://news.ycombinator.com/item?id=50091788",
       "official": false,
       "original_url": "https://www.csoonline.com/article/4234854/ai-agents-arent-going-rogue-frontier-labs-are-skipping-security-basics.html",
@@ -77105,6 +77119,7 @@
     "metadata": {
       "comments": 280,
       "community_signal": true,
+      "content_version": "a487dc9193ad86df10d0",
       "discussion_url": "https://news.ycombinator.com/item?id=50084240",
       "official": false,
       "original_url": "https://typeof.net/Iosevka/",
@@ -77135,11 +77150,19 @@
     "metadata": {
       "comments": 66,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50094694",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://sunshowers.io/posts/anthropic-mononoke/",
       "score": 173,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -77225,11 +77248,19 @@
     "metadata": {
       "comments": 528,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50078141",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/",
       "score": 641,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -77461,6 +77492,7 @@
     "metadata": {
       "change_percent": -0.05732171864863677,
       "close": 570.8200073242188,
+      "content_version": "baa77eb6b424a79e67f5",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 605.530029296875,
@@ -78930,38 +78962,6 @@
     "url": "https://www.reuters.com/technology/anthropic-revenue-jumps-168-billion-third-quarter-ft-reports-2026-10-14/"
   },
   {
-    "author": "sunshowers",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-14T22:35:35.848961Z",
-    "id": "item-d9dce7c6b0e6390785ab",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50094694",
-      "hn_submission_time": 1792009854,
-      "lab_id": "anthropic",
-      "original_url": "https://sunshowers.io/posts/anthropic-mononoke/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-14T20:30:54Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic's Scion is heavily inspired by Mononoke",
-    "topic_candidates": [],
-    "url": "https://sunshowers.io/posts/anthropic-mononoke/"
-  },
-  {
     "author": "gk1",
     "company_candidates": [],
     "content_excerpt": "",
@@ -80258,6 +80258,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "1fd39c90248276955008",
       "discovery_paths": [
         "hn_search:anthropic:Claude"
       ],
@@ -80920,38 +80921,6 @@
     "title": "Saudi national working at OpenAI arrested for bugging executive conference room",
     "topic_candidates": [],
     "url": "https://bnonews.com/index.php/2026/10/saudi-national-working-at-openai-arrested-for-bugging-executive-conference-room/"
-  },
-  {
-    "author": "forthwall",
-    "company_candidates": [],
-    "content_excerpt": "https://x.com/OpenAINewsroom/status/2110095403198849132",
-    "fetched_at": "2026-10-14T22:35:35.848961Z",
-    "id": "item-15f5c0fffdfdebe83a70",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50078141",
-      "hn_submission_time": 1791923035,
-      "lab_id": "openai",
-      "original_url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-13T20:23:55Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://x.com/OpenAINewsroom/status/2110095403198849132",
-    "title": "OpenAI engineer arrested in bugging of executive conference room",
-    "topic_candidates": [],
-    "url": "https://sfstandard.com/2026/10/13/openai-engineer-arrested-alleged-bugging-executive-conference-room/"
   },
   {
     "author": "jaredwiener",
