@@ -1,0 +1,75 @@
+{
+  "date": "2026-10-16",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前前沿模型能力主要通过厂商自有的旗舰云端模型与统一 API 提供，开放权重编程优化模型、统一多模态端点与面向专用智能体的多模态推理模型较少在同一时间窗内由多个厂商通过第三方平台集中发布。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "本批次出现由三个不同 actor（Meta、IBM、NVIDIA）通过官方与第三方平台发布开放权重或专用模型的簇，机制方向一致——模型能力按部署位置与场景分层分发。但部分强相关簇（如 Muse Spark Open 的开放权重发布与 NVIDIA 平台部署）同属一个事件边界下的关联动作，且 GitHub Copilot 弃用模型、Claude Code Review 上线、OpenAI 与 Amp 合作等簇涉及不同 actor 与场景，尚未形成稳定的跨事件结构性支撑链。按规则保持 Candidate，作为新的内部观察。",
+        "falsifier": "如果 Muse Spark Open、Granite Switch 4.1 或 Nemotron 3.5 Super VL 未被开发者采用或被撤回，或厂商放弃通过开放权重与第三方平台分层分发模型的路径，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Meta 发布 Muse Spark Open 开放权重模型，为 816B 参数 MoE、激活 42B、上下文窗口 1M token，并在 NVIDIA GB300 NVL72 上扩展智能体编程工作流。",
+          "IBM 在 Hugging Face 博客发布 Granite Switch 4.1，以单一端点提供 Chat、Decisions 与 Speech 能力。",
+          "NVIDIA 发布 Nemotron 3.5 Super VL，面向常驻专用智能体提供多模态推理能力。",
+          "GitHub 宣布将于 2026 年 11 月 16 日弃用部分 GitHub Copilot 模型，覆盖 Copilot Chat、inline edits、ask、agent 模式与 code completions。",
+          "Anthropic 的 Claude Code Review 正式全面可用。",
+          "OpenAI 与 Amp 合作，将 AI 代理能力从编码扩展至更广泛任务；OpenAI 推出面向学术实验室的 GPT-Rosalind 学术计划。"
+        ],
+        "shared_mechanism": "模型厂商与平台方通过官方发布把模型能力按部署位置与场景分层供给：Meta 在 Hugging Face 发布 Muse Spark Open 开放权重编程优化 MoE 模型，并通过 NVIDIA GB300 NVL72 扩展智能体编程工作流；IBM 在 Hugging Face 发布 Granite Switch 4.1 统一对话、决策与语音端点；NVIDIA 发布 Nemotron 3.5 Super VL 面向专用智能体多模态推理。这些动作共同改变开发者获取和部署模型能力的方式——从调用单一旗舰模型转向按部署位置、模型形态与场景选择开放权重、专用或规模化推理模型，并把 Hugging Face、NVIDIA 平台与 GitHub Copilot 作为分发与运行渠道。"
+      },
+      "claim": "AI 模型厂商正把开放权重、编程优化与多模态推理模型通过官方渠道与第三方平台（Hugging Face、NVIDIA、GitHub Copilot）分层分发，使开发者按部署位置、模型规模与场景获取能力，而非依赖单一旗舰云端模型。",
+      "counterevidence_cluster_ids": [
+        "cluster-6b132e5171df6627cc00"
+      ],
+      "counterevidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-16",
+            "story_id": "story-c51011e0d4abf756ff00"
+          }
+        }
+      ],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-16",
+            "story_id": "story-32e115ce358fd33058fc"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-16",
+            "story_id": "story-9fe348d8e1ec5a0a30d8"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-16",
+            "story_id": "story-864a7da618766b8cb457"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-8e32f16075992810f6b5",
+      "recorded_at": "2026-10-15T22:44:59.674749Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-78386f5b29ed392b5628",
+        "cluster-be46701b1ca4975ff36c",
+        "cluster-281049e3fc5b374548ee"
+      ],
+      "tendency_id": "tendency-d9856d92dfde46dab444",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-15T22:44:59.674749Z"
+}
