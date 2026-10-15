@@ -530,7 +530,7 @@ def test_site_builder_labels_dated_rss_time_as_feed_entry_time(tmp_path) -> None
     assert "文章发布于" not in html
 
 
-def test_site_builder_labels_radar_signal_as_unverified_and_renders_tendency(
+def test_site_builder_labels_radar_signal_and_keeps_legacy_tendency_private(
     tmp_path,
 ) -> None:
     now = datetime(2026, 8, 16, tzinfo=UTC)
@@ -576,8 +576,9 @@ def test_site_builder_labels_radar_signal_as_unverified_and_renders_tendency(
     html = (output / "index.html").read_text(encoding="utf-8")
     assert "雷达信号 · 尚待验证" in html
     assert "不确定性" in html
-    assert "结构趋势" in html
-    assert "emerging" in html
+    assert "结构趋势" not in html
+    assert brief.tendencies[0].claim not in html
+    assert brief.tendencies  # Saved legacy record remains unchanged.
 
 
 def test_site_builder_handles_empty_radar_and_tendency_day(tmp_path) -> None:

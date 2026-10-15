@@ -104,6 +104,7 @@ def test_story_source_ref_preserves_rss_collector_context() -> None:
                 "source_role": SourceRole.EDITORIAL,
                 "statement_type": StatementType.UNKNOWN,
                 "practice_signal_kind": None,
+                "material_provenance": None,
                 "source_date": None,
                 "date_precision": None,
                 "source_timezone": None,
@@ -265,7 +266,7 @@ class RecordingProvider(FakeAIProvider):
         self.budget = AIBudget(100, 100_000, 40)
 
     def classify_items(self, items):
-        self.classified_count = len(items)
+        self.classified_count += len(items)
         self.budget.consume("fixture payload", item_count=len(items))
         return super().classify_items(items)
 
@@ -290,7 +291,7 @@ def test_ai_candidate_cap_is_applied_before_classification() -> None:
     )
 
     assert provider.classified_count == 40
-    assert provider.budget.calls_used == 1
+    assert provider.budget.calls_used == 5
     assert len(stories) == 40
 
 
@@ -494,13 +495,14 @@ def test_successful_classification_with_zero_relevant_items_is_normally_empty() 
     assert stories == []
 
 
-def test_global_classification_ai_failure_propagates() -> None:
-    with pytest.raises(AIOutputError, match="invalid structured output"):
-        build_stories(
-            [item("one", "Release", "https://example.com/one", source="Fixture")],
-            provider=ClassificationFailureProvider(),
-            now=NOW,
-        )
+def test_classification_failure_retains_missing_status() -> None:
+    outcomes = {}
+    result = build_stories(
+        [item("one", "Release", "https://example.com/one", source="Fixture")],
+        provider=ClassificationFailureProvider(), now=NOW, item_outcomes=outcomes,
+    )
+    assert result == []
+    assert outcomes == {"one": "classification_response_missing"}
 
 
 class PartialMergeFailureProvider(FakeAIProvider):
@@ -520,7 +522,8 @@ def test_one_story_failure_does_not_discard_other_candidates(caplog) -> None:
         now=NOW,
     )
 
-    assert [story.source_item_ids for story in stories] == [["valid"]]
+    assert [story.source_item_ids for story in stories] == [["valid"], ["broken"]]
+    assert not stories[1].facts
     assert "AI degradation: merge failed" in caplog.text
 
 
@@ -550,3 +553,22 @@ def test_same_page_discovery_keeps_richer_direct_excerpt_and_both_outcomes():
     assert {ref.source_role for ref in stories[0].source_refs} == {
         SourceRole.COMMUNITY_DISCOVERY, SourceRole.OFFICIAL_PRIMARY,
     }
+
+
+def test_title_only_collector_record_cannot_supply_body_facts():
+    source = item("lead", "An important release", "https://example.com/lead", source="HN")
+    source.summary = ""
+    story = build_story([source], provider=FakeAIProvider(), now=NOW)
+    assert story.facts == []
+    assert story.source_urls == [source.url]
+    assert any("仅有标题" in gap for gap in story.uncertainties)
+
+
+def test_classification_batches_preserve_each_input_attempt_metadata():
+    inputs = [item(str(i), f"Distinct release {i}", f"https://example.com/{i}", source="Source")
+              for i in range(9)]
+    decisions = {}
+    build_stories(inputs, provider=FakeAIProvider(), now=NOW, classification_out=decisions)
+    attempts = decisions["_call_meta_by_item"]
+    assert set(attempts) == {str(i) for i in range(9)}
+    assert attempts["0"]["attempt"] != attempts["8"]["attempt"]

@@ -183,3 +183,25 @@ def recover_inputs(store: CoreStore, *, maximum: int = 100) -> dict:
         )
         recovered += 1
     return {"recovered": recovered, "pending": len(pending) - recovered}
+
+
+class ConfirmationRequest(RadarModel):
+    operation_id: str = Field(pattern=r"^[A-Za-z0-9_-]{8,100}$")
+    revision_id: str = Field(min_length=1, max_length=150)
+    body_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+    evidence_sha256: str = Field(pattern=r"^[a-f0-9]{64}$")
+    action: Literal["confirm", "return"]
+    note: str = Field(default="", max_length=2000)
+
+
+def confirm_draft(store: CoreStore, request: ConfirmationRequest, *, author: str,
+                  now: datetime | None = None) -> dict:
+    identity = "confirmation:" + digest(author + ":" + request.operation_id)
+    previous = next((e for e in store.events() if e["operation_id"] == identity), None)
+    event = {
+        "type": "human_confirmation", **request.model_dump(exclude={"operation_id"}),
+        "author": author,
+        "recorded_at": previous["payload"]["recorded_at"] if previous
+                       else (now or utc_now()).isoformat(),
+    }
+    return store.append(event, operation_id=identity)

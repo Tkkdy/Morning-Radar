@@ -235,8 +235,9 @@ def test_synthetic_pairs_preserve_conditional_early(tmp_path, negative, positive
 
     result = run_review(store, provider(judge), [bad, good], cap=100000)
     assert [r["status"] for r in result["items"]] == ["rejected", "approved"]
-    current = list(CoreStore(tmp_path).public_current().values())
-    assert len(current) == 1 and current[0].decision.hypothesis.claim == positive
+    assert not store.public_current()
+    current = [r for r in store.current().values() if r.revision_id == good["request"]["candidate_id"]]
+    assert len(store.current()) == 2 and current[0].decision.hypothesis.claim == positive
     assert (
         current[0].standing == "early" and current[0].decision.hypothesis.scope_basis == "inferred"
     )
@@ -311,7 +312,8 @@ def test_review_failure_persists_and_resumes_without_discovery(tmp_path, mode):
         tmp_path, config_root=Path("."), provider=p, now=NOW + timedelta(seconds=3)
     )
     assert len(wires) == 1 and "candidates" in json.loads(wires[0]["messages"][-1]["content"])
-    assert result["status"] == "completed" and len(store.public_current()) == 1
+    assert result["status"] == "completed" and len(store.current()) == 1
+    assert not store.public_current()
 
 
 def test_stale_after_review_preserves_previous_public_version(tmp_path):
@@ -321,12 +323,16 @@ def test_stale_after_review_preserves_previous_public_version(tmp_path):
         return {"assessments": [assessment(c) for c in ctx["candidates"]]}
     run_review(store, provider(approve), [first])
     old = next(iter(store.current().values()))
+    from morning_radar.tendencies.web_input import ConfirmationRequest, confirm_draft
+    confirm_draft(store, ConfirmationRequest(operation_id="synthetic-old-confirm", action="confirm",
+                  **store.confirmation_binding(old)), author="synthetic-owner", now=NOW)
     update = item(store, text="新解释仍待验证。", suffix="-update", previous=old)
 
     def race():
         changed = old.model_copy(deep=True)
         changed.revision_id += "-race"
-        changed.previous_revision_id = old.revision_id
+        changed.previous_revision_id = update["revision"]["revision_id"]
+        changed.recorded_at = NOW + timedelta(seconds=2)
         store.append(
             {"type": "revision", "revisions": [changed.model_dump(mode="json")]},
             operation_id="synthetic concurrent writer",
@@ -342,7 +348,8 @@ def test_real_failed_legacy_transaction_remains_local_not_public(tmp_path):
     store.append(TRANSACTION["payload"], operation_id="legacy real failure")
     before = store.events()
     assert store.revisions() and not store.public_current()
-    assert export_core(store)["history"] and export_core(store)["current"] == []
+    assert export_core(store, private=True)["history"]
+    assert export_core(store)["history"] == [] and export_core(store)["current"] == []
     assert store.events() == before
 
 
@@ -392,7 +399,7 @@ def test_rebuild_replaces_old_unreviewed_public_page_with_notice(tmp_path):
     stale.write_text(revision.decision.hypothesis.claim, encoding="utf8")
     build_pages(store, output, repository=Path("."))
     assert "不会造成实质行政后果" not in stale.read_text("utf8")
-    assert "未获内容准入" in stale.read_text("utf8")
+    assert "未获人工确认" in stale.read_text("utf8")
     assert store.revisions()[0] == revision
 
 
@@ -476,9 +483,11 @@ def test_oversized_pending_does_not_starve_new_evidence_across_runs(tmp_path, le
     second = core.run_core(tmp_path, config_root=Path("."),
                            provider=limited_provider(response), now=later)
     assert second["stages"]["discovery"]["status"] == "completed"
-    assert second["revision_ids"] and len(wires) == 2
-    assert len(store.public_current()) == 1 and old.hypothesis_id not in store.public_current()
-    assert all(old.revision_id not in json.dumps(w) for w in wires)
+    # Private drafts now also participate in calibration; no public admission occurs.
+    assert second["revision_ids"] and len(wires) == 3
+    assert len(store.current()) == 2 and not store.public_current()
+    assert all("candidates" not in json.loads(w["messages"][-1]["content"])
+               or old.revision_id not in json.dumps(w) for w in wires)
     assert store.events()[:len(history)] == history
     oversized = [e for e in store.events() if e["payload"].get("status") == "input_too_large"]
     assert len(oversized) == 1 and oversized[0]["payload"]["request"] == saved["request"]
@@ -528,7 +537,7 @@ def test_unidentified_assessment_keeps_valid_siblings_and_raw_error(tmp_path, ba
     result = run_review(store, provider(judge, wires=wires), items, cap=100000)
     assert len(wires) == 1
     assert [r["status"] for r in result["items"]] == ["approved", second_verdict, "invalid_review"]
-    assert len(store.public_current()) == (2 if second_verdict == "approved" else 1)
+    assert len(store.current()) == 3 and not store.public_current()
     assert result["status"] == "partial"
     assert result["assessment_errors"][0]["index"] == 1
     assert result["assessment_errors"][0]["raw"] == bad
@@ -540,12 +549,13 @@ def test_unidentified_assessment_keeps_valid_siblings_and_raw_error(tmp_path, ba
     assert "Missing or duplicate" in result["items"][2]["error"]
 
 
-def test_frozen_review_wire_contract_unchanged():
+def test_review_wire_advertises_strict_items_but_retains_invalid_siblings():
     from morning_radar.tendencies.grounded_review import ReviewOutput
 
-    # Strict advertised schema remains unchanged; malformed transport entries are
-    # tolerated only long enough to retain diagnostics and validate siblings.
-    assert ReviewOutput.model_json_schema()["properties"]["assessments"] == {
-        "items": {"additionalProperties": True, "type": "object"},
-        "maxItems": 12, "title": "Assessments", "type": "array"}
+    schema = ReviewOutput.model_json_schema()
+    entry = schema["properties"]["assessments"]["items"]
+    assert entry["additionalProperties"] is False
+    assert "early_reason" in entry["required"]
+    assert "early_reason" not in schema["$defs"]["Finding"]["properties"]
+    assert schema["$defs"]["Finding"]["additionalProperties"] is False
     assert ReviewOutput.model_validate({"assessments": [None] * 13}).assessments == [None] * 13

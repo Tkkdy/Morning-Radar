@@ -24,6 +24,7 @@ from morning_radar.models import RawItem
 from morning_radar.models.core import (
     GroundedAnalysis,
     GroundedPoint,
+    MaterialProvenance,
     ResearchEvidenceRef,
     TechnicalQuoteNormalization,
     TechnicalReading,
@@ -37,6 +38,7 @@ class MaterialParser(HTMLParser):
 
     def __init__(self) -> None:
         super().__init__(convert_charrefs=True)
+        self.page_identity: dict[str, str] = {}
         self.skip = 0
         self.blocks: list[str] = []
         self.block_scopes: list[int] = []
@@ -48,6 +50,13 @@ class MaterialParser(HTMLParser):
         self.article_depth = 0
 
     def handle_starttag(self, tag, attrs):
+        if tag == "meta":
+            attributes = dict(attrs)
+            key = (attributes.get("name") or attributes.get("property") or "").lower()
+            field = {"author": "author", "og:site_name": "publisher"}.get(key)
+            value = " ".join((attributes.get("content") or "").split())[:200]
+            if field and value:
+                self.page_identity[field] = value
         if tag in {"head", "script", "style", "nav", "header", "footer", "form", "aside"}:
             self.skip += 1
         if self.skip:
@@ -102,7 +111,8 @@ class MaterialParser(HTMLParser):
 def material_gaps(item: RawItem) -> list[str]:
     text = item.content_excerpt or item.summary
     gaps = []
-    if len(text.strip()) < 300 or item.metadata.get("excerpt_truncated"):
+    if (len(text.strip()) < 300 or item.metadata.get("excerpt_truncated")
+            or re.search(r"\[(?:…|\.\.\.)\]\s*$", text)):
         gaps.append("source_detail")
     if re.search(r"paper|technical report|论文|技术报告|arxiv", item.title + " " + item.url, re.I):
         for name, pattern in {
@@ -257,9 +267,32 @@ def enrich_materials(
                                     pair[0],
                                 ),
                             )
-                            excerpt = "\n".join(text[:280] for _, text in blocks[:6])[
-                                : policy.maximum_excerpt_characters
-                            ]
+                            # Keep the introduction (problem) and complete bounded sentences.
+                            # A fixed 280-char prefix used to cut technical claims mid-sentence.
+                            ordered = list(dict.fromkeys([
+                                *parser.content_blocks()[:1], *(text for _, text in blocks)
+                            ]))
+                            fragments = []
+                            remaining = policy.maximum_excerpt_characters
+                            for text in ordered:
+                                if len(fragments) >= 6 or remaining < 40:
+                                    break
+                                cap = min(420, remaining)
+                                fragment = text[:cap]
+                                if len(text) > cap:
+                                    ends = [
+                                        m.end() for m in re.finditer(
+                                            r"[.!?。！？](?:\s|$)", fragment
+                                        )
+                                    ]
+                                    if ends:
+                                        fragment = fragment[:ends[-1]].strip()
+                                    else:
+                                        continue
+                                if fragment:
+                                    fragments.append(fragment)
+                                    remaining -= len(fragment) + 1
+                            excerpt = "\n".join(fragments)
                             if not excerpt:
                                 snapshot["status"] = "parse_empty"
                             else:
@@ -267,6 +300,7 @@ def enrich_materials(
                                     status="fetched",
                                     excerpt=excerpt,
                                     response_sha256=hashlib.sha256(response.content).hexdigest(),
+                                    page_identity=parser.page_identity,
                                 )
                                 # Only links already collected as inputs can establish a relation.
                                 snapshot["linked_input_urls"] = list(
@@ -290,6 +324,9 @@ def enrich_materials(
                     finally:
                         snapshot["http_requests"] = client.request_attempts - requests_before
                         atomic_json(path, snapshot)
+            if snapshot["status"] == "fetched":
+                material = apply_material_snapshot(material, snapshot)
+                snapshot["material_provenance"] = material.metadata["material_provenance"]
             snapshot["remaining_gaps"] = material_gaps(material)
             material.metadata["evidence_id"] = identity
             material.metadata["material_links"] = snapshot["linked_input_urls"]
@@ -311,6 +348,35 @@ def enrich_materials(
         "material_ai_calls": 0,
     }
     return result
+
+
+def apply_material_snapshot(item: RawItem, snapshot: dict) -> RawItem:
+    """Restore a fetched short excerpt and its observed provenance without changing discovery."""
+    if (snapshot.get("input_id") != item.id or snapshot.get("source_url") != item.url
+            or snapshot.get("status") != "fetched" or not snapshot.get("excerpt")):
+        raise ValueError("material snapshot does not match fetched input")
+    identity = snapshot.get("page_identity") or {}
+    discovery = item.source_role.value in {"community_discovery", "upstream_discovery"}
+    provenance = MaterialProvenance(
+        url=item.url,
+        observed_at=snapshot["observed_at"],
+        content_version=hashlib.sha256(snapshot["excerpt"].encode()).hexdigest(),
+        publisher=identity.get("publisher") or (None if discovery else item.source_name),
+        author=identity.get("author") or (None if discovery else item.author),
+        identity_basis="page_metadata_self_declared" if identity else
+        "unknown" if discovery else "collector_publisher_record",
+        source_role="unknown" if discovery else item.source_role,
+        statement_type="unknown" if discovery else item.statement_type,
+        official_page_fetched=not discovery and item.source_role.value == "official_primary",
+    )
+    material = item.model_copy(deep=True)
+    material.content_excerpt = snapshot["excerpt"]
+    material.metadata.update(
+        material_provenance=provenance.model_dump(mode="json"),
+        material_status="fetched",
+        material_links=snapshot.get("linked_input_urls", []),
+    )
+    return material
 
 
 def load_material_evidence(root: Path, *, through: datetime, maximum: int = 200) -> list[dict]:

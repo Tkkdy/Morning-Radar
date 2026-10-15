@@ -57,11 +57,12 @@ class FakeResponses:
         self.calls = 0
 
     def parse(self, **kwargs: object) -> SimpleNamespace:
-        del kwargs
         result = self.results[self.calls]
         self.calls += 1
         if isinstance(result, Exception):
             raise result
+        if isinstance(result, ClassificationBatch):
+            result = kwargs["text_format"].model_validate(result.model_dump())
         return SimpleNamespace(output_parsed=result)
 
 
@@ -101,7 +102,7 @@ def test_structured_result_is_returned() -> None:
     )
     configured = provider([expected])
 
-    assert configured.classify_items([raw_item()]) == expected
+    assert configured.classify_items([raw_item()]).model_dump() == expected.model_dump()
 
 
 def test_invalid_or_missing_structured_output_retries_once() -> None:
@@ -109,7 +110,7 @@ def test_invalid_or_missing_structured_output_retries_once() -> None:
     responses = [None, expected]
     configured = provider(responses)
 
-    assert configured.classify_items([raw_item()]) == expected
+    assert configured.classify_items([raw_item()]).model_dump() == expected.model_dump()
     assert configured.client.responses.calls == 2
 
 
@@ -353,7 +354,7 @@ def test_timeout_retries_with_bounded_attempts() -> None:
     expected = ClassificationBatch(items=[])
     configured = provider([timeout, expected])
 
-    assert configured.classify_items([raw_item()]) == expected
+    assert configured.classify_items([raw_item()]).model_dump() == expected.model_dump()
     assert configured.client.responses.calls == 2
     assert configured.budget.calls_used == 1
     assert configured.budget.network_requests_used == 2

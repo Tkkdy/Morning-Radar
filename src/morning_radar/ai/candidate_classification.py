@@ -1,9 +1,9 @@
-"""Narrow, loss-aware adaptation for metadata candidate review only."""
+"""Isolate invalid classification rows; metadata review alone accepts echoed titles."""
 
 from __future__ import annotations
 
 from collections import Counter
-from typing import Any
+from typing import Any, ClassVar
 
 from pydantic import PrivateAttr, ValidationError, model_validator
 
@@ -11,6 +11,7 @@ from morning_radar.ai.models import ClassificationBatch, ClassifiedItem
 
 
 class CandidateClassificationBatch(ClassificationBatch):
+    allow_title_echo: ClassVar[bool] = True
     _candidate_diagnostics: list[dict[str, Any]] = PrivateAttr(default_factory=list)
 
     @model_validator(mode="wrap")
@@ -32,7 +33,8 @@ class CandidateClassificationBatch(ClassificationBatch):
                 diagnostics.append({**note, "reason": "duplicate_id"})
                 continue
             candidate = dict(row) if isinstance(row, dict) else row
-            ignored_title = isinstance(candidate, dict) and isinstance(candidate.get("title"), str)
+            ignored_title = (cls.allow_title_echo and isinstance(candidate, dict)
+                             and isinstance(candidate.get("title"), str))
             if ignored_title:
                 candidate.pop("title")
             try:
@@ -50,6 +52,12 @@ class CandidateClassificationBatch(ClassificationBatch):
         result = handler({**value, "items": valid})
         result._candidate_diagnostics = diagnostics
         return result
+
+
+class StrictClassificationBatch(CandidateClassificationBatch):
+    """Every retained row must satisfy the unchanged full classification schema."""
+
+    allow_title_echo: ClassVar[bool] = False
 
 
 def validate_candidate_ids(

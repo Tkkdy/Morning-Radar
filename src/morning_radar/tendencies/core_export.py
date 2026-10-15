@@ -9,11 +9,12 @@ from pathlib import Path
 from morning_radar.tendencies.core_store import CoreStore
 
 
-def export_core(store: CoreStore, *, legacy_root: Path | None = None) -> dict:
-    revisions = store.revisions()
-    current = store.public_current()
+def export_core(store: CoreStore, *, legacy_root: Path | None = None,
+                private: bool = False) -> dict:
+    revisions = store.draft_revisions() if private else store.public_revisions()
+    current = store.current() if private else store.public_current()
     legacy = []
-    if legacy_root:
+    if private and legacy_root:
         for path in sorted((legacy_root / "data/tendencies").glob("*.json")):
             legacy.append(
                 {
@@ -24,12 +25,12 @@ def export_core(store: CoreStore, *, legacy_root: Path | None = None) -> dict:
             )
     return {
         "schema_version": 2,
-        "history_scope": "local diagnostic history; unreviewed rows are not public approval",
+        "history_scope": "private drafts" if private else "human-confirmed revisions only",
         "public_revision_ids": [r.revision_id for r in store.public_revisions()],
         "current": [r.model_dump(mode="json") for r in current.values()],
         "history": [r.model_dump(mode="json") for r in revisions],
-        "submissions": list(store.submissions().values()),
-        "receipts": list(store.receipts().values()),
+        "submissions": list(store.submissions().values()) if private else [],
+        "receipts": list(store.receipts().values()) if private else [],
         "legacy": legacy,
     }
 
@@ -50,7 +51,7 @@ def render_markdown(payload: dict) -> str:
                 f"首次记录：{revision['first_recorded_at']}；本次：{revision['recorded_at']}",
                 f"前一版：{revision['previous_revision_id']}；父方向：{revision['parent_hypothesis_id']}",
                 f"来源：{revision['origin']}；synthetic={revision['synthetic']}；状态：{revision['standing']}",
-                "内容准入：" + ("自动审查通过（非真实性证明）"
+                "内容准入：" + ("用户确认（非事实认证）"
                             if revision["revision_id"] in payload["public_revision_ids"]
                             else "未审查，不可作为公开当前方向"),
                 "范围：" + safe("、".join(hypothesis["scope"]))
@@ -103,3 +104,32 @@ def render_markdown(payload: dict) -> str:
     for record in payload["legacy"]:
         lines.append("- legacy_v1_unmigrated：" + safe(record["path"]))
     return "\n".join(lines)
+
+
+def save_public_projection(store: CoreStore) -> Path:
+    """Publish only confirmed revision content, never transactions or private notes."""
+    from morning_radar.ai.usage import atomic_json
+    path = store.root / "data/tendency-public/v1/confirmed.json"
+    if not store.private_state_available():
+        if path.exists():
+            return path  # Preserve the last complete projection byte for byte.
+        raise ValueError("Private transaction sequence is incomplete")
+    revisions = store.public_revisions()
+    events = store.events()
+    previous = json.loads(path.read_text(encoding="utf-8")) if path.exists() else {}
+    old_times = {c["revision_id"]: c.get("confirmed_at")
+                 for c in previous.get("confirmations", [])}
+    decisions = store.human_decisions()
+    atomic_json(path, {
+        "schema_version": 1,
+        "private_state_requires_restore": bool(events)
+            or previous.get("private_state_requires_restore", False),
+        "private_state_checkpoint": (store.prefix_checkpoint(events)
+            if events
+            else previous.get("private_state_checkpoint")),
+        "history": [r.model_dump(mode="json") for r in revisions],
+        "confirmations": [{**store.confirmation_binding(r),
+            "confirmed_at": decisions.get(r.revision_id, {}).get("recorded_at")
+                or old_times.get(r.revision_id)} for r in revisions],
+    })
+    return path

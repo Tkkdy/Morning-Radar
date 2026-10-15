@@ -25,6 +25,7 @@ from morning_radar.models import (
     StatementType,
 )
 from morning_radar.processing import normalize_url
+from morning_radar.processing.attention import attention_key
 
 LOGGER = logging.getLogger(__name__)
 VAGUE_PRAISE = ("太牛", "最好", "best in the world", "amazing", "awesome")
@@ -52,7 +53,8 @@ def _is_research_lead(item: RawItem) -> bool:
         and (
             item.metadata.get("selection_reason")
             in {"high_signal_discovery", "watchlist_discovery"}
-            or "watchlist_discovery" in item.metadata.get("discovery_reasons", [])
+            or bool({"watchlist_discovery", "high_signal_discovery"}
+                    .intersection(item.metadata.get("discovery_reasons", [])))
         )
     )
 
@@ -80,13 +82,14 @@ def build_research_cases(
     items: list[RawItem],
     *,
     maximum_cases: int,
+    scope_keywords: tuple[str, ...] = (),
 ) -> list[ResearchCase]:
     """Gate leads deterministically and join only evidence already in this run."""
     leads = [item for item in items if _is_research_lead(item) and _is_concrete(item)]
     leads.sort(
         key=lambda item: (
             0 if item.source_role == SourceRole.PRACTITIONER else 1,
-            -int(item.metadata.get("score", 0) or 0),
+            attention_key(item.metadata.get("score")),
             -(item.published_at or item.fetched_at).timestamp(),
             item.id,
         )
@@ -101,6 +104,8 @@ def build_research_cases(
             if item.id == lead.id or item.source_role == SourceRole.UPSTREAM_DISCOVERY:
                 continue
             same_original = normalize_url(item.url) == lead_url
+            if same_original and item.source_type == lead.source_type == "hacker_news":
+                continue  # Another discovery of one page is not independent evidence.
             anchored_primary = bool(
                 item.source_role == SourceRole.OFFICIAL_PRIMARY
                 and (
@@ -127,12 +132,14 @@ def build_research_cases(
                     lead,
                     association_basis="lead",
                     content_version=_content_version(lead),
+                    scope_keywords=scope_keywords,
                 ),
                 supporting_evidence=[
                     evidence_snapshot(
                         item,
                         association_basis=basis,
                         content_version=_content_version(item),
+                        scope_keywords=scope_keywords,
                     )
                     for item, basis in support[:3]
                 ],
@@ -151,10 +158,16 @@ def resolve_research(
     item_retry_attempts: int = 0,
     split_retry_attempts: int = 0,
 ) -> ResearchRunResult:
-    planned_cases = build_research_cases(items, maximum_cases=maximum_cases)
+    topic_context = getattr(provider, "topic_context", None)
+    scope_keywords = tuple(dict.fromkeys(
+        keyword for topic in (topic_context or {}).get("topics", [])
+        for keyword in topic.get("keywords", [])
+    ))
+    planned_cases = build_research_cases(
+        items, maximum_cases=maximum_cases, scope_keywords=scope_keywords,
+    )
     cases = planned_cases
     had_cases = bool(cases)
-    topic_context = getattr(provider, "topic_context", None)
     fitted = fit_research_request(
         cases,
         topic_context=topic_context,
@@ -281,7 +294,13 @@ def resolve_research(
             continue
         resolved = resolved_by_id.get(case.id)
         if resolved is not None and (not resolved.in_scope or not resolved.scope_rationale.strip()):
-            item_outcomes[lead_id] = ReasonCode.RESEARCH_OUT_OF_SCOPE
+            incomplete = any(
+                ref.excerpt_truncated or ref.content_missing or ref.text_omission_reason
+                for ref in [case.lead, *case.supporting_evidence]
+            )
+            item_outcomes[lead_id] = (
+                ReasonCode.WAITING_EVIDENCE if incomplete else ReasonCode.RESEARCH_OUT_OF_SCOPE
+            )
     return ResearchRunResult(
         cases=cases,
         planned_cases=planned_cases,

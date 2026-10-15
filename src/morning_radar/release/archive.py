@@ -16,12 +16,10 @@ FAMILIES = (
     "briefs",
     "stories",
     "continuity",
-    "tendencies",
     "radar_signals",
     "evidence",
     "usage",
     "health",
-    "tendency-core/v2",
     "releases/v1",
 )
 
@@ -47,6 +45,11 @@ def archive_files(root: Path) -> list[str]:
                 if path.is_symlink() or not path.resolve().is_relative_to(root.resolve()):
                     raise ValueError("Archive symlink refused")
                 paths.add(path.relative_to(root).as_posix())
+    projection = root / "data/tendency-public/v1/confirmed.json"
+    if projection.is_file():
+        if projection.is_symlink():
+            raise ValueError("Archive symlink refused")
+        paths.add(projection.relative_to(root).as_posix())
     return sorted(paths)
 
 
@@ -54,7 +57,8 @@ class GitArchive:
     """The Actions queue is the distributed lock; Git push is the final CAS.
 
     A rejected push leaves the local commit intact. Recovery uses a fresh authoritative
-    checkout and the durable inbox; it must not rebase mutable derived state.
+    checkout plus a separately restored private store for Tendency; it must not
+    rebase mutable derived state. The public projection cannot restore private drafts.
     """
 
     def __init__(
@@ -76,6 +80,15 @@ class GitArchive:
     def _commit(self, reason: str) -> str:
         if git(self.root, "diff", "--cached", "--name-only"):
             raise ArchiveConflict("Unrelated staged changes; archive refused")
+        # A path already tracked remains in every pushed tree even without git add.
+        private_tracked = git(self.root, "ls-files", "--", "data/tendency-core")
+        if private_tracked:
+            raise ArchiveConflict(
+                "Private Tendency state is already tracked; public migration requires owner action"
+            )
+        from morning_radar.tendencies.core_export import save_public_projection
+        from morning_radar.tendencies.core_store import CoreStore
+        save_public_projection(CoreStore(self.root))
         files = archive_files(self.root)
         if not self.allow_synthetic:
             for name in files:

@@ -2,22 +2,31 @@
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Tendency · Morning Radar</title><link rel="stylesheet" href="assets/tendency.css"><script src="assets/tendency.js" defer></script></head>
 <body><header><nav aria-label="主导航"><a href="../index.html">Morning Radar 晨报</a><a href="index.html">Tendency</a><a href="history.html">独立历史</a><a href="receipts.html">投递回执</a><a href="edit.html">投递想法</a></nav>
-<p class="meta">TENDENCY · 条件变化与未来结构假设</p><h1>{% if kind == 'list' %}先记录判断，再让现实校准。{% elif kind == 'detail' %}判断与依据{% elif kind == 'history' %}独立修订历史{% elif kind == 'edit' %}投递、补充与纠偏{% for failure in inbox_failures %}<article><h2>GitHub 输入格式未通过</h2><p>Issue #{{ failure.source.number }} · 已保存取得的原文；请新建修正投递。</p><details><summary>查看取得的原文快照</summary><pre>{{ failure.source.body }}</pre></details></article>{% endfor %}
+<p class="meta">TENDENCY · 条件变化与未来结构假设</p><h1>{% if kind == 'list' %}{% if local_write %}研究草稿 · 等待你的判断{% else %}已确认的研究假设{% endif %}{% elif kind == 'detail' %}判断与依据{% elif kind == 'history' %}独立修订历史{% elif kind == 'edit' %}投递、补充与纠偏{% for failure in inbox_failures %}<article><h2>GitHub 输入格式未通过</h2><p>Issue #{{ failure.source.number }} · 已保存取得的原文；请新建修正投递。</p><details><summary>查看取得的原文快照</summary><pre>{{ failure.source.body }}</pre></details></article>{% endfor %}
 {% elif kind == 'receipt' %}持久化回执{% elif kind == 'receipts' %}投递记录{% elif kind == 'login' %}本机写入授权{% else %}旧格式材料{% endif %}</h1>
 {% if synthetic %}<p class="notice">synthetic 演示：材料与模型输出均为人工构造，仅验证流程、保存和交互，不代表真实发现能力。</p>{% endif %}
 <p class="meta">构建版本 {{ version }} · 构建于 {{ built_at }} · 发布状态未确认</p></header><main>
 {% if reading_error %}<p role="alert" class="notice">读取失败，不能据此判断“没有方向”。原始记录未改写，请查看本机诊断。</p>{% endif %}
 {% if run_error %}<p class="notice">部分运行记录读取失败，检查状态不完整。</p>{% endif %}
-{% if kind in ['list', 'detail', 'history'] %}<p class="meta">此处只展示自动内容审查通过的修订；审查不证明事实真实性或未来必然发生。</p>{% endif %}
-{% if kind == 'unreviewed' %}<p class="notice">该版本未获内容准入，原文仍保留在本地历史档案。</p>{% endif %}
+{% if kind in ['list', 'detail', 'history'] %}<p class="meta">{% if local_write %}私有研究草稿：自动审查仅供参考，请核对证据与反驳后决定。{% else %}仅展示用户确认的研究假设；确认不是事实认证。{% endif %}</p>{% endif %}
+{% if kind == 'unreviewed' %}<p class="notice">该版本未获人工确认，不在公开预览中展示。</p>{% endif %}
 {% if kind == 'list' %}
 <p>Early 是有待验证的结构假设。列表不按热度或概率排序；检查时间不等于实质更新。</p>
-{% if runs %}<p>最近运行：{{ runs[-1].status|label }} · {{ runs[-1].recorded_at }}</p>{% else %}<p>尚未完成独立检查。</p>{% endif %}
+{% if runs %}<p>最近运行：{{ runs[-1].status|label }} · {{ runs[-1].recorded_at }}</p>
+{% if not current %}<p class="notice">目前没有获准公开的判断。{% for name,stage in runs[-1].stages.items() %}{% if name == 'discovery' %}发现：{{ stage.status|label }}。{% elif name == 'content_review' %}内容审查：{{ stage.status|label }}。{% endif %}{% endfor %}已有候选及失败原文保留在历史档案，未自动升级公开。</p>{% endif %}
+{% elif local_write %}<p class="notice">尚无独立检查记录；这不代表没有新判断。</p>{% elif not current %}<p class="notice">尚无用户确认的研究假设。待确认草稿仅在本地工作台可见。</p>{% endif %}
 <label for="filter">查看范围</label><select id="filter"><option value="all">全部</option><option value="early">早期假设</option><option value="active">活跃</option><option value="archived">已归档</option><option value="overturned">已推翻</option></select>
 <div class="cards">{% for id,r in current.items() %}<article data-standing="{{ r.standing }}"><p class="meta">{{ r.standing|label }} · {{ r.origin|label }}提出</p><h2><a href="{{ page('h',id) }}">{{ r.decision.hypothesis.claim }}</a></h2><p>范围：{{ r.decision.hypothesis.scope|join('、') }}{% if r.decision.hypothesis.scope_basis == 'inferred' %}（待验证外推）{% endif %}</p><p>{{ r.decision.reason }}</p><p class="meta">首次记录 {{ r.first_recorded_at }}<br>最近实质修订 {{ r.recorded_at }}</p>{% set checks=namespace(found=false) %}{% for run in runs|reverse %}{% for stage in run.stages.values() if id in stage.target_ids %}{% if not checks.found %}<p class="meta">最近检查尝试 {{ run.recorded_at }} · {% if id in stage.unaddressed_targets %}该方向未完成{% else %}{{ stage.status|label }}{% endif %}</p>{% set checks.found=true %}{% endif %}{% endfor %}{% endfor %}{% if not checks.found %}<p class="meta">尚无独立检查记录</p>{% endif %}</article>{% else %}{% if not reading_error %}<p>尚无已保存的结构假设。已投递内容可能仍待处理，请查看回执。</p>{% endif %}{% endfor %}</div>
 <p><a href="legacy.html">查看旧格式材料状态</a></p>
 {% elif kind == 'detail' %}
 {% set h=revision.decision.hypothesis %}{% set d=revision.decision %}
+<p class="notice">{% if publicly_confirmed %}用户已确认此正文与证据版本；仍是研究假设。{% elif human_decision %}已退回，保留待修改。{% else %}待人工确认 · 不会自动公开{% endif %}</p>
+{% if human_decision and human_decision.note %}<p>用户备注：{{ human_decision.note }}</p>{% endif %}
+<section><h2>辅助审查意见</h2>{% for opinion in review_opinions %}<p>{{ opinion.status|label }}</p>{% if opinion.assessment %}<p>{{ opinion.assessment.rationale }}</p><p>{{ opinion.assessment.early_reason }}</p>{% for f in opinion.assessment.findings %}<blockquote>{{ f.text }}</blockquote><p>{{ f.explanation }}</p>{% endfor %}{% else %}<p>本次未取得有效审查意见，请自行核对材料。</p>{% endif %}{% else %}<p>尚无辅助审查意见。</p>{% endfor %}</section>
+{% if local_write %}<details><summary>确认或退回这个版本</summary><p>确认仅允许此研究假设进入公开预览，不代表事实已证实；不会执行外部发布。<a href="login.html">授权本机写入</a></p>
+<form id="confirmation" data-revision="{{ confirmation.revision_id }}" data-body="{{ confirmation.body_sha256 }}" data-evidence="{{ confirmation.evidence_sha256 }}">
+<label for="decision-action">决定</label><select id="decision-action" name="action"><option value="return">退回 / 保留待修改</option><option value="confirm">确认此正文与证据版本</option></select><label for="decision-note">备注</label><textarea id="decision-note" name="note" maxlength="2000"></textarea><button type="submit">保存我的决定</button></form><div id="feedback" role="status" aria-live="polite"></div></details>{% endif %}
+
 {% if current[revision.hypothesis_id].revision_id != revision.revision_id %}<p class="notice">这是历史版本，不是当前判断。<a href="{{ page('h',revision.hypothesis_id) }}">查看当前版</a></p>{% endif %}
 <article><p class="meta">{{ revision.standing|label }} · {{ revision.origin|label }}提出 · {{ d.basis|label }}</p><h2>{{ h.claim }}</h2><p>适用范围：{{ h.scope|join('、') }}</p>{% if h.scope_basis == 'inferred' %}<p>范围为待验证外推：{{ h.scope_reason }}</p>{% endif %}<p>{{ h.from_state }} → {{ h.to_state }}</p>
 <p class="meta">首次记录 {{ revision.first_recorded_at }}<br>本次实质修订 {{ revision.recorded_at }}<br>假设 {{ revision.hypothesis_id }}<br>修订 {{ revision.revision_id }}</p>

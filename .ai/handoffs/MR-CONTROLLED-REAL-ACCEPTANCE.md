@@ -9,8 +9,8 @@
 - 真实执行基线：bd812339d0aedff982130ed1b3e3566d127026d7，开工干净，保留全部 B2 收尾和祖先。
 - 验收分支：codex/radar-controlled-real-acceptance。
 - 后续局部修复：d6fd69e9ea51e9aa1e5eb4a12b1b69035b4330dc。本次收费产物没有在该补丁上重新生成。
-- 解释器：C:/Users/PsyDuck/Documents/Morning Radar v0.1/.venv/Scripts/python.exe。
-- 实际模块来自：C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1/.tmp/controlled-acceptance-20261011/run/src/morning_radar/。
+- 解释器：<LOCAL_HOME>/Documents/Morning Radar v0.1/.venv/Scripts/python.exe。
+- 实际模块来自：<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1/.tmp/controlled-acceptance-20261011/run/src/morning_radar/。
 - 启动脚本显式把隔离副本 src 放到 sys.path 首位，并断言 pipeline/coordinator.__file__ 均在该目录；完整模块哈希见 runtime-identity.json。没有运行原目录 editable install 的旧代码。
 - 新隔离根 run 是本地 clone 的 B2 精确提交；移除其 origin，GitArchive(remote=None)，归档只产生本地提交。仅隔离 Git 配置 core.longpaths=true；原环境不改。
 - 使用正式 ReleaseCoordinator、Daily/B1、C、GitArchive、模型 Provider。复用真实冻结 CollectionResult 作为采集边界输入，仍执行正式 intake、选择、处理、历史与页面冻结；没有假协调器或 Fake Provider。

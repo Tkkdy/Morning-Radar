@@ -63,6 +63,16 @@ class ReviewOutput(RadarModel):
     )
 
 
+    @classmethod
+    def model_json_schema(cls, **kwargs):
+        # Keep loss-aware runtime parsing while advertising the actual item contract.
+        schema = super().model_json_schema(**kwargs)
+        assessment = Assessment.model_json_schema(**kwargs)
+        schema.setdefault("$defs", {}).update(assessment.pop("$defs", {}))
+        schema["properties"]["assessments"]["items"] = assessment
+        return schema
+
+
 def narratives(decision: dict) -> dict[str, str]:
     result = {}
 
@@ -236,7 +246,9 @@ def review_candidates(
     for item in candidates:
         revision = Revision.model_validate(item["revision"])
         old = store.current().get(revision.hypothesis_id)
-        if (old.revision_id if old else None) != revision.previous_revision_id:
+        if (old.revision_id if old else None) not in {
+            revision.previous_revision_id, revision.revision_id
+        }:
             finish(item, "stale_or_invalid", error="Target changed before review")
             continue
         if item["request"]["analysis_version"] != version:

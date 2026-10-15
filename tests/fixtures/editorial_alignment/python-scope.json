@@ -1,0 +1,42 @@
+{
+  "provenance": {
+    "source_file_sha256": "ed0ed41b2c758b3428a7e3d14c1ed7c321f8a384cc6dc1878fce8e43b2c8593a",
+    "excerpt_range": [
+      0,
+      1100
+    ],
+    "kind": "frozen_short_excerpt_not_full_article"
+  },
+  "item": {
+    "author": null,
+    "company_candidates": [],
+    "content_excerpt": "Python 3.15 is here ! Here's the essential What's new in Python 3.15 guide, this year curated by 3.14 and 3.15 release manager Hugo van Kemenade. As someone who builds open source software that works in every supported Python version, I get to say goodbye to Python 3.10 and start embracing features from Python 3.11. First, some highlights from Python 3.15. Explicit lazy imports I'm most excited about Explicit lazy imports from PEP 810 . These let you import modules like so: lazy import json lazy from pathlib import Path The module will then be imported the first time those symbols are used in the code that follows. My LLM CLI tool implements plugins. I had to recommend manual lazy imports in the plugin author documentation, because simply installing plugins that used heavy dependencies such as sentence_transformers could add multiple seconds to every invocation of the llm command. Lazy imports directly address this startup cost. Unpacking in comprehensions The new [*sublist for sublist in lists] unpacking syntax is neat. Here's an illustration lifted from the documentation : lists = ",
+    "fetched_at": "2026-10-13T01:36:45.048666Z",
+    "id": "item-e8d8f43511a9291fb5e3",
+    "language": "en-us",
+    "metadata": {
+      "content_version": "cdee6080ca8800d51268",
+      "official": false,
+      "practitioner_id": "simon-willison",
+      "priority": "high",
+      "source_id": "practitioner_simon-willison_0",
+      "source_role": "practitioner"
+    },
+    "practice_signal_kind": null,
+    "product_candidates": [],
+    "published_at": "2026-10-12T18:15:38Z",
+    "repository_candidates": [],
+    "source_name": "Simon Willison",
+    "source_role": "practitioner",
+    "source_type": "atom",
+    "statement_type": "firsthand_observation",
+    "summary": "Python 3.15 is here ! Here's the essential What's new in Python 3.15 guide, this year curated by 3.14 and 3.15 release manager Hugo van Kemenade. As someone who builds open source software that works in every supported Python version, I get to say goodbye to Python 3.10 and start",
+    "title": "Hello Python 3.15, goodbye 3.10, and now I can use 3.11",
+    "topic_candidates": [
+      "ai_models",
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "url": "https://simonwillison.net/2026/Oct/12/python-3-15/"
+  }
+}

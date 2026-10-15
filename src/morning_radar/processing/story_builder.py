@@ -14,8 +14,9 @@ from morning_radar.ai.provider import AIProvider
 from morning_radar.ai.request_payload import get_call_meta, story_materials
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
 from morning_radar.models.core import TechnicalQuoteNormalization, TechnicalReading
+from morning_radar.processing.attention import attention_key
 from morning_radar.processing.deduplicate import _comparison_url, deduplicate_items
-from morning_radar.processing.grouping import group_items_by_normalized_title
+from morning_radar.processing.grouping import _version_markers, bounded_event_groups
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
 PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
@@ -128,6 +129,7 @@ def _source_ref(item: RawItem) -> StorySourceRef:
         source_type=item.source_type,
         url=item.url,
         author=item.author,
+        material_provenance=item.metadata.get("material_provenance"),
         # This is the collected source's time (HN submission time for HN),
         # not a claimed original-article or underlying-event time.
         published_at=item.published_at,
@@ -148,12 +150,60 @@ def _source_ref(item: RawItem) -> StorySourceRef:
     )
 
 
+def title_only_story(
+    items: list[RawItem], *, now: datetime, category: str = "other_reading",
+) -> Story:
+    """Preserve a discovered lead without asking a model to invent material or score facts."""
+    if not items or any(item.summary.strip() or item.content_excerpt.strip() for item in items):
+        raise ValueError("Title-only fallback requires no source text")
+    return unverified_story(items, now=now, category=category,
+        reason="目前仅有标题，缺少摘要或原文摘录，具体内容与可用性尚不能确认。")
+
+
+def input_version_conflicts(items: list[RawItem]) -> list[str]:
+    conflicts = []
+    for item in items:
+        title = _version_markers(item.title)
+        body = _version_markers(item.summary + " " + item.content_excerpt)
+        if any(len(title[key]) == len(body[key]) == 1
+               and title[key].isdisjoint(body[key])
+               for key in title.keys() & body.keys()):
+            conflicts.append("来源标题与摘录的型号/版本不一致，尚不能选定其中一种表述。"
+                             + "原题：" + item.title[:300] + "；来源摘要：" + item.summary[:600])
+    return conflicts
+
+
+def unverified_story(items: list[RawItem], *, now: datetime,
+                     reason: str, category: str = "other_reading",
+                     title_prefix: str = "待核对线索｜") -> Story:
+    """Preserve input identity and links after failure, never reuse rejected prose."""
+    primary = choose_primary_source(items)
+    dates = [item.published_at for item in items if item.published_at is not None]
+    return Story(
+        id=_story_id(items), canonical_title=(title_prefix + primary.title)[:500],
+        lead_reason=reason,
+        category=category,
+        published_at=min(dates) if dates else None, updated_at=now,
+        source_item_ids=[item.id for item in items],
+        source_urls=list(verified_source_urls_for_items(items)), primary_source_url=primary.url,
+        source_refs=[_source_ref(item) for item in items], facts=[],
+        uncertainties=[reason],
+        relevance_score=0, importance_score=0, novelty_score=0, credibility_score=0,
+    )
+
+
 def build_story(
     items: list[RawItem],
     *,
     provider: AIProvider,
     now: datetime,
 ) -> Story:
+    if items and not any(item.summary.strip() or item.content_excerpt.strip() for item in items):
+        return title_only_story(items, now=now)
+    conflicts = input_version_conflicts(items)
+    if conflicts:
+        return unverified_story(items, now=now, reason="；".join(conflicts),
+                                title_prefix="来源型号表述冲突，待核对｜")
     draft = provider.merge_story(items)
     reading, conversions = _validate_draft_urls(draft, items)
     from morning_radar.research.materials import validate_analysis
@@ -168,6 +218,10 @@ def build_story(
         )
     if draft.analysis:
         uncertainties.append("部分分析未附可追溯的来源前提，未纳入本次分析。")
+    # Collector metadata/title alone cannot substantiate a factual article.
+    has_material = any(item.summary.strip() or item.content_excerpt.strip() for item in items)
+    if not has_material and draft.facts:
+        uncertainties.append("仅有标题与采集元数据，缺少可支撑事实正文的摘要或原文摘录。")
     primary = choose_primary_source(items)
     source_urls = list(verified_source_urls_for_items(items))
     published_values = [item.published_at for item in items if item.published_at is not None]
@@ -188,7 +242,7 @@ def build_story(
         technical_quote_normalizations=conversions,
         evidence_ids=[str(item.metadata["evidence_id"]) for item in items
                       if item.metadata.get("evidence_id")],
-        facts=draft.facts,
+        facts=draft.facts if has_material else [],
         analysis=[],
         opinions=draft.opinions,
         grounded_analysis=grounded_analysis,
@@ -229,19 +283,9 @@ def _capture_failed_score_meta(provider, score_out, items) -> None:
 
 
 def _merge_with_url_recovery(provider, group):
-    try:
-        draft = provider.merge_story(group)
-        _validate_draft_urls(draft, group)
-        return draft
-    except (AIOutputError, StoryValidationError) as exc:
-        if "url" not in str(exc).lower():
-            raise
-    # One smaller reconstruction, never transfer rejected facts onto valid URLs.
-    smaller = [item.model_copy(update={
-        "content_excerpt": item.content_excerpt[:600],
-        "summary": item.summary[:280],
-    }) for item in group]
-    draft = provider.merge_story(smaller)
+    # A fabricated URL invalidates this response. Do not silently reassign its
+    # prose to another URL or generate again; callers retain the original lead.
+    draft = provider.merge_story(group)
     _validate_draft_urls(draft, group)
     return draft
 
@@ -277,12 +321,36 @@ def build_stories(
         LOGGER.warning("AI candidate budget left no items for classification")
         return []
     if classifications is None:
-        try:
-            classifications = provider.classify_items(candidates)
-        except AIBudgetExceeded:
-            for item in candidates:
-                note(item.id, ReasonCode.DEFERRED_BUDGET)
-            return []
+        # Keep rich material intact; partition requests instead of truncating evidence.
+        from morning_radar.ai.request_payload import classify_items_payload, dumps
+
+        batches: list[list[RawItem]] = []
+        batch: list[RawItem] = []
+        for item in candidates:
+            proposed = [*batch, item]
+            if batch and (len(proposed) > 8 or len(dumps(classify_items_payload(
+                proposed, getattr(provider, "topic_context", None)
+            ))) > 18000):
+                batches.append(batch)
+                batch = []
+            batch.append(item)
+        if batch:
+            batches.append(batch)
+        decisions = []
+        for batch in batches:
+            try:
+                output = provider.classify_items(batch)
+                decisions.extend(output.items)
+                if classification_out is not None:
+                    attempts = classification_out.setdefault("_call_meta_by_item", {})
+                    attempts.update({item.id: get_call_meta(output) for item in batch})
+            except AIBudgetExceeded:
+                for item in batch:
+                    note(item.id, ReasonCode.DEFERRED_BUDGET)
+            except AIOutputError:
+                for item in batch:
+                    note(item.id, ReasonCode.CLASSIFICATION_RESPONSE_MISSING)
+        classifications = ClassificationBatch(items=decisions)
     classified_by_id = {item.item_id: item for item in classifications.items}
     if classification_out is not None:
         classification_out.update(classified_by_id)
@@ -293,13 +361,22 @@ def build_stories(
     for item in candidates:
         classified = classified_by_id.get(item.id)
         if classified is None:
-            note(item.id, ReasonCode.CLASSIFICATION_RESPONSE_MISSING)
+            if not item_outcomes or item.id not in item_outcomes:
+                note(item.id, ReasonCode.CLASSIFICATION_RESPONSE_MISSING)
         elif item.id not in relevant_ids:
             note(item.id, ReasonCode.CLASSIFIED_IRRELEVANT)
-    relevant = [item for item in candidates if item.id in relevant_ids]
 
     stories: list[Story] = []
-    for group in group_items_by_normalized_title(relevant):
+    for group in bounded_event_groups(candidates):
+        if not any(item.id in relevant_ids for item in group):
+            continue
+        conflicts = input_version_conflicts(group)
+        if conflicts:
+            stories.append(unverified_story(group, now=now, reason="；".join(conflicts),
+                                            title_prefix="来源型号表述冲突，待核对｜"))
+            for item in group:
+                note(item.id, ReasonCode.PROCESSED)
+            continue
         # Deduplication allocates one candidate slot, not permission to discard
         # richer observations of the same page. Preserve source roles and IDs;
         # the model still checks whether these observations describe one event.
@@ -309,6 +386,12 @@ def build_stories(
             item for item in items
             if item.id not in retained_ids and _comparison_url(item) in group_urls
         )]
+        if not any(item.summary.strip() or item.content_excerpt.strip() for item in group):
+            stories.append(title_only_story(group, now=now,
+                           category=classified_by_id[group[0].id].category))
+            for item in group:
+                note(item.id, ReasonCode.PROCESSED)
+            continue
         try:
             draft = _merge_with_url_recovery(provider, group)
         except AIBudgetExceeded:
@@ -317,11 +400,14 @@ def build_stories(
             continue
         except (AIOutputError, StoryValidationError):
             LOGGER.exception(
-                "AI degradation: merge failed; skipping candidate group with %d item(s)",
+                "AI degradation: merge failed; retaining original leads "
+                "for candidate group with %d item(s)",
                 len(group),
             )
             for item in group:
                 note(item.id, ReasonCode.MERGE_FAILED)
+                stories.append(unverified_story([item], now=now,
+                    reason="生成结果未通过校验；仅保留来源原题与链接，事实正文尚待核对。"))
             continue
         if draft.same_event or len(group) == 1:
             try:
@@ -338,6 +424,8 @@ def build_stories(
                 _capture_failed_score_meta(provider, score_out, group)
                 for item in group:
                     note(item.id, ReasonCode.SCORE_FAILED)
+                    stories.append(unverified_story([item], now=now,
+                        reason="评分或证据校验失败，暂保留来源线索供核对。"))
                 continue
             stories.append(story)
             if score_out is not None:
@@ -358,6 +446,8 @@ def build_stories(
                     )
                     _capture_failed_score_meta(provider, score_out, [item])
                     note(item.id, ReasonCode.SCORE_FAILED)
+                    stories.append(unverified_story([item], now=now,
+                        reason="生成或评分未通过校验，暂保留来源线索供核对。"))
                     continue
                 stories.append(story)
                 if score_out is not None:
@@ -435,6 +525,7 @@ def _candidate_lane(item: RawItem) -> str:
         return (
             "practice_discovery"
             if item.metadata.get("selection_reason") == "high_signal_discovery"
+            or "high_signal_discovery" in item.metadata.get("discovery_reasons", [])
             or item.practice_signal_kind is not None
             else "hacker_news_ambient"
         )
@@ -449,23 +540,19 @@ def _candidate_lane(item: RawItem) -> str:
     return "other"
 
 
-def _lane_candidate_key(item: RawItem) -> tuple[int, int, int, float, str]:
+def _lane_candidate_key(item: RawItem) -> tuple:
     priority = str(item.metadata.get("priority", "low"))
     event_time = item.published_at or item.fetched_at
-    score = item.metadata.get("score", 0)
-    comments = item.metadata.get("comments", 0)
-    community_score = int(score) if isinstance(score, (int, float)) else 0
-    community_comments = int(comments) if isinstance(comments, (int, float)) else 0
     return (
         PRIORITY_ORDER.get(priority, 3),
-        -community_score,
-        -community_comments,
+        attention_key(item.metadata.get("score")),
+        attention_key(item.metadata.get("comments")),
         -event_time.timestamp(),
         item.id,
     )
 
 
-def _global_candidate_key(item: RawItem) -> tuple[int, int, int, int, float, str]:
+def _global_candidate_key(item: RawItem) -> tuple:
     lane_key = _lane_candidate_key(item)
     return (0 if _candidate_lane(item) == "official_primary" else 1, *lane_key)
 

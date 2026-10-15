@@ -8,6 +8,7 @@ from datetime import UTC, datetime
 from typing import Any
 
 from morning_radar.models.core import (
+    MaterialProvenance,
     PublishedAtRole,
     RawItem,
     ResearchCase,
@@ -179,9 +180,78 @@ def strip_score_placeholders(value: Any) -> Any:
     return value
 
 
+def material_source_payload(payload: dict[str, Any]) -> dict[str, Any]:
+    """Model-facing source projection; persisted provenance remains unchanged."""
+    fields = {
+        "id", "raw_item_id", "url", "title", "summary", "content_excerpt",
+        "source_name", "source_type", "source_role", "statement_type", "author",
+        "published_at", "published_at_role", "fetched_at", "discussion_url",
+        "source_date", "date_precision", "source_timezone", "published_date_role",
+        "content_missing", "excerpt_truncated", "text_omission_reason",
+        "association_basis", "entities", "products",
+        "excerpt_start", "excerpt_end",
+    }
+    result = {key: value for key, value in payload.items() if key in fields}
+    metadata = payload.get("metadata", {})
+    for key in ("excerpt_truncated", "text_omission_reason"):
+        if key in metadata and key not in result:
+            result[key] = metadata[key]
+    if "material_information_gaps" in metadata:
+        result["information_gaps"] = metadata["material_information_gaps"]
+    origin = payload.get("material_provenance") or metadata.get("material_provenance")
+    if not origin:
+        return result
+    origin = MaterialProvenance.model_validate(origin).model_dump(mode="json")
+    if origin["url"] != payload["url"]:
+        raise ValueError("material provenance URL does not match input")
+    attribution = ("source_name", "source_type", "source_role", "statement_type", "author",
+                   "author_or_submitter", "published_at", "published_at_role", "fetched_at",
+                   "discussion_url")
+    discovery = {key: payload.get(key) for key in attribution if key in payload}
+    discovery.update({key: value for key, value in (payload.get("discovery_source") or {}).items()
+                      if key in attribution})
+    result["discovery_source"] = discovery
+    result["material_provenance"] = {key: origin[key] for key in
+        ("url", "observed_at", "publisher", "author", "source_role", "statement_type")}
+    result.update(
+        source_name=origin["publisher"] or payload["url"], source_type="original_page",
+        source_role=origin["source_role"], statement_type=origin["statement_type"],
+        author=origin["author"], fetched_at=origin["observed_at"],
+    )
+    if (discovery.get("source_type") == "hacker_news"
+            or payload.get("published_at_role") == PublishedAtRole.HN_SUBMISSION_TIME):
+        result["published_at"] = None
+        result["published_at_role"] = "unknown"
+    return result
+
+
+def merge_story_payload(items: Sequence[RawItem]) -> list[dict[str, Any]]:
+    # Raw snapshots retain diagnostics; the writer sees sources and their actual text.
+    fields = {"id", "title", "url", "summary", "content_excerpt", "source_name", "source_type",
+              "source_role", "statement_type", "author", "published_at", "published_at_role",
+              "fetched_at", "material_provenance", "discovery_source", "entities", "products",
+              "content_missing", "excerpt_truncated", "text_omission_reason", "source_date",
+              "date_precision", "source_timezone", "published_date_role", "information_gaps"}
+    result = []
+    for item in items:
+        source = material_source_payload(item.model_dump(mode="json"))
+        source = {key: value for key, value in source.items() if key in fields}
+        if source.get("discovery_source"):
+            source["discovery_source"] = {key: value for key, value in
+                                          source["discovery_source"].items() if key != "metadata"}
+        source["allowed_source_urls"] = list(verified_source_urls(item))
+        source["id_semantics"] = "opaque input identity, never a URL or a provider discussion ID"
+        result.append(source)
+    return result
+
+
 def story_request_payload(story: Story) -> dict[str, Any]:
     """Do not promote legacy ungrounded analysis into a fresh model request."""
     payload = story.model_dump(mode="json")
+    payload["source_refs"] = [material_source_payload(ref) for ref in payload["source_refs"]]
+    payload["source_materials"] = [
+        material_source_payload(ref) for ref in payload["source_materials"]
+    ]
     legacy = payload.pop("analysis")
     payload.pop("technical_quote_normalizations", None)
     payload.pop("analysis_quote_normalizations", None)
@@ -254,7 +324,7 @@ def classify_items_payload(
             for item in items
         ], topic_context)
     return wrap_business_payload(
-        [item.model_dump(mode="json") for item in items],
+        merge_story_payload(items),
         topic_context,
     )
 
@@ -267,10 +337,31 @@ def evidence_snapshot(
     include_text: bool = True,
     summary_limit: int = SUMMARY_CHAR_LIMIT,
     excerpt_limit: int = EXCERPT_CHAR_LIMIT,
+    scope_keywords: Sequence[str] = (),
 ) -> ResearchEvidenceRef:
     title, _title_cut = clip_text(item.title, 500)
     summary, summary_cut = clip_text(item.summary, summary_limit)
     excerpt, excerpt_cut = clip_text(item.content_excerpt, excerpt_limit)
+    excerpt_start = item.content_excerpt.find(excerpt) if excerpt else None
+    # Select one continuous source span within the existing allowance. Anchors
+    # are supplied by topic configuration and never imply relevance or value.
+    if excerpt_cut and scope_keywords:
+        import re
+        anchors = list(scope_keywords)
+        for keyword in scope_keywords:
+            words = keyword.split()
+            if 3 <= len(words) <= 5 and all(word.isalpha() and word.isascii() for word in words):
+                anchors.append("".join(word[0] for word in words))
+        matches = [match.start() for keyword in anchors if keyword.strip()
+                   for match in re.finditer(
+                       r"(?<![a-zA-Z0-9])" + re.escape(keyword) + r"(?![a-zA-Z])",
+                       item.content_excerpt, re.IGNORECASE,
+                   )]
+        if matches:
+            anchor = min(matches)
+            excerpt_start = max(0, min(anchor - excerpt_limit // 4,
+                                       len(item.content_excerpt) - excerpt_limit))
+            excerpt = item.content_excerpt[excerpt_start:excerpt_start + excerpt_limit]
     if not include_text:
         summary, excerpt, summary_cut, excerpt_cut = "", "", False, False
     elif summary and excerpt and (excerpt == summary or excerpt.startswith(summary)):
@@ -283,28 +374,42 @@ def evidence_snapshot(
         if isinstance(candidate, str) and candidate in verified_source_urls(item):
             discussion_url = candidate
     missing = not bool((item.summary or "").strip() or (item.content_excerpt or "").strip())
+    origin_data = item.metadata.get("material_provenance")
+    origin = MaterialProvenance.model_validate(origin_data) if origin_data else None
+    if origin and origin.url != item.url:
+        raise ValueError("material provenance URL does not match input")
     return ResearchEvidenceRef(
+        excerpt_start=excerpt_start if excerpt and include_text else None,
+        excerpt_end=(excerpt_start + len(excerpt)) if excerpt and include_text else None,
         raw_item_id=item.id,
         url=item.url,
-        source_role=item.source_role,
-        content_version=content_version,
+        source_role=origin.source_role if origin else item.source_role,
+        content_version=(content_version or item.metadata.get("content_version")
+                         or (origin.content_version if origin else None)),
         title=title or item.title[:500],
         summary=summary,
         content_excerpt=excerpt,
-        source_name=item.source_name,
-        source_type=item.source_type,
-        statement_type=item.statement_type,
+        source_name=(origin.publisher or item.url) if origin else item.source_name,
+        source_type="original_page" if origin else item.source_type,
+        statement_type=origin.statement_type if origin else item.statement_type,
         published_at=item.published_at,
         published_at_role=PUBLISHED_AT_ROLE_BY_SOURCE_TYPE.get(
             item.source_type, PublishedAtRole.UNKNOWN
         ),
-        fetched_at=item.fetched_at,
+        fetched_at=origin.observed_at if origin else item.fetched_at,
         discussion_url=discussion_url,
         content_missing=missing,
         excerpt_truncated=summary_cut or excerpt_cut,
         text_omission_reason="truncated" if (summary_cut or excerpt_cut) else None,
         association_basis=association_basis,
-        official_page_fetched=bool(item.metadata.get("official_page_fetched")),
+        official_page_fetched=(origin.official_page_fetched if origin
+                               else bool(item.metadata.get("official_page_fetched"))),
+        material_provenance=origin,
+        discovery_source={
+            "source_name": item.source_name, "source_type": item.source_type,
+            "source_role": item.source_role.value, "statement_type": item.statement_type.value,
+            "author_or_submitter": item.author, "fetched_at": item.fetched_at.isoformat(),
+        } if origin else None,
         source_date=item.metadata.get("source_date"),
         date_precision=item.metadata.get("date_precision"),
         source_timezone=item.metadata.get("source_timezone"),
@@ -361,7 +466,12 @@ def brief_item_recovery_request_payload(
 
 
 def research_case_payload(case: ResearchCase) -> dict[str, Any]:
-    return case.model_dump(mode="json")
+    payload = case.model_dump(mode="json")
+    payload["lead"] = material_source_payload(payload["lead"])
+    payload["supporting_evidence"] = [
+        material_source_payload(ref) for ref in payload["supporting_evidence"]
+    ]
+    return payload
 
 
 def research_request_payload(
@@ -390,6 +500,8 @@ def compact_evidence(ref: ResearchEvidenceRef) -> ResearchEvidenceRef:
         update={
             "summary": "",
             "content_excerpt": "",
+            "excerpt_start": None,
+            "excerpt_end": None,
             "excerpt_truncated": True if had_text else ref.excerpt_truncated,
             "text_omission_reason": "budget_omitted" if had_text else ref.text_omission_reason,
         }
@@ -465,3 +577,23 @@ def fit_research_request(
         truncated_fields=truncated,
         unexecuted=False,
     )
+
+
+def editorial_story_payload(story: Story) -> dict[str, Any]:
+    """Compare all Stories without repeating raw excerpts and transport provenance."""
+    payload = story_request_payload(story)
+    payload.pop("materials", None)
+    payload.pop("source_materials", None)
+    payload["source_refs"] = [
+        {key: ref.get(key) for key in
+         ("raw_item_id", "url", "title", "source_name", "source_type", "author",
+          "source_role", "statement_type", "published_at", "published_at_role", "fetched_at",
+          "material_provenance", "discovery_source")}
+        for ref in payload["source_refs"]
+    ]
+    if story.technical_reading:
+        payload["technical_reading"] = {
+            key: value["text"] if isinstance(value, dict) and "text" in value else value
+            for key, value in story.technical_reading.model_dump(mode="json").items()
+        }
+    return payload

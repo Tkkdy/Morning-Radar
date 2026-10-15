@@ -13,6 +13,7 @@ from morning_radar.models.continuity import (
     StoryRelationType,
 )
 from morning_radar.models.core import (
+    BriefContinuityContext,
     BriefExplanation,
     GroundedAnalysis,
     PracticeSignalKind,
@@ -82,10 +83,10 @@ class MergedStoryDraft(RadarModel):
 
 
 class StoryScore(RadarModel):
-    relevance_score: float = Field(ge=0, le=1)
-    importance_score: float = Field(ge=0, le=1)
-    novelty_score: float = Field(ge=0, le=1)
-    credibility_score: float = Field(ge=0, le=1)
+    relevance_score: float = Field(ge=0, le=1, strict=True)
+    importance_score: float = Field(ge=0, le=1, strict=True)
+    novelty_score: float = Field(ge=0, le=1, strict=True)
+    credibility_score: float = Field(ge=0, le=1, strict=True)
     explanation: str = Field(description=(
         "评分是编辑判断，但事实前提只能来自输入。保留训练概念的原有精度，不把上位概念收窄为具体方法；"
         "比较理由须区分相对判断与有来源支持的基线事实，未知保持未知。"
@@ -111,6 +112,7 @@ class GeneratedBriefItem(RadarModel):
             "事实说明不能引用意见或推断作为事实；引用 grounded_analysis 时 kind 必须为 inference。"
         ),
     )
+    _archive_continuity: list[BriefContinuityContext] = PrivateAttr(default_factory=list)
     _why_omission_reason: str | None = PrivateAttr(default=None)
     _why_quote_normalizations: list[TechnicalQuoteNormalization] = PrivateAttr(default_factory=list)
     market_or_community_reaction: str | None = None

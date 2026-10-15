@@ -118,11 +118,7 @@ class ReleaseCoordinator:
             "stages": {},
             "deployment": {"status": "not_started"},
             "previous_valid_release": self.previous_release(),
-            "submission_versions": {
-                key: digest(value)
-                for key, value in CoreStore(self.root).submissions().items()
-                if datetime.fromisoformat(value["submitted_at"]) <= clock
-            },
+            "submission_versions": {},
         }
         self.save(context, "release context")
         pipeline = MorningRadarPipeline(self.root)
@@ -311,7 +307,6 @@ class ReleaseCoordinator:
                 "config_hash",
                 "attempt",
                 "synthetic",
-                "submission_versions",
                 "stages",
                 "previous_valid_release",
                 "cost",
@@ -335,10 +330,10 @@ class ReleaseCoordinator:
             tendency_revisions={
                 key: value.revision_id for key, value in store.public_current().items()
             },
-            receipt_ids=sorted(store.receipts()),
+            receipt_ids=[],
             evidence_index=hashes(self.root / "data/evidence"),
             health_versions=hashes(self.root / "data/health" / context["business_date"]),
-            transaction_versions=hashes(store.directory / "transactions"),
+            transaction_versions={},
         )
         atomic_json(output / "release.json", manifest)
         names = {

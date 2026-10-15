@@ -131,7 +131,8 @@ def test_synthetic_early_budget_cannot_consume_later_brief_and_continuity():
     assert budget.input_characters_used == 1000
 
 
-def test_synthetic_metadata_review_promotes_deferred_without_raw_loss():
+@pytest.mark.parametrize("reuse_material", [False, True])
+def test_synthetic_metadata_review_promotes_deferred_without_raw_loss(reuse_material):
     records = [IntakeRecord.model_validate(c["records"][0]) for c in HISTORY[:4]]
     # Same production evidence with synthetic relevance judgements; not an AI replay.
     selection = select_process_candidates(
@@ -151,6 +152,8 @@ def test_synthetic_metadata_review_promotes_deferred_without_raw_loss():
         def classify_items(self, items):
             assert all(i.metadata == {"review_only": True} for i in items)
             assert all(len(i.summary) <= 120 for i in items)
+            if reuse_material:
+                assert all(i.summary == "Stored verified excerpt." for i in items)
             return ClassificationBatch(
                 items=[
                     ClassifiedItem(
@@ -170,6 +173,11 @@ def test_synthetic_metadata_review_promotes_deferred_without_raw_loss():
     review = review_candidates(
         prepared,
         provider=Reviewer(),
+        material_evidence=[{
+            "input_id": r.input_id, "content_version": r.content_version,
+            "status": "fetched", "observed_at": NOW.isoformat(),
+            "excerpt": "Stored verified excerpt.",
+        } for r in records] if reuse_material else [],
         app=load_model(Path("config/app.yaml"), AppConfig).model_copy(
             update={
                 "maximum_ai_items": 1,

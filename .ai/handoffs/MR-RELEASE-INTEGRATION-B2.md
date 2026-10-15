@@ -7,7 +7,7 @@
 - 基线 d15220a6b9cb20041f5c3aa896e32d25d5f676ac（D 最终归档），开工干净。
 - 已验证 A bb3ef351、A 复核 e507d104、B1 b7a48efc、C f67f5a2d、D cdd2da02/d15220a6 祖先关系。
 - 分支 codex/radar-next-release-b2-integration。
-- Worktree C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1。
+- Worktree <LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1。
 - 实施提交 a482cc573d1172a26e412fec091201a985c90898；之后交接文档提交的完整 SHA 见交付消息。
 - 依据原工作目录 10-10 中 PRODUCT_BASELINE、B2 任务书及 D 完整报告；只核查本批所需接口。
 

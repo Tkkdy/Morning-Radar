@@ -21,6 +21,7 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 from morning_radar.ai.budget import AIBudget, AIBudgetExceeded, AITaskPriority
 from morning_radar.ai.candidate_classification import (
     CandidateClassificationBatch,
+    StrictClassificationBatch,
     validate_candidate_ids,
 )
 from morning_radar.ai.errors import (
@@ -55,11 +56,17 @@ from morning_radar.ai.request_payload import (
     brief_item_recovery_request_payload,
     brief_request_payload,
     classify_items_payload,
+    merge_story_payload,
     policy_hash,
     prompt_hash_for,
     research_request_payload,
     score_story_payload,
     snapshot_call_meta,
+)
+from morning_radar.ai.structured_output import (
+    finish_output_audit,
+    prepare_structured_output,
+    retain_response,
 )
 from morning_radar.ai.tendency_core import TendencyCoreProviderMixin
 from morning_radar.continuity.validation import validate_continuity_resolution
@@ -244,23 +251,52 @@ class OpenAIProvider(TendencyCoreProviderMixin):
                 ),
                 maximum_output_tokens=policy.max_output_tokens,
             ) if recorder else None
+            received = False
             try:
-                response = self.client.responses.parse(
-                    model=self.model,
-                    instructions=instructions,
-                    input=payload,
-                    text_format=schema,
-                    max_output_tokens=policy.max_output_tokens,
+                request = dict(
+                    model=self.model, instructions=instructions, input=payload,
+                    text_format=schema, max_output_tokens=policy.max_output_tokens,
                 )
+                raw_api = getattr(self.client.responses, "with_raw_response", None)
+                if raw_api is not None:
+                    # Defer the SDK post-parser until the actual returned text
+                    # and usage have been retained. Never retain HTTP headers.
+                    wire = raw_api.parse(**request)
+                    envelope = wire.http_response.json()
+                    text = "".join(
+                        part.get("text", "")
+                        for item in envelope.get("output", []) if item.get("type") == "message"
+                        for part in item.get("content", []) if part.get("type") == "output_text"
+                    )
+                    retain_response(self, schema, text, task=task,
+                                    finish_reason=envelope.get("status", "unknown"))
+                    observed = envelope.get("usage") or {}
+                    if recorder:
+                        recorder.finish(attempt, state="response_received", usage={
+                            "prompt_tokens": observed.get("input_tokens"),
+                            "completion_tokens": observed.get("output_tokens"),
+                            "reasoning_tokens": (observed.get("output_tokens_details") or {}).get(
+                                "reasoning_tokens"),
+                            "cached_tokens": (observed.get("input_tokens_details") or {}).get(
+                                "cached_tokens"),
+                        } if observed else None)
+                    received = True
+                    response = wire.parse()
+                else:
+                    # Injected legacy/test clients may expose parsed objects only.
+                    response = self.client.responses.parse(**request)
             except Exception as exc:
-                if recorder:
+                if recorder and not received:
                     recorder.finish(attempt, usage=None, state="transport_failure")
+                if received:
+                    finish_output_audit(self, task=task, state="rejected",
+                                        error_type=type(exc).__name__)
                 normalized = normalize_provider_error(exc, self.provider_name)
                 if isinstance(normalized, AIBillingUnavailable):
                     self.circuit_open = True
                     self.circuit_reason = normalized.kind.value
                 raise normalized from exc
-            if recorder:
+            if recorder and not received:
                 usage = getattr(response, "usage", None)
                 recorder.finish(attempt, state="response_received", usage={
                     "prompt_tokens": getattr(usage, "input_tokens", None),
@@ -305,6 +341,13 @@ class OpenAIProvider(TendencyCoreProviderMixin):
             try:
                 if parsed is None:
                     raise AIOutputError("OpenAI response contained no parsed structured output")
+                raw = getattr(response, "output_text", None)
+                if not isinstance(raw, str) or not raw.strip():
+                    raw = (parsed.model_dump_json() if isinstance(parsed, BaseModel)
+                           else json.dumps(parsed, ensure_ascii=False))
+                    retain_response(self, schema, raw, task=task,
+                                    capture_kind="reconstructed_from_parsed")
+                parsed = prepare_structured_output(self, schema, raw, task=task)
                 validated = schema.model_validate(parsed)
                 # Optional explanation errors degrade locally, without a model retry.
                 brief_validated = isinstance(validated, (BriefDraft, BriefItemRecoveryDraft))
@@ -317,8 +360,11 @@ class OpenAIProvider(TendencyCoreProviderMixin):
                     if transformed is not None:
                         validated = transformed
                 call_meta["structured_retry"] = max(0, structured_attempt - 1)
+                finish_output_audit(self, task=task, state="business_validated")
                 return bind_call_meta(validated, call_meta)
             except (AIOutputError, ValidationError, TypeError, ValueError) as exc:
+                finish_output_audit(self, task=task, state="rejected",
+                                    error_type=type(exc).__name__)
                 last_error = exc
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
 
@@ -328,20 +374,20 @@ class OpenAIProvider(TendencyCoreProviderMixin):
         )
         return self._parse(
             task="classify",
-            schema=CandidateClassificationBatch if candidate_review else ClassificationBatch,
+            schema=CandidateClassificationBatch if candidate_review else StrictClassificationBatch,
             payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
             output_validator=(
                 lambda output: validate_candidate_ids(output, {item.id for item in items})
-            ) if candidate_review else None,
+            ),
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
         return self._parse(
             task="merge_story",
             schema=MergedStoryDraft,
-            payload_data=[item.model_dump(mode="json") for item in items],
+            payload_data=merge_story_payload(items),
             item_count=len(items),
             allowed_urls=set(verified_source_urls_for_items(items)),
         )
@@ -419,6 +465,8 @@ class OpenAIProvider(TendencyCoreProviderMixin):
         )
 
     def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:
+        from morning_radar.ai.request_payload import editorial_story_payload
+
         editorial_dir = self.prompt_dir / "editorial"
         return self._parse(
             task="evaluate_editorial",
@@ -432,7 +480,7 @@ class OpenAIProvider(TendencyCoreProviderMixin):
                     .splitlines()[:4]
                     if line.strip()
                 ],
-                "stories": [story.model_dump(mode="json") for story in stories],
+                "stories": [editorial_story_payload(story) for story in stories],
             },
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},

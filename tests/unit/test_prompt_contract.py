@@ -37,9 +37,13 @@ def test_user_visible_ai_prompt_requires_simplified_chinese(
 ) -> None:
     prompt = (Path("prompts") / prompt_name).read_text(encoding="utf-8")
 
-    assert "所有面向最终晨报读者的自然语言" in prompt
-    assert "必须使用简体中文" in prompt
-    assert "专有名词" in prompt
+    if prompt_name == "merge_story.md":
+        assert "所有展示叙述使用简体中文" in prompt
+        assert "专名、型号、版本、URL与代码保持原样" in prompt
+    else:
+        assert "所有面向最终晨报读者的自然语言" in prompt
+        assert "必须使用简体中文" in prompt
+        assert "专有名词" in prompt
     for field in required_fields:
         assert field in prompt
 
@@ -69,7 +73,9 @@ def test_story_prompts_keep_practitioner_and_discovery_evidence_boundaries() -> 
 
     assert "Trusted Practitioner" in classify
     assert "AIHOT/upstream discovery lead" in classify
-    assert "marketing、opinion 与 unverified" in merge
+    assert "评论作者的评价放 opinions，不当作事实" in merge
+    assert "读取成功不表示官方认证、独立核验或来源独立" in merge
+    assert "不需要假装已得到官方确认" in merge
     assert "Community Attention" in score
     assert "不能提高事实可信度" in score
 

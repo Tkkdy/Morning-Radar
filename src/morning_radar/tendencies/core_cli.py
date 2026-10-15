@@ -31,6 +31,8 @@ def add_core_parser(commands) -> None:
         if name == "show":
             action.add_argument("--format", choices=["json", "markdown"], default="markdown")
             action.add_argument("--hypothesis-id")
+            action.add_argument("--private", action="store_true",
+                                help="include private drafts and local submissions")
 
 
 def dispatch(args) -> int:
@@ -61,7 +63,7 @@ def dispatch(args) -> int:
 
         print(build_core_demo(repository, workspace))
     else:
-        payload = export_core(store, legacy_root=args.evidence_root)
+        payload = export_core(store, legacy_root=args.evidence_root, private=args.private)
         if args.hypothesis_id:
             for name in ["current", "history"]:
                 payload[name] = [

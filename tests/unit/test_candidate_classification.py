@@ -10,6 +10,7 @@ from pydantic import ValidationError
 from morning_radar.ai import AIBudget, DeepSeekProvider
 from morning_radar.ai.candidate_classification import (
     CandidateClassificationBatch,
+    StrictClassificationBatch,
     validate_candidate_ids,
 )
 from morning_radar.ai.models import ClassificationBatch
@@ -94,5 +95,17 @@ def test_providers_use_candidate_adapter_only_for_metadata_review(kind):
     seen = []
     provider._parse = lambda **kw: seen.append(kw)
     provider.classify_items([items[0].model_copy(update={"metadata": {}})])
-    assert seen[0]["schema"] is ClassificationBatch
-    assert seen[0]["output_validator"] is None
+    assert seen[0]["schema"] is StrictClassificationBatch
+    assert callable(seen[0]["output_validator"])
+
+
+def test_full_classification_missing_fields_does_not_discard_valid_sibling():
+    row = {k: v for k, v in real_payload()["items"][0].items() if k != "title"}
+    broken = {k: v for k, v in row.items() if k not in {"important", "relevance_reason"}}
+    original = {"items": [row, {**broken, "item_id": "broken"},
+                           {**row, "item_id": "echo", "title": "not accepted in deep review"}]}
+    before = copy.deepcopy(original)
+    result = StrictClassificationBatch.model_validate(original)
+    assert result.model_dump() == {"items": [row]}
+    assert {d["item_id"] for d in result._candidate_diagnostics} == {"broken", "echo"}
+    assert original == before

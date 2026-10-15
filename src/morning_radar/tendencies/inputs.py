@@ -93,7 +93,10 @@ def read_evidence(
                         }
                     )
             for row in rows:
+                origin = row.get("material_provenance")
                 captured, ingested = _time(row["captured_at"]), _time(row["observed_at"])
+                if origin:
+                    captured = _time(origin["observed_at"])
                 if max(captured, ingested) > through:
                     continue
                 excerpt = row.get("excerpt", "")[:2000]
@@ -107,7 +110,8 @@ def read_evidence(
                         content_version=version,
                         event_ids=sorted(relations.get(row["input_id"], [])),
                         source_url=url,
-                        source_role=row.get("source_role", "unknown"),
+                        source_role=(origin["source_role"] if origin
+                                     else row.get("source_role", "unknown")),
                         title=row["title"],
                         excerpt=excerpt,
                         scope=scope,
@@ -115,7 +119,7 @@ def read_evidence(
                         observed_at=captured,
                         ingested_at=ingested,
                         status="unverified"
-                        if row.get("statement_type")
+                        if (origin or row).get("statement_type")
                         in {
                             "unverified_lead",
                             "opinion",

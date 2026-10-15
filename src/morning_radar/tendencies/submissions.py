@@ -147,7 +147,7 @@ def receipt(store: CoreStore, identity: str) -> dict:
     result = store.receipts().get(identity, {"status": "pending", "items": []})
     mapped = {
         seed: r.hypothesis_id
-        for r in store.revisions()
+        for r in store.draft_revisions()
         for seed in [r.seed_id, r.decision.seed_id]
         if seed
     }

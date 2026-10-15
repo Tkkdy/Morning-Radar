@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 from decimal import Decimal
 from pathlib import Path
 
@@ -71,13 +72,11 @@ def test_real_modules_freeze_and_fresh_runner_restores_only_git(generated, tmp_p
     assert manifest["synthetic"] is True
     assert manifest["batch_id"]
     assert manifest["brief_versions"]
-    assert len(CoreStore(c.root).submissions()) == 1
-    assert len(CoreStore(c.root).seeds()) == 2
-    assert manifest["tendency_revisions"]
-    run = read(
-        c.root / "data/tendency-core/v2/runs" / (manifest["stages"]["tendency"]["run_id"] + ".json")
-    )
-    assert run["input_scan"]["errors"] == []
+    assert not CoreStore(c.root).submissions()
+    assert not CoreStore(c.root).seeds()
+    assert not manifest["tendency_revisions"]
+    assert not CoreStore(c.root).draft_revisions()
+    assert read(c.root / "data/tendency-public/v1/confirmed.json")["private_state_requires_restore"]
     assert all(
         v["status"] not in {"running", "not_run", "failed"} for v in manifest["stages"].values()
     ), manifest["stages"]
@@ -191,6 +190,7 @@ def test_archive_conflict_keeps_commit_and_no_private_files(generated, tmp_path)
         GitArchive(two, remote="origin", allow_synthetic=True)("second")
     assert git(two, "status", "--short") == ""
     (two / ".env").write_text("synthetic secret")
+    (two / "data/tendency-core/v2").mkdir(parents=True, exist_ok=True)
     (two / "data/tendency-core/v2/private.lock").write_text("lock")
     assert not any(name.endswith((".lock", ".env")) for name in archive_files(two))
 
@@ -262,6 +262,8 @@ def test_inbox_duplicate_stale_source_and_correction_cas(generated, tmp_path):
     from morning_radar.tendencies.github_input import ingest_issue, load_inbox
 
     c = clone(generated[0], tmp_path / "runner")
+    # Explicit synthetic private backup restore for CAS tests; not a public Git feature.
+    shutil.copytree(generated[0] / "data/tendency-core", c.root / "data/tendency-core")
     store = CoreStore(c.root)
     config = load_inbox(c.root / "config/tendency_web.yaml")
     issue = read(REPO / "tests/fixtures/tendency_web/github-page.json")["data"]["repository"][
@@ -286,11 +288,13 @@ def test_inbox_duplicate_stale_source_and_correction_cas(generated, tmp_path):
     assert ingest_issue(store, issue, config, synthetic=True)["status"] == "conflict"
     c.archive("receipt conflict")
     fresh = clone(c.root, tmp_path / "new-runner")
-    assert CoreStore(fresh.root).current() == store.current()
+    assert not CoreStore(fresh.root).current()
+    assert CoreStore(fresh.root).public_current() == store.public_current()
     assert any(
         e["acceptance"] and e["acceptance"]["status"] == "conflict"
-        for e in CoreStore(fresh.root).events()
+        for e in store.events()
     )
+    assert not CoreStore(fresh.root).events()
 
 
 def test_intent_survives_lost_notification_result_archive(generated, tmp_path):

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import re
 from datetime import UTC, datetime
 from html import unescape
@@ -9,6 +10,7 @@ from urllib.parse import urlsplit
 
 from morning_radar.models import RawItem, SourceRole, StatementType
 from morning_radar.processing import stable_item_id
+from morning_radar.processing.attention import observed_count
 
 
 def clean_hn_text(value: object, *, maximum_characters: int = 1600) -> str:
@@ -108,6 +110,35 @@ def _merge_hn_observation_pair(prior: RawItem, current: RawItem) -> RawItem:
         "discovery_paths": [path for path in paths if path],
         "discovery_reasons": [reason for reason in reasons if reason],
     }
+    observations = []
+    for item in (prior, current):
+        snapshots = item.metadata.get("hn_observations")
+        if not snapshots:
+            snapshots = [{
+                "observed_at": item.fetched_at.isoformat(),
+                "submitted_at": item.published_at.isoformat() if item.published_at else None,
+                "material_version": hashlib.sha256(
+                    (item.title + "\n" + item.url + "\n" + item.content_excerpt).encode()
+                ).hexdigest()[:16],
+                "score": observed_count(item.metadata.get("score")),
+                "comments": observed_count(item.metadata.get("comments")),
+                "practice_signal_kind": item.practice_signal_kind,
+                "discovery_paths": item.metadata.get("discovery_paths", []),
+                "selection_reason": item.metadata.get("selection_reason"),
+            }]
+        for snapshot in snapshots:
+            if snapshot not in observations:
+                observations.append(snapshot)
+    metadata["hn_observations"] = observations
+    for key in ("score", "comments"):
+        known = [entry for entry in observations if observed_count(entry.get(key)) is not None]
+        latest = max((datetime.fromisoformat(entry["observed_at"]) for entry in known),
+                     default=None)
+        values = {entry[key] for entry in known
+                  if datetime.fromisoformat(entry["observed_at"]) == latest}
+        # Conflicting values at the same observation time remain unknown.
+        metadata[key] = next(iter(values)) if len(values) == 1 else None
+        metadata[key + "_observed_at"] = latest.isoformat() if len(values) == 1 else None
     if target_url:
         metadata["original_url"] = target_url
     for key in ("lab_id", "selection_reason"):
@@ -115,7 +146,12 @@ def _merge_hn_observation_pair(prior: RawItem, current: RawItem) -> RawItem:
             metadata[key] = prior.metadata.get(key) or current.metadata.get(key)
     if "watchlist_discovery" in metadata["discovery_reasons"]:
         metadata["selection_reason"] = "watchlist_discovery"
-    updates: dict[str, object] = {"metadata": metadata}
+    updates: dict[str, object] = {
+        "metadata": metadata,
+        "fetched_at": max(prior.fetched_at, current.fetched_at),
+        "practice_signal_kind": chosen.practice_signal_kind
+        or prior.practice_signal_kind or current.practice_signal_kind,
+    }
     if target_url:
         updates["url"] = target_url
     return chosen.model_copy(update=updates)

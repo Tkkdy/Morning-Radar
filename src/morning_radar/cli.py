@@ -53,6 +53,13 @@ def build_parser() -> argparse.ArgumentParser:
     collection_inspect.add_argument("--json", action="store_true", dest="as_json")
     preview = commands.add_parser("preview-b1", help="build an isolated labeled offline B1 preview")
     preview.add_argument("--output", type=Path, required=True)
+    pilot = commands.add_parser(
+        "preview-pilot", help="render one saved private candidate without AI or publication",
+    )
+    pilot.add_argument("--brief", type=Path, required=True)
+    pilot.add_argument("--output", type=Path, required=True)
+    pilot.add_argument("--source-kind", required=True,
+                       choices=("saved_model_output", "codex_edited_frozen"))
     commands.add_parser("build-site", help="rebuild pages from saved brief JSON")
     commands.add_parser("run-tendency", help="run standalone Tendency evaluation")
     commands.add_parser("run-deep-continuity", help="run triggered deep Judgement review")
@@ -112,6 +119,12 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "tendency-core":
         from morning_radar.tendencies.core_cli import dispatch
         return dispatch(args)
+    if args.command == "preview-pilot":
+        from morning_radar.publishing.pilot import build_pilot_preview
+        print(build_pilot_preview(
+            Path("."), args.brief, args.output, source_kind=args.source_kind,
+        ))
+        return 0
     if args.command == "preview-b1":
         from morning_radar.publishing.preview import build_b1_preview
         print(build_b1_preview(Path("."), args.output))

@@ -1,0 +1,69 @@
+{
+  "status": "editorial_samples_corrected_not_general_model_guarantee",
+  "owner_confirmed": false,
+  "cases": [
+    {
+      "case": "未知被写成否定事实",
+      "source": "Navier–Stokes README 摘录未包含回应信息；缺席不构成否定证据。",
+      "first_stage": "归并 Story.uncertainties → 写作 uncertainty",
+      "before": "OpenAI 尚未对上述审查结论作出公开回应（输入中无相关内容）。",
+      "after": "本期材料未提供 OpenAI 的回应，也未包含独立数学复核；这不等于 OpenAI 没有回应。原文首次发布时间未核实，10 月 12 日的时间是社区发现时间。",
+      "fix_kind": "本轮 Codex 编辑副本 + 待负责人审核；没有新增句式过滤或宣称模型已学会",
+      "evidence_file": "<LOCAL_HOME>\\.codex\\worktrees\\mr-r1-remote-integration\\Morning Radar v0.1\\.tmp\\mr-r1-reading-tendency-closeout\\news-recovery\\stories.json",
+      "output_card": "a2-07"
+    },
+    {
+      "case": "未来部署被扩展成此前不会有影响",
+      "source": "The new Maia 300 chip will start rolling out to production AI workloads in 2027.",
+      "first_stage": "Story 不确定性失当限定 → 写作 why_it_matters 扩展",
+      "before": "有限系统推断：若微软按计划在 2027 年将 Maia 系列扩展到多吉瓦级部署并将其作为主要推理系统，那么其在推理工作负载上对 Nvidia 和 AMD GPU 的依赖可能有所降低；但该影响在 2027 年前尚不会实际发生，且取决于效率宣称能否在真实生产环境兑现。",
+      "after": "40% 与 7 倍都是报道引用的微软预期，未由本期材料独立验证。2027 年是部署计划，不能据此断言此前不会产生采购、研发或竞争影响，也不能推断计划已兑现。",
+      "fix_kind": "编辑副本保留计划、预期、比较对象和配置；不下预测性否定结论",
+      "evidence_file": "<LOCAL_HOME>\\.codex\\worktrees\\mr-r1-remote-integration\\Morning Radar v0.1\\.tmp\\mr-r1-reading-tendency-closeout\\news-recovery\\integrated-brief.json",
+      "output_card": "a2-02"
+    },
+    {
+      "case": "Asana 型号冲突被消解",
+      "source": {
+        "title": "Asana cuts model costs 76x in browser tests with GPT-6.1 Sol",
+        "summary": "Using GPT-6 Astra in Codex, Asana made its browser agent 76x cheaper and 5x faster in tests to offer customers more capable models.",
+        "url": "https://openai.com/index/asana-browser-agent",
+        "published_at": "2026-10-09T07:00:00Z"
+      },
+      "first_stage": "归并 facts 选定 Astra → 写作沿用",
+      "before": [
+        "OpenAI 官网发布内容称，Asana 使用 Codex 中的 GPT-6 Astra，在测试中让其浏览器智能体成本降低 76 倍、速度提升 5 倍，以为客户提供能力更强的模型。"
+      ],
+      "after": {
+        "title": "历史案例待核对｜OpenAI 介绍 Asana 浏览器 Agent 测试",
+        "what_happened": "来源标题写 GPT-6.1 Sol，摘要写 GPT-6 Astra。OpenAI 声称其浏览器 Agent 在测试中成本降低 76 倍、速度提升 5 倍，但当前摘录无法确定所用型号与测量口径。",
+        "facts": [],
+        "uncertainties": [
+          "型号冲突未解决，不能任选一个名称作为确定事实。",
+          "来源日期 10 月 9 日；不作为 10 月 13 日新事件。"
+        ]
+      },
+      "fix_kind": "复用已提交的身份冲突降级护栏及其本轮离线回归；另保留可审阅编辑样本。历史专项中 guard 成功但被 editorial DROP，并不证明模型语义或召回合格。",
+      "evidence_file": "<LOCAL_HOME>\\.codex\\worktrees\\mr-r1-remote-integration\\Morning Radar v0.1\\.tmp\\mr-r1-reading-tendency-closeout\\minimal-real-news-01\\acceptance.json"
+    },
+    {
+      "case": "内部诊断进入正文、并虚构 Full 型号差异",
+      "source": "Meta 原摘录明确写 Muse Wonder and Muse Wonder Full；official_page_fetched=false 不是没有正文的证据。",
+      "first_stage": "模型输入含采集诊断 → merge_story uncertainty → 写作传播",
+      "before": "Meta官方博客页面未提供发布日期，发布时间以TechCrunch与The Verge报道为准，官方页面抓取标记显示official_page_fetched为false。模型名称在不同来源中表述存在差异：TechCrunch/The Verge以Muse Wonder与Muse Wonder Full并列，Meta博客摘录正文使用Muse Wonder系列而未并列说明Full型号。基准对比对象名称各来源写法不完全一致，正文按各自来源归因呈现。TechCrunch称两款模型基准分数与Fable 5.1和GPT-6 Astra相当，而Meta博客称在关键基准上取得最先进结果，两者强度表述不完全一致。MemoryBench、Active Focus等机制与评测细节仅来自Meta博客和内部测试转述，未提供第三方独立评测。The Verge称两款模型向Muse Code订阅者提供，但未说明订阅地域、价格档位或可用性限制。",
+      "after": "Meta 博客与两篇报道都提到 Muse Wonder 和 Muse Wonder Full。The Verge 称，两款模型已向 Muse Code 订阅者提供，其中 Wonder 也可通过 Meta Model API 访问。Meta 将重点放在长任务、记忆与编码，并用自身评测说明能力；这些结果应当按厂商声称阅读。 现有摘录没有独立评测，也没有完整的地域和订阅限制。Wonder 的 API 可用性不能外推到 Wonder Full；Muse Agent 的后续接入计划没有明确时间。",
+      "fix_kind": "保留基线 25b31914 的 material_source_payload 投影；本轮编辑重建读者文案，不用正则清洗旧断言。字段移除不保证模型不会再次误读。",
+      "evidence_file": "<LOCAL_HOME>\\.codex\\worktrees\\mr-r1-remote-integration\\Morning Radar v0.1\\.tmp\\mr-r1-reading-tendency-closeout\\minimal-real-news-01\\response-002.raw",
+      "output_card": "a2-01"
+    },
+    {
+      "case": "厂商结果与独立证实混淆",
+      "source": "Maia 效率属于微软预期；ReplaySSM 结果来自文章作者评测。",
+      "first_stage": "旧稿中来源归属与推断的边界",
+      "before": "基准表现、预测部署与独立实测容易混写",
+      "after": "The Verge 报道，微软公布第三代自研 AI 芯片 Maia 300，采用将计算、内存控制器和 I/O 分开的 chiplet 架构。微软称，目标是让它成为自家产品和服务的主要推理系统，计划从 2027 年开始投入生产工作负载。 结果来自作者报告，本期未复现。低精度状态、递推精度、模型与工作负载的组合会影响结论；周期检查点并未消除全部误差传播。",
+      "fix_kind": "候选中明确来源归属；技术卡只绑定已有连续引文；没有执行独立实测",
+      "output_card": "a2-02 / a2-05"
+    }
+  ]
+}

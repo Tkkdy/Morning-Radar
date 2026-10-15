@@ -7,7 +7,7 @@
 - 实际开发基线：`b7a48efcd67d5afb0672f95612418a9661666207`，开工时工作区干净。
 - 已核对祖先链：A `bb3ef351671bc5fcd54eed789e5c3c4306db5be0` → A 复核 `e507d1041cdabfbce1ea3191f9ae8883a7cf4424` → B1 `b7a48efcd67d5afb0672f95612418a9661666207`。
 - B1 的 daily workflow `data/evidence/` 最后归档接线已包含在基线，不存在漏带的未提交接线。
-- 新分支：`codex/radar-next-release-tendency-core`。复用隔离 worktree：`C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`，没有从 master 重开或覆盖旧分支。
+- 新分支：`codex/radar-next-release-tendency-core`。复用隔离 worktree：`<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`，没有从 master 重开或覆盖旧分支。
 - 最终 C 提交为包含本报告的本地提交，完整 SHA 随最终交付返回。
 - 读取了本地 B1 完整报告、C 任务书、产品基线及项目规则；只检查 C 接入的来源、事件、预算、Provider 和存储接口，未发起全仓审计。
 
@@ -98,7 +98,7 @@ C 没有修改 workflow、定时、模型、Secrets、Editorial/AIHOT 开关、�
 在本 worktree 的 PowerShell 中，可使用原 venv 的只读解释器（editable 安装指向原工作区，因此显式加当前 src）：
 
 ```powershell
-$radarPython = 'C:/Users/PsyDuck/Documents/Morning Radar v0.1/.venv/Scripts/python.exe'
+$radarPython = '<LOCAL_HOME>/Documents/Morning Radar v0.1/.venv/Scripts/python.exe'
 function Invoke-RadarLocal {
     & $radarPython -X utf8 -B -c 'import sys; sys.path.insert(0,"src"); from morning_radar.cli import main; raise SystemExit(main(sys.argv[1:]))' @args
 }

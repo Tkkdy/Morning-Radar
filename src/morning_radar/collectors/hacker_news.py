@@ -9,6 +9,7 @@ from datetime import UTC, datetime
 from morning_radar.collectors.hn_common import hn_item
 from morning_radar.collectors.http import HttpClient
 from morning_radar.models import PracticeSignalKind, RawItem
+from morning_radar.processing.attention import observed_count
 from morning_radar.time_utils import utc_now
 
 LOGGER = logging.getLogger(__name__)
@@ -114,6 +115,10 @@ class HackerNewsCollector:
                 fetched_items += 1
                 converted = self._convert(story)
                 if converted:
+                    converted.metadata["discovery_paths"] = [
+                        f"hn_firebase:{endpoint}" for endpoint, ids in ids_by_endpoint.items()
+                        if story_id in ids
+                    ]
                     if converted.metadata["selection_reason"] == "keyword":
                         keyword_matches += 1
                     else:
@@ -150,14 +155,15 @@ class HackerNewsCollector:
             and _contains_keyword(body_text, keyword)
             for keyword in self.keywords
         )
-        score = int(story.get("score") or 0)
-        comments = int(story.get("descendants") or 0)
+        score = observed_count(story.get("score"))
+        comments = observed_count(story.get("descendants"))
         show_hn = title_text.startswith("show hn:")
         discovery_match = (
-            score >= DISCOVERY_SCORE_THRESHOLD
-            or comments >= DISCOVERY_COMMENTS_THRESHOLD
+            (score is not None and score >= DISCOVERY_SCORE_THRESHOLD)
+            or (comments is not None and comments >= DISCOVERY_COMMENTS_THRESHOLD)
             or show_hn
-            and (score >= SHOW_HN_SCORE_THRESHOLD or comments >= SHOW_HN_COMMENTS_THRESHOLD)
+            and ((score is not None and score >= SHOW_HN_SCORE_THRESHOLD)
+                 or (comments is not None and comments >= SHOW_HN_COMMENTS_THRESHOLD))
         )
         if not title or not (title_match or body_match or discovery_match):
             return None
@@ -175,6 +181,11 @@ class HackerNewsCollector:
             metadata={"official": False,
                 "score": score,
                 "comments": comments,
+                "discovery_paths": ["hn_firebase"],
+                "discovery_reasons": [
+                    *(["keyword"] if title_match or body_match else []),
+                    *(["high_signal_discovery"] if discovery_match else []),
+                ],
                 "selection_reason": (
                     "keyword" if title_match or body_match else "high_signal_discovery"
                 ),

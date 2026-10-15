@@ -159,14 +159,15 @@ def test_fake_provider_keeps_official_benchmark_as_claim() -> None:
     assert result.daily.decisions[0].fact_status is FactStatus.CLAIM
 
 
-def test_partial_batch_degrades_and_preserves_legacy_brief() -> None:
+def test_partial_batch_retains_valid_decision_and_missing_item_lead() -> None:
     stories = [story("one"), story("two")]
     provider = ScriptedEditorialProvider(
         [decision("one", Placement.DROP, Treatment.HIDDEN, reader_value=0)]
     )
     degraded = evaluate(stories, provider)
-    assert degraded.daily.degraded is True
-    assert generate(stories, provider, degraded) == generate(stories, provider)
+    assert degraded.active
+    assert degraded.selection.visible_story_ids == ["two"]
+    assert [d.placement for d in degraded.daily.decisions] == [Placement.DROP, Placement.ONE_LINER]
 
 
 def test_active_mode_maps_placements_without_legacy_score_filtering() -> None:
@@ -194,7 +195,7 @@ def test_active_mode_maps_placements_without_legacy_score_filtering() -> None:
     ]
     provider = ScriptedEditorialProvider(decisions)
     result = generate(stories, provider, evaluate(stories, provider))
-    assert [item.story_ids for item in result.top_stories] == [["top"]]
+    assert [item.story_ids for item in result.top_stories] == [["top", "support"]]
     assert [item.story_ids for item in result.developer_discussions] == [["story"]]
     assert [item.story_ids for item in result.other_reading] == [["news"], ["one"]]
     displayed = {
@@ -207,7 +208,7 @@ def test_active_mode_maps_placements_without_legacy_score_filtering() -> None:
         for story_id in item.story_ids
     }
     assert "drop" not in displayed
-    assert "support" not in displayed
+    assert "support" in displayed  # context on its owner, never an independent card
 
 
 def test_support_is_only_published_attached_to_its_target() -> None:

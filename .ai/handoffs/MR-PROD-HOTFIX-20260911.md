@@ -18,7 +18,7 @@ updated_at: 2026-09-11T13:44:43Z
 Apply the bounded production hotfix locally: preserve a valid Brief when optional direction observation exhausts AI budget, and skip language validation for schema-legal empty continuity narratives.
 
 ## Repository Reality / Deviations
-- Independent worktree: `C:/Users/PsyDuck/Documents/Morning Radar prod-hotfix-20260911`.
+- Independent worktree: `<LOCAL_HOME>/Documents/Morning Radar prod-hotfix-20260911`.
 - Remote master was read-only verified and fetched at `b27c68aebab9a12d92276d261663ac299efcc042`; this worktree and branch start exactly there.
 - The original P2 worktree remains on `codex/coverage-p2-b` at `94bc895` with its dirty changes untouched.
 - Python imports were checked with temporary `PYTHONPATH` and resolve to this hotfix worktree's `src`.

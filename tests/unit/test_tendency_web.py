@@ -413,7 +413,7 @@ def test_branch_lineage_survives_child_update_and_parent_changes(store):
     with pytest.raises(StaleRevision):
         target.append({"revisions": [forged.model_dump(mode="json")]}, operation_id="forged")
     output = store.root / "branch-preview"
-    build_pages(target, output, repository=REPO)
+    build_pages(target, output, repository=REPO, local_write=True)
     assert page_name("r", original.revision_id) in (
         output / page_name("h", child.hypothesis_id)
     ).read_text(encoding="utf-8")

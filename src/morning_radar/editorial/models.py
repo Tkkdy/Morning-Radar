@@ -7,16 +7,7 @@ from enum import StrEnum
 
 from pydantic import Field, PrivateAttr, field_validator, model_validator
 
-from morning_radar.models.core import RadarModel, _validate_aware_datetime
-
-
-class Placement(StrEnum):
-    TOP = "TOP"
-    STORY = "STORY"
-    NEWS = "NEWS"
-    ONE_LINER = "ONE-LINER"
-    SUPPORT = "SUPPORT"
-    DROP = "DROP"
+from morning_radar.models.core import Placement, RadarModel, _validate_aware_datetime
 
 
 class Treatment(StrEnum):

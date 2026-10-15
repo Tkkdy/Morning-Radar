@@ -12,7 +12,12 @@ from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
 from morning_radar.tendencies.core_store import CoreStore
-from morning_radar.tendencies.web_input import WebRequest, accept_input
+from morning_radar.tendencies.web_input import (
+    ConfirmationRequest,
+    WebRequest,
+    accept_input,
+    confirm_draft,
+)
 from morning_radar.tendencies.web_pages import build_pages, page_name
 
 CSP = (
@@ -46,6 +51,15 @@ class EditorApp:
             local_write=True,
             synthetic=self.synthetic,
         )
+        build_pages(self.store, self.output / "public/tendency", repository=self.repository,
+                    synthetic=self.synthetic)
+        (self.output / "index.html").write_text(
+            '<meta charset="utf-8"><h1>Tendency 本地工作台</h1>'
+            '<a href="tendency/index.html">私有研究草稿</a> · '
+            '<a href="public/tendency/index.html">公开预览（仅人工确认版本）</a>', encoding="utf-8")
+        (self.output / "public/index.html").write_text(
+            '<meta charset="utf-8"><h1>Tendency 公开预览</h1>'
+            '<a href="tendency/index.html">用户确认的研究假设</a>', encoding="utf-8")
 
     def request(self, method: str, path: str, headers, body: bytes = b"") -> tuple:
         base_headers = {
@@ -113,13 +127,18 @@ class EditorApp:
                         )
                     },
                 )
-            if path != "/api/submissions":
+            if path not in {"/api/submissions", "/api/confirmations"}:
                 return result(404, {"message": "没有此入口"})
             if not session or not secrets.compare_digest(
                 headers.get("X-CSRF-Token", ""), session[0]
             ):
                 return result(403, {"message": "需要授权会话与有效 CSRF"})
             try:
+                if path == "/api/confirmations":
+                    confirm_draft(self.store, ConfirmationRequest.model_validate(payload),
+                                  author="local-owner")
+                    return result(201, {"message": "决定已持久保存；确认的是研究假设，"
+                                       "不是事实认证，也没有执行外部发布。"})
                 request = WebRequest.model_validate(payload)
                 saved = accept_input(
                     self.store,

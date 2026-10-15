@@ -15,12 +15,28 @@ from morning_radar.intake.models import ProcessingStatus, ReasonCode
 LOGGER = logging.getLogger(__name__)
 
 
-def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
+def review_candidates(
+    prepared, *, provider, app, material_evidence=(),
+) -> ClassificationBatch | None:
     original = prepared.selection
     pool = [*original.records, *original.deferred]
     unique = {intake_key(r.input_id, r.content_version): r for r in pool}
     if len(unique) <= len(original.records):
         return None
+    # Reuse already captured material for the exact input version, without
+    # changing raw records or treating later content as an earlier web snapshot.
+    evidence = {}
+    for snapshot in material_evidence:
+        key = (snapshot.get("input_id"), snapshot.get("content_version"))
+        if snapshot.get("status") == "fetched":
+            previous = evidence.get(key)
+            if previous is None or snapshot["observed_at"] > previous["observed_at"]:
+                evidence[key] = snapshot
+    def review_summary(record):
+        snapshot = evidence.get((record.input_id, record.content_version))
+        return (snapshot["excerpt"] if snapshot else
+                record.item.summary or record.item.content_excerpt)[:120]
+
     # Interleave sources for review only; no source receives reserved display slots.
     queues = defaultdict(list)
     for record in unique.values():
@@ -42,7 +58,7 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
             r.item.model_copy(
                 update={
                     "title": r.item.title[:160],
-                    "summary": (r.item.summary or r.item.content_excerpt)[:120],
+                    "summary": review_summary(r),
                     "content_excerpt": "",
                     "metadata": {"review_only": True},
                 }
@@ -87,6 +103,7 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
             else 2
             if review is None
             else 3,
+            -((record.item.published_at or record.item.fetched_at).timestamp()),
             record.durable_at or record.first_seen_at,
             record.input_id,
         )
@@ -96,15 +113,16 @@ def review_candidates(prepared, *, provider, app) -> ClassificationBatch | None:
         max(0, app.maximum_ai_calls - 7) * 2 // 5,
     )
     ranked = sorted(unique.values(), key=rank)
-    from morning_radar.processing.deduplicate import _comparison_url
-    grouped = {}
-    for record in ranked:
-        grouped.setdefault(_comparison_url(record.item), []).append(record)
+    from morning_radar.processing.grouping import bounded_event_groups
+    by_object = {id(r.item): r for r in ranked}
+    grouped = bounded_event_groups([r.item for r in ranked],
+                                  maximum_sources=max(1, min(6, app.maximum_ai_items)))
     # One deep-processing opportunity per exact page; retain complementary aliases
     # for the existing Story merge path, bounded by the same item transport cap.
     selected = []
     selected_groups = 0
-    for group in grouped.values():
+    for candidate_group in grouped:
+        group = [by_object[id(item)] for item in candidate_group]
         if selected_groups >= capacity:
             break
         if len(selected) + len(group) > app.maximum_ai_items:

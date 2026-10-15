@@ -7,7 +7,7 @@ import os
 import time
 from concurrent.futures import ThreadPoolExecutor
 from concurrent.futures import TimeoutError as FuturesTimeoutError
-from datetime import date, timedelta
+from datetime import UTC, date, datetime, timedelta
 from pathlib import Path
 
 from morning_radar.ai import AIBudget, DeepSeekProvider, FakeAIProvider
@@ -359,7 +359,9 @@ def _classification_decision(record, classification_out, reason):
     classify_meta = None
     if classification_out:
         classified = classification_out.get(record.item.id)
-        classify_meta = classification_out.get("_call_meta")
+        classify_meta = classification_out.get("_call_meta_by_item", {}).get(
+            record.item.id, classification_out.get("_call_meta")
+        )
     if classified is not None:
         return ClassificationDecision(
             status="ok",
@@ -445,6 +447,10 @@ def _research_decision(record, research_result, *, now):
     if resolution is not None:
         model_disp = str(getattr(resolution, "disposition", "") or "")
         applied = model_disp
+        missing_evidence = list(getattr(resolution, "missing_evidence", []) or [])
+        if research_reason is ReasonCode.WAITING_EVIDENCE:
+            applied = ResearchDisposition.INTERNAL_ONLY
+            missing_evidence.append("input_text_incomplete_scope_not_excluded")
         if (
             model_disp == ResearchDisposition.VERIFIED_STORY_CANDIDATE
             and matched_case is not None
@@ -457,7 +463,7 @@ def _research_decision(record, research_result, *, now):
             disposition=applied or None,
             model_disposition=model_disp or None,
             applied_disposition=applied or None,
-            missing_evidence=list(getattr(resolution, "missing_evidence", []) or []),
+            missing_evidence=missing_evidence,
             uncertainty=_clip_reason(getattr(resolution, "uncertainty", None)),
             case_id=getattr(resolution, "case_id", None),
             attempt=_attempt_from_meta(meta, now=now),
@@ -646,17 +652,23 @@ def _record_processing_outcomes(
                 **updates,
             )
             continue
-        below = story.relevance_score < relevance_threshold
+        below = bool(story.facts) and story.relevance_score < relevance_threshold
+        failure = story_item_outcomes.get(record.item.id)
+        failed_lead = not story.facts and failure in {
+            ReasonCode.MERGE_FAILED.value, ReasonCode.SCORE_FAILED.value,
+        }
+        result_reason = (ReasonCode(failure) if failed_lead else
+                         ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED)
         merged = story.id if len(story.source_item_ids) > 1 else None
         shown = story.id in displayed
         prepared.ledger.update(
             record.input_id,
             record.content_version,
             now=now,
-            processing=ProcessingStatus.COMPLETED,
+            processing=ProcessingStatus.FAILED_RETRY if failed_lead else ProcessingStatus.COMPLETED,
             stage="story",
-            outcome="below_relevance_threshold" if below else "processed",
-            reason_code=(ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED),
+            outcome=result_reason.value,
+            reason_code=result_reason,
             story_id=story.id,
             merged_into=merged,
             relevance_score=story.relevance_score,
@@ -675,7 +687,7 @@ def _record_processing_outcomes(
                 classification_out=classification_out,
                 score_out=score_out,
                 research_result=research_result,
-                reason=(ReasonCode.BELOW_RELEVANCE_THRESHOLD if below else ReasonCode.PROCESSED),
+                reason=result_reason,
                 relevance_threshold=relevance_threshold,
                 now=now,
                 prepared=prepared,
@@ -820,6 +832,7 @@ class MorningRadarPipeline:
         intake=None,
         batch_id: str | None = None,
         now=None,
+        archived_briefs: list[Path] | None = None,
     ) -> DailyBrief:
         return self.run(
             fixtures=fixtures,
@@ -830,6 +843,7 @@ class MorningRadarPipeline:
             collect_first=False,
             batch_id=batch_id,
             now=now,
+            archived_briefs=archived_briefs,
         )
 
     def run(
@@ -843,6 +857,7 @@ class MorningRadarPipeline:
         collect_first: bool | None = None,
         batch_id: str | None = None,
         now=None,
+        archived_briefs: list[Path] | None = None,
     ) -> DailyBrief:
         from morning_radar.intake.generation import heal_incomplete_generation
         from morning_radar.intake.service import (
@@ -880,11 +895,13 @@ class MorningRadarPipeline:
             return self._run_prepared(
                 prepared, fixtures=fixtures, dry_run=dry_run,
                 force_notify=force_notify, notify=notify, health=health,
+                archived_briefs=archived_briefs,
             )
 
     def _run_prepared(
         self, prepared, *, fixtures: bool, dry_run: bool,
         force_notify: bool, notify: bool, health: dict,
+        archived_briefs: list[Path] | None = None,
     ) -> DailyBrief:
         history_root = self.root
         output_root = prepared.intake.output_root
@@ -952,7 +969,13 @@ class MorningRadarPipeline:
         review = None
         if not fixtures and self.app.candidate_review_limit:
             from morning_radar.intake.review import review_candidates
-            review = review_candidates(prepared, provider=provider, app=self.app)
+            from morning_radar.research.materials import load_material_evidence
+            review = review_candidates(
+                prepared, provider=provider, app=self.app,
+                material_evidence=load_material_evidence(
+                    output_root, through=datetime.now(UTC) if not dry_run else now,
+                ),
+            )
         for record in prepared.selection.records:
             if isinstance(record.item.metadata, dict):
                 record.item.metadata.setdefault("content_version", record.content_version)
@@ -1148,6 +1171,7 @@ class MorningRadarPipeline:
                 importance_threshold=self.app.importance_threshold,
                 maximum_ai_items=self.app.maximum_ai_items,
                 editorial_result=editorial_result,
+                archived_briefs=archived_briefs,
                 run_stats={
                     "after_global_cap": len(raw_items),
                     "recent_24h": len(recent),

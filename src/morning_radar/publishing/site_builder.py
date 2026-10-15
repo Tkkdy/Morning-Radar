@@ -32,10 +32,19 @@ class SiteBuilder:
         preview_notice: str | None = None,
         preview_labels: dict[str, str] | None = None,
         tendency_workspace: Path | None = None,
+        local_workbench_url: str | None = None,
     ) -> None:
+        if local_workbench_url is not None:
+            target = urlsplit(local_workbench_url)
+            if target.scheme != "http" or target.hostname != "127.0.0.1":
+                raise ValueError("Local workbench link must use loopback HTTP")
+        self.environment.globals["local_workbench_url"] = local_workbench_url
         if not briefs:
             raise ValueError("At least one DailyBrief is required to build the site")
-        ordered = sorted(briefs, key=lambda item: item.date, reverse=True)
+        # Legacy model approvals have no human confirmation binding. Keep the saved
+        # brief intact; public Tendency content comes only from CoreStore's view.
+        ordered = sorted((brief.model_copy(update={"tendencies": []}) for brief in briefs),
+                         key=lambda item: item.date, reverse=True)
         self.output_dir.mkdir(parents=True, exist_ok=True)
         (self.output_dir / "briefs").mkdir(exist_ok=True)
         (self.output_dir / "assets").mkdir(exist_ok=True)
@@ -47,6 +56,16 @@ class SiteBuilder:
             from morning_radar.tendencies.web_pages import build_pages
             build_pages(CoreStore(tendency_workspace), self.output_dir / "tendency",
                         repository=Path(self.environment.loader.searchpath[0]).parent)
+        self.environment.globals["rendered_story_anchors"] = {
+            brief.date: {
+                card.story_contexts[0].story_id if card.story_contexts else card.story_ids[0]
+                for section in ("top_stories", "market_and_companies", "ai_and_open_source",
+                                "trend_radar", "developer_discussions", "other_reading")
+                for card in getattr(brief, section)
+                if card.story_contexts or card.story_ids
+            }
+            for brief in ordered
+        }
         latest = ordered[0]
         self._write_status(latest)
         from morning_radar.health import publish_health

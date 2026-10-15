@@ -6,7 +6,7 @@
 
 - 基线 `13bb8fcf9cc23094c48e65c9132d570931114ee3`；修复代码提交 `5b3cfcca267b680ad46406bd27a6517b7e8ba387`。
 - 分支 `codex/radar-real-acceptance-repair`；从原工作 worktree 最新提交继续，未重写 A/B1/C/D/B2。
-- 执行目录 `C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`。
+- 执行目录 `<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`。
 - 解释器为原目录 `.venv/Scripts/python.exe`，显式把当前 worktree 的 `src` 放在 sys.path 首位；正式核心实际来自当前 worktree。每次回放记录了解释器、模块路径和输入哈希。没有运行旧 editable install 的代码。
 - 首次收费试跑仍归属于 `bd812339...`，不能把本次修复倒填为该次真实效果。首次验收 ZIP SHA256 仍为 `dd6e4b0ddfd16beb09c202ed5f20a273690c1725d4ac4f83eb960fbbad8d2b2a`。
 - 原工作区 HEAD/status、两个工作区的生产 data/site 文件哈希、首次 ZIP 均未变。原失败、中间格式恢复回放、最终拒收均独立保存。

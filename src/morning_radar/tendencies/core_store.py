@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 from contextlib import contextmanager
@@ -64,22 +65,101 @@ class CoreStore:
             if through is None or datetime.fromisoformat(row["recorded_at"]) <= through
         ]
 
-    def current(self, *, through: datetime | None = None) -> dict[str, Revision]:
-        return {r.hypothesis_id: r for r in self.revisions(through=through)}
-
-    def public_revisions(self) -> list[Revision]:
-        from morning_radar.tendencies.grounded_review import validate_admission
-
-        result = []
+    def draft_revisions(self, *, through: datetime | None = None) -> list[Revision]:
+        """Structurally captured candidates remain readable regardless of model verdict."""
+        revisions = {}
         for event in self.events():
             payload = event["payload"]
-            if payload.get("type") != "content_review" or payload.get("status") != "approved":
-                continue
-            for row in event.get("revisions", []):
+            rows = event.get("revisions", [])
+            if payload.get("type") == "review_candidate":
+                rows = [payload["revision"]]
+            for row in rows:
                 revision = Revision.model_validate(row)
-                validate_admission(payload, revision)
-                result.append(revision)
-        return result
+                if through is None or revision.recorded_at <= through:
+                    existing = revisions.get(revision.revision_id)
+                    if existing is not None and existing != revision:
+                        raise ValueError("Revision identity changed")
+                    revisions[revision.revision_id] = revision
+        return list(revisions.values())
+
+    def current(self, *, through: datetime | None = None) -> dict[str, Revision]:
+        return {r.hypothesis_id: r for r in self.draft_revisions(through=through)}
+
+    @staticmethod
+    def confirmation_binding(revision: Revision) -> dict:
+        from morning_radar.tendencies.grounded_review import sha
+        return {
+            "revision_id": revision.revision_id,
+            "body_sha256": sha(revision.decision.model_dump(mode="json")),
+            "evidence_sha256": sha([e.model_dump(mode="json") for e in revision.evidence]),
+        }
+
+    def human_decisions(self) -> dict[str, dict]:
+        return {e["payload"]["revision_id"]: e["payload"] for e in self.events()
+                if e["payload"].get("type") == "human_confirmation"}
+
+    @staticmethod
+    def event_digest(event: dict) -> str:
+        return hashlib.sha256(json.dumps(event, sort_keys=True,
+                            ensure_ascii=False).encode()).hexdigest()
+
+    @classmethod
+    def prefix_checkpoint(cls, events: list[dict]) -> dict:
+        if any(e.get("sequence") != n for n, e in enumerate(events, 1)):
+            raise ValueError("Private transaction sequence is incomplete")
+        return {"format": "event-prefix-v1", "event_count": len(events),
+                "sha256": cls.event_digest({"events": events})}
+
+    def private_state_available(self) -> bool:
+        path = self.root / "data/tendency-public/v1/confirmed.json"
+        events = self.events()
+        if any(e.get("sequence") != n for n, e in enumerate(events, 1)):
+            return False
+        if not path.exists():
+            return True
+        projection = json.loads(path.read_text(encoding="utf-8"))
+        if not projection.get("private_state_requires_restore"):
+            return True
+        anchor = projection.get("private_state_checkpoint")
+        # Legacy last-event hashes cannot prove that the history prefix was restored.
+        if not isinstance(anchor, dict) or anchor.get("format") != "event-prefix-v1":
+            return False
+        count = anchor.get("event_count")
+        if type(count) is not int or count < 1 or count > len(events):
+            return False
+        return self.prefix_checkpoint(events[:count]) == anchor
+
+    def public_revisions(self) -> list[Revision]:
+        decisions = self.human_decisions()
+        # Public-only checkouts can rebuild confirmed pages without private events.
+        # They cannot recover or resume the private workbench state.
+        projection = self.root / "data/tendency-public/v1/confirmed.json"
+        archived = []
+        if projection.exists() and (not self.private_state_available()
+                                    or not any((self.directory / "transactions").glob("*.json"))):
+            value = json.loads(projection.read_text(encoding="utf-8"))
+            bindings = {r["revision_id"]: r for r in value["confirmations"]}
+            for row in value["history"]:
+                revision = Revision.model_validate(row)
+                binding = bindings.get(revision.revision_id, {})
+                if any(binding.get(k) != v for k, v in self.confirmation_binding(revision).items()):
+                    raise ValueError("Public projection confirmation mismatch")
+                through = getattr(self, "through", None)
+                if through is not None and (not binding.get("confirmed_at") or
+                        datetime.fromisoformat(binding["confirmed_at"]) > through
+                        or revision.recorded_at > through):
+                    continue
+                archived.append(revision)
+            if not self.private_state_available():
+                return archived  # Incomplete local state cannot override the public snapshot.
+        drafts = {r.revision_id: r for r in archived}
+        drafts.update({r.revision_id: r for r in self.draft_revisions()})
+        archived_ids = {r.revision_id for r in archived}
+        return [r for r in drafts.values()
+                if (r.revision_id in archived_ids and r.revision_id not in decisions)
+                or ((decision := decisions.get(r.revision_id))
+                and decision["action"] == "confirm"
+                and all(decision.get(k) == v for k, v in self.confirmation_binding(r).items()))]
 
     def public_current(self) -> dict[str, Revision]:
         return {r.hypothesis_id: r for r in self.public_revisions()}
@@ -93,6 +173,16 @@ class CoreStore:
                         raise ValueError("Conflicting idempotency key")
                     return previous
             current = self.current()
+            if event.get("type") == "human_confirmation":
+                revision = next((r for r in current.values()
+                                 if r.revision_id == event.get("revision_id")), None)
+                if revision is None or any(event.get(k) != v for k, v in
+                                           self.confirmation_binding(revision).items()):
+                    raise StaleRevision("Draft or evidence changed; read the latest version")
+                if event.get("action") not in {"confirm", "return"}:
+                    raise ValueError("Unknown human decision")
+                if not event.get("author") or event.get("revisions"):
+                    raise ValueError("Confirmation cannot replace content")
             acceptance = None
             if event.get("type") == "web_input":
                 target = event["request"].get("hypothesis_id")
@@ -105,6 +195,24 @@ class CoreStore:
                     "current_revision": previous.revision_id if previous else None,
                 }
             revisions = [Revision.model_validate(r) for r in event.get("revisions", [])]
+            if event.get("type") == "review_candidate":
+                revisions = [Revision.model_validate(event["revision"])]
+                from morning_radar.tendencies.grounded_review import candidate
+                from morning_radar.tendencies.web_input import safe_source_url
+                refs = {e.evidence_id: e for e in revisions[0].evidence}
+                for evidence in refs.values():
+                    if evidence.source_url:
+                        safe_source_url(evidence.source_url)
+                for citation in revisions[0].decision.citations:
+                    evidence = refs.get(citation.evidence_id)
+                    if evidence is None or not any(
+                        citation.quote in segment for segment in evidence.excerpt.split("\n[…]\n")
+                    ):
+                        raise ValueError("Invalid draft evidence quote")
+                previous = current.get(revisions[0].hypothesis_id)
+                if event["request"] != candidate(revisions[0], previous,
+                                                  event["request"]["analysis_version"]):
+                    raise ValueError("Candidate content/evidence binding mismatch")
             seen = set()
             for revision in revisions:
                 if event.get("type") == "content_review":
@@ -129,6 +237,8 @@ class CoreStore:
                         for existing in current.values()
                     ):
                         raise StaleRevision("An equivalent proposition was already committed")
+                if event.get("type") == "content_review" and previous == revision:
+                    continue  # Auxiliary opinion on an already captured draft.
                 if revision.previous_revision_id != (previous.revision_id if previous else None):
                     raise StaleRevision("Expected previous revision is no longer current")
                 if previous and (

@@ -122,3 +122,15 @@ def test_site_renders_current_continuity_and_historical_annotation(
     assert 'href="../briefs/2026-08-01.html#story-story-previous"' in current
     assert "后续更新" in historical
     assert "已于 2026-08-02被修正" in historical
+
+
+def test_history_link_does_not_promise_an_unrendered_story_anchor(tmp_path):
+    older = _brief(date(2026, 8, 1), continuity=False)
+    older.top_stories[0].story_ids = ["another-story"]
+    builder = SiteBuilder(template_dir=Path("templates"), output_dir=tmp_path / "site")
+    builder.build([older, _brief(date(2026, 8, 2), continuity=True)],
+                  stylesheet=Path("site/assets/style.css"))
+    page = (tmp_path / "site/index.html").read_text(encoding="utf-8")
+    assert 'href="briefs/2026-08-01.html"' in page
+    assert "#story-story-previous" not in page
+    assert "当日归档未展示该事件正文" in page

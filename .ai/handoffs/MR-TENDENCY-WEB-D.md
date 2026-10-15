@@ -7,7 +7,7 @@
 - 实际基线：`f67f5a2d07a0f3e8412f0e4f408e18ea7c4c4404`，C 收尾提交；开工时隔离工作区干净。
 - 已确认 A `bb3ef351671bc5fcd54eed789e5c3c4306db5be0`、A 复核 `e507d1041cdabfbce1ea3191f9ae8883a7cf4424`、B1 `b7a48efcd67d5afb0672f95612418a9661666207` 均为祖先。未退回 master。
 - D 分支：`codex/radar-next-release-tendency-web`。
-- Worktree：`C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`。
+- Worktree：`<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`。
 - D 实施提交：`cdd2da02ae92e147036c767cb4d0584d19c3f1aa`；最终 HEAD 为其后的本报告归档提交，完整 SHA 在交付消息中给出。归档未改变实现代码或测试边界。
 - 已读产品基线、C/D 任务书、C 完整报告及有效工程规则。只检查接入所需的投递、回执、版本、证据与导出接口。
 
@@ -73,7 +73,7 @@ GitHub 适配只发固定 GraphQL 查询，未实现任何远端 mutation。超�
 在上文隔离 worktree 的 PowerShell 中：
 
 ```powershell
-$radarPython = 'C:/Users/PsyDuck/Documents/Morning Radar v0.1/.venv/Scripts/python.exe'
+$radarPython = '<LOCAL_HOME>/Documents/Morning Radar v0.1/.venv/Scripts/python.exe'
 function Invoke-RadarLocal {
     & $radarPython -X utf8 -B -c 'import sys; sys.path.insert(0,"src"); from morning_radar.cli import main; raise SystemExit(main(sys.argv[1:]))' @args
 }

@@ -5,8 +5,8 @@
 - 产品目标：用户 `10-10/PRODUCT_BASELINE_2026-10-10.md`；本批范围：`CODEX_FIRST_BATCH_2026-10-10.md`，执行时以用户后续授权修正。
 - origin 已联网核实为 `https://github.com/Tkkdy/Morning-Radar.git`；fetch 后 ls-remote 确认并采用 master **8ddd314d5108d987f359f146484af61724f6a5b9**。
 - 分支：`codex/radar-next-release-batch-a`。
-- worktree：`C:\Users\PsyDuck\.codex\worktrees\radar-next-release-batch-a\Morning Radar v0.1`。
-- 原目录：`C:\Users\PsyDuck\Documents\Morning Radar v0.1`；原分支 `codex/review-brief-quality`，HEAD `6d3ace72f2e4b64df07cc594f3d32fb9756dcef3`。
+- worktree：`<LOCAL_HOME>\.codex\worktrees\radar-next-release-batch-a\Morning Radar v0.1`。
+- 原目录：`<LOCAL_HOME>\Documents\Morning Radar v0.1`；原分支 `codex/review-brief-quality`，HEAD `6d3ace72f2e4b64df07cc594f3d32fb9756dcef3`。
 - 原目录三份已跟踪差异：`.github/workflows/daily-brief.yml`、`tests/unit/test_workflow.py`、`HANDOFF.md`。未跟踪资料清单、完整 diff、data/site SHA256 已记录于新 worktree `.tmp/batch-a/original-state.json`。
 - fetch 前相对旧 origin/master 的 11 个本地提交，fetch 后全部已在远端 master；`origin/master..HEAD` 和 `git cherry origin/master HEAD` 均为空。没有 cherry-pick，没有迁移原目录未提交修改。
 - 已核验原 HEAD/status/diff/data/site 与初始记录一致，新 worktree 的生产 data/site 与基线哈希一致；未 stash/reset/clean，未复制旧 src/data/site/虚拟环境。

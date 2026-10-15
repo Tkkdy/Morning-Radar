@@ -43,6 +43,8 @@ def run_core(
     app = load_model(config_root / "config/app.yaml", AppConfig)
     policy = app.tendency_core
     store = CoreStore(root, after_commit=after_commit)
+    if not store.private_state_available():
+        raise RuntimeError("Private state restore required before continuing Tendency")
     run_id = uuid4().hex
     result = {
         "schema_version": 2,
@@ -412,7 +414,7 @@ def run_core(
             result["pending_target_ids"] = sorted(
                 {r.hypothesis_id for r in store.current(through=now).values()}
                 - addressed_targets
-                - {r.hypothesis_id for r in store.revisions() if r.run_id == run_id}
+                - {r.hypothesis_id for r in store.draft_revisions() if r.run_id == run_id}
             )
             statuses = [s["status"] for s in result["stages"].values()]
             result["status"] = (

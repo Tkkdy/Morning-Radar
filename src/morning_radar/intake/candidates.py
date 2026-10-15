@@ -10,6 +10,7 @@ from dataclasses import dataclass, field
 from morning_radar.intake.identity import intake_key
 from morning_radar.intake.models import IntakeRecord
 from morning_radar.models import RawItem
+from morning_radar.processing.matching import alias_matches
 from morning_radar.processing.story_builder import preselect_ai_candidates
 
 
@@ -130,8 +131,9 @@ def _lab_id(item: RawItem, labs: list[object]) -> str:
     for lab in labs:
         if source_id and source_id == getattr(lab, "official_source_id", None):
             return str(lab.id)
+    for lab in labs:
         aliases = getattr(lab, "aliases", [])
-        if any(len(alias) >= 4 and alias.casefold() in text for alias in aliases):
+        if any(alias_matches(alias, text) for alias in aliases):
             return str(lab.id)
     return ""
 
@@ -161,7 +163,7 @@ def _matching_rule_id(item: RawItem, rules: list[object]) -> str | None:
 
 def _candidate_policy_hash(labs: list[object], rules: list[object], reserved_slots: int) -> str:
     payload = {
-        "version": "p2b-candidate-v1", "reserved_slots": reserved_slots,
+        "version": "e3-candidate-v2", "reserved_slots": reserved_slots,
         "update_hint": _UPDATE_HINT.pattern, "exclusions": _UPDATE_EXCLUSIONS.pattern,
         "labs": [
             {

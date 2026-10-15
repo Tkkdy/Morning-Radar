@@ -23,6 +23,7 @@ from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_ex
 from morning_radar.ai.budget import AIBudget, AIBudgetExceeded, AITaskPriority
 from morning_radar.ai.candidate_classification import (
     CandidateClassificationBatch,
+    StrictClassificationBatch,
     validate_candidate_ids,
 )
 from morning_radar.ai.errors import (
@@ -59,11 +60,17 @@ from morning_radar.ai.request_payload import (
     brief_request_payload,
     classify_items_payload,
     freeze_call_meta,
+    merge_story_payload,
     policy_hash,
     prompt_hash_for,
     research_request_payload,
     score_story_payload,
     snapshot_call_meta,
+)
+from morning_radar.ai.structured_output import (
+    finish_output_audit,
+    prepare_structured_output,
+    retain_response,
 )
 from morning_radar.ai.tendency_core import TendencyCoreProviderMixin
 from morning_radar.continuity.validation import validate_continuity_resolution
@@ -380,6 +387,9 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
             try:
                 choice = response.choices[0]
                 finish_reason = str(getattr(choice, "finish_reason", None) or "unknown")
+                content = choice.message.content
+                retain_response(self, schema, content if isinstance(content, str) else "",
+                                task=task, finish_reason=finish_reason)
                 usage = getattr(response, "usage", None)
                 details = getattr(usage, "completion_tokens_details", None)
                 self.budget.record_response_usage(
@@ -413,7 +423,6 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                         f"{self.provider_name} structured output stopped with unsupported "
                         f"finish_reason={finish_reason}"
                     )
-                content = choice.message.content
                 if not isinstance(content, str) or not content.strip():
                     raise AIOutputError(f"{self.provider_name} response contained no JSON content")
                 if task.startswith("tendency_"):
@@ -423,8 +432,9 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                     }
                 if task == "tendency_review":
                     self.last_review_response = content
-                parsed = json.loads(content)
+                parsed = prepare_structured_output(self, schema, content, task=task)
                 if skip_model_validate:
+                    finish_output_audit(self, task=task, state="awaiting_item_validation")
                     call_meta["structured_retry"] = max(0, structured_attempt - 1)
                     return parsed
                 validated = schema.model_validate(parsed)
@@ -440,6 +450,7 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                     if transformed is not None:
                         validated = transformed
                 call_meta["structured_retry"] = max(0, structured_attempt - 1)
+                finish_output_audit(self, task=task, state="business_validated")
                 return bind_call_meta(validated, call_meta)
             except (
                 AIOutputError,
@@ -449,6 +460,8 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                 TypeError,
                 ValueError,
             ) as exc:
+                finish_output_audit(self, task=task, state="rejected",
+                                    error_type=type(exc).__name__)
                 last_error = exc
                 rejected_finish_reason = "unknown"
                 with suppress(AttributeError, IndexError, TypeError):
@@ -494,20 +507,20 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
         )
         return self._parse(
             task="classify",
-            schema=CandidateClassificationBatch if candidate_review else ClassificationBatch,
+            schema=CandidateClassificationBatch if candidate_review else StrictClassificationBatch,
             payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
             output_validator=(
                 lambda output: validate_candidate_ids(output, {item.id for item in items})
-            ) if candidate_review else None,
+            ),
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:
         return self._parse(
             task="merge_story",
             schema=MergedStoryDraft,
-            payload_data=[item.model_dump(mode="json") for item in items],
+            payload_data=merge_story_payload(items),
             item_count=len(items),
             allowed_urls=set(verified_source_urls_for_items(items)),
         )
@@ -585,6 +598,8 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
         )
 
     def evaluate_editorial(self, stories: list[Story]) -> EditorialDecisionBatch:
+        from morning_radar.ai.request_payload import editorial_story_payload
+
         editorial_dir = self.prompt_dir / "editorial"
         return self._parse(
             task="evaluate_editorial",
@@ -598,7 +613,7 @@ class DeepSeekProvider(TendencyCoreProviderMixin):
                     .splitlines()[:4]
                     if line.strip()
                 ],
-                "stories": [story.model_dump(mode="json") for story in stories],
+                "stories": [editorial_story_payload(story) for story in stories],
             },
             item_count=len(stories),
             allowed_urls={url for story in stories for url in story.source_urls},

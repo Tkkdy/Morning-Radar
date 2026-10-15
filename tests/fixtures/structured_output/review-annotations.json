@@ -1,0 +1,175 @@
+{
+  "request": {
+    "candidate_id": "rev-7f183844b6b745b4911fd6991126c0c3",
+    "body_sha256": "f596d161113538ceae8311c5063a5d21489f982124cb2b0e831c57b734509733",
+    "evidence_sha256": "ac309a8d3886de26a2a400807b99a86b24a138aef7cf8b575c2086003093a685",
+    "analysis_version": "3ab5170dbdabfee42f830b58a5de536524ed789bca0ad70cea1388a211538b9b",
+    "expected_previous_revision_id": null,
+    "decision": {
+      "hypothesis_id": null,
+      "previous_revision_id": null,
+      "parent_hypothesis_id": null,
+      "parent_revision_id": null,
+      "seed_id": null,
+      "kind": "early",
+      "basis": "external_evidence",
+      "hypothesis": {
+        "claim": "若评估智能体确有对真实第三方系统写入的能力，且网络隔离改变其可达范围，评估可能需要将能力测量与外部写入权限分别控制；这是待验证的结构可能性。",
+        "scope": [
+          "具备真实第三方系统写入能力、拟改变网络可达范围的智能体评估环境"
+        ],
+        "scope_basis": "inferred",
+        "scope_reason": "从单家实验室的转述报道提出有条件外推，不声称其他环境已出现相同变化。",
+        "from_state": "工作假设：具备外部访问能力的评估可能同时测到任务能力与真实系统交互；此前权限配置不明。",
+        "to_state": "若限制网络可达范围，评估结果与真实系统交互结果可能需要分开解释；不代表已经实施了细粒度写入控制。",
+        "baseline": [
+          {
+            "text": "能力测量与外部写入权限可能耦合，是本假设的起点；不是已证实的历史设计。",
+            "assumption": true,
+            "evidence_ids": []
+          }
+        ],
+        "conditions": [
+          {
+            "key": "submission",
+            "observation": "保存的纽约时报转述称两名知情人士报告20份不完整且未处理的申请；本次未获得直接日志。",
+            "interpretation": "若转述属实，可提示外部系统接触能力；任务指令、动机与实际后果仍未知。",
+            "evidence_ids": [
+              "ev-fe4686d123651313dd86f775"
+            ]
+          },
+          {
+            "key": "access",
+            "observation": "保存的 The Verge 摘录报道一系列事件后切断内部评估互联网访问。",
+            "interpretation": "若该措施属实，可达范围是变化条件；不能归因于某一表单事件，也不证明细粒度权限方案已出现。",
+            "evidence_ids": [
+              "ev-cd2f3c790b3fe9b454067aa4"
+            ]
+          }
+        ],
+        "mechanism": "系统推断：当外部可达性既影响任务可完成性也影响真实交互机会时，限制可达范围可能改变被测能力的含义。若仍需比较开放环境任务表现，分离能力测量与写入权限可能有价值。任务意图、具体权限设计和结果均待验证；并非已观察到的组织选择。",
+        "unresolved": [
+          "任务及系统指令未知",
+          "未处理不等于无任何后果",
+          "未点名不等于故意隐瞒",
+          "两个发布者的来源独立性未核实",
+          "历史权限设计及具体措施边界未知"
+        ],
+        "alternatives": [
+          "网络限制可能出于更广泛治理因素，无法用单个事件解释。"
+        ],
+        "tests": [
+          {
+            "condition_key": "access",
+            "observe": "核对权限措施范围与评估目标是否有可归因的变化记录。",
+            "if_seen": "具体范围得到支持，但结构外推仍为 inferred。",
+            "if_absent": "仅在完成相关观察后评估该前提；未取得材料保持未知。",
+            "absence_requires_completed_observation": true
+          }
+        ]
+      },
+      "citations": [
+        {
+          "evidence_id": "ev-fe4686d123651313dd86f775",
+          "quote": "two sources with knowledge of the incidents said Anthropic’s A.I. agents had submitted 20 visa applications through a form available on the State Department’s website",
+          "role": "source_claim",
+          "condition_key": "submission"
+        },
+        {
+          "evidence_id": "ev-cd2f3c790b3fe9b454067aa4",
+          "quote": "After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations.",
+          "role": "source_claim",
+          "condition_key": "access"
+        }
+      ],
+      "changed_parts": [],
+      "relinquished": [],
+      "reason": "synthetic 审查对照候选：两段转述作为条件线索，不能算独立核验；仅讨论权限与能力评估的有条件关系。不是本次模型生成。"
+    },
+    "evidence": [
+      {
+        "schema_version": 2,
+        "evidence_id": "ev-fe4686d123651313dd86f775",
+        "input_id": "item-51b6227273006399313d",
+        "content_version": "d3c4d2ad5a8f013b40cda503",
+        "event_ids": [],
+        "source_url": "https://simonwillison.net/2026/Oct/10/the-new-york-times/",
+        "source_kind": "source_claim",
+        "source_role": "practitioner",
+        "title": "Quoting The New York Times",
+        "excerpt": "Anthropic detailed the activity of its A.I. agents in a blog post on Friday, without naming the targeted websites. But two sources with knowledge of the incidents said Anthropic’s A.I. agents had submitted 20 visa applications through a form available on the State Department’s website. All the applications were incomplete and were not processed, they said. — The New York Times , Anthropic Agents Tried to Fill Out Visa Forms on State Dept. Website Tags: accidental-cyberattacks , anthropic , generative-ai , ai , llms",
+        "excerpt_spans": [
+          [
+            0,
+            520
+          ]
+        ],
+        "excerpt_source_sha256": "103e29b8231a6582f18cff066921ac41f320f807ffccc563be8357c27a2b9b00",
+        "scope": [],
+        "published_at": "2026-10-10T02:04:12Z",
+        "observed_at": "2026-10-10T16:13:24.454289Z",
+        "ingested_at": "2026-10-10T16:13:24.454289Z",
+        "status": "captured",
+        "information_gaps": [],
+        "synthetic": false,
+        "provenance": "frozen real acceptance excerpt; restored local metadata, never sent to model"
+      },
+      {
+        "schema_version": 2,
+        "evidence_id": "ev-cd2f3c790b3fe9b454067aa4",
+        "input_id": "item-818f4dcf830d117b3a34",
+        "content_version": "465c64eec841819288b0a226",
+        "event_ids": [],
+        "source_url": "https://www.theverge.com/ai-artificial-intelligence/1009286/anthropic-is-cutting-off-its-internal-evaluations-from-the-internet",
+        "source_kind": "source_claim",
+        "source_role": "editorial",
+        "title": "Anthropic is cutting off its internal evaluations from the internet",
+        "excerpt": "After a recent spate of high-profile incidents in which AI agents escaped containment, Anthropic is cutting off internet access for all internal evaluations. In a report Friday, the company detailed \"unintended model actions,\" including submitting a false tip regarding an unsolved murder, that led to the decision. Although the impact of these behaviors was minimal […]",
+        "excerpt_spans": [
+          [
+            0,
+            370
+          ]
+        ],
+        "excerpt_source_sha256": "ad47e75744d756847a2c0ca66d1dfd4fab8a6b19ca8f0baf4c60e64f6fb9d5e4",
+        "scope": [],
+        "published_at": "2026-10-10T10:41:16-04:00",
+        "observed_at": "2026-10-10T16:13:24.454289Z",
+        "ingested_at": "2026-10-10T16:13:24.454289Z",
+        "status": "captured",
+        "information_gaps": [],
+        "synthetic": false,
+        "provenance": "frozen real acceptance excerpt; restored local metadata, never sent to model"
+      }
+    ],
+    "narratives": [
+      "hypothesis.claim",
+      "hypothesis.scope.0",
+      "hypothesis.scope_reason",
+      "hypothesis.from_state",
+      "hypothesis.to_state",
+      "hypothesis.baseline.0.text",
+      "hypothesis.conditions.0.observation",
+      "hypothesis.conditions.0.interpretation",
+      "hypothesis.conditions.1.observation",
+      "hypothesis.conditions.1.interpretation",
+      "hypothesis.mechanism",
+      "hypothesis.unresolved.0",
+      "hypothesis.unresolved.1",
+      "hypothesis.unresolved.2",
+      "hypothesis.unresolved.3",
+      "hypothesis.unresolved.4",
+      "hypothesis.alternatives.0",
+      "hypothesis.tests.0.observe",
+      "hypothesis.tests.0.if_seen",
+      "hypothesis.tests.0.if_absent",
+      "reason"
+    ],
+    "previous": null,
+    "new_evidence_ids": [
+      "ev-fe4686d123651313dd86f775",
+      "ev-cd2f3c790b3fe9b454067aa4"
+    ]
+  },
+  "raw_content": "{\"assessments\":[{\"candidate_id\":\"rev-7f183844b6b745b4911fd6991126c0c3\",\"body_sha256\":\"f596d161113538ceae8311c5063a5d21489f982124cb2b0e831c57b734509733\",\"evidence_sha256\":\"ac309a8d3886de26a2a400807b99a86b24a138aef7cf8b575c2086003093a685\",\"analysis_version\":\"3ab5170dbdabfee42f830b58a5de536524ed789bca0ad70cea1388a211538b9b\",\"expected_previous_revision_id\":null,\"verdict\":\"approved\",\"checked_fields\":[\"hypothesis.claim\",\"hypothesis.scope.0\",\"hypothesis.scope_reason\",\"hypothesis.from_state\",\"hypothesis.to_state\",\"hypothesis.baseline.0.text\",\"hypothesis.conditions.0.observation\",\"hypothesis.conditions.0.interpretation\",\"hypothesis.conditions.1.observation\",\"hypothesis.conditions.1.interpretation\",\"hypothesis.mechanism\",\"hypothesis.unresolved.0\",\"hypothesis.unresolved.1\",\"hypothesis.unresolved.2\",\"hypothesis.unresolved.3\",\"hypothesis.unresolved.4\",\"hypothesis.alternatives.0\",\"hypothesis.tests.0.observe\",\"hypothesis.tests.0.if_seen\",\"hypothesis.tests.0.if_absent\",\"reason\"],\"findings\":[{\"field_path\":\"hypothesis.claim\",\"text\":\"若评估智能体确有对真实第三方系统写入的能力，且网络隔离改变其可达范围，评估可能需要将能力测量与外部写入权限分别控制；这是待验证的结构可能性。\",\"category\":\"conditional_inference\",\"evidence_id\":null,\"quote\":null,\"explanation\":\"该字段以“若…且…”双重前提和“可能需要”限定，并把结论自述为“待验证的结构可能性”，未把外部写入能力或网络隔离措施当作已成立事实，也未断言任何环境已采取分离控制；属于允许保留的条件外推，无需证据。\",\"evidence_id_missing\":true},{\"field_path\":\"hypothesis.conditions.0.interpretation\",\"text\":\"若转述属实，可提示外部系统接触能力；任务指令、动机与实际后果仍未知。\",\"category\":\"conditional_inference\",\"evidence_id\":\"ev-fe4686d123651313dd86f775\",\"quote\":\"submitted 20 visa applications through a form available on the State Department’s website\",\"explanation\":\"解释句以“若转述属实”限定接触能力的提示性推断，并明确任务指令、动机、实际后果仍未知，未把来源转述升级为独立观察或已核实事实，也未把“未处理”当作无后果。\",\"evidence_id_missing\":false},{\"field_path\":\"hypothesis.conditions.1.interpretation\",\"text\":\"若该措施属实，可达范围是变化条件；不能归因于某一表单事件，也不证明细粒度权限方案已出现。\",\"category\":\"conditional_inference\",\"evidence_id\":\"ev-cd2f3c790b3fe9b454067aa4\",\"quote\":\"Anthropic is cutting off internet access for all internal evaluations.\",\"explanation\":\"解释句以“若该措施属实”限定可达范围变化，主动拒绝把断网归因于单个表单事件，并否认已出现细粒度权限方案，避免了单事件因果与超出摘录范围的外推。\",\"evidence_id_missing\":false},{\"field_path\":\"hypothesis.mechanism\",\"text\":\"系统推断：当外部可达性既影响任务可完成性也影响真实交互机会时，限制可达范围可能改变被测能力的含义。若仍需比较开放环境任务表现，分离能力测量与写入权限可能有价值。任务意图、具体权限设计和结果均待验证；并非已观察到的组织选择。\",\"category\":\"conditional_inference\",\"evidence_id\":null,\"quote\":null,\"explanation\":\"机制段以“系统推断”“可能”“待验证”标记为结构可能性，并明确“并非已观察到的组织选择”，没有把假定的能力—权限耦合或未来权限设计表述为已验证事实；属于允许保留的条件推断。\",\"evidence_id_missing\":true}],\"rationale\":\"逐字段核对：claim/scope/scope_reason/from_state/to_state/mechanism 均以“若、可能、待验证、工作假设、并非已观察到”限定，未把未来推论或未知权限设计落实为事实；baseline 明确标注 assumption=true 且自述“不是已证实的历史设计”，未被其他字段当作事实使用；conditions.0/1 的 observation 忠实保留“转述称/报道”的来源归因并与摘录一致，interpretation 用条件从句限定且保留动机、后果、归因缺口；unresolved 覆盖任务指令、未处理不等于无后果、未点名不等于故意隐瞒、两发布者独立性未核实、历史权限边界未知，未出现“未报告结果=无影响”或渠道独立验证的越界；alternatives 与 tests 保持未知与缺口可见，if_absent 明确需完成观察后再评估。scope_basis 为 inferred 且 scope_reason 不声称他环境已发生同样变化。未发现 unsupported_fact、attribution_scope_shift、internal_contradiction 或 event_only。\",\"early_reason\":\"该候选是有界条件外推：前提以“若评估智能体确有真实第三方系统写入能力、若网络隔离改变可达范围、若转述/报道属实”逐项限定，结论用“可能需要、可能有价值、待验证的结构可能性”表达，未把未来权限设计、未知任务意图或未证实的历史耦合当成已验证事实；from_state 标注工作假设，baseline 标注为假设而非史实，unresolved 与 alternatives 保留缺口与替代解释，故不构成把未知前提事实化的阻塞问题。\"}]}"
+}

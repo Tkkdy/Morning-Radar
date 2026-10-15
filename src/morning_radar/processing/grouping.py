@@ -38,9 +38,11 @@ _ACTION_GROUPS = (
             "launch",
             "launched",
             "launches",
+            "launching",
             "release",
             "released",
             "releases",
+            "releasing",
             "ships",
             "shipping",
         }
@@ -133,22 +135,21 @@ def _published_distance_hours(left: RawItem, right: RawItem) -> float:
     ) / 3600
 
 
-def _version_markers(title: str) -> dict[str, str]:
+def _version_markers(title: str) -> dict[str, set[str]]:
     normalized = normalize_title(title)
-    return {
-        product: version
-        for product, version in re.findall(
-            r"\b([a-z][a-z0-9]*)[- ]v?(\d+(?:\.\d+)*)\b",
-            normalized,
-        )
-    }
+    versions: dict[str, set[str]] = {}
+    for product, version in re.findall(
+        r"\b([a-z][a-z0-9]*)[- ]v?(\d+(?:\.\d+)*)\b", normalized,
+    ):
+        versions.setdefault(product, set()).add(version)
+    return versions
 
 
 def _has_conflicting_versions(left: RawItem, right: RawItem) -> bool:
     left_versions = _version_markers(left.title)
     right_versions = _version_markers(right.title)
     return any(
-        left_versions[product] != right_versions[product]
+        left_versions[product].isdisjoint(right_versions[product])
         for product in left_versions.keys() & right_versions.keys()
     )
 
@@ -190,9 +191,30 @@ def _candidate_match(left: RawItem, right: RawItem) -> bool:
         and not ((_tokens(left.title) ^ _tokens(right.title)) & followup)
     ):
         return True
+    # A short product headline can be the primary page accompanying release
+    # coverage. Require two named subject tokens in the supplied text, not company.
+    if not ((_tokens(left.title) ^ _tokens(right.title)) & followup):
+        for short, other in ((left, right), (right, left)):
+            named = _strong_tokens(short) & _tokens(short.title)
+            if (len(named) >= 2 and len(_tokens(short.title)) <= 4
+                    and named <= _tokens(other.title + " " + other.summary)):
+                return True
     shared_strong = _strong_tokens(left).intersection(_strong_tokens(right))
     shared_actions = _action_kinds(left).intersection(_action_kinds(right))
-    if not shared_strong or not shared_actions:
+    # Headlines may omit the release verb. Use supplied summaries only when two
+    # named subject tokens agree; later reviews/corrections stay separate.
+    if not shared_actions and len(shared_strong) >= 2 and not (
+        (_tokens(left.title) ^ _tokens(right.title)) & followup
+    ):
+        def contextual_actions(item: RawItem) -> set[int]:
+            explicit = _action_kinds(item)
+            if explicit:
+                return explicit
+            words = _tokens(item.summary)
+            return {index for index, group in enumerate(_ACTION_GROUPS)
+                    if words.intersection(group)}
+        shared_actions = contextual_actions(left) & contextual_actions(right)
+    if len(shared_strong) < 2 or not shared_actions:
         return False
     if shared_actions.intersection(_CORPORATE_ACTION_KINDS) and len(shared_strong) < 2:
         return False
@@ -210,6 +232,16 @@ def group_items_by_normalized_title(items: list[RawItem]) -> list[list[RawItem]]
                 group
                 for group in groups
                 if all(_candidate_match(item, existing) for existing in group)
+                or (
+                    all(not _has_conflicting_versions(item, existing)
+                        and _published_distance_hours(item, existing) <= 72
+                        for existing in group)
+                    and any(
+                        item.url in existing.metadata.get("material_links", [])
+                        or existing.url in item.metadata.get("material_links", [])
+                        for existing in group
+                    )
+                )
             ),
             None,
         )
@@ -218,3 +250,22 @@ def group_items_by_normalized_title(items: list[RawItem]) -> list[list[RawItem]]
         else:
             compatible.append(item)
     return groups
+
+
+def bounded_event_groups(items: list[RawItem], *, maximum_sources: int = 6,
+                         maximum_characters: int = 18000) -> list[list[RawItem]]:
+    """Candidate association only; merge still requires semantic confirmation."""
+    result = []
+    for group in group_items_by_normalized_title(items):
+        chunk = []
+        size = 0
+        for item in group:
+            length = len(item.title) + len(item.summary) + len(item.content_excerpt)
+            if chunk and (len(chunk) >= maximum_sources or size + length > maximum_characters):
+                result.append(chunk)
+                chunk, size = [], 0
+            chunk.append(item)
+            size += length
+        if chunk:
+            result.append(chunk)
+    return result

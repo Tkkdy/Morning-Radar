@@ -8,7 +8,7 @@ A 复核 PATCH_REQUIRED → 修复后 PASS。B1 本地实现、离线验收、�
 - A 原交付：bb3ef351671bc5fcd54eed789e5c3c4306db5be0，保留原历史。
 - A 复核修复：e507d1041cdabfbce1ea3191f9ae8883a7cf4424。
 - B1 从上述修复提交创建分支 codex/radar-next-release-b1，未重新从 master 开始。
-- Worktree：C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1（复用隔离 checkout，目录名称保留 batch-a）。B1 提交为包含本报告的后续提交。
+- Worktree：<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1（复用隔离 checkout，目录名称保留 batch-a）。B1 提交为包含本报告的后续提交。
 - 产品与范围依据：10-10 中 PRODUCT_BASELINE_2026-10-10.md、CODEX_FIRST_BATCH_2026-10-10.md，以及 MR-NEXT-RELEASE-BATCH-A.md。
 
 ## A 限定复核：确认的缺陷与修复
@@ -58,7 +58,7 @@ A 复核 PATCH_REQUIRED → 修复后 PASS。B1 本地实现、离线验收、�
 
 ## 打开预览
 
-- 静态入口：C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1/.tmp/b1/preview/site/index.html，可用浏览器直接打开。
+- 静态入口：<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1/.tmp/b1/preview/site/index.html，可用浏览器直接打开。
 - 本机已启动只读静态服务 http://127.0.0.1:8767/，仅监听 loopback、只服务上述 site 目录；PID 记录 `.tmp/b1/preview-server.pid`。这是本地预览，不是部署。服务退出后仍可直接打开 HTML。
 - 每卡清楚区分：真实历史 raw + Fake 展示（补录日期仅演示）；已保存 10-07 生成产物（不是本次调用、不是原始模型响应）；完全 synthetic 的技术材料和后续报道。
 - `preview-manifest.json` 记录来源路径、历史 case_id、已保存 Brief SHA256 和 paid_calls=0；`preview-brief.json` 为本次预览内容。

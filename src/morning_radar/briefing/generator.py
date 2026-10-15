@@ -6,6 +6,7 @@ import hashlib
 import logging
 from dataclasses import dataclass
 from datetime import date, datetime
+from pathlib import Path
 
 from morning_radar.ai import AIBudgetExceeded, AIOutputError
 from morning_radar.ai.models import (
@@ -37,6 +38,7 @@ SECTION_NAMES = (
 LOGGER = logging.getLogger(__name__)
 BRIEF_BATCH_ITEM_LIMIT = 4
 BRIEF_SIGNAL_INPUT_LIMIT = 3
+EDITORIAL_CONTRACT_VERSION = "e2-1"
 
 
 class BriefValidationError(ValueError):
@@ -104,6 +106,7 @@ def ranked_eligible_stories(
 ) -> list[Story]:
     eligible = [
         story for story in stories if story.relevance_score >= relevance_threshold
+        or not any(f.strip() for f in story.facts)
     ]
     eligible.sort(
         key=lambda story: (
@@ -132,7 +135,10 @@ def select_brief_stories(
     selection = editorial_result.selection if editorial_result and editorial_result.active else None
     if selection is not None:
         by_id = {story.id: story for story in stories}
-        primary_ids = selection.visible_story_ids[:limits.maximum_items]
+        primary_ids = [
+            identity for identity in selection.visible_story_ids
+            if any(f.strip() for f in by_id[identity].facts)
+        ][:limits.maximum_items]
         support_ids = [
             support_id
             for primary_id in primary_ids
@@ -188,7 +194,9 @@ def _deterministic_generated_item(
     if not any(fact.strip() for fact in story.facts):
         return GeneratedBriefItem(
             story_ids=[story.id], section="other_reading", title=story.canonical_title,
-            what_happened="已发现这条报道线索，目前尚缺足够正文来确认具体事实。",
+            what_happened=(
+                story.lead_reason or "已发现这条报道线索，目前尚缺足够正文来确认具体事实。"
+            ),
             why_it_matters=None, uncertainty="待补充原文后再判断其内容与影响。",
             source_urls=story.source_urls,
         )
@@ -215,6 +223,7 @@ def _validated_item(
     *,
     story_by_id: dict[str, Story],
     section: str,
+    editorial_decisions: dict[str, EditorialDecision] | None = None,
 ) -> BriefItem:
     if not generated.story_ids or any(
         story_id not in story_by_id for story_id in generated.story_ids
@@ -228,7 +237,31 @@ def _validated_item(
     if not generated.source_urls or not set(generated.source_urls).issubset(allowed_urls):
         raise BriefValidationError("Brief item URL is missing or not present in its Stories")
     generated = sanitize_brief_explanation(generated, list(story_by_id.values()))
+    placement = None
+    if editorial_decisions:
+        primary_ids = [identity for identity in generated.story_ids
+                       if editorial_decisions[identity].placement is not Placement.SUPPORT]
+        placement = editorial_decisions[primary_ids[0]].placement
+        # Attach source context even when the supporting Story was written in
+        # another batch. This makes no new prose claim or independent witness.
+        support_ids = [identity for identity, decision in editorial_decisions.items()
+                       if decision.placement is Placement.SUPPORT
+                       and decision.support_for_story_id in primary_ids
+                       and identity in story_by_id]
+        identities = list(dict.fromkeys([*primary_ids, *generated.story_ids, *support_ids]))
+        generated = generated.model_copy(update={
+            "story_ids": identities,
+            "source_urls": list(dict.fromkeys([
+                *generated.source_urls,
+                *(url for identity in support_ids for url in story_by_id[identity].source_urls),
+            ])),
+            "uncertainty": "；".join(dict.fromkeys([
+                *([generated.uncertainty] if generated.uncertainty else []),
+                *(u for identity in identities for u in story_by_id[identity].uncertainties if u),
+            ])) or None,
+        })
     return BriefItem(
+        editorial_placement=placement,
         id=_brief_item_id(generated.story_ids, section),
         section=section,
         title=generated.title,
@@ -242,6 +275,7 @@ def _validated_item(
         source_urls=generated.source_urls,
         story_ids=generated.story_ids,
         story_contexts=[_story_context(story_by_id[story_id]) for story_id in generated.story_ids],
+        continuity_contexts=generated._archive_continuity,
         generation_status=generated.generation_status,
         generation_note=generated.generation_note,
         generation_reason=generated.generation_reason,
@@ -263,9 +297,19 @@ def generate_daily_brief_with_memory(
     importance_threshold: float = 0,
     maximum_ai_items: int | None = None,
     editorial_result: EditorialRunResult | None = None,
+    archived_briefs: list[Path] | None = None,
 ) -> BriefGenerationResult:
     stats = dict(run_stats)
     editorial_active = bool(editorial_result and editorial_result.active)
+    short_limit = limits.maximum_items if editorial_active else limits.other_reading_items
+    if editorial_result and not editorial_result.daily.shadow_mode:
+        stats["editorial_degraded"] = editorial_result.daily.degraded
+        stats["editorial_degradation_reason"] = editorial_result.daily.degradation_reason or ""
+    if editorial_active:
+        stats["editorial_contract_version"] = EDITORIAL_CONTRACT_VERSION
+        stats["editorial_material_held"] = sum(
+            not any(f.strip() for f in story.facts) for story in stories
+        )
     editorial_decisions = {
         decision.story_id: decision
         for decision in (editorial_result.daily.decisions if editorial_active else [])
@@ -303,15 +347,22 @@ def generate_daily_brief_with_memory(
     stats["direction_signal_inputs"] = len(direction_signals)
 
     if ai_stories:
+        reused_items = reuse_archived_cards(
+            ai_stories, archived_briefs or [],
+            editorial_decisions=editorial_decisions if editorial_active else None,
+        )
+        reused_ids = {identity for card in reused_items for identity in card.story_ids}
+        writing_stories = [story for story in ai_stories if story.id not in reused_ids]
+        stats["archived_cards_reused"] = len(reused_items)
         # A bounded batch keeps a single long structured response from consuming
         # the whole write phase.  Successful sibling batches are retained and
         # only the failed batch enters one-item recovery.
         batches = [
-            ai_stories[index : index + BRIEF_BATCH_ITEM_LIMIT]
-            for index in range(0, len(ai_stories), BRIEF_BATCH_ITEM_LIMIT)
+            writing_stories[index : index + BRIEF_BATCH_ITEM_LIMIT]
+            for index in range(0, len(writing_stories), BRIEF_BATCH_ITEM_LIMIT)
         ]
         batch_signals = bounded_signals[:BRIEF_SIGNAL_INPUT_LIMIT]
-        draft_items: list[GeneratedBriefItem] = []
+        draft_items: list[GeneratedBriefItem] = list(reused_items)
         watch_items: list[GeneratedWatchDraft] = []
         judgement_items: list[GeneratedJudgementDraft] = []
         cognitive_extension: str | None = None
@@ -401,7 +452,7 @@ def generate_daily_brief_with_memory(
         draft = BriefDraft(items=[])
     story_by_id = {
         story.id: story
-        for story in [*eligible_stories, *ai_stories]
+        for story in (stories if editorial_active else [*eligible_stories, *ai_stories])
     }
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
@@ -429,6 +480,15 @@ def generate_daily_brief_with_memory(
         ]
         if editorial_active:
             if not primary_editorial_ids:
+                continue
+            if len(generated.title) > 500:
+                continue  # A conservative fallback below may fit; never clip a claim.
+            if len(primary_editorial_ids) != 1:
+                # Different selected events retain their individual contracts;
+                # omitted events are assembled conservatively below.
+                stats["editorial_combined_items_held"] = int(
+                    stats.get("editorial_combined_items_held", 0)
+                ) + 1
                 continue
             if any(
                 editorial_decisions[story_id].placement is Placement.SUPPORT
@@ -467,9 +527,12 @@ def generate_daily_brief_with_memory(
             )
         if section != "other_reading" and not enabled_sections.get(section, True):
             continue
-        item = _validated_item(generated, story_by_id=story_by_id, section=section)
+        item = _validated_item(
+            generated, story_by_id=story_by_id, section=section,
+            editorial_decisions=editorial_decisions,
+        )
         if section == "other_reading":
-            if len(other_reading) >= limits.other_reading_items:
+            if len(other_reading) >= short_limit:
                 continue
             other_reading.append(item)
         else:
@@ -479,16 +542,23 @@ def generate_daily_brief_with_memory(
 
     remaining_capacity = max(0, limits.maximum_items - main_item_count)
     other_reading_capacity = min(
-        limits.other_reading_items,
+        short_limit,
         len(other_reading) + remaining_capacity,
     )
     for story in eligible_stories:
-        if len(other_reading) >= other_reading_capacity:
+        if main_item_count >= limits.maximum_items:
+            break
+        if not editorial_active and len(other_reading) >= other_reading_capacity:
             break
         if story.id in used_story_ids:
             continue
         if editorial_active:
             decision = editorial_decisions[story.id]
+            if len(next(f for f in story.facts if f.strip())) > 500:
+                stats["editorial_unsafe_fallback_held"] = int(
+                    stats.get("editorial_unsafe_fallback_held", 0)
+                ) + 1
+                continue
             if decision.placement in {Placement.TOP, Placement.STORY} and any(
                 f.strip() for f in story.facts
             ):
@@ -500,15 +570,21 @@ def generate_daily_brief_with_memory(
                 )
                 if section not in sections:
                     section = "ai_and_open_source"
-                generated = _deterministic_generated_item(story, section=section)
+                if not enabled_sections.get(section, True):
+                    continue
+                generated = _deterministic_generated_item(
+                    story, section=section, fallback=True,
+                    fallback_reason="selected_story_omitted_by_writer",
+                )
                 sections[section].append(
-                    _validated_item(generated, story_by_id=story_by_id, section=section)
+                    _validated_item(generated, story_by_id=story_by_id, section=section,
+                                    editorial_decisions=editorial_decisions)
                 )
                 used_story_ids.add(story.id)
                 main_item_count += 1
                 remaining_capacity = max(0, limits.maximum_items - main_item_count)
                 other_reading_capacity = min(
-                    limits.other_reading_items,
+                    short_limit,
                     len(other_reading) + remaining_capacity,
                 )
                 continue
@@ -518,9 +594,11 @@ def generate_daily_brief_with_memory(
                 generated,
                 story_by_id=story_by_id,
                 section="other_reading",
+                editorial_decisions=editorial_decisions,
             )
         )
         used_story_ids.add(story.id)
+        main_item_count += 1
 
     direction = None
     if direction_signals and enabled_sections.get("direction_observation", True):
@@ -600,6 +678,7 @@ def generate_daily_brief(
     importance_threshold: float = 0,
     maximum_ai_items: int | None = None,
     editorial_result: EditorialRunResult | None = None,
+    archived_briefs: list[Path] | None = None,
 ) -> DailyBrief:
     """Compatibility wrapper for callers that only need the display Brief."""
     return generate_daily_brief_with_memory(
@@ -616,6 +695,7 @@ def generate_daily_brief(
         importance_threshold=importance_threshold,
         maximum_ai_items=maximum_ai_items,
         editorial_result=editorial_result,
+        archived_briefs=archived_briefs,
     ).brief
 
 
@@ -631,3 +711,59 @@ def _fallback_brief_draft(stories: list[Story]) -> BriefDraft:
             for story in stories
         ]
     )
+
+
+def reuse_archived_cards(
+    stories: list[Story], paths: list[Path], *,
+    editorial_decisions: dict[str, EditorialDecision] | None = None,
+) -> list[GeneratedBriefItem]:
+    """Reuse writing only for identical source/evidence/body context and selected IDs."""
+    from morning_radar.storage import load_model
+    contexts = {story.id: _story_context(story) for story in stories}
+    def same_context(context):
+        current = contexts.get(context.story_id)
+        if current is None:
+            return False
+        # Older archives can lack the local evidence-index pointer. Permit adding
+        # that pointer only; source snapshots, quotations and all prose must match.
+        if not context.evidence_ids:
+            current = current.model_copy(update={"evidence_ids": []})
+        return current == context
+    used = set()
+    result = []
+    for path in paths:
+        if not path.is_file():
+            continue
+        brief = load_model(path, DailyBrief)
+        if editorial_decisions is not None and (
+            brief.run_stats.get("editorial_contract_version") != EDITORIAL_CONTRACT_VERSION
+        ):
+            continue
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        for section in (*SECTION_NAMES, "other_reading"):
+            for card in getattr(brief, section):
+                if editorial_decisions is not None:
+                    decisions = [editorial_decisions.get(identity) for identity in card.story_ids]
+                    if any(d is None for d in decisions):
+                        continue
+                    primary = [d for d in decisions if d.placement is not Placement.SUPPORT]
+                    if len(primary) != 1 or card.editorial_placement != primary[0].placement:
+                        continue
+                    if any(d.placement is Placement.SUPPORT
+                           and d.support_for_story_id != primary[0].story_id for d in decisions):
+                        continue
+                if (not card.story_contexts or used.intersection(card.story_ids)
+                        or any(not same_context(c) for c in card.story_contexts)):
+                    continue
+                data = {k: v for k, v in card.model_dump(mode="json").items()
+                        if k in GeneratedBriefItem.model_fields}
+                data.update(generation_status="reused",
+                            generation_note="原样复用已存档写作；依据和正文上下文未变化。",
+                            generation_reason="archive:" + digest + ":" + card.id)
+                generated = GeneratedBriefItem.model_validate(data)
+                generated._archive_continuity = list(card.continuity_contexts)
+                validated = validate_and_sanitize_brief(
+                    BriefDraft(items=[generated]), stories, [])
+                result.extend(validated.items)
+                used.update(card.story_ids)
+    return result

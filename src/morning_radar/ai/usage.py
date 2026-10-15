@@ -7,6 +7,7 @@ from contextlib import nullcontext
 from datetime import UTC, datetime
 from decimal import Decimal
 from pathlib import Path
+from threading import local
 from uuid import uuid4
 
 from pydantic import BaseModel, ConfigDict, Field
@@ -33,8 +34,18 @@ def atomic_json(path: Path, value: dict) -> None:
 class UsageRecorder:
     def __init__(self, root: Path, *, business_date: str, module: str, accounting=None) -> None:
         self.accounting = accounting
+        self._thread_state = local()
         self.directory = root / "data/usage" / business_date
         self.business_date, self.module = business_date, module
+
+    @property
+    def last_call_id(self) -> str | None:
+        # Daily writing and fast continuity share a provider across worker threads.
+        return getattr(self._thread_state, "call_id", None)
+
+    @last_call_id.setter
+    def last_call_id(self, value: str) -> None:
+        self._thread_state.call_id = value
 
     def start(
         self, *, provider: str, model: str, task: str, request_characters: int,

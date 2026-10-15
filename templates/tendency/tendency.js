@@ -20,3 +20,16 @@ if(form){let operation=crypto.randomUUID();
   if(result.receipt_url){const link=document.createElement("a");link.href=result.receipt_url;link.textContent="打开持久化回执与原文";feedback.append(document.createElement("br"),link);}
  }catch{message("未收到确认，请保留草稿并重试同一操作；回执列表可核实服务是否已收到。");}finally{button.disabled=false;}});
 }
+
+const confirmation=document.getElementById("confirmation");
+if(confirmation){let operation=crypto.randomUUID();
+ confirmation.addEventListener("change",()=>{operation=crypto.randomUUID();});
+ confirmation.addEventListener("submit",async(event)=>{event.preventDefault();
+ const button=confirmation.querySelector('button[type="submit"]');button.disabled=true;
+ try{const auth=await fetch("/api/session");if(!auth.ok){message("请先授权本机写入，再返回此版本操作。");return;}
+ const session=await auth.json();const values=Object.fromEntries(new FormData(confirmation));
+ Object.assign(values,{operation_id:operation,revision_id:confirmation.dataset.revision,body_sha256:confirmation.dataset.body,evidence_sha256:confirmation.dataset.evidence});
+ const response=await fetch("/api/confirmations",{method:"POST",headers:{"Content-Type":"application/json","X-CSRF-Token":session.csrf},body:JSON.stringify(values)});
+ const result=await response.json();message(result.message);
+ }catch{message("未收到保存回执。请保留当前决定，刷新详情核对后重试。");}finally{button.disabled=false;}});
+}

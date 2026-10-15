@@ -55,6 +55,7 @@ class SignalType(StrEnum):
 
 
 class SourceRole(StrEnum):
+    UNKNOWN = "unknown"
     OFFICIAL_PRIMARY = "official_primary"
     PRACTITIONER = "practitioner"
     EDITORIAL = "editorial"
@@ -116,6 +117,23 @@ class RawItem(RadarModel):
     _url_is_http = field_validator("url")(_validate_http_url)
 
 
+class MaterialProvenance(RadarModel):
+    """Fetched page identity, independent of the collector that discovered it."""
+
+    url: str
+    observed_at: datetime
+    content_version: str
+    publisher: str | None = Field(default=None, max_length=200)
+    author: str | None = Field(default=None, max_length=200)
+    identity_basis: str = "unknown"
+    source_role: SourceRole = SourceRole.UNKNOWN
+    statement_type: StatementType = StatementType.UNKNOWN
+    official_page_fetched: bool = False
+
+    _url_is_http = field_validator("url")(_validate_http_url)
+    _observed_is_aware = field_validator("observed_at")(_validate_aware_datetime)
+
+
 class StorySourceRef(RadarModel):
     """A deterministic snapshot of one collector record supporting a Story.
 
@@ -137,6 +155,7 @@ class StorySourceRef(RadarModel):
     source_role: SourceRole = SourceRole.EDITORIAL
     statement_type: StatementType = StatementType.UNKNOWN
     practice_signal_kind: PracticeSignalKind | None = None
+    material_provenance: MaterialProvenance | None = None
     source_date: str | None = None
     date_precision: str | None = None
     backfill_recorded_at: datetime | None = None
@@ -220,6 +239,7 @@ class TechnicalQuoteNormalization(RadarModel):
 
 class Story(RadarModel):
     id: str = Field(min_length=1)
+    lead_reason: str | None = Field(default=None, max_length=2000)
     canonical_title: str = Field(min_length=1, max_length=500)
     category: str
     entity_names: list[str] = Field(default_factory=list)
@@ -319,6 +339,10 @@ class Signal(RadarModel):
 
 
 class ResearchEvidenceRef(RadarModel):
+    # Half-open character offsets into the saved RawItem.content_excerpt, not
+    # offsets into an unseen original web page.
+    excerpt_start: int | None = Field(default=None, ge=0)
+    excerpt_end: int | None = Field(default=None, ge=0)
     raw_item_id: str = Field(min_length=1)
     url: str
     source_role: SourceRole
@@ -338,6 +362,8 @@ class ResearchEvidenceRef(RadarModel):
     text_omission_reason: str | None = None
     association_basis: str | None = None
     official_page_fetched: bool = False
+    material_provenance: MaterialProvenance | None = None
+    discovery_source: dict[str, Any] | None = None
     source_date: str | None = None
     date_precision: str | None = None
     source_timezone: str | None = None
@@ -440,7 +466,17 @@ class BriefTendency(RadarModel):
     decision_rationale: str = Field(min_length=1, max_length=1500)
 
 
+class Placement(StrEnum):
+    TOP = "TOP"
+    STORY = "STORY"
+    NEWS = "NEWS"
+    ONE_LINER = "ONE-LINER"
+    SUPPORT = "SUPPORT"
+    DROP = "DROP"
+
+
 class BriefItem(RadarModel):
+    editorial_placement: Placement | None = None
     id: str = Field(min_length=1)
     section: str = Field(min_length=1)
     title: str = Field(min_length=1, max_length=500)

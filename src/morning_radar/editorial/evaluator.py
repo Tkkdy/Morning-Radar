@@ -68,31 +68,37 @@ def validate_editorial_batch(
     stories: list[Story],
 ) -> EditorialDecisionBatch:
     story_by_id = {story.id: story for story in stories}
-    decision_by_id: dict[str, EditorialDecision] = {}
+    decision_by_id = {}
+    invalid = set()
     for decision in batch.decisions:
-        if decision.story_id in decision_by_id:
-            raise ValueError("Editorial output contains duplicate Story IDs")
         if decision.story_id not in story_by_id:
-            raise ValueError("Editorial output references an unknown Story ID")
-        decision_by_id[decision.story_id] = decision
-    if set(decision_by_id) != set(story_by_id):
-        raise ValueError("Editorial output must contain exactly one decision per Story")
-
-    for decision in batch.decisions:
-        story = story_by_id[decision.story_id]
-        if decision.fact_status is FactStatus.VERIFIED_FACT and not story.source_refs:
-            raise ValueError("verified_fact requires explicit input source evidence")
-        if decision.placement is not Placement.SUPPORT:
+            LOGGER.warning("Rejected editorial unknown Story: %s", decision.story_id)
             continue
-        target_id = decision.support_for_story_id
-        if target_id not in decision_by_id:
-            raise ValueError("SUPPORT target must exist in the same editorial batch")
-        if target_id == decision.story_id:
-            raise ValueError("SUPPORT cannot reference itself")
-        target = decision_by_id[target_id]
-        if target.placement in {Placement.SUPPORT, Placement.DROP}:
-            raise ValueError("SUPPORT cannot target SUPPORT or DROP")
-    return batch
+        if decision.story_id in decision_by_id:
+            invalid.add(decision.story_id)
+        decision_by_id[decision.story_id] = decision
+    def fallback(identity):
+        return EditorialDecision(story_id=identity, placement=Placement.ONE_LINER,
+            reader_value=1, evidence_value=0, fact_status=FactStatus.CLAIM,
+            retain_for_trends=False, reason="该条编辑判断缺失或无效，保留有来源线索供核对。")
+    for identity, story in story_by_id.items():
+        decision = decision_by_id.get(identity)
+        if (decision is None or identity in invalid or
+                (decision.fact_status is FactStatus.VERIFIED_FACT and not story.source_refs)):
+            decision_by_id[identity] = fallback(identity)
+    # Reject references to invalidated/missing targets before filling gaps can make
+    # them look valid. Never guess which sibling a SUPPORT was meant to support.
+    original_ids = {d.story_id for d in batch.decisions} - invalid
+    for identity, decision in list(decision_by_id.items()):
+        if decision.placement is Placement.SUPPORT:
+            target = decision_by_id.get(decision.support_for_story_id)
+            if (decision.support_for_story_id not in original_ids or target is None
+                    or target.story_id == identity
+                    or target.placement in {Placement.SUPPORT, Placement.DROP}
+                    or target.reason == fallback(identity).reason):
+                LOGGER.warning("Rejected editorial SUPPORT relation for %s", identity)
+                decision_by_id[identity] = fallback(identity)
+    return EditorialDecisionBatch(decisions=[decision_by_id[s.id] for s in stories])
 
 
 def select_reader_stories(

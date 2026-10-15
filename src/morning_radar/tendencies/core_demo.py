@@ -239,6 +239,15 @@ def build_core_demo(config_root: Path, output: Path) -> Path:
             output, config_root=config_root, provider=SyntheticTrajectoryProvider(kind), now=now
         )
         runs.append(result)
+        # Explicitly synthetic owner actions, confined to this new demo workspace.
+        from morning_radar.tendencies.web_input import ConfirmationRequest, confirm_draft
+        store = CoreStore(output)
+        for revision in store.current().values():
+            if not revision.synthetic:
+                raise ValueError("Demo must never confirm real content")
+            confirm_draft(store, ConfirmationRequest(
+                operation_id=f"synthetic-demo-confirm-{step}", action="confirm",
+                **store.confirmation_binding(revision)), author="synthetic-demo-owner", now=now)
     payload = export_core(CoreStore(output))
     assert [r["decision"]["kind"] for r in payload["history"]] == [
         "early",

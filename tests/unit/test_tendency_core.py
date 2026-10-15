@@ -362,7 +362,7 @@ def test_topic_repetition_can_return_no_direction_and_legacy_is_read_only(contex
     assert result["stages"]["discovery"]["status"] == "insufficient_evidence"
     assert not CoreStore(tmp_path).revisions()
     assert (
-        export_core(CoreStore(tmp_path), legacy_root=tmp_path)["legacy"][0]["provenance"]
+        export_core(CoreStore(tmp_path), legacy_root=tmp_path, private=True)["legacy"][0]["provenance"]
         == "legacy_v1_unmigrated"
     )
     assert legacy.read_bytes() == old
@@ -603,6 +603,7 @@ def test_cli_submission_receipt_run_and_read_are_independent(tmp_path, monkeypat
             [
                 "tendency-core",
                 "show",
+                "--private",
                 "--workspace",
                 str(workspace),
                 "--evidence-root",

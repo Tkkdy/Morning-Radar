@@ -7,6 +7,8 @@ from datetime import UTC, datetime, timedelta
 from morning_radar.collectors.hn_common import clean_hn_text, hn_item, merge_hn_observations
 from morning_radar.collectors.http import HttpClient, RequestBudgetExceeded
 from morning_radar.models import RawItem
+from morning_radar.processing.attention import observed_count
+from morning_radar.processing.matching import alias_matches
 
 
 class HNSearchCollector:
@@ -133,7 +135,7 @@ class HNSearchCollector:
             or not title
             or not isinstance(created, int)
             or not start <= created <= end
-            or not any(alias.casefold() in title.casefold() for alias in aliases)
+            or not any(alias_matches(alias, title) for alias in aliases)
         ):
             return None
         return hn_item(
@@ -144,5 +146,7 @@ class HNSearchCollector:
             metadata={
                 "discovery_paths": [f"hn_search:{lab_id}:{query}"], "lab_id": lab_id,
                 "hn_submission_time": created, "selection_reason": "watchlist_discovery",
+                "score": observed_count(hit.get("points")),
+                "comments": observed_count(hit.get("num_comments")),
             },
         )

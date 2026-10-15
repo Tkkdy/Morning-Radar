@@ -37,6 +37,7 @@ class PublishStatus(StrEnum):
 
 
 class ReasonCode(StrEnum):
+    ROUTINE_MARKET_SUPPRESSED = "routine_market_suppressed"
     DEFERRED_BUDGET = "deferred_budget"
     INTERRUPTED_RUN = "interrupted_run"
     RESEARCH_OUTPUT_INVALID = "research_output_invalid"

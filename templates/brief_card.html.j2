@@ -1,4 +1,5 @@
 {% set primary_context = item.story_contexts[0] if item.story_contexts else none %}
+{% set placement = item.editorial_placement %}
 {% set section_labels = {"top_stories": "今日重点", "market_and_companies": "市场与公司", "ai_and_open_source": "AI 与开源", "trend_radar": "趋势雷达", "developer_discussions": "开发者讨论"} %}
 {% set primary_source = namespace(ref=none) %}
 {% if primary_context %}
@@ -9,15 +10,20 @@
   {% endfor %}
 {% endif %}
 <article class="brief-card{% if compact %} compact{% endif %}"{% if primary_context %} id="story-{{ primary_context.story_id }}"{% elif item.story_ids %} id="story-{{ item.story_ids[0] }}"{% endif %}>
-  <p class="section-label">{% if compact %}延伸阅读{% else %}{{ section_labels.get(item.section, item.section) }}{% endif %}</p>
+  <p class="section-label">{% if placement == "NEWS" %}简讯{% elif placement == "ONE-LINER" %}一句话{% elif compact %}延伸阅读{% else %}{{ section_labels.get(item.section, item.section) }}{% endif %}</p>
   {% if preview_labels is defined and preview_labels.get(item.id) %}<p class="generation-note"><strong>{{ preview_labels[item.id] }}</strong></p>{% endif %}
+  {% if primary_source.ref and primary_source.ref.backfill_recorded_at %}<p class="generation-note">历史回填 · 原来源时间 {{ primary_source.ref.published_at.strftime("%Y-%m-%d") if primary_source.ref.published_at else "未提供" }}，本期补入，非本日新发布。</p>{% endif %}
   <h3>{{ item.title }}</h3>
   {% for continuity in item.continuity_contexts %}
     {% if continuity.relation_type %}
     <div class="continuity-note">
       <span class="continuity-badge">{% if continuity.relation_type == "status_transition" %}状态推进{% else %}后续事件{% endif %}</span>
       {% if continuity.what_changed %}<p><strong>相比此前：</strong>{{ continuity.what_changed }}</p>{% endif %}
-      {% if continuity.previous_story_date %}<a href="{{ root_prefix }}briefs/{{ continuity.previous_story_date }}.html{% if continuity.previous_story_id %}#story-{{ continuity.previous_story_id }}{% endif %}">此前：{{ continuity.previous_story_date }}{% if continuity.previous_story_title %} · {{ continuity.previous_story_title }}{% endif %}</a>{% endif %}
+      {% if continuity.previous_story_date %}
+        {% set prior_anchors = rendered_story_anchors.get(continuity.previous_story_date) if rendered_story_anchors is defined else none %}
+        {% if prior_anchors is not none %}<a href="{{ root_prefix }}briefs/{{ continuity.previous_story_date }}.html{% if continuity.previous_story_id in prior_anchors %}#story-{{ continuity.previous_story_id }}{% endif %}">此前：{{ continuity.previous_story_date }}{% if continuity.previous_story_title %} · {{ continuity.previous_story_title }}{% endif %}{% if continuity.previous_story_id not in prior_anchors %}（当日归档未展示该事件正文）{% endif %}</a>
+        {% else %}<span>此前：{{ continuity.previous_story_date }} · {{ continuity.previous_story_title or "相关事件" }}（本次预览未包含该日归档）</span>{% endif %}
+      {% endif %}
     </div>
     {% endif %}
     {% for expectation in continuity.watch_matches %}
@@ -30,10 +36,11 @@
     {% endfor %}
   {% endfor %}
   {% set changes = item.continuity_contexts | selectattr("what_changed") | map(attribute="what_changed") | list %}
-  {% if item.what_happened not in changes %}<p>{{ item.what_happened }}</p>{% endif %}
+  {% if item.what_happened not in changes and (not placement or item.what_happened != item.title) %}<p>{{ item.what_happened }}</p>{% endif %}
   {% for context in item.story_contexts %}
     {% if context.technical_reading %}
       {% set reading = context.technical_reading %}
+      {% if placement %}<details class="technical-details"><summary>展开技术解读与原始依据</summary>{% endif %}
       <section class="technical-reading" aria-label="技术材料解读">
       <h4>{{ {"paper": "论文解读", "technical_report": "技术报告", "technical_article": "技术长文"}[reading.kind] }}</h4>
       {% for key, label in [("problem", "材料支持的任务或问题"), ("method", "主要方法"), ("engineering_value", "差异与工程价值"), ("author_evidence", "作者报告的评测依据"), ("evaluation_results", "作者报告的具体结果"), ("conditions", "适用条件"), ("limitations", "限制")] %}
@@ -44,9 +51,11 @@
       {% if not reading.engineering_value or not reading.conditions or not reading.limitations %}<p class="uncertainty">{% if not reading.engineering_value %}现有材料未充分说明工程价值。{% endif %}{% if not reading.conditions %}现有材料未充分说明适用条件。{% endif %}{% if not reading.limitations %}现有材料未充分说明限制。{% endif %}</p>{% endif %}
       {% if not reading.evaluation_results %}<p class="uncertainty">尚未提供单独可追溯的具体评测结果；作者声明做过评测不等于材料已给出结果。</p>{% endif %}
       </section>
+      {% if placement %}</details>{% endif %}
     {% endif %}
   {% endfor %}
-  {% if not compact and item.why_it_matters %}
+  {% if (not compact or placement) and item.why_it_matters %}
+  {% if placement == "ONE-LINER" %}<details class="short-context"><summary>补充说明与依据</summary>{% endif %}
   {% set explanation = item.why_it_matters_evidence %}
   <p class="why"><strong>为什么重要{% if explanation %} · {{ {"fact": "事实说明", "source_opinion": "来源评价", "inference": "系统推断"}[explanation.kind] }}{% endif %}：</strong>{{ item.why_it_matters }}</p>
   {% if explanation %}
@@ -68,6 +77,7 @@
     {% endfor %}
   </details>
   {% endif %}
+  {% if placement == "ONE-LINER" %}</details>{% endif %}
   {% endif %}
   {% if primary_context and primary_context.status.value != "unknown" %}
     {% set status_labels = {"rumor": "传闻", "official_teaser": "官方预告", "announced": "已宣布", "available": "已上线", "updated": "已更新"} %}
@@ -106,7 +116,7 @@
   <div class="card-meta"><a class="primary-source" href="{{ item.source_urls[0] }}" rel="noopener noreferrer">来源 1</a></div>
   {% endif %}
   {% if not compact and item.market_or_community_reaction %}<p><strong>市场/社区：</strong>{{ item.market_or_community_reaction }}</p>{% endif %}
-  {% if not compact and item.uncertainty %}<p class="uncertainty"><strong>不确定性：</strong>{{ item.uncertainty }}</p>{% endif %}
+  {% if (not compact or placement) and item.uncertainty and (not placement or item.uncertainty not in item.what_happened) %}<p class="uncertainty"><strong>不确定性：</strong>{{ item.uncertainty }}</p>{% endif %}
   {% for story_id in item.story_ids %}
     {% for annotation in historical_annotations.get(story_id, []) %}
     <div class="historical-annotation {{ annotation.kind }}">
@@ -148,7 +158,8 @@
         <div><strong>{% if source_ref.source_type == "hacker_news" and source_ref.discussion_url and source_ref.discussion_url != source_ref.url %}{{ source_ref.url | hostname }} · 原文{% else %}{{ source_ref.source_name }}{% endif %}</strong>{% if source_ref.url == context.primary_source_url %}<span class="primary-indicator">主来源</span>{% endif %}</div>
         {% if source_ref.source_type == "hacker_news" and source_ref.discussion_url and source_ref.discussion_url != source_ref.url %}<div class="discovery-note">经 Hacker News 发现</div>{% endif %}
         <div>{{ source_ref.title }}</div>
-        {% if source_ref.author %}<div>作者：{{ source_ref.author }}</div>{% endif %}
+        {% if source_ref.author %}<div>{% if source_ref.source_type == "hacker_news" %}HN 提交者{% else %}来源记录作者{% endif %}：{{ source_ref.author }}</div>{% endif %}
+        {% if source_ref.material_provenance %}{% set material = source_ref.material_provenance %}<div>已读取原文短摘录 · {{ material.observed_at.strftime("%Y-%m-%d %H:%M UTC") }}</div><div>页面署名：{{ material.author or "未取得" }}；发布方：{{ material.publisher or "身份未核实" }}{% if material.identity_basis == "page_metadata_self_declared" %}（页面自述）{% endif %}</div>{% endif %}
         {% if source_ref.backfill_recorded_at %}<div class="source-time">补录于 {{ source_ref.backfill_recorded_at.strftime("%Y-%m-%d") }}；来源时间保持原记录。</div>{% endif %}
         {% if source_ref.published_at %}<div class="source-time">
           {% if source_ref.published_at_role.value == "feed_entry_time" %}来源条目时间：{{ source_ref.published_at.strftime("%Y-%m-%d") }}

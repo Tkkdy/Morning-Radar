@@ -15,6 +15,11 @@ from morning_radar.tendencies.web_input import input_receipt, safe_source_url
 from morning_radar.time_utils import utc_now
 
 LABELS = {
+    "approved": "模型建议保留（非人工确认）",
+    "rejected": "模型指出问题（供人工判断）",
+    "uncertain": "模型判断不确定",
+    "invalid_review": "审查意见结构不合法",
+    "unavailable": "未取得审查意见",
     "early": "早期假设 Early",
     "active": "活跃",
     "archived": "已归档",
@@ -124,15 +129,16 @@ def build_pages(
     template = environment.get_template("page.html.j2")
     try:
         events, current = store.events(), store.public_current()
-        history = store.public_revisions()
-        runs, run_error = public_runs(store)
+        history = store.draft_revisions() if local_write else store.public_revisions()
+        current = store.current() if local_write else store.public_current()
+        runs, run_error = public_runs(store) if local_write else ([], False)
         if getattr(store, "through", None):
             from datetime import datetime
             runs = [r for r in runs if datetime.fromisoformat(r["recorded_at"]) <= store.through]
         receipts = [
             input_receipt(store, e["operation_id"])
             for e in events
-            if e["payload"].get("type") == "web_input"
+            if local_write and e["payload"].get("type") == "web_input"
         ]
         reading_error = False
     except (ValueError, KeyError, OSError):
@@ -153,12 +159,17 @@ def build_pages(
         reading_error=reading_error,
         run_error=run_error,
         github_repository=github_repository,
+        confirmation=None,
+        human_decision=None,
+        publicly_confirmed=False,
+        review_opinions=[],
         revision=None,
         received=None,
         kind="list",
         github_url=None,
         inbox_failures=[
-            e["payload"] for e in events if e["payload"].get("type") == "inbox_rejected"
+            e["payload"] for e in events
+            if local_write and e["payload"].get("type") == "inbox_rejected"
         ],
     )
 
@@ -175,6 +186,9 @@ def build_pages(
             )
         return "https://github.com/" + github_repository + "/issues/new?" + urlencode(values)
 
+    # Scrub previously generated content if a private destination is rebuilt as public.
+    for existing in output.glob("*.html"):
+        render(existing.name, kind="unreviewed")
     render("index.html", github_url=github_url())
     render("edit.html", kind="edit", github_url=github_url())
     render("receipts.html", kind="receipts")
@@ -183,12 +197,25 @@ def build_pages(
     approved_ids = {r.revision_id for r in history}
     # Replace previously generated local pages with a non-content notice. No deletion,
     # no history mutation; rebuilding an existing output must not leak old drafts.
-    for stored in ([] if reading_error else store.revisions()):
+    for stored in ([] if reading_error else store.draft_revisions()):
         if stored.revision_id not in approved_ids:
             render(page_name("r", stored.revision_id), kind="unreviewed")
             if stored.hypothesis_id not in current:
                 render(page_name("h", stored.hypothesis_id), kind="unreviewed")
                 render(page_name("edit", stored.hypothesis_id), kind="unreviewed")
+    def review_context(revision):
+        return {
+            "publicly_confirmed": revision.revision_id in {
+                r.revision_id for r in store.public_revisions()},
+            "confirmation": store.confirmation_binding(revision),
+            "human_decision": (store.human_decisions().get(revision.revision_id)
+                               if local_write else None),
+            "review_opinions": [e["payload"] for e in (events if local_write else [])
+                                if e["payload"].get("type") == "content_review"
+                                and e["payload"]["request"]["candidate_id"] == revision.revision_id
+                                ],
+        }
+
     for revision in history:
         check = next(
             (
@@ -206,6 +233,7 @@ def build_pages(
             revision=revision,
             check=check,
             github_url=github_url(revision),
+            **review_context(revision),
         )
     for identity, revision in current.items():
         check = next(
@@ -222,12 +250,14 @@ def build_pages(
             revision=revision,
             check=check,
             github_url=github_url(revision),
+            **review_context(revision),
         )
         render(
             page_name("edit", identity),
             kind="edit",
             revision=revision,
             github_url=github_url(revision),
+            **review_context(revision),
         )
     for received in receipts:
         received["last_processing"] = next(
@@ -244,7 +274,7 @@ def build_pages(
         render(page_name("s", received["submission_id"]), kind="receipt", received=received)
     # A narrow read-only legacy section: no diagnostic paths or implicit semantic migration.
     legacy = []
-    for path in sorted((store.root / "data/tendencies").glob("*.json")):
+    for path in (sorted((store.root / "data/tendencies").glob("*.json")) if local_write else []):
         try:
             from morning_radar.models.tendency import DailyTendencies
 

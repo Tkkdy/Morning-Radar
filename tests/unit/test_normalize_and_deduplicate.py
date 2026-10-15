@@ -255,3 +255,21 @@ def test_matching_corporate_actions_beyond_72_hours_do_not_group() -> None:
     )
 
     assert len(group_items_by_normalized_title([first, second])) == 2
+
+
+def test_release_action_in_summary_can_connect_elliptical_headline():
+    first = item("1", "Meta releases Muse Wonder", "https://one.example/wonder", "One")
+    second = item("2", "Meta has Wonder Full new models", "https://two.example/wonder", "Two")
+    second.summary = "It is now launching Muse Wonder and Muse Wonder Full."
+    assert len(group_items_by_normalized_title([first, second])) == 1
+    second.title = "Meta Wonder benchmark review"
+    assert len(group_items_by_normalized_title([first, second])) == 2
+
+
+def test_observed_original_anchor_joins_media_group_for_semantic_confirmation():
+    first = item("1", "Meta releases Muse Wonder", "https://one.example/wonder", "One")
+    second = item("2", "Meta releases Wonder Full", "https://two.example/wonder", "Two")
+    original = item("3", "Muse Wonder", "https://original.example/wonder", "Original")
+    first.metadata["material_links"] = [original.url]
+    groups = group_items_by_normalized_title([first, second, original])
+    assert [[x.id for x in group] for group in groups] == [["1", "2", "3"]]

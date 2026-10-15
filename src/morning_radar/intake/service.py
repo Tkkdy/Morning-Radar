@@ -47,6 +47,7 @@ from morning_radar.intake.models import (
 )
 from morning_radar.intake.recovery import recover_unfinished_records
 from morning_radar.processing import filter_news_window
+from morning_radar.processing.story_builder import filter_story_candidate_inputs
 from morning_radar.settings import (
     AppConfig,
     CompanyConfig,
@@ -339,6 +340,33 @@ def prepare_process(
                 outcome="aged_unresolved",
             )
     fresh, recovery = split_latest_versions(fresh, [*same_batch_old, *recovered])
+    # Apply the existing rule before both reserved and fresh capacity compete.
+    # Checkpoint/raw stay intact; the ledger records the deterministic disposition.
+    def without_routine_market(records):
+        eligible, _ = filter_story_candidate_inputs(
+            [record.item for record in records],
+            market_movement_threshold=app.market_movement_threshold,
+        )
+        eligible_objects = {id(item) for item in eligible}
+        kept = []
+        for record in records:
+            if id(record.item) in eligible_objects:
+                kept.append(record)
+            else:
+                ledger.update(
+                    record.input_id, record.content_version, now=process_now,
+                    processing=ProcessingStatus.EXCLUDED,
+                    reason_code=ReasonCode.ROUTINE_MARKET_SUPPRESSED,
+                    stage="candidate_select", outcome="routine_market_suppressed",
+                    candidate_diagnostics={
+                        "selected": False, "reason": "routine_market_suppressed",
+                        "threshold": app.market_movement_threshold,
+                    },
+                )
+        return kept
+
+    fresh = without_routine_market(fresh)
+    recovery = without_routine_market(recovery)
     recovery = recovery[: app.intake_maximum_recovery_items]
     call_safe_limit = min(
         app.maximum_ai_items,

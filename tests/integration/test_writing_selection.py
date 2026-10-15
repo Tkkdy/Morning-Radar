@@ -150,7 +150,8 @@ def test_pipeline_reserves_the_same_mixed_story_inputs_it_writes(tmp_path, activ
         reserved["payloads"])
     assert all(r["task"] == "batch" for r in requests)
     assert brief.run_stats["ai_brief_recovery_attempts"] == 0
-    expected_leads = set(LEAD_IDS if active else LEAD_IDS[:1])
+    # Active holds title-only inputs; legacy Shadow keeps its existing lead behavior.
+    expected_leads = set([] if active else LEAD_IDS[:1])
     assert {sid for item in brief.other_reading for sid in item.story_ids} == expected_leads
     main = [*brief.top_stories, *brief.ai_and_open_source]
     assert {sid for item in main for sid in item.story_ids} == set(BODY_IDS)

@@ -13,7 +13,7 @@
 
 ## 代码与五批交付
 
-执行树：`C:/Users/PsyDuck/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`；分支 `codex/tendency-grounded-review`。阶段开工 HEAD c796b3117964ee5bfeedcda16c691c7ff15e9567，工作区干净。
+执行树：`<LOCAL_HOME>/.codex/worktrees/radar-next-release-batch-a/Morning Radar v0.1`；分支 `codex/tendency-grounded-review`。阶段开工 HEAD c796b3117964ee5bfeedcda16c691c7ff15e9567，工作区干净。
 本地缓存 origin/master 为8ddd314d5108d987f359f146484af61724f6a5b9，开工相对它 ahead28/behind0。这是旧引用，不是当前远端确认；本轮未fetch。没有同名远端分支引用。
 
 | 批次 | 已核实祖先 | 已有能力及边界 |

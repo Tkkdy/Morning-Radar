@@ -10,12 +10,13 @@
 <body>
 {% if preview_notice %}<aside class="preview-notice" role="note" style="padding:1rem;background:#fff4cc;color:#342b00;border-bottom:2px solid #c49320">{{ preview_notice }}</aside>{% endif %}
   <header class="hero">
-    <nav><a class="brand" href="{{ root_prefix }}index.html">Morning Radar</a><a href="{{ root_prefix }}archive.html">历史晨报</a>{% if tendency_entry %}<a href="{{ root_prefix|default('') }}tendency/index.html">Tendency</a>{% endif %}</nav>
+    <nav><a class="brand" href="{{ root_prefix }}index.html">Morning Radar</a><a href="{{ root_prefix }}archive.html">历史晨报</a>{% if tendency_entry %}<a href="{{ root_prefix|default('') }}tendency/index.html">Tendency 公开预览</a>{% endif %}{% if local_workbench_url %}<a href="{{ local_workbench_url }}">私有研究草稿 · 本地工作台</a>{% endif %}</nav>
     <p class="eyebrow">{{ brief.date }} · {{ brief.timezone }}</p>
     <h1>少而重要，事实可追溯。</h1>
     <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
   </header>
   <main>
+    {% if brief.run_stats.get("editorial_degraded") %}<aside class="generation-note" role="note">编辑选择未完成，本页使用原有筛选降级；不代表本期已通过编辑验收。</aside>{% endif %}
     {% include "sections.html.j2" %}
     {% if brief.direction_observation %}
     <section><h2>方向观察</h2><div class="observation">{{ brief.direction_observation }}</div></section>
