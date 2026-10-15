@@ -1,0 +1,120 @@
+{
+  "date": "2026-10-16",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认发布编程优化MoE开放模型，但性能与集成细节仍为厂商声明，值得展开并保留为开放权重与Agentic Coding趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-6c19f1a7ec5ef00bcbe9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "meta-open-weights-release",
+        "moe-coding-model-scaling",
+        "nvidia-gb300-agentic-inference"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方确认的模型弃用日期与范围，影响开发者迁移决策，值得轻量阅读并保留为编码助手模型生命周期证据。",
+      "retain_for_trends": true,
+      "story_id": "story-c51011e0d4abf756ff00",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-model-lifecycle-deprecation",
+        "ai-coding-assistant-model-churn"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA官方发布多模态推理模型，但仅有标题与摘要，能力声明未经独立验证，宜轻量呈现并留作弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-864a7da618766b8cb457",
+      "support_for_story_id": null,
+      "trend_links": [
+        "nvidia-open-multimodal-model-line",
+        "enterprise-agent-multimodal-workflows"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方合作公告缺少模型分工、可用性与性能细节，宣传措辞居多，暂无可复用的趋势机制。",
+      "retain_for_trends": false,
+      "story_id": "story-11ff6278f5f5b4a4da6a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "SDK版本增量更新，属常规维护与计费元数据扩展，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-8ed84ec084f4f9e420f7",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "学术赞助计划资格与范围未明，对多数开发者无直接行动价值。",
+      "retain_for_trends": false,
+      "story_id": "story-13ded4be7ea6ef84b35a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有官方博客标题，缺少功能与可用性细节，暂无可判断的结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-9fe348d8e1ec5a0a30d8",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅为未经核实的社区线索，无官方来源或正文，不足以进入读者选择。",
+      "retain_for_trends": false,
+      "story_id": "story-dbd68ea6bccaa9b79135",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "社区传闻且信息截断，可信度极低，无独立证据价值。",
+      "retain_for_trends": false,
+      "story_id": "story-32e115ce358fd33058fc",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-15T22:42:10.315521Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

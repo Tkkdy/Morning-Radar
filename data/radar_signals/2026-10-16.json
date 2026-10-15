@@ -1,0 +1,137 @@
+[
+  {
+    "claim": "Simon Willison 用默认 Claude iPhone App（聊天模式，而非 Claude Code 模式），以一段提示词让 Claude Opus 5.5 Max 生成名为 Tree Appreciator 的 three.js 游戏，玩法是比较并欣赏两棵算法生成树的差异。",
+    "id": "radar-1e4f3031f03eac611dc7",
+    "missing_evidence": [
+      "完整提示词与生成过程记录",
+      "生成游戏的可运行版本或代码链接",
+      "作者对结果质量的评价（正文在结论处被截断）",
+      "独立复现或对照测试"
+    ],
+    "observed_at": "2026-10-15T22:40:06.499929Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-3e6e644f1b2b0e94cbd7",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/14/tree-appreciator/"
+      }
+    ],
+    "uncertainty": "摘录被截断，无法看到作者结论（尤其对 'vibe coding' 的反思），也没有可验证的产物链接；模型名称与能力仅来自单一来源描述。",
+    "why_notable": "提供了一条 practitioner 第一手观察：在移动端聊天模式（非专用编码 Agent）中，用单条自然语言提示生成完整可玩的小游戏，可用于观察非编码场景下大模型的前端/游戏生成能力。"
+  },
+  {
+    "claim": "Hacker News 提交及其附带链接称 Meta 发布开源模型 Muse Spark Open（Hugging Face 上标注为 816B-A42B，含 Meta 研究博客与媒体报道链接）。",
+    "id": "radar-a8c62e10205e3a9d93f3",
+    "missing_evidence": [
+      "Meta 官方发布原文（未抓取官方页面）",
+      "Hugging Face 模型卡、许可证与权重可用性",
+      "基准评测结果与上下文长度等规格",
+      "除 HN 提交外的独立确认"
+    ],
+    "observed_at": "2026-10-15T22:40:06.499929Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-d76abfe0e1818aecfbba",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://research.meta.ai/blog/muse-spark-open"
+      }
+    ],
+    "uncertainty": "条目仅包含若干 URL 片段，无正文内容；模型名称、参数量与发布时间均未经官方页面核实。",
+    "why_notable": "若成立，则是一次大型开源模型发布，涉及模型规模（约 816B 参数、A42B 激活）与 Meta 的开源策略，值得后续核实。"
+  },
+  {
+    "claim": "Hacker News 提交标题称 Claude 的 Code Review 功能已正式可用（generally available），原文链接指向 claude.com 的文章。",
+    "id": "radar-84dfc16f710df2d8eabd",
+    "missing_evidence": [
+      "文章正文（该条 content_missing 为真，无任何摘要）",
+      "GA 覆盖的功能范围、定价与可用地区",
+      "与既有代码审查/CI 工具的集成方式",
+      "独立使用测试或官方文档确认"
+    ],
+    "observed_at": "2026-10-15T22:40:06.499929Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-6ac271a0614d00000471",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://claude.com/resources/articles/code-review-is-now-generally-available"
+      }
+    ],
+    "uncertainty": "除标题外没有任何内容，无法判断该功能是新产品还是既有功能的正式化，也无法核实发布时间与细节。",
+    "why_notable": "AI 代码审查是编码 Agent 工作流的关键环节，若 Code Review 正式商用化，会影响团队把 AI 审查纳入 CI/PR 流程的方式。"
+  }
+]

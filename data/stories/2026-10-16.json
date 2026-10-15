@@ -1,0 +1,583 @@
+[
+  {
+    "analysis": [
+      "该模型采用 MoE 架构并以编程工作流为核心优化方向，配合 1M token 上下文，可能面向仓库级或长链路的智能体编程任务。",
+      "文章同时强调在 NVIDIA GB300 NVL72 上扩展相关工作流，表明其部署与推理场景与 NVIDIA 硬件平台存在协同定位。"
+    ],
+    "canonical_title": "Meta 发布编程优化 MoE 模型 Muse Spark Open，并在 NVIDIA GB300 NVL72 上扩展智能体编程工作流",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Meta",
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-10-15 发布文章，题为“Scale Agentic Coding Workflows with Meta’s Muse Spark Open on NVIDIA GB300 NVL72”。",
+      "文章称 Meta 推出 Muse Spark Open，这是一个针对编程优化的 816B 参数混合专家（MoE）模型，激活参数为 42B，上下文窗口为 1M token。"
+    ],
+    "id": "story-6c19f1a7ec5ef00bcbe9",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72/",
+    "product_names": [
+      "Muse Spark Open",
+      "NVIDIA GB300 NVL72"
+    ],
+    "published_at": "2026-10-15T18:00:01Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-93a3c6a05f584f10feb6"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T18:00:01Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-93a3c6a05f584f10feb6",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Scale Agentic Coding Workflows with Meta’s Muse Spark Open on NVIDIA GB300 NVL72",
+        "url": "https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/scale-agentic-coding-workflows-with-metas-muse-spark-open-on-nvidia-gb300-nvl72/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "agentic_coding"
+    ],
+    "uncertainties": [
+      "除标题与摘要提及的信息外，Muse Spark Open 的训练数据、发布时间、许可与可用范围尚不明确。",
+      "“Trained on...”之后的细节在输入中被截断，无法确认训练语料与训练方法。",
+      "Muse Spark Open 与 NVIDIA GB300 NVL72 的具体集成方式、性能数据与基准结果未在输入中给出。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [
+      "该公告属于官方产品变更通知，影响使用 GitHub Copilot 各功能的开发者需在弃用日期前评估并迁移到替代模型。",
+      "由于公告覆盖范围明确为所有 Copilot 体验，弃用可能对依赖特定模型的既有工作流、扩展集成或自动化流程产生广泛影响。"
+    ],
+    "canonical_title": "GitHub 将于 2026 年 11 月 16 日弃用部分 GitHub Copilot 模型",
+    "category": "ai_coding",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 在官方 Changelog 中宣布，将于 2026 年 11 月 16 日弃用部分模型。",
+      "此次弃用范围覆盖所有 GitHub Copilot 体验，包括 Copilot Chat、inline edits、ask 和 agent 模式以及 code completions。",
+      "该公告由 GitHub Changelog 发布，发布时间为 2026-10-15T19:35:13Z，作者为 Allison。"
+    ],
+    "id": "story-c51011e0d4abf756ff00",
+    "importance_score": 0.6,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november",
+    "product_names": [
+      "GitHub Copilot",
+      "Copilot Chat"
+    ],
+    "published_at": "2026-10-15T19:35:13Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-0fb5cf8a26c77a059da3"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T19:35:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0fb5cf8a26c77a059da3",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Upcoming deprecation of selected GitHub Copilot models in mid-November",
+        "url": "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-15-upcoming-deprecation-of-selected-github-copilot-models-in-mid-november"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "模型弃用",
+      "AI 编程助手"
+    ],
+    "uncertainties": [
+      "输入内容未列出将被弃用的具体模型名称，仅提到“selected models”并以占位符“Model Deprecation date…”呈现表格。",
+      "输入内容未说明替代模型或迁移建议。",
+      "输入内容未说明弃用后这些模型是否在其他 GitHub 产品中仍可使用。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [
+      "从标题与摘要看，NVIDIA 将 Nemotron 3.5 Super VL 定位为面向专用智能体的多模态推理基座，切入点是长链路、跨来源的企业任务。",
+      "摘要强调“单次请求涉及阅读文档、跨来源核对信息”，暗示该模型的能力方向是文档理解与多源信息整合，而非单纯对话。"
+    ],
+    "canonical_title": "NVIDIA 发布 Nemotron 3.5 Super VL：面向专用智能体的多模态推理模型",
+    "category": "ai_models",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-10-15 发布文章，标题为“NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning”，作者为 Michelle Horton。",
+      "文章摘要称：常驻（always-on）智能体正在承担更长、更复杂的企业工作流；单次请求可能涉及阅读文档、跨来源核对信息等。",
+      "该内容由 NVIDIA Developer Blog 发布，来源角色为 official_primary，声明类型为 factual_announcement。"
+    ],
+    "id": "story-864a7da618766b8cb457",
+    "importance_score": 0.7,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/",
+    "product_names": [
+      "Nemotron 3.5 Super VL"
+    ],
+    "published_at": "2026-10-15T18:01:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-c04bb70f1b05d38a0ca5"
+    ],
+    "source_refs": [
+      {
+        "author": "Michelle Horton",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T18:01:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c04bb70f1b05d38a0ca5",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "NVIDIA Nemotron 3.5 Super VL Powers Specialized Agents with Multimodal Reasoning",
+        "url": "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/nvidia-nemotron-3-5-super-vl-powers-specialized-agents-with-multimodal-reasoning/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "多模态推理",
+      "专用智能体",
+      "企业工作流"
+    ],
+    "uncertainties": [
+      "输入内容仅有标题与摘要片段，未提供模型参数规模、上下文长度、基准测试成绩、可用性或定价等细节。",
+      "未说明 Nemotron 3.5 Super VL 的具体发布状态（预告、正式发布或已可用）。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [
+      "从官方发布措辞看，这一合作的核心卖点是将代理（agent）应用场景从编程扩展到其他工作流，并以多个 OpenAI 模型与 ChatGPT 登录集成作为支撑。",
+      "被点名的 GPT-6 Astra、Ultrafast、GPT-Live-1 均出现在同一句话中，属于官方宣传语中的能力组件，但本次内容未说明各模型的具体分工、调用方式或性能数据。"
+    ],
+    "canonical_title": "OpenAI 与 Amp 合作，将 AI 代理能力扩展到代码之外",
+    "category": "ai_models",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "OpenAI",
+      "Amp"
+    ],
+    "facts": [
+      "OpenAI 新闻页面标题为「Amp puts AI agents to work beyond code with OpenAI models」，链接为 https://openai.com/index/amp-beyond-coding。",
+      "摘要与内容节选称：Amp 借助 GPT-6 Astra、Ultrafast、GPT-Live-1 和 Sign in with ChatGPT 推进 AI 代理能力的边界。",
+      "该条目的来源为 OpenAI News RSS，发布方标注为 official，发布时间为 2026-10-14T12:00:00Z。"
+    ],
+    "id": "story-11ff6278f5f5b4a4da6a",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://openai.com/index/amp-beyond-coding",
+    "product_names": [
+      "GPT-6 Astra",
+      "Ultrafast",
+      "GPT-Live-1",
+      "Sign in with ChatGPT"
+    ],
+    "published_at": "2026-10-14T12:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-57c3309db5bedcdec4e0"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-57c3309db5bedcdec4e0",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Amp puts AI agents to work beyond code with OpenAI models",
+        "url": "https://openai.com/index/amp-beyond-coding"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/amp-beyond-coding"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "ai_agents"
+    ],
+    "uncertainties": [
+      "除标题与摘要外，输入未提供正文细节，因此 GPT-6 Astra、Ultrafast、GPT-Live-1 各自具体用途、可用性范围与限制不明。",
+      "「Sign in with ChatGPT」在此合作中的具体集成形式（登录入口、账号体系、权限范围）未在输入中说明。",
+      "该条目标注为 official_primary，但输入仅含 RSS 摘要与内容节选，未包含完整新闻稿原文，无法核实更多事实细节。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [
+      "该版本主要围绕 Messages API 的计费与能力元数据做了增量扩展，新增 speed 参数和 usage.speed 表明按速度分级的计费或用量追踪正在进入 SDK 层。",
+      "将 Console 组织 usage-tier 支出上限作为只读 spend limit 返回，属于面向企业治理的接口能力补充，便于调用方读取权限边界。",
+      "thinking types 增加 between_tools，对应模型在工具调用之间进行推理的能力描述，是对模型能力声明的细化。"
+    ],
+    "canonical_title": "Anthropic 发布 anthropic-sdk-python v1.15.0",
+    "category": "ai_models",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "facts": [
+      "anthropic-sdk-python 发布 v1.15.0 版本。",
+      "该版本新增特性：在 model capabilities 的 thinking types 中加入 between_tools。",
+      "该版本新增特性：为 Messages 增加 speed 参数以及 usage.speed。",
+      "该版本新增特性：将 Console 组织的 usage-tier 支出上限作为只读 spend limit 返回。",
+      "该版本包含 CI、文档、内部和测试相关 chore 更新。",
+      "文档说明：部分模型使用 speed 需要 beta header。"
+    ],
+    "id": "story-8ed84ec084f4f9e420f7",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.15.0",
+    "product_names": [
+      "anthropic-sdk-python",
+      "Messages API"
+    ],
+    "published_at": "2026-10-15T19:45:15Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-6212408fa949e8ab5e59"
+    ],
+    "source_refs": [
+      {
+        "author": "anthropic-sdks-releaser[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T19:45:15Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6212408fa949e8ab5e59",
+        "source_date": null,
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v1.15.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.15.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v1.15.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "需要 beta header 才能使用 speed 的具体模型范围未在输入中列出。",
+      "usage-tier 支出上限只读返回的具体字段名与调用路径未在输入中给出。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [
+      "该计划将 GPT-Rosalind 定位为面向生命科学领域的学术研究工具，通过赞助访问的方式降低学术实验室的使用门槛。"
+    ],
+    "canonical_title": "OpenAI 推出面向学术研究实验室的 GPT-Rosalind 学术计划",
+    "category": "ai_models",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 于 2026 年 10 月 15 日发布 Rosalind Academic Plan。",
+      "该计划为符合条件的学术实验室提供 GPT-Rosalind 的赞助访问权限及相关工具。",
+      "该计划旨在推进生命科学研究。"
+    ],
+    "id": "story-13ded4be7ea6ef84b35a",
+    "importance_score": 0.5,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://openai.com/index/introducing-the-rosalind-academic-plan",
+    "product_names": [
+      "GPT-Rosalind",
+      "Rosalind Academic Plan"
+    ],
+    "published_at": "2026-10-15T19:00:00Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-32165ee6af8945a5bd83"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T19:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-32165ee6af8945a5bd83",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Bringing GPT-Rosalind to academic research labs",
+        "url": "https://openai.com/index/introducing-the-rosalind-academic-plan"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-the-rosalind-academic-plan"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "学术研究",
+      "生命科学研究"
+    ],
+    "uncertainties": [
+      "Rosalind Academic Plan 对学术实验室的资格认定标准未在输入中说明。",
+      "GPT-Rosalind 的具体能力、模型版本和访问形式未在输入中披露。",
+      "赞助访问的规模、期限和是否涉及费用未在输入中说明。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [
+      "标题表明 Granite Switch 4.1 可能是一个通过单一端点提供聊天、决策和语音功能的模型或系统。",
+      "由于来源为官方博客，发布信息具有较高的权威性，但缺少具体能力、性能指标或可用性细节。"
+    ],
+    "canonical_title": "IBM 在 Hugging Face 博客上发布 Granite Switch 4.1",
+    "category": "模型发布",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "IBM",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇标题为“Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint”的文章。",
+      "该文章的发布时间为 2026-10-15T20:34:01Z。",
+      "来源为 Hugging Face Blog，来源类型为 rss。",
+      "该来源被视为 official_primary，陈述类型为 factual_announcement。"
+    ],
+    "id": "story-9fe348d8e1ec5a0a30d8",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1",
+    "product_names": [
+      "Granite Switch 4.1"
+    ],
+    "published_at": "2026-10-15T20:34:01Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-d330643595776f9f542e"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T20:34:01Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d330643595776f9f542e",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Granite Switch 4.1: Chat, Decisions, and Speech from One Endpoint",
+        "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/ibm-granite/granite-switch-4-1"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入的摘要和内容摘录为空，无法确认 Granite Switch 4.1 的具体功能、技术细节或发布状态。",
+      "无法确定该模型是否已正式可用，或仅为预告/发布公告。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Claude Code Review 正式全面可用",
+    "category": "AI 开发者工具",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Anthropic",
+      "Claude"
+    ],
+    "facts": [],
+    "id": "story-dbd68ea6bccaa9b79135",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://claude.com/resources/articles/code-review-is-now-generally-available",
+    "product_names": [
+      "Claude Code Review"
+    ],
+    "published_at": "2026-10-15T21:20:33Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-6ac271a0614d00000471"
+    ],
+    "source_refs": [
+      {
+        "author": "hashtag42",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50110437",
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T21:20:33Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6ac271a0614d00000471",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude: Code Review is now generally available",
+        "url": "https://claude.com/resources/articles/code-review-is-now-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://claude.com/resources/articles/code-review-is-now-generally-available",
+      "https://news.ycombinator.com/item?id=50110437"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "代码审查",
+      "AI 编程工具",
+      "产品发布"
+    ],
+    "uncertainties": [
+      "该条目仅为 Hacker News 社区发现帖，来源角色为 community_discovery，陈述类型为 unverified_lead，标题声称 Claude Code Review 已 generally available，但缺少官方一手来源或正文内容佐证，尚不能确认为事实。",
+      "无法从输入确认 Claude Code Review 的具体功能范围、发布时间、适用版本或地区限制。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Meta 发布 Muse Spark Open 开放权重模型",
+    "category": "model_release",
+    "credibility_score": 0.1,
+    "entity_names": [
+      "Meta"
+    ],
+    "facts": [],
+    "id": "story-32e115ce358fd33058fc",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://research.meta.ai/blog/muse-spark-open",
+    "product_names": [
+      "Muse Spark Open",
+      "Muse-Spark-Open-816B-A42B"
+    ],
+    "published_at": "2026-10-15T17:47:39Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-d76abfe0e1818aecfbba"
+    ],
+    "source_refs": [
+      {
+        "author": "bigwheels",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50107379",
+        "fetched_at": "2026-10-15T22:40:06.499929Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-15T17:47:39Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d76abfe0e1818aecfbba",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Muse Spark Open",
+        "url": "https://research.meta.ai/blog/muse-spark-open"
+      }
+    ],
+    "source_urls": [
+      "https://research.meta.ai/blog/muse-spark-open",
+      "https://news.ycombinator.com/item?id=50107379"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "开放权重模型",
+      "开源大模型"
+    ],
+    "uncertainties": [
+      "该信息来自 Hacker News 社区发现帖，属未经核实的线索（unverified lead），内容仅包含若干截断的 URL（research.meta.ai、dev.meta.ai、huggingface.co、9to5mac.com），未提供可核实的发布细节。",
+      "Muse Spark Open 是否确为 Meta 官方发布、其模型规格（如 816B-A42B 代表的参数量与激活参数）以及确切发布日期（帖中标注 2026-10-15）均无法从现有输入确认。"
+    ],
+    "updated_at": "2026-10-15T22:42:10.315521Z"
+  }
+]
