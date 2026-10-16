@@ -1,0 +1,322 @@
+{
+  "date": "2026-10-17",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 GitHub Actions 工作流依赖缺少锁文件预览机制，HydraFusion 的模型池与编排选项较有限，企业也缺少平台内置的依赖许可证合规集中检查、Code Quality 操作审计与 Copilot 遥测归因配置，治理多依赖用户自律与分散工具实现。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-e067e237d533e84a929d 为 GitHub 官方发布的许可证合规 GA，直接落在既有 Candidate 的机制上——平台把依赖许可与合规治理从用户自查转为基于规则的平台内置检查，与 Actions 锁文件、Secret Scanning 推送保护、Code Quality 审计留痕同属治理能力下沉。但该簇与既有证据同属 GitHub 一个 actor 的官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate 并标记 update_kind=supported。",
+        "falsifier": "如果 Actions 锁文件、许可证合规功能、Code Quality 审计记录、Secret Scanning 推送保护或 Copilot 遥测归因未被组织采用或被撤回，或 GitHub 放弃把治理与合规下沉为默认平台能力，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub 宣布开源许可证合规功能正式发布，面向 GitHub Enterprise Cloud 用户，企业可通过基于规则的检查集中管理依赖许可证。",
+          "GitHub Actions 工作流依赖锁文件进入公开预览，面向 Enterprise Cloud 等计划开放。",
+          "GitHub 为 HydraFusion 引入 Max 选项并更新模型池与编排工作流，可在 VS Code、GitHub Copilot 应用与 GitHub Copilot 中使用。",
+          "Code Quality 发现项的手动关闭与重新打开操作现可在组织或企业审计日志中查看；Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型并对 Anthropic 默认启用推送保护；企业管理员可用 telemetry.capture.identity 把 Copilot 活动归因到用户而不收集其提示内容。"
+        ],
+        "shared_mechanism": "GitHub 沿同一官方发布通道把治理与合规能力内置化：Actions 工作流依赖锁文件固定可复现性，HydraFusion Max 与模型池/编排集中管理模型选择，新发布的开源许可证合规功能让企业以基于规则的检查集中管理依赖许可证，Code Quality 操作进入审计日志、Secret Scanning 新增密钥类型并对 Anthropic 默认启用推送保护、Copilot 遥测支持在不采集提示内容前提下归因用户。这些动作共同改变组织管理 AI 辅助协作、依赖许可与代码风险的方式，把合规与审计从用户的分散自律转为可配置的平台内置能力。"
+      },
+      "claim": "平台与生态治理能力继续以官方更新方式下沉：GitHub 让 Actions 工作流依赖锁文件进入公开预览、为 HydraFusion 增加 Max 选项并更新模型池/编排，并通过官方 Changelog 把开源许可证合规、Code Quality 审计留痕、Secret Scanning 新密钥类型推送保护与 Copilot 遥测归因纳入平台内置控制，代码协作与 AI 辅助开发的治理仍在从用户自律转向平台内置能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-7170b287e55f24cafc8e"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-cc8c681325386c1eeead",
+      "record_id": "tendency-record-8ebe1a907af6399aa197",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e067e237d533e84a929d"
+      ],
+      "tendency_id": "tendency-0713e93a2f93ad8c5cfe",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 Code Quality 发现项操作不进入组织/企业审计日志，Secret Scanning 未覆盖 Salesforce 等新密钥类型且 Anthropic 密钥无默认推送保护，Copilot 企业遥测缺少不采集提示内容的用户归因配置，企业也缺少平台内置的依赖许可合规集中检查。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-e067e237d533e84a929d（GitHub 开源许可证合规 GA）与既有证据同属 GitHub 官方 Changelog 通道，机制一致：把依赖许可、审计留痕、密钥推送保护与遥测归因统一为平台内置可配置的治理能力，直接支持既有 Candidate 方向。但所有簇仍来自同一 actor 与同一发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate 并标记 update_kind=supported。",
+        "falsifier": "如果审计日志未实际记录这些操作、推送保护被组织大量关闭或撤回、遥测归因与许可证合规功能未被企业采用，或 GitHub 放弃把治理与合规下沉为默认平台能力，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub 宣布开源许可证合规功能正式发布，面向 GitHub Enterprise Cloud，企业可通过基于规则的检查集中管理依赖许可证。",
+          "Code Quality 发现项的手动关闭与重新打开操作现可在组织或企业审计日志中查看。",
+          "Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型检测，Anthropic 密钥默认启用推送保护阻止。",
+          "企业管理员可使用 telemetry.capture.identity 等选项把 GitHub Copilot 活动归因到用户，而无需收集其提示、响应或工具内容。"
+        ],
+        "shared_mechanism": "GitHub 通过同一官方 Changelog 通道把 AI 协作场景中的治理、合规与审计下沉为平台能力：以审计日志记录 Code Quality 发现项处置；以 Secret Scanning 新增密钥类型并进行推送前防护；以 Copilot 遥测的 identity 归因实现使用归因而不采集提示内容；以面向 Enterprise Cloud 的开源许可证合规功能让企业用基于规则的检查集中管理依赖许可。三者共同改变组织治理 AI 辅助开发、密钥风险与依赖合规的方式。"
+      },
+      "claim": "GitHub 正通过官方 Changelog 把代码协作与 AI 辅助开发中的治理与审计能力平台化：Code Quality 发现项关闭与重新打开纳入组织/企业审计日志，Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型并对 Anthropic 默认启用推送保护，Copilot 客户端遥测支持在不收集提示、响应与工具内容的前提下归因用户，同时新发布的开源许可证合规功能把依赖许可检查集中到企业规则配置，显示审计、密钥保护、依赖合规与遥测治理正从用户自律转为可配置的平台内置能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-7170b287e55f24cafc8e"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-064b546d41d669dfec35",
+      "record_id": "tendency-record-2a7323226a5c43bf4507",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e067e237d533e84a929d"
+      ],
+      "tendency_id": "tendency-5d072f551dc71c192b0e",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "在 v0.40.6-rc0 之前，Ollama 存在 Windows 平台孤立 runner 未防护、GGUF 缺少 q2_0 tensor/file types 支持、--ask 模式问题键缺少标识符等问题，服务端推理路由也未复用已验证 manifests 与已加载模型。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-726d3ec0db603c2649ca（Ollama v0.40.6-rc0 官方 release）直接落在既有 Candidate 的机制上：同属 Ollama 一个产品线的版本迭代，围绕本地模型运行工具的稳定性、格式兼容与交互改进，方向上与既有证据一致，故标记 update_kind=supported。但该簇与既有证据同属一个 actor、同一官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate。",
+        "falsifier": "如果后续版本撤回推理路由复用或相关修复，或开发者未采用 Ollama 进行本地模型部署，或 Ollama 停止维护本地运行方向，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Ollama 发布 GitHub 预发布版本 v0.40.6-rc0，上一版本为 v0.40.5。",
+          "该版本在 Windows 平台防止孤立 runner，GGUF 新增 q2_0 tensor 与 file types，在 Ollama 云中启动 clef，--ask 模式问题键使用标识符。",
+          "此前 v0.40.4-rc0 将 llama.cpp 更新至 b11521 并在服务端推理路由中复用已验证 manifests 与已加载模型。"
+        ],
+        "shared_mechanism": "Ollama 沿同一产品线的持续版本发布，维护本地模型运行工具的运行时行为与模型支持：更新 llama.cpp 扩大模型与决策能力覆盖，在服务端推理路由中复用已验证 manifests 与已加载模型以减少重复加载，并修复 Windows 孤立 runner、扩展 GGUF q2_0 tensor/file types、在 Ollama 云中启动 clef、以 --ask 模式问题键使用标识符。这些变更共同改变开发者本地部署与管理模型的方式，使本地运行栈承担更多稳定性与格式兼容职责。"
+      },
+      "claim": "Ollama 正通过连续版本迭代把本地模型运行工具向更稳定的服务端推理与更广的模型/决策支持推进：此前版本将 llama.cpp 更新至 b11521 并在服务端推理路由中复用已验证 manifests 与已加载模型，最新 v0.40.6-rc0 修复 Windows 孤立 runner、扩展 GGUF q2_0 tensor/file types、引入 Ollama 云中启动 clef 与 --ask 模式问题键标识符，使开发者在本地部署与管理模型时获得更稳定的运行时行为。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-608ed3fdb6e1b618cdd0"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-eed7ad83623405031f23",
+      "record_id": "tendency-record-56f23c006da2af9c303b",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-726d3ec0db603c2649ca"
+      ],
+      "tendency_id": "tendency-9d93af89ede5370c1725",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 ChatGPT 生态中的第三方产品集成多依赖模型 API 调用与自研前端，从构建到发布周期较长，插件形态对 agent 创建等产品核心指标的量化影响缺少官方披露。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅 cluster-dee020a9905fe40cc3f5 一个官方一手事件，涉及 OpenAI 与 Stack Overflow 一个产品组合，机制方向清晰且增长数据具体，但缺乏第二个独立 actor、第三方复现或跨事件的结构性支撑，按规则不能升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果 Stack Overflow for Agents 的 agent 创建量增长无法持续或被证伪，ChatGPT 插件形态被撤回或弃用，或下游产品不再依赖 Codex/插件进行快速构建与增长，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 官方公告称，两名工程师使用 Codex 在数周内构建并发布了 Stack Overflow for Agents。",
+          "该产品搭载的 ChatGPT 插件推动 agent 创建量最高增长 10 倍。"
+        ],
+        "shared_mechanism": "模型厂商把能力以可编程插件与 Codex 式代码生成通道交付给下游开发者，下游产品借此把模型能力嵌入自己的用户与 agent 流程：OpenAI 官方披露 Stack Overflow for Agents 由两名工程师用 Codex 在数周内构建发布，搭载 ChatGPT 插件后 agent 创建量最高增长 10 倍。共享机制是『模型能力插件化供给 → 下游产品快速构建与发布 → 用户/agent 行为指标出现可观察增长』，改变的是下游产品的构建与增长方式，而非单一模型指标。"
+      },
+      "claim": "AI 模型能力正通过下游产品的插件化集成被转化为可观察的用户与 agent 行为增长：OpenAI 的 Codex 让两名工程师在数周内构建并发布 Stack Overflow for Agents，其 ChatGPT 插件推动 agent 创建量最高增长 10 倍，显示模型厂商把模型能力包装为插件形态后，下游产品能快速完成构建、发布与增长闭环。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-5d82f286c6e0ef252edf"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-0c23a49cd19c2a5d6f62",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-dee020a9905fe40cc3f5"
+      ],
+      "tendency_id": "tendency-158a95ec25e69a47077c",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前协议草案审查主要依赖律师人工逐条阅读与标注，通用模型工具未被大型律所作为官方联合开发协议审查工具嵌入其工作流。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅 cluster-7d649381411c8f760d38 一个官方一手事件，涉及 OpenAI 与 Sullivan & Cromwell 一个合作工具，机制方向清晰但只有一个 actor 组合、一个产品，且缺少实际使用量或效果数据，缺乏跨事件的结构性支撑，按规则不能升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果 Agreement Analyzer 未被 Sullivan & Cromwell 或同类机构实际投入协议审查，或该工具很快停用、被撤回，或专业机构回退为纯人工审查，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 与 Sullivan & Cromwell 合作开发了名为 Agreement Analyzer 的 AI 工具。",
+          "Agreement Analyzer 用于识别协议草案中的问题。"
+        ],
+        "shared_mechanism": "模型厂商与专业服务机构合作，把模型能力嵌入专业文档审查流程：OpenAI 与 Sullivan & Cromwell 联合开发 Agreement Analyzer，以模型识别协议草案中的问题，把原本由律师人工完成的条款初审转为模型辅助流程。共享机制是『前沿模型能力 → 与专业机构联合定制工具 → 专业服务作业流程改变』。"
+      },
+      "claim": "AI 模型能力正被用于改写专业服务中的文档审查工作流：OpenAI 与 Sullivan & Cromwell 合作开发 Agreement Analyzer，用于识别协议草案中的问题，显示前沿模型厂商把模型能力嵌入律师事务所级协议审查环节，改变法律文档初审的作业方式。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-5eceeac92478cacab171"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-4606e05d34752744d883",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-7d649381411c8f760d38"
+      ],
+      "tendency_id": "tendency-8174ed2f22c8aa3ee68a",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI agent 开发通常依赖云端服务或多机环境完成代码生成、测试与部署，单机完成全流程的官方方案较少。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅 cluster-dcfe7536e9ef46c76396 一个官方一手事件，涉及 NVIDIA 一个产品与一个博客来源，机制方向清晰但缺乏第二个独立 actor、第三方采用或量化效果数据，无法构成跨事件的结构性支撑，按规则不能升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果 RTX Spark 未被开发者实际用于端到端 agent 开发，或该单机部署路径被撤回、被替代，或开发者工作流未出现从手写代码转向指挥 agents 的变化，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "NVIDIA Developer Blog 于 2026-10-16 发布文章《Code, Test, and Deploy on One Machine with NVIDIA RTX Spark》。",
+          "文章称 AI agents 正在改变软件的构建方式，开发者从手写每一行代码转向指挥 agents 编写大部分代码。"
+        ],
+        "shared_mechanism": "NVIDIA 通过开发者博客发布 RTX Spark，把 AI agent 的代码编写、测试与部署合并到单机环境，并以『开发者从手写每行代码转向指挥 agents 编写大部分代码』为工作流假设。共享机制是『AI agent 运行时能力 → 本地一体化开发平台 → 开发者工作流改变』，改变的是开发者构建与部署 agent 的物理与流程边界。"
+      },
+      "claim": "NVIDIA 正把 AI Agent 开发与部署的端到端运行环境产品化：RTX Spark 让开发者在一台机器上完成代码、测试与部署，并配合 agent 工作流把代码编写从手写转向指挥 agents 编写大部分代码，显示 AI 基础设施厂商把 agent 开发运行时下沉为本地一体化平台能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-bd7b6186516146620a58"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-50a5740e7a1220efdd61",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-dcfe7536e9ef46c76396"
+      ],
+      "tendency_id": "tendency-a3b07bbb6f2a932fd82b",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 ECDSA 曲线种子来源等密码学规范溯源工作主要依赖人工文献考据与社区协作，前沿模型未被官方作为此类研究工具披露。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅 cluster-0c7d8c8b90728b3a45fa 一个事件，来源角色为 community_discovery、两条来源属同一事件边界，涉及 Anthropic 与 Claude 一个 actor 组合，且缺少研究结论的独立复现或密码学界采用证据，无法构成跨事件的结构性支撑，按规则不能升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果该研究结论被密码学界证伪或无法复现，或 Claude 在此类密码学研究中的角色被撤回、未被后续研究采用，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Anthropic 研究称 Claude 揭示 ECDSA 曲线种子来源。"
+        ],
+        "shared_mechanism": "前沿模型被用于密码学标准溯源的研究性任务：Anthropic 研究称 Claude 揭示 ECDSA 曲线种子的来源，把模型能力嵌入安全与密码学研究流程。共享机制是『模型推理能力 → 规范溯源研究 → 安全研究流程改变』。"
+      },
+      "claim": "AI 模型能力正被用于辅助分析密码学标准参数的来源推断：Anthropic 研究称 Claude 揭示 ECDSA 曲线种子的来源，显示前沿模型开始被用于密码学规范溯源类研究任务，把模型能力嵌入安全研究流程。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-48630b32946fe0d418da"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-ca2ec748862519c20568",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-0c7d8c8b90728b3a45fa"
+      ],
+      "tendency_id": "tendency-581709c55b061317b24f",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前 Indic 等多语言预训练数据多由各机构自建或依赖未公开的语料处理流程，开放的数据生成流水线与万亿级公开数据集较少由基础设施厂商集中发布。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "仅 cluster-87206aa074d78e24ce39 一个官方一手事件，涉及 NVIDIA 在 Hugging Face 的一个数据发布，机制方向清晰但缺乏第二个独立 actor、第三方采用或基于该数据集训练出的模型证据，无法构成跨事件的结构性支撑，按规则不能升级 Emerging，作为新的 Candidate 内部观察。",
+        "falsifier": "如果该数据集与流水线未被研究或开发者采用，或未出现基于其训练的多语言模型，或该开放数据路径被撤回，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "NVIDIA 在 Hugging Face 博客发布《Scaling Indic Pretraining: 2.8 Trillion Tokens and an Open Data Generation Pipeline》，发布日期 2026-10-16。",
+          "文章提及 2.8 万亿 token 和开放的预训练数据生成流水线。"
+        ],
+        "shared_mechanism": "NVIDIA 在 Hugging Face 发布面向 Indic 预训练的 2.8 万亿 token 数据集与开放数据生成流水线，把预训练数据供给与生成方法从各家自建转为公开可复用的平台能力。共享机制是『数据生成方法开放 → 多语言预训练数据供给 → 数据准备流程改变』。"
+      },
+      "claim": "NVIDIA 正通过开放数据生成流水线把多语言预训练数据能力产品化：面向 Indic 语言预训练发布 2.8 万亿 token 数据集及开放的数据生成流水线，显示 AI 基础设施厂商把预训练数据供给与数据生成方法以开放形式下沉为平台层能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-ff06cd380eef6313086a"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-e302e4b8156f3de5be97",
+      "recorded_at": "2026-10-16T22:17:06.886920Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-87206aa074d78e24ce39"
+      ],
+      "tendency_id": "tendency-d581020a2d38e724c3a4",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-16T22:17:06.886920Z"
+}
