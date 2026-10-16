@@ -7,6 +7,7 @@
     "id": "item-9e63539289a31c8631b6",
     "language": "en-US",
     "metadata": {
+      "content_version": "7d18c67e6d7b8e6a5fa6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-97665fd5758ad12c8193",
     "language": "en-US",
     "metadata": {
+      "content_version": "46670497df9feab698e6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-138e9b7e7d9747243aa5",
     "language": "en-US",
     "metadata": {
+      "content_version": "870f1c9c12beab966ad7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-6bee349d6c55071f4f28",
     "language": null,
     "metadata": {
+      "content_version": "b729220ded5a1aecf775",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-8f4036b74df273ae542d",
     "language": "en-US",
     "metadata": {
+      "content_version": "01ef3217727f05ce33d8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +253,7 @@
     "id": "item-44ca59220e0462e633be",
     "language": "en-US",
     "metadata": {
+      "content_version": "75c13aa299534d2f0d39",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +285,7 @@
     "id": "item-3bc592cc5b6877b701ba",
     "language": "en-us",
     "metadata": {
+      "content_version": "e03db982580abcf65176",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -370,6 +377,7 @@
     "id": "item-1d717ea1f88663287538",
     "language": "en-US",
     "metadata": {
+      "content_version": "abc0650cd31547ba6337",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -461,6 +469,7 @@
     "id": "item-7baabcbd57b90c05a39a",
     "language": "en-us",
     "metadata": {
+      "content_version": "8bfcf66723736ad1db9a",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -491,6 +500,7 @@
     "id": "item-43f5d9299a926e4d769e",
     "language": "en-US",
     "metadata": {
+      "content_version": "543a43051f1b9972bf4f",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -613,6 +623,7 @@
     "id": "item-a60f4a701f887ae8f46b",
     "language": "en-US",
     "metadata": {
+      "content_version": "25c17c79ffd1073aa721",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -673,6 +684,7 @@
     "id": "item-6fdf4a6bc9a49fd054fb",
     "language": "en-US",
     "metadata": {
+      "content_version": "d98a5d6d7ae9539b06fa",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -916,6 +928,7 @@
     "id": "item-94eadcab22c41e356a1d",
     "language": "en-US",
     "metadata": {
+      "content_version": "a0c0db120fb392a3274c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -75807,6 +75820,7 @@
     "id": "item-52c93fcf6b24dbf372a9",
     "language": "en",
     "metadata": {
+      "content_version": "6d577a6e4973490ed3e5",
       "data_anomaly": false,
       "forks": 18334,
       "official": true,
@@ -76959,6 +76973,7 @@
     "metadata": {
       "comments": 1772,
       "community_signal": true,
+      "content_version": "49c8f916151d02225a75",
       "discussion_url": "https://news.ycombinator.com/item?id=50112657",
       "official": false,
       "original_url": "https://www.tesla.com/roadster",
@@ -77049,11 +77064,20 @@
     "metadata": {
       "comments": 201,
       "community_signal": true,
+      "content_version": "8e3435320af45abb3aad",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50122800",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/research/ecdsa-curve-origins",
       "score": 491,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -77259,11 +77283,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50125348",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.politico.com/news/2026/10/16/anthropic-ai-safety-01124654",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -77559,11 +77591,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50125290",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://gizmodo.com/ai-agent-hacked-into-crypto-wallet-and-stole-funds-openai-says-2000826980",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -77791,6 +77831,7 @@
     "metadata": {
       "change_percent": 0.004268980862801535,
       "close": 343.4599914550781,
+      "content_version": "f7f4781f23203fdb7316",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 342.0,
@@ -78581,38 +78622,6 @@
     "url": "https://www.anthropic.com/threat-intelligence-report-september-2026"
   },
   {
-    "author": "bookofjoe",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-16T22:12:18.802930Z",
-    "id": "item-bb9dfacc69cd01f031aa",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50125290",
-      "hn_submission_time": 1792187837,
-      "lab_id": "openai",
-      "original_url": "https://gizmodo.com/ai-agent-hacked-into-crypto-wallet-and-stole-funds-openai-says-2000826980",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-16T21:57:17Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "AI Agent Hacked into Crypto Wallet and Stole Funds, OpenAI Says",
-    "topic_candidates": [],
-    "url": "https://gizmodo.com/ai-agent-hacked-into-crypto-wallet-and-stole-funds-openai-says-2000826980"
-  },
-  {
     "author": "JoTurk",
     "company_candidates": [],
     "content_excerpt": "We added Pion DTLS to Anthropic's OSS scanner last week (https://github.com/anthropics/oss-scanner/pull/93), and today we woke up to a report with 36 bugs, including 6 security vulnerabilities: 2 critical, 3 high, and 1 moderate. Four of them affect WebRTC. Some of these vulnerabilities have been sitting in the codebase for over 4 years, surviving years of testing and security scans. It's funny that our inboxes are constantly spammed with AI-generated security reports from people using Codex and Claude, most of which flag pointless issues. Yet somehow, none of them caught these. The funniest part? Anthropic also found 3 bugs that OpenAI's internal code review missed. I had asked OpenAI to review a new DTLS API since they use Pion and had a use case for it in SPED. Their review didn't flag any bugs. Anthropic found an authentication issue, a deadlock, and a TLS KeyUpdate bug (Maybe their model ignored this one because it's not a WebRTC issue). Luckily, the API hasn't been released yet. The fixes: https://github.com/pion/dtls/pull/1236 Here are the security advisories for the CVEs Anthropic found (all of them are pre-chatgpt!): Critical: DTLS handshake signature confusion allows peer impersonation - https://github.com/pion/dtls/security/advisories/GHSA-7c2r-jhm9-43vf Critical: Client authentication bypass through premature session caching - https://github.com/pion/dtls/security/advisories/GHSA-hhpj-h56m-9f2p High: Client authentication bypass with shared session stores - https://github.com/pion/dtls/security/advisories/GHSA-cqhp-ggp7-58qj High: Unbounded handshake cache allow",
@@ -79067,38 +79076,6 @@
     "title": "OpenAI, Google pushing new AI models easily tricked into making nudes",
     "topic_candidates": [],
     "url": "https://arstechnica.com/tech-policy/2026/10/openai-google-pushing-new-ai-models-easily-tricked-into-making-nudes-researchers-say/"
-  },
-  {
-    "author": "type4",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-16T22:12:18.802930Z",
-    "id": "item-02ff7f6be1dcca0b14d8",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50125348",
-      "hn_submission_time": 1792188184,
-      "lab_id": "anthropic",
-      "original_url": "https://www.politico.com/news/2026/10/16/anthropic-ai-safety-01124654",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-16T22:03:04Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic pitches its own AI safety bill to lawmakers",
-    "topic_candidates": [],
-    "url": "https://www.politico.com/news/2026/10/16/anthropic-ai-safety-01124654"
   },
   {
     "author": "ilamont",
@@ -79899,38 +79876,6 @@
     "title": "Making Games with my 4 year old son and Claude",
     "topic_candidates": [],
     "url": "https://claude.ai/artifact/BVkB3o83k2AuJhoaGqMeUy"
-  },
-  {
-    "author": "ahlCVA",
-    "company_candidates": [],
-    "content_excerpt": "https://words.filippo.io/seeds-solved/",
-    "fetched_at": "2026-10-16T22:12:18.802930Z",
-    "id": "item-5e7a193f714e05570eb9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50122800",
-      "hn_submission_time": 1792176959,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/research/ecdsa-curve-origins",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-16T18:55:59Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://words.filippo.io/seeds-solved/",
-    "title": "Claude reveals ECDSA curve origins",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/research/ecdsa-curve-origins"
   },
   {
     "author": "pretext",

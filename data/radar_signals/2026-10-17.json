@@ -1,0 +1,91 @@
+[
+  {
+    "claim": "Simon Willison 引述 Addy Osmani、Morgan Westlee Lunt 与 Qing Wang 的观点：用“是否有真人读过代码”作为审查门槛，是对“这次改动可能出什么问题、应由哪种检查（自动化或人工）来抓”的不精确替代；因此代码审查的时机也变了——从写完代码、开 PR、等同事的末端门禁，变为类似写作时拼写检查那样的持续过程，多数改动在人工审查前已被 Claude 至少审查并修复过一次。",
+    "id": "radar-1d524958b910e995235b",
+    "missing_evidence": [
+      "被引述三人原始文章的完整出处与链接",
+      "Simon Willison 该条目的完整正文（所给摘录被截断）",
+      "支持“多数改动在人工审查前已被 Claude 审查过”的量化数据或案例"
+    ],
+    "observed_at": "2026-10-16T22:12:18.802930Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-3bc592cc5b6877b701ba",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/16/code-review/"
+      }
+    ],
+    "uncertainty": "所给内容为被截断的二手转述引语，无法确认原文完整论证与适用团队范围；“多数改动已被 Claude 审查”缺少数据支撑。",
+    "why_notable": "给出了一线从业者对 AI 编程 agent 如何重塑代码审查流程与审查时机的具体观察，涉及“审查左移/持续化”这一 agent 工作流变化的实践判断。"
+  },
+  {
+    "claim": "据 Hacker News 提交，Anthropic 的一篇研究页面（并指向 filippo.io 的文章）称 Claude 揭示了 ECDSA 曲线参数种子的来源。",
+    "id": "radar-25fb9eebad8686b03d17",
+    "missing_evidence": [
+      "Anthropic 研究页面的正文与具体结论",
+      "filippo.io 文章原文及其方法论描述",
+      "密码学界对相关结论的独立确认",
+      "Claude 在其中的具体角色（是否为首个发现者、使用了何种方法）"
+    ],
+    "observed_at": "2026-10-16T22:12:18.802930Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-5e7a193f714e05570eb9",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.anthropic.com/research/ecdsa-curve-origins"
+      }
+    ],
+    "uncertainty": "仅有聚合站点的标题与两条外链，未取得任何正文；“Claude 揭示”的确切含义、方法与可信度均未经验证。",
+    "why_notable": "若属实，这是 AI 模型参与解开长期悬而未决的密码学问题（NIST 曲线种子来源）的案例，对模型研究应用能力具有示证与话题价值。"
+  }
+]
