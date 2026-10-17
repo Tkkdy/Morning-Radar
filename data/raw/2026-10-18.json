@@ -7,6 +7,7 @@
     "id": "item-9732b2763df5a67ab945",
     "language": "en-US",
     "metadata": {
+      "content_version": "e586f13213278c7867a3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-5eb559e50fd7886d16ab",
     "language": "en-US",
     "metadata": {
+      "content_version": "641557364504dcd470bd",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -127,6 +129,7 @@
     "id": "item-0b81a58f5b3fe1314623",
     "language": "en-US",
     "metadata": {
+      "content_version": "66e1bb988f7552d57069",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -157,6 +160,7 @@
     "id": "item-5b95b356b53e30b5501b",
     "language": "en-US",
     "metadata": {
+      "content_version": "edc9f0821eddb88c95db",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -188,6 +192,7 @@
     "id": "item-b6756c0a180ee554226c",
     "language": "en-US",
     "metadata": {
+      "content_version": "1fb6dc36afa035625a6b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -278,6 +283,7 @@
     "id": "item-ec0f189f0b04dacca897",
     "language": "en-US",
     "metadata": {
+      "content_version": "bbb01d471f2b0d5fc158",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -459,6 +465,7 @@
     "id": "item-f1da4b6eb4e4c122ec56",
     "language": "en-US",
     "metadata": {
+      "content_version": "8a436a3d45ec6c44d11f",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -821,6 +828,7 @@
     "id": "item-bf815e64fedf96f62911",
     "language": "en-US",
     "metadata": {
+      "content_version": "db8242bdb429fda872e4",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -41397,6 +41405,7 @@
     "id": "item-12b904c1ef68ba4e866e",
     "language": "en",
     "metadata": {
+      "content_version": "a8c01908dbae04a33df9",
       "data_anomaly": false,
       "forks": 8319,
       "official": true,
@@ -41435,6 +41444,7 @@
     "id": "item-38a5c87a8693fe60d99f",
     "language": "en",
     "metadata": {
+      "content_version": "daebcbe81ed3dc45cfd2",
       "data_anomaly": false,
       "forks": 8319,
       "official": true,
@@ -44057,6 +44067,7 @@
     "id": "item-630ca87cf322b200196e",
     "language": "en",
     "metadata": {
+      "content_version": "e8f2e4ca0147d4f235f6",
       "data_anomaly": false,
       "forks": 18358,
       "official": true,
@@ -45269,11 +45280,19 @@
     "metadata": {
       "comments": 372,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50122800",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/research/ecdsa-curve-origins",
       "score": 1010,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -45299,11 +45318,20 @@
     "metadata": {
       "comments": 530,
       "community_signal": true,
+      "content_version": "cf219acbc8c3ed092fb6",
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50129045",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
       "score": 601,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -45389,11 +45417,19 @@
     "metadata": {
       "comments": 5,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50129121",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
       "score": 511,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -45449,6 +45485,7 @@
     "metadata": {
       "comments": 88,
       "community_signal": true,
+      "content_version": "b7ffbb8edab65a449ba5",
       "discussion_url": "https://news.ycombinator.com/item?id=50133401",
       "official": false,
       "original_url": "https://twitter.com/opencode/status/2111516673953935833",
@@ -45599,11 +45636,19 @@
     "metadata": {
       "comments": 443,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50122951",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
       "score": 452,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -45797,6 +45842,7 @@
     "metadata": {
       "change_percent": -0.018684230685631506,
       "close": 250.0,
+      "content_version": "e5ce415a1287a4edf29f",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 254.75999450683594,
@@ -45963,6 +46009,7 @@
     "id": "item-94e63f2cdff0d7325409",
     "language": "zh",
     "metadata": {
+      "content_version": "916bf716496bc8de46ff",
       "date_precision": "day",
       "excerpt_truncated": false,
       "official_page_fetched": true,
@@ -45992,6 +46039,7 @@
     "id": "item-f0c706ed30328fd642ae",
     "language": "zh",
     "metadata": {
+      "content_version": "db8d971dc0043b8fa20a",
       "date_precision": "day",
       "excerpt_truncated": false,
       "official_page_fetched": true,
@@ -46775,38 +46823,6 @@
     "url": "https://twitter.com/deepseek_ai/status/2111375640717033777"
   },
   {
-    "author": "theanonymousone",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-17T21:43:03.043308Z",
-    "id": "item-3a9f4098dd7c2d53384f",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50129121",
-      "hn_submission_time": 1792226266,
-      "lab_id": "deepseek",
-      "original_url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-17T08:37:46Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "DeepSeek: DeepSeek v4.1 Flash 1017",
-    "topic_candidates": [],
-    "url": "https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017"
-  },
-  {
     "author": "runtimewire",
     "company_candidates": [],
     "content_excerpt": "",
@@ -46837,38 +46853,6 @@
     "title": "DeepSeek users report a possible v4.1-Flash-1017 refresh across its API",
     "topic_candidates": [],
     "url": "https://runtimewire.com/article/deepseek-users-report-a-possible-v4-1-flash-1017-refresh-across-its-api"
-  },
-  {
-    "author": "theykk",
-    "company_candidates": [],
-    "content_excerpt": "https://api-docs.deepseek.com/news/news261017/ https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
-    "fetched_at": "2026-10-17T21:43:03.043308Z",
-    "id": "item-6c71c3a7dad711d2382e",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50129045",
-      "hn_submission_time": 1792225285,
-      "lab_id": "deepseek",
-      "original_url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-17T08:21:25Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://api-docs.deepseek.com/news/news261017/ https://openrouter.ai/deepseek/deepseek-v4.1-flash-1017",
-    "title": "DeepSeek-v4.1-Flash-1017",
-    "topic_candidates": [],
-    "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
   },
   {
     "author": "DeepLogin",
@@ -47331,6 +47315,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "879fa1c1e7819446d52c",
       "discovery_paths": [
         "hn_search:anthropic:Anthropic"
       ],
@@ -48187,38 +48172,6 @@
     "url": "https://github.com/logancarrillo/ds-claude-terminal"
   },
   {
-    "author": "pretext",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-17T21:43:03.043308Z",
-    "id": "item-ef84becf7c9d0543cea7",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50122951",
-      "hn_submission_time": 1792177487,
-      "lab_id": "anthropic",
-      "original_url": "https://claude.dev/blog/solving-code-review-at-anthropic/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-16T19:04:47Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "How the Claude Code team does code review",
-    "topic_candidates": [],
-    "url": "https://claude.dev/blog/solving-code-review-at-anthropic/"
-  },
-  {
     "author": "tsunamifury",
     "company_candidates": [],
     "content_excerpt": "",
@@ -48249,38 +48202,6 @@
     "title": "Making Games with my 4 year old son and Claude",
     "topic_candidates": [],
     "url": "https://claude.ai/artifact/BVkB3o83k2AuJhoaGqMeUy"
-  },
-  {
-    "author": "ahlCVA",
-    "company_candidates": [],
-    "content_excerpt": "https://words.filippo.io/seeds-solved/",
-    "fetched_at": "2026-10-17T21:43:03.043308Z",
-    "id": "item-5e7a193f714e05570eb9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50122800",
-      "hn_submission_time": 1792176959,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/research/ecdsa-curve-origins",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-16T18:55:59Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://words.filippo.io/seeds-solved/",
-    "title": "Claude reveals ECDSA curve origins",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/research/ecdsa-curve-origins"
   },
   {
     "author": "pretext",

@@ -1,0 +1,41 @@
+{
+  "date": "2026-10-18",
+  "generated_at": "2026-10-17T21:44:11.166180Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "ollama 从“Ollama 发布 v0.40.6-rc0 版本”推进到“Ollama 发布 v0.40.6，新增 q2_0 张量/文件类型并修复 Windows 孤儿 runner 问题”。",
+      "current_story": {
+        "date": "2026-10-18",
+        "story_id": "story-56396f3ee40a7630350b"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-17",
+            "story_id": "story-608ed3fdb6e1b618cdd0"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-18",
+            "story_id": "story-56396f3ee40a7630350b"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-10-17",
+        "story_id": "story-608ed3fdb6e1b618cdd0"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-10-17T21:44:11.166180Z",
+      "relation_id": "relation-9cde2f12455ebdede84b",
+      "relation_type": "status_transition",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": []
+}

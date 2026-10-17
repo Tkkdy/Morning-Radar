@@ -1,0 +1,77 @@
+[
+  {
+    "created_at": "2026-10-17T21:44:11.166180Z",
+    "explanation": "open_source_ai 连续 3 天保持或增加事件量，且有 6 个来源支持。",
+    "id": "signal-2fda93b2e4e9c8e219b4",
+    "metric_history": [
+      {
+        "date": "2026-10-16",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-17",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-18",
+        "story_count": 3
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 11,
+    "supporting_source_count": 6,
+    "supporting_story_ids": [
+      "story-9fe348d8e1ec5a0a30d8",
+      "story-bc27e21085ebe847bba9",
+      "story-608ed3fdb6e1b618cdd0",
+      "story-57fae047abf5268170fc",
+      "story-40b825c0866ae1776958",
+      "story-cf804d833445d1a6b852"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-10-17T21:44:11.166180Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-17T21:44:11.166180Z",
+    "explanation": "ai_coding 连续 3 天保持或增加事件量，且有 11 个来源支持。",
+    "id": "signal-92ed54025b6bad4d4266",
+    "metric_history": [
+      {
+        "date": "2026-10-16",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-17",
+        "story_count": 4
+      },
+      {
+        "date": "2026-10-18",
+        "story_count": 5
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 19,
+    "supporting_source_count": 11,
+    "supporting_story_ids": [
+      "story-11ff6278f5f5b4a4da6a",
+      "story-8ed84ec084f4f9e420f7",
+      "story-c105728342f30f987eee",
+      "story-bc27e21085ebe847bba9",
+      "story-5d82f286c6e0ef252edf",
+      "story-5eceeac92478cacab171",
+      "story-e0732e9d187cfac0b889",
+      "story-40b825c0866ae1776958",
+      "story-1ce2127fdee7ee88eba4",
+      "story-cf804d833445d1a6b852",
+      "story-1180d86b53b4ddfe30be"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-10-17T21:44:11.166180Z",
+    "window_days": 3
+  }
+]

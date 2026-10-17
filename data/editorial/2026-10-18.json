@@ -1,0 +1,186 @@
+{
+  "date": "2026-10-18",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "有传播价值，但仅摘要、未确认模型细节或是否自主执行，先轻量报道并留作安全趋势弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-57fae047abf5268170fc",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-autonomous-cyber-offense-risk"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "API 名称与价格不变且官方称成本下降，对开发者有实际影响，但基准为厂商自报需独立复现。",
+      "retain_for_trends": true,
+      "story_id": "story-3dd310873acee6a0a230",
+      "support_for_story_id": null,
+      "trend_links": [
+        "price-performance-pareto-frontier",
+        "coding-agent-benchmark-claims"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "默认模型供应商切换反映多模型平台中的商业选择变化，但原始声明缺失、细节有限。",
+      "retain_for_trends": true,
+      "story_id": "story-e0732e9d187cfac0b889",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-provider-default-switching"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "开放自研搜索 API 对开发者有潜在影响，但规模与过滤效果均属单方面表述，且未披露定价与配额。",
+      "retain_for_trends": true,
+      "story_id": "story-00443ac892d9f59d66ed",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-native-search-api",
+        "aigc-content-filtering"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "与同批次 Meta 条款报道重复且无实际行为变化证据，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-a6c8678ee31348f09176",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "开发者工具凭据泄露值得提醒，但仅社区线索且无官方确认，不保留为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-37324937c7b9d817b9ed",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "条款措辞删除未伴随实际抓取行为变化，一句带过即可。",
+      "retain_for_trends": false,
+      "story_id": "story-9fd359700b17d51723f6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "常规维护更新，q2_0 格式扩展影响有限且无量化细节，不保留趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-56396f3ee40a7630350b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "SDK 常规功能对齐，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-40b825c0866ae1776958",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "人物观点访谈，无数据或样本来由，不构成可验证趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-f99442998a262eebc2b1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "厂商客户案例无量化效果或部署细节，宣传性质为主。",
+      "retain_for_trends": false,
+      "story_id": "story-1ce2127fdee7ee88eba4",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商客户案例，治理平台细节与成效均未披露。",
+      "retain_for_trends": false,
+      "story_id": "story-355a6b8dba5b8692d1fa",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "SDK 参数与类型同步，装饰性更新无持续影响。",
+      "retain_for_trends": false,
+      "story_id": "story-cf804d833445d1a6b852",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅有社区线索且内容为空，无法核实信函与 IPO 计划。",
+      "retain_for_trends": false,
+      "story_id": "story-5467294277def467ff7c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "员工构成与会议时间变化缺乏数据支撑，无明确趋势用途。",
+      "retain_for_trends": false,
+      "story_id": "story-1180d86b53b4ddfe30be",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-17T21:44:11.166180Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

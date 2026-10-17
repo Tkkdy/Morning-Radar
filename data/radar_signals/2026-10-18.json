@@ -1,0 +1,136 @@
+[
+  {
+    "claim": "社区发现名为 DeepSeek-v4.1-Flash-1017 的模型线索，附带 Hugging Face 仓库、DeepSeek 官方 API 文档新闻页与 OpenRouter 页面链接。",
+    "id": "radar-f3764986f653e9fe8a77",
+    "missing_evidence": [
+      "官方模型卡或发布公告正文",
+      "基准测试与能力说明",
+      "上下文长度、定价、可用区域",
+      "OpenRouter 页面是否已上线及其一致性"
+    ],
+    "observed_at": "2026-10-17T21:43:03.043308Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-6c71c3a7dad711d2382e",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017"
+      }
+    ],
+    "uncertainty": "仅有链接与名称，无任何内容摘要或佐证，无法确认模型是否真实发布、命名是否准确。",
+    "why_notable": "若属实，为 DeepSeek 新模型发布，对模型选择、定价与推理应用有直接影响，值得晨报关注。"
+  },
+  {
+    "claim": "有线索称 AI 编程工具 OpenCode 遭入侵，用户凭证泄露。",
+    "id": "radar-0dfab7b50cbfc0134160",
+    "missing_evidence": [
+      "OpenCode 官方安全公告或状态页确认",
+      "泄露凭证类型与影响用户范围",
+      "攻击时间线与是否已修复",
+      "原始推文内容"
+    ],
+    "observed_at": "2026-10-17T21:43:03.043308Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-5c55bb62fc76491954b4",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://twitter.com/opencode/status/2111516673953935833"
+      }
+    ],
+    "uncertainty": "仅有 Hacker News 标题与指向推文的链接，正文缺失，未获任何独立佐证，事件真实性待核实。",
+    "why_notable": "若成立，将直接影响 AI 编程工具用户的账号与代码资产安全，对 agent 工具链信任度有实质影响。"
+  },
+  {
+    "claim": "纽约市审计长办公室发布致 Anthropic 关于其计划首次公开募股（IPO）的公开信。",
+    "id": "radar-cb4f648a8df808aff731",
+    "missing_evidence": [
+      "信件正文与其具体要求",
+      "Anthropic 是否已确认 IPO 计划",
+      "发布时间与官方来源一致性核验"
+    ],
+    "observed_at": "2026-10-17T21:43:03.043308Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-96182045d5531b22130d",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://comptroller.nyc.gov/reports/letter-to-anthropic-re-planned-initial-public-offering/"
+      }
+    ],
+    "uncertainty": "仅有标题和官方域名链接，正文缺失，无法确认该信是否确指真实 IPO 计划及其性质。",
+    "why_notable": "若属实，暗示 Anthropic 推进 IPO 并引发公共机构关注，是重大 AI 公司资本与治理动态。"
+  }
+]
