@@ -103,6 +103,7 @@ def brief_story(story_id: str, url: str) -> Story:
         id=story_id,
         canonical_title="OpenAI 新模型",
         category="ai_and_open_source",
+        facts=["测试来源报告 OpenAI 发布了新模型。"],
         updated_at=datetime(2026, 7, 23, tzinfo=UTC),
         source_item_ids=[f"item-{story_id}"],
         source_urls=[url],
@@ -807,7 +808,7 @@ def test_deepseek_core_brief_url_violation_remains_hard() -> None:
     ).model_dump_json()
     configured = provider([invalid, invalid])
 
-    with pytest.raises(AIOutputError, match="not present in verified source set"):
+    with pytest.raises(AIOutputError, match="source URLs do not match its Story IDs"):
         configured.write_brief([source_story], [])
 
     assert configured.client.chat.completions.calls == 2
@@ -1004,3 +1005,28 @@ def test_continuity_request_timeout_never_exceeds_remaining_deadline() -> None:
 
     timeout = configured.client.chat.completions.last_request["timeout"]
     assert 0 < timeout <= 0.5
+
+
+def test_merge_and_write_receive_attribution_prompts_and_all_raw_fragments():
+    """Verify production message wiring, not a model's semantic compliance."""
+    configured = provider([merged_story_json("测试事件"), BriefDraft(items=[]).model_dump_json()])
+    raw = raw_item().model_copy(update={
+        "summary": "已有摘要。", "content_excerpt": "另有正文短摘录。",
+    })
+    configured.merge_story([raw])
+    configured.write_brief([], [])
+    merge, write = configured.client.chat.completions.requests
+    for name, request in (("merge_story", merge), ("write_brief", write)):
+        prompt = Path(f"prompts/{name}.md").read_text(encoding="utf-8").strip()
+        assert prompt in request["messages"][0]["content"]
+    payload = json.loads(merge["messages"][1]["content"])
+    assert payload[0]["summary"] == raw.summary
+    assert payload[0]["content_excerpt"] == raw.content_excerpt
+
+    # Verify descriptions reach the actual wire schema, not just an unused model.
+    system = merge["messages"][0]["content"]
+    wire_schema = json.loads(system[system.rfind("\n{") + 1:])
+    expected = MergedStoryDraft.model_json_schema()["properties"]
+    for field in ("canonical_title", "analysis", "status"):
+        assert expected[field]["description"]
+        assert wire_schema["properties"][field]["description"] == expected[field]["description"]

@@ -1,0 +1,77 @@
+{
+  "as_of": "2026-10-10T16:13:24.454289+00:00",
+  "evidence": [
+    {
+      "schema_version": 2,
+      "evidence_id": "ev-7ec3f51682cf827697bf2e27",
+      "input_id": "item-80c7d2c462e2d70adbf2",
+      "content_version": "3873ead23c379431c65454b2",
+      "event_ids": [],
+      "source_url": "https://lucumr.pocoo.org/2026/10/6/codemode/",
+      "source_kind": "source_claim",
+      "source_role": "practitioner",
+      "title": "What is Codemode",
+      "excerpt": "More than a year ago I wrote a few posts here that recommended people not to load custom tools into their context (or MCP servers) but to just use more scripts. Most importantly I wrote that Code Is All You Need and I wrote about that MCP needs code . With Pi 1.0 we now added MCP support via Codemode which in some ways is a long time coming, but then also maybe somewhat surprising to some. So I want to share some updated thoughts on this blog on what this all means. What Are Tools When a harness like Pi provides tools for an LLM to call, it does so by supplying some tool definitions which then translate into some token structure on the server side. Whether a model is encouraged to call a tool is the result of the reinforcement learning process. Something I wrote about before if you want to learn more. One of the reasons we strongly lean towards CLI and bash is because it allows easy composition of calls, and because the model also learns how the file system works when it’s trained. So when it invokes a tool like echo foo > /tmp/test.txt the model also learns that after that tool call, there is now a file called test.txt in /tmp . However bash has one fundamental limitation which is that it can only compose programs that run. And there are some things, which are not programs, but native tools to the LLM and they sort of have to be. The most obvious example here is read or view_image . If a multimodal model needs to read an image, it cannot use cat for that because the harness needs to inject the actual image payload into the protocol of the LLM. Another quite vivid example are sub agents. In order to spawn and orchestrate sub agents, it’s tricky to avoid tools that are provided by the harness. While in theory the agent could provide a CLI tool that talks to the outer harness via environment variables and Unix sockets, it’s a rather crude process. It however has another issue, and that is where the code runs. Brains vs Hands To better understand that, it’s important t",
+      "scope": [
+        "lucumr.pocoo.org"
+      ],
+      "published_at": "2026-10-06T00:00:00Z",
+      "observed_at": "2026-10-06T23:13:56.379120Z",
+      "ingested_at": "2026-10-06T23:13:56.379120Z",
+      "status": "captured",
+      "information_gaps": [],
+      "synthetic": false,
+      "provenance": "data\\intake\\checkpoints\\batch-20261006T231356Z-60cf4da449.json"
+    },
+    {
+      "schema_version": 2,
+      "evidence_id": "ev-0a03e014b1278607574b800b",
+      "input_id": "item-7e720aeda47f0a423402",
+      "content_version": "600998fa49e025d767c3da06",
+      "event_ids": [],
+      "source_url": "https://simonwillison.net/2026/Oct/9/deno-is-joining-cloudflare/",
+      "source_kind": "source_claim",
+      "source_role": "practitioner",
+      "title": "Deno is joining Cloudflare",
+      "excerpt": "Deno is joining Cloudflare The Deno team released the first version of celld back in August - their open source implementation of the Durable Objects pattern from Cloudflare Workers. Today, Cloudflare are acquiring Deno outright, with the goal of building on celld to \"make workerd self-hosting a first-class supported way to build and run apps using the Workers programming model\" (see the Cloudflare blog .) The bad news is that Deno itself will not be maintained by Cloudflare beyond the next year: We will support the Deno runtime for another year with monthly releases containing bug fixes and security updates. After that year we will end our development of the Deno runtime. Deno will remain open source, and we welcome others who want to continue its development. Deno (and Node.js) creator Ryan Dahl explained that decision in a comment on Hacker News: It's a joint decision and I agree with it. I'm most invested in its success and have put the most work into it - and I no longer think it's where I can do the most important work. There are some good ideas in Deno and it's well engineered - but it ultimately is not solving big problems. It has been sucked into the gravity well of node compatibility, which forces it to behave exactly as Node does. Why reimplement Node? It works. Marginal performance or UX or security benefits are not enough. I'm interested in building powerful new abstractions. celld has been working remarkably well, depending only on object storage for coordination and persistence. It is not just a slightly different API to interact with the file system or network - it's an entirely new model for server development. My favorite feature of Deno has long been the permissions system, where you can run a Deno script and specify exactly which files and folders it can read and write to, and which network hosts it can access. Node.js has a similar permissions model these days, added in Node v20.0.0 in April 2023 and declared stable in Node v22.13.0 in January 2",
+      "scope": [
+        "simonwillison.net"
+      ],
+      "published_at": "2026-10-09T22:48:37Z",
+      "observed_at": "2026-10-09T23:27:45.424786Z",
+      "ingested_at": "2026-10-09T23:27:45.424786Z",
+      "status": "captured",
+      "information_gaps": [],
+      "synthetic": false,
+      "provenance": "data\\intake\\checkpoints\\batch-20261009T232745Z-7ddb7e2774.json"
+    },
+    {
+      "schema_version": 2,
+      "evidence_id": "ev-774d96946c71ad05bd6791fe",
+      "input_id": "item-0652c1bf572d27f0f7b7",
+      "content_version": "1b98547b2dc4d68a81fd3eb4",
+      "event_ids": [
+        "story-63fef70f17b9424d122c"
+      ],
+      "source_url": "https://github.com/drkokorev/context-diet",
+      "source_kind": "source_claim",
+      "source_role": "community_discovery",
+      "title": "Show HN: Context Diet – trims tool output before it floods Claude Code's context",
+      "excerpt": "Hi HN, I built this after watching long Claude Code sessions fill up with tool output: a single verbose test run or build log can be 30–50k characters, almost all of it PASSED lines, warnings and lockfile churn. The context fills, compaction comes sooner, and the agent forgets earlier instructions. Context Diet is a mod (Claude Code's new JS hook API) that rewrites tool results before they are stored in the conversation: - test runners and build tools (jest, vitest, pytest, go test, cargo, tsc, eslint, npm/pip install, docker build) get parsed digests: every failure with its message and location, plus the summary; passing tests are counted, not listed - JSON becomes a skeleton, diffs drop lockfile churn, grep results and file lists are grouped, tables keep exact first and last rows - running the same command again shows only what changed - the full output is always saved to a file, and the digest says where, so the agent can read it when it needs more The question I cared about most was whether it makes the agent worse. On 7 Q&A tasks with known answers, both groups were 7/7, with 8 tool calls instead of 13. On a bug-fixing task (600 tests, two hidden bugs, Haiku/Sonnet/Opus, 18 runs) every agent fixed both bugs with or without it, using 6 tool calls instead of 8. Honest caveats: the token saving on very large outputs is modest, because Claude Code already moves those to a file; the gain there is fewer steps. Also, when a command fails, Claude Code keeps only ~10k characters and drops the end of the output, where the failures usually are. There is an opt-in mode that saves ",
+      "scope": [
+        "github.com"
+      ],
+      "published_at": "2026-10-09T18:18:26Z",
+      "observed_at": "2026-10-10T16:13:24.454289Z",
+      "ingested_at": "2026-10-10T16:13:24.454289Z",
+      "status": "unverified",
+      "information_gaps": [],
+      "synthetic": false,
+      "provenance": "data\\evidence\\v1\\2026-10-11\\5264b52a1d56b7e5a20a0de2-5ec5aa96cc8b49ad861bbb2680a7f9c8.json"
+    }
+  ],
+  "registry": [],
+  "targets": [],
+  "seeds": [],
+  "reanalyze": false
+}

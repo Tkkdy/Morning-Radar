@@ -161,6 +161,35 @@ def _candidate_match(left: RawItem, right: RawItem) -> bool:
     if _published_distance_hours(left, right) > 72:
         return False
 
+    # An explicitly observed release-to-paper link is a candidate relation only.
+    # The provider must still distinguish an accompanying paper from cited prior work.
+    if (left.url in right.metadata.get("material_links", [])
+            or right.url in left.metadata.get("material_links", [])):
+        return True
+
+    # Cross-title matching requires an official anchor, a shared actor, and
+    # specific subject words supported in BOTH records. Generic capability words
+    # (e.g. generation/pricing) do not identify an event; suffixes are not evidence.
+    left_text, right_text = left.title + " " + left.summary, right.title + " " + right.summary
+    generic = _TITLE_ENTITY_STOP_WORDS | {
+        "our", "their", "will", "can", "text", "generation", "pricing", "training",
+        "reasoning", "performance", "technology", "information", "introduction",
+    }
+    actors = {
+        word.casefold() for word in re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", left_text)
+    } & {
+        word.casefold() for word in re.findall(r"\b[A-Z][A-Za-z0-9-]{2,}\b", right_text)
+    } - generic
+    subjects = (_tokens(left_text) & _tokens(right_text)) - actors - generic
+    shared_title = _tokens(left.title) & _tokens(right.title)
+    followup = {"review", "benchmark", "benchmarks", "revised", "correction", "withdraws"}
+    if (
+        actors and subjects and shared_title - _TITLE_ENTITY_STOP_WORDS - actors
+        and left.source_name != right.source_name
+        and any(i.source_role.value == "official_primary" for i in (left, right))
+        and not ((_tokens(left.title) ^ _tokens(right.title)) & followup)
+    ):
+        return True
     shared_strong = _strong_tokens(left).intersection(_strong_tokens(right))
     shared_actions = _action_kinds(left).intersection(_action_kinds(right))
     if not shared_strong or not shared_actions:
