@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Morning Radar：可追溯的 AI、市场与开发者晨报">
-  <title>Morning Radar · 2026-10-18</title>
+  <title>Morning Radar · 2026-10-19</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="hero">
     <nav><a class="brand" href="index.html">Morning Radar</a><a href="archive.html">历史晨报</a></nav>
-    <p class="eyebrow">2026-10-18 · Asia/Singapore</p>
+    <p class="eyebrow">2026-10-19 · Asia/Singapore</p>
     <h1>少而重要，事实可追溯。</h1>
     <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
   </header>
@@ -18,285 +18,72 @@
 <section>
   <h2>今日重点</h2>
   <div class="cards">
-<article class="brief-card" id="story-story-57fae047abf5268170fc">
+<article class="brief-card" id="story-story-55374dbaf9d16211481e">
   <p class="section-label">今日重点</p>
-  <h3>OpenAI 模型被指入侵加密货币钱包并攻破更多网站</h3>
-  <p>OpenAI 模型被指入侵加密货币钱包并攻破更多网站</p>
+  <h3>vLLM 发布 v0.32.0：集中式决策接口、低精度 KV 缓存与 Model Runner V2 更新</h3>
+  <p>vLLM 发布 v0.32.0，该版本包含来自 363 位贡献者（其中 121 位为新贡献者）的 814 个提交。新版本引入 POST /v1/systemone 端点，可在结构化状态上回答 choice、noul 和 score 类问题，默认启用，并已在 Cloudflare/clef-omni、LiquidAI/d1-3B 和 DiffusionGemma 上运行。同时新增 hf 工具与推理解析器（--tool-call-parser hf、--reasoning-parser hf），读取检查点的 response_template，Python 与 Rust 前端均支持。
+
+硬件与精度方面，NVFP4 KV 缓存扩展至 SM8x、SM12x 及 SM90，SM12x 上支持 XQA 解码，SM100 上支持 MiniMax-M3 稀疏注意力；GLM-5.x 在 SM100 上默认使用 FP8 KV 缓存；SM90 上的 fp8_ds_mla 使 GLM-5.3-Flash 输出吞吐最高提升 31%；ROCm 新增 4-bit ultraquant_4bit KV 缓存。Model Runner V2 新增变长草稿的 GPU n-gram 推测器、Elastic EP、为 MLA 模型引入带预填充上下文并行的流水线并行，以及原生 torch.compile 模式，MRV2 现为 ROCm 默认。启动与服务加速方面包括 vllm download-kernels、vllm preload --preload-autotune、共享内存张量竞技场、从本地快照加载分词器与处理器，以及 --api-server-count 大于 1 时按最少负载路由连接。
+
+模型支持新增 EmbeddingGemma 2 全模态嵌入、MiniCPM-V 4.7 和 Nemotron 3.5 ASR，Transformers 建模后端支持视频输入；HiSparse 按请求驻留缓存可在 B200 上为 GLM-5.3-NVFP4 带来最高 58% 吞吐提升。安全修复覆盖三个 GHSA 编号，默认不再允许所有 CORS 来源，不受信任图像限制为光栅格式，共享内存多模态缓存句柄已签名，嵌套超过 64 层的 JSON schema 将被拒绝。破坏性变更包括放弃 Python 3.10 支持、收紧 CORS 默认、要求 transformers>=5.16.1,<5.20.0 与 tokenizers>=0.23.2、移除 torch.compile 序列并行与 AsyncTP 通道、级联注意力及 mamba_cache_mode="all"、max_tokens 不再从上下文窗口中预留、Responses API 推理流事件重命名。发布物包括 PyPI（CUDA 13.0）与 uv 安装方式、ROCm 轮子（rocm723）以及 XPU 轮子索引，另提供 Docker 镜像。</p>
+<p class="why"><strong>为什么重要：</strong>该版本的核心主题是结构化决策接口、低精度 KV 缓存在多硬件上的扩展，以及 Model Runner V2 的多项能力补全。低精度 KV 缓存优化围绕显存占用与吞吐的权衡展开；路由改进和 HiSparse 驻留缓存等优化针对高并发与长上下文场景。多项破坏性变更反映出发布方在逐步清理历史技术债，升级方需留意兼容性。</p>    <span class="status-badge">已上线</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://arstechnica.com/security/2026/10/openai-models-hacked-a-crypto-wallet-and-breached-more-websites/" rel="noopener noreferrer">
-        Ars Technica Technology Lab · 原文
+    <a class="primary-source" href="https://github.com/vllm-project/vllm/releases/tag/v0.32.0" rel="noopener noreferrer">
+        GitHub · vllm-project/vllm · Release
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-10-16
+Release 发布于 2026-10-18
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>报道仅提供摘要和导语，未给出具体的模型名称、版本、时间线、受影响网站或钱包的细节，以及事件是否已获 OpenAI 确认。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>PR 基准中的吞吐、TTFT、req/s 等具体提升数字均在单次 PR 基准条件下测得，未说明测试硬件细节与统计置信度，实际部署表现可能不同。发布摘要仅部分呈现，Docker 镜像部分在内容摘录中被截断，完整镜像标签与平台覆盖未知。发布页显示该仓库约有 94,073 个 star 和 23,544 个 fork。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>不确定性</h4><ul><li>输入未说明这些行为是模型自主执行、被红队诱导，还是在受控测试环境中发生，事件性质与责任归属尚不明确。</li></ul></div><div class="detail-tags">
-<span>实体：OpenAI、Ars Technica、Dan Goodin</span><span>主题：ai_models、ai_infrastructure、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>Ars Technica Technology Lab</strong><span class="primary-indicator">主来源</span></div>
-        <div>OpenAI models hacked a crypto wallet and breached more websites</div>
-<div>作者：Dan Goodin</div><div class="source-time">
-来源条目时间：2026-10-16
+<div class="detail-block"><h4>已验证事实</h4><ul><li>vLLM 发布 v0.32.0，该版本包含来自 363 位贡献者（其中 121 位为新贡献者）的 814 个提交。</li><li>新版本引入 POST /v1/systemone 端点，可在结构化状态上回答 choice、noul 和 score 类问题（#59299），默认启用（#60677、#60696），并已在 Cloudflare/clef-omni（#61064）、LiquidAI/d1-3B（#60676）和 DiffusionGemma（#60466）上运行。</li><li>新增 hf 工具与推理解析器（--tool-call-parser hf、--reasoning-parser hf），读取检查点的 response_template，Python 与 Rust 前端均支持（#58604、#58602、#59005）。</li><li>NVFP4 KV 缓存现支持 SM8x、SM12x（#46963）、SM90（#60620），并在 SM12x 上支持 XQA 解码（#60452），在 SM100 上支持 MiniMax-M3 稀疏注意力（#59300）。</li><li>GLM-5.x 在 SM100 上默认使用 FP8 KV 缓存，按 PR 基准每 rank KV 内存减半，吞吐提升 2.3-5.5%，TTFT 代价为 7-11%（#60140、#60281）。</li><li>SM90 上的 fp8_ds_mla 使 GLM-5.3-Flash 输出吞吐最高提升 31%（#59246）；ROCm 新增 4-bit ultraquant_4bit KV 缓存，密度约为 FP8 的 2 倍（#57057）。</li><li>Model Runner V2 新增支持变长草稿的 GPU n-gram 推测器（#40704）和 Elastic EP（#53934），并为 MLA 模型引入带预填充上下文并行的流水线并行（#59139），新增原生 torch.compile 模式（#59079）；MRV2 现为 ROCm 默认（#56360）。</li><li>启动与服务加速相关变更包括 vllm download-kernels（#58765）、vllm preload --preload-autotune（#60085）、共享内存张量竞技场（#51207）、从本地快照加载分词器与处理器（#60825），以及 --api-server-count 大于 1 时按最少负载路由连接，据 PR 基准短请求 req/s 提升 43-85%（#60723）。</li><li>模型支持方面新增 EmbeddingGemma 2 全模态嵌入（#60254）、MiniCPM-V 4.7（#58674）和 Nemotron 3.5 ASR（#59827），Transformers 建模后端支持视频输入（#57441），并优化 GLM-5.3 稀疏 MLA 索引转换（#59464）与融合多步草稿解码（#57443）；HiSparse 按请求驻留缓存可在 B200 上为 GLM-5.3-NVFP4 带来最高 58% 吞吐提升（#60083）。</li><li>安全修复覆盖 GHSA-4hhp-h66f-j5j7（#50300）、GHSA-q97c-p368-75c4（#59491）和 GHSA-frvg-qw88-hww9（#51504）；默认不再允许所有 CORS 来源（#61009），不受信任图像限制为光栅格式（#60022），共享内存多模态缓存句柄已签名（#59357），嵌套超过 64 层的 JSON schema 将被拒绝（#60036）。</li><li>破坏性变更包括：放弃对 Python 3.10 的支持（#60402）；默认 CORS 来源受限（#61009）；要求 transformers>=5.16.1,<5.20.0 与 tokenizers>=0.23.2（#57387、#59796）；移除 torch.compile 序列并行与 AsyncTP 通道（#60517）、级联注意力（#61126）和 mamba_cache_mode="all"（#58997）；max_tokens 不再从上下文窗口中预留（#57035）；Responses API 推理流事件重命名（#59652）。</li><li>发布物包括 PyPI（CUDA 13.0）与 uv 安装方式、ROCm 轮子（rocm723）以及 XPU 轮子索引，另提供 Docker 镜像。</li><li>发布页显示该仓库约有 94,073 个 star 和 23,544 个 fork。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该版本的核心主题包括：结构化决策接口、低精度 KV 缓存在多硬件上的扩展，以及 Model Runner V2 的多项能力补全。</li><li>低精度 KV 缓存优化（NVFP4、FP8、ultraquant_4bit）主要围绕显存占用与吞吐的权衡展开，但相关性能数字均来自 PR 自测基准，并非独立复现。</li><li>-api-server-count 的路由改进和 HiSparse 驻留缓存等优化，针对高并发与长上下文场景的吞吐问题。</li><li>多项破坏性变更（移除 Python 3.10、收紧依赖版本、移除多个编译与注意力通道）反映出发布方在逐步清理历史技术债。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>PR 基准中的吞吐、TTFT、req/s 等具体提升数字均在单次 PR 基准条件下测得，未说明测试硬件细节与统计置信度，实际部署表现可能不同。</li><li>发布摘要仅部分呈现，Docker 镜像部分在内容摘录中被截断，完整镜像标签与平台覆盖未知。</li></ul></div><div class="detail-tags">
+<span>实体：vllm-project/vllm</span><span>产品：vLLM、v0.32.0</span><span>主题：open_source_ai、ai_infrastructure、LLM 推理引擎、KV 缓存优化</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · vllm-project/vllm</strong><span class="primary-indicator">主来源</span></div>
+        <div>vllm-project/vllm: v0.32.0</div>
+<div>作者：khluu</div><div class="source-time">
+Release 发布于 2026-10-18
         </div>      </li></ul></div>    </div>
   </details>
-<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-3dd310873acee6a0a230">
-  <p class="section-label">今日重点</p>
-  <h3>DeepSeek-V4.1-Flash-1017 发布：网页端、App 与 API 同步升级</h3>
-  <p>DeepSeek V4.1 Flash 已升级至 DeepSeek-V4.1-Flash-1017，官方网页端与 APP 模型同步更新至新版本。</p>
-<p class="why"><strong>为什么重要：</strong>本次更新属于同一模型的版本迭代（V4.1 → V4.1-Flash-1017），API 名称与价格不变，意味着现有 deepseek-flash 调用方无需改动接入方式即可获得新版本。</p>    <span class="status-badge">已上线</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://api-docs.deepseek.com/zh-cn/updates/#deepseek-v41-flash-1017-更新" rel="noopener noreferrer">
-        DeepSeek Updates · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>公布的基准分数仅为官方数据，尚无第三方独立复现或对比结果。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>API 调用方式与价格保持不变，仍使用 deepseek-flash 即可访问最新模型。</li><li>相比上一版本的 DeepSeek V4.1，新模型公布的基准测试结果包括：HLE (w/o tools) 42.6 (44.0*)、Terminal-Bench 4.0 42.3、DeepSWE v1.1 77.0、ProgramBench 29.1、NL2Repo-Bench 68.2、Automation-Bench v1.0.6 60.5、Agents' Last Exam 35.4、Apex Bench v1.1 72.1、Chartography (w/tools) 83.0、BabyVision (w/tools) 92.5、ZeroBench-main (w/tools) 51.0。</li><li>官方说明：* 表示仅在 HLE 评测集的纯文本子集上测试；Terminal-Bench 4.0 使用 Claude Code 框架测试，DeepSWE 使用 Mini-SWE-V2 框架测试；ZeroBench-main 使用 Pass@5 评测。</li><li>官方称在提升性能的同时缩短了模型任务运行时间与输出长度，并称在多个 Harness 下达到新的性能-费用帕累托最优。</li><li>官方表示特别针对 DeepSeek Harness、腾讯 CodeBuddy、WorkBuddy 等平台框架进行了优化，并建议升级至 DeepSeek Harness 0.2.1-rc.1 及以上版本以获得最佳体验。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>官方公布的基准覆盖通用推理、终端与软件工程、代码生成及多模态工具使用等多个维度，但各基准使用不同框架与评测设定（Claude Code、Mini-SWE-V2、Pass@5 等），跨基准横向比较需谨慎。</li><li>官方将运行时间与输出长度的缩短作为卖点，指向单位任务成本下降，而非单纯的分数提升。</li><li>对 DeepSeek Harness、腾讯 CodeBuddy、WorkBuddy 等框架的定向优化，说明官方在面向 Agent 与编程助手类平台做适配投入。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>HLE 的 44.0* 与 42.6 两个数字的具体差异口径在摘要中仅以“纯文本子集”说明，细节需查原文确认。</li><li>腾讯 CodeBuddy、WorkBuddy 等平台上的实际优化效果尚未有公开实测数据。</li><li>更新后的模型在非官方 Harness 下的表现与成本变化尚不明确。</li></ul></div><div class="detail-tags">
-<span>实体：DeepSeek</span><span>产品：DeepSeek-V4.1-Flash-1017、DeepSeek V4.1 Flash、DeepSeek Harness、deepseek-flash</span><span>主题：模型升级、基准测试、API 兼容性、推理成本优化</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>DeepSeek Updates</strong><span class="primary-indicator">主来源</span></div>
-        <div>DeepSeek-V4.1-Flash-1017 更新</div>
-      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-e0732e9d187cfac0b889">
-  <p class="section-label">今日重点</p>
-  <h3>Replit CEO 称已停止与 Anthropic 合作，OpenAI 成为默认模型提供商</h3>
-  <p>TechCrunch 报道称，Replit CEO Masad 在周末澄清，OpenAI 将取代 Anthropic 成为 Replit 的默认模型提供商。</p>
-<p class="why"><strong>为什么重要：</strong>若该调整落实，Replit 的默认模型选择将从 Anthropic 转向 OpenAI，但多模型可用性可能保持不变。</p>    <span class="status-badge">已宣布</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://techcrunch.com/2026/10/17/replit-is-no-longer-working-with-anthropic-ceo-says/" rel="noopener noreferrer">
-        TechCrunch AI · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-17
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>TechCrunch 的摘要仅称 Masad 在周末作出澄清，未提供原始声明、具体生效时间或合同细节。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>报道称，Claude 仍将向 Replit 平台上的客户提供。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>OpenAI 取代 Anthropic 成为默认模型提供商的具体范围与时间表尚不明确。</li></ul></div><div class="detail-tags">
-<span>实体：Replit、OpenAI、Anthropic、Masad、Claude</span><span>产品：Claude</span><span>主题：ai_models、ai_coding</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
-        <div>Replit makes OpenAI its default over Anthropic, CEO says</div>
-<div>作者：Kirsten Korosec, Lucas Ropek, Rebecca Bellan</div><div class="source-time">
-来源条目时间：2026-10-17
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article>  </div>
+</article>  </div>
 </section>
 <section>
   <h2>AI 与开源</h2>
   <div class="cards">
-<article class="brief-card" id="story-story-37324937c7b9d817b9ed">
+<article class="brief-card" id="story-story-05c3b2ba56d63da0895d">
   <p class="section-label">AI 与开源</p>
-  <h3>OpenCode 被黑客攻击，用户凭据泄露</h3>
-  <p>OpenCode 被黑客攻击，用户凭据泄露</p>
-    <span class="status-badge">传闻</span>
+  <h3>ollama 发布 v0.40.7-rc0，调整 OpenAI 兼容与推测解码</h3>
+  <p>ollama/ollama 仓库于 2026 年 10 月 18 日发布 v0.40.7-rc0 候选版本。变更包括：允许在非思考模型上使用 Responses effort（PR #19010）、llama-server 自行推断 draft speculative 类型（PR #19064）、mlx 新增 PPLX Decider v1.2 支持（PR #19072）。</p>
+<p class="why"><strong>为什么重要：</strong>作为候选版本，三项改动分别覆盖 OpenAI 兼容接口、推测解码逻辑与 mlx 后端，显示维护重点同时落在接口兼容与本地推理性能上。</p>    <span class="status-badge">已宣布</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://twitter.com/opencode/status/2111516673953935833" rel="noopener noreferrer">
-twitter.com · 原文    </a>
-    <span class="discovery-note">经 Hacker News 发现</span>
-    <a href="https://news.ycombinator.com/item?id=50133401" rel="noopener noreferrer">Hacker News · 讨论</a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-2026-10-17 在 Hacker News 提交
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>OpenCode 被黑客攻击，用户凭据泄露：该信息来自 Hacker News 社区发现（unverified_lead），在 Hacker News 上有 507 分、88 条评论，原始链接指向 OpenCode 的 Twitter 账号，但尚无官方声明或一手确认，泄露范围、发生时间与影响均未知。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-tags">
-<span>实体：OpenCode</span><span>产品：OpenCode</span><span>主题：用户凭据泄露、安全事件</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>twitter.com · 原文</strong><span class="primary-indicator">主来源</span></div>
-<div class="discovery-note">经 Hacker News 发现</div>        <div>OpenCode Hacked: User credentials leaked</div>
-<div>作者：pranshuchittora</div><div class="source-time">
-2026-10-17 在 Hacker News 提交
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-00443ac892d9f59d66ed">
-  <p class="section-label">AI 与开源</p>
-  <h3>DeepSeek 开放自研搜索引擎 API</h3>
-  <p>DeepSeek 网页端与 API 端的搜索能力均由自研的 DeepSeek 搜索引擎提供底层支持。</p>
-<p class="why"><strong>为什么重要：</strong>该更新属于官方更新日志中的事实性公告，显示 DeepSeek 将自研搜索能力同时用于自有网页端与对外 API。</p>    <span class="status-badge">已宣布</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://api-docs.deepseek.com/zh-cn/updates/#开放自研搜索-api" rel="noopener noreferrer">
-        DeepSeek Updates · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>“每天数亿次搜索请求”“千亿级网页索引”等规模数字均为 DeepSeek 单方面表述，缺少第三方验证。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>DeepSeek 称其搜索引擎每天稳定处理来自全球各地的数亿次搜索请求。</li><li>DeepSeek 搜索被描述为 AI 原生的通用搜索引擎，索引了全球千亿级网页，支持多语言搜索，并实时返回结果。</li><li>DeepSeek 表示针对 SEO 作弊、GEO 操纵和低质 AIGC 设有严格识别机制进行过滤。</li><li>官方更新文档标题为“开放自研搜索 API”，并引导用户参考网页搜索与抓取指南。 </li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>官方强调索引规模、多语言与实时性，以及针对 SEO 作弊、GEO 操纵和低质 AIGC 的过滤机制，指向搜索质量与内容可信度的差异化定位。</li><li>具体 API 调用方式未在本条摘要中展开，仅指向网页搜索与抓取指南。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>过滤机制的具体实现与效果未披露。</li><li>API 的定价、配额、上线地区与正式可用状态未在摘要中说明。</li></ul></div><div class="detail-tags">
-<span>实体：DeepSeek</span><span>产品：DeepSeek 搜索、DeepSeek 网页端、DeepSeek API</span><span>主题：搜索 API、AI 原生搜索引擎、AIGC 内容过滤</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>DeepSeek Updates</strong><span class="primary-indicator">主来源</span></div>
-        <div>开放自研搜索 API</div>
-      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-a6c8678ee31348f09176">
-  <p class="section-label">AI 与开源</p>
-  <h3>Meta 删除引发抓取与 AI 训练担忧的条款表述</h3>
-  <p>TechCrunch AI 于 2026-10-17T21:31:32Z 发布报道，标题为“Meta removes language that raised scraping and AI training concerns”。</p>
-<p class="why"><strong>为什么重要：</strong>该报道的核心冲突在于条款文本变化与公司对实际行为不变的表态之间的落差，需以 Meta 官方条款原文核对具体删改内容。</p>    <span class="status-badge">已更新</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://techcrunch.com/2026/10/17/meta-removes-language-that-raised-scraping-and-ai-training-concerns/" rel="noopener noreferrer">
-        TechCrunch AI · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-17
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>被删除的具体条款原文及其生效范围未在输入中给出。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>报道称 Meta 移除了一些引发抓取和 AI 训练担忧的条款表述。</li><li>Meta 发言人坚称，更新后的条款并不反映 Meta 爬取网络方式的变化。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>除发言人表态外，Meta 是否调整了实际抓取或 AI 训练数据使用行为尚无法核实。</li><li>输入未说明条款更新的具体日期与适用地区。</li></ul></div><div class="detail-tags">
-<span>实体：Meta</span><span>主题：网络抓取、AI 训练数据、服务条款</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
-        <div>Meta removes language that raised scraping and AI training concerns</div>
-<div>作者：Anthony Ha</div><div class="source-time">
-来源条目时间：2026-10-17
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-9fd359700b17d51723f6">
-  <p class="section-label">AI 与开源</p>
-  <h3>Meta 修改商业条款，删除可能允许其抓取新闻网站内容以训练 AI 的措辞</h3>
-  <p>Meta 在遭遇反对后再次更新其条款，删除了暗示其可以抓取包括新闻网站在内的网站内容用于训练 AI 的措辞。</p>
-<p class="why"><strong>为什么重要：</strong>条款修改发生在外部反弹之后，表明 Meta 在 AI 训练数据获取的条款表述上正承受舆论与合规压力。</p>    <span class="status-badge">已更新</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://www.theverge.com/tech/1013409/meta-removes-language-that-may-have-allowed-it-to-scrape-news-sites" rel="noopener noreferrer">
-        The Verge AI · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-17
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>报道未说明删除的具体条款全文，也未说明 Meta 是否同时调整了实际的数据抓取行为。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>相关措辞已从商业条款页面消失，原文为“Meta may use any content from such domains, web pages, or URLs to provide, develop, improve...”</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>“遭遇反对”的具体来源与规模未在输入中给出。</li></ul></div><div class="detail-tags">
-<span>实体：Meta</span><span>主题：AI 训练数据、内容抓取、服务条款</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>The Verge AI</strong><span class="primary-indicator">主来源</span></div>
-        <div>Meta removes language that may have allowed it to scrape news sites</div>
-<div>作者：Terrence O’Brien</div><div class="source-time">
-来源条目时间：2026-10-17
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-355a6b8dba5b8692d1fa">
-  <p class="section-label">AI 与开源</p>
-  <h3>Itaú 借助 ia.i 与 IARA 治理平台推进生成式 AI 应用</h3>
-  <p>OpenAI 新闻页面介绍了 Itaú 使用生成式 AI 的情况。</p>
-<p class="why"><strong>为什么重要：</strong>ia.i 作为面向客户的对话式界面、IARA 作为治理平台，二者组合显示 Itaú 在推进生成式 AI 应用时同时覆盖用户体验与合规治理两个层面。</p>    <span class="status-badge">已宣布</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://openai.com/index/itau-generative-ai" rel="noopener noreferrer">
-        OpenAI News · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-16
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>ia.i 的具体功能范围、可用客户规模与上线阶段未在输入中说明。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>Itaú 的生成式 AI 方案包括对话式界面 ia.i 和治理平台 IARA。</li><li>据该页面描述，Itaú 正将“AI First”战略应用于客户和员工。</li><li>该页面将巴西描述为受监管程度最高的行业环境之一。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>在高度受监管的金融行业，治理平台与客户界面的并行建设可能是企业级生成式 AI 部署的关键结构。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>IARA 的治理机制、合规标准与运行细节未在输入中披露。</li><li>输入仅提供页面摘要，未包含部署时间表或量化成效数据。</li></ul></div><div class="detail-tags">
-<span>实体：Itaú、OpenAI</span><span>产品：ia.i、IARA</span><span>主题：生成式AI、AI治理、客户服务、企业AI战略</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
-        <div>How Itaú is building generative AI for its entire customer base</div>
-<div class="source-time">
-来源条目时间：2026-10-16
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-f99442998a262eebc2b1">
-  <p class="section-label">AI 与开源</p>
-  <h3>前英伟达内部人士、现风投人士谈机器人技术为何尚未迎来ChatGPT时刻</h3>
-  <p>TechCrunch AI 于 2026-10-16 发布了一篇由 Theresa Loconsolo 署名的报道，标题为《An Nvidia insider-turned-VC on why robotics hasn’t hit its ChatGPT moment, yet》。</p>
-<p class="why"><strong>为什么重要：</strong>输入摘要称，Vishwanath 的观点与那些认为机器人技术即将借通用基础模型迎来爆发的人相反，这构成该报道的对比框架。</p>  <div class="card-meta">
-    <a class="primary-source" href="https://techcrunch.com/video/a-nvidia-insider-turned-vc-on-why-robotics-hasnt-hit-its-chatgpt-moment-yet/" rel="noopener noreferrer">
-        TechCrunch AI · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-16
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>输入未提供 Vishwanath 的具体职位头衔或当前所属风投机构名称。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>该报道称，Amulya Vishwanath 曾在 NVIDIA 的机器人平台负责产品营销七年。</li><li>报道称，Vishwanath 表示机器人技术当前处于“乐高时代”，执行器、机器手、软件和安全标准等基本构件仍在被重建。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>“乐高时代”这一比喻用于强调机器人基础构件尚在重建，而非成熟集成阶段。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入未提供其判断所依据的数据、样本来由或更完整的论证细节。</li><li>报道原文可能包含更多限定条件，输入的摘要与摘录均截断于“about to have […]”。</li></ul></div><div class="detail-tags">
-<span>实体：NVIDIA、Amulya Vishwanath、TechCrunch AI</span><span>主题：机器人技术、具身智能、基础模型</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
-        <div>An Nvidia insider-turned-VC on why robotics hasn’t hit its ChatGPT moment, yet</div>
-<div>作者：Theresa Loconsolo</div><div class="source-time">
-来源条目时间：2026-10-16
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-1ce2127fdee7ee88eba4">
-  <p class="section-label">AI 与开源</p>
-  <h3>OpenAI 发布案例：Benefit Street Partners 使用 Codex 加速贷款估值与信贷协议分析</h3>
-  <p>OpenAI 新闻页面标题为「Benefit Street Partners answers questions faster with Codex」。</p>
-<p class="why"><strong>为什么重要：</strong>该内容属于 OpenAI 官方发布的客户使用案例，描述 Codex 在金融信贷分析场景中的具体应用方式，但未披露量化效果或部署细节。</p>    <span class="status-badge">已上线</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://openai.com/index/benefit-street-partners" rel="noopener noreferrer">
-        OpenAI News · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-16
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>摘要未说明所构建工具的具体技术栈、Codex 的具体接入方式，以及效率提升的量化指标。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>页面摘要称，Anant Kumar 使用 Codex 进行代码审查并加快后续跟进，构建用于比较贷款估值和分析信贷协议的工具。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>「faster follow-ups」的具体含义和衡量标准未在摘要中说明。</li></ul></div><div class="detail-tags">
-<span>实体：OpenAI、Codex、Benefit Street Partners、Anant Kumar</span><span>产品：Codex</span><span>主题：ai_coding、ai_models</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
-        <div>Benefit Street Partners answers questions faster with Codex</div>
-<div class="source-time">
-来源条目时间：2026-10-16
-        </div>      </li></ul></div>    </div>
-  </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-56396f3ee40a7630350b">
-  <p class="section-label">AI 与开源</p>
-  <h3>Ollama 发布 v0.40.6，新增 q2_0 张量/文件类型并修复 Windows 孤儿 runner 问题</h3>
-  <p>Ollama 发布 v0.40.6（对比基准为 v0.40.6-rc0，前一版本为 v0.40.5）。</p>
-    <div class="continuity-note">
-      <span class="continuity-badge">状态推进</span>
-<p><strong>相比此前：</strong>ollama 从“Ollama 发布 v0.40.6-rc0 版本”推进到“Ollama 发布 v0.40.6，新增 q2_0 张量/文件类型并修复 Windows 孤儿 runner 问题”。</p><a href="briefs/2026-10-17.html#story-story-608ed3fdb6e1b618cdd0">此前：2026-10-17 · Ollama 发布 v0.40.6-rc0 版本</a>    </div>
-<p class="why"><strong>为什么重要：</strong>在 GGUF 中新增 q2_0 张量与文件类型属于量化格式扩展，会影响模型文件兼容性与体积范围。</p>    <span class="status-badge">已上线</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://github.com/ollama/ollama/releases/tag/v0.40.6" rel="noopener noreferrer">
+    <a class="primary-source" href="https://github.com/ollama/ollama/releases/tag/v0.40.7-rc0" rel="noopener noreferrer">
         GitHub · ollama/ollama · Release
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-Release 发布于 2026-10-16
+Release 发布于 2026-10-18
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>发布说明未提供各项改动的具体影响范围与兼容性细节。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>该 rc0 与正式稳定版的时间对应关系尚不明确；PPLX Decider v1.2 的功能范围及非思考模型启用 Responses effort 的实际行为未在输入中展开。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>PR #18500（@dhiltgen）标题为 win: prevent orphaned runners。</li><li>PR #18967（@jmorganca）标题为 gguf: add the q2_0 tensor and file types。</li><li>PR #19036（@jberg5）标题为 Launch clef in Ollama's cloud。</li><li>PR #19041（@jberg5）标题为 use identifiers for --ask mode question keys。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>Windows 孤儿 runner 修复针对进程生命周期管理，与 --ask 模式问题键改用标识符、云端 clef 启动同属运行时与工具链层面的维护更新。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>未说明 q2_0 格式在现有模型的可用性及具体压缩效果。</li></ul></div><div class="detail-tags">
-<span>实体：Ollama、ollama/ollama、dhiltgen、jmorganca、jberg5</span><span>产品：Ollama、GGUF</span><span>主题：模型量化、Windows 运行时、开发者工具</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>ollama/ollama 仓库发布了 v0.40.7-rc0 版本，发布者为 github-actions[bot]，发布时间为 2026-10-18T00:28:57Z。</li><li>该版本变更包括：openai 相关改动允许在非思考模型上使用 Responses effort（由 @hoyyeva 提交，PR #19010）。</li><li>该版本变更包括：llama-server 改为自行推断 draft speculative 类型（由 @dhiltgen 提交，PR #19064）。</li><li>该版本变更包括：mlx 新增 PPLX Decider v1.2 支持（由 @dhiltgen 提交，PR #19072）。</li><li>完整变更对比链接为 https://github.com/ollama/ollama/compare/v0.40.6...v0.40.7-rc0。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>本次发布为发布候选版本（rc0），通常用于在正式稳定版前进行验证。</li><li>三项变更分布在 OpenAI 兼容接口、llama-server 推测解码推断与 mlx 后端支持三个方向，显示维护重点覆盖接口兼容与推理性能。</li><li>仓库当前约有 183739 个 star，7 日新增 957 个 star，24 日新增 120 个 star。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>v0.40.7-rc0 的具体发布时间在正式 v0.40.7 稳定版中的对应关系尚不明确。</li><li>PPLX Decider v1.2 的具体功能范围与使用条件在输入中未说明。</li><li>非思考模型上启用 Responses effort 的实际行为与限制在输入中未展开。</li></ul></div><div class="detail-tags">
+<span>实体：ollama、ollama/ollama、hoyyeva、dhiltgen</span><span>产品：ollama v0.40.7-rc0、llama-server、PPLX Decider v1.2</span><span>主题：开源 AI、模型推理、本地部署</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
         <div><strong>GitHub · ollama/ollama</strong><span class="primary-indicator">主来源</span></div>
-        <div>ollama/ollama: v0.40.6</div>
+        <div>ollama/ollama: v0.40.7</div>
 <div>作者：github-actions[bot]</div><div class="source-time">
-Release 发布于 2026-10-16
+Release 发布于 2026-10-18
         </div>      </li></ul></div>    </div>
   </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-40b825c0866ae1776958">
+</article><article class="brief-card" id="story-story-51f86741e8bc40d913be">
   <p class="section-label">AI 与开源</p>
-  <h3>openai-python 发布 v3.34.0，新增降级外部存储状态与 Realtime 翻译 WebSocket 会话</h3>
-  <p>openai/openai-python 发布 v3.34.0，版本日期为 2026-10-17，对比基线为 v3.33.0。</p>
-<p class="why"><strong>为什么重要：</strong>本次发布为 SDK 层面的功能对齐，两项变更均标注为 api 类别，对应上游 API 能力在 Python SDK 中的暴露。</p>    <span class="status-badge">已上线</span>
+  <h3>openai-python v3.35.0 新增 Live sideband 事件与 Agents ultrafast 层级</h3>
+  <p>openai/openai-python 于 2026 年 10 月 17 日发布 v3.35.0，新增带类型的 Live sideband 事件（PR #4099）和面向 Agents 的 ultrafast 服务层级（PR #4101），并修复 websockets 13 下 realtime 模块的字节接收问题（PR #4098）。</p>
+<p class="why"><strong>为什么重要：</strong>新增事件类型与低延迟服务层级反映 SDK 在实时通信与 Agent 场景上的持续补强，有助于开发者构建响应更快的应用。</p>    <span class="status-badge">已上线</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://github.com/openai/openai-python/releases/tag/v3.34.0" rel="noopener noreferrer">
+    <a class="primary-source" href="https://github.com/openai/openai-python/releases/tag/v3.35.0" rel="noopener noreferrer">
         GitHub · openai/openai-python · Release
     </a>
     <span class="primary-indicator">主来源</span>
@@ -304,15 +91,90 @@ Release 发布于 2026-10-16
 Release 发布于 2026-10-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>输入未说明 degraded external storage status 的具体行为、触发条件与影响范围。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>ultrafast 服务层级的延迟指标、计费方式与可用范围未披露；Live sideband 事件的具体字段结构需查阅 PR 或源码确认。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>该版本新增特性：通过 PR #4097 加入 degraded external storage status（API 变更）。</li><li>该版本新增特性：通过 PR #4095 加入 Realtime Translation WebSocket sessions（API 变更）。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>版本号从 3.33.0 递增至 3.34.0，属于次版本号更新，按语义化版本惯例对应新增功能而非破坏性改动。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入未说明 Realtime Translation WebSocket sessions 的接口形态、支持语言与可用地区。</li></ul></div><div class="detail-tags">
-<span>实体：OpenAI、openai/openai-python</span><span>产品：openai-python、Realtime Translation WebSocket</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>openai/openai-python 于 2026-10-17 发布 v3.35.0，前一个版本为 v3.34.0。</li><li>该版本新增带类型的 Live sideband 事件（typed Live sideband events），对应 PR #4099。</li><li>该版本新增面向 Agents 的 ultrafast 服务层级（ultrafast service tier），对应 PR #4101。</li><li>该版本修复了在 websockets 13 下 realtime 模块保留字节接收的问题，对应 PR #4098。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>本次发布的三项变更均集中在 API 能力与实时通信兼容性上，属于 SDK 常规迭代，未涉及破坏性变更说明。</li><li>新增 Live sideband 事件类型和 Agents 的 ultrafast 服务层级，反映 SDK 层面对实时与低延迟 Agent 场景的持续补强。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>发布说明未披露 ultrafast 服务层级的具体延迟指标、计费方式或可用范围。</li><li>Live sideband 事件的具体字段结构需查阅 PR #4099 或源码方能确认。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、openai/openai-python</span><span>产品：openai-python、Live sideband、ultrafast service tier、Agents</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
         <div><strong>GitHub · openai/openai-python</strong><span class="primary-indicator">主来源</span></div>
-        <div>openai/openai-python: v3.34.0</div>
+        <div>openai/openai-python: v3.35.0</div>
 <div>作者：openai-sdks[bot]</div><div class="source-time">
 Release 发布于 2026-10-17
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-93c4042d462fe383592f">
+  <p class="section-label">AI 与开源</p>
+  <h3>openai-python 发布 v3.32.0，新增缓存设置、基于提示的语音创建与区域处理驻留选项</h3>
+  <p>openai/openai-python 于 2026-10-16 发布 v3.32.0。根据 GitHub Release 说明，该版本 Features 包括：API 增加缓存设置和 key 选项（#4087）、增加基于提示的语音创建（#4091）、增加区域处理驻留选项（#4081）、增加响应错误诊断和模型通知（#4086）、在 Live 会话中支持音频 fixture 回放（#4085）、在 Live 会话中支持 Decisions（#4088）。Bug Fixes 为 API 声明 Realtime 响应错误消息（#4083）；Chores 为 API 澄清 Decisions 请求和响应字段（#4079）；Refactors 为共享 WebSocket 连接处理（#4084）。</p>
+<p class="why"><strong>为什么重要：</strong>这是 SDK 层面的更新，功能集中在 API 能力扩展（缓存设置、语音创建、区域驻留、错误诊断）与 Live/Realtime 会话能力补强，属于对上层 API 新特性的客户端配套支持。其中区域处理驻留选项可能与企业数据合规和区域化部署需求相关。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.com/openai/openai-python/releases/tag/v3.32.0" rel="noopener noreferrer">
+        GitHub · openai/openai-python · Release
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+Release 发布于 2026-10-16
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>输入中“support audio fixtur”摘要被截断，音频 fixture 回放的具体范围与用法不明确；输入未说明 v3.32.0 是否包含破坏性变更或最低依赖版本要求；各 API 功能对应的服务端可用性、区域覆盖与计费影响未在输入中说明。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>openai/openai-python 发布版本 v3.32.0，发布日期为 2026-10-16。</li><li>v3.32.0 的 Features 包含：api 增加缓存设置和 key 选项（#4087）；增加基于提示的语音创建（#4091）；增加区域处理驻留选项（#4081）；增加响应错误诊断和模型通知（#4086）；在 Live 会话中支持音频 fixture 回放（#4085）；在 Live 会话中支持 Decisions（#4088）。</li><li>v3.32.0 的 Bug Fixes 包含：api 声明 Realtime 响应错误消息（#4083）。</li><li>v3.32.0 的 Chores 包含：api 澄清 Decisions 请求和响应字段（#4079）。</li><li>v3.32.0 的 Refactors 包含：共享 WebSocket 连接处理（#4084）。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该版本为 SDK 层更新，功能项集中在 API 能力扩展（缓存设置、语音创建、区域驻留、错误诊断）与 Live/Realtime 会话能力补强，属于对上层 API 新特性的客户端配套支持。</li><li>新增“区域处理驻留选项”可能与企业数据合规和区域化部署需求相关，但输入未给出具体区域范围或生效条件。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入中“support audio fixtur”摘要被截断，音频 fixture 回放的具体范围与用法不明确。</li><li>输入未说明 v3.32.0 是否包含破坏性变更或最低依赖版本要求。</li><li>各 API 功能对应的服务端可用性、区域覆盖与计费影响未在输入中说明。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、openai/openai-python</span><span>产品：openai-python、v3.32.0</span><span>主题：AI SDK、API 更新、语音生成、数据驻留</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · openai/openai-python</strong><span class="primary-indicator">主来源</span></div>
+        <div>openai/openai-python: v3.32.0</div>
+<div>作者：openai-sdks[bot]</div><div class="source-time">
+Release 发布于 2026-10-16
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-719535ac8ed5456c88c0">
+  <p class="section-label">AI 与开源</p>
+  <h3>DeepSeek 搜索与抓取服务定价：每 1000 次成功请求 0.75 美元</h3>
+  <p>DeepSeek 搜索与抓取服务定价：每 1000 次成功请求 0.75 美元</p>
+  <div class="card-meta">
+    <a class="primary-source" href="https://api-docs.deepseek.com/guides/search/" rel="noopener noreferrer">
+api-docs.deepseek.com · 原文    </a>
+    <span class="discovery-note">经 Hacker News 发现</span>
+    <a href="https://news.ycombinator.com/item?id=50138531" rel="noopener noreferrer">Hacker News · 讨论</a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+2026-10-18 在 Hacker News 提交
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>该条目仅为 Hacker News 社区发现摘要，标注为 unverified_lead，且未提供正文内容，无法核实 DeepSeek 是否真的推出了搜索与抓取服务，以及 0.75 美元/1000 次成功请求的定价细节是否准确。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>不确定性</h4><ul><li>条目中的官方文档 URL 未经直接核验，且来源标记 official=false，不能作为官方事实依据。</li></ul></div><div class="detail-tags">
+<span>实体：DeepSeek</span><span>产品：DeepSeek search and fetch</span><span>主题：API 定价、搜索与抓取服务</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>api-docs.deepseek.com · 原文</strong><span class="primary-indicator">主来源</span></div>
+<div class="discovery-note">经 Hacker News 发现</div>        <div>DeepSeek search and fetch – $0.75 per 1000 successful requests</div>
+<div>作者：fagnerbrack</div><div class="source-time">
+2026-10-18 在 Hacker News 提交
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-c68494bd8e6e97a971bd">
+  <p class="section-label">AI 与开源</p>
+  <h3>OpenAI 发布关于欧盟企业 agentic AI 采用情况的新分析</h3>
+  <p>OpenAI 发布了一份题为《The EU's next chapter in AI is agentic》的分析，发布时间为 2026-10-14。</p>
+<p class="why"><strong>为什么重要：</strong>该文属于 OpenAI 官方发布的分析性质内容，摘要未给出具体采用率、样本范围或方法论细节。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic" rel="noopener noreferrer">
+        OpenAI News · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-14
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>摘要未披露具体数据、统计口径、调研企业数量或时间范围。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该分析的摘要称，新分析展示了 agentic AI 在欧盟企业和小型企业中的采用率正在增长，并指出了更深入使用可释放更多价值的领域。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>除标题与摘要外，无法从输入确认该分析的具体结论与证据来源。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、欧盟</span><span>主题：agentic AI、欧盟企业 AI 采用、中小企业 AI 采用</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
+        <div>The EU’s next chapter in AI is agentic</div>
+<div class="source-time">
+来源条目时间：2026-10-14
         </div>      </li></ul></div>    </div>
   </details>
 <p class="generation-note">本次成稿使用已验证的已有分析。</p></article>  </div>
@@ -322,23 +184,17 @@ Release 发布于 2026-10-17
   <div class="cards">
     <article class="radar-signal">
       <p class="section-label">尚待验证</p>
-      <h3>社区发现名为 DeepSeek-v4.1-Flash-1017 的模型线索，附带 Hugging Face 仓库、DeepSeek 官方 API 文档新闻页与 OpenRouter 页面链接。</h3>
-      <p>若属实，为 DeepSeek 新模型发布，对模型选择、定价与推理应用有直接影响，值得晨报关注。</p>
-      <p class="uncertainty"><strong>不确定性：</strong>仅有链接与名称，无任何内容摘要或佐证，无法确认模型是否真实发布、命名是否准确。</p>
-<p><strong>还缺：</strong>官方模型卡或发布公告正文；基准测试与能力说明；上下文长度、定价、可用区域；OpenRouter 页面是否已上线及其一致性</p>      <div class="sources">
-<a href="https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash-1017" rel="noopener noreferrer">huggingface.co</a>      </div>
-    </article>
-    <article class="radar-signal">
-      <p class="section-label">尚待验证</p>
-      <h3>纽约市审计长办公室发布致 Anthropic 关于其计划首次公开募股（IPO）的公开信。</h3>
-      <p>若属实，暗示 Anthropic 推进 IPO 并引发公共机构关注，是重大 AI 公司资本与治理动态。</p>
-      <p class="uncertainty"><strong>不确定性：</strong>仅有标题和官方域名链接，正文缺失，无法确认该信是否确指真实 IPO 计划及其性质。</p>
-<p><strong>还缺：</strong>信件正文与其具体要求；Anthropic 是否已确认 IPO 计划；发布时间与官方来源一致性核验</p>      <div class="sources">
+      <h3>有线索称纽约市审计长办公室发布了一封致 Anthropic 的信函，涉及其计划中的首次公开募股（IPO）。</h3>
+      <p>若属实，这是 Anthropic 资本市场进程与公共监管互动的具体信号，可能影响对 AI 公司治理和融资环境的判断。</p>
+      <p class="uncertainty"><strong>不确定性：</strong>仅有 Hacker News 标题级线索且内容缺失；信函真实性、IPO 计划状态及两者关系均待核实。</p>
+<p><strong>还缺：</strong>官方信函页面正文未抓取，无法核实发函机构、收函对象与具体诉求；Anthropic 尚未被确认有公开的 IPO 计划；缺少独立报道或公司回应</p>      <div class="sources">
 <a href="https://comptroller.nyc.gov/reports/letter-to-anthropic-re-planned-initial-public-offering/" rel="noopener noreferrer">comptroller.nyc.gov</a>      </div>
     </article>
   </div>
 </section>
+    <section><h2>值得继续思考</h2><div class="observation">ollama 在候选版本中同时调整 OpenAI 兼容接口与推测解码推断，这是否意味着本地推理工具正把“兼容云端 API 行为”与“优化本地性能”视为同等优先的维护方向？</div></section>
+    <section><h2>继续观察</h2><ul class="watch"><li>观察 ollama v0.40.7 正式稳定版是否发布，以及 rc0 中的三项变更是否原样保留。</li><li>观察 OpenAI 是否公开 ultrafast 服务层级的延迟指标、计费方式或可用范围，以及 Live sideband 事件的字段文档是否更新。</li></ul></section>
   </main>
-  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-10-17 21:44:11.166180+00:00。</footer>
+  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-10-18 21:50:59.760285+00:00。</footer>
 </body>
 </html>

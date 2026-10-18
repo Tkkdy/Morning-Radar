@@ -67,6 +67,7 @@
     "id": "item-33da8aabe6e16f93a795",
     "language": "en-US",
     "metadata": {
+      "content_version": "28e24541f2ca9a20c1e4",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -97,6 +98,7 @@
     "id": "item-3cf4d945cff63c953202",
     "language": "en-US",
     "metadata": {
+      "content_version": "6e3fb09cdf361d03efdc",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -158,6 +160,7 @@
     "id": "item-60deb4eddb490dcc038b",
     "language": "en-us",
     "metadata": {
+      "content_version": "f61e2d5077118013585e",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -249,6 +252,7 @@
     "id": "item-71e1590c6c971a337879",
     "language": "en-US",
     "metadata": {
+      "content_version": "69a24c6e35d88e22113f",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1645,6 +1649,7 @@
     "id": "item-94ee28b93f9d2d830319",
     "language": "en-US",
     "metadata": {
+      "content_version": "535f535d3a735e588f44",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1827,6 +1832,7 @@
     "id": "item-200a5d3dd39c6bfb7a20",
     "language": "en-US",
     "metadata": {
+      "content_version": "8d3bf75f208e4a8e3e88",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -42027,6 +42033,7 @@
     "id": "item-ddb992ee87d6c82ddadf",
     "language": "en",
     "metadata": {
+      "content_version": "858eecf39b47456118cb",
       "data_anomaly": false,
       "forks": 8389,
       "official": true,
@@ -42065,6 +42072,7 @@
     "id": "item-87525bd1d9561d5fdc46",
     "language": "en",
     "metadata": {
+      "content_version": "92187278ddc147ecfe71",
       "data_anomaly": false,
       "forks": 8389,
       "official": true,
@@ -42179,6 +42187,7 @@
     "id": "item-f2bbffb158fe86350611",
     "language": "en",
     "metadata": {
+      "content_version": "666916a4c405dc1cd8dd",
       "data_anomaly": false,
       "forks": 8389,
       "official": true,
@@ -44307,6 +44316,7 @@
     "id": "item-83a753b4160cba93855a",
     "language": "en",
     "metadata": {
+      "content_version": "bae65ba7fbeaf13f47c0",
       "data_anomaly": false,
       "forks": 23544,
       "official": true,
@@ -44687,6 +44697,7 @@
     "id": "item-2434881791854a653a12",
     "language": "en",
     "metadata": {
+      "content_version": "18c49379dcd10e92f33f",
       "data_anomaly": false,
       "forks": 18394,
       "official": true,
@@ -45989,6 +46000,7 @@
     "metadata": {
       "comments": 46,
       "community_signal": true,
+      "content_version": "9a835b7d97b4c386e434",
       "discussion_url": "https://news.ycombinator.com/item?id=50141076",
       "official": false,
       "original_url": "https://github.com/VikOlliver/RepRapMicron/wiki",
@@ -46049,6 +46061,7 @@
     "metadata": {
       "comments": 373,
       "community_signal": true,
+      "content_version": "3f1c55dd6e52788c895f",
       "discussion_url": "https://news.ycombinator.com/item?id=50136881",
       "official": false,
       "original_url": "https://meidasnews.com/news/zuckerbergs-meta-takes-down-no-kings-instagram-during-massive-protest-day",
@@ -46169,11 +46182,20 @@
     "metadata": {
       "comments": 247,
       "community_signal": true,
+      "content_version": "0ca5a9ebc75552aec501",
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50138531",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://api-docs.deepseek.com/guides/search/",
       "score": 503,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -46229,6 +46251,7 @@
     "metadata": {
       "comments": 192,
       "community_signal": true,
+      "content_version": "18a49e9223b6e6a1816b",
       "discussion_url": "https://news.ycombinator.com/item?id=50136536",
       "official": false,
       "original_url": "https://www.tomshardware.com/video-games/new-york-rep-announces-game-ownership-bill-that-would-require-consumer-ownership-rather-than-sale-of-licenses-would-also-require-publishers-to-keep-the-game-functional-after-support-ends",
@@ -46423,6 +46446,7 @@
     "metadata": {
       "change_percent": -0.037178242347822195,
       "close": 709.3300170898438,
+      "content_version": "400fd5c2d5fed022bc5b",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 736.719970703125,
@@ -47339,38 +47363,6 @@
     "url": "https://www.anthropic.com/threat-intelligence-report-september-2026"
   },
   {
-    "author": "fagnerbrack",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-18T21:49:10.243705Z",
-    "id": "item-e10ca61316857fef06d6",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50138531",
-      "hn_submission_time": 1792306236,
-      "lab_id": "deepseek",
-      "original_url": "https://api-docs.deepseek.com/guides/search/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-18T06:50:36Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "DeepSeek search and fetch – $0.75 per 1000 successful requests",
-    "topic_candidates": [],
-    "url": "https://api-docs.deepseek.com/guides/search/"
-  },
-  {
     "author": "tibbar",
     "company_candidates": [],
     "content_excerpt": "",
@@ -47635,6 +47627,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "4381476de5572b9c8741",
       "discovery_paths": [
         "hn_search:anthropic:Anthropic"
       ],

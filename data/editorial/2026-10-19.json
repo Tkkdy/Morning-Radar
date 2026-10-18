@@ -1,0 +1,105 @@
+{
+  "date": "2026-10-19",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "TOP",
+      "reader_value": 4,
+      "reason": "vLLM 大版本集中带来低精度 KV 缓存扩展与推理吞吐优化，直接影响部署成本与本地推理能力。",
+      "retain_for_trends": true,
+      "story_id": "story-55374dbaf9d16211481e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "low-precision-kv-cache-on-multiple-accelerators",
+        "inference-engine-throughput-optimization",
+        "open-source-inference-engine-breaking-changes"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "SDK 常规功能同步，缓存设置与区域驻留选项值得知道但无需展开。",
+      "retain_for_trends": false,
+      "story_id": "story-93c4042d462fe383592f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "新增 Live sideband 事件与 ultrafast 层级属 SDK 迭代，缺乏延迟与计费细节。",
+      "retain_for_trends": false,
+      "story_id": "story-51f86741e8bc40d913be",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "候选版本仅含推测解码与接口兼容小改动，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-05c3b2ba56d63da0895d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "厂商自述分析无数据与方法，不构成可验证的采用趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-c68494bd8e6e97a971bd",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "搜索抓取按成功请求计价若属实会影响 Agent 工具成本，但来源仅为社区线索需核实。",
+      "retain_for_trends": true,
+      "story_id": "story-719535ac8ed5456c88c0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "search-fetch-api-pricing-competition"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "客户案例宣传无数值或独立验证，无阅读与趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-3366c99e22e535ce8dcb",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "单行兼容性补丁，已解决且无持续后果。",
+      "retain_for_trends": false,
+      "story_id": "story-6630015a5c8335769ccb",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-18T21:50:59.760285Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

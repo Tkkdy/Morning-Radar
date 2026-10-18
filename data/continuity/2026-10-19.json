@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-19",
+  "generated_at": "2026-10-18T21:50:59.760285Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 ollama v0.40.7 正式稳定版是否发布，以及 rc0 中的三项变更是否原样保留。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ollama v0.40.7-rc0",
+        "llama-server",
+        "PPLX Decider v1.2"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-18T21:50:59.760285Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-19",
+          "story_id": "story-05c3b2ba56d63da0895d"
+        }
+      ],
+      "topic_anchors": [
+        "开源 AI",
+        "模型推理",
+        "本地部署"
+      ],
+      "watch_id": "watch-aab2a90db15f90f15dda"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否公开 ultrafast 服务层级的延迟指标、计费方式或可用范围，以及 Live sideband 事件的字段文档是否更新。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "openai-python",
+        "Live sideband",
+        "ultrafast service tier"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-18T21:50:59.760285Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-19",
+          "story_id": "story-51f86741e8bc40d913be"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-4ab12310b77504af62f4"
+    }
+  ]
+}

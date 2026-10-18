@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "DeepSeek 搜索与抓取服务定价为每 1000 次成功请求 0.75 美元。",
+    "id": "radar-57cfc6f27a2c73a67a76",
+    "missing_evidence": [
+      "DeepSeek 官方文档页面正文未抓取，无法确认价格、计费口径与生效时间",
+      "缺少 HN 讨论内容或其他独立来源交叉验证",
+      "不清楚“成功请求”的定义、地区差异与配额限制"
+    ],
+    "observed_at": "2026-10-18T21:49:10.243705Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-e10ca61316857fef06d6",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://api-docs.deepseek.com/guides/search/"
+      }
+    ],
+    "uncertainty": "目前仅为社区发现的标题级线索，价格数字和计费规则均未得到所供证据确认。",
+    "why_notable": "若定价属实，这会是检索增强/Agent 工具链的一项具体成本信号，影响开发者选型与调用成本估算。"
+  },
+  {
+    "claim": "有线索称纽约市审计长办公室发布了一封致 Anthropic 的信函，涉及其计划中的首次公开募股（IPO）。",
+    "id": "radar-659b9db3fefea4e10ed8",
+    "missing_evidence": [
+      "官方信函页面正文未抓取，无法核实发函机构、收函对象与具体诉求",
+      "Anthropic 尚未被确认有公开的 IPO 计划",
+      "缺少独立报道或公司回应"
+    ],
+    "observed_at": "2026-10-18T21:49:10.243705Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-bab080d09f358c9fc417",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://comptroller.nyc.gov/reports/letter-to-anthropic-re-planned-initial-public-offering/"
+      }
+    ],
+    "uncertainty": "仅有 Hacker News 标题级线索且内容缺失；信函真实性、IPO 计划状态及两者关系均待核实。",
+    "why_notable": "若属实，这是 Anthropic 资本市场进程与公共监管互动的具体信号，可能影响对 AI 公司治理和融资环境的判断。"
+  }
+]

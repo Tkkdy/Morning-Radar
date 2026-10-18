@@ -1,0 +1,532 @@
+[
+  {
+    "analysis": [
+      "该版本的核心主题包括：结构化决策接口、低精度 KV 缓存在多硬件上的扩展，以及 Model Runner V2 的多项能力补全。",
+      "低精度 KV 缓存优化（NVFP4、FP8、ultraquant_4bit）主要围绕显存占用与吞吐的权衡展开，但相关性能数字均来自 PR 自测基准，并非独立复现。",
+      "-api-server-count 的路由改进和 HiSparse 驻留缓存等优化，针对高并发与长上下文场景的吞吐问题。",
+      "多项破坏性变更（移除 Python 3.10、收紧依赖版本、移除多个编译与注意力通道）反映出发布方在逐步清理历史技术债。"
+    ],
+    "canonical_title": "vLLM 发布 v0.32.0：集中式决策接口、低精度 KV 缓存与 Model Runner V2 更新",
+    "category": "open_source_ai",
+    "credibility_score": 0.82,
+    "entity_names": [
+      "vllm-project/vllm"
+    ],
+    "facts": [
+      "vLLM 发布 v0.32.0，该版本包含来自 363 位贡献者（其中 121 位为新贡献者）的 814 个提交。",
+      "新版本引入 POST /v1/systemone 端点，可在结构化状态上回答 choice、noul 和 score 类问题（#59299），默认启用（#60677、#60696），并已在 Cloudflare/clef-omni（#61064）、LiquidAI/d1-3B（#60676）和 DiffusionGemma（#60466）上运行。",
+      "新增 hf 工具与推理解析器（--tool-call-parser hf、--reasoning-parser hf），读取检查点的 response_template，Python 与 Rust 前端均支持（#58604、#58602、#59005）。",
+      "NVFP4 KV 缓存现支持 SM8x、SM12x（#46963）、SM90（#60620），并在 SM12x 上支持 XQA 解码（#60452），在 SM100 上支持 MiniMax-M3 稀疏注意力（#59300）。",
+      "GLM-5.x 在 SM100 上默认使用 FP8 KV 缓存，按 PR 基准每 rank KV 内存减半，吞吐提升 2.3-5.5%，TTFT 代价为 7-11%（#60140、#60281）。",
+      "SM90 上的 fp8_ds_mla 使 GLM-5.3-Flash 输出吞吐最高提升 31%（#59246）；ROCm 新增 4-bit ultraquant_4bit KV 缓存，密度约为 FP8 的 2 倍（#57057）。",
+      "Model Runner V2 新增支持变长草稿的 GPU n-gram 推测器（#40704）和 Elastic EP（#53934），并为 MLA 模型引入带预填充上下文并行的流水线并行（#59139），新增原生 torch.compile 模式（#59079）；MRV2 现为 ROCm 默认（#56360）。",
+      "启动与服务加速相关变更包括 vllm download-kernels（#58765）、vllm preload --preload-autotune（#60085）、共享内存张量竞技场（#51207）、从本地快照加载分词器与处理器（#60825），以及 --api-server-count 大于 1 时按最少负载路由连接，据 PR 基准短请求 req/s 提升 43-85%（#60723）。",
+      "模型支持方面新增 EmbeddingGemma 2 全模态嵌入（#60254）、MiniCPM-V 4.7（#58674）和 Nemotron 3.5 ASR（#59827），Transformers 建模后端支持视频输入（#57441），并优化 GLM-5.3 稀疏 MLA 索引转换（#59464）与融合多步草稿解码（#57443）；HiSparse 按请求驻留缓存可在 B200 上为 GLM-5.3-NVFP4 带来最高 58% 吞吐提升（#60083）。",
+      "安全修复覆盖 GHSA-4hhp-h66f-j5j7（#50300）、GHSA-q97c-p368-75c4（#59491）和 GHSA-frvg-qw88-hww9（#51504）；默认不再允许所有 CORS 来源（#61009），不受信任图像限制为光栅格式（#60022），共享内存多模态缓存句柄已签名（#59357），嵌套超过 64 层的 JSON schema 将被拒绝（#60036）。",
+      "破坏性变更包括：放弃对 Python 3.10 的支持（#60402）；默认 CORS 来源受限（#61009）；要求 transformers>=5.16.1,<5.20.0 与 tokenizers>=0.23.2（#57387、#59796）；移除 torch.compile 序列并行与 AsyncTP 通道（#60517）、级联注意力（#61126）和 mamba_cache_mode=\"all\"（#58997）；max_tokens 不再从上下文窗口中预留（#57035）；Responses API 推理流事件重命名（#59652）。",
+      "发布物包括 PyPI（CUDA 13.0）与 uv 安装方式、ROCm 轮子（rocm723）以及 XPU 轮子索引，另提供 Docker 镜像。",
+      "发布页显示该仓库约有 94,073 个 star 和 23,544 个 fork。"
+    ],
+    "id": "story-55374dbaf9d16211481e",
+    "importance_score": 0.78,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0",
+    "product_names": [
+      "vLLM",
+      "v0.32.0"
+    ],
+    "published_at": "2026-10-18T06:50:48Z",
+    "relevance_score": 0.92,
+    "source_item_ids": [
+      "item-83a753b4160cba93855a"
+    ],
+    "source_refs": [
+      {
+        "author": "khluu",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-18T06:50:48Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-83a753b4160cba93855a",
+        "source_date": null,
+        "source_name": "GitHub · vllm-project/vllm",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "vllm-project/vllm: v0.32.0",
+        "url": "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/vllm-project/vllm/releases/tag/v0.32.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "open_source_ai",
+      "ai_infrastructure",
+      "LLM 推理引擎",
+      "KV 缓存优化"
+    ],
+    "uncertainties": [
+      "PR 基准中的吞吐、TTFT、req/s 等具体提升数字均在单次 PR 基准条件下测得，未说明测试硬件细节与统计置信度，实际部署表现可能不同。",
+      "发布摘要仅部分呈现，Docker 镜像部分在内容摘录中被截断，完整镜像标签与平台覆盖未知。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [
+      "该版本为 SDK 层更新，功能项集中在 API 能力扩展（缓存设置、语音创建、区域驻留、错误诊断）与 Live/Realtime 会话能力补强，属于对上层 API 新特性的客户端配套支持。",
+      "新增“区域处理驻留选项”可能与企业数据合规和区域化部署需求相关，但输入未给出具体区域范围或生效条件。"
+    ],
+    "canonical_title": "openai-python 发布 v3.32.0，新增缓存设置、基于提示的语音创建与区域处理驻留选项等 API 功能",
+    "category": "AI 开发者工具/SDK 更新",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 发布版本 v3.32.0，发布日期为 2026-10-16。",
+      "v3.32.0 的 Features 包含：api 增加缓存设置和 key 选项（#4087）；增加基于提示的语音创建（#4091）；增加区域处理驻留选项（#4081）；增加响应错误诊断和模型通知（#4086）；在 Live 会话中支持音频 fixture 回放（#4085）；在 Live 会话中支持 Decisions（#4088）。",
+      "v3.32.0 的 Bug Fixes 包含：api 声明 Realtime 响应错误消息（#4083）。",
+      "v3.32.0 的 Chores 包含：api 澄清 Decisions 请求和响应字段（#4079）。",
+      "v3.32.0 的 Refactors 包含：共享 WebSocket 连接处理（#4084）。"
+    ],
+    "id": "story-93c4042d462fe383592f",
+    "importance_score": 0.58,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.32.0",
+    "product_names": [
+      "openai-python",
+      "v3.32.0"
+    ],
+    "published_at": "2026-10-16T20:17:26Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-f2bbffb158fe86350611"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-16T20:17:26Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f2bbffb158fe86350611",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.32.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.32.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.32.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI SDK",
+      "API 更新",
+      "语音生成",
+      "数据驻留"
+    ],
+    "uncertainties": [
+      "输入中“support audio fixtur”摘要被截断，音频 fixture 回放的具体范围与用法不明确。",
+      "输入未说明 v3.32.0 是否包含破坏性变更或最低依赖版本要求。",
+      "各 API 功能对应的服务端可用性、区域覆盖与计费影响未在输入中说明。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [
+      "本次发布的三项变更均集中在 API 能力与实时通信兼容性上，属于 SDK 常规迭代，未涉及破坏性变更说明。",
+      "新增 Live sideband 事件类型和 Agents 的 ultrafast 服务层级，反映 SDK 层面对实时与低延迟 Agent 场景的持续补强。"
+    ],
+    "canonical_title": "openai-python 发布 v3.35.0：新增 Live sideband 事件类型与 Agents 超快服务层级",
+    "category": "开发者工具与SDK",
+    "credibility_score": 0.82,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 于 2026-10-17 发布 v3.35.0，前一个版本为 v3.34.0。",
+      "该版本新增带类型的 Live sideband 事件（typed Live sideband events），对应 PR #4099。",
+      "该版本新增面向 Agents 的 ultrafast 服务层级（ultrafast service tier），对应 PR #4101。",
+      "该版本修复了在 websockets 13 下 realtime 模块保留字节接收的问题，对应 PR #4098。"
+    ],
+    "id": "story-51f86741e8bc40d913be",
+    "importance_score": 0.38,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.35.0",
+    "product_names": [
+      "openai-python",
+      "Live sideband",
+      "ultrafast service tier",
+      "Agents"
+    ],
+    "published_at": "2026-10-17T23:13:52Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-87525bd1d9561d5fdc46"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-17T23:13:52Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-87525bd1d9561d5fdc46",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.35.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.35.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.35.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明未披露 ultrafast 服务层级的具体延迟指标、计费方式或可用范围。",
+      "Live sideband 事件的具体字段结构需查阅 PR #4099 或源码方能确认。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [
+      "本次发布为发布候选版本（rc0），通常用于在正式稳定版前进行验证。",
+      "三项变更分布在 OpenAI 兼容接口、llama-server 推测解码推断与 mlx 后端支持三个方向，显示维护重点覆盖接口兼容与推理性能。",
+      "仓库当前约有 183739 个 star，7 日新增 957 个 star，24 日新增 120 个 star。"
+    ],
+    "canonical_title": "ollama 发布 v0.40.7-rc0 候选版本",
+    "category": "开源 AI 基础设施",
+    "credibility_score": 0.82,
+    "entity_names": [
+      "ollama",
+      "ollama/ollama",
+      "hoyyeva",
+      "dhiltgen"
+    ],
+    "facts": [
+      "ollama/ollama 仓库发布了 v0.40.7-rc0 版本，发布者为 github-actions[bot]，发布时间为 2026-10-18T00:28:57Z。",
+      "该版本变更包括：openai 相关改动允许在非思考模型上使用 Responses effort（由 @hoyyeva 提交，PR #19010）。",
+      "该版本变更包括：llama-server 改为自行推断 draft speculative 类型（由 @dhiltgen 提交，PR #19064）。",
+      "该版本变更包括：mlx 新增 PPLX Decider v1.2 支持（由 @dhiltgen 提交，PR #19072）。",
+      "完整变更对比链接为 https://github.com/ollama/ollama/compare/v0.40.6...v0.40.7-rc0。"
+    ],
+    "id": "story-05c3b2ba56d63da0895d",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.7-rc0",
+    "product_names": [
+      "ollama v0.40.7-rc0",
+      "llama-server",
+      "PPLX Decider v1.2"
+    ],
+    "published_at": "2026-10-18T00:28:57Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-2434881791854a653a12"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-18T00:28:57Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2434881791854a653a12",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.7",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.7-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.7-rc0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "开源 AI",
+      "模型推理",
+      "本地部署"
+    ],
+    "uncertainties": [
+      "v0.40.7-rc0 的具体发布时间在正式 v0.40.7 稳定版中的对应关系尚不明确。",
+      "PPLX Decider v1.2 的具体功能范围与使用条件在输入中未说明。",
+      "非思考模型上启用 Responses effort 的实际行为与限制在输入中未展开。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [
+      "该文属于 OpenAI 官方发布的分析性质内容，摘要未给出具体采用率、样本范围或方法论细节。"
+    ],
+    "canonical_title": "OpenAI 发布关于欧盟企业 agentic AI 采用情况的新分析",
+    "category": "industry_analysis",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "OpenAI",
+      "欧盟"
+    ],
+    "facts": [
+      "OpenAI 发布了一份题为《The EU's next chapter in AI is agentic》的分析，发布时间为 2026-10-14。",
+      "该分析的摘要称，新分析展示了 agentic AI 在欧盟企业和小型企业中的采用率正在增长，并指出了更深入使用可释放更多价值的领域。"
+    ],
+    "id": "story-c68494bd8e6e97a971bd",
+    "importance_score": 0.45,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic",
+    "product_names": [],
+    "published_at": "2026-10-14T00:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-200a5d3dd39c6bfb7a20"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-200a5d3dd39c6bfb7a20",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The EU’s next chapter in AI is agentic",
+        "url": "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/the-eus-next-chapter-in-ai-is-agentic"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "agentic AI",
+      "欧盟企业 AI 采用",
+      "中小企业 AI 采用"
+    ],
+    "uncertainties": [
+      "摘要未披露具体数据、统计口径、调研企业数量或时间范围。",
+      "除标题与摘要外，无法从输入确认该分析的具体结论与证据来源。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "DeepSeek 搜索与抓取服务定价：每 1000 次成功请求 0.75 美元",
+    "category": "AI 开发者工具",
+    "credibility_score": 0.28,
+    "entity_names": [
+      "DeepSeek"
+    ],
+    "facts": [],
+    "id": "story-719535ac8ed5456c88c0",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://api-docs.deepseek.com/guides/search/",
+    "product_names": [
+      "DeepSeek search and fetch"
+    ],
+    "published_at": "2026-10-18T06:50:36Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-e10ca61316857fef06d6"
+    ],
+    "source_refs": [
+      {
+        "author": "fagnerbrack",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50138531",
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-18T06:50:36Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e10ca61316857fef06d6",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "DeepSeek search and fetch – $0.75 per 1000 successful requests",
+        "url": "https://api-docs.deepseek.com/guides/search/"
+      }
+    ],
+    "source_urls": [
+      "https://api-docs.deepseek.com/guides/search/",
+      "https://news.ycombinator.com/item?id=50138531"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "API 定价",
+      "搜索与抓取服务"
+    ],
+    "uncertainties": [
+      "该条目仅为 Hacker News 社区发现摘要，标注为 unverified_lead，且未提供正文内容，无法核实 DeepSeek 是否真的推出了搜索与抓取服务，以及 0.75 美元/1000 次成功请求的定价细节是否准确。",
+      "条目中的官方文档 URL 未经直接核验，且来源标记 official=false，不能作为官方事实依据。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Block 利用 OpenAI 技术构建 AI 驱动的安全能力",
+    "category": "ai_security",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Block",
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 于 2026-10-14 发布消息称，Block 正在利用 OpenAI 技术构建 AI 驱动的安全能力。",
+      "该消息称，Block 的安全团队能够更快地调查威胁，并在数分钟内提出补丁方案。"
+    ],
+    "id": "story-3366c99e22e535ce8dcb",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/block-ai-powered-security",
+    "product_names": [],
+    "published_at": "2026-10-14T07:00:00Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-94ee28b93f9d2d830319"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-14T07:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-94ee28b93f9d2d830319",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Block is building AI-powered security with OpenAI technology",
+        "url": "https://openai.com/index/block-ai-powered-security"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/block-ai-powered-security"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_security",
+      "威胁调查",
+      "补丁生成"
+    ],
+    "uncertainties": [
+      "该消息未披露 Block 具体使用哪些 OpenAI 模型或产品。",
+      "该消息未提供调查效率提升和补丁生成速度的量化指标或独立验证。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  },
+  {
+    "analysis": [
+      "该补丁版本针对 websockets 13 兼容性下的 Realtime 字节读取行为做修复，属于依赖升级后的兼容性维护，而非新功能发布。",
+      "版本号从 v3.35.0 升至 v3.35.1，符合语义化版本中补丁发布的惯例。"
+    ],
+    "canonical_title": "openai-python 发布 v3.35.1，修复 websockets 13 下 beta Realtime 字节读取问题",
+    "category": "开源SDK发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 发布 v3.35.1，发布日期为 2026-10-18。",
+      "该版本为 Bug Fixes 版本，变更内容为在 websockets 13 上保留 beta Realtime 的字节读取（preserve beta Realtime byte reads on websockets 13）。",
+      "对应 issue 为 #4102，提交哈希为 5766349b2eda3ef63389fe8a30b6a9a1082b33e9。"
+    ],
+    "id": "story-6630015a5c8335769ccb",
+    "importance_score": 0.18,
+    "novelty_score": 0.08,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.35.1",
+    "product_names": [
+      "openai-python",
+      "beta Realtime",
+      "websockets 13"
+    ],
+    "published_at": "2026-10-18T01:05:46Z",
+    "relevance_score": 0.42,
+    "source_item_ids": [
+      "item-ddb992ee87d6c82ddadf"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-18T21:49:10.243705Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-18T01:05:46Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ddb992ee87d6c82ddadf",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.35.1",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.35.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.35.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "open_source_ai",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入未说明该问题在 websockets 13 下具体表现为何种异常，也未说明受影响范围。"
+    ],
+    "updated_at": "2026-10-18T21:50:59.760285Z"
+  }
+]
