@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-19",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v0.40.6 之前，Ollama 存在 Windows 平台孤立 runner 未防护、GGUF 缺少 q2_0 tensor/file types 支持、--ask 模式问题键缺少标识符等问题；v0.40.7-rc0 之前，非思考模型无法使用 Responses effort，llama-server 也不能自行推断 draft speculative 类型。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-7256f02435640cce0c02（Ollama v0.40.7-rc0）直接落在既有 Candidate 的机制上：同属 Ollama 一个产品线的版本迭代，围绕本地模型运行工具的稳定性、格式兼容与推理配置改进，方向上与既有证据一致，故标记 update_kind=supported。但该簇与既有证据同属一个 actor、同一官方发布通道，且为候选版本而非正式发布，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate。",
+        "falsifier": "如果后续版本撤回相关修复，或开发者未采用 Ollama 进行本地模型部署，或 Ollama 停止维护本地运行方向，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Ollama 发布 GitHub 正式版本 v0.40.6，前一版本为 v0.40.5。",
+          "该版本在 Windows 平台防止孤立 runner，GGUF 新增 q2_0 tensor 与 file types，在 Ollama 云中启动 clef，--ask 模式问题键使用标识符。",
+          "Ollama 发布 v0.40.7-rc0，允许在非思考模型上使用 Responses effort（PR #19010），并让 llama-server 自行推断 draft speculative 类型（PR #19064）。"
+        ],
+        "shared_mechanism": "Ollama 沿同一产品线的持续版本发布，维护本地模型运行工具的运行时行为与模型支持：在 Windows 平台防止孤立 runner、扩展 GGUF q2_0 tensor/file types、在 Ollama 云中启动 clef、以 --ask 模式问题键使用标识符，并在 v0.40.7-rc0 中允许非思考模型使用 Responses effort、由 llama-server 自行推断 draft speculative 类型。这些变更共同改变开发者本地部署与管理模型的方式，使本地运行栈承担更多稳定性、格式兼容与推理配置职责。"
+      },
+      "claim": "Ollama 正通过连续版本迭代把本地模型运行工具向更稳定的服务端推理与更广的模型/决策支持推进：此前版本将 llama.cpp 更新至 b11521 并在服务端推理路由中复用已验证 manifests 与已加载模型，v0.40.6 修复 Windows 孤立 runner、扩展 GGUF q2_0 tensor/file types、引入 Ollama 云中启动 clef 与 --ask 模式问题键标识符，最新 v0.40.7-rc0 允许在非思考模型上使用 Responses effort 并让 llama-server 自行推断 draft speculative 类型，使开发者在本地部署与管理模型时获得更稳定的运行时行为。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-19",
+            "story_id": "story-05c3b2ba56d63da0895d"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-b95c4a5fc3d66acce938",
+      "record_id": "tendency-record-27663ec22e2809b8aee9",
+      "recorded_at": "2026-10-18T21:53:42.420114Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-7256f02435640cce0c02"
+      ],
+      "tendency_id": "tendency-9d93af89ede5370c1725",
+      "update_kind": "supported"
+    }
+  ],
+  "generated_at": "2026-10-18T21:53:42.420114Z"
+}
