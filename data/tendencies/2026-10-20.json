@@ -1,0 +1,241 @@
+{
+  "date": "2026-10-20",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前 Code Quality 发现项操作不进入组织/企业审计日志，Secret Scanning 未覆盖 Salesforce 等新密钥类型且 Anthropic 密钥无默认推送保护，Copilot 企业遥测缺少不采集提示内容的用户归因配置，企业也缺少平台内置的依赖许可合规集中检查。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-9f22dfc2679c610ceb41（Copilot 模型策略 REST API）与 cluster-f548b37bb7aee29a2fe3（Copilot 弃用多个模型）都体现 GitHub 以官方通道把 Copilot 的使用治理集中到平台侧：前者让企业、组织、团队通过 REST API 程序化读取和更新模型策略，后者统一弃用范围覆盖 Chat、内联编辑、ask/agent 模式与补全。二者直接对应既有 Candidate 中『治理与合规从用户自律转为平台内置可配置能力』的机制，方向一致，故 update_kind=supported、strengthened。但仍全部来自 GitHub 一个 actor 的官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate。",
+        "falsifier": "如果审计日志未实际记录这些操作、推送保护被组织大量关闭或撤回、遥测归因与许可证合规功能未被企业采用，或 GitHub 放弃把治理与合规下沉为默认平台能力，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub 宣布开源许可证合规功能正式发布，面向 GitHub Enterprise Cloud，企业可通过基于规则的检查集中管理依赖许可证。",
+          "Code Quality 发现项的手动关闭与重新打开操作现可在组织或企业审计日志中查看。",
+          "Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型检测，Anthropic 密钥默认启用推送保护阻止。",
+          "企业管理员可使用 telemetry.capture.identity 等选项把 GitHub Copilot 活动归因到用户，而无需收集其提示、响应或工具内容。"
+        ],
+        "shared_mechanism": "GitHub 通过同一官方 Changelog 通道把 AI 协作场景中的治理、合规与审计下沉为平台能力：以审计日志记录 Code Quality 发现项处置；以 Secret Scanning 新增密钥类型并进行推送前防护；以 Copilot 遥测的 identity 归因实现使用归因而不采集提示内容；以面向 Enterprise Cloud 的开源许可证合规功能让企业用基于规则的检查集中管理依赖许可。三者共同改变组织治理 AI 辅助开发、密钥风险与依赖合规的方式。"
+      },
+      "claim": "GitHub 正通过官方 Changelog 把代码协作与 AI 辅助开发中的治理与审计能力平台化：Code Quality 发现项关闭与重新打开纳入组织/企业审计日志，Secret Scanning 新增 Salesforce、Anthropic、Cloudsmith 密钥类型并对 Anthropic 默认启用推送保护，Copilot 客户端遥测支持在不收集提示、响应与工具内容的前提下归因用户，同时新发布的开源许可证合规功能把依赖许可检查集中到企业规则配置，显示审计、密钥保护、依赖合规与遥测治理正从用户自律转为可配置的平台内置能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-c082d793f03d8719e7c6"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-29566099336ecd4b6858"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-2a7323226a5c43bf4507",
+      "record_id": "tendency-record-b96f4436a409270e13a2",
+      "recorded_at": "2026-10-19T23:08:42.564683Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-9f22dfc2679c610ceb41",
+        "cluster-f548b37bb7aee29a2fe3"
+      ],
+      "tendency_id": "tendency-5d072f551dc71c192b0e",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿模型能力主要通过厂商自有的旗舰云端模型与统一 API 提供，开放权重编程优化模型、501B 级可自有开放模型与面向专用智能体的多模态推理模型较少在同一时间窗内由多个厂商通过第三方平台集中发布。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增三个不同 actor 的开放权重发布（Meta 的 Muse Spark Open、Reflection 的 Beam、Swiss AI 的 Apertus 1.5）与 GitHub 侧模型弃用及模型策略 API 共同支持『模型能力按部署位置与场景经第三方平台分层分发与治理』的机制：开放权重模型经 Hugging Face 集中分发，第三方编码助手则提供模型选择与治理接口。但仍存在范围张力——GitHub 两个簇属于模型治理通道而非开放权重分发本身，Swiss AI 的条目仅有标题级事实。跨 actor 结构性支撑正在增强但尚不够纪律化，按规则保持 Candidate 并标记 strengthened。",
+        "falsifier": "如果 Muse Spark Open、Beam、Apertus 1.5 等开放权重模型未被开发者采用或被撤回，或厂商放弃通过开放权重与第三方平台分层分发模型的路径，或 GitHub Copilot 收回模型策略 API 与弃用管理，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Meta 在 Hugging Face 发布开放权重前沿多模态混合专家模型 Muse Spark Open。",
+          "Reflection 在 Hugging Face 发布可自有的 501B 开放模型 Beam，可定制与扩展。",
+          "Swiss AI 在 Hugging Face 发布 Apertus 1.5 发布说明。",
+          "GitHub 于 2026 年 10 月 19 日宣布弃用多个模型，覆盖 Copilot Chat、内联编辑、ask 与 agent 模式以及代码补全。",
+          "GitHub 发布 Copilot 模型策略 REST API，面向企业、组织和团队提供 GET 与 PATCH 端点。"
+        ],
+        "shared_mechanism": "模型厂商与平台方通过官方发布把模型能力按部署位置与场景分层供给：Meta 在 Hugging Face 发布 Muse Spark Open 开放权重编程优化 MoE 模型，并通过 NVIDIA 平台扩展智能体编程工作流；Reflection 在 Hugging Face 发布 501B 开放权重模型 Beam；同时 GitHub Copilot 以官方公告弃用部分模型并通过 REST API 开放模型策略管理。这些动作共同改变开发者获取、部署与选择模型能力的方式——从调用单一旗舰模型转向按部署位置、模型形态与场景选择开放权重或专用模型，并把 Hugging Face、NVIDIA 平台与 GitHub Copilot 作为分发与治理渠道。"
+      },
+      "claim": "AI 模型厂商正把开放权重、编程优化与多模态推理模型通过官方渠道与第三方平台（Hugging Face、NVIDIA、GitHub Copilot）分层分发，使开发者按部署位置、模型规模与场景获取能力，而非依赖单一旗舰云端模型。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-43819cb91e02262edacd"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-01b6dd26230bb70e38d4"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-b0a81d22ad8f48e5ce22"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-29566099336ecd4b6858"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-c082d793f03d8719e7c6"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-8e32f16075992810f6b5",
+      "record_id": "tendency-record-d8e1d8cf304fad3feccf",
+      "recorded_at": "2026-10-19T23:08:42.564683Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-5e592af4f2ff6a008775",
+        "cluster-420693d5225898e3b8ca",
+        "cluster-87310e29643bb6b34108",
+        "cluster-f548b37bb7aee29a2fe3",
+        "cluster-9f22dfc2679c610ceb41"
+      ],
+      "tendency_id": "tendency-d9856d92dfde46dab444",
+      "update_kind": "supported"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI 编码助手的测试执行依赖开发者自行触发，模型可用范围以各厂商发布节奏为准，企业缺少通过 API 集中设定 Copilot 模型策略并在会话中强制质量步骤的手段。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "本批次出现两个独立事件的簇：cluster-5c6a8a3ad87086795913（Krites 强制测试的 Claude Code 插件，社区发现）与 cluster-9f22dfc2679c610ceb41/cluster-f548b37bb7aee29a2fe3（GitHub Copilot 模型弃用与策略 API，官方一手）。二者 actor 与产品不同，但共享同一机制：把 AI 编码会话的质量门禁与模型选择从开发者自律转为工具/平台层可执行规则。但 Krites 仅为社区发现、缺乏采用与效果数据，GitHub 两簇同属一个官方通道，跨事件结构支撑刚达两个事件边界且强度不均，按规则不足以形成 Emerging，作为 Candidate 内部观察记录。",
+        "falsifier": "如果 Krites 类强制测试插件未被开发者采用或停止维护，或 GitHub 收回模型策略 API、弃用治理不再覆盖主要 Copilot 体验，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "社区发布 Krites，一个强制在 Claude Code 会话中运行测试的插件。",
+          "GitHub 于 2026 年 10 月 19 日公告弃用多个 Copilot 模型，覆盖 Chat、内联编辑、ask 与 agent 模式及补全。",
+          "GitHub 新增 Copilot 模型策略 REST API 的 GET 与 PATCH 端点，覆盖企业、企业团队、企业应用与组织。"
+        ],
+        "shared_mechanism": "AI 编码助手生态在客户端插件与平台策略层同时引入约束：Krites 通过 Claude Code 插件以钩子方式强制运行测试，把质量门禁从开发者自觉变为工具链自动执行；GitHub Copilot 以官方弃用公告与面向企业/组织/团队的模型策略 REST API，把模型可用范围收敛为可程序化配置的治理对象。二者共同把 AI 编码会话的行为边界（质量门禁、模型选择）从用户自由处置变为工具与平台层可执行的规则。"
+      },
+      "claim": "AI 辅助编码工具正把『先测试后完成』与『模型策略集中治理』变成平台内置约束：Krites 以 Claude Code 插件形式强制在编码会话中运行测试，GitHub Copilot 则通过模型弃用公告与模型策略 REST API 把可选用模型收敛为企业/组织可配置的策略，显示 AI 编码助手的使用约束正从开发者自律转向由插件与平台策略层共同执行。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-51a77c2665c36f95e415"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-c082d793f03d8719e7c6"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-29566099336ecd4b6858"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-a7c8d5473295a830dcc2",
+      "recorded_at": "2026-10-19T23:08:42.564683Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-5c6a8a3ad87086795913",
+        "cluster-9f22dfc2679c610ceb41",
+        "cluster-f548b37bb7aee29a2fe3"
+      ],
+      "tendency_id": "tendency-4bcb9610c952bdffedc5",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "此前模型评估多集中于主流编程语言，Transformers 的 generate 在多模态输入上存在类型丢失问题，Mamba-2 类状态空间模型缺少高层 DSL 编写的高性能前向内核。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "三个官方一手簇来自不同 actor（OpenAI、Hugging Face、NVIDIA），方向相关但机制并不完全同源：一个是评估与语言覆盖，一个是运行时缺陷修复，一个是专用架构内核优化，三者缺乏一个能统一解释行为变化的单一机制。Hugging Face 另有 FLUX.3 Image Klein 与 Irene Solaiman 评估评论两个主题相邻事件，但前者是图像模型集成、后者是评论性内容，均不构成形成支持。因此仅作为 Candidate 内部观察，不升级 Emerging。",
+        "falsifier": "如果新增评估未被后续模型发布或第三方采用，Transformers 修复未改善多模态 generate 行为，或 cuTile 内核未被实际用于 Mamba-2 推理，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 公告新增针对软件工程、SQLite 与 COBOL 迁移的评估，并改进 ChatGPT 在低资源编程语言上的表现。",
+          "Hugging Face 发布 Transformers v5.20.2，修复 generate 中 prepare_inputs_for_generation 的输入类型转换问题，影响多模态模型。",
+          "NVIDIA 开发者博客发布以 CUDA Tile 编写的 Mamba-2 高性能前向传播内核。"
+        ],
+        "shared_mechanism": "厂商把模型能力扩展的重心放到语言覆盖面与专用架构执行效率上：OpenAI 以新评估衡量低资源编程语言与 COBOL 迁移表现，Hugging Face 在 Transformers 补丁中修复多模态输入类型丢失，NVIDIA 以 cuTile DSL 为 Mamba-2 提供高性能前向内核。共同点是能力边界由可评测的语言覆盖与可高效执行的专用内核共同定义，而非单纯扩大通用模型规模。"
+      },
+      "claim": "多厂商正把面向低资源与专用语言的模型能力作为公开基准与发布方向推进：OpenAI 发布针对低资源编程语言、SQLite 与 COBOL 迁移的新评估，Hugging Face Transformers 修补多模态 generate 的输入类型转换，NVIDIA 以 CUDA Tile 为 Mamba-2 提供前向内核，显示模型能力评估与基础设施优化正沿语言覆盖与专用架构两条线并行扩展。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-7317ffafb4577bd31091"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-aaedb5b120c410a20028"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-20",
+            "story_id": "story-a0552b24b59b7f3e7789"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-e4bbac6be01e5e2b3e5f",
+      "recorded_at": "2026-10-19T23:08:42.564683Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-f2a0aa55fb1582e751d2",
+        "cluster-8334d13d75816ed511d0",
+        "cluster-779f852972fe19d1e8ed"
+      ],
+      "tendency_id": "tendency-2a39e82987fa57a5b959",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-19T23:08:42.564683Z"
+}
