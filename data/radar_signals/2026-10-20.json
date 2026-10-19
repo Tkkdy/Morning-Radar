@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Krites 是一个 Claude Code 插件：阻止对指定路径的编辑，并在 agent 尝试停止时运行测试；测试未通过则阻止停止，默认最多重试 3 次。",
+    "id": "radar-8473d6e68aebfc03d3f1",
+    "missing_evidence": [
+      "缺少对仓库代码和文档的独立核验",
+      "缺少实际运行测试或用户案例",
+      "缺少对不同 agent/环境的兼容性证据",
+      "缺少对绕过、误报和测试质量的评估"
+    ],
+    "observed_at": "2026-10-19T23:03:46.614195Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-6ff1365eacdb4bc60ab2",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/krites-dev/krites"
+      }
+    ],
+    "uncertainty": "目前仅有 Hacker News 作者自述且摘录被截断，未抓取官方页面，也没有独立佐证。",
+    "why_notable": "它针对编码 agent 常见的“任务未完成就停止”问题，用路径编辑限制和测试门禁强制收尾，属于具体的 agent 工作流约束机制，值得关注。"
+  }
+]
