@@ -1,0 +1,91 @@
+[
+  {
+    "claim": "Simon Willison 用 Claude 氛围编程（vibe coding）做出可玩的即时战略游戏 Battle Drones，并实现基于音频的邻近设备多人同步。",
+    "id": "radar-3724b239d8942b6d60ad",
+    "missing_evidence": [
+      "游戏源码与实现细节",
+      "音频多人同步的可靠性与延迟数据",
+      "独立试玩或可复现评估"
+    ],
+    "observed_at": "2026-10-20T22:37:07.950157Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-d0f0045fb40f11c22501",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
+      }
+    ],
+    "uncertainty": "“好玩”是作者主观判断；音频同步机制的实际稳定性和适用范围未经验证；原文摘录被截断。",
+    "why_notable": "展示了 AI 编程代理从零构建可玩游戏的能力，以及音频同步多人这一非传统实现路径；作者称通过让 Claude“让它有趣得多”提升了可玩性。"
+  },
+  {
+    "claim": "Gemini 4 Argon 已向所有人开放。",
+    "id": "radar-13e304760eb29a636674",
+    "missing_evidence": [
+      "Google 官方博客正文",
+      "模型能力、基准与模态信息",
+      "开放范围、定价与 API 可用性",
+      "独立评测或第三方验证"
+    ],
+    "observed_at": "2026-10-20T22:37:07.950157Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-6b71d0bae711def7bc8b",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/"
+      }
+    ],
+    "uncertainty": "仅有 HN 标题和官方博客链接，正文缺失，无法确认发布内容与具体可用性。",
+    "why_notable": "若属实，是 Google 新一代旗舰模型发布，可能影响模型能力与产品竞争格局。"
+  }
+]

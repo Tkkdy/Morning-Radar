@@ -1,0 +1,118 @@
+{
+  "date": "2026-10-21",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确实发布了新评测，但得分与数据集未披露，只能作为低资源语言编码评测趋势的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-7317ffafb4577bd31091",
+      "support_for_story_id": null,
+      "trend_links": [
+        "low-resource-language-coding-evaluation",
+        "vendor-evaluation-suite-expansion"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方详述推理成本优化手段与 68% 降幅，具生产 workflow 参考价值，但口径未独立复核。",
+      "retain_for_trends": true,
+      "story_id": "story-7be75714882e8dce5e0a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "prompt-caching-cost-reduction",
+        "model-routing-inference-cost",
+        "production-ai-review-workflow"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "算力获取困难是影响模型供给的潜在结构性信号，但仅为单一编辑报道且使用据报道措辞。",
+      "retain_for_trends": true,
+      "story_id": "story-10ec518f28fe98ff0829",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cloud-provider-compute-scarcity",
+        "ai-lab-infrastructure-spend"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有官方博客标题，无模型细节、可用性或医疗验证，装饰性大于实质信息。",
+      "retain_for_trends": false,
+      "story_id": "story-7903423cdb09d06dec80",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "HN 社区发现称 Gemini 4 Argon 发布且面向所有人，值得关注但目前无官方内容可核。",
+      "retain_for_trends": true,
+      "story_id": "story-835c9dfbbf3eba180f78",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-release-cadence",
+        "vendor-capability-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Cloudflare 官方发布专用抽取模型，机制方向值得跟踪，但缺架构与基准细节。",
+      "retain_for_trends": true,
+      "story_id": "story-30e06e15d0cfce3e25af",
+      "support_for_story_id": null,
+      "trend_links": [
+        "specialized-extraction-models",
+        "edge-infrastructure-inference-models"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "HN 高热度讨论的 DeepSeek 推理框架尚未确认官方归属，作为推理栈竞争弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-cb4406570fa1325ef993",
+      "support_for_story_id": null,
+      "trend_links": [
+        "deepseek-inference-framework-adoption",
+        "open-inference-stack-competition"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规 SDK 版本更新含少量 webhook 与 header 修复，无结构性影响，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-22a5c2a30736e86b766a",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-20T22:38:38.109530Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

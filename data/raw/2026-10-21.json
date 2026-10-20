@@ -67,6 +67,7 @@
     "id": "item-e1fe9bf84ec496533db1",
     "language": "en-US",
     "metadata": {
+      "content_version": "0235faee0230761f8b14",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-e8a8161ff83426ef4f6b",
     "language": "en-US",
     "metadata": {
+      "content_version": "7ae42a4eb52c4d45c5ff",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +190,7 @@
     "id": "item-a59cc9499bb94a9a0ae0",
     "language": "en-US",
     "metadata": {
+      "content_version": "38dfe6c66f603423925d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -309,6 +312,7 @@
     "id": "item-d0f0045fb40f11c22501",
     "language": "en-us",
     "metadata": {
+      "content_version": "50bd251f28aa278382e4",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -400,6 +404,7 @@
     "id": "item-f0d3b9acbd57e8c0d05d",
     "language": "en-US",
     "metadata": {
+      "content_version": "c34337ac2a80dca2964a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -521,6 +526,7 @@
     "id": "item-eacbe85de5f03673a4b6",
     "language": "en-US",
     "metadata": {
+      "content_version": "62f243d77adac8d4a1c1",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -673,6 +679,7 @@
     "id": "item-1dbe22633003a2af4fdd",
     "language": "en-US",
     "metadata": {
+      "content_version": "3154b9d581de93935b88",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -733,6 +740,7 @@
     "id": "item-bf4b6adc360d09f0286a",
     "language": "en-US",
     "metadata": {
+      "content_version": "092cff395886583a0076",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -824,6 +832,7 @@
     "id": "item-c6300898f978f64e66ae",
     "language": "en-us",
     "metadata": {
+      "content_version": "22ab2cd25c238edb12b5",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -914,6 +923,7 @@
     "id": "item-e3893e89ff191a2d84ed",
     "language": "en-US",
     "metadata": {
+      "content_version": "07d922cb1f087da526c6",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1066,6 +1076,7 @@
     "id": "item-d2f4c2d99fe6839a3169",
     "language": "en-US",
     "metadata": {
+      "content_version": "35f9a59983367eb8d405",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1157,6 +1168,7 @@
     "id": "item-fbfb44fc7414bc524d8b",
     "language": "en-us",
     "metadata": {
+      "content_version": "bbde757ae10308a7b1b4",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -75743,6 +75755,7 @@
     "id": "item-275655d3bc9934ddf8a4",
     "language": "en",
     "metadata": {
+      "content_version": "57aa5ad69d5a4b62e355",
       "data_anomaly": false,
       "forks": 892,
       "official": true,
@@ -78825,11 +78838,20 @@
     "metadata": {
       "comments": 810,
       "community_signal": true,
+      "content_version": "9e7042a27641163a1c2c",
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50163277",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://github.com/deepseek-ai/DeepInfer",
       "score": 2064,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79215,6 +79237,7 @@
     "metadata": {
       "comments": 285,
       "community_signal": true,
+      "content_version": "949a475e02b55ad5497d",
       "discussion_url": "https://news.ycombinator.com/item?id=50166579",
       "official": false,
       "original_url": "https://emudhra.we-have-a-problem.com/",
@@ -79341,6 +79364,7 @@
     "metadata": {
       "change_percent": -0.0030927132134839276,
       "close": 531.8699951171875,
+      "content_version": "e539595e1713b3f638e2",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 533.52001953125,
@@ -80453,38 +80477,6 @@
     "url": "https://www.theregister.com/security/2026/10/20/deepseek-deep-sixed-at-all-us-federal-civilian-agencies/5304010"
   },
   {
-    "author": "ggcr",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-20T22:37:07.950157Z",
-    "id": "item-6db0d54db70b11027538",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50163277",
-      "hn_submission_time": 1792487334,
-      "lab_id": "deepseek",
-      "original_url": "https://github.com/deepseek-ai/DeepInfer",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-20T09:08:54Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "DeepInfer: High-performance inference framework for DeepSeek models",
-    "topic_candidates": [],
-    "url": "https://github.com/deepseek-ai/DeepInfer"
-  },
-  {
     "author": "nsoonhui",
     "company_candidates": [],
     "content_excerpt": "",
@@ -81369,6 +81361,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "b20f039c6388954a8462",
       "discovery_paths": [
         "hn_search:google_deepmind:Gemini"
       ],
