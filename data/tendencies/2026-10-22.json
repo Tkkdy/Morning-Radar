@@ -1,0 +1,234 @@
+{
+  "date": "2026-10-22",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "此前企业内部法律请求受理流程与判断应用主要依赖客户自行设计与既有法务系统，模型厂商较少以官方博客披露与单一企业职能团队的流程级联合重塑；分发端的保障措施与使用政策预期也较少以统一政策说明形式对分发伙伴公开。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个事件簇分别来自 AT&T×OpenAI 的法律流程改造与 OpenAI 的分发伙伴政策，共享『厂商官方通道承载专业流程与合规』的机制，但一侧是单一企业职能团队的合作披露、缺少使用量与效果数据，另一侧是政策说明而非可观测部署行为，机制同源性偏弱且缺乏第三方采用证据。按形成纪律不足，作为新的 Candidate 内部观察。",
+        "falsifier": "如果 AT&T 的 LegalEdge 流程改造未实际投入使用或被回退，或 OpenAI 的分发伙伴一致标准未被分发伙伴采纳、被撤回，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 官方博客介绍 AT&T 与 OpenAI 合作，让法律知识更易获取。",
+          "AT&T 的 LegalEdge 团队正在重新设计法律请求受理（intake）流程，并规模化应用法律判断。",
+          "OpenAI 发布《Broad access through consistent standards》，说明与分发合作伙伴合作以维持一致的保障措施并明确使用政策期望。"
+        ],
+        "shared_mechanism": "模型厂商通过与具体企业职能团队联合定制、以及面向分发伙伴发布统一政策，把原本由客户自建的专业流程与合规执行纳入官方通道：AT&T LegalEdge 的 intake 流程重塑与法律判断规模化，指向模型能力嵌入企业内部法律作业；OpenAI 的分发伙伴一致标准政策，指向模型厂商对下游分发环节的行为约束统一化。两者共同点是厂商把『如何使用、如何落地』从客户自由处置转为官方联合设计与统一政策所定义。"
+      },
+      "claim": "AI 厂商正把企业内部专业职能（法务、分发合规）的作业流程通过官方合作与政策通道产品化：OpenAI 与 AT&T 的 LegalEdge 团队重塑法律请求受理流程并规模化应用法律判断，同时 OpenAI 发布与分发合作伙伴一致执行保障措施的政策说明，显示前沿模型厂商把专业职能流程与分发端合规约束从客户自建转为由模型厂商联合定制与统一政策来承载。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-6590680ea9f19a2b750e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-a024416a651fcd51e485"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-c471b55089ad937a4afb",
+      "recorded_at": "2026-10-21T22:46:50.613149Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-acb3b909c65b059a6352",
+        "cluster-8eb7caae44376f6f723a"
+      ],
+      "tendency_id": "tendency-4fada4244b3ab65120cc",
+      "update_kind": null
+    },
+    {
+      "assessment": {
+        "baseline": "在 v0.40.8 之前，Ollama 官方库未包含 Recursive 的 Flint 编码模型，开发者获取此类第三方编码模型需另行下载与管理；本地运行栈的职责集中于运行时稳定性与格式兼容。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-21a4a4f399f0a1c0b6ac（Ollama v0.40.8 集成 Flint）直接落在既有 Candidate 的机制上，并带来不同于此前修复型变更的新侧面：通过官方库分发第三方开放权重编码模型。方向一致，故标记 strengthened。但仍属 Ollama 一个产品线的官方发布通道，缺乏第三方采用或跨 actor 的独立结构性支撑，按规则不能升级 Emerging，保持 Candidate。",
+        "falsifier": "如果 Flint 在 Ollama 库中未被开发者采用或被移除，或 Ollama 停止通过官方库集成第三方模型、放弃本地运行方向，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Ollama 发布 v0.40.8 版本。",
+          "该版本在 Ollama 库中引入 Recursive 的编码模型 Flint，采用 Apache 2.0 许可，为 40B 参数混合专家模型，每 token 约激活 2.5B 参数。"
+        ],
+        "shared_mechanism": "Ollama 沿同一产品线持续把本地模型运行工具扩展为运行时稳定性、格式兼容与模型分发一体化的平台：在修复 Windows 孤立 runner、扩展 GGUF q2_0 tensor/file types、允许非思考模型使用 Responses effort 之后，v0.40.8 进一步通过官方库引入 Recursive 的 Flint 编码模型并以 Apache 2.0 许可分发。共同改变的是开发者本地获取与运行第三方模型的方式，使本地运行栈承担更多模型供给与推理配置职责。"
+      },
+      "claim": "Ollama 正通过连续版本迭代把本地模型运行工具向更稳定的服务端推理与更广的模型/决策支持推进：v0.40.6 修复 Windows 孤立 runner、扩展 GGUF q2_0 tensor/file types，v0.40.7-rc0 允许非思考模型使用 Responses effort 并让 llama-server 自行推断 draft speculative 类型，最新 v0.40.8 通过官方库集成 Recursive 的 Flint 编码模型（Apache 2.0、40B MoE、每 token 激活约 2.5B），显示 Ollama 本地运行栈同时承担运行时稳定性与第三方模型分发职责。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-cee1317954cd341e9d90"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-27663ec22e2809b8aee9",
+      "record_id": "tendency-record-d5d195ecb4f85ea60376",
+      "recorded_at": "2026-10-21T22:46:50.613149Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-21a4a4f399f0a1c0b6ac"
+      ],
+      "tendency_id": "tendency-9d93af89ede5370c1725",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿模型与编码工作流主要通过各厂商自有 API 与自有云平台提供，跨云市场（如 Gemini Model Garden 承载 OpenAI 模型）与本地运行库官方集成第三方编码模型较少同时出现。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个新增簇分属不同 actor 与不同通道（OpenAI×Google Cloud 的跨云市场上架、Recursive 经 Ollama 本地库分发），均直接体现『模型能力经第三方通道分层分发』的机制，方向与既有 Candidate 一致，故标记 strengthened。但两簇均为单来源官方发布、缺少采用或效果数据，且原有证据多集中在模型发布侧，尚不足以升级 Emerging，保持 Candidate。",
+        "falsifier": "如果 OpenAI 模型未在 Gemini Model Garden 实际上架或被撤出，或 Flint 在 Ollama 库中被移除、未被采用，或厂商回退为单一自有通道分发，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 和 Google Cloud 正在将前沿模型和 Codex 工作流引入 Gemini 的 Model Garden，并可通过 Google Cloud Marketplace 获取。",
+          "Ollama v0.40.8 在官方库中引入 Recursive 的 Flint 编码模型，采用 Apache 2.0 许可，40B 参数混合专家、每 token 约激活 2.5B。"
+        ],
+        "shared_mechanism": "模型供给方通过第三方云市场与本地运行库把模型能力按部署位置与形态分层交付：OpenAI 把前沿模型与 Codex 工作流放入 Google Cloud 的 Gemini Model Garden 并挂在 Marketplace 下，Recursive 的 Flint 经 Ollama 官方库以开放权重分发。共同改变的是开发者获取模型能力的通道结构——从单一厂商自有 API 转为跨云市场与本地运行库的多入口供给。"
+      },
+      "claim": "模型能力继续通过官方发布与第三方分发通道按部署位置、规模与场景分层供给开发者：OpenAI 与 Google Cloud 合作把前沿模型与 Codex 工作流引入 Gemini Model Garden 并经 Google Cloud Marketplace 分发，Ollama 官方库集成 Recursive 的 Flint 编码模型（40B MoE、每 token 激活约 2.5B、Apache 2.0），显示模型厂商正以跨云市场与本地运行库两条通道分层分发编码与前沿能力，而非只依赖单一旗舰云端模型。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-91fa2ed6e00758f8e393"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-cee1317954cd341e9d90"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-7229c4b6f014e9b6a2d0",
+      "record_id": "tendency-record-e65f510882536fe6fc82",
+      "recorded_at": "2026-10-21T22:46:50.613149Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-a94eb46b9c5668dc4098",
+        "cluster-21a4a4f399f0a1c0b6ac"
+      ],
+      "tendency_id": "tendency-38dffa6c642cc3bde630",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前用户档案的执行状态、操作与筛选缺少 SDK 层面的官方支持，分发端的保障措施与使用政策期望也较少以统一政策说明形式公开。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增簇 cluster-13ad7d8ab88b8a87f0fc（Anthropic SDK v2.1.0 用户档案执行状态与筛选）与 cluster-8eb7caae44376f6f723a（OpenAI 分发一致标准政策）分属不同 actor 与不同通道，方向落在既有 Candidate 的『治理与合规下沉为内置能力』机制上，故标记 strengthened。但两者均为单来源官方发布、缺乏第三方采用或量化效果，且新增证据以 API 字段与政策表述为主，按规则不能升级 Emerging，保持 Candidate。",
+        "falsifier": "如果 SDK 新增的执行状态与筛选未被组织采用或被回退，或 OpenAI 的一致标准政策未被分发伙伴执行、被撤回，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "anthropics/anthropic-sdk-python 发布 v2.1.0，API 为用户档案新增执行状态、操作与筛选功能。",
+          "OpenAI 发布《Broad access through consistent standards》，说明与分发合作伙伴合作以维持一致的保障措施、支持负责任访问并明确使用政策期望。"
+        ],
+        "shared_mechanism": "服务提供方通过官方 SDK 版本与政策说明，把组织级身份执行状态与分发端行为约束从客户自建转为官方通道内置：Anthropic 在 Python SDK 中为用户档案增加执行状态、操作与筛选，使治理对象可通过客户端直接管理与观测；OpenAI 以一致标准政策把分发伙伴的保障措施纳入统一期望。共同点是治理与合规的执行位置从客户侧上移到 SDK 与厂商政策层。"
+      },
+      "claim": "AI 服务提供方正通过官方 SDK 与政策通道把组织级治理、执行状态与访问合规下沉为客户端与平台内置能力：anthropic-sdk-python v2.1.0 为用户档案新增执行状态、操作与筛选，OpenAI 发布与分发合作伙伴一致执行保障措施的政策说明以明确使用政策期望，显示治理与合规正从用户自建转为由 SDK 与官方政策通道承载。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-a15dc6f9bdd2bc16632a"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-a024416a651fcd51e485"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-b96f4436a409270e13a2",
+      "record_id": "tendency-record-f3e11bc4ed4d66654096",
+      "recorded_at": "2026-10-21T22:46:50.613149Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-13ad7d8ab88b8a87f0fc",
+        "cluster-8eb7caae44376f6f723a"
+      ],
+      "tendency_id": "tendency-5d072f551dc71c192b0e",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 LLM 决策公平性评估多依赖内部私有测试集，SLM 推理成本优化多依赖量化、蒸馏与硬件加速，词汇表专业化这一路径及公开量化降本披露较少出现。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "两个新增簇分属不同 actor（Allen AI、Dharma-AI）与不同主题（公平性评估、词表降本），但均落在既有 Candidate 的『以公开评估与部署效率界定模型能力边界』机制上，方向一致，故标记 strengthened。然而两簇均来自 Hugging Face 同一发布通道且为方法披露而非采用证据，跨 actor 的结构性支撑不足，按规则不能升级 Emerging，保持 Candidate。",
+        "falsifier": "如果 FairStress 未被研究或开发者采用、或公平性结论无法复现，或词汇表专业化方法在真实应用中未能复现 77% 降本，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Hugging Face 博客发布 Allen AI 的《FairStress: A deeper evaluation of fairness in LLM decision-making》。",
+          "Hugging Face 博客发布 Dharma-AI 的《How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications》。"
+        ],
+        "shared_mechanism": "厂商与研究方通过官方博客把模型能力的可评估性与部署效率公开为可复用方法：FairStress 把 LLM 决策公平性从内部自测转为公开评估框架；词汇表专业化把 SLM 推理成本削减 77%，把部署效率从硬件堆叠转向词表层面的工程优化。共同点是能力边界由可公开评测与可量化降本共同定义，而非单纯扩大通用模型规模。"
+      },
+      "claim": "模型厂商与平台方正把评估、公平性与运行时效率作为可公开交付的能力推进：Allen AI 在 Hugging Face 发布 FairStress 以更深入评估 LLM 决策公平性，Dharma-AI 介绍通过词汇表专业化将 SLM 推理成本降低 77% 的方法，显示模型能力边界与部署效率正沿公平性评估与专用词表优化两条线并行扩展。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-3ee68ea77ddb231a9f4a"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-22",
+            "story_id": "story-37844352896750984140"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-b8d9351a03f530407e82",
+      "record_id": "tendency-record-2c18dad108a29dc4add3",
+      "recorded_at": "2026-10-21T22:46:50.613149Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-d64109b0ca6d98f9bbda",
+        "cluster-c111a1f7e44e23052174"
+      ],
+      "tendency_id": "tendency-2a39e82987fa57a5b959",
+      "update_kind": "strengthened"
+    }
+  ],
+  "generated_at": "2026-10-21T22:46:50.613149Z"
+}
