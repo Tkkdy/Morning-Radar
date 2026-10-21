@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Morning Radar：可追溯的 AI、市场与开发者晨报">
+  <title>Morning Radar · 2026-10-22</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav><a class="brand" href="../index.html">Morning Radar</a><a href="../archive.html">历史晨报</a></nav>
+    <p class="eyebrow">2026-10-22 · Asia/Singapore</p>
+    <h1>少而重要，事实可追溯。</h1>
+    <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
+  </header>
+  <main>
+<section>
+  <h2>今日重点</h2>
+  <div class="cards">
+<article class="brief-card" id="story-story-91fa2ed6e00758f8e393">
+  <p class="section-label">今日重点</p>
+  <h3>OpenAI 模型与 Codex 工作流进入 Google Cloud 的 Gemini Model Garden</h3>
+  <p>OpenAI 与 Google Cloud 宣布合作，将 OpenAI 的前沿模型和 Codex 工作流引入 Gemini 的 Model Garden，并可通过 Google Cloud Marketplace 获取。</p>
+<p class="why"><strong>为什么重要：</strong>这意味着企业客户可以在 Google Cloud 的统一入口中获取 OpenAI 模型与编码工作流，云平台与模型提供方之间的组合关系出现新的交叉。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://openai.com/index/openai-models-google-cloud" rel="noopener noreferrer">
+        OpenAI News · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-21
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>公告未说明具体哪些 OpenAI 前沿模型会进入 Model Garden，也未给上线时间表。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI 和 Google Cloud 正在将前沿模型和 Codex 工作流引入 Gemini 的 Model Garden。</li><li>这些模型和工作流可通过 Google Cloud Marketplace 获取。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>具体哪些 OpenAI 前沿模型将进入 Gemini Model Garden 尚未明确。</li><li>该合作的上线时间表未在摘要中说明。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、Google Cloud、Gemini</span><span>产品：Gemini Model Garden、Google Cloud Marketplace、Codex</span><span>主题：ai_models、ai_coding</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
+        <div>OpenAI models are coming to Google Cloud</div>
+<div class="source-time">
+来源条目时间：2026-10-21
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-cee1317954cd341e9d90">
+  <p class="section-label">今日重点</p>
+  <h3>Ollama v0.40.8 引入 Recursive 的 Flint 编码模型</h3>
+  <p>Ollama 发布 v0.40.8，在模型库中引入 Recursive 的编码模型 Flint。Flint 采用 Apache 2.0 许可，为 40B 参数混合专家模型，每 token 约激活 2.5B 参数，支持推理、多轮工具使用和 262K token 上下文，目前支持 MacOS。</p>
+<p class="why"><strong>为什么重要：</strong>Flint 面向代码仓库内的编码代理场景设计，长上下文与多轮工具调用是这类任务的关键能力；以 Ollama 作为分发渠道，也降低了本地试用门槛。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.com/ollama/ollama/releases/tag/v0.40.8" rel="noopener noreferrer">
+        GitHub · ollama/ollama · Release
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+Release 发布于 2026-10-21
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>Recursive 报告的 Terminal-Bench 2.1 得分 54.9%、SWE-bench Verified 得分 74.2% 均为其自行发布的评估，尚未经独立验证；其他 GPU 平台的支持时间未说明。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Ollama 发布 v0.40.8 版本。</li><li>该版本在 Ollama 库中引入 Recursive 的编码模型 Flint。</li><li>Flint 采用 Apache 2.0 许可，为 40B 参数混合专家模型，每 token 约激活 2.5B 参数。</li><li>Flint 支持推理、多轮工具使用和 262K token 上下文窗口。</li><li>Recursive 在发布评估中报告 Flint 在 Terminal-Bench 2.1 上得分 54.9%，在 SWE-bench Verified 上得分 74.2%。</li><li>该版本注明 Flint 目前支持 MacOS，其他 GPU 支持将在后续版本中启用。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>Flint 面向编码代理在代码仓库中的工作场景设计，包括理解陌生代码、追踪缺陷、实现功能和添加测试。</li><li>262K token 上下文窗口与多轮工具使用能力，旨在支持跨文件和跨工具交互的较长任务。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>Recursive 报告的 Terminal-Bench 2.1 与 SWE-bench Verified 分数来自其自行发布的评估，尚未经独立验证。</li></ul></div><div class="detail-tags">
+<span>实体：Ollama、Recursive、Flint</span><span>产品：Flint、Ollama v0.40.8</span><span>主题：ai_models、ai_infrastructure、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · ollama/ollama</strong><span class="primary-indicator">主来源</span></div>
+        <div>ollama/ollama: v0.40.8</div>
+<div>作者：github-actions[bot]</div><div class="source-time">
+Release 发布于 2026-10-21
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-3ee68ea77ddb231a9f4a">
+  <p class="section-label">今日重点</p>
+  <h3>Allen AI 发布 FairStress，评估 LLM 决策公平性</h3>
+  <p>Hugging Face 博客发布了 Allen AI 题为《FairStress: A deeper evaluation of fairness in LLM decision-making》的文章。</p>
+<p class="why"><strong>为什么重要：</strong>公平性评估是 LLM 进入高风险决策场景的前置条件之一，但现有信息不足以判断该基准的方法与结论是否带来新的衡量方式。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://huggingface.co/blog/allenai/fairstress" rel="noopener noreferrer">
+        Hugging Face Blog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-20
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>目前只有标题与来源元数据，缺少 FairStress 的方法、数据集和结果细节，无法核实其评估设计。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Hugging Face 博客发布了一篇题为《FairStress: A deeper evaluation of fairness in LLM decision-making》的文章。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入仅提供标题与来源元数据，未提供 FairStress 的具体方法、数据集与结果细节，无法核实其评估设计与发现。</li></ul></div><div class="detail-tags">
+<span>实体：Allen AI、Hugging Face</span><span>产品：FairStress</span><span>主题：LLM 公平性评估、决策公平性、基准测试</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
+        <div>FairStress: A deeper evaluation of fairness in LLM decision-making</div>
+<div class="source-time">
+来源条目时间：2026-10-20
+        </div>      </li></ul></div>    </div>
+  </details>
+</article>  </div>
+</section>
+<section>
+  <h2>AI 与开源</h2>
+  <div class="cards">
+<article class="brief-card" id="story-story-37844352896750984140">
+  <p class="section-label">AI 与开源</p>
+  <h3>Hugging Face 博客介绍通过词汇表专业化降低 SLM 推理成本</h3>
+  <p>Hugging Face 博客发布 Dharma-AI 撰写的文章，主张在实际应用中对小语言模型的词汇表进行专业化处理，可将推理成本降低 77%，文中涉及 VocabX。</p>
+<p class="why"><strong>为什么重要：</strong>如果该降本幅度可在通用场景复现，会改变小模型在成本敏感型部署中的定位，但目前尚未看到可核实的实验条件。</p>  <div class="card-meta">
+    <a class="primary-source" href="https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization" rel="noopener noreferrer">
+        Hugging Face Blog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-21
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>77% 的降幅缺少正文或摘要支撑，基线模型、硬件配置与业务场景不明；是否有可复现代码与基准未知；Dharma-AI 与 VocabX 的关系未说明。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Hugging Face 博客发布了一篇由 Dharma-AI 撰写的文章，标题为《How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications》，发布于 2026-10-21T17:35:36Z。</li><li>文章主题标签包括 ai_models、ai_infrastructure 和 open_source_ai。</li><li>该条目被标记为 Hugging Face Blog 的 official_primary 来源。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>从标题表述看，文章主张在实际应用中对小语言模型（SLM）的词汇表进行专业化处理，可将推理成本降低 77%，但当前可获取的内容摘要为空，无法核实该数字的测算口径与实验条件。</li><li>词汇表专业化通常通过缩减或重排 token 词表来降低嵌入层与输出层的计算开销，其收益可能与具体应用领域和词表压缩比例相关。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>77% 的成本降幅缺少摘要或正文片段支撑，无法判断其对应的基线模型、硬件配置与业务场景。</li><li>文章是否包含可复现的实验数据、开源代码或基准测试，目前未知。</li><li>Dharma-AI 与 VocabX 的具体关系（是否为该团队的产品或方法名）未在可用信息中说明。</li></ul></div><div class="detail-tags">
+<span>实体：Hugging Face、Dharma-AI</span><span>产品：VocabX</span><span>主题：小语言模型、词汇表专业化、推理成本、AI 推理效率</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
+        <div>How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications</div>
+<div class="source-time">
+来源条目时间：2026-10-21
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-15440ebcbf4495742110">
+  <p class="section-label">AI 与开源</p>
+  <h3>报告警示：数据中心扩张或使得克萨斯州空气质量倒退数十年</h3>
+  <p>The Verge AI 报道称，得克萨斯州新建数据中心的快速扩张可能导致当地空气污染水平回升至2000年代以来的水平。报道指出，得克萨斯州已成为生成式AI物理基础设施的核心地区，新建和拟建数据中心正在消耗大量电力。</p>
+<p class="why"><strong>为什么重要：</strong>数据中心电力需求的增长如何得到满足，例如是否依赖天然气发电，将直接影响当地空气污染程度；这是该报道核心逻辑链条的一环。</p>  <div class="card-meta">
+    <a class="primary-source" href="https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report" rel="noopener noreferrer">
+        The Verge AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-21
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>报道摘要未给出报告的具体来源、发布机构及量化数据；未说明新建与拟建数据中心的规模、数量及新增电力需求的具体数值；空气污染“回升至2000年代水平”这一判断的测算依据与时间范围尚不明确。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>The Verge AI 报道称，一批新建数据中心的快速扩张，可能使得克萨斯州的空气污染水平回升至2000年代以来的水平。</li><li>报道指出，得克萨斯州已成为生成式AI物理基础设施的核心地区。</li><li>报道称，新建和拟建数据中心正在消耗大量电力。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>数据中心的电力需求增长如何被满足——例如通过天然气发电——将直接影响当地的空气污染程度，这是报道核心逻辑链条的一环。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>报道摘要未给出报告的具体来源、发布机构及量化数据。</li><li>摘要未说明新建与拟建数据中心的规模、数量以及新增电力需求的具体数值。</li><li>空气污染“回升至2000年代水平”这一判断的测算依据与时间范围尚不明确。</li></ul></div><div class="detail-tags">
+<span>实体：The Verge、得克萨斯州</span><span>主题：数据中心能耗、空气质量、生成式AI基础设施</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>The Verge AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>Data centers could erase decades of air quality gains</div>
+<div>作者：Justine Calma</div><div class="source-time">
+来源条目时间：2026-10-21
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-d4e2beba5805c128132e">
+  <p class="section-label">AI 与开源</p>
+  <h3>NVIDIA 发布 Kumo Relational，宣称在关系型数据上无需训练即可超越监督机器学习</h3>
+  <p>Hugging Face 博客发布了 NVIDIA 关于 Kumo Relational 的文章，标题称其在关系型数据上表现优于监督机器学习，且无需训练。</p>
+<p class="why"><strong>为什么重要：</strong>该消息来自官方博客的发布文章，属于厂商官方声明，可作为产品存在与定位的原始依据，但其性能对比结论尚未经独立验证。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://huggingface.co/blog/nvidia/kumo-relational" rel="noopener noreferrer">
+        Hugging Face Blog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-21
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>Kumo Relational 的具体方法、评测数据集、基线设置与性能提升幅度均未在现有输入中给出。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>不确定性</h4><ul><li>“无需训练”的确切含义以及“优于监督机器学习”的适用范围尚不明确。</li></ul></div><div class="detail-tags">
+<span>实体：NVIDIA、Hugging Face</span><span>产品：Kumo Relational</span><span>主题：关系型数据机器学习、免训练方法、监督学习对比</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
+        <div>NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required</div>
+<div class="source-time">
+来源条目时间：2026-10-21
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-6590680ea9f19a2b750e">
+  <p class="section-label">AI 与开源</p>
+  <h3>AT&T与OpenAI合作，用AI重塑内部法律工作</h3>
+  <p>OpenAI官方博客发文介绍AT&T与OpenAI的合作，目标是让法律知识更易获取。其中，AT&T的LegalEdge团队正在重新设计法律请求受理（intake）流程，并推动法律判断的规模化应用。</p>
+<p class="why"><strong>为什么重要：</strong>这是一个企业内部法务部门采用大模型提升知识可及性的典型案例，重点在于受理流程的重新设计与法律判断的规模化，而非模型能力本身；对其他企业将AI嵌入专业职能流程有参照意义。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://openai.com/index/att-legal" rel="noopener noreferrer">
+        OpenAI News · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-21
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>输入未披露合作的具体时间线、部署范围、所用模型或版本，也未给出量化效果指标；上述内容来自OpenAI官方博客，属于厂商视角的单方面介绍。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI官方博客发文介绍AT&T与OpenAI合作，让法律知识更易获取。</li><li>AT&T的LegalEdge团队正在重新设计法律请求受理（intake）流程，并规模化应用法律判断。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该案例属于企业内部职能部门（法务）采用大模型提升知识可及性的典型场景，重点在受理流程和法律判断的规模化，而非模型能力本身。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入未披露合作的具体时间线、部署范围、所用模型或版本，也未给出量化效果指标。</li></ul></div><div class="detail-tags">
+<span>实体：AT&T、OpenAI、LegalEdge</span><span>主题：法律科技、企业知识管理、AI助手</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
+        <div>How AT&T is rethinking in-house legal work with OpenAI</div>
+<div class="source-time">
+来源条目时间：2026-10-21
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-5406e1c7552cdca86f96">
+  <p class="section-label">AI 与开源</p>
+  <h3>Claude Duet 产品页面在 Hacker News 引发讨论</h3>
+  <p>Hacker News 上出现了一条标题为“Claude Duet”的帖子，指向 https://claude.com/product/claude-duet，发布时间为 2026-10-21T19:14:01Z，作者为 kuberwastaken，score 为 253，评论数为 210。该来源被标记为 community_discovery 和 unverified_lead，official 为 false。</p>
+<p class="why"><strong>为什么重要：</strong>该条目仅表明社区中出现了与 Claude Duet 相关的链接和讨论，不能据此确认该产品已发布或具备具体功能。</p>    <span class="status-badge">传闻</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://claude.com/product/claude-duet" rel="noopener noreferrer">
+claude.com · 原文    </a>
+    <span class="discovery-note">经 Hacker News 发现</span>
+    <a href="https://news.ycombinator.com/item?id=50186037" rel="noopener noreferrer">Hacker News · 讨论</a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+2026-10-21 在 Hacker News 提交
+    </span>
+  </div>
+<p><strong>市场/社区：</strong>Hacker News 的 score 与评论数仅反映社区关注度，不能作为产品事实依据。</p><p class="uncertainty"><strong>不确定性：</strong>Claude Duet 是否为 Anthropic 官方产品、当前状态及具体功能均未由官方来源确认；该 URL 是否指向真实存在的产品页面，以及页面内容如何，输入中未提供正文或摘要。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Hacker News 上出现了一条指向 https://claude.com/product/claude-duet 的帖子，标题为“Claude Duet”。</li><li>该 Hacker News 帖子的发布时间为 2026-10-21T19:14:01Z，作者为 kuberwastaken，score 为 253，评论数为 210。</li><li>该来源被标记为 community_discovery 和 unverified_lead，official 为 false。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>Claude Duet 是否为 Anthropic 官方产品、当前状态及具体功能均未由官方来源确认。</li><li>该 URL 是否指向真实存在的产品页面，以及页面内容如何，输入中未提供正文或摘要。</li><li>Hacker News 的 score 与评论数仅反映社区关注度，不能作为产品事实依据。</li></ul></div><div class="detail-tags">
+<span>实体：Anthropic、Claude、Hacker News</span><span>产品：Claude Duet</span><span>主题：AI 助手产品、社区发现</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>claude.com · 原文</strong><span class="primary-indicator">主来源</span></div>
+<div class="discovery-note">经 Hacker News 发现</div>        <div>Claude Duet</div>
+<div>作者：kuberwastaken</div><div class="source-time">
+2026-10-21 在 Hacker News 提交
+        </div>      </li></ul></div>    </div>
+  </details>
+</article>  </div>
+</section>
+<section class="radar-signals">
+  <h2>雷达信号 · 尚待验证</h2>
+  <div class="cards">
+    <article class="radar-signal">
+      <p class="section-label">尚待验证</p>
+      <h3>Simon Willison 使用 Claude 构建了 RTS 游戏 Battle Drones，并实现了附近设备之间通过音频同步游戏状态的多人模式。</h3>
+      <p>这是一个具体的 AI 辅助游戏开发案例，展示了以自然语言指令驱动 Claude 完成可玩 RTS 原型，并采用非传统的音频信道同步多人状态，对观察 AI 编程工具的实际产出边界有参考价值。</p>
+      <p class="uncertainty"><strong>不确定性：</strong>仅有作者本人的摘要且正文被截断；无法确认 AI 生成代码的具体比例、音频同步在实际设备上的稳定性，以及“actually fun to play”的主观评价是否具有普遍性。</p>
+<p><strong>还缺：</strong>完整文章内容与项目代码/可复现链接；多人音频同步的技术细节与可靠性测试；独立开发者或用户对该游戏可玩性与同步效果的验证</p>      <div class="sources">
+<a href="https://simonwillison.net/2026/Oct/20/battledrones/" rel="noopener noreferrer">simonwillison.net</a>      </div>
+    </article>
+  </div>
+</section>
+    <section><h2>值得继续思考</h2><div class="observation">如果同一批模型既能通过 OpenAI 官方渠道获取，也能经 Google Cloud 的 Model Garden 分发，企业选择云平台时将更多依据模型目录还是云服务本身？</div></section>
+    <section><h2>继续观察</h2><ul class="watch"><li>观察 FairStress 是否公开评测方法、数据集与结果，或被独立研究引用。</li><li>观察 VocabX 方法是否发布可复现实验数据或代码，以核实 77% 推理成本降幅。</li></ul></section>
+  </main>
+  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-10-21 22:44:09.026043+00:00。</footer>
+</body>
+</html>

@@ -1,0 +1,639 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 与 Google Cloud 合作将前沿模型和 Codex 工作流引入 Gemini Model Garden",
+    "category": "ai_models",
+    "credibility_score": 0.84,
+    "entity_names": [
+      "OpenAI",
+      "Google Cloud",
+      "Gemini"
+    ],
+    "facts": [
+      "OpenAI 和 Google Cloud 正在将前沿模型和 Codex 工作流引入 Gemini 的 Model Garden。",
+      "这些模型和工作流可通过 Google Cloud Marketplace 获取。"
+    ],
+    "id": "story-91fa2ed6e00758f8e393",
+    "importance_score": 0.88,
+    "novelty_score": 0.85,
+    "primary_source_url": "https://openai.com/index/openai-models-google-cloud",
+    "product_names": [
+      "Gemini Model Garden",
+      "Google Cloud Marketplace",
+      "Codex"
+    ],
+    "published_at": "2026-10-21T12:00:00Z",
+    "relevance_score": 0.96,
+    "source_item_ids": [
+      "item-95dedf578de78f3ec264"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-95dedf578de78f3ec264",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "OpenAI models are coming to Google Cloud",
+        "url": "https://openai.com/index/openai-models-google-cloud"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/openai-models-google-cloud"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "具体哪些 OpenAI 前沿模型将进入 Gemini Model Garden 尚未明确。",
+      "该合作的上线时间表未在摘要中说明。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "Flint 面向编码代理在代码仓库中的工作场景设计，包括理解陌生代码、追踪缺陷、实现功能和添加测试。",
+      "262K token 上下文窗口与多轮工具使用能力，旨在支持跨文件和跨工具交互的较长任务。"
+    ],
+    "canonical_title": "Ollama v0.40.8 发布，集成 Recursive 的 Flint 编码模型",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.68,
+    "entity_names": [
+      "Ollama",
+      "Recursive",
+      "Flint"
+    ],
+    "facts": [
+      "Ollama 发布 v0.40.8 版本。",
+      "该版本在 Ollama 库中引入 Recursive 的编码模型 Flint。",
+      "Flint 采用 Apache 2.0 许可，为 40B 参数混合专家模型，每 token 约激活 2.5B 参数。",
+      "Flint 支持推理、多轮工具使用和 262K token 上下文窗口。",
+      "Recursive 在发布评估中报告 Flint 在 Terminal-Bench 2.1 上得分 54.9%，在 SWE-bench Verified 上得分 74.2%。",
+      "该版本注明 Flint 目前支持 MacOS，其他 GPU 支持将在后续版本中启用。"
+    ],
+    "id": "story-cee1317954cd341e9d90",
+    "importance_score": 0.62,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.8",
+    "product_names": [
+      "Flint",
+      "Ollama v0.40.8"
+    ],
+    "published_at": "2026-10-21T16:20:30Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-bb132bf741e1159b4d9c"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T16:20:30Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bb132bf741e1159b4d9c",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.8",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.8"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.8"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "Recursive 报告的 Terminal-Bench 2.1 与 SWE-bench Verified 分数来自其自行发布的评估，尚未经独立验证。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Allen AI 发布 FairStress：更深入评估 LLM 决策公平性",
+    "category": "ai_models",
+    "credibility_score": 0.62,
+    "entity_names": [
+      "Allen AI",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇题为《FairStress: A deeper evaluation of fairness in LLM decision-making》的文章。"
+    ],
+    "id": "story-3ee68ea77ddb231a9f4a",
+    "importance_score": 0.6,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://huggingface.co/blog/allenai/fairstress",
+    "product_names": [
+      "FairStress"
+    ],
+    "published_at": "2026-10-20T16:09:19Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-ef73bf2ace8ac6719291"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-20T16:09:19Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ef73bf2ace8ac6719291",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "FairStress: A deeper evaluation of fairness in LLM decision-making",
+        "url": "https://huggingface.co/blog/allenai/fairstress"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/fairstress"
+    ],
+    "status": "available",
+    "topic_names": [
+      "LLM 公平性评估",
+      "决策公平性",
+      "基准测试"
+    ],
+    "uncertainties": [
+      "输入仅提供标题与来源元数据，未提供 FairStress 的具体方法、数据集与结果细节，无法核实其评估设计与发现。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "从标题表述看，文章主张在实际应用中对小语言模型（SLM）的词汇表进行专业化处理，可将推理成本降低 77%，但当前可获取的内容摘要为空，无法核实该数字的测算口径与实验条件。",
+      "词汇表专业化通常通过缩减或重排 token 词表来降低嵌入层与输出层的计算开销，其收益可能与具体应用领域和词表压缩比例相关。"
+    ],
+    "canonical_title": "Hugging Face 博客介绍通过词汇表专业化将 SLM 推理成本降低 77% 的方法",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.42,
+    "entity_names": [
+      "Hugging Face",
+      "Dharma-AI"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇由 Dharma-AI 撰写的文章，标题为《How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications》，发布于 2026-10-21T17:35:36Z。",
+      "文章主题标签包括 ai_models、ai_infrastructure 和 open_source_ai。",
+      "该条目被标记为 Hugging Face Blog 的 official_primary 来源。"
+    ],
+    "id": "story-37844352896750984140",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization",
+    "product_names": [
+      "VocabX"
+    ],
+    "published_at": "2026-10-21T17:35:36Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-40a01666d562060bfdf9"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T17:35:36Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-40a01666d562060bfdf9",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Specializing the Vocabulary of SLMs Can Cut Inference Cost by 77% in Real Applications",
+        "url": "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/Dharma-AI/vocabx-vocabulary-specialization"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "小语言模型",
+      "词汇表专业化",
+      "推理成本",
+      "AI 推理效率"
+    ],
+    "uncertainties": [
+      "77% 的成本降幅缺少摘要或正文片段支撑，无法判断其对应的基线模型、硬件配置与业务场景。",
+      "文章是否包含可复现的实验数据、开源代码或基准测试，目前未知。",
+      "Dharma-AI 与 VocabX 的具体关系（是否为该团队的产品或方法名）未在可用信息中说明。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "该案例属于企业内部职能部门（法务）采用大模型提升知识可及性的典型场景，重点在受理流程和法律判断的规模化，而非模型能力本身。"
+    ],
+    "canonical_title": "AT&T与OpenAI合作，用AI重塑内部法律工作",
+    "category": "企业AI应用",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "AT&T",
+      "OpenAI",
+      "LegalEdge"
+    ],
+    "facts": [
+      "OpenAI官方博客发文介绍AT&T与OpenAI合作，让法律知识更易获取。",
+      "AT&T的LegalEdge团队正在重新设计法律请求受理（intake）流程，并规模化应用法律判断。"
+    ],
+    "id": "story-6590680ea9f19a2b750e",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/att-legal",
+    "product_names": [],
+    "published_at": "2026-10-21T17:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-39cad894cdd240fbe2db"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-39cad894cdd240fbe2db",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How AT&T is rethinking in-house legal work with OpenAI",
+        "url": "https://openai.com/index/att-legal"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/att-legal"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "法律科技",
+      "企业知识管理",
+      "AI助手"
+    ],
+    "uncertainties": [
+      "输入未披露合作的具体时间线、部署范围、所用模型或版本，也未给出量化效果指标。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "数据中心的电力需求增长如何被满足——例如通过天然气发电——将直接影响当地的空气污染程度，这是报道核心逻辑链条的一环。"
+    ],
+    "canonical_title": "报告警示：数据中心扩张或使得克萨斯州空气质量倒退数十年",
+    "category": "行业与环境",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "The Verge",
+      "得克萨斯州"
+    ],
+    "facts": [
+      "The Verge AI 报道称，一批新建数据中心的快速扩张，可能使得克萨斯州的空气污染水平回升至2000年代以来的水平。",
+      "报道指出，得克萨斯州已成为生成式AI物理基础设施的核心地区。",
+      "报道称，新建和拟建数据中心正在消耗大量电力。"
+    ],
+    "id": "story-15440ebcbf4495742110",
+    "importance_score": 0.55,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report",
+    "product_names": [],
+    "published_at": "2026-10-21T18:33:44-04:00",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-5fda1e1adb27276c57f0"
+    ],
+    "source_refs": [
+      {
+        "author": "Justine Calma",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T18:33:44-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5fda1e1adb27276c57f0",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Data centers could erase decades of air quality gains",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1015958/data-center-pollution-rising-report"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "数据中心能耗",
+      "空气质量",
+      "生成式AI基础设施"
+    ],
+    "uncertainties": [
+      "报道摘要未给出报告的具体来源、发布机构及量化数据。",
+      "摘要未说明新建与拟建数据中心的规模、数量以及新增电力需求的具体数值。",
+      "空气污染“回升至2000年代水平”这一判断的测算依据与时间范围尚不明确。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "该消息来自官方博客的发布文章，属于厂商官方声明，可作为产品存在与定位的原始依据，但其性能对比结论尚未经独立验证。"
+    ],
+    "canonical_title": "NVIDIA 发布 Kumo Relational，宣称在关系型数据上无需训练即可超越监督机器学习",
+    "category": "AI 模型与研究",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "NVIDIA",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了 NVIDIA 关于 Kumo Relational 的文章，标题称其在关系型数据上表现优于监督机器学习，且无需训练。"
+    ],
+    "id": "story-d4e2beba5805c128132e",
+    "importance_score": 0.48,
+    "novelty_score": 0.58,
+    "primary_source_url": "https://huggingface.co/blog/nvidia/kumo-relational",
+    "product_names": [
+      "Kumo Relational"
+    ],
+    "published_at": "2026-10-21T18:26:30Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-94a5f6526eada9bc0f52"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T18:26:30Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-94a5f6526eada9bc0f52",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "NVIDIA Kumo Relational Outperforms Supervised Machine Learning on Relational Data, No Training Required",
+        "url": "https://huggingface.co/blog/nvidia/kumo-relational"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/nvidia/kumo-relational"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "关系型数据机器学习",
+      "免训练方法",
+      "监督学习对比"
+    ],
+    "uncertainties": [
+      "Kumo Relational 的具体方法、评测数据集、基线设置与性能提升幅度均未在现有输入中给出。",
+      "“无需训练”的确切含义以及“优于监督机器学习”的适用范围尚不明确。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "该文章属于 OpenAI 官方发布的政策沟通，重点在于分发渠道的治理一致性，而非产品或模型更新。",
+      "将分发合作伙伴纳入统一保障框架，可能反映 OpenAI 对第三方渠道合规风险的关注。"
+    ],
+    "canonical_title": "OpenAI 发布与分发合作伙伴一致执行保障措施的政策说明",
+    "category": "AI 治理与政策",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI News 于 2026-10-21T21:00:00Z 发布题为《Broad access through consistent standards》的文章。",
+      "文章说明 OpenAI 如何与分发合作伙伴合作，以维持一致的保障措施、支持负责任的访问，并明确 OpenAI 使用政策中的期望。"
+    ],
+    "id": "story-a024416a651fcd51e485",
+    "importance_score": 0.35,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/index/broad-access-through-consistent-standards",
+    "product_names": [],
+    "published_at": "2026-10-21T21:00:00Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-3f1a11956436b1673800"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T21:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-3f1a11956436b1673800",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Broad access through consistent standards",
+        "url": "https://openai.com/index/broad-access-through-consistent-standards"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/broad-access-through-consistent-standards"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 分发合作",
+      "使用政策",
+      "保障措施",
+      "负责任访问"
+    ],
+    "uncertainties": [
+      "输入未说明具体涉及哪些分发合作伙伴、地区或产品线。",
+      "输入未提供使用政策的具体新增或修改条款内容。",
+      "该说明是否伴随执行机制或合规审查流程的变化尚不明确。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "此次更新属于 SDK 的 API 面变更，新增字段与筛选能力通常用于支持对用户档案执行状态的管理与查询。",
+      "发布者由机器人账号完成，符合该仓库自动发布流程的一贯做法。"
+    ],
+    "canonical_title": "anthropic-sdk-python 发布 v2.1.0，为用户档案新增执行状态、操作与筛选功能",
+    "category": "开发者工具与SDK",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Anthropic",
+      "anthropics/anthropic-sdk-python"
+    ],
+    "facts": [
+      "anthropics/anthropic-sdk-python 发布了 v2.1.0 版本。",
+      "该版本的更新说明为：API 为用户档案新增执行状态、操作与筛选功能（add enforcement status, actions and filter to user profiles）。",
+      "该版本发布于 2026-10-21T22:00:30Z，发布者标记为 anthropic-sdks-releaser[bot]。"
+    ],
+    "id": "story-a15dc6f9bdd2bc16632a",
+    "importance_score": 0.2,
+    "novelty_score": 0.15,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.1.0",
+    "product_names": [
+      "anthropic-sdk-python v2.1.0"
+    ],
+    "published_at": "2026-10-21T22:00:30Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-8d4c38436cd935212162"
+    ],
+    "source_refs": [
+      {
+        "author": "anthropic-sdks-releaser[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T22:00:30Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8d4c38436cd935212162",
+        "source_date": null,
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v2.1.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.1.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.1.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "API 更新",
+      "用户档案管理"
+    ],
+    "uncertainties": [
+      "更新说明未给出新增字段的具体名称、类型、默认值及是否属于破坏性变更。",
+      "未说明新增的执行状态与操作是否已在服务端对全部用户开放，以及是否与既有档案接口兼容。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  },
+  {
+    "analysis": [
+      "该条目仅表明社区中出现了与 Claude Duet 相关的链接和讨论，不能据此确认该产品已发布或具备具体功能。"
+    ],
+    "canonical_title": "Claude Duet 产品页面在 Hacker News 引发讨论",
+    "category": "AI产品与社区讨论",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Hacker News"
+    ],
+    "facts": [
+      "Hacker News 上出现了一条指向 https://claude.com/product/claude-duet 的帖子，标题为“Claude Duet”。",
+      "该 Hacker News 帖子的发布时间为 2026-10-21T19:14:01Z，作者为 kuberwastaken，score 为 253，评论数为 210。",
+      "该来源被标记为 community_discovery 和 unverified_lead，official 为 false。"
+    ],
+    "id": "story-5406e1c7552cdca86f96",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://claude.com/product/claude-duet",
+    "product_names": [
+      "Claude Duet"
+    ],
+    "published_at": "2026-10-21T19:14:01Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-bcaa8ab88e246578c61c"
+    ],
+    "source_refs": [
+      {
+        "author": "kuberwastaken",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50186037",
+        "fetched_at": "2026-10-21T22:42:28.090344Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-21T19:14:01Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-bcaa8ab88e246578c61c",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude Duet",
+        "url": "https://claude.com/product/claude-duet"
+      }
+    ],
+    "source_urls": [
+      "https://claude.com/product/claude-duet",
+      "https://news.ycombinator.com/item?id=50186037"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 助手产品",
+      "社区发现"
+    ],
+    "uncertainties": [
+      "Claude Duet 是否为 Anthropic 官方产品、当前状态及具体功能均未由官方来源确认。",
+      "该 URL 是否指向真实存在的产品页面，以及页面内容如何，输入中未提供正文或摘要。",
+      "Hacker News 的 score 与评论数仅反映社区关注度，不能作为产品事实依据。"
+    ],
+    "updated_at": "2026-10-21T22:44:09.026043Z"
+  }
+]

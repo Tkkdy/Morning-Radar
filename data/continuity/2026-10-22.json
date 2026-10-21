@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-22",
+  "generated_at": "2026-10-21T22:44:09.026043Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Allen AI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 FairStress 是否公开评测方法、数据集与结果，或被独立研究引用。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "FairStress"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-21T22:44:09.026043Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-22",
+          "story_id": "story-3ee68ea77ddb231a9f4a"
+        }
+      ],
+      "topic_anchors": [
+        "LLM 公平性评估"
+      ],
+      "watch_id": "watch-3279d986157c55c6e948"
+    },
+    {
+      "entity_anchors": [
+        "Dharma-AI",
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 VocabX 方法是否发布可复现实验数据或代码，以核实 77% 推理成本降幅。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "VocabX"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-21T22:44:09.026043Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-22",
+          "story_id": "story-37844352896750984140"
+        }
+      ],
+      "topic_anchors": [
+        "词汇表专业化",
+        "推理成本"
+      ],
+      "watch_id": "watch-41a5884fc65eda401b62"
+    }
+  ]
+}

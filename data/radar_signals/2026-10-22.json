@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Simon Willison 使用 Claude 构建了 RTS 游戏 Battle Drones，并实现了附近设备之间通过音频同步游戏状态的多人模式。",
+    "id": "radar-3724b239d8942b6d60ad",
+    "missing_evidence": [
+      "完整文章内容与项目代码/可复现链接",
+      "多人音频同步的技术细节与可靠性测试",
+      "独立开发者或用户对该游戏可玩性与同步效果的验证"
+    ],
+    "observed_at": "2026-10-21T22:42:28.090344Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-d0f0045fb40f11c22501",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/20/battledrones/"
+      }
+    ],
+    "uncertainty": "仅有作者本人的摘要且正文被截断；无法确认 AI 生成代码的具体比例、音频同步在实际设备上的稳定性，以及“actually fun to play”的主观评价是否具有普遍性。",
+    "why_notable": "这是一个具体的 AI 辅助游戏开发案例，展示了以自然语言指令驱动 Claude 完成可玩 RTS 原型，并采用非传统的音频信道同步多人状态，对观察 AI 编程工具的实际产出边界有参考价值。"
+  }
+]

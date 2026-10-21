@@ -7,6 +7,7 @@
     "id": "item-39cad894cdd240fbe2db",
     "language": "en-US",
     "metadata": {
+      "content_version": "1bf45a6f4a50c681c547",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-22b090900222010d1427",
     "language": "en-US",
     "metadata": {
+      "content_version": "744089b55a5dd532439c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-94a5f6526eada9bc0f52",
     "language": "en-US",
     "metadata": {
+      "content_version": "bf5ac164aafa6f4633f3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -218,6 +221,7 @@
     "id": "item-5fda1e1adb27276c57f0",
     "language": "en-US",
     "metadata": {
+      "content_version": "11bf26060c60b2f1ecb1",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +283,7 @@
     "id": "item-de377fdb3304eb693b54",
     "language": "en-us",
     "metadata": {
+      "content_version": "433b1a6ae10343b412ea",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +315,7 @@
     "id": "item-3f1a11956436b1673800",
     "language": "en-US",
     "metadata": {
+      "content_version": "0d8d42468fb496065ad6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -400,6 +406,7 @@
     "id": "item-40a01666d562060bfdf9",
     "language": "en-US",
     "metadata": {
+      "content_version": "2a01ace89799606e783b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -551,6 +558,7 @@
     "id": "item-5ec1c71b36275b2a0563",
     "language": "en-US",
     "metadata": {
+      "content_version": "48930f1237bfc3e71f2a",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -613,6 +621,7 @@
     "id": "item-95dedf578de78f3ec264",
     "language": "en-US",
     "metadata": {
+      "content_version": "8dea1e68699c66c13725",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1067,6 +1076,7 @@
     "id": "item-2c98ce490bd84cfad64a",
     "language": "en-us",
     "metadata": {
+      "content_version": "b5c8491f5347c375311c",
       "official": true,
       "practitioner_id": null,
       "priority": "medium",
@@ -1188,6 +1198,7 @@
     "id": "item-d0f0045fb40f11c22501",
     "language": "en-us",
     "metadata": {
+      "content_version": "f358bd70309e2660e1dd",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1309,6 +1320,7 @@
     "id": "item-ef73bf2ace8ac6719291",
     "language": "en-US",
     "metadata": {
+      "content_version": "77ee7a43009cc3de42b2",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -74575,6 +74587,7 @@
     "id": "item-8d4c38436cd935212162",
     "language": "en",
     "metadata": {
+      "content_version": "260ec2d2e7ce257ee058",
       "data_anomaly": false,
       "forks": 892,
       "official": true,
@@ -76475,6 +76488,7 @@
     "id": "item-bb132bf741e1159b4d9c",
     "language": "en",
     "metadata": {
+      "content_version": "cf081483cbe69d4caced",
       "data_anomaly": false,
       "forks": 18475,
       "official": true,
@@ -77777,6 +77791,7 @@
     "metadata": {
       "comments": 523,
       "community_signal": true,
+      "content_version": "a041dfe3db213dc1cb93",
       "discussion_url": "https://news.ycombinator.com/item?id=50180873",
       "official": false,
       "original_url": "https://github.com/php/php-src/releases/tag/php-8.2.35",
@@ -77897,11 +77912,20 @@
     "metadata": {
       "comments": 210,
       "community_signal": true,
+      "content_version": "8384d0cd909a04ce8190",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50186037",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://claude.com/product/claude-duet",
       "score": 253,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -78411,6 +78435,7 @@
     "metadata": {
       "change_percent": 0.03414414936015651,
       "close": 386.4700012207031,
+      "content_version": "d641d63e33fac89b0ba8",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 373.7099914550781,
@@ -80376,38 +80401,6 @@
     "title": "Research Preview of Claude Duet",
     "topic_candidates": [],
     "url": "https://twitter.com/claudeai/status/2112984664256241837"
-  },
-  {
-    "author": "kuberwastaken",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-21T22:42:28.090344Z",
-    "id": "item-bcaa8ab88e246578c61c",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50186037",
-      "hn_submission_time": 1792610041,
-      "lab_id": "anthropic",
-      "original_url": "https://claude.com/product/claude-duet",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-21T19:14:01Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Duet",
-    "topic_candidates": [],
-    "url": "https://claude.com/product/claude-duet"
   },
   {
     "author": "ildari",
