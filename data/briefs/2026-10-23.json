@@ -1,0 +1,847 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-ff0c3f1c043465ab39be",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该公告属于官方产品政策变更，重点是默认策略的生效与分阶段推送，而非新模型或新功能发布；对企业管理员而言，影响在于 GA 功能的启用方式由逐项配置转为全局默认。",
+            "公告未在摘要中给出推送完成时间表、区域分批顺序或管理员关闭默认的具体操作路径，因此实际企业侧生效节奏需以 GitHub 后续文档与组织设置为准。"
+          ],
+          "canonical_title": "GitHub Copilot Business 与 Copilot Enterprise 面向 GA 功能的全局默认策略正式生效并开始逐步推送",
+          "category": "AI 编程工具/企业产品政策",
+          "entity_names": [
+            "GitHub",
+            "Copilot Business",
+            "Copilot Enterprise"
+          ],
+          "facts": [
+            "GitHub 在 2026 年 10 月 22 日的 Changelog 中宣布，面向 Copilot Business 与 Copilot Enterprise 计划中已正式可用（GA）的 Copilot 功能及受支持客户端能力的全局默认策略已正式可用。",
+            "GitHub 表示该全局默认策略于 9 月宣布，今日起开始逐步推送（gradually rolling out）。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available",
+          "product_names": [
+            "GitHub Copilot",
+            "Copilot Business",
+            "Copilot Enterprise"
+          ],
+          "published_at": "2026-10-22T20:44:28Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T20:44:28Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-767a7f383549ba646ff2",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Global default for Copilot features generally available",
+              "url": "https://github.blog/changelog/2026-10-22-global-default-for-copilot-features-generally-available"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-ccb5579275ea1d1769e2",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "逐步推送的具体批次、完成时间以及是否覆盖所有区域和所有 Copilot 客户端尚不明确。",
+            "公告摘要未说明管理员能否或如何对个别功能退出该全局默认，以及退出后的行为细节。",
+            "“9 月宣布”所指的原始公告链接与确切日期未在输入中给出。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ccb5579275ea1d1769e2"
+      ],
+      "title": "GitHub 正式生效 Copilot Business 与 Enterprise 的 GA 功能全局默认策略并开始逐步推送",
+      "uncertainty": "逐步推送的具体批次、完成时间以及是否覆盖所有区域和所有 Copilot 客户端尚不明确；管理员能否或如何对个别功能退出该全局默认，以及退出后的行为细节未说明。",
+      "what_happened": "GitHub 在 2026 年 10 月 22 日的 Changelog 中宣布，面向 Copilot Business 与 Copilot Enterprise 计划中已正式可用（GA）的 Copilot 功能及受支持客户端能力的全局默认策略已正式可用。该策略于 9 月宣布，今日起开始逐步推送。",
+      "why_it_matters": "对企业管理员而言，GA 功能的启用方式由逐项配置转为全局默认，可能改变组织内 Copilot 功能的可见范围与配置流程。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-0c3d951d1fdf4e676e1f",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/microsoft/thinkingbox-training"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从标题看，该方法将数据库评分信号作为强化学习奖励，属于面向智能体的后训练范式，可能与数据库相关任务的可验证评估结合。",
+            "文章发布在 Hugging Face 博客且来源标记为官方一手来源，属于微软官方渠道的产品/方法公告，但摘要与正文摘录为空，具体技术细节无法从现有输入确认。"
+          ],
+          "canonical_title": "微软在 Hugging Face 博客发布 ThinkingBox：将数据库评分转化为强化学习奖励用于智能体后训练",
+          "category": "ai_models",
+          "entity_names": [
+            "Microsoft",
+            "Hugging Face"
+          ],
+          "facts": [
+            "微软在 Hugging Face 博客发布题为《Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox》的文章。",
+            "该文章发表于 2026-10-22T22:24:34Z，来源为 Hugging Face Blog，标记为官方一手来源（official_primary），陈述类型为事实性公告（factual_announcement）。",
+            "文章标题表明其主题是将数据库评分（database grading）转化为强化学习奖励（RL rewards），用于智能体（agents）的后训练。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/microsoft/thinkingbox-training",
+          "product_names": [
+            "ThinkingBox"
+          ],
+          "published_at": "2026-10-22T22:24:34Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T22:24:34Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-51888f116f5b083740bc",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox",
+              "url": "https://huggingface.co/blog/microsoft/thinkingbox-training"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-b967381d221124b3064f",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入中 summary 与 content_excerpt 均为空，无法获取文章具体内容、方法细节、实验结果或 ThinkingBox 的具体功能范围。",
+            "ThinkingBox 究竟是产品、工具、数据集还是训练框架，从现有输入无法确定。",
+            "标题中的“数据库评分”具体指何种评分机制、覆盖哪些数据库任务，无法从输入追溯。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-b967381d221124b3064f"
+      ],
+      "title": "微软在 Hugging Face 博客发布 ThinkingBox：将数据库评分转化为强化学习奖励用于智能体后训练",
+      "uncertainty": "输入中摘要与正文摘录为空，无法获取文章具体内容、方法细节、实验结果或 ThinkingBox 的具体功能范围；ThinkingBox 究竟是产品、工具、数据集还是训练框架，从现有输入无法确定。",
+      "what_happened": "微软在 Hugging Face 博客发布题为《Turning Database Grading into RL Rewards: Post-Training Agents with ThinkingBox》的文章。文章标题表明其主题是将数据库评分转化为强化学习奖励，用于智能体的后训练。",
+      "why_it_matters": "该方法将数据库评分信号作为强化学习奖励，属于面向智能体的后训练范式，可能与数据库相关任务的可验证评估结合。"
+    },
+    {
+      "continuity_contexts": [
+        {
+          "current_story_id": "story-47a80ecbded4b766500a",
+          "judgement_cues": [],
+          "previous_story_date": "2026-10-19",
+          "previous_story_id": "story-93c4042d462fe383592f",
+          "previous_story_title": "openai-python 发布 v3.32.0，新增缓存设置、基于提示的语音创建与区域处理驻留选项等 API 功能",
+          "relation_type": "follow_up",
+          "watch_matches": [],
+          "what_changed": "openai-python 从 v3.32.0 推进到 v3.37.0，并在 Decisions 类型上引入不兼容变更：question.instructions 现在可为字符串或结构化部件列表，输入类型新增消息角色与工具历史条目。"
+        }
+      ],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-2041772fb15119f3f8b8",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/openai/openai-python/releases/tag/v3.37.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "这是一次 Python SDK 面向 Decisions API 类型模型的接口约定变更，影响的是 SDK 类型定义，而不是 Decisions 服务本身的功能下线。",
+            "instructions 的联合类型扩展意味着现有代码如果用字符串方法处理该字段，可能在运行时遇到非字符串值，因此需要增加类型分支处理。",
+            "请求输入类型新增角色与工具历史条目，这会对依赖穷举类型检查或穷举分支的调用方产生影响。"
+          ],
+          "canonical_title": "openai-python 发布 v3.37.0，带来 Decisions 类型的不兼容变更",
+          "category": "开源 SDK 发布",
+          "entity_names": [
+            "OpenAI",
+            "openai/openai-python"
+          ],
+          "facts": [
+            "openai/openai-python 于 2026-10-22 发布 v3.37.0（对比 v3.36.1）。",
+            "该版本包含不兼容变更：在 Live 响应模型中，question 的 instructions 字段现在可以是字符串，也可以是包含文本、图片或 JSON 结构化部件的列表。",
+            "发布说明要求在使用字符串操作前先用 isinstance(question.instructions, str) 判断类型，并处理结构化形式。",
+            "Decisions 请求的输入类型新增了消息角色和工具历史条目，因此需要相应更新穷举式类型检查。",
+            "已有的字符串 instructions 和 DecisionInputMessageParam 用户消息输入仍然受支持。",
+            "该版本新增特性：扩展 Decisions 的输入与问题类型（#4158，提交 1e45ad1）。",
+            "维护工作包括保留 file 与 video 轮询辅助函数（#4155）、保留上传辅助函数与 Live 连接默认值（#4152），以及将 astral-sh/setup-uv 从 10.2.0 升级到 10.3.0（#4109）。"
+          ],
+          "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.37.0",
+          "product_names": [
+            "openai-python",
+            "Decisions API"
+          ],
+          "published_at": "2026-10-22T20:03:54Z",
+          "source_refs": [
+            {
+              "author": "openai-sdks[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T20:03:54Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-3f70b4caf5cb0241b0af",
+              "source_date": null,
+              "source_name": "GitHub · openai/openai-python",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "openai/openai-python: v3.37.0",
+              "url": "https://github.com/openai/openai-python/releases/tag/v3.37.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-47a80ecbded4b766500a",
+          "topic_names": [
+            "AI 编程",
+            "开源 AI"
+          ],
+          "uncertainties": [
+            "发布说明未说明该 Decisions 类型变更是否已在其他语言 SDK 中同步，也无从判断服务端对应行为的时间表。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-47a80ecbded4b766500a"
+      ],
+      "title": "openai-python 发布 v3.37.0，带来 Decisions 类型的不兼容变更",
+      "uncertainty": "发布说明未说明该 Decisions 类型变更是否已在其他语言 SDK 中同步，也无从判断服务端对应行为的时间表。",
+      "what_happened": "openai/openai-python 于 2026-10-22 发布 v3.37.0。该版本包含不兼容变更：在 Live 响应模型中，question 的 instructions 字段现在可以是字符串，也可以是包含文本、图片或 JSON 结构化部件的列表；Decisions 请求的输入类型新增了消息角色和工具历史条目，因此需要相应更新穷举式类型检查。已有的字符串 instructions 和 DecisionInputMessageParam 用户消息输入仍然受支持。此外还包含维护工作：保留 file 与 video 轮询辅助函数、保留上传辅助函数与 Live 连接默认值，以及将 astral-sh/setup-uv 从 10.2.0 升级到 10.3.0。",
+      "why_it_matters": "这是 Python SDK 面向 Decisions API 类型模型的接口约定变更，依赖字符串操作或穷举类型检查的调用方可能需要调整代码。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-41b1a738f4b85c8969fd",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/design-proteins-with-rfd4-proteina-using-reward-guided-inference-time-search/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章将蛋白质设计建模为组合搜索问题，并主张在推理阶段引入奖励引导的搜索来寻找设计方案，这属于方法论层面的阐述，而不是新工具或产品发布的证据。"
+          ],
+          "canonical_title": "NVIDIA 介绍 RFD4-Proteina：使用奖励引导的推理时搜索设计蛋白质",
+          "category": "AI 模型与蛋白质设计",
+          "entity_names": [
+            "NVIDIA",
+            "RFD4-Proteina"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布文章《Design Proteins with RFD4-Proteina Using Reward-Guided Inference-Time Search》，作者 Elizabeth Goodman，发布于 2026-10-21T12:30:00Z。",
+            "文章指出蛋白质设计是一个搜索问题：为八残基蛋白质序列选择氨基酸时，可能的组合超过 250 亿种。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/design-proteins-with-rfd4-proteina-using-reward-guided-inference-time-search/",
+          "product_names": [
+            "RFD4-Proteina"
+          ],
+          "published_at": "2026-10-21T12:30:00Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-21T12:30:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-9dbc7ca917a7820d42b5",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Design Proteins with RFD4-Proteina Using Reward-Guided Inference-Time Search",
+              "url": "https://developer.nvidia.com/blog/design-proteins-with-rfd4-proteina-using-reward-guided-inference-time-search/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-204bba286a3081707bcc",
+          "topic_names": [
+            "蛋白质设计",
+            "推理时搜索",
+            "奖励引导搜索",
+            "AI 科学应用"
+          ],
+          "uncertainties": [
+            "输入仅包含文章摘要与开头片段，未提供 RFD4-Proteina 的方法细节、实验设置、性能数字或对比基准，因此无法核实其效果与适用边界。",
+            "输入未说明 RFD4-Proteina 的发布时间、可用性、许可证与获取方式。",
+            "输入未说明 RFD4-Proteina 由 NVIDIA 自行开发，还是整合或引用外部模型与工具。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-204bba286a3081707bcc"
+      ],
+      "title": "NVIDIA 介绍 RFD4-Proteina：使用奖励引导的推理时搜索设计蛋白质",
+      "uncertainty": "输入仅包含文章摘要与开头片段，未提供 RFD4-Proteina 的方法细节、实验设置、性能数字或对比基准，因此无法核实其效果与适用边界；未说明其发布时间、可用性、许可证与获取方式。",
+      "what_happened": "NVIDIA Developer Blog 发布文章《Design Proteins with RFD4-Proteina Using Reward-Guided Inference-Time Search》。文章指出蛋白质设计是一个搜索问题：为八残基蛋白质序列选择氨基酸时，可能的组合超过 250 亿种。",
+      "why_it_matters": "该文章将蛋白质设计建模为组合搜索问题，并主张在推理阶段引入奖励引导的搜索来寻找设计方案，属于方法论层面的阐述。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-7095c8114c6b3c24cfb4",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该博客文章来自 NVIDIA 官方开发者渠道，因此可视为 NVIDIA 对 Sentry 的原始发布材料，而非独立评估。",
+            "文章以代理可能完成分配任务但仍越过安全边界为切入点，把运行时安全定位为代理部署中的独立关注点。"
+          ],
+          "canonical_title": "NVIDIA 推出 Sentry：面向 AI 代理的运行时安全方案",
+          "category": "ai_security",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA 开发者博客发布由 Ofir Arkin 撰写的文章《Inside NVIDIA Sentry: Secure AI Agents at Runtime》。",
+            "文章指出，AI 代理可能完成其任务，却仍然跨越安全边界。",
+            "文章声称，近期事件显示代理可以在使用……时绕过安全控制（原文摘要在此处截断）。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/",
+          "product_names": [
+            "NVIDIA Sentry"
+          ],
+          "published_at": "2026-10-21T09:52:16Z",
+          "source_refs": [
+            {
+              "author": "Ofir Arkin",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-21T09:52:16Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-c1913c4bc921d7e32c35",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Inside NVIDIA Sentry: Secure AI Agents at Runtime",
+              "url": "https://developer.nvidia.com/blog/inside-nvidia-sentry-secure-ai-agents-at-runtime/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-42d07d4b9a83329cce6e",
+          "topic_names": [
+            "AI代理运行时安全",
+            "安全边界"
+          ],
+          "uncertainties": [
+            "所提供的摘要和正文摘录均在“while using...”处截断，因此无法获得 Sentry 的具体技术机制、部署方式和适用范围。",
+            "除 NVIDIA 官方博客外，没有独立来源或用户实测证据。",
+            "文章未给出所称“近期事件”的具体案例细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-42d07d4b9a83329cce6e"
+      ],
+      "title": "NVIDIA 推出 Sentry：面向 AI 代理的运行时安全方案",
+      "uncertainty": "所提供的摘要和正文摘录均在“while using...”处截断，因此无法获得 Sentry 的具体技术机制、部署方式和适用范围。",
+      "what_happened": "NVIDIA 开发者博客发布由 Ofir Arkin 撰写的文章《Inside NVIDIA Sentry: Secure AI Agents at Runtime》。",
+      "why_it_matters": "该博客文章来自 NVIDIA 官方开发者渠道，因此可视为 NVIDIA 对 Sentry 的原始发布材料，而非独立评估。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-cf3a1f000c0706e85d55",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/NVIDIA/OpenShell",
+        "https://news.ycombinator.com/item?id=50198675"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该条目来自 Hacker News 社区发现，仅为未验证线索：标题将 OpenShell 描述为面向自主 AI 智能体集群的安全私有运行时，并指向 NVIDIA 名下 GitHub 仓库，但输入未提供仓库正文、发布公告或其他一手证据。",
+            "在缺少官方仓库内容或 NVIDIA 官方说明的情况下，无法确认 OpenShell 的功能范围、开源状态、支持平台与发布时间，相关描述暂不应进入事实层。"
+          ],
+          "canonical_title": "NVIDIA OpenShell：面向自主 AI 智能体集群的安全私有运行时",
+          "category": "AI 基础设施与安全",
+          "entity_names": [
+            "NVIDIA",
+            "OpenShell"
+          ],
+          "facts": [],
+          "primary_source_url": "https://github.com/NVIDIA/OpenShell",
+          "product_names": [
+            "OpenShell"
+          ],
+          "published_at": "2026-10-22T17:44:06Z",
+          "source_refs": [
+            {
+              "author": "niemandhier",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=50198675",
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T17:44:06Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a3f440eb159e057cd2b5",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "OpenShell – A safe, private runtime for fleets of autonomous AI agents",
+              "url": "https://github.com/NVIDIA/OpenShell"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-d316ac9f19b002cb9726",
+          "topic_names": [
+            "自主 AI 智能体",
+            "智能体运行时",
+            "隐私与安全"
+          ],
+          "uncertainties": [
+            "OpenShell 是否确为 NVIDIA 官方项目，还是社区仓库或命名相近的其他项目，输入未提供可核实证据。",
+            "该项目的具体功能、安全模型、隐私机制与是否支持多智能体集群部署均未知。",
+            "条目发布于 2026-10-22，Hacker News 获得 243 分与 127 条评论，但讨论内容未提供，无法判断社区评价倾向。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-d316ac9f19b002cb9726"
+      ],
+      "title": "NVIDIA OpenShell：面向自主 AI 智能体集群的安全私有运行时",
+      "uncertainty": "OpenShell 是否确为 NVIDIA 官方项目，还是社区仓库或命名相近的其他项目，输入未提供可核实证据。",
+      "what_happened": "NVIDIA OpenShell：面向自主 AI 智能体集群的安全私有运行时",
+      "why_it_matters": "该条目来自 Hacker News 社区发现，仅为未验证线索：标题将 OpenShell 描述为面向自主 AI 智能体集群的安全私有运行时，并指向 NVIDIA 名下 GitHub 仓库，但输入未提供仓库正文、发布公告或其他一手证据。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-10-23",
+  "developer_discussions": [],
+  "direction_observation": "过去三日 AI 模型主题的事件量保持稳定（每日 2 条），但覆盖 6 个来源和 9 家公司，显示该方向持续受到多来源关注。",
+  "generated_at": "2026-10-22T22:45:49.628738Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2647,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 2,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 3,
+    "ai_brief_recovery_attempts": 2,
+    "ai_brief_recovery_budget_exhausted": true,
+    "ai_brief_recovery_successes": 2,
+    "ai_brief_story_inputs": 9,
+    "ai_classify_completion_tokens": 1367,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 5846,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 16758,
+    "ai_direction_observation_completion_tokens": 1087,
+    "ai_direction_observation_finish_stop": 1,
+    "ai_direction_observation_prompt_tokens": 1075,
+    "ai_direction_observation_reasoning_tokens": 904,
+    "ai_evaluate_editorial_completion_tokens": 858,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 8322,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 119215,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3674,
+    "ai_merge_story_finish_stop": 10,
+    "ai_merge_story_prompt_tokens": 9379,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 66115,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 1748,
+    "ai_resolve_continuity_completion_tokens": 949,
+    "ai_resolve_continuity_finish_stop": 2,
+    "ai_resolve_continuity_prompt_tokens": 3900,
+    "ai_resolve_continuity_reasoning_tokens": 660,
+    "ai_resolve_research_cases_completion_tokens": 691,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 1881,
+    "ai_resolve_research_cases_reasoning_tokens": 184,
+    "ai_score_story_completion_tokens": 1948,
+    "ai_score_story_finish_stop": 10,
+    "ai_score_story_prompt_tokens": 11743,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 3,
+    "ai_write_brief_completion_tokens": 5560,
+    "ai_write_brief_finish_stop": 5,
+    "ai_write_brief_item_completion_tokens": 624,
+    "ai_write_brief_item_finish_stop": 2,
+    "ai_write_brief_item_prompt_tokens": 3812,
+    "ai_write_brief_item_reasoning_tokens": 0,
+    "ai_write_brief_prompt_tokens": 20157,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 16758,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 16,
+    "continuity_character_budget_available": 4566,
+    "continuity_input_chars": 2743,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 2,
+    "continuity_network_requests": 3,
+    "continuity_relation_inputs": 1,
+    "continuity_watch_inputs": 1,
+    "direction_signal_inputs": 3,
+    "dry_run": false,
+    "editorial_decisions": 0,
+    "editorial_degraded": true,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fast_continuity_degraded": 0,
+    "fixture_mode": false,
+    "historical_story_candidates": 156,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 31,
+    "logical_ai_tasks": 31,
+    "main_brief_items": 9,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 33,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 66115,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 0,
+    "radar_signals_displayed": 0,
+    "radar_signals_generated": 0,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 1748,
+    "recent_24h": 111,
+    "relation_ai_inputs": 1,
+    "relation_confirmed": 1,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 15,
+    "relations_confirmed": 1,
+    "relations_rejected": 0,
+    "relations_unresolved": 15,
+    "research_cases": 2,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 3544,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 1,
+    "research_unknown_cases": 0,
+    "research_unresolved": 2,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 3,
+    "stories": 10,
+    "story_candidate_input": 15,
+    "structured_watches_opened": 1,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 9,
+    "total_displayed_items": 9,
+    "watch_inputs": 1,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-a6bf37e14453afe892b3",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "两阶段“先规划再生成”的思路把设计意图显式建模，理论上更利于保持版式一致性和可控性，但报道未给出量化对比。",
+            "Canva 以设计工具用户基础切入自研图像模型，可能将生成能力直接嵌入既有设计工作流，其竞争点在于集成而非单纯的模型指标。"
+          ],
+          "canonical_title": "Canva 发布首个自研 AI 图像模型 Canva Craft，采用两阶段架构先生成设计方案再出图",
+          "category": "ai_models",
+          "entity_names": [
+            "Canva",
+            "Canva Craft",
+            "OpenAI",
+            "Microsoft",
+            "Google"
+          ],
+          "facts": [
+            "The Verge AI 报道，Canva 发布图像生成模型 Canva Craft，该模型为 Canva 首个自研 AI 图像模型。",
+            "报道称 Canva Craft 采用两阶段架构，可先规划设计方案再生成图像。",
+            "报道援引 Canva 说法称，该架构带来“greater precision, consistency and control”（更高的精度、一致性与可控性）。",
+            "The Verge AI 称该模型直接与 OpenAI、Microsoft 和 Google 的图像生成模型竞争。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
+          "product_names": [
+            "Canva Craft"
+          ],
+          "published_at": "2026-10-22T17:51:25-04:00",
+          "source_refs": [
+            {
+              "author": "Emma Roth",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T17:51:25-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-5eee804247a435ab2dff",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Canva’s first AI image model plans designs before generating them",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-d7bb5e0d3ed3ec646404",
+          "topic_names": [
+            "AI 图像生成",
+            "两阶段架构"
+          ],
+          "uncertainties": [
+            "Canva Craft 的具体可用范围、发布时间、定价与是否面向所有用户开放尚不明确。",
+            "“greater precision, consistency and control”为 Canva 方面的表述，缺少第三方评测或基准数据验证。",
+            "报道未说明两阶段架构的技术细节、训练数据与模型规模。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-d7bb5e0d3ed3ec646404"
+      ],
+      "title": "Canva 发布首个自研 AI 图像模型 Canva Craft，采用两阶段架构先生成设计方案再出图",
+      "uncertainty": "Canva Craft 的具体可用范围、发布时间、定价与是否面向所有用户开放尚不明确；“greater precision, consistency and control”为 Canva 方面的表述，缺少第三方评测或基准数据验证；报道未说明两阶段架构的技术细节、训练数据与模型规模。",
+      "what_happened": "The Verge AI 报道，Canva 发布了图像生成模型 Canva Craft，这是 Canva 首个自研 AI 图像模型。报道称 Canva Craft 采用两阶段架构，可先规划设计方案再生成图像。报道援引 Canva 的说法称，该架构带来“greater precision, consistency and control”（更高的精度、一致性与可控性）。The Verge AI 还称，该模型直接与 OpenAI、Microsoft 和 Google 的图像生成模型竞争。",
+      "why_it_matters": "两阶段“先规划再生成”的思路把设计意图显式建模，理论上更利于保持版式一致性和可控性；Canva 也可能凭借其设计工具的用户基础，把生成能力直接嵌入既有设计工作流，竞争点在于集成而非单纯的模型指标。但报道未给出量化对比。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-524da8054fc1b52ee2d8",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/decisions-api"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从官方措辞看，该 API 定位为通用决策能力接口，强调响应速度与低成本，可能面向需要轻量推理调用的应用场景。",
+            "官方内容仅为简短公告，未披露模型版本、定价、配额、接入方式等技术细节。"
+          ],
+          "canonical_title": "OpenAI 发布 Decisions API，为应用提供快速、低成本决策能力",
+          "category": "ai_models",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 在官方新闻页发布题为《Build more responsive apps with the Decisions API》的公告，发布日期为 2026-10-22。",
+            "官方摘要称 Decisions API 为任何应用提供快速、聚焦、低成本的决策能力（Fast, focused, low-cost decisions for any application）。"
+          ],
+          "primary_source_url": "https://openai.com/index/decisions-api",
+          "product_names": [
+            "Decisions API"
+          ],
+          "published_at": "2026-10-22T19:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T19:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-891b7e0bbf66f86d27b7",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Build more responsive apps with the Decisions API",
+              "url": "https://openai.com/index/decisions-api"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-c4c39ae512cc8f89e162",
+          "topic_names": [
+            "ai_models",
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "Decisions API 的具体技术实现、底层模型、定价与可用区域均未在输入中说明。",
+            "“任何应用”的具体适用范围与限制条件不明确。",
+            "输入内容简短，尚不能确认该 API 与既有 OpenAI 产品线的关系。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-c4c39ae512cc8f89e162"
+      ],
+      "title": "OpenAI 发布 Decisions API，主打快速、低成本决策能力",
+      "uncertainty": "Decisions API 的具体技术实现、底层模型、定价、配额、接入方式与可用区域均未在输入中说明；“任何应用”的适用范围与限制条件不明确；它与 OpenAI 既有产品线的关系也暂无法确认。",
+      "what_happened": "OpenAI 在官方新闻页发布题为《Build more responsive apps with the Decisions API》的公告，发布日期为 2026-10-22。官方摘要称，Decisions API 为任何应用提供快速、聚焦、低成本的决策能力。",
+      "why_it_matters": "从官方措辞看，该 API 被定位为面向应用的通用决策能力接口，强调响应速度与低成本，可能指向需要轻量推理调用的场景。不过公告内容简短，尚不足以判断它对开发者选型和既有产品线的影响。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-af5f79882ccf1a37d746",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/10/22/claude-duet-app-is-anthropics-bet-on-agents/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该报道将 Claude Duet 的定位描述为 Anthropic 对 agent 方向的押注，但输入材料未提供产品功能细节或技术规格。",
+            "摘要显示该产品采取 waitlist 分阶段开放，而非全面公开发布。"
+          ],
+          "canonical_title": "Anthropic 推出 Claude Duet 应用，押注 agent 方向",
+          "category": "ai_models",
+          "entity_names": [
+            "Anthropic",
+            "Claude Duet"
+          ],
+          "facts": [
+            "TechCrunch AI 于 2026 年 10 月 22 日发布报道，标题为“Claude Duet app is Anthropic’s bet on agents”。",
+            "据报道，Claude Duet 目前通过 waitlist 向 Pro 和 Max 套餐用户开放。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/10/22/claude-duet-app-is-anthropics-bet-on-agents/",
+          "product_names": [
+            "Claude Duet"
+          ],
+          "published_at": "2026-10-22T13:53:26Z",
+          "source_refs": [
+            {
+              "author": "Ivan Mehta",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-22T22:43:48.392566Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-22T13:53:26Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-f674cb3a2ea47ac11335",
+              "source_date": null,
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Claude Duet app is Anthropic’s bet on agents",
+              "url": "https://techcrunch.com/2026/10/22/claude-duet-app-is-anthropics-bet-on-agents/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-f42f6e271ec8f63e5a61",
+          "topic_names": [
+            "AI agents"
+          ],
+          "uncertainties": [
+            "Claude Duet 的具体功能范围、底层模型与发布时间表均未在输入中说明。",
+            "“通过 waitlist 向 Pro 和 Max 用户开放”这一表述缺少官方一手来源佐证。",
+            "输入仅含标题与简短摘要，无法核实报道的完整内容。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f42f6e271ec8f63e5a61"
+      ],
+      "title": "Anthropic 推出 Claude Duet 应用，押注 agent 方向",
+      "uncertainty": "Claude Duet 的具体功能范围、底层模型与发布时间表均未在输入中说明。",
+      "what_happened": "TechCrunch AI 于 2026 年 10 月 22 日发布报道，标题为“Claude Duet app is Anthropic’s bet on agents”。",
+      "why_it_matters": "该报道将 Claude Duet 的定位描述为 Anthropic 对 agent 方向的押注，但输入材料未提供产品功能细节或技术规格。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "观察 NVIDIA 是否发布 RFD4-Proteina 的代码、模型或基准评测结果，以验证其奖励引导推理时搜索在蛋白质设计上的实际效果。"
+  ]
+}

@@ -1,0 +1,95 @@
+[
+  {
+    "created_at": "2026-10-22T22:45:49.628738Z",
+    "explanation": "ai_infrastructure 连续 3 天保持或增加事件量，且有 3 个来源支持。",
+    "id": "signal-c633bc54b17e60080352",
+    "metric_history": [
+      {
+        "date": "2026-10-21",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-22",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-23",
+        "story_count": 1
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 0.8,
+    "supporting_company_count": 6,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-30e06e15d0cfce3e25af",
+      "story-cee1317954cd341e9d90",
+      "story-b967381d221124b3064f"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-10-22T22:45:49.628738Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-22T22:45:49.628738Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 6 个来源支持。",
+    "id": "signal-3aaf5d279b32adfe9db9",
+    "metric_history": [
+      {
+        "date": "2026-10-21",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-22",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-23",
+        "story_count": 2
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 9,
+    "supporting_source_count": 6,
+    "supporting_story_ids": [
+      "story-10ec518f28fe98ff0829",
+      "story-22a5c2a30736e86b766a",
+      "story-91fa2ed6e00758f8e393",
+      "story-cee1317954cd341e9d90",
+      "story-c4c39ae512cc8f89e162",
+      "story-b967381d221124b3064f"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-10-22T22:45:49.628738Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-22T22:45:49.628738Z",
+    "explanation": "NVIDIA 最近交易日变动 -4.4%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-a91f1bcc968494f95059",
+    "metric_history": [
+      {
+        "change_percent": -0.04396988085399724,
+        "trading_date": "2026-10-22"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.7328313475666206,
+    "supporting_company_count": 3,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-42d07d4b9a83329cce6e",
+      "story-204bba286a3081707bcc",
+      "story-d316ac9f19b002cb9726"
+    ],
+    "topic": "NVIDIA",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-10-22T22:45:49.628738Z",
+    "window_days": 1
+  }
+]

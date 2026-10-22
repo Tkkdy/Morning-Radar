@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-23",
+  "generated_at": "2026-10-22T22:45:49.628738Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "openai-python 从 v3.32.0 推进到 v3.37.0，并在 Decisions 类型上引入不兼容变更：question.instructions 现在可为字符串或结构化部件列表，输入类型新增消息角色与工具历史条目。",
+      "current_story": {
+        "date": "2026-10-23",
+        "story_id": "story-47a80ecbded4b766500a"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-19",
+            "story_id": "story-93c4042d462fe383592f"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-23",
+            "story_id": "story-47a80ecbded4b766500a"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-10-19",
+        "story_id": "story-93c4042d462fe383592f"
+      },
+      "rationale": "后续版本直接扩展了前一版本已涉及的 Decisions 请求/响应类型，并形成明确的不兼容变更。",
+      "recorded_at": "2026-10-22T22:45:49.628738Z",
+      "relation_id": "relation-45e0658ce30db383f22f",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否发布 RFD4-Proteina 的代码、模型或基准评测结果，以验证其奖励引导推理时搜索在蛋白质设计上的实际效果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "RFD4-Proteina"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-22T22:45:49.628738Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-23",
+          "story_id": "story-204bba286a3081707bcc"
+        }
+      ],
+      "topic_anchors": [
+        "蛋白质设计",
+        "推理时搜索"
+      ],
+      "watch_id": "watch-5b90fbd8259be5d78385"
+    }
+  ]
+}
