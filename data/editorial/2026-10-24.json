@@ -1,0 +1,119 @@
+{
+  "date": "2026-10-24",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方发布属实，但模型性能与显存需求未验证，作为本地模型接入信号轻量记录。",
+      "retain_for_trends": true,
+      "story_id": "story-3b40465d11a3bd0c1ac4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-hardware-local-inference",
+        "open-weights-local-model-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "工程细节有实操参考，但12倍加速为厂商自报，缺乏基线与复现。",
+      "retain_for_trends": true,
+      "story_id": "story-ca77fa5cd1e149928631",
+      "support_for_story_id": null,
+      "trend_links": [
+        "llm-serving-storage-scaling",
+        "multi-tenant-cache-architecture"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "协作工具集成属常规更新，未展示可验证的工作流或交付效果。",
+      "retain_for_trends": false,
+      "story_id": "story-b87b327f78bca8d7bf5e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "同系列第二部分，仅补充TensorRT调优背景，无独立实测数据。",
+      "retain_for_trends": false,
+      "story_id": "story-cfa3366b0f1ccb8e9223",
+      "support_for_story_id": "story-e3073c7680ac5ce32d04",
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "纯教程性质，无新能力或结构性变化，无需占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-a53818957309f0488bee",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方介绍自动调优机制，方向可追踪但无实测性能或复现证据。",
+      "retain_for_trends": true,
+      "story_id": "story-e3073c7680ac5ce32d04",
+      "support_for_story_id": null,
+      "trend_links": [
+        "tensorrt-automated-kernel-tuning",
+        "inference-optimization-build-search"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有标题与发布元数据，无功能细节或可用性信息，价值极低。",
+      "retain_for_trends": false,
+      "story_id": "story-8b0b64cebd8f7826eabd",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "内容为空且无评测数据，仅确认博客存在。",
+      "retain_for_trends": false,
+      "story_id": "story-bcfef2d5e20cbdf39c0f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "社区低关注度未验证线索，无实质信息，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-ad52223b0235a3ca7170",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-23T22:38:19.550398Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

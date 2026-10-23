@@ -1,0 +1,593 @@
+[
+  {
+    "analysis": [
+      "Ollama 此次以补丁版本号（v0.40.9 到 v0.40.10）发布，却引入了一个新模型的支持，说明其模型库接入节奏较快，版本语义更侧重持续集成而非严格语义化版本管理。",
+      "DFlash 草稿用于投机解码，意味着该模型在本地推理时可能通过草稿模型加速生成，这与发布说明中强调的“快速本地对话”定位一致。",
+      "128K token 上下文窗口与视觉语言能力组合，使该模型适合长文档图像理解与多轮本地工具调用场景。"
+    ],
+    "canonical_title": "Ollama v0.40.10 发布，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型支持",
+    "category": "AI 开源工具与模型发布",
+    "credibility_score": 0.86,
+    "entity_names": [
+      "Ollama",
+      "NVIDIA",
+      "Nemotron 3.5 Bolt E4B",
+      "Gemma 4"
+    ],
+    "facts": [
+      "Ollama 发布 v0.40.10 版本，版本对比链接为 https://github.com/ollama/ollama/compare/v0.40.9...v0.40.10。",
+      "v0.40.10 版本引入 NVIDIA Nemotron 3.5 Bolt E4B 模型，模型库链接为 https://ollama.com/library/nemotron-3.5-bolt。",
+      "该模型被描述为基于 Gemma 4、面向快速本地对话、图像理解与工具调用的视觉语言模型。",
+      "该模型支持 128K token 上下文窗口。",
+      "该模型包含用于投机解码的 DFlash 草稿。",
+      "运行命令为 ollama run nemotron-3.5-bolt:e4b。"
+    ],
+    "id": "story-3b40465d11a3bd0c1ac4",
+    "importance_score": 0.42,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.10",
+    "product_names": [
+      "Ollama v0.40.10",
+      "Nemotron 3.5 Bolt E4B"
+    ],
+    "published_at": "2026-10-23T15:03:59Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-8c177b37ece0d145f22f"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T15:03:59Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8c177b37ece0d145f22f",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.10",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.10"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.10"
+    ],
+    "status": "available",
+    "topic_names": [
+      "开源 AI",
+      "本地大模型",
+      "视觉语言模型",
+      "投机解码"
+    ],
+    "uncertainties": [
+      "发布说明未给出该模型的具体参数量、量化版本与显存需求。",
+      "DFlash 草稿的具体实现方式与加速比例未在发布说明中披露。",
+      "该模型“基于 Gemma 4”的表述来自发布说明，其训练数据与许可条款未在输入中说明。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "该内容属于 OpenAI 官方一手工程博客，可作为其自述技术方案与性能声明的原始事实底座，但 12× 读取加速为厂商自报数据，尚无第三方验证细节。"
+    ],
+    "canonical_title": "OpenAI 介绍 Habitat 存储系统扩展，通过多租户、全局缓存与 Azure Cosmos DB 为 ChatGPT 提供 12 倍读取加速",
+    "category": "infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT",
+      "Habitat",
+      "Azure Cosmos DB"
+    ],
+    "facts": [
+      "OpenAI 发布文章《Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)》，发布时间为 2026-10-23T17:00:00Z。",
+      "文章称 OpenAI 通过可靠的多租户、全局缓存和 Azure Cosmos DB 扩展了 Habitat，为 ChatGPT 带来 12× 更快的读取。",
+      "文章标题表述其目标是服务超过 10 亿 ChatGPT 用户。"
+    ],
+    "id": "story-ca77fa5cd1e149928631",
+    "importance_score": 0.6,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://openai.com/index/scaling-storage-one-billion-users-part-two",
+    "product_names": [
+      "ChatGPT",
+      "Habitat",
+      "Azure Cosmos DB"
+    ],
+    "published_at": "2026-10-23T17:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-ee4c22366ef7e7abd786"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ee4c22366ef7e7abd786",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)",
+        "url": "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/scaling-storage-one-billion-users-part-two"
+    ],
+    "status": "available",
+    "topic_names": [
+      "online storage scaling",
+      "multi-tenancy",
+      "global caching",
+      "read performance"
+    ],
+    "uncertainties": [
+      "文章摘要未说明 12× 读取加速的基线、测量方法、时间窗口与适用负载范围。",
+      "“超过 10 亿 ChatGPT 用户”为标题表述，未给出统计口径与时间点。",
+      "Habitat 的具体架构细节、多租户隔离与全局缓存实现方式在摘要中未展开。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "该集成把 GitHub issue 工作流嵌入 Teams 会话场景，可能缩短从通知到代码提交的路径。",
+      "官方描述强调“在对话中完成修复”，反映出协作工具与 AI 编程助手进一步融合的趋势。"
+    ],
+    "canonical_title": "GitHub 在 Microsoft Teams 推出 GitHub 应用，结合通知与 Copilot 将问题转化为代码",
+    "category": "AI 编程工具与协作集成",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "GitHub",
+      "Microsoft Teams",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 发布更新日志，宣布在 Microsoft Teams 推出新的 GitHub 应用，将 GitHub 通知与 Copilot 能力结合。",
+      "根据 GitHub 更新日志，该应用支持在 Teams 频道和群组中接收通知。",
+      "GitHub 表示该集成旨在帮助团队在对话中直接把 issue 转化为修复并更快交付代码，无需离开会话。"
+    ],
+    "id": "story-b87b327f78bca8d7bf5e",
+    "importance_score": 0.42,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+    "product_names": [
+      "GitHub app in Teams",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-10-23T21:29:58Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-400d918642962961b890"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T21:29:58Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-400d918642962961b890",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Turn notifications into code with the GitHub app in Teams",
+        "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "团队协作通知"
+    ],
+    "uncertainties": [
+      "官方摘要未说明该 GitHub 应用在 Teams 中的具体功能范围、可用地区或发布阶段。",
+      "“更快交付代码”为 GitHub 官方表述，缺少可验证的量化效果数据。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "从官方博客的定位看，该功能的重点是让 TensorRT 的性能优化不再局限于单一构建路径，从而在多个构建路线之间自动选择更优方案。"
+    ],
+    "canonical_title": "NVIDIA TensorRT 11.1 引入 Global Performance Tuner 自动性能调优功能（第二部分）",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "NVIDIA",
+      "TensorRT"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布了《Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 2》，作者为 Tanya Lenz，发布时间为 2026-10-23T17:27:52Z。",
+      "文章称 Global Performance Tuner 是 NVIDIA TensorRT 11.1 中发布的自动性能调优功能，提供自动、精度感知的调优能力。"
+    ],
+    "id": "story-cfa3366b0f1ccb8e9223",
+    "importance_score": 0.48,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/",
+    "product_names": [
+      "TensorRT 11.1",
+      "Global Performance Tuner"
+    ],
+    "published_at": "2026-10-23T17:27:52Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-1456ee151a5392db8ad4"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T17:27:52Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1456ee151a5392db8ad4",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 2",
+        "url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "性能优化",
+      "自动调优"
+    ],
+    "uncertainties": [
+      "摘要与正文节选被截断，Global Performance Tuner 的具体调优机制、适用场景、精度权衡细节及实测性能数据尚不明确。",
+      "文章标题标注为 Part 2，但输入未提供第一部分内容或链接，系列上下文不完整。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "该文章属于官方开发者博客的技术教程/说明类内容，主题聚焦于在 Python 中使用 GPUDirect Storage 将数据读入 GPU 内存。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客发布在 Python 中通过 GPUDirect Storage 将数据读入 GPU 内存的教程",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "NVIDIA",
+      "GPUDirect Storage"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-10-22 发布署名 Tanya Lenz 的文章，题为《How to Read Data into GPU Memory in Python with NVIDIA GPUDirect Storage》。",
+      "文章开头提到，GPU 应用正使用日益强大的加速器处理不断增长的数据集，并引用 2025 年斯坦福 AI Index 关于 notable AI 算力的说法。"
+    ],
+    "id": "story-a53818957309f0488bee",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-read-data-into-gpu-memory-in-python-with-nvidia-gpudirect-storage/",
+    "product_names": [
+      "GPUDirect Storage"
+    ],
+    "published_at": "2026-10-22T16:39:09Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-d52968d2b0a9b010f48c"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-22T16:39:09Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d52968d2b0a9b010f48c",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Read Data into GPU Memory in Python with NVIDIA GPUDirect Storage",
+        "url": "https://developer.nvidia.com/blog/how-to-read-data-into-gpu-memory-in-python-with-nvidia-gpudirect-storage/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-read-data-into-gpu-memory-in-python-with-nvidia-gpudirect-storage/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "Python",
+      "GPU 内存",
+      "数据读取"
+    ],
+    "uncertainties": [
+      "输入仅为文章摘要与简短摘录，未提供教程的具体步骤、代码示例、性能数据或适用版本信息。",
+      "2025 年斯坦福 AI Index 的具体算力数据未在输入中给出完整表述。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "文章将模型部署定位为编译优化问题，意味着同一网络可能存在多条合理的构建与优化路径，性能调优需要跨越单一路线进行搜索。",
+      "以系列形式发布并在标题中标注“Part 1”，说明该内容属于分篇展开的技术说明，完整方法或结论可能需结合后续篇章理解。"
+    ],
+    "canonical_title": "NVIDIA 发布 Global Performance Tuner 系列文章第一部分，探讨超越单一构建路线的 TensorRT 性能优化",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "NVIDIA",
+      "TensorRT"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了由 Tanya Lenz 撰写的文章《Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1》，发布时间为 2026-10-23T17:27:35Z。",
+      "文章指出，部署已训练的神经网络不只是把每个算子翻译成 GPU kernel，而是一个存在多种合理解法的编译问题。",
+      "文章主题涉及使用 Global Performance Tuner 在单一构建路线之外扩展 TensorRT 性能优化，本篇为系列第一部分。"
+    ],
+    "id": "story-e3073c7680ac5ce32d04",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/",
+    "product_names": [
+      "TensorRT",
+      "Global Performance Tuner"
+    ],
+    "published_at": "2026-10-23T17:27:35Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-4dcd06f240ef44ca5e9c"
+    ],
+    "source_refs": [
+      {
+        "author": "Tanya Lenz",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T17:27:35Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4dcd06f240ef44ca5e9c",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1",
+        "url": "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "性能优化",
+      "模型部署",
+      "编译优化"
+    ],
+    "uncertainties": [
+      "输入仅包含文章摘要与少量内容摘录，Global Performance Tuner 的具体机制、适用范围与实测效果尚未在输入中展开。",
+      "该系列后续部分的内容及其与第一部分的完整关系未知。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "从标题表述看，LitPivot 的定位是围绕文献全景进行“动态情境化”，以辅助研究想法的形成，而非单纯的文献检索或摘要工具。",
+      "发布渠道为 Hugging Face 博客，说明其属于对外公开的方法或工具介绍，但输入未提供功能细节、可用性状态或技术实现信息。"
+    ],
+    "canonical_title": "Allen AI 在 Hugging Face 博客发布 LitPivot：通过动态情境化文献全景辅助研究选题",
+    "category": "ai_research_tools",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Allen Institute for AI",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客于 2026-10-23T16:15:50Z 发布一篇题为《LitPivot: Developing research ideas through dynamic contextualization within the literature landscape》的文章。",
+      "该文章由 Allen AI 在 Hugging Face 博客频道发布，来源标记为 official_primary。"
+    ],
+    "id": "story-8b0b64cebd8f7826eabd",
+    "importance_score": 0.35,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/allenai/litpivot",
+    "product_names": [
+      "LitPivot"
+    ],
+    "published_at": "2026-10-23T16:15:50Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-5d794c3788a3a4be0d42"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T16:15:50Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5d794c3788a3a4be0d42",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "LitPivot: Developing research ideas through dynamic contextualization within the literature landscape",
+        "url": "https://huggingface.co/blog/allenai/litpivot"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/litpivot"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "LitPivot 的具体功能、技术实现、是否开源、是否已可公开使用，输入均未说明。",
+      "输入未提供该博文的正文内容与摘要，因此发布内容的事实细节仅限标题与发布元数据。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [
+      "从标题看，文章聚焦于将 IBM Granite 时间序列模型用于集成预测（ensemble forecasting），可能涉及多模型组合以提升预测稳定性。",
+      "由于正文与摘要为空，目前无法确认文章所述方法细节、评估指标或是否包含代码与模型发布。"
+    ],
+    "canonical_title": "IBM Research 在 Hugging Face 博客介绍 Granite 时间序列模型的集成预测方法",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "IBM Research",
+      "IBM",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇由 IBM Research 撰写的文章，主题为“Ensemble forecasting with IBM Granite time-series models”。",
+      "该文章发布于 2026-10-22T07:51:31Z，来源为 Hugging Face Blog。",
+      "该条目的来源类型标记为 official_primary。"
+    ],
+    "id": "story-bcfef2d5e20cbdf39c0f",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1",
+    "product_names": [
+      "IBM Granite",
+      "Granite time-series"
+    ],
+    "published_at": "2026-10-22T07:51:31Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-0e5fad3ca5f8a881acf7"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-22T07:51:31Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0e5fad3ca5f8a881acf7",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Ensemble forecasting with IBM Granite time-series models",
+        "url": "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "时间序列预测",
+      "集成预测",
+      "开源模型"
+    ],
+    "uncertainties": [
+      "文章具体内容、方法细节、评估结果与可用资源尚不可知，仅能确认标题与发布时间。",
+      "IBM Granite 时间序列模型在集成预测中的实际效果未在现有材料中体现。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Narrative Deck：一个用于创建交互式网页故事的 AI Agent 技能",
+    "category": "developer_tools",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Narrative Deck",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-ad52223b0235a3ca7170",
+    "importance_score": 0.18,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://aakatheeri.github.io/narrative-deck/",
+    "product_names": [
+      "Narrative Deck"
+    ],
+    "published_at": "2026-10-23T22:18:39Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-2f91235abf92c970713e"
+    ],
+    "source_refs": [
+      {
+        "author": "aakatheeri",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50216138",
+        "fetched_at": "2026-10-23T22:36:26.923269Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T22:18:39Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2f91235abf92c970713e",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Narrative Deck – AI Agent skill for creating interactive web stories",
+        "url": "https://aakatheeri.github.io/narrative-deck/"
+      }
+    ],
+    "source_urls": [
+      "https://aakatheeri.github.io/narrative-deck/",
+      "https://news.ycombinator.com/item?id=50216138"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI Agent skills",
+      "interactive web stories"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 社区发现，内容摘要和正文摘录均为空，因此无法核实 Narrative Deck 的具体功能、实现方式或可用状态。",
+      "该条目只有 2 分且没有评论，社区关注度很低，尚不清楚它是否为真实可用的项目。"
+    ],
+    "updated_at": "2026-10-23T22:38:19.550398Z"
+  }
+]

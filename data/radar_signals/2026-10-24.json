@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Moonshot 在 Kimi API 上线 Kimi K3.1 Pro：暂未开放权重，承诺 2026 年 11 月 4 日前发布完整模型权重；另有速度快 2-3 倍、价格翻倍的 Highspeed 版本（输入 token 缓存命中部分同价）；美元定价为输入 2.00 美元/百万 token、输出 10 美元/百万 token，与 GPT-6.1 Sol 相同，为 Claude Opus 5.5 的一半。",
+    "id": "radar-b1bace3684fdca2a6c8c",
+    "missing_evidence": [
+      "未抓取 Moonshot 官方发布页或 API 文档",
+      "缺少模型能力评测数据",
+      "未经第二方独立核实"
+    ],
+    "observed_at": "2026-10-23T22:36:26.923269Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b5619922e4bc775139e3",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/23/kimi-k31-pro/"
+      }
+    ],
+    "uncertainty": "信息来自第三方博客转述官方公告，摘要被截断；开放权重为未来承诺，尚未兑现。",
+    "why_notable": "新模型上线并给出具体价格与开放权重时间表，若属实则对模型选型与成本对比有直接价值。"
+  },
+  {
+    "claim": "Anthropic 宣布将 Agent Skills 标准捐赠给 Agentic AI Foundation（AAIF，隶属 Linux Foundation），该基金会由 Anthropic 与 Block、OpenAI 于去年共同创立，此前 MCP 也已捐赠至该基金会，目标是保持标准开放、社区驱动和厂商中立。",
+    "id": "radar-e98cd416a4c8b2502a26",
+    "missing_evidence": [
+      "未抓取 Anthropic 官方公告或 AAIF 章程/治理文件",
+      "缺少其他成员方的独立声明",
+      "未说明标准移交范围与时间表"
+    ],
+    "observed_at": "2026-10-23T22:36:26.923269Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-ee487a66d7e4ee85c2e1",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/22/donating-agent-skills/"
+      }
+    ],
+    "uncertainty": "仅见引用片段，'去年共同创立'等时间线与细节未经官方页面核实。",
+    "why_notable": "Agent 技能标准进入中立基金会治理，可能影响 Agent 工具链的互操作性与生态格局，且延续了 MCP 的治理路径。"
+  }
+]
