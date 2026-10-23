@@ -1,0 +1,42 @@
+name: Tendency 投递与纠偏
+description: 保存公开原文；只有授权身份的投递会进入 Tendency 核心。
+title: "[Tendency] "
+body:
+  - type: markdown
+    attributes:
+      value: "Issue 保存仅表示外部入口收到；核心接收、分析与页面发布另有回执。请勿提交秘密。修改 Issue 会形成新输入版本；建议纠偏另开投递。"
+  - type: textarea
+    id: raw_text
+    attributes:
+      label: 原始输入
+      description: 可粘贴多个判断，或一份短摘录与纠偏理由；不需要 JSON。
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: 操作
+      options: [新假设, 我的观察, 外部材料, 纠偏]
+  - type: dropdown
+    id: mode
+    attributes:
+      label: 拆分方式
+      options: [自由文本, 每行一个判断]
+  - type: input
+    id: hypothesis_id
+    attributes:
+      label: 假设 ID
+      description: 从详情页进入会自动带入；新假设留空。
+  - type: input
+    id: expected_revision
+    attributes:
+      label: 期望修订 ID
+  - type: input
+    id: source_url
+    attributes:
+      label: 原始链接
+  - type: input
+    id: scope
+    attributes:
+      label: 适用范围
+      description: 个人观察或外部材料必填；仅填实际观察范围。

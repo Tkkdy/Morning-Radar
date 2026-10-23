@@ -99,6 +99,7 @@ def test_story_source_ref_preserves_rss_collector_context() -> None:
             "published_at": NOW,
             "published_at_role": PublishedAtRole.FEED_ENTRY_TIME,
             "fetched_at": NOW,
+            "backfill_recorded_at": None,
                 "discussion_url": None,
                 "source_role": SourceRole.EDITORIAL,
                 "statement_type": StatementType.UNKNOWN,
@@ -521,3 +522,31 @@ def test_one_story_failure_does_not_discard_other_candidates(caplog) -> None:
 
     assert [story.source_item_ids for story in stories] == [["valid"]]
     assert "AI degradation: merge failed" in caplog.text
+
+
+def test_same_page_discovery_keeps_richer_direct_excerpt_and_both_outcomes():
+    lead = item("lead", "Lab cuts eval internet", "https://lab.example/evals", source="HN")
+    lead.summary = ""
+    lead.source_role = SourceRole.COMMUNITY_DISCOVERY
+    lead.statement_type = StatementType.UNVERIFIED_LEAD
+    direct = item(
+        "direct", "Lab disconnects internal evaluations from internet",
+        "https://lab.example/evals", source="Lab RSS",
+    )
+    direct.summary = "Synthetic: the lab reports disconnected internal evaluations."
+    direct.source_role = SourceRole.OFFICIAL_PRIMARY
+
+    class Capture(FakeAIProvider):
+        def merge_story(self, items):
+            assert {row.id for row in items} == {"lead", "direct"}
+            assert any(row.summary == direct.summary for row in items)
+            return super().merge_story(items)
+
+    outcomes = {}
+    stories = build_stories([lead, direct], provider=Capture(), now=NOW, item_outcomes=outcomes)
+    assert len(stories) == 1
+    assert set(stories[0].source_item_ids) == {"lead", "direct"}
+    assert outcomes == {"lead": "merged_into", "direct": "merged_into"}
+    assert {ref.source_role for ref in stories[0].source_refs} == {
+        SourceRole.COMMUNITY_DISCOVERY, SourceRole.OFFICIAL_PRIMARY,
+    }

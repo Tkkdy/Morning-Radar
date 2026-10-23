@@ -21,7 +21,7 @@ from morning_radar.ai.models import (
     ResearchResolutionBatch,
     ResearchResolutionDraft,
 )
-from morning_radar.ai.request_payload import dumps
+from morning_radar.ai.request_payload import brief_request_payload, dumps
 from morning_radar.briefing import (
     BriefLimits,
     BriefValidationError,
@@ -664,10 +664,10 @@ def test_brief_failure_uses_only_verified_story_facts_and_marks_fallback(caplog)
     )
 
     assert result.top_stories[0].what_happened == source_story.facts[0]
-    assert result.top_stories[0].why_it_matters == source_story.analysis[0]
+    assert result.top_stories[0].why_it_matters is None
     assert result.top_stories[0].uncertainty is None
-    assert result.top_stories[0].generation_status == "fallback_existing_analysis"
-    assert result.top_stories[0].generation_note == "本次成稿使用已验证的已有分析。"
+    assert result.top_stories[0].generation_status == "fallback_no_analysis"
+    assert result.top_stories[0].generation_note == "补充分析未生成，已保留材料中的事实陈述与来源。"
     assert result.top_stories[0].source_urls == source_story.source_urls
     assert result.top_stories[0].story_contexts[0].story_id == source_story.id
     assert result.top_stories[0].story_contexts[0].source_refs == []
@@ -754,11 +754,11 @@ def test_one_failed_item_recovery_does_not_contaminate_other_stories() -> None:
     )
 
     items = {item.story_ids[0]: item for item in _main_items(result)}
-    assert items["story-2"].why_it_matters == "Analysis 2"
+    assert items["story-2"].why_it_matters is None
     assert items["story-2"].uncertainty is None
-    assert items["story-2"].generation_status == "fallback_existing_analysis"
+    assert items["story-2"].generation_status == "fallback_no_analysis"
     assert all(
-        items[f"story-{index}"].why_it_matters == f"Analysis {index}"
+        items[f"story-{index}"].why_it_matters is None
         for index in (0, 1, 3)
     )
     assert result.run_stats["ai_brief_fallback"] is True
@@ -784,12 +784,12 @@ def test_all_item_recoveries_fail_but_brief_remains_schema_valid() -> None:
 
     assert len(_main_items(result)) == 4
     assert all(
-        item.why_it_matters == f"Analysis {index}"
+        item.why_it_matters is None
         for index, item in enumerate(_main_items(result))
     )
     assert all(item.uncertainty is None for item in _main_items(result))
     assert all(
-        item.generation_status == "fallback_existing_analysis"
+        item.generation_status == "fallback_no_analysis"
         for item in _main_items(result)
     )
     assert result.run_stats["ai_brief_fallback"] is True
@@ -845,7 +845,7 @@ class _ScriptedBriefCompletions:
         )
 
 
-def test_real_budget_bounds_truncated_batch_recovery_and_preserves_existing_analysis() -> None:
+def test_real_budget_bounds_truncated_batch_recovery_without_legacy_analysis_bypass() -> None:
     stories = [story(1), story(2)]
     recovered = BriefItemRecoveryDraft(
         item=GeneratedBriefItem(
@@ -875,8 +875,9 @@ def test_real_budget_bounds_truncated_batch_recovery_and_preserves_existing_anal
     assert budget.network_requests_used == 3
     assert result.run_stats["ai_brief_recovery_budget_exhausted"] is True
     assert result.run_stats["ai_brief_recovery_successes"] == 1
-    assert items["story-1"].why_it_matters == "恢复分析 1"
-    assert items["story-2"].why_it_matters == "Analysis 2"
+    assert items["story-1"].why_it_matters is None
+    assert items["story-1"].why_it_matters_omission_reason == "unstructured_explanation"
+    assert items["story-2"].why_it_matters is None
     assert items["story-2"].generation_reason == "recovery_budget_unavailable"
     assert completions.requests[0]["extra_body"] == {"thinking": {"type": "disabled"}}
     assert completions.requests[0]["max_tokens"] == 4096
@@ -960,7 +961,8 @@ def test_real_provider_budget_reservation_bounds_4_plus_1_batches_and_recovery()
         core_payloads[0], core_payloads[0], core_payloads[1], core_payloads[2]
     ]
     assert items["story-4"].generation_status == "generated"
-    assert items["story-0"].why_it_matters == "恢复分析 0"
+    assert items["story-0"].why_it_matters is None
+    assert items["story-0"].why_it_matters_omission_reason == "unstructured_explanation"
     for story_id in ("story-1", "story-2", "story-3"):
         assert items[story_id].generation_reason == "recovery_budget_unavailable"
     assert result.run_stats["ai_brief_batches"] == 2
@@ -1085,11 +1087,7 @@ def test_real_provider_reservation_uses_long_payloads_signals_and_editorial_deci
 
 def test_real_provider_released_reservation_allows_remaining_auxiliary_capacity() -> None:
     source_story = story(1)
-    brief_payload = {
-        "stories": [source_story.model_dump(mode="json")],
-        "signals": [],
-        "editorial_decisions": [],
-    }
+    brief_payload = brief_request_payload([source_story], [])
     auxiliary_payload: list[object] = []
 
     def serialize(payload) -> str:
@@ -1141,14 +1139,10 @@ def test_real_provider_insufficient_reservation_degrades_without_exceeding_limit
         return json.dumps(payload, ensure_ascii=False, separators=(",", ":"))
 
     first_payload = serialize(
-        {
-            "stories": [item.model_dump(mode="json") for item in stories[:4]],
-            "signals": [],
-            "editorial_decisions": [],
-        }
+        brief_request_payload(stories[:4], [])
     )
     second_payload = serialize(
-        {"stories": [stories[4].model_dump(mode="json")], "signals": [], "editorial_decisions": []}
+        brief_request_payload(stories[4:], [])
     )
     second_batch = BriefDraft(
         items=[
