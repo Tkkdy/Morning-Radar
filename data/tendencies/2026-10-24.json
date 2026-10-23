@@ -1,0 +1,226 @@
+{
+  "date": "2026-10-24",
+  "decisions": [
+    {
+      "assessment": {
+        "baseline": "在 v0.40.8 之前，Ollama 官方库不包含 Recursive 的 Flint 与 NVIDIA Nemotron 3.5 Bolt E4B，开发者需另行获取此类模型并自行管理本地推理配置。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-e71e23303f70a294758c（Ollama v0.40.10 新增 Nemotron 3.5 Bolt E4B）直接延续既有 Candidate 的机制：Ollama 官方库再次引入外部厂商模型，且此次为 NVIDIA 视觉语言模型，扩展了模型类型与来源。方向一致，标记 strengthened；但仍属 Ollama 单一产品线的官方发布，缺少第三方采用数据，保持 Candidate。",
+        "falsifier": "如果 Ollama 官方库停止集成新的第三方或厂商模型，或已集成模型被移除、开发者未采用本地运行路径，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Ollama 发布 v0.40.10，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型支持，该模型被描述为基于 Gemma 4、面向快速本地对话、图像理解与工具调用的视觉语言模型。",
+          "Ollama v0.40.8 已通过官方库引入 Recursive 的 Flint 编码模型。"
+        ],
+        "shared_mechanism": "Ollama 沿同一产品线把本地模型运行时扩展为模型分发入口：每个版本在修复运行时问题之外，都在官方库中引入新的第三方或厂商模型（Flint 编码模型、Nemotron 3.5 Bolt E4B 视觉语言模型），使开发者获取与运行模型的通道从自行下载转为经 Ollama 官方库统一交付。"
+      },
+      "claim": "Ollama 正通过连续版本迭代把本地模型运行工具向更稳定的服务端推理与更广的模型分发推进：在修复 Windows 孤立 runner、扩展 GGUF q2_0 tensor/file types、允许多种响应配置之后，v0.40.8 通过官方库集成 Recursive 的 Flint 编码模型，v0.40.10 又新增 NVIDIA Nemotron 3.5 Bolt E4B 视觉语言模型支持，显示 Ollama 官方库持续承担第三方与厂商模型的本地分发职责。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-3b40465d11a3bd0c1ac4"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-d5d195ecb4f85ea60376",
+      "record_id": "tendency-record-2e59ab85beb4424612a6",
+      "recorded_at": "2026-10-23T22:41:09.041837Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e71e23303f70a294758c"
+      ],
+      "tendency_id": "tendency-9d93af89ede5370c1725",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前前沿模型与视觉语言模型主要通过厂商自有 API 与自有云平台提供，本地运行库官方集成厂商视觉语言模型与跨云市场承载他厂前沿模型较少同时出现。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-e71e23303f70a294758c（Ollama 库集成 Nemotron 3.5 Bolt E4B）为本地运行库通道增加了新的厂商模型类型（视觉语言模型），与既有跨云市场证据共同体现『按部署位置与形态分层供给』的机制，方向一致，标记 strengthened。但新增证据仍为单来源官方发布、缺少采用或效果数据，保持 Candidate。",
+        "falsifier": "如果 OpenAI 模型未在 Gemini Model Garden 实际上架或被撤出，或 Ollama 库中此类模型被移除、厂商回退为单一自有通道分发，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "OpenAI 和 Google Cloud 正在将前沿模型和 Codex 工作流引入 Gemini 的 Model Garden，并可通过 Google Cloud Marketplace 获取。",
+          "Ollama v0.40.10 在官方库中新增 NVIDIA Nemotron 3.5 Bolt E4B 视觉语言模型支持。"
+        ],
+        "shared_mechanism": "模型供给方通过第三方云市场与本地运行时库把不同形态的模型能力分层交付：OpenAI 把前沿模型与 Codex 工作流挂在 Google Cloud Marketplace 下，Ollama 把 NVIDIA 的视觉语言模型纳入本地库。共同改变的是开发者获取模型能力的通道结构——从单一厂商自有 API 转为跨云市场与本地运行库的多入口、多形态供给。"
+      },
+      "claim": "模型能力继续通过官方库与运行时通道按部署位置与形态分层供给开发者：OpenAI 与 Google Cloud 把前沿模型与 Codex 工作流引入 Gemini Model Garden，Ollama 官方库先后集成 Recursive 的 Flint 编码模型与 NVIDIA Nemotron 3.5 Bolt E4B 视觉语言模型，显示厂商与运行时平台正以跨云市场与本地运行库两条通道分层分发不同形态的模型能力。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-3b40465d11a3bd0c1ac4"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-e65f510882536fe6fc82",
+      "record_id": "tendency-record-ad72f88cc183eaa69e62",
+      "recorded_at": "2026-10-23T22:41:09.041837Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-e71e23303f70a294758c"
+      ],
+      "tendency_id": "tendency-38dffa6c642cc3bde630",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 LLM 公平性评估多依赖内部私有测试集，时间序列预测与研究选题辅助的方法细节较少以官方博客形式公开披露。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-43dae5868d5ace8f2358（Allen AI LitPivot）与 cluster-795a555d6d7522b33170（IBM Research Granite 时间序列集成预测）分属不同 actor，均以官方博客把专用方法公开为可复用能力，落在既有『以公开评估与方法界定模型能力边界』机制上，故标记 strengthened。但两簇仍属方法披露而非采用证据，且分别来自 Hugging Face 同一发布通道与 IBM 单一渠道，保持 Candidate。",
+        "falsifier": "如果这些评估与方法未被研究或开发者采用、结论无法复现，或相关方法被撤回，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "Hugging Face 博客发布 Allen AI 的《FairStress: A deeper evaluation of fairness in LLM decision-making》。",
+          "Hugging Face 博客发布 Allen AI 的《LitPivot: Developing research ideas through dynamic contextualization within the literature landscape》。",
+          "Hugging Face 博客发布由 IBM Research 撰写的《Ensemble forecasting with IBM Granite time-series models》。"
+        ],
+        "shared_mechanism": "厂商与研究方通过官方博客把模型能力的评估方法与专用用法公开为可复用方法：FairStress 把 LLM 公平性评估公开化，LitPivot 把文献情境化用于研究选题，IBM Granite 时间序列集成预测把专用模型方法公开。共同点是模型能力边界由可公开复现的评估与方法披露共同界定，而非单纯扩大通用模型规模。"
+      },
+      "claim": "厂商与研究方正通过官方博客把评估方法与部署效率公开为可复用能力：Allen AI 发布 FairStress 评估 LLM 决策公平性、LitPivot 以动态情境化文献全景辅助研究选题，IBM Research 介绍 Granite 时间序列模型的集成预测方法，显示模型能力的可用边界正沿公平性评估、研究辅助与专用模型方法公开披露多条线扩展。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-bcfef2d5e20cbdf39c0f"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-8b0b64cebd8f7826eabd"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-2c18dad108a29dc4add3",
+      "record_id": "tendency-record-20b24895244105a2b840",
+      "recorded_at": "2026-10-23T22:41:09.041837Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-795a555d6d7522b33170",
+        "cluster-43dae5868d5ace8f2358"
+      ],
+      "tendency_id": "tendency-2a39e82987fa57a5b959",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 AI 编码助手的测试执行依赖开发者自行触发，代码修复需离开会话进入仓库流程，模型可用范围以各厂商发布节奏为准。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "新增 cluster-489a8ef81657c348144e（GitHub 在 Teams 推出结合 Copilot 的应用）把 AI 编码能力前置到协作平台内部，与既有『约束与能力由平台层执行』的机制一致，方向一致，标记 strengthened。但该簇与 Copilot 弃用同属 GitHub 一个 actor 的官方通道，且缺少使用量数据，保持 Candidate。",
+        "falsifier": "如果 Krites 类强制测试插件未被采用，或 GitHub 在 Teams 内的 Copilot 集成未被团队使用、被撤回，或平台放弃模型治理收敛，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "GitHub 在 Microsoft Teams 推出新的 GitHub 应用，结合通知与 Copilot，支持在 Teams 频道和群组中接收通知并直接把 issue 转化为修复。",
+          "GitHub 于 2026 年 10 月 19 日公告弃用多个 Copilot 模型。"
+        ],
+        "shared_mechanism": "AI 编码助手生态把能力与约束从开发者自律转移到平台层：Krites 通过插件钩子强制测试执行，GitHub Copilot 以弃用公告收敛可选模型，GitHub 在 Teams 内把 issue 直接转为修复。共同点是 AI 编码会话的行为边界与使用入口由工具链、平台策略与协作平台共同执行，而非依赖个人习惯。"
+      },
+      "claim": "AI 辅助编码与协作工具正把模型能力与使用约束前置到协作平台与运行时层：Krites 以 Claude Code 插件强制运行测试，GitHub Copilot 通过模型弃用收敛可选模型，GitHub 在 Microsoft Teams 推出结合通知与 Copilot 的应用，使 AI 编码助手的使用场景与约束由插件、平台策略与协作平台共同承载。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-b87b327f78bca8d7bf5e"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": "tendency-record-21829efbe7e0f8f62e22",
+      "record_id": "tendency-record-ae40c51933cf502e90e5",
+      "recorded_at": "2026-10-23T22:41:09.041837Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-489a8ef81657c348144e"
+      ],
+      "tendency_id": "tendency-4bcb9610c952bdffedc5",
+      "update_kind": "strengthened"
+    },
+    {
+      "assessment": {
+        "baseline": "此前 TensorRT 性能调优需开发者在单一构建路线内手工试探，GPU 数据读取路径较少以官方 Python 教程形式固定。",
+        "core_claim_invalidated": false,
+        "counterevidence_considered": true,
+        "decision_rationale": "三个簇（TensorRT 调优第一、二部分、GPUDirect Storage 教程）共享『部署瓶颈由官方工具与方法覆盖』的机制，但均属 NVIDIA 单一 actor 的开发者博客通道，缺乏第三方采用或效果复现证据。作为新的 Candidate 内部观察。",
+        "falsifier": "如果 Global Performance Tuner 未被开发者采用或调优效果无法复现，或 GPUDirect Storage 教程方法在实际部署中未落地、被撤回，则本 Tendency 被削弱或推翻。",
+        "formation_exception_rationale": null,
+        "observable_impacts": [
+          "NVIDIA 开发者博客发布 TensorRT 11.1 Global Performance Tuner 系列文章第一、第二部分，介绍自动、精度感知的调优能力。",
+          "NVIDIA 开发者博客发布在 Python 中通过 GPUDirect Storage 将数据读入 GPU 内存的教程。"
+        ],
+        "shared_mechanism": "NVIDIA 通过官方开发者博客把部署链路上的两个关键环节产品化：TensorRT 11.1 的 Global Performance Tuner 以自动、精度感知的调优替代单一构建路线的性能探索，GPUDirect Storage 教程把数据读入 GPU 内存的路径固定为可复用的 Python 方法。共同改变的是开发者部署已训练模型时的优化与数据供给流程——从手工试错转为官方工具与教程引导。"
+      },
+      "claim": "AI 基础设施厂商正把部署性能调优与数据供给路径产品化为可复用能力：NVIDIA 在 TensorRT 11.1 发布 Global Performance Tuner 自动精度感知调优，GPUDirect Storage 教程把数据直接读入 GPU 内存，显示推理编译与数据搬运这两个部署瓶颈正被官方工具和方法覆盖。",
+      "counterevidence_cluster_ids": [],
+      "counterevidence_refs": [],
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-e3073c7680ac5ce32d04"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-cfa3366b0f1ccb8e9223"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-a53818957309f0488bee"
+          }
+        }
+      ],
+      "formation_cluster_ids": [],
+      "formed_at": null,
+      "policy_version": "tendency_policy_v1",
+      "previous_record_id": null,
+      "record_id": "tendency-record-ed409193870e1457861e",
+      "recorded_at": "2026-10-23T22:41:09.041837Z",
+      "standing_after": "candidate",
+      "supporting_cluster_ids": [
+        "cluster-3923982f06908dc2b57b",
+        "cluster-685cbbfee3257a90ca10",
+        "cluster-30ce5c9ea17c4f7e397a"
+      ],
+      "tendency_id": "tendency-e3e87e4c4f386fce7383",
+      "update_kind": null
+    }
+  ],
+  "generated_at": "2026-10-23T22:41:09.041837Z"
+}
