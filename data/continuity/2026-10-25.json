@@ -1,0 +1,95 @@
+{
+  "date": "2026-10-25",
+  "generated_at": "2026-10-24T21:54:17.086369Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "ollama 从“Ollama v0.40.10 发布，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型支持”推进到“Ollama v0.40.11 发布：macOS 支持语音生成，新增 d3 决策模型系列”。",
+      "current_story": {
+        "date": "2026-10-25",
+        "story_id": "story-b7b539d02d7e67ca7587"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-24",
+            "story_id": "story-3b40465d11a3bd0c1ac4"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-25",
+            "story_id": "story-b7b539d02d7e67ca7587"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-10-24",
+        "story_id": "story-3b40465d11a3bd0c1ac4"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-10-24T21:54:17.086369Z",
+      "relation_id": "relation-d3b35bced87de292d200",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Ollama 是否在未来版本中将语音生成能力扩展到 macOS 之外的平台，以及 d3 系列是否公布参数规模之外的上下文长度、许可协议与基准表现。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Ollama v0.40.11",
+        "d3",
+        "/v1/audio/speech"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-24T21:54:17.086369Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-25",
+          "story_id": "story-b7b539d02d7e67ca7587"
+        }
+      ],
+      "topic_anchors": [
+        "语音生成",
+        "决策模型"
+      ],
+      "watch_id": "watch-b46e95a3d55deafa22a6"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否披露离线训练环境的适用模型范围、生效时间线，以及红队测试的具体结果。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-24T21:54:17.086369Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-25",
+          "story_id": "story-f66b32e5ce86ff93f55e"
+        },
+        {
+          "date": "2026-10-25",
+          "story_id": "story-92009b1f53fefe2d69f4"
+        }
+      ],
+      "topic_anchors": [
+        "前沿模型训练",
+        "离线训练环境",
+        "红队测试"
+      ],
+      "watch_id": "watch-6f492a331060a1869701"
+    }
+  ]
+}

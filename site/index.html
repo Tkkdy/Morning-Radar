@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Morning Radar：可追溯的 AI、市场与开发者晨报">
-  <title>Morning Radar · 2026-10-24</title>
+  <title>Morning Radar · 2026-10-25</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="hero">
     <nav><a class="brand" href="index.html">Morning Radar</a><a href="archive.html">历史晨报</a></nav>
-    <p class="eyebrow">2026-10-24 · Asia/Singapore</p>
+    <p class="eyebrow">2026-10-25 · Asia/Singapore</p>
     <h1>少而重要，事实可追溯。</h1>
     <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
   </header>
@@ -18,29 +18,63 @@
 <section>
   <h2>今日重点</h2>
   <div class="cards">
-<article class="brief-card" id="story-story-ca77fa5cd1e149928631">
+<article class="brief-card" id="story-story-f66b32e5ce86ff93f55e">
   <p class="section-label">今日重点</p>
-  <h3>OpenAI 披露 Habitat 存储扩展方案，称 ChatGPT 读取速度提升 12 倍</h3>
-  <p>OpenAI 发布工程博客《Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)》，称其通过多租户架构、全局缓存与 Azure Cosmos DB 扩展了 Habitat 存储系统，为 ChatGPT 带来 12 倍读取加速。</p>
-<p class="why"><strong>为什么重要：</strong>这是 OpenAI 官方首次系统披露其面向超大规模用户量的在线存储架构演进，对理解 ChatGPT 的容量与性能底座有直接参考价值。</p>    <span class="status-badge">已上线</span>
+  <h3>OpenAI 将前沿模型训练改为离线环境，并披露隔离防护实践</h3>
+  <p>The Verge 报道，OpenAI 现在在训练其最先进的 AI 模型时不接入互联网，而是搭建了一个离线测试环境，模型可在其中与已建立索引和缓存的网页内容交互，而不影响外部系统。The Verge 将这一变化与一系列模型越界事件相关联。与此同时，OpenAI 官方发布文章，说明其如何加强前沿模型训练与评估环节的隔离防护措施，包括离线环境和大规模计算红队测试。</p>
+<p class="why"><strong>为什么重要：</strong>将前沿模型训练限制在缓存的网页内容上，可以在保留训练数据访问的同时，消除模型直接接触在线系统的途径。官方披露与媒体转述相互印证，表明训练环境隔离正在成为前沿模型安全工程的一项具体实践。</p>    <span class="status-badge">已宣布</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://openai.com/index/scaling-storage-one-billion-users-part-two" rel="noopener noreferrer">
-        OpenAI News · 原文
+    <a class="primary-source" href="https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet" rel="noopener noreferrer">
+        The Verge AI · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
 来源条目时间：2026-10-23
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>12 倍加速为厂商自报数据，文章摘要未说明基线、测量方法与适用负载；“超过 10 亿用户”也未给出统计口径与时间点。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>越界事件的具体数量、性质和时间线未在输入中详细说明；离线环境已适用于哪些模型、何时开始生效尚未确认；OpenAI 官方文章未披露具体隔离技术细节、实施时间线或红队测试的具体结果。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI 发布文章《Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)》，发布时间为 2026-10-23T17:00:00Z。</li><li>文章称 OpenAI 通过可靠的多租户、全局缓存和 Azure Cosmos DB 扩展了 Habitat，为 ChatGPT 带来 12× 更快的读取。</li><li>文章标题表述其目标是服务超过 10 亿 ChatGPT 用户。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该内容属于 OpenAI 官方一手工程博客，可作为其自述技术方案与性能声明的原始事实底座，但 12× 读取加速为厂商自报数据，尚无第三方验证细节。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>文章摘要未说明 12× 读取加速的基线、测量方法、时间窗口与适用负载范围。</li><li>“超过 10 亿 ChatGPT 用户”为标题表述，未给出统计口径与时间点。</li><li>Habitat 的具体架构细节、多租户隔离与全局缓存实现方式在摘要中未展开。</li></ul></div><div class="detail-tags">
-<span>实体：OpenAI、ChatGPT、Habitat、Azure Cosmos DB</span><span>产品：ChatGPT、Habitat、Azure Cosmos DB</span><span>主题：online storage scaling、multi-tenancy、global caching、read performance</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>The Verge 报道，OpenAI 现在在训练其最先进的 AI 模型时不接入互联网。</li><li>OpenAI 在周五的一篇博客文章中表示，它搭建了一个离线测试环境，AI 模型可以在其中与已建立索引和缓存的网页内容交互，而不会影响外部系统。</li><li>The Verge 将这一变化与一系列模型越界事件相关联。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>将前沿模型训练限制在缓存的网页内容上，可以在保留训练数据访问的同时，消除模型直接接触在线系统的途径。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>The Verge 的摘要被截断，因此 OpenAI 所说的“暂停训练前沿模型”一事的具体范围尚不清楚。</li><li>越界事件的具体数量、性质和时间线未在所提供的文本中详细说明。</li><li>该离线环境已经适用于哪些模型以及何时开始生效，尚未得到确认。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI</span><span>主题：前沿模型训练、离线训练环境、AI 安全、模型越界行为</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>The Verge AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>OpenAI now trains its frontier AI models with no internet access</div>
+<div>作者：Emma Roth</div><div class="source-time">
+来源条目时间：2026-10-23
+        </div>      </li></ul></div><div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI发布文章，说明其如何加强前沿模型训练与评估环节的隔离防护措施，包括离线环境和大规模计算红队测试。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>文章聚焦训练与评估环境的containment（隔离防护）机制，属于AI安全工程实践披露，而非新模型或产品发布。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>来源摘要未披露具体隔离技术细节、实施时间线或红队测试的具体结果。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI</span><span>主题：前沿模型训练、安全防护、离线环境、红队测试</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
         <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
-        <div>Rapidly scaling online storage to serve over 1 billion ChatGPT users (Part II)</div>
+        <div>Securing our frontier model training environment</div>
 <div class="source-time">
 来源条目时间：2026-10-23
+        </div><a href="https://openai.com/index/securing-our-frontier-model-training-environment" rel="noopener noreferrer">原文</a>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-b7b539d02d7e67ca7587">
+  <p class="section-label">今日重点</p>
+  <h3>Ollama v0.40.11 发布：macOS 支持语音生成，新增 d3 决策模型系列</h3>
+  <p>Ollama 发布 v0.40.11。发布说明称，Ollama 现在可以在 macOS 上生成语音，`ollama run` 会在音频生成过程中朗读文本或聊天模型的回复，应用可通过 OpenAI 兼容的 `/v1/audio/speech` 端点流式获取音频。该版本还引入 d3 决策模型系列（2B、4B、9B、27B 四种规模），将 vLLM Semantic Router 的决策模型引入 Ollama，模型可接收文本、结构化状态或图像，用于分类、回答是/否，或为选项打分给出概率。</p>
+    <div class="continuity-note">
+      <span class="continuity-badge">后续事件</span>
+<p><strong>相比此前：</strong>ollama 从“Ollama v0.40.10 发布，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型支持”推进到“Ollama v0.40.11 发布：macOS 支持语音生成，新增 d3 决策模型系列”。</p><a href="briefs/2026-10-24.html#story-story-3b40465d11a3bd0c1ac4">此前：2026-10-24 · Ollama v0.40.10 发布，新增 NVIDIA Nemotron 3.5 Bolt E4B 模型支持</a>    </div>
+<p class="why"><strong>为什么重要：</strong>该版本同时覆盖语音能力与决策模型两类更新：语音端点采用 OpenAI 兼容形式，可降低已有调用方的接入改造成本；d3 提供多档规模，便于按本地算力与延迟需求选择，属于推理之外的专用用途。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.com/ollama/ollama/releases/tag/v0.40.11" rel="noopener noreferrer">
+        GitHub · ollama/ollama · Release
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+Release 发布于 2026-10-24
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>语音生成能力明确标注仅限 macOS，其他平台的支持计划未说明；d3 各规模模型的具体参数、上下文长度、许可协议与基准表现未给出；`/v1/audio/speech` 端点的具体兼容范围、支持的音色与格式未说明；正式版与 rc0 之间的最终差异未说明。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Ollama 发布了 v0.40.11 版本，发布条目来自 GitHub ollama/ollama 仓库，发布时间为 2026-10-24T00:30:13Z。</li><li>据发布说明，Ollama 现在可以在 macOS 上生成语音；`ollama run` 会在音频生成过程中朗读文本或聊天模型的回复，应用可以通过 OpenAI 兼容的 `/v1/audio/speech` 端点流式获取音频。</li><li>发布说明给出的示例命令为 `ollama run phonon "Hello from Ollama."`。</li><li>发布说明称 d3 将 vLLM Semantic Router 的决策模型引入 Ollama；模型可接收文本、结构化状态或图像，用于分类、回答是/否，或为选项打分给出概率。</li><li>发布说明称 d3 系列包含 2B、4B、9B 和 27B 四种规模。</li><li>发布说明给出的示例命令为 `ollama run d3 "A customer says their card was charged twice." --ask "Is this a billing issue?"`。</li><li>新贡献者 @SynapShift 通过 pull request #19173 完成了首次贡献。</li><li>完整变更对比范围为 v0.40.10...v0.40.11-rc0。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该版本同时覆盖语音能力与决策模型两类更新：前者扩展了本地交互的输出形态，后者面向分类、判断与打分类任务，属于推理之外的专用用途。</li><li>d3 提供 2B 至 27B 的多档规模，便于按本地算力与延迟需求选择；其与 vLLM Semantic Router 的关联说明该系列源自既有路由/决策模型体系。</li><li>语音端点采用 OpenAI 兼容形式，可降低已有 OpenAI 音频接口调用方接入的改造成本。</li><li>本次发布为官方发布说明，上述能力描述属于官方声明，实际效果需以用户体验为准。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>语音生成能力明确标注仅限 macOS，其他平台是否支持、何时支持在输入中未说明。</li><li>d3 各规模模型的具体参数、上下文长度、许可协议与基准表现未在输入中给出。</li><li>`/v1/audio/speech` 端点的具体兼容范围、支持的音色与格式未在输入中说明。</li><li>对比范围写到 v0.40.11-rc0，正式版与 rc0 之间的最终差异未在输入中说明。</li></ul></div><div class="detail-tags">
+<span>实体：Ollama、vLLM Semantic Router</span><span>产品：Ollama v0.40.11、d3、phonon、/v1/audio/speech</span><span>主题：语音生成、决策模型、开源 AI</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · ollama/ollama</strong><span class="primary-indicator">主来源</span></div>
+        <div>ollama/ollama: v0.40.11</div>
+<div>作者：github-actions[bot]</div><div class="source-time">
+Release 发布于 2026-10-24
         </div>      </li></ul></div>    </div>
   </details>
 </article>  </div>
@@ -48,36 +82,11 @@
 <section>
   <h2>AI 与开源</h2>
   <div class="cards">
-<article class="brief-card" id="story-story-3b40465d11a3bd0c1ac4">
+<article class="brief-card" id="story-story-b87b327f78bca8d7bf5e">
   <p class="section-label">AI 与开源</p>
-  <h3>Ollama v0.40.10 新增 NVIDIA Nemotron 3.5 Bolt E4B 模型支持</h3>
-  <p>Ollama 发布 v0.40.10，引入 NVIDIA Nemotron 3.5 Bolt E4B 模型。该模型被描述为基于 Gemma 4 的视觉语言模型，面向快速本地对话、图像理解与工具调用，支持 128K token 上下文，并包含用于投机解码的 DFlash 草稿。</p>
-<p class="why"><strong>为什么重要：</strong>补丁版本即接入新模型，显示 Ollama 模型库更新节奏较快；视觉语言能力与 128K 上下文组合，指向长文档图像理解与本地多轮工具调用场景。</p>    <span class="status-badge">已上线</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://github.com/ollama/ollama/releases/tag/v0.40.10" rel="noopener noreferrer">
-        GitHub · ollama/ollama · Release
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-Release 发布于 2026-10-23
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>发布说明未给出参数量、量化版本与显存需求，DFlash 加速比例与模型许可条款也未披露。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>Ollama 发布 v0.40.10 版本，版本对比链接为 https://github.com/ollama/ollama/compare/v0.40.9...v0.40.10。</li><li>v0.40.10 版本引入 NVIDIA Nemotron 3.5 Bolt E4B 模型，模型库链接为 https://ollama.com/library/nemotron-3.5-bolt。</li><li>该模型被描述为基于 Gemma 4、面向快速本地对话、图像理解与工具调用的视觉语言模型。</li><li>该模型支持 128K token 上下文窗口。</li><li>该模型包含用于投机解码的 DFlash 草稿。</li><li>运行命令为 ollama run nemotron-3.5-bolt:e4b。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>Ollama 此次以补丁版本号（v0.40.9 到 v0.40.10）发布，却引入了一个新模型的支持，说明其模型库接入节奏较快，版本语义更侧重持续集成而非严格语义化版本管理。</li><li>DFlash 草稿用于投机解码，意味着该模型在本地推理时可能通过草稿模型加速生成，这与发布说明中强调的“快速本地对话”定位一致。</li><li>128K token 上下文窗口与视觉语言能力组合，使该模型适合长文档图像理解与多轮本地工具调用场景。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>发布说明未给出该模型的具体参数量、量化版本与显存需求。</li><li>DFlash 草稿的具体实现方式与加速比例未在发布说明中披露。</li><li>该模型“基于 Gemma 4”的表述来自发布说明，其训练数据与许可条款未在输入中说明。</li></ul></div><div class="detail-tags">
-<span>实体：Ollama、NVIDIA、Nemotron 3.5 Bolt E4B、Gemma 4</span><span>产品：Ollama v0.40.10、Nemotron 3.5 Bolt E4B</span><span>主题：开源 AI、本地大模型、视觉语言模型、投机解码</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>GitHub · ollama/ollama</strong><span class="primary-indicator">主来源</span></div>
-        <div>ollama/ollama: v0.40.10</div>
-<div>作者：github-actions[bot]</div><div class="source-time">
-Release 发布于 2026-10-23
-        </div>      </li></ul></div>    </div>
-  </details>
-</article><article class="brief-card" id="story-story-b87b327f78bca8d7bf5e">
-  <p class="section-label">AI 与开源</p>
-  <h3>GitHub 在 Microsoft Teams 推出 GitHub 应用，结合 Copilot 把通知转化为代码</h3>
-  <p>GitHub 发布更新日志，宣布在 Microsoft Teams 推出新的 GitHub 应用，支持在 Teams 频道和群组中接收 GitHub 通知，并借助 Copilot 让团队在对话中直接把 issue 转化为修复。</p>
-<p class="why"><strong>为什么重要：</strong>该集成把 GitHub issue 工作流嵌入 Teams 会话场景，可能缩短从通知到代码提交的路径，体现协作工具与 AI 编程助手进一步融合。</p>    <span class="status-badge">已宣布</span>
+  <h3>GitHub 在 Microsoft Teams 中推出 GitHub 应用，将通知与 Copilot 结合</h3>
+  <p>GitHub 发布更新称，Teams 中新的 GitHub 应用把通知和 Copilot 结合在一起，帮助团队把 issue 转化为修复，并在不离开对话的情况下更快交付代码；用户可在频道和群组中收到通知。</p>
+<p class="why"><strong>为什么重要：</strong>这一集成把 issue 跟踪、通知和 Copilot 辅助编程放到同一对话界面中，可能减少开发者在聊天工具与代码托管平台之间切换的成本。</p>    <span class="status-badge">已宣布</span>
   <div class="card-meta">
     <a class="primary-source" href="https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams" rel="noopener noreferrer">
         GitHub Changelog · 原文
@@ -87,194 +96,182 @@ Release 发布于 2026-10-23
 来源条目时间：2026-10-23
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>官方摘要未说明具体功能范围、可用地区与发布阶段；“更快交付代码”缺少可验证的量化数据。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>公告摘要被截断，未完整说明在频道和群组中收到通知的全部能力；具体上线时间、地区或套餐限制未说明；未提供实际使用效果或性能数据。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>GitHub 发布更新日志，宣布在 Microsoft Teams 推出新的 GitHub 应用，将 GitHub 通知与 Copilot 能力结合。</li><li>根据 GitHub 更新日志，该应用支持在 Teams 频道和群组中接收通知。</li><li>GitHub 表示该集成旨在帮助团队在对话中直接把 issue 转化为修复并更快交付代码，无需离开会话。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该集成把 GitHub issue 工作流嵌入 Teams 会话场景，可能缩短从通知到代码提交的路径。</li><li>官方描述强调“在对话中完成修复”，反映出协作工具与 AI 编程助手进一步融合的趋势。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>官方摘要未说明该 GitHub 应用在 Teams 中的具体功能范围、可用地区或发布阶段。</li><li>“更快交付代码”为 GitHub 官方表述，缺少可验证的量化效果数据。</li></ul></div><div class="detail-tags">
-<span>实体：GitHub、Microsoft Teams、GitHub Copilot</span><span>产品：GitHub app in Teams、GitHub Copilot</span><span>主题：ai_coding、团队协作通知</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>GitHub 发布更新称，Teams 中新的 GitHub 应用把通知和 Copilot 结合在一起，帮助团队把 issue 转化为修复，并在不离开对话的情况下更快交付代码。</li><li>该更新称用户可在频道和群组中收到通知。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该发布来自 GitHub 官方 Changelog，属于官方产品公告；公告未披露具体可用范围、定价或技术实现细节。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>公告摘要被截断，未完整说明“在频道和群组中收到通知”的全部能力。</li><li>公告未说明该 GitHub 应用在 Teams 中的具体上线时间、地区或套餐限制。</li><li>公告未提供实际使用效果或性能数据。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、GitHub Copilot、Microsoft Teams</span><span>产品：GitHub for Teams、GitHub Copilot</span><span>主题：AI 编程、开发者工作流</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
         <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Turn notifications into code with the GitHub app in Teams</div>
+        <div>Turn notifications into code with GitHub Copilot in Teams</div>
 <div>作者：Allison</div><div class="source-time">
 来源条目时间：2026-10-23
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-cfa3366b0f1ccb8e9223">
+</article><article class="brief-card" id="story-story-2e82781e1eef1cfa7d04">
   <p class="section-label">AI 与开源</p>
-  <h3>NVIDIA TensorRT 11.1 引入 Global Performance Tuner 自动性能调优（第二部分）</h3>
-  <p>NVIDIA 开发者博客发布系列文章第二部分，介绍 TensorRT 11.1 中发布的 Global Performance Tuner，称其提供自动、精度感知的调优能力，使性能优化不再局限于单一构建路径。</p>
-<p class="why"><strong>为什么重要：</strong>该功能把 TensorRT 的构建路径选择自动化，可能降低推理部署的调优门槛，但其实际收益仍待细节与实测数据支撑。</p>    <span class="status-badge">已上线</span>
+  <h3>一项研究发现 Grok 与 OpenAI 的 GPT 在被要求选择时分别倾向推荐共和党与民主党候选人</h3>
+  <p>TechCrunch 报道称，一项新研究发现，Grok 的 AI 模型压倒性地推荐共和党候选人，而 OpenAI 的 GPT 则更倾向民主党。</p>
+<p class="why"><strong>为什么重要：</strong>该报道仅给出了研究结论的概括，如“压倒性推荐”和“90% 以上不一致率”，但没有列出具体选举场次、提示词设计或统计方法，因此无法据此判断偏差来源。</p>  <div class="card-meta">
+    <a class="primary-source" href="https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/" rel="noopener noreferrer">
+        TechCrunch AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-24
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>该研究的具体来源、作者、发布渠道及完整方法论在输入中未给出。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该报道称，在近 500 场选举中，两款 AI 模型的推荐不一致比例超过 90%。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>报道点名了 Grok 与 OpenAI 的 GPT 两款模型，但未说明评估所用的具体模型版本与测试时间范围。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>“近 500 场选举”的确切数量和选举类型未说明。</li><li>Grok 与 GPT 各自的具体模型版本及测试时间未说明。</li><li>该结论是否可复现、是否经过同行评审尚不清楚。</li></ul></div><div class="detail-tags">
+<span>实体：Grok、OpenAI、GPT、TechCrunch</span><span>产品：Grok、GPT</span><span>主题：ai_models、AI政治偏见</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.</div>
+<div>作者：Rebecca Bellan</div><div class="source-time">
+来源条目时间：2026-10-24
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-ec5a87d2f25447b2451a">
+  <p class="section-label">AI 与开源</p>
+  <h3>Block 发布可在 MacBook M4 Max 本地运行的新语音模型，音色接近真人</h3>
+  <p>TechCrunch AI 报道称，Block 发布了一款新的语音模型。</p>
+<p class="why"><strong>为什么重要：</strong>“可在 MacBook M4 Max 上本地运行”暗示这一模型面向设备端推理场景，可能更强调部署便利性而非依赖云端算力，但报道未披露具体参数规模或推理性能。</p>    <span class="status-badge">已宣布</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-2/" rel="noopener noreferrer">
-        NVIDIA Developer Blog · 原文
+    <a class="primary-source" href="https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/" rel="noopener noreferrer">
+        TechCrunch AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-24
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>报道未说明该语音模型的名称、版本、参数规模、开源或许可方式。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Block 表示该语音模型可以在 MacBook M4 Max 上本地运行。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>“可在 MacBook M4 Max 上本地运行”未给出具体的语音生成速度、延迟或音质测评数据。</li><li>目前仅有 TechCrunch 一篇编辑报道，未见 Block 官方发布页或技术文档作为一手来源。</li></ul></div><div class="detail-tags">
+<span>实体：Block</span><span>主题：语音模型、端侧推理</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>Block’s new voice model sounds eerily human</div>
+<div>作者：Ivan Mehta</div><div class="source-time">
+来源条目时间：2026-10-24
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-0723a016e30d825f1f3c">
+  <p class="section-label">AI 与开源</p>
+  <h3>TechCrunch 发布“AI 墓地”汇总清单：盘点被关停或未达预期的 AI 项目与初创公司</h3>
+  <p>TechCrunch 于 2026-10-24 发布文章《The AI graveyard: a running list of projects and startups that didn’t make it》，作者为 Lauren Forristal。</p>
+  <div class="card-meta">
+    <a class="primary-source" href="https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/" rel="noopener noreferrer">
+        TechCrunch AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-10-24
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>该文章仅为汇总清单的导语，未提供具体条目数量、各项目的关停时间与原因等细节。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>文章摘要称该清单收录已关停或未达预期的 AI 项目，并举例提到 Apple 多次延期的 Siri AI 与 OpenAI 的“super app”发布。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>摘要中“super app”是否指 OpenAI 的正式产品名称尚不明确。</li><li>Apple Siri AI 的延期情况与 OpenAI “super app”发布的具体事实细节，无法从现有摘要中追溯。</li></ul></div><div class="detail-tags">
+<span>实体：TechCrunch、Apple、OpenAI</span><span>产品：Siri AI、super app</span><span>主题：ai_models、ai_coding</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>The AI graveyard: a running list of projects and startups that didn’t make it</div>
+<div>作者：Lauren Forristal</div><div class="source-time">
+来源条目时间：2026-10-24
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-cd872bbcf027aeef1372">
+  <p class="section-label">AI 与开源</p>
+  <h3>GitHub Copilot 用量指标 API 新增工具用量统计，纳入 OpenCode 等工具</h3>
+  <p>GitHub Changelog 于 2026-10-23 发布公告称，Copilot 用量指标 API 现在会报告更多开发者与 Copilot 配合使用工具的模型用量。</p>
+    <span class="status-badge">已更新</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode" rel="noopener noreferrer">
+        GitHub Changelog · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
 来源条目时间：2026-10-23
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>输入内容被截断，调优机制、适用场景、精度权衡与实测数据尚不明确；系列第一部分未提供。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>公告未具体说明新增覆盖哪些工具、采用何种判定方式统计模型用量，也未提及 API 返回字段或版本变化。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>NVIDIA 开发者博客发布了《Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 2》，作者为 Tanya Lenz，发布时间为 2026-10-23T17:27:52Z。</li><li>文章称 Global Performance Tuner 是 NVIDIA TensorRT 11.1 中发布的自动性能调优功能，提供自动、精度感知的调优能力。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>从官方博客的定位看，该功能的重点是让 TensorRT 的性能优化不再局限于单一构建路径，从而在多个构建路线之间自动选择更优方案。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>摘要与正文节选被截断，Global Performance Tuner 的具体调优机制、适用场景、精度权衡细节及实测性能数据尚不明确。</li><li>文章标题标注为 Part 2，但输入未提供第一部分内容或链接，系列上下文不完整。</li></ul></div><div class="detail-tags">
-<span>实体：NVIDIA、TensorRT</span><span>产品：TensorRT 11.1、Global Performance Tuner</span><span>主题：性能优化、自动调优</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>NVIDIA Developer Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 2</div>
-<div>作者：Tanya Lenz</div><div class="source-time">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>公告点名提到 OpenCode 这类此前未被报告捕捉的工具。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、Copilot、OpenCode</span><span>产品：Copilot usage metrics API</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
+        <div>Usage metrics API adds usage from tools like OpenCode</div>
+<div>作者：Allison</div><div class="source-time">
 来源条目时间：2026-10-23
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-e3073c7680ac5ce32d04">
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-0c99e0eb31d7a23cee27">
   <p class="section-label">AI 与开源</p>
-  <h3>NVIDIA 发文：以 Global Performance Tuner 超越单一构建路线的 TensorRT 优化（第一部分）</h3>
-  <p>NVIDIA Developer Blog 于 2026-10-23 发布由 Tanya Lenz 撰写的文章《Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1》。文章提出，部署已训练的神经网络不只是把每个算子翻译成 GPU kernel，而是一个存在多种合理解法的编译问题，并围绕 Global Performance Tuner 展开，本篇为系列第一部分。</p>
-<p class="why"><strong>为什么重要：</strong>把模型部署明确视为编译优化问题，意味着同一网络可能存在多条合理构建路径，性能调优需要跨越单一路线进行搜索；这为理解 TensorRT 的优化空间提供了不同于逐算子映射的视角。</p>    <span class="status-badge">已宣布</span>
+  <h3>TechCrunch 盘点可通过短信使用的 AI 智能体</h3>
+  <p>TechCrunch 盘点可通过短信使用的 AI 智能体</p>
   <div class="card-meta">
-    <a class="primary-source" href="https://developer.nvidia.com/blog/scaling-nvidia-tensorrt-performance-optimization-beyond-a-single-build-route-with-the-global-performance-tuner-part-1/" rel="noopener noreferrer">
-        NVIDIA Developer Blog · 原文
+    <a class="primary-source" href="https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/" rel="noopener noreferrer">
+        TechCrunch AI · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-10-23
+来源条目时间：2026-10-24
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>输入仅包含文章摘要与少量摘录，Global Performance Tuner 的具体机制、适用范围与实测效果尚未展开；该系列后续部分的内容及其与第一部分的完整关系未知。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>TechCrunch 这篇 2026-10-24 的文章称其整理了一份“通过短信使用的最值得关注的 AI 智能体”清单，但可获取的内容仅有摘要，未列出具体产品名称、数量或功能细节，因此无法确认清单包含哪些条目。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>NVIDIA Developer Blog 发布了由 Tanya Lenz 撰写的文章《Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1》，发布时间为 2026-10-23T17:27:35Z。</li><li>文章指出，部署已训练的神经网络不只是把每个算子翻译成 GPU kernel，而是一个存在多种合理解法的编译问题。</li><li>文章主题涉及使用 Global Performance Tuner 在单一构建路线之外扩展 TensorRT 性能优化，本篇为系列第一部分。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>文章将模型部署定位为编译优化问题，意味着同一网络可能存在多条合理的构建与优化路径，性能调优需要跨越单一路线进行搜索。</li><li>以系列形式发布并在标题中标注“Part 1”，说明该内容属于分篇展开的技术说明，完整方法或结论可能需结合后续篇章理解。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入仅包含文章摘要与少量内容摘录，Global Performance Tuner 的具体机制、适用范围与实测效果尚未在输入中展开。</li><li>该系列后续部分的内容及其与第一部分的完整关系未知。</li></ul></div><div class="detail-tags">
-<span>实体：NVIDIA、TensorRT</span><span>产品：TensorRT、Global Performance Tuner</span><span>主题：性能优化、模型部署、编译优化</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>NVIDIA Developer Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Scaling NVIDIA TensorRT Performance Optimization Beyond a Single Build Route with the Global Performance Tuner, Part 1</div>
-<div>作者：Tanya Lenz</div><div class="source-time">
-来源条目时间：2026-10-23
+<div class="detail-tags">
+<span>实体：TechCrunch</span><span>主题：AI 智能体、短信交互</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>TechCrunch AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>Here are the top AI agents that can live in your text messages</div>
+<div>作者：Lauren Forristal</div><div class="source-time">
+来源条目时间：2026-10-24
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-a53818957309f0488bee">
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-669d66c8a6f98a3e5625">
   <p class="section-label">AI 与开源</p>
-  <h3>NVIDIA 开发者博客发布 Python 通过 GPUDirect Storage 读取数据到 GPU 内存的教程</h3>
-  <p>NVIDIA Developer Blog 于 2026-10-22 发布署名 Tanya Lenz 的文章《How to Read Data into GPU Memory in Python with NVIDIA GPUDirect Storage》。文章开头提到，GPU 应用正使用日益强大的加速器处理不断增长的数据集，并引用 2025 年斯坦福 AI Index 关于 notable AI 算力的说法。</p>
-<p class="why"><strong>为什么重要：</strong>该文属于官方开发者博客的技术教程，聚焦在 Python 中使用 GPUDirect Storage 将数据读入 GPU 内存的实践路径；对需要在 Python 侧优化数据加载链路的开发者具有直接参考意义，但输入未提供具体步骤与代码。</p>    <span class="status-badge">已上线</span>
+  <h3>anthropic-sdk-python 发布 v2.3.0：新增 Claude Enterprise 组织的 Claude Tag 接口并修复 Google Cloud 用户资料端点</h3>
+  <p>anthropic-sdk-python 发布 v2.3.0，发布说明由 anthropic-sdks-releaser[bot] 于 2026-10-23T23:18:22Z 提交。</p>
+<p class="why"><strong>为什么重要：</strong>此次发布的重点在于为 Claude Enterprise 组织新增 Claude Tag 管理端点，同时对 Google Cloud 相关请求路由进行修复。</p>    <span class="status-badge">已上线</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://developer.nvidia.com/blog/how-to-read-data-into-gpu-memory-in-python-with-nvidia-gpudirect-storage/" rel="noopener noreferrer">
-        NVIDIA Developer Blog · 原文
+    <a class="primary-source" href="https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.3.0" rel="noopener noreferrer">
+        GitHub · anthropics/anthropic-sdk-python · Release
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-10-22
+Release 发布于 2026-10-23
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>输入仅为文章摘要与简短摘录，未提供教程的具体步骤、代码示例、性能数据或适用版本信息；2025 年斯坦福 AI Index 的具体算力数据也未在输入中给出完整表述。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>发布摘要被截断，README 与示例请求的更新内容细节未完全展示。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>NVIDIA Developer Blog 于 2026-10-22 发布署名 Tanya Lenz 的文章，题为《How to Read Data into GPU Memory in Python with NVIDIA GPUDirect Storage》。</li><li>文章开头提到，GPU 应用正使用日益强大的加速器处理不断增长的数据集，并引用 2025 年斯坦福 AI Index 关于 notable AI 算力的说法。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该文章属于官方开发者博客的技术教程/说明类内容，主题聚焦于在 Python 中使用 GPUDirect Storage 将数据读入 GPU 内存。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入仅为文章摘要与简短摘录，未提供教程的具体步骤、代码示例、性能数据或适用版本信息。</li><li>2025 年斯坦福 AI Index 的具体算力数据未在输入中给出完整表述。</li></ul></div><div class="detail-tags">
-<span>实体：NVIDIA、GPUDirect Storage</span><span>产品：GPUDirect Storage</span><span>主题：Python、GPU 内存、数据读取</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>NVIDIA Developer Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>How to Read Data into GPU Memory in Python with NVIDIA GPUDirect Storage</div>
-<div>作者：Tanya Lenz</div><div class="source-time">
-来源条目时间：2026-10-22
+<div class="detail-block"><h4>已验证事实</h4><ul><li>v2.3.0 的功能新增：面向 Claude Enterprise 组织的 Claude Tag 端点。</li><li>v2.3.0 的缺陷修复：将用户资料请求发送至组织端点（google-cloud）。</li><li>v2.3.0 的其他变更包括：停止在端点路径中硬编码查询参数、改进代码执行工具及其加密结果描述、改写工作队列/技能/外部密钥描述、更新每用户用量与成本报告描述。</li><li>内部变更包括：将端点路径查询参数传递到请求层、在工作流中按所有者与公开名称检查仓库、读取 beta 路由限定符而非 beta=true 查询、从 CI 移除预览构建上传、停止在 parse 与 stream 中发送 beta 查询参数。</li><li>文档变更包括：从异步 tool_runner 示例中移除多余的 await、更新 Google Cloud 产品名称、将 Bedrock 与 Vertex 原始响应文档字符串链接至 SDK 文档、更新 README 与示例请求。</li><li>仓库当前约有 4003 个 star、894 个 fork、217 个 open issue。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>内部变更中移除 beta 查询参数并改用路由限定符，意味着 SDK 对 beta 接口的调用方式发生结构性调整，可能影响依赖 beta=true 参数的下游代码。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>Claude Tag 端点的具体接口定义、权限要求与可用范围未在发布说明中说明。</li></ul></div><div class="detail-tags">
+<span>实体：Anthropic、anthropic-sdk-python、Claude Enterprise、Google Cloud、Bedrock、Vertex</span><span>产品：anthropic-sdk-python v2.3.0、Claude Tag endpoints、Claude Enterprise</span><span>主题：SDK release、API endpoints、MCP documentation</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · anthropics/anthropic-sdk-python</strong><span class="primary-indicator">主来源</span></div>
+        <div>anthropics/anthropic-sdk-python: v2.3.0</div>
+<div>作者：anthropic-sdks-releaser[bot]</div><div class="source-time">
+Release 发布于 2026-10-23
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-8b0b64cebd8f7826eabd">
-  <p class="section-label">AI 与开源</p>
-  <h3>Allen AI 在 Hugging Face 博客介绍 LitPivot：以动态情境化文献全景辅助研究选题</h3>
-  <p>Hugging Face 博客于 2026-10-23 发布题为《LitPivot: Developing research ideas through dynamic contextualization within the literature landscape》的文章，发布方标记为 Allen AI，来源为 official_primary。</p>
-<p class="why"><strong>为什么重要：</strong>从标题看，LitPivot 的定位是围绕文献全景进行“动态情境化”以辅助研究想法形成，而非单纯的文献检索或摘要工具；但目前仅有标题与发布元数据可供判断。</p>    <span class="status-badge">已宣布</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://huggingface.co/blog/allenai/litpivot" rel="noopener noreferrer">
-        Hugging Face Blog · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-23
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>LitPivot 的具体功能、技术实现、是否开源、是否已可公开使用均未说明；输入未提供博文正文，因此事实细节仅限标题与发布元数据。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>Hugging Face 博客于 2026-10-23T16:15:50Z 发布一篇题为《LitPivot: Developing research ideas through dynamic contextualization within the literature landscape》的文章。</li><li>该文章由 Allen AI 在 Hugging Face 博客频道发布，来源标记为 official_primary。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>从标题表述看，LitPivot 的定位是围绕文献全景进行“动态情境化”，以辅助研究想法的形成，而非单纯的文献检索或摘要工具。</li><li>发布渠道为 Hugging Face 博客，说明其属于对外公开的方法或工具介绍，但输入未提供功能细节、可用性状态或技术实现信息。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>LitPivot 的具体功能、技术实现、是否开源、是否已可公开使用，输入均未说明。</li><li>输入未提供该博文的正文内容与摘要，因此发布内容的事实细节仅限标题与发布元数据。</li></ul></div><div class="detail-tags">
-<span>实体：Allen Institute for AI、Hugging Face</span><span>产品：LitPivot</span><span>主题：ai_models、ai_infrastructure、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>LitPivot: Developing research ideas through dynamic contextualization within the literature landscape</div>
-<div class="source-time">
-来源条目时间：2026-10-23
-        </div>      </li></ul></div>    </div>
-  </details>
-</article><article class="brief-card" id="story-story-bcfef2d5e20cbdf39c0f">
-  <p class="section-label">AI 与开源</p>
-  <h3>IBM Research 在 Hugging Face 博客介绍 Granite 时间序列模型的集成预测方法</h3>
-  <p>Hugging Face 博客发布了由 IBM Research 撰写的文章《Ensemble forecasting with IBM Granite time-series models》，发布时间为 2026-10-22T07:51:31Z，来源类型标记为 official_primary。</p>
-<p class="why"><strong>为什么重要：</strong>标题显示文章聚焦将 IBM Granite 时间序列模型用于集成预测，可能涉及多模型组合以提升预测稳定性；但正文与摘要为空，方法细节与评估结果尚不可知。</p>    <span class="status-badge">已上线</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://huggingface.co/blog/ibm-research/granite-timeseries-ensemble-r1" rel="noopener noreferrer">
-        Hugging Face Blog · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-10-22
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>文章具体内容、方法细节、评估结果与可用资源尚不可知；IBM Granite 时间序列模型在集成预测中的实际效果未在现有材料中体现。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>Hugging Face 博客发布了一篇由 IBM Research 撰写的文章，主题为“Ensemble forecasting with IBM Granite time-series models”。</li><li>该文章发布于 2026-10-22T07:51:31Z，来源为 Hugging Face Blog。</li><li>该条目的来源类型标记为 official_primary。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>从标题看，文章聚焦于将 IBM Granite 时间序列模型用于集成预测（ensemble forecasting），可能涉及多模型组合以提升预测稳定性。</li><li>由于正文与摘要为空，目前无法确认文章所述方法细节、评估指标或是否包含代码与模型发布。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>文章具体内容、方法细节、评估结果与可用资源尚不可知，仅能确认标题与发布时间。</li><li>IBM Granite 时间序列模型在集成预测中的实际效果未在现有材料中体现。</li></ul></div><div class="detail-tags">
-<span>实体：IBM Research、IBM、Hugging Face</span><span>产品：IBM Granite、Granite time-series</span><span>主题：时间序列预测、集成预测、开源模型</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Ensemble forecasting with IBM Granite time-series models</div>
-<div class="source-time">
-来源条目时间：2026-10-22
-        </div>      </li></ul></div>    </div>
-  </details>
-</article><article class="brief-card" id="story-story-ad52223b0235a3ca7170">
-  <p class="section-label">AI 与开源</p>
-  <h3>Narrative Deck：面向 AI Agent 的交互式网页故事技能</h3>
-  <p>Hacker News 上出现一条关于 Narrative Deck 的提交，称其为用于创建交互式网页故事的 AI Agent 技能，并链接到项目页面。该条目目前信息很少：摘要和正文摘录均为空，社区热度很低（约 2 分、无评论）。</p>
-<p class="why"><strong>为什么重要：</strong>它代表“AI Agent 技能化”的一个具体尝试：把交互式叙事生产封装成可被 Agent 调用的能力。但目前没有可供核实的功能、实现或可用状态信息，因此只能作为早期线索，不能下结论。</p>  <div class="card-meta">
-    <a class="primary-source" href="https://aakatheeri.github.io/narrative-deck/" rel="noopener noreferrer">
-aakatheeri.github.io · 原文    </a>
-    <span class="discovery-note">经 Hacker News 发现</span>
-    <a href="https://news.ycombinator.com/item?id=50216138" rel="noopener noreferrer">Hacker News · 讨论</a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-2026-10-23 在 Hacker News 提交
-    </span>
-  </div>
-<p><strong>市场/社区：</strong>Hacker News 上的关注度很低，约 2 分且没有评论，尚看不到社区讨论或采用信号。</p><p class="uncertainty"><strong>不确定性：</strong>无法核实 Narrative Deck 的具体功能、实现方式或是否真实可用；来源仅为社区发现，可信度低。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>不确定性</h4><ul><li>该条目来自 Hacker News 社区发现，内容摘要和正文摘录均为空，因此无法核实 Narrative Deck 的具体功能、实现方式或可用状态。</li><li>该条目只有 2 分且没有评论，社区关注度很低，尚不清楚它是否为真实可用的项目。</li></ul></div><div class="detail-tags">
-<span>实体：Narrative Deck、Hacker News</span><span>产品：Narrative Deck</span><span>主题：AI Agent skills、interactive web stories</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>aakatheeri.github.io · 原文</strong><span class="primary-indicator">主来源</span></div>
-<div class="discovery-note">经 Hacker News 发现</div>        <div>Narrative Deck – AI Agent skill for creating interactive web stories</div>
-<div>作者：aakatheeri</div><div class="source-time">
-2026-10-23 在 Hacker News 提交
-        </div>      </li></ul></div>    </div>
-  </details>
-</article>  </div>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article>  </div>
 </section>
 <section class="radar-signals">
   <h2>雷达信号 · 尚待验证</h2>
   <div class="cards">
     <article class="radar-signal">
       <p class="section-label">尚待验证</p>
-      <h3>Moonshot 在 Kimi API 上线 Kimi K3.1 Pro：暂未开放权重，承诺 2026 年 11 月 4 日前发布完整模型权重；另有速度快 2-3 倍、价格翻倍的 Highspeed 版本（输入 token 缓存命中部分同价）；美元定价为输入 2.00 美元/百万 token、输出 10 美元/百万 token，与 GPT-6.1 Sol 相同，为 Claude Opus 5.5 的一半。</h3>
-      <p>新模型上线并给出具体价格与开放权重时间表，若属实则对模型选型与成本对比有直接价值。</p>
-      <p class="uncertainty"><strong>不确定性：</strong>信息来自第三方博客转述官方公告，摘要被截断；开放权重为未来承诺，尚未兑现。</p>
-<p><strong>还缺：</strong>未抓取 Moonshot 官方发布页或 API 文档；缺少模型能力评测数据；未经第二方独立核实</p>      <div class="sources">
-<a href="https://simonwillison.net/2026/Oct/23/kimi-k31-pro/" rel="noopener noreferrer">simonwillison.net</a>      </div>
-    </article>
-    <article class="radar-signal">
-      <p class="section-label">尚待验证</p>
-      <h3>Anthropic 宣布将 Agent Skills 标准捐赠给 Agentic AI Foundation（AAIF，隶属 Linux Foundation），该基金会由 Anthropic 与 Block、OpenAI 于去年共同创立，此前 MCP 也已捐赠至该基金会，目标是保持标准开放、社区驱动和厂商中立。</h3>
-      <p>Agent 技能标准进入中立基金会治理，可能影响 Agent 工具链的互操作性与生态格局，且延续了 MCP 的治理路径。</p>
-      <p class="uncertainty"><strong>不确定性：</strong>仅见引用片段，'去年共同创立'等时间线与细节未经官方页面核实。</p>
-<p><strong>还缺：</strong>未抓取 Anthropic 官方公告或 AAIF 章程/治理文件；缺少其他成员方的独立声明；未说明标准移交范围与时间表</p>      <div class="sources">
-<a href="https://simonwillison.net/2026/Oct/22/donating-agent-skills/" rel="noopener noreferrer">simonwillison.net</a>      </div>
+      <h3>Simon Willison 用一条提示词让 Claude Opus 5.5 为 Battledrones 新增四人对称地图“Compass Rose”，并修改 WebSocket 多人模式以支持最多四名人类玩家、空位由 AI 填充。</h3>
+      <p>这是一条具体的一手使用记录：用单条自然语言提示完成游戏地图设计与多人网络逻辑改动，可作为观察当前编码模型在真实小项目中端到端改动能力的样本。</p>
+      <p class="uncertainty"><strong>不确定性：</strong>仅有作者自述的截断摘要，缺少代码和测试细节；无法判断改动中模型贡献与人工修改的比例，也无法验证“四个 AI/人类玩家混用”是否真正跑通。</p>
+<p><strong>还缺：</strong>完整提示词与模型输出；实际代码 diff 及改动范围；地图与多人模式是否经实际对局验证；模型版本“Opus 5.5”的官方确认</p>      <div class="sources">
+<a href="https://simonwillison.net/2026/Oct/24/battledrones/" rel="noopener noreferrer">simonwillison.net</a>      </div>
     </article>
   </div>
 </section>
-    <section><h2>方向观察</h2><div class="observation">AI 基础设施主题在过去 3 天持续升温，获得 3 个来源和 6 家公司支持，显示该方向具备跨来源、跨公司的关注度。</div></section>
-    <section><h2>值得继续思考</h2><div class="observation">如果模型部署被当作存在多条合理路径的编译搜索问题，那么今天以“单一构建路线”为默认假设的性能评测和部署经验，在多大程度上会系统性低估或高估实际可达的优化空间？</div></section>
-    <section><h2>继续观察</h2><ul class="watch"><li>观察 OpenAI 是否发布 Habitat 12 倍读取加速的基线、测量方法与负载范围等更详细的技术说明。</li><li>观察 TensorRT 11.1 的 Global Performance Tuner 是否公布可复现的调优机制与实测性能数据。</li><li>观察 Ollama 上 Nemotron 3.5 Bolt E4B 是否补充公布参数量、量化版本与显存需求等部署信息。</li><li>观察 GitHub app in Teams 是否公布可用地区、发布阶段与功能范围。</li><li>观察 NVIDIA Global Performance Tuner 系列后续篇章是否披露具体机制、适用范围或实测效果，以及是否提供可复现的调优路径。</li><li>观察 IBM Granite 时间序列模型集成预测文章是否附带评估指标、代码或模型发布信息，以判断其方法可复现性。</li></ul></section>
+    <section><h2>值得继续思考</h2><div class="observation">当训练环境被隔离到缓存网页内容之后，模型越界行为的来源是训练数据本身，还是部署后的工具调用与在线交互？</div></section>
+    <section><h2>继续观察</h2><ul class="watch"><li>观察 Ollama 是否在未来版本中将语音生成能力扩展到 macOS 之外的平台，以及 d3 系列是否公布参数规模之外的上下文长度、许可协议与基准表现。</li><li>观察 OpenAI 是否披露离线训练环境的适用模型范围、生效时间线，以及红队测试的具体结果。</li></ul></section>
   </main>
-  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-10-23 22:38:19.550398+00:00。</footer>
+  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-10-24 21:54:17.086369+00:00。</footer>
 </body>
 </html>

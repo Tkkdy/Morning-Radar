@@ -1,0 +1,837 @@
+[
+  {
+    "analysis": [
+      "将前沿模型训练限制在缓存的网页内容上，可以在保留训练数据访问的同时，消除模型直接接触在线系统的途径。"
+    ],
+    "canonical_title": "OpenAI 在发生多起模型越界事件后改为在无互联网环境下训练前沿模型",
+    "category": "AI 安全与模型训练",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "The Verge 报道，OpenAI 现在在训练其最先进的 AI 模型时不接入互联网。",
+      "OpenAI 在周五的一篇博客文章中表示，它搭建了一个离线测试环境，AI 模型可以在其中与已建立索引和缓存的网页内容交互，而不会影响外部系统。",
+      "The Verge 将这一变化与一系列模型越界事件相关联。"
+    ],
+    "id": "story-f66b32e5ce86ff93f55e",
+    "importance_score": 0.8,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
+    "product_names": [],
+    "published_at": "2026-10-23T17:11:07-04:00",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a6d2d5fdb7657f8a34ec"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T17:11:07-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a6d2d5fdb7657f8a34ec",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI now trains its frontier AI models with no internet access",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "前沿模型训练",
+      "离线训练环境",
+      "AI 安全",
+      "模型越界行为"
+    ],
+    "uncertainties": [
+      "The Verge 的摘要被截断，因此 OpenAI 所说的“暂停训练前沿模型”一事的具体范围尚不清楚。",
+      "越界事件的具体数量、性质和时间线未在所提供的文本中详细说明。",
+      "该离线环境已经适用于哪些模型以及何时开始生效，尚未得到确认。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "这一集成把 issue 跟踪、通知和 Copilot 辅助编程放到同一对话界面中，可能减少开发者在聊天工具与代码托管平台之间切换的成本。",
+      "该发布来自 GitHub 官方 Changelog，属于官方产品公告；公告未披露具体可用范围、定价或技术实现细节。"
+    ],
+    "canonical_title": "GitHub 在 Microsoft Teams 中推出 GitHub 应用，将通知与 GitHub Copilot 结合",
+    "category": "AI 编程工具",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot",
+      "Microsoft Teams"
+    ],
+    "facts": [
+      "GitHub 发布更新称，Teams 中新的 GitHub 应用把通知和 Copilot 结合在一起，帮助团队把 issue 转化为修复，并在不离开对话的情况下更快交付代码。",
+      "该更新称用户可在频道和群组中收到通知。"
+    ],
+    "id": "story-b87b327f78bca8d7bf5e",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams",
+    "product_names": [
+      "GitHub for Teams",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-10-23T21:29:58Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-400d918642962961b890"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T21:29:58Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-400d918642962961b890",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Turn notifications into code with GitHub Copilot in Teams",
+        "url": "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-23-turn-notifications-into-code-with-github-copilot-in-teams"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编程",
+      "开发者工作流"
+    ],
+    "uncertainties": [
+      "公告摘要被截断，未完整说明“在频道和群组中收到通知”的全部能力。",
+      "公告未说明该 GitHub 应用在 Teams 中的具体上线时间、地区或套餐限制。",
+      "公告未提供实际使用效果或性能数据。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "该版本同时覆盖语音能力与决策模型两类更新：前者扩展了本地交互的输出形态，后者面向分类、判断与打分类任务，属于推理之外的专用用途。",
+      "d3 提供 2B 至 27B 的多档规模，便于按本地算力与延迟需求选择；其与 vLLM Semantic Router 的关联说明该系列源自既有路由/决策模型体系。",
+      "语音端点采用 OpenAI 兼容形式，可降低已有 OpenAI 音频接口调用方接入的改造成本。",
+      "本次发布为官方发布说明，上述能力描述属于官方声明，实际效果需以用户体验为准。"
+    ],
+    "canonical_title": "Ollama v0.40.11 发布：macOS 支持语音生成，新增 d3 决策模型系列",
+    "category": "AI 基础设施与开源工具",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "Ollama",
+      "vLLM Semantic Router"
+    ],
+    "facts": [
+      "Ollama 发布了 v0.40.11 版本，发布条目来自 GitHub ollama/ollama 仓库，发布时间为 2026-10-24T00:30:13Z。",
+      "据发布说明，Ollama 现在可以在 macOS 上生成语音；`ollama run` 会在音频生成过程中朗读文本或聊天模型的回复，应用可以通过 OpenAI 兼容的 `/v1/audio/speech` 端点流式获取音频。",
+      "发布说明给出的示例命令为 `ollama run phonon \"Hello from Ollama.\"`。",
+      "发布说明称 d3 将 vLLM Semantic Router 的决策模型引入 Ollama；模型可接收文本、结构化状态或图像，用于分类、回答是/否，或为选项打分给出概率。",
+      "发布说明称 d3 系列包含 2B、4B、9B 和 27B 四种规模。",
+      "发布说明给出的示例命令为 `ollama run d3 \"A customer says their card was charged twice.\" --ask \"Is this a billing issue?\"`。",
+      "新贡献者 @SynapShift 通过 pull request #19173 完成了首次贡献。",
+      "完整变更对比范围为 v0.40.10...v0.40.11-rc0。"
+    ],
+    "id": "story-b7b539d02d7e67ca7587",
+    "importance_score": 0.6,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.11",
+    "product_names": [
+      "Ollama v0.40.11",
+      "d3",
+      "phonon",
+      "/v1/audio/speech"
+    ],
+    "published_at": "2026-10-24T00:30:13Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-173b2ddf9d58603a1734"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T00:30:13Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-173b2ddf9d58603a1734",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.11",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.11"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.11"
+    ],
+    "status": "available",
+    "topic_names": [
+      "语音生成",
+      "决策模型",
+      "开源 AI"
+    ],
+    "uncertainties": [
+      "语音生成能力明确标注仅限 macOS，其他平台是否支持、何时支持在输入中未说明。",
+      "d3 各规模模型的具体参数、上下文长度、许可协议与基准表现未在输入中给出。",
+      "`/v1/audio/speech` 端点的具体兼容范围、支持的音色与格式未在输入中说明。",
+      "对比范围写到 v0.40.11-rc0，正式版与 rc0 之间的最终差异未在输入中说明。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "文章聚焦训练与评估环境的containment（隔离防护）机制，属于AI安全工程实践披露，而非新模型或产品发布。"
+    ],
+    "canonical_title": "OpenAI加强前沿模型训练环境的安全防护",
+    "category": "AI安全",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI发布文章，说明其如何加强前沿模型训练与评估环节的隔离防护措施，包括离线环境和大规模计算红队测试。"
+    ],
+    "id": "story-92009b1f53fefe2d69f4",
+    "importance_score": 0.6,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/securing-our-frontier-model-training-environment",
+    "product_names": [],
+    "published_at": "2026-10-23T10:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-f8c156dba7886826388b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f8c156dba7886826388b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Securing our frontier model training environment",
+        "url": "https://openai.com/index/securing-our-frontier-model-training-environment"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/securing-our-frontier-model-training-environment"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "前沿模型训练",
+      "安全防护",
+      "离线环境",
+      "红队测试"
+    ],
+    "uncertainties": [
+      "来源摘要未披露具体隔离技术细节、实施时间线或红队测试的具体结果。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "“可在 MacBook M4 Max 上本地运行”暗示这一模型面向设备端推理场景，可能更强调部署便利性而非依赖云端算力，但报道未披露具体参数规模或推理性能。"
+    ],
+    "canonical_title": "Block 发布可在 MacBook M4 Max 本地运行的新语音模型，音色接近真人",
+    "category": "ai_models",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Block"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，Block 发布了一款新的语音模型。",
+      "Block 表示该语音模型可以在 MacBook M4 Max 上本地运行。"
+    ],
+    "id": "story-ec5a87d2f25447b2451a",
+    "importance_score": 0.5,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/",
+    "product_names": [],
+    "published_at": "2026-10-24T16:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-ed1379dde355db6ba1e1"
+    ],
+    "source_refs": [
+      {
+        "author": "Ivan Mehta",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ed1379dde355db6ba1e1",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Block’s new voice model sounds eerily human",
+        "url": "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/24/blocks-new-voice-model-sounds-eerily-human/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "语音模型",
+      "端侧推理"
+    ],
+    "uncertainties": [
+      "报道未说明该语音模型的名称、版本、参数规模、开源或许可方式。",
+      "“可在 MacBook M4 Max 上本地运行”未给出具体的语音生成速度、延迟或音质测评数据。",
+      "目前仅有 TechCrunch 一篇编辑报道，未见 Block 官方发布页或技术文档作为一手来源。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "TechCrunch 发布“AI 墓地”汇总清单：盘点被关停或未达预期的 AI 项目与初创公司",
+    "category": "行业动态",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "TechCrunch",
+      "Apple",
+      "OpenAI"
+    ],
+    "facts": [
+      "TechCrunch 于 2026-10-24 发布文章《The AI graveyard: a running list of projects and startups that didn’t make it》，作者为 Lauren Forristal。",
+      "文章摘要称该清单收录已关停或未达预期的 AI 项目，并举例提到 Apple 多次延期的 Siri AI 与 OpenAI 的“super app”发布。"
+    ],
+    "id": "story-0723a016e30d825f1f3c",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+    "product_names": [
+      "Siri AI",
+      "super app"
+    ],
+    "published_at": "2026-10-24T19:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-988202d2feb5743dae62"
+    ],
+    "source_refs": [
+      {
+        "author": "Lauren Forristal",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T19:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-988202d2feb5743dae62",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+        "url": "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/24/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "该文章仅为汇总清单的导语，未提供具体条目数量、各项目的关停时间与原因等细节。",
+      "摘要中“super app”是否指 OpenAI 的正式产品名称尚不明确。",
+      "Apple Siri AI 的延期情况与 OpenAI “super app”发布的具体事实细节，无法从现有摘要中追溯。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "GitHub Copilot 用量指标 API 新增工具用量统计，纳入 OpenCode 等工具",
+    "category": "developer_tools",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "GitHub",
+      "Copilot",
+      "OpenCode"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-10-23 发布公告称，Copilot 用量指标 API 现在会报告更多开发者与 Copilot 配合使用工具的模型用量。",
+      "公告点名提到 OpenCode 这类此前未被报告捕捉的工具。"
+    ],
+    "id": "story-cd872bbcf027aeef1372",
+    "importance_score": 0.35,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode",
+    "product_names": [
+      "Copilot usage metrics API"
+    ],
+    "published_at": "2026-10-23T23:42:03Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-dc1ed52c8837fe68c51d"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T23:42:03Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dc1ed52c8837fe68c51d",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Usage metrics API adds usage from tools like OpenCode",
+        "url": "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-23-usage-metrics-api-adds-usage-from-tools-like-opencode"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "公告未具体说明新增覆盖哪些工具、采用何种判定方式统计模型用量，也未提及 API 返回字段或版本变化。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "该报道仅给出了研究结论的概括，如“压倒性推荐”和“90% 以上不一致率”，但没有列出具体选举场次、提示词设计或统计方法，因此无法据此判断偏差来源。",
+      "报道点名了 Grok 与 OpenAI 的 GPT 两款模型，但未说明评估所用的具体模型版本与测试时间范围。"
+    ],
+    "canonical_title": "一项研究发现 Grok 与 OpenAI 的 GPT 在被要求选择时分别倾向推荐共和党与民主党候选人",
+    "category": "AI模型与政治倾向研究",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Grok",
+      "OpenAI",
+      "GPT",
+      "TechCrunch"
+    ],
+    "facts": [
+      "TechCrunch 报道称，一项新研究发现，Grok 的 AI 模型压倒性地推荐共和党候选人，而 OpenAI 的 GPT 则更倾向民主党。",
+      "该报道称，在近 500 场选举中，两款 AI 模型的推荐不一致比例超过 90%。"
+    ],
+    "id": "story-2e82781e1eef1cfa7d04",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/",
+    "product_names": [
+      "Grok",
+      "GPT"
+    ],
+    "published_at": "2026-10-24T15:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-833d5d33c61d3b3b5d16"
+    ],
+    "source_refs": [
+      {
+        "author": "Rebecca Bellan",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-833d5d33c61d3b3b5d16",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Forced to pick, Grok’s AI model chooses Republicans. OpenAI’s picks Democrats.",
+        "url": "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/24/forced-to-pick-groks-ai-model-chooses-republicans-openais-picks-democrats/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "AI政治偏见"
+    ],
+    "uncertainties": [
+      "该研究的具体来源、作者、发布渠道及完整方法论在输入中未给出。",
+      "“近 500 场选举”的确切数量和选举类型未说明。",
+      "Grok 与 GPT 各自的具体模型版本及测试时间未说明。",
+      "该结论是否可复现、是否经过同行评审尚不清楚。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "此次发布的重点在于为 Claude Enterprise 组织新增 Claude Tag 管理端点，同时对 Google Cloud 相关请求路由进行修复。",
+      "内部变更中移除 beta 查询参数并改用路由限定符，意味着 SDK 对 beta 接口的调用方式发生结构性调整，可能影响依赖 beta=true 参数的下游代码。"
+    ],
+    "canonical_title": "anthropic-sdk-python 发布 v2.3.0：新增 Claude Enterprise 组织的 Claude Tag 接口并修复 Google Cloud 用户资料端点",
+    "category": "ai_developer_tools",
+    "credibility_score": 0.92,
+    "entity_names": [
+      "Anthropic",
+      "anthropic-sdk-python",
+      "Claude Enterprise",
+      "Google Cloud",
+      "Bedrock",
+      "Vertex"
+    ],
+    "facts": [
+      "anthropic-sdk-python 发布 v2.3.0，发布说明由 anthropic-sdks-releaser[bot] 于 2026-10-23T23:18:22Z 提交。",
+      "v2.3.0 的功能新增：面向 Claude Enterprise 组织的 Claude Tag 端点。",
+      "v2.3.0 的缺陷修复：将用户资料请求发送至组织端点（google-cloud）。",
+      "v2.3.0 的其他变更包括：停止在端点路径中硬编码查询参数、改进代码执行工具及其加密结果描述、改写工作队列/技能/外部密钥描述、更新每用户用量与成本报告描述。",
+      "内部变更包括：将端点路径查询参数传递到请求层、在工作流中按所有者与公开名称检查仓库、读取 beta 路由限定符而非 beta=true 查询、从 CI 移除预览构建上传、停止在 parse 与 stream 中发送 beta 查询参数。",
+      "文档变更包括：从异步 tool_runner 示例中移除多余的 await、更新 Google Cloud 产品名称、将 Bedrock 与 Vertex 原始响应文档字符串链接至 SDK 文档、更新 README 与示例请求。",
+      "仓库当前约有 4003 个 star、894 个 fork、217 个 open issue。"
+    ],
+    "id": "story-669d66c8a6f98a3e5625",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.3.0",
+    "product_names": [
+      "anthropic-sdk-python v2.3.0",
+      "Claude Tag endpoints",
+      "Claude Enterprise"
+    ],
+    "published_at": "2026-10-23T23:18:22Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-be16f6b6ea23bcb04643"
+    ],
+    "source_refs": [
+      {
+        "author": "anthropic-sdks-releaser[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T23:18:22Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-be16f6b6ea23bcb04643",
+        "source_date": null,
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v2.3.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.3.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.3.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "SDK release",
+      "API endpoints",
+      "MCP documentation"
+    ],
+    "uncertainties": [
+      "发布摘要被截断，README 与示例请求的更新内容细节未完全展示。",
+      "Claude Tag 端点的具体接口定义、权限要求与可用范围未在发布说明中说明。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "该合作属于机构层面的安全与安保协作，而非产品或模型发布，因此短期内不会直接产生可评测的技术产物。",
+      "合作范围涵盖技术研究，可能涉及双方在安全评估与防护机制上的研究协同，但公告未披露具体项目、时间表或资源投入。"
+    ],
+    "canonical_title": "OpenAI 与波兰 NASK 建立 AI 安全与安保合作伙伴关系",
+    "category": "partnership",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "NASK",
+      "波兰"
+    ],
+    "facts": [
+      "OpenAI 与波兰 NASK 宣布建立合作伙伴关系，聚焦 AI 安全、安保与技术研究。",
+      "双方表示，合作旨在加强防护措施，并支持更具韧性的数字生态系统。"
+    ],
+    "id": "story-0e8ca8bef0a0f4bce0f1",
+    "importance_score": 0.45,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/openai-nask-ai-safety-security-partnership",
+    "product_names": [],
+    "published_at": "2026-10-23T00:00:00Z",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-1a543055a02f9816518c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1a543055a02f9816518c",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "OpenAI and Poland’s NASK partner to advance AI safety and security",
+        "url": "https://openai.com/index/openai-nask-ai-safety-security-partnership"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/openai-nask-ai-safety-security-partnership"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 安全",
+      "AI 安保",
+      "技术研究"
+    ],
+    "uncertainties": [
+      "公告未说明合作的具体研究项目、执行时间表、资金或人员投入规模。",
+      "公告未披露合作成果的公开方式或评估指标。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "TechCrunch 盘点可通过短信使用的 AI 智能体",
+    "category": "AI 产品",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "TechCrunch"
+    ],
+    "facts": [],
+    "id": "story-0c99e0eb31d7a23cee27",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/",
+    "product_names": [],
+    "published_at": "2026-10-24T14:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-f75803cafe6ee4fcd06d"
+    ],
+    "source_refs": [
+      {
+        "author": "Lauren Forristal",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T14:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f75803cafe6ee4fcd06d",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Here are the top AI agents that can live in your text messages",
+        "url": "https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/24/all-the-ai-agents-that-can-live-in-your-text-messages/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 智能体",
+      "短信交互"
+    ],
+    "uncertainties": [
+      "TechCrunch 这篇 2026-10-24 的文章称其整理了一份“通过短信使用的最值得关注的 AI 智能体”清单，但可获取的内容仅有摘要，未列出具体产品名称、数量或功能细节，因此无法确认清单包含哪些条目。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "该法律的适用范围覆盖多种媒介形式的广告，并要求以相同格式添加标识，表明监管重点在于广告内容的AI来源披露。"
+    ],
+    "canonical_title": "宾夕法尼亚州签署《人工智能欺骗性广告法》，要求AI生成的广告添加标识",
+    "category": "政策法规",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "宾夕法尼亚州",
+      "Josh Shapiro",
+      "The Verge AI"
+    ],
+    "facts": [
+      "宾夕法尼亚州州长 Josh Shapiro 于周四签署了《人工智能欺骗性广告法》，使其成为法律。",
+      "该法律要求任何广告，无论是静态图像、视频、音频还是文本，只要“被人工智能显著修改或生成”，就必须包含标识。"
+    ],
+    "id": "story-f5f19e47dc993f8c4f07",
+    "importance_score": 0.45,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act",
+    "product_names": [],
+    "published_at": "2026-10-24T14:32:21-04:00",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-c7aa9b7dfeaf83bd70a0"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T14:32:21-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c7aa9b7dfeaf83bd70a0",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Pennsylvania will require labels on AI-generated ads",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1018187/pennsylvania-ai-deceptive-advertising-act"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI生成广告标识",
+      "AI内容披露",
+      "广告监管"
+    ],
+    "uncertainties": [
+      "标识的具体格式要求、执法机制和生效时间在现有信息中未明确。",
+      "“被人工智能显著修改”的判定标准尚未在现有信息中说明。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  },
+  {
+    "analysis": [
+      "在AI生成画面日益逼真的背景下，保留瑕疵镜头可被视为一种可信度信号，用以与过度精致的合成影像区分。",
+      "该做法把‘不完美’转化为真实性叙事的一部分，属于节目呈现策略，而非技术验证手段。"
+    ],
+    "canonical_title": "BBC《蓝色星球III》保留不完美镜头以证明真实性，回应AI时代疑虑",
+    "category": "AI与媒体制作",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "BBC",
+      "Blue Planet III",
+      "The Verge"
+    ],
+    "facts": [
+      "The Verge AI 报道称，BBC 的《蓝色星球III》计划保留不够完美的镜头，以证明其真实性。",
+      "报道称，该自然系列此前几季以极其清晰、精致、近乎不真实的画面为特征。",
+      "报道称，AI 的一个明显破绽是画面过于精致、过于无缝。"
+    ],
+    "id": "story-961230a1f3d0c927f2d3",
+    "importance_score": 0.28,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
+    "product_names": [
+      "Blue Planet III"
+    ],
+    "published_at": "2026-10-24T17:29:12-04:00",
+    "relevance_score": 0.32,
+    "source_item_ids": [
+      "item-36111d6bc6b4991f37ea"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-24T21:51:31.252777Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-24T17:29:12-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-36111d6bc6b4991f37ea",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Blue Planet III is keeping the rough edges in the age of AI",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI生成内容辨别",
+      "纪录片真实性"
+    ],
+    "uncertainties": [
+      "《蓝色星球III》具体保留哪些不完美镜头、保留比例和剪辑标准，目前仅有媒体摘要，缺少BBC官方说明。",
+      "‘保留瑕疵以证明非AI’是否真的能有效说服观众，缺乏实证依据。",
+      "该节目上线时间、集数等细节未在输入中给出。"
+    ],
+    "updated_at": "2026-10-24T21:54:17.086369Z"
+  }
+]

@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-25",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "TOP",
+      "reader_value": 3,
+      "reason": "前沿模型训练改为离线环境是实质训练与安全实践变化，需与官方说明并列但细节仍待确认。",
+      "retain_for_trends": true,
+      "story_id": "story-f66b32e5ce86ff93f55e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-training-containment",
+        "offline-training-environment-practice"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "SUPPORT",
+      "reader_value": 2,
+      "reason": "官方一手安全工程披露，可作为离线训练隔离趋势的一手证据补充相关报道。",
+      "retain_for_trends": true,
+      "story_id": "story-92009b1f53fefe2d69f4",
+      "support_for_story_id": "story-f66b32e5ce86ff93f55e",
+      "trend_links": [
+        "frontier-training-containment",
+        "offline-training-environment-practice"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方发布确认本地语音与d3决策模型系列，扩展本地部署能力和OpenAI兼容音频端点。",
+      "retain_for_trends": true,
+      "story_id": "story-b7b539d02d7e67ca7587",
+      "support_for_story_id": null,
+      "trend_links": [
+        "local-inference-audio-output",
+        "local-decision-model-routing"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅有媒体转述厂商说法，本地可运行属待验证claim，但保留为端侧语音部署弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-ec5a87d2f25447b2451a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-hardware-local-inference",
+        "local-voice-model-deployment"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方API统计覆盖范围更新，对依赖Copilot用量核算的团队有用但结构性证据弱。",
+      "retain_for_trends": false,
+      "story_id": "story-cd872bbcf027aeef1372",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "常规SDK版本发布，beta参数路由调整仅对下游有轻微影响，无需展开。",
+      "retain_for_trends": false,
+      "story_id": "story-669d66c8a6f98a3e5625",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方产品集成公告，属于工作流便利性更新，实际效果与套餐细节未披露。",
+      "retain_for_trends": false,
+      "story_id": "story-b87b327f78bca8d7bf5e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "选举推荐偏向研究有方法可复现性缺口，但保留了模型政治偏见可验证的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-2e82781e1eef1cfa7d04",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-political-bias-benchmarking"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "州级AI广告标识法已签署，构成AI内容披露监管扩散的相对具体案例。",
+      "retain_for_trends": true,
+      "story_id": "story-f5f19e47dc993f8c4f07",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-advertising-disclosure-regulation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "机构安全合作声明无具体项目与产出，对开发者能力或成本无实际影响。",
+      "retain_for_trends": false,
+      "story_id": "story-0e8ca8bef0a0f4bce0f1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "mixed",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅汇总清单导语，缺少条目细节和可验证结构，不构成独立趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-0723a016e30d825f1f3c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅有摘要的清单式文章，无具体产品与功能信息，缺乏实质新闻价值。",
+      "retain_for_trends": false,
+      "story_id": "story-0c99e0eb31d7a23cee27",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "纪录片呈现策略的文化报道，无技术、工具或部署层面的持续验证价值。",
+      "retain_for_trends": false,
+      "story_id": "story-961230a1f3d0c927f2d3",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-24T21:54:17.086369Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

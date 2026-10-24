@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 用一条提示词让 Claude Opus 5.5 为 Battledrones 新增四人对称地图“Compass Rose”，并修改 WebSocket 多人模式以支持最多四名人类玩家、空位由 AI 填充。",
+    "id": "radar-b0007387d940eae41db3",
+    "missing_evidence": [
+      "完整提示词与模型输出",
+      "实际代码 diff 及改动范围",
+      "地图与多人模式是否经实际对局验证",
+      "模型版本“Opus 5.5”的官方确认"
+    ],
+    "observed_at": "2026-10-24T21:51:31.252777Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-6e1fc50fabcdd1bddaf7",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/24/battledrones/"
+      }
+    ],
+    "uncertainty": "仅有作者自述的截断摘要，缺少代码和测试细节；无法判断改动中模型贡献与人工修改的比例，也无法验证“四个 AI/人类玩家混用”是否真正跑通。",
+    "why_notable": "这是一条具体的一手使用记录：用单条自然语言提示完成游戏地图设计与多人网络逻辑改动，可作为观察当前编码模型在真实小项目中端到端改动能力的样本。"
+  }
+]
