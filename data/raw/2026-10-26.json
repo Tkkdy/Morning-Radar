@@ -67,6 +67,7 @@
     "id": "item-912d0050e8fe565d6512",
     "language": "en-US",
     "metadata": {
+      "content_version": "b2f7ff633b021602eac8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -97,6 +98,7 @@
     "id": "item-b411fbb2487aa2da4ef9",
     "language": "en-US",
     "metadata": {
+      "content_version": "7ada62e4209e4969b3eb",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -218,6 +220,7 @@
     "id": "item-79ffda0a470cc0fd1c29",
     "language": "en-US",
     "metadata": {
+      "content_version": "350a1793190573162664",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +251,7 @@
     "id": "item-ab1f7cff37722d46d5fd",
     "language": "en-US",
     "metadata": {
+      "content_version": "59fcedd7f8aff812e6f8",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -369,6 +373,7 @@
     "id": "item-f0c80d5858e06e7593e6",
     "language": "en-US",
     "metadata": {
+      "content_version": "039488a9c0b4aabcb2a7",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -611,6 +616,7 @@
     "id": "item-6400feb681472530a689",
     "language": "en-US",
     "metadata": {
+      "content_version": "f1574cc03d476dcc871f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -762,6 +768,7 @@
     "id": "item-eda525050cea8fce4b13",
     "language": "en-US",
     "metadata": {
+      "content_version": "7aaf2b396145a41cd175",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1366,6 +1373,7 @@
     "id": "item-de9db6f384cbc7887755",
     "language": "en-US",
     "metadata": {
+      "content_version": "069558781f91b43d4dd8",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1517,6 +1525,7 @@
     "id": "item-b1215e1aefc04c61e203",
     "language": "en-US",
     "metadata": {
+      "content_version": "7ebbc1b60949b63a7fea",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -45479,6 +45488,7 @@
     "metadata": {
       "comments": 46,
       "community_signal": true,
+      "content_version": "017fba322c606973a2c3",
       "discussion_url": "https://news.ycombinator.com/item?id=50234474",
       "official": false,
       "original_url": "https://imaginationlibrary.com/",
@@ -45719,6 +45729,7 @@
     "metadata": {
       "comments": 166,
       "community_signal": true,
+      "content_version": "a458d1f84aa545e61fbd",
       "discussion_url": "https://news.ycombinator.com/item?id=50233779",
       "official": false,
       "original_url": "https://lynchlab.net/llm-skin-cancer",
@@ -45749,11 +45760,19 @@
     "metadata": {
       "comments": 1,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50236380",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://github.com/carson-katri/geometry-script",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": "implementation_insight",
@@ -45779,6 +45798,7 @@
     "metadata": {
       "comments": 532,
       "community_signal": true,
+      "content_version": "47f752129e9486d2d944",
       "discussion_url": "https://news.ycombinator.com/item?id=50226419",
       "official": false,
       "original_url": "https://www.apricitas.io/p/ai-and-the-fall-of-the-creative-class",
@@ -45809,6 +45829,7 @@
     "metadata": {
       "comments": 70,
       "community_signal": true,
+      "content_version": "d732b1856db0faf959ea",
       "discussion_url": "https://news.ycombinator.com/item?id=50234232",
       "official": false,
       "original_url": "https://theintercept.com/2026/10/01/oregon-police-misconduct-public-records-cost-fee/",
@@ -45869,6 +45890,7 @@
     "metadata": {
       "comments": 159,
       "community_signal": true,
+      "content_version": "a3f462fdd876036efd2b",
       "discussion_url": "https://news.ycombinator.com/item?id=50233929",
       "official": false,
       "original_url": "https://talkweb.eu/openweb/4558/",
@@ -45899,6 +45921,7 @@
     "metadata": {
       "comments": 322,
       "community_signal": true,
+      "content_version": "4810c737a865912df717",
       "discussion_url": "https://news.ycombinator.com/item?id=50229587",
       "official": false,
       "original_url": "https://www.panamericandispatch.org/p/meta-ignores-brazilian-court-order",
@@ -45929,6 +45952,7 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "content_version": "1cc9a7c6e5f6934d5be7",
       "discussion_url": "https://news.ycombinator.com/item?id=50235010",
       "official": false,
       "original_url": "https://www.wiz.io/blog/gheist-attempted-scaled-abuse-of-stolen-github-tokens-stumbles",
@@ -46229,6 +46253,7 @@
     "metadata": {
       "change_percent": 0.014938774271687482,
       "close": 418.510009765625,
+      "content_version": "5cbdb3e59e2f6c1a9e3b",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 412.3500061035156,
@@ -47639,38 +47664,6 @@
     "title": "GPT picks Democrats. Grok picks Republicans",
     "topic_candidates": [],
     "url": "https://convovo.ai/ballot/"
-  },
-  {
-    "author": "carson-katri",
-    "company_candidates": [],
-    "content_excerpt": "I originally made this addon 4 years ago, but recently discovered that coding agents love it. The addon adds a scripting API for Blender’s node trees, such as Geometry Nodes or Shader Nodes. It generates a function and related types for every node in Blender. Then the agent (or you) can write scripts to create node trees without having to guess what the node, input, and output names are. It’s meant to be used alongside the Blender MCP. In my tests, Opus finishes building node trees in at least half the time using at least half the tokens to answer the same prompt. Because the scripting API forces it to build correct node trees, it has to back track less to fix mistakes. This saves a lot of time and tokens. There is also a skill and some helper functions to let it look up the function signatures for nodes. Let me know how it works for you!",
-    "fetched_at": "2026-10-25T22:01:56.604759Z",
-    "id": "item-d85e16932b2065ef1eb4",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50236380",
-      "hn_submission_time": 1792965046,
-      "lab_id": "anthropic",
-      "original_url": "https://github.com/carson-katri/geometry-script",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-25T21:50:46Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "I originally made this addon 4 years ago, but recently discovered that coding agents love it. The addon adds a scripting API for Blender’s node trees, such as Geometry Nodes or Shader Nodes. It generates a function and related types for every node in Blender. Then the agent (or y",
-    "title": "Show HN: A Blender addon that makes Claude twice as efficient at using nodes",
-    "topic_candidates": [],
-    "url": "https://github.com/carson-katri/geometry-script"
   },
   {
     "author": "adunk",

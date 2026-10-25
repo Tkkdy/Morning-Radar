@@ -1,0 +1,82 @@
+{
+  "date": "2026-10-26",
+  "generated_at": "2026-10-25T22:03:32.338699Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "Patch the Planet"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Patch the Planet 是否公布参与方式、覆盖的开源项目清单或首批漏洞处置案例。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Patch the Planet"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-25T22:03:32.338699Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-26",
+          "story_id": "story-ab47bba1ec7a974f71d0"
+        }
+      ],
+      "topic_anchors": [
+        "开源软件安全",
+        "关键漏洞协调披露"
+      ],
+      "watch_id": "watch-dbc1879bcf1dd7ab65eb"
+    },
+    {
+      "entity_anchors": [
+        "Wiz",
+        "GitHub",
+        "Gheist"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Wiz 是否发布正式博客或技术细节，以及是否有独立安全厂商确认 Gheist 活动与被盗 GitHub Token 的关联。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-25T22:03:32.338699Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-26",
+          "story_id": "story-6a0d46f3a5ef65b089f4"
+        }
+      ],
+      "topic_anchors": [
+        "GitHub token 滥用",
+        "CI/CD 工作流攻击",
+        "供应链安全"
+      ],
+      "watch_id": "watch-b8fcbae576a5253e5add"
+    },
+    {
+      "entity_anchors": [
+        "lynchlab.net",
+        "CNN",
+        "LLM"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 lynchlab.net 是否给出可复核的研究方法、模型清单与评测数据，以验证 CNN 与前沿 LLM 在皮肤癌诊断上的对比结论。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-25T22:03:32.338699Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-26",
+          "story_id": "story-fe17fd22f72a0d9b73e2"
+        }
+      ],
+      "topic_anchors": [
+        "皮肤癌诊断",
+        "医疗影像 AI"
+      ],
+      "watch_id": "watch-f28f52af8a684a9c6f02"
+    }
+  ]
+}

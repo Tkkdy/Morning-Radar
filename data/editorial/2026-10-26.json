@@ -1,0 +1,145 @@
+{
+  "date": "2026-10-26",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认项目存在，协调机制若落地会影响开源安全应急流程，值得展开但细节待观察。",
+      "retain_for_trends": true,
+      "story_id": "story-ab47bba1ec7a974f71d0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-driven-vulnerability-discovery",
+        "oss-critical-vulnerability-coordination"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认的大规模企业部署，可作采用规模弱信号，但无成效数据。",
+      "retain_for_trends": true,
+      "story_id": "story-91cc0d3851b547e409af",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-llm-workforce-deployment-scale"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅社区线索且方法未披露，但属于可验证的专用模型与通用LLM对比弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-fe17fd22f72a0d9b73e2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "task-specific-model-vs-general-llm-comparison"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "供应链攻击模式对开发者有警示价值，但来源未经交叉核实，仅作弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-6a0d46f3a5ef65b089f4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cicd-supply-chain-token-abuse"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "社区规则排斥AI项目是开源治理信号，但细节与一手帖文缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-09718b8d13cfc71fd38f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-content-exclusion-community-governance"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "企业AI投资回报质疑是持续争论节点，可作未来验证的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-c9e2e8da7adea113e531",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-ai-roi-evidence-gap"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅标题与极简摘要的岗位介绍，无结构意义或可验证增量。",
+      "retain_for_trends": false,
+      "story_id": "story-738a53019e1e7d3b7a26",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "AI生成视频内容展示，标题即信息，无技术或部署增量。",
+      "retain_for_trends": false,
+      "story_id": "story-e3f7e25a306e28e161e9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "评论专栏且无具体数据或改动细节，缺乏可验证结构信息。",
+      "retain_for_trends": false,
+      "story_id": "story-65acadc2d26eb4a9432e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅HN讨论线索，数据口径与AI归因均未核实，暂无可复用证据。",
+      "retain_for_trends": false,
+      "story_id": "story-8b7235326941dc8d9124",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "inference",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "清单型汇总无首发或评测信息，装饰性内容不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-f2719f5152843a8ca052",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-25T22:03:32.338699Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
