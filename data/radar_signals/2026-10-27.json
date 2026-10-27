@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Simon Willison 转述 OpenAI 发布 GPT-6.1 Terra，强调其视觉推理与精确 computer use 能力，并称其相较 GPT-5.6 Terra 有明显提升。",
+    "id": "radar-cb2c8cbc82b1e1e9901c",
+    "missing_evidence": [
+      "OpenAI 官方发布页或模型卡",
+      "独立基准测试或第三方试用结果",
+      "GPT-6.1 Terra 的具体可用范围、定价和限制"
+    ],
+    "observed_at": "2026-10-27T00:42:30.866761Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-670bdc25a85edb1886da",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/26/gpt-61-terra/"
+      }
+    ],
+    "uncertainty": "目前仅有 Simon Willison 博客的转述片段，官方页面未抓取，缺少独立验证；模型名称与发布日期也需核对。",
+    "why_notable": "若属实，表明 OpenAI 新模型把视觉推理和 computer use 作为核心卖点，可能影响 agent/computer-use 产品竞争。"
+  }
+]

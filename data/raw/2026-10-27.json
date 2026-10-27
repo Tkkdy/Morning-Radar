@@ -7,6 +7,7 @@
     "id": "item-a9c488820a62ac4adcd9",
     "language": "en-US",
     "metadata": {
+      "content_version": "7de4b21e34611b559f68",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-9a15b40232fdbf825a34",
     "language": "en-us",
     "metadata": {
+      "content_version": "ab635eab6b1db2f8d324",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +69,7 @@
     "id": "item-256c7b6c72dd5aaae095",
     "language": "en-US",
     "metadata": {
+      "content_version": "df8e4940b5e38f9fed45",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +100,7 @@
     "id": "item-edeae07ffd206303c7d9",
     "language": null,
     "metadata": {
+      "content_version": "e8fa21d64a5518c0f14d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -187,6 +191,7 @@
     "id": "item-b555ce2afa55383d5d6c",
     "language": "en-US",
     "metadata": {
+      "content_version": "9df8882cb5d4fb52ed1a",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +253,7 @@
     "id": "item-670bdc25a85edb1886da",
     "language": "en-us",
     "metadata": {
+      "content_version": "049385893eeb345d68d0",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -279,6 +285,7 @@
     "id": "item-8eb6001a836a6e50b8fb",
     "language": "en-US",
     "metadata": {
+      "content_version": "f6b3f2d0168e7a755f47",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -369,6 +376,7 @@
     "id": "item-c3d6fb64eb5418e851ca",
     "language": null,
     "metadata": {
+      "content_version": "8b3f889504063218439e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -551,6 +559,7 @@
     "id": "item-7d972df501d01ba1f64a",
     "language": "en-US",
     "metadata": {
+      "content_version": "ec15afe9c7533145979b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1155,6 +1164,7 @@
     "id": "item-d99a0b10cf2632a3fa9f",
     "language": "en-US",
     "metadata": {
+      "content_version": "4080ffb865625c7f493a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1185,6 +1195,7 @@
     "id": "item-9794b201a214a494f024",
     "language": null,
     "metadata": {
+      "content_version": "d2b05f49c01d713dfda6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1427,6 +1438,7 @@
     "id": "item-6174c1cc26228ddf91dd",
     "language": "en-US",
     "metadata": {
+      "content_version": "57a633ce5c7869246e69",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1639,6 +1651,7 @@
     "id": "item-35e334c198740f741663",
     "language": "en-US",
     "metadata": {
+      "content_version": "fe51dfc9aada2b2a6db3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -49367,6 +49380,7 @@
     "id": "item-c39f2a58bf6fb070341b",
     "language": "en",
     "metadata": {
+      "content_version": "5f4e8661138ca0ed2cc4",
       "data_anomaly": false,
       "forks": 18618,
       "official": true,
@@ -50579,11 +50593,20 @@
     "metadata": {
       "comments": 1422,
       "community_signal": true,
+      "content_version": "2309e2939d709d2f6031",
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50242939",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
       "score": 1451,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -50669,6 +50692,7 @@
     "metadata": {
       "comments": 642,
       "community_signal": true,
+      "content_version": "10523a0467e1e41204fc",
       "discussion_url": "https://news.ycombinator.com/item?id=50245524",
       "official": false,
       "original_url": "https://www.seattletimes.com/business/microsoft/microsoft-offers-mass-buyouts-for-roughly-a-quarter-of-its-workforce/",
@@ -51029,11 +51053,19 @@
     "metadata": {
       "comments": 307,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50248124",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
       "score": 483,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -53001,6 +53033,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "15be446b7b05b1e32044",
       "discovery_paths": [
         "hn_search:google_deepmind:Gemini"
       ],
@@ -53155,38 +53188,6 @@
     "title": "GPT-6.1 Terra (Max) Scores 48 on Artificial Analysis",
     "topic_candidates": [],
     "url": "https://artificialanalysis.ai/models/gpt-6-1-terra"
-  },
-  {
-    "author": "meetpateltech",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-27T00:42:30.866761Z",
-    "id": "item-3b88609eb38b4d4256a5",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:GPT"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50248124",
-      "hn_submission_time": 1793037677,
-      "lab_id": "openai",
-      "original_url": "https://openai.com/index/introducing-gpt-6-1-terra/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-26T18:01:17Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "GPT-6.1 Terra",
-    "topic_candidates": [],
-    "url": "https://openai.com/index/introducing-gpt-6-1-terra/"
   },
   {
     "author": "pcwelder",
@@ -54215,38 +54216,6 @@
     "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
     "topic_candidates": [],
     "url": "https://www.anthropic.com/news/s1-sec"
-  },
-  {
-    "author": "SiNTEx",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-27T00:42:30.866761Z",
-    "id": "item-13d5f781280eaa7bbf66",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50242939",
-      "hn_submission_time": 1793019890,
-      "lab_id": "anthropic",
-      "original_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-26T13:04:50Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic S-1",
-    "topic_candidates": [],
-    "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
   },
   {
     "author": "chrisjj",

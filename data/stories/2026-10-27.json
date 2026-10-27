@@ -1,0 +1,771 @@
+[
+  {
+    "analysis": [
+      "从公告定位看，GPT-6.1 Terra 与 GPT-6.1 Sol 构成同一代模型中的成本分层，Terra 承担高频日常编码场景。"
+    ],
+    "canonical_title": "GPT-6.1 Terra 在 GitHub Copilot 中正式可用",
+    "category": "AI 编程工具",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI",
+      "GitHub Copilot",
+      "GPT-6.1 Terra",
+      "GPT-6.1 Sol"
+    ],
+    "facts": [
+      "GitHub 变更日志于 2026-10-26 发布公告，称 GPT-6.1 Terra 已在 GitHub Copilot 中正式可用（generally available）。",
+      "该公告将 GPT-6.1 Terra 称为 OpenAI 的最新模型。",
+      "公告称 GPT-6.1 Terra 面向日常 agentic 编程与终端工作，成本低于 GPT-6.1 Sol。"
+    ],
+    "id": "story-35cfaae5ffe0edfdd05a",
+    "importance_score": 0.55,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot",
+    "product_names": [
+      "GPT-6.1 Terra",
+      "GPT-6.1 Sol",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-10-26T19:15:53Z",
+    "relevance_score": 0.95,
+    "source_item_ids": [
+      "item-256c7b6c72dd5aaae095"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T19:15:53Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-256c7b6c72dd5aaae095",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GPT-6.1 Terra in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-26-gpt-6-1-terra-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "模型发布"
+    ],
+    "uncertainties": [
+      "公告未披露 GPT-6.1 Terra 的具体定价、上下文长度、基准测试成绩与 Copilot 各套餐的开放范围。",
+      "摘要内容被截断，Copilot 中的具体启用方式与区域/计划限制尚不清楚。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "该公告将大模型输出定位为可由学术社区复核的研究线索，而非既定结论，验证环节被明确交予外部研究者。"
+    ],
+    "canonical_title": "OpenAI 发布模型在 Kakeya 猜想、指数时间假说与量子色动力学上的结果，并邀请学术社区验证",
+    "category": "AI 研究与学术合作",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 在其官方页面分享模型在 Kakeya 猜想（Kakeya conjecture）、指数时间假说（Exponential Time Hypothesis）和量子色动力学（quantum chromodynamics）上的结果。",
+      "OpenAI 表示已说明研究人员如何验证并在此基础上继续开展研究。"
+    ],
+    "id": "story-0c25376bd3c02612c1db",
+    "importance_score": 0.72,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://openai.com/index/building-scientific-understanding-with-academic-communities",
+    "product_names": [],
+    "published_at": "2026-10-26T14:30:00Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-8eb6001a836a6e50b8fb"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T14:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8eb6001a836a6e50b8fb",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Working with academic communities to build scientific understanding",
+        "url": "https://openai.com/index/building-scientific-understanding-with-academic-communities"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/building-scientific-understanding-with-academic-communities"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "Kakeya猜想",
+      "指数时间假说",
+      "量子色动力学",
+      "AI辅助科学研究"
+    ],
+    "uncertainties": [
+      "公告未披露模型具体版本、各项结果的验证状态与复现细节。",
+      "摘要未说明这些结果是否经过同行评审或独立第三方确认。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "该信息来自 OpenAI 官方渠道，属于官方发布的产品应用案例，可作为 CodeRabbit 使用 GPT-6.1 Sol 的原始事实底座。",
+      "摘要未提供技术实现细节、模型接入方式或安全审查效果数据，因此无法进一步评估其实际能力表现。"
+    ],
+    "canonical_title": "CodeRabbit 使用 GPT-6.1 Sol 加强复杂代码库的安全审查",
+    "category": "ai_coding",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "OpenAI",
+      "CodeRabbit",
+      "GPT-6.1 Sol"
+    ],
+    "facts": [
+      "OpenAI News 发布内容称，CodeRabbit 使用 GPT-6.1 Sol 调查复杂代码库中的安全风险。",
+      "该内容称，CodeRabbit 的安全代理帮助开发者审查发现的问题和拟议修复方案。"
+    ],
+    "id": "story-5bfb406280bd051b79f5",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security",
+    "product_names": [
+      "GPT-6.1 Sol",
+      "CodeRabbit security agent"
+    ],
+    "published_at": "2026-10-26T13:45:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-7d972df501d01ba1f64a"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T13:45:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7d972df501d01ba1f64a",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GPT-6.1 Sol helps CodeRabbit strengthen security across complex codebases",
+        "url": "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/gpt-6-1-sol-coderabbit-code-security"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "ai_models",
+      "code_security"
+    ],
+    "uncertainties": [
+      "CodeRabbit 安全代理的具体工作机制、覆盖范围及审查准确率尚未披露。",
+      "目前仅见官方发布摘要，缺少第三方实测或用户反馈来验证实际效果。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "该信息来自 OpenAI 官方新闻源，属于官方一手公告，可作为事件事实底座。",
+      "公告将 Greptile 的缺陷检测能力定位为超出代码审查范围，涉及用户工作流测试、安全加固与返工减少三个方向。"
+    ],
+    "canonical_title": "Greptile 使用 GPT-6 Astra、Daybreak 与 Codex 扩展缺陷检测能力",
+    "category": "ai_coding",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Greptile",
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 新闻页面标题为《Greptile takes bug detection beyond code review with GPT-6 Astra》，发布于 2026-10-26T22:00:00Z。",
+      "摘要称 Greptile 使用 GPT-6 Astra 测试用户工作流，使用 Daybreak 加强安全，并使用 Codex 减少返工。"
+    ],
+    "id": "story-8d3a69d374c3a8288b07",
+    "importance_score": 0.55,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://openai.com/index/greptile-code-review-codex-astra",
+    "product_names": [
+      "GPT-6 Astra",
+      "Daybreak",
+      "Codex"
+    ],
+    "published_at": "2026-10-26T22:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-a9c488820a62ac4adcd9"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T22:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a9c488820a62ac4adcd9",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Greptile takes bug detection beyond code review with GPT-6 Astra",
+        "url": "https://openai.com/index/greptile-code-review-codex-astra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/greptile-code-review-codex-astra"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "公告未披露 Greptile 具体如何集成 GPT-6 Astra、Daybreak 与 Codex，也未给出效果数据或可用时间表。",
+      "公告摘要未说明相关功能是否已正式上线，或仅为联合案例介绍。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "从文章定位看，Mission Control 2.5 聚焦于把监控与自动化恢复能力内建到 GPU 集群运行中，目标是提升 Kubernetes 环境下大规模训练任务的韧性。"
+    ],
+    "canonical_title": "NVIDIA Mission Control 2.5 为 Kubernetes 带来自主恢复能力",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.62,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布文章，介绍 NVIDIA Mission Control 2.5 为 Kubernetes 带来自主恢复能力。",
+      "文章指出，在数千块 GPU 上训练大规模 AI 模型属于高风险操作，必须内置监控与自动化，以优化集群韧性。"
+    ],
+    "id": "story-26e8905e082417f5b596",
+    "importance_score": 0.6,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/",
+    "product_names": [
+      "NVIDIA Mission Control 2.5",
+      "Kubernetes"
+    ],
+    "published_at": "2026-10-26T15:00:00Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-c3d6fb64eb5418e851ca"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c3d6fb64eb5418e851ca",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How NVIDIA Mission Control 2.5 Brings Autonomous Recovery to Kubernetes",
+        "url": "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-nvidia-mission-control-2-5-brings-autonomous-recovery-to-kubernetes/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "GPU 集群韧性",
+      "自主恢复",
+      "大规模 AI 模型训练"
+    ],
+    "uncertainties": [
+      "输入仅提供文章标题与摘要片段，未给出 Mission Control 2.5 的具体功能细节、可用版本范围、发布时间或与 Kubernetes 集成的技术机制。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "从官方公告措辞看，GPT-6.1 Terra 的定位是将快速且具备能力的计算机操作（computer use）能力推广至更广泛的用户群体。",
+      "公告正文仅提供一句摘要，未披露模型规格、基准测试、价格或可用范围等细节，因此对该发布的能力判断仅限于官方措辞层面。"
+    ],
+    "canonical_title": "OpenAI 发布 GPT-6.1 Terra，主打面向所有人的快速、强计算机操作能力",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 在其官方新闻页面发布标题为“Introducing GPT-6.1 Terra”的公告，URL 为 https://openai.com/index/introducing-gpt-6-1-terra，发布时间为 2026-10-26T00:00:00Z。",
+      "该公告的摘要与内容摘录均为“Bringing fast and capable computer use to everyone”。"
+    ],
+    "id": "story-b57f3e984ff57c1dc344",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/introducing-gpt-6-1-terra",
+    "product_names": [
+      "GPT-6.1 Terra"
+    ],
+    "published_at": "2026-10-26T00:00:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-35e334c198740f741663"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-35e334c198740f741663",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing GPT-6.1 Terra",
+        "url": "https://openai.com/index/introducing-gpt-6-1-terra"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-gpt-6-1-terra"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "computer use"
+    ],
+    "uncertainties": [
+      "公告未说明 GPT-6.1 Terra 的具体可用时间、适用地区、访问方式与定价。",
+      "公告未提供模型参数规模、性能基准、与既有模型的对比数据。",
+      "“computer use”的具体范围（支持的软件、平台、权限与安全限制）尚未明确。",
+      "该条目仅来自 OpenAI 官方 RSS 摘要，内容摘录过短，无法独立验证功能细节。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Gemini 4 Carbon 发布前早期测试结果引关注",
+    "category": "AI模型与产品",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Google DeepMind",
+      "Gemini 4 Carbon",
+      "TestingCatalog",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-bb69d4645de02784ab8e",
+    "importance_score": 0.55,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://www.testingcatalog.com/gemini-4-carbon-early-test-results/",
+    "product_names": [
+      "Gemini 4 Carbon"
+    ],
+    "published_at": "2026-10-26T23:13:42Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-f9232185efd6fec601c3"
+    ],
+    "source_refs": [
+      {
+        "author": "gmays",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50252509",
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T23:13:42Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f9232185efd6fec601c3",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Gemini 4 Carbon early test results are in ahead of release",
+        "url": "https://www.testingcatalog.com/gemini-4-carbon-early-test-results/"
+      }
+    ],
+    "source_urls": [
+      "https://www.testingcatalog.com/gemini-4-carbon-early-test-results/",
+      "https://news.ycombinator.com/item?id=50252509"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "大模型发布传闻",
+      "早期测试结果"
+    ],
+    "uncertainties": [
+      "该条目被标记为 unverified_lead（未经验证线索），摘要与正文摘录均为空，无法核实 Gemini 4 Carbon 是否存在、测试结果内容为何。",
+      "来源为社区发现（Hacker News 讨论帖），仅指向 TestingCatalog 文章链接，未提供官方一手信息。",
+      "标题所称“早期测试结果已出炉”缺乏可追溯的测试细节、日期或发布方确认。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "从输入看，OpenAI 此次发布与上一次大规模手稿发布相隔不到一个月，发布节奏较为密集。",
+      "引入外部“shepherds”的表述显示，OpenAI 试图为成果增加外部专家参与和验证的环节。"
+    ],
+    "canonical_title": "OpenAI 宣布三项科学研究发现并推出与学术界合作的新方式",
+    "category": "AI 研究与学术合作",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "The Verge AI 报道，OpenAI 宣布了数学、计算机科学和物理学领域的三项“重大”发现。",
+      "报道称，在此之前不到一个月，OpenAI 曾大规模发布数百篇手稿，并称其中包含对长期存在的数学问题的解答。",
+      "报道称，OpenAI 此次选择让外部专家以“shepherds（引导者）”的身份指导这些成果。"
+    ],
+    "id": "story-a7afbde26b38150ed559",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics",
+    "product_names": [],
+    "published_at": "2026-10-26T19:34:58-04:00",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-b555ce2afa55383d5d6c"
+    ],
+    "source_refs": [
+      {
+        "author": "Richard Lawler",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T19:34:58-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b555ce2afa55383d5d6c",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI announces three big science discoveries and a new way to work with academics",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1019143/openai-eth-kaseya-science-math-physics"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 科学研究",
+      "数学",
+      "计算机科学",
+      "物理学",
+      "学术合作"
+    ],
+    "uncertainties": [
+      "OpenAI 所称三项“重大”发现的具体内容、正确的验证情况以及外部专家如何参与，输入中均未说明。",
+      "上一次数百篇手稿是否确实解答了长期数学问题，输入仅引用 OpenAI 的说法，未提供独立验证信息。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "该发布为候选版本（rc0），主要围绕 MLX 后端与 llama.cpp 依赖版本进行更新，属于面向本地推理的底层优化迭代。",
+      "多项变更集中由同一维护者提交，说明维护工作集中，但未提供性能提升的量化数据。"
+    ],
+    "canonical_title": "Ollama 发布 v0.40.12-rc0，为 Gemma 4 视觉塔和小图细节增加 MLX 优化并加入 DFlash2 支持",
+    "category": "open_source_ai",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "ollama",
+      "dhiltgen",
+      "Gemma 4",
+      "DFlash2",
+      "llama.cpp",
+      "MLX",
+      "MLX-C"
+    ],
+    "facts": [
+      "Ollama 发布了 v0.40.12-rc0 版本。",
+      "该版本变更包括：mlx: preserve small-image detail for compact Gemma 4 vision towers（PR #19247），作者 @dhiltgen。",
+      "该版本变更包括：MLX, MLX-C: version bump - prompt speed up for gemma/flint/laguna（PR #19291），作者 @dhiltgen。",
+      "该版本变更包括：mlx: add DFlash2 support（PR #19149），作者 @dhiltgen。",
+      "该版本变更包括：llama.cpp: version bump b11901（PR #19311），作者 @dhiltgen。",
+      "完整变更日志对比区间为 v0.40.11...v0.40.12-rc0。"
+    ],
+    "id": "story-29c393d5b45da70819c7",
+    "importance_score": 0.35,
+    "novelty_score": 0.42,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.12-rc0",
+    "product_names": [
+      "Ollama v0.40.12-rc0",
+      "Gemma 4",
+      "DFlash2"
+    ],
+    "published_at": "2026-10-27T00:07:12Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-c39f2a58bf6fb070341b"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-27T00:07:12Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c39f2a58bf6fb070341b",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.12",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.12-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.12-rc0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明未给出 prompt speed up 的具体幅度或基准测试数据。",
+      "未说明 DFlash2 的具体能力与适用模型范围。",
+      "rc0 为候选版本，正式版发布时间与最终内容尚未确认。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Anthropic 向 SEC 提交 S-1 文件",
+    "category": "公司新闻",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Anthropic",
+      "SEC"
+    ],
+    "facts": [],
+    "id": "story-1321356d49e89c717960",
+    "importance_score": 0.7,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+    "product_names": [],
+    "published_at": "2026-10-26T13:04:50Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-13d5f781280eaa7bbf66"
+    ],
+    "source_refs": [
+      {
+        "author": "SiNTEx",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50242939",
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T13:04:50Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-13d5f781280eaa7bbf66",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Anthropic S-1",
+        "url": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm"
+      }
+    ],
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+      "https://news.ycombinator.com/item?id=50242939"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "IPO",
+      "S-1"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 社区发现，仅有链接指向 SEC 的 S-1 文件，未提供文件摘要或内容摘录，无法确认文件的具体内容与提交状态。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "文章将 Minerva 定位为协助处理 AI 工厂海量 GPU 遥测数据、以提升 GPU 产出的系统；具体机制与量化收益未在提供的摘要内容中展开。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍 Minerva 如何将遥测数据混乱转化为 GPU 峰值产出",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA Minerva",
+      "NVIDIA Spectrum-X"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-10-26 发布由 Elizabeth Goodman 撰写的文章，题为《How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield》。",
+      "文章称 AI 工厂是迄今构建的技术上最复杂的运营环境之一，涉及数十万块 GPU 与 NVIDIA Spectrum-X Ethernet。"
+    ],
+    "id": "story-49e0de5ec71d63bb1df5",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/",
+    "product_names": [
+      "Minerva",
+      "Spectrum-X"
+    ],
+    "published_at": "2026-10-26T16:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-edeae07ffd206303c7d9"
+    ],
+    "source_refs": [
+      {
+        "author": "Elizabeth Goodman",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-26T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-edeae07ffd206303c7d9",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How NVIDIA Minerva Turns Telemetry Chaos Into Peak GPU Yield",
+        "url": "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-nvidia-minerva-turns-telemetry-chaos-into-peak-gpu-yield/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 工厂",
+      "GPU 遥测",
+      "GPU 运维"
+    ],
+    "uncertainties": [
+      "Minerva 的具体功能范围、部署规模与实际产出提升幅度尚未在可见内容中说明。",
+      "“数十万块 GPU”等描述属于文章表述，缺少独立数据佐证。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  },
+  {
+    "analysis": [
+      "该文将 AI Agent 与机器人仿真训练结合，属于英伟达开发者生态中面向机器人学习的技术内容。"
+    ],
+    "canonical_title": "英伟达开发者博客介绍用 AI Agent 在仿真中训练 Microduck 等机器人行走",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA",
+      "Microduck"
+    ],
+    "facts": [
+      "英伟达开发者博客发布文章《Using AI Agents to Teach Robots Like Microduck to Walk in Simulation》，作者为 Gabriele Leone。",
+      "文章指出，让机器人在障碍赛道中导航不仅需要行走策略，还需要感知环境、保持平衡并调整动作。"
+    ],
+    "id": "story-bf3bea6ba36114834230",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/",
+    "product_names": [
+      "Microduck"
+    ],
+    "published_at": "2026-10-23T14:58:32Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-9794b201a214a494f024"
+    ],
+    "source_refs": [
+      {
+        "author": "Gabriele Leone",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-27T00:42:30.866761Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-23T14:58:32Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9794b201a214a494f024",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Using AI Agents to Teach Robots Like Microduck to Walk in Simulation",
+        "url": "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/using-ai-agents-to-teach-robots-like-microduck-to-walk-in-simulation/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI Agent",
+      "机器人仿真训练",
+      "机器人行走"
+    ],
+    "uncertainties": [
+      "输入摘要仅包含开头片段，未说明所用 AI Agent 的具体架构、训练流程、评测结果以及 Microduck 是否已用于真实硬件。",
+      "Microduck 是示例机器人名还是特定产品并不明确。"
+    ],
+    "updated_at": "2026-10-27T00:44:48.709594Z"
+  }
+]
