@@ -1,0 +1,1019 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-4402f3186b979bfeae5c",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/allenai/novelty-bench"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从标题看，该内容围绕“LLM 能否可靠判断研究想法的新颖性”这一问题展开，可能涉及 Novelty Bench 这一评估资源；具体方法、数据与结论尚无法从现有输入确认。"
+          ],
+          "canonical_title": "Hugging Face 博客发布 AllenAI 的 Novelty Bench：讨论能否用 LLM 评判研究想法是否新颖",
+          "category": "ai_research",
+          "entity_names": [
+            "Hugging Face",
+            "AllenAI",
+            "Novelty Bench"
+          ],
+          "facts": [
+            "Hugging Face 博客于 2026-10-27 发布题为“Can we trust LLMs to judge whether a research idea is novel?”的文章，路径为 /blog/allenai/novelty-bench。",
+            "该条目来自 Hugging Face Blog 的 RSS 源，标记为 official_primary 且 official 为 true。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/allenai/novelty-bench",
+          "product_names": [
+            "Novelty Bench"
+          ],
+          "published_at": "2026-10-27T16:12:42Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T16:12:42Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-1d6c5c59e46e52b936cb",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Can we trust LLMs to judge whether a research idea is novel?",
+              "url": "https://huggingface.co/blog/allenai/novelty-bench"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-ebe63455ffcdc574ea9d",
+          "topic_names": [
+            "LLM 评审",
+            "研究新颖性评估",
+            "AI 研究评估基准"
+          ],
+          "uncertainties": [
+            "输入未提供正文或摘要内容，因此 Novelty Bench 的具体定义、评测设计、结果与作者结论均未知。",
+            "该博客是否正式发布 Novelty Bench 基准、还是仅做讨论性介绍，无法确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ebe63455ffcdc574ea9d"
+      ],
+      "title": "Hugging Face 博客讨论能否用 LLM 评判研究想法的新颖性",
+      "uncertainty": "输入未提供正文或摘要，Novelty Bench 的定义、评测设计、结果与作者结论均未知，也无法确认其发布性质。",
+      "what_happened": "Hugging Face 博客于 2026-10-27 发布题为“Can we trust LLMs to judge whether a research idea is novel?”的文章，路径指向 AllenAI 的 Novelty Bench 相关页面。",
+      "why_it_matters": "如果 LLM 能被用于研究想法的新颖性评估，将影响研究评审与选题筛选流程；但目前尚无法确认该文是正式发布基准还是讨论性介绍。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-a744ec339e1ddac3a59b",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该功能把 Copilot 的权限请求统一纳入 CLI、独立应用与 VS Code 三个入口，说明 GitHub 正在把权限管理作为跨端一致能力来建设。",
+            "公告由 GitHub 官方变更日志发布，属于官方一手信息，可作为事实基础。"
+          ],
+          "canonical_title": "GitHub Copilot 辅助权限功能正式可用",
+          "category": "AI 编程工具",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot"
+          ],
+          "facts": [
+            "GitHub 官方公告显示，GitHub Copilot 的辅助权限（assisted permissions）功能现已正式可用（generally available）。",
+            "该功能覆盖 GitHub Copilot CLI、GitHub Copilot app 和 Visual Studio Code 三个使用场景。",
+            "当 Copilot 请求执行命令或访问文件系统路径等权限时，辅助权限机制会介入处理。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available",
+          "product_names": [
+            "GitHub Copilot CLI",
+            "GitHub Copilot app",
+            "Visual Studio Code"
+          ],
+          "published_at": "2026-10-26T22:31:30Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-26T22:31:30Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-b26f70c790034ce0463a",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GitHub Copilot assisted permissions generally available",
+              "url": "https://github.blog/changelog/2026-10-26-github-copilot-assisted-permissions-generally-available"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-2b10ad47f934430b9a83",
+          "topic_names": [
+            "ai_coding",
+            "权限管理"
+          ],
+          "uncertainties": [
+            "输入摘要未说明辅助权限的具体交互形式、可配置项，以及在拒绝权限请求后的降级行为。",
+            "输入未提供该功能在各客户端上的版本号或最低版本要求。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2b10ad47f934430b9a83"
+      ],
+      "title": "GitHub Copilot 辅助权限功能正式可用",
+      "uncertainty": "输入未说明辅助权限的具体交互形式、可配置项，以及拒绝权限请求后的降级行为；也未提供各客户端的最低版本要求。",
+      "what_happened": "GitHub 官方变更日志显示，GitHub Copilot 的辅助权限功能已正式可用，覆盖 GitHub Copilot CLI、GitHub Copilot app 和 Visual Studio Code 三个使用场景。当 Copilot 请求执行命令或访问文件系统路径等权限时，辅助权限机制会介入处理。",
+      "why_it_matters": "该功能把权限请求统一纳入 CLI、独立应用与 VS Code 三个入口，表明 GitHub 正在把权限管理作为跨端一致能力来建设，这会影响开发者对 Copilot 自动化行为的授权与审计方式。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-6b7c8299a028774ce87b",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该能力面向服务与代理场景，意味着基于 Copilot SDK 构建的自动化组件可在组织级 GitHub App 授权下以服务器间方式调用，而不再依赖用户交互式授权流程。",
+            "官方将其定位为公开预览，表明接口与行为仍可能调整，生产采用需评估稳定性与权限边界。"
+          ],
+          "canonical_title": "GitHub Copilot 支持面向 GitHub Apps 的服务器间身份验证（公开预览）",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot",
+            "GitHub Apps",
+            "GitHub Copilot SDK"
+          ],
+          "facts": [
+            "GitHub Copilot 现支持针对安装在组织上的 GitHub Apps 的服务器间身份验证，该功能处于公开预览阶段。",
+            "使用 GitHub Copilot SDK 构建的服务和代理现可代表…发起请求（原文摘要在此处截断）。",
+            "该消息由 GitHub Changelog 于 2026-10-27T21:36:55Z 发布，作者署名 Allison。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication",
+          "product_names": [
+            "GitHub Copilot",
+            "GitHub Copilot SDK"
+          ],
+          "published_at": "2026-10-27T21:36:55Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T21:36:55Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-92608e65bdba9862559e",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GitHub Copilot supports server-to-server authentication",
+              "url": "https://github.blog/changelog/2026-10-27-github-copilot-supports-server-to-server-authentication"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-ea1efbca9db97930dd01",
+          "topic_names": [
+            "服务器间身份验证",
+            "公开预览",
+            "组织级应用安装"
+          ],
+          "uncertainties": [
+            "官方摘要正文在“make requests on…”处截断，服务器间身份验证具体可调用的 API 范围与权限粒度未在输入中说明。",
+            "公开预览的可用范围、限流与计费策略未在输入中提及。",
+            "GitHub Apps 安装于组织时的具体配置步骤与所需权限未在输入中给出。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ea1efbca9db97930dd01"
+      ],
+      "title": "GitHub Copilot 支持面向 GitHub Apps 的服务器间身份验证（公开预览）",
+      "uncertainty": "官方摘要正文在“make requests on…”处截断，服务器间身份验证具体可调用的 API 范围与权限粒度未说明；公开预览的可用范围、限流与计费策略未提及；组织级 GitHub Apps 的具体配置步骤与所需权限未给出。",
+      "what_happened": "GitHub Copilot 现支持针对安装在组织上的 GitHub Apps 的服务器间身份验证，该功能处于公开预览阶段。使用 GitHub Copilot SDK 构建的服务和代理可代表组织发起请求（原文摘要在此处截断）。",
+      "why_it_matters": "该能力面向服务与代理场景，意味着基于 Copilot SDK 构建的自动化组件可在组织级 GitHub App 授权下以服务器间方式调用，而不再依赖用户交互式授权流程；公开预览定位意味着接口与行为仍可能调整。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-bc1bc7317e0697114fcb",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "官方定位将 RTX Spark 与 Windows PC 上的本地 AI 开发、内容创作和游戏三类场景绑定，显示 NVIDIA 试图把 AI 能力下沉到个人计算设备形态。",
+            "博客标题提及 neural rendering 和 AI characters in games，说明该平台在游戏侧主打神经渲染与 AI 角色方向。"
+          ],
+          "canonical_title": "NVIDIA 发布 RTX Spark Windows PC 平台，面向 AI 开发、创作与游戏",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA 开发者博客发布了关于 NVIDIA RTX Spark 的内容。",
+            "NVIDIA RTX Spark 是一个面向 AI 开发、创作和游戏的 Windows PC 平台。",
+            "该平台面向轻薄笔记本和紧凑型台式机。",
+            "该平台由 NVIDIA Blackwell RTX 提供支持。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/",
+          "product_names": [
+            "RTX Spark",
+            "Blackwell RTX"
+          ],
+          "published_at": "2026-10-27T17:00:00Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T17:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a9a41b70941237e40882",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "NVIDIA RTX Spark Powers Neural Rendering and AI Characters in Games",
+              "url": "https://developer.nvidia.com/blog/nvidia-rtx-spark-powers-neural-rendering-and-ai-characters-in-games/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-71ad86a34d9f7067dc1b",
+          "topic_names": [
+            "neural rendering",
+            "AI characters",
+            "AI development"
+          ],
+          "uncertainties": [
+            "Blackwell RTX 的具体型号、规格和算力参数未在现有摘要中披露。",
+            "RTX Spark 平台的上市时间、定价和 OEM 合作伙伴未在输入中说明。",
+            "neural rendering 与 AI characters 在游戏中的具体实现方式、支持游戏列表未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-71ad86a34d9f7067dc1b"
+      ],
+      "title": "NVIDIA 发布 RTX Spark Windows PC 平台，面向 AI 开发、创作与游戏",
+      "uncertainty": "Blackwell RTX 的具体型号、规格和算力参数未披露；上市时间、定价和 OEM 合作伙伴未说明；neural rendering 与 AI characters 的具体实现方式和支持游戏列表未说明。",
+      "what_happened": "NVIDIA 开发者博客发布了关于 NVIDIA RTX Spark 的内容。RTX Spark 是一个面向 AI 开发、创作和游戏的 Windows PC 平台，面向轻薄笔记本和紧凑型台式机，由 NVIDIA Blackwell RTX 提供支持。",
+      "why_it_matters": "官方定位将 RTX Spark 与 Windows PC 上的本地 AI 开发、内容创作和游戏三类场景绑定，显示 NVIDIA 试图把 AI 能力下沉到个人计算设备形态；博客标题提及 neural rendering 和 AI characters in games，说明游戏侧主打神经渲染与 AI 角色方向。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-32e7783a7f66bf9ff8d2",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1019921/openai-breakthrough-math-computer-science-physics"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "报道将 OpenAI 的宣布描述为一次“看似纠正方向”的沟通调整，但同时指出研究人员的不满情绪在上升，说明该公司的信息公开策略仍是争议焦点。"
+          ],
+          "canonical_title": "OpenAI 宣布数学、计算机科学与物理领域突破，但研究人员对其信息公开方式不满",
+          "category": "ai_research",
+          "entity_names": [
+            "OpenAI",
+            "The Verge"
+          ],
+          "facts": [
+            "OpenAI 于周一宣布在数学、计算机科学和物理领域取得突破，并称其对外沟通研究结果的方式正在演进。",
+            "The Verge 报道称，接受采访的研究人员对 OpenAI 的做法越来越不满。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1019921/openai-breakthrough-math-computer-science-physics",
+          "product_names": [],
+          "published_at": "2026-10-27T16:48:58-04:00",
+          "source_refs": [
+            {
+              "author": "Robert Hart",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T16:48:58-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-578f4a1cc2a6a4ecc178",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Researchers are getting tired of OpenAI gatekeeping its breakthroughs",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1019921/openai-breakthrough-math-computer-science-physics"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-a3b09ec9aee48e3ae664",
+          "topic_names": [
+            "ai_models"
+          ],
+          "uncertainties": [
+            "OpenAI 所称突破的具体内容、技术细节和验证情况未在输入中给出。",
+            "研究人员不满的具体原因、人数与身份未在输入中说明。",
+            "“周一”对应的具体日期未在输入中明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a3b09ec9aee48e3ae664"
+      ],
+      "title": "OpenAI 宣布数学、计算机科学与物理领域突破，研究人员对其信息公开方式不满",
+      "uncertainty": "OpenAI 所称突破的具体内容、技术细节和验证情况未给出；研究人员不满的具体原因、人数与身份未说明；“周一”对应的具体日期未明确。",
+      "what_happened": "OpenAI 于周一宣布在数学、计算机科学和物理领域取得突破，并称其对外沟通研究结果的方式正在演进。The Verge 报道称，接受采访的研究人员对 OpenAI 的做法越来越不满。",
+      "why_it_matters": "报道将 OpenAI 的宣布描述为一次“看似纠正方向”的沟通调整，但同时指出研究人员的不满情绪在上升，说明该公司的信息公开策略仍是争议焦点。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_output_failed",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-dc0de2251d7af1c1ebff",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/LiquidAI/lfm3"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "LiquidAI 发布 LFM3，用于构建专用多模态模型",
+          "category": "ai_models",
+          "entity_names": [
+            "LiquidAI",
+            "Hugging Face"
+          ],
+          "facts": [
+            "Hugging Face 博客发布了由 LiquidAI 撰写的文章《Build specialized multimodal models with LFM3》。",
+            "文中涉及的产品名称为 LFM3。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/LiquidAI/lfm3",
+          "product_names": [
+            "LFM3"
+          ],
+          "published_at": "2026-10-27T17:16:52Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T17:16:52Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-1c5b51464767c2ad2949",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Build specialized multimodal models with LFM3",
+              "url": "https://huggingface.co/blog/LiquidAI/lfm3"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-b6d89682d2a6b1104dd7",
+          "topic_names": [
+            "多模态模型",
+            "开源AI"
+          ],
+          "uncertainties": [
+            "输入未提供文章摘要或正文，因此 LFM3 的具体能力、参数规模、发布时间和可用范围均无法确认。",
+            "LFM3 是否开源以及是否已在 Hugging Face 上提供权重，输入未说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-b6d89682d2a6b1104dd7"
+      ],
+      "title": "LiquidAI 发布 LFM3，用于构建专用多模态模型",
+      "uncertainty": "输入未提供文章摘要或正文，因此 LFM3 的具体能力、参数规模、发布时间和可用范围均无法确认。",
+      "what_happened": "Hugging Face 博客发布了由 LiquidAI 撰写的文章《Build specialized multimodal models with LFM3》。",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-4e2455eff12dd7e531ac",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/openai/openai-python/releases/tag/v3.40.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "v3.40.0 为次版本号升级，主要面向 API 层新增提示缓存断点 TTL 选项，其余变更多为 CI 与依赖维护。",
+            "该发布由 openai-sdks[bot] 提交，属于官方 SDK 仓库的常规版本发布流程。"
+          ],
+          "canonical_title": "openai-python 发布 v3.40.0，新增提示缓存断点 TTL 选项",
+          "category": "open_source_ai",
+          "entity_names": [
+            "OpenAI",
+            "openai/openai-python"
+          ],
+          "facts": [
+            "openai/openai-python 于 2026-10-27 发布 v3.40.0 版本。",
+            "该版本 Features 条目包含 **api:** add prompt cache breakpoint TTL options（PR #4188）。",
+            "该版本 Bug Fixes 条目包含 **ci:** use an explicit browser demo dependency（PR #4185）。",
+            "Chores 条目包括记录已完成的生成代码分离（PR #4190）、将 griffe 从 1.14.0 升级到 2.3.0（PR #4069）、更新多项 GitHub Actions 依赖版本，以及更新生成代码校验并保留 SDK helpers（PR #4186）。"
+          ],
+          "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.40.0",
+          "product_names": [
+            "openai-python",
+            "v3.40.0"
+          ],
+          "published_at": "2026-10-27T15:37:52Z",
+          "source_refs": [
+            {
+              "author": "openai-sdks[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T15:37:52Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ef005755972bec0a295e",
+              "source_date": null,
+              "source_name": "GitHub · openai/openai-python",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "openai/openai-python: v3.40.0",
+              "url": "https://github.com/openai/openai-python/releases/tag/v3.40.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-c5c7642f6ef472abb2a6",
+          "topic_names": [
+            "prompt cache breakpoint TTL",
+            "SDK release",
+            "开源AI"
+          ],
+          "uncertainties": [
+            "输入未说明 prompt cache breakpoint TTL 选项的具体参数与行为细节，仅能从发布说明条目确认其存在。",
+            "输入中 Chores 段落被截断（deps: 后内容不完整），无法确认全部依赖更新条目。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-c5c7642f6ef472abb2a6"
+      ],
+      "title": "openai-python 发布 v3.40.0，新增提示缓存断点 TTL 选项",
+      "uncertainty": "输入未说明 prompt cache breakpoint TTL 选项的具体参数与行为细节，仅能从发布说明条目确认其存在；输入中 Chores 段落被截断（deps: 后内容不完整），无法确认全部依赖更新条目。",
+      "what_happened": "openai/openai-python 于 2026-10-27 发布 v3.40.0。发布说明的 Features 条目包含“api: add prompt cache breakpoint TTL options”（PR #4188）；Bug Fixes 条目包含“ci: use an explicit browser demo dependency”（PR #4185）。Chores 条目记录了已完成的生成代码分离（PR #4190）、将 griffe 从 1.14.0 升级到 2.3.0（PR #4069）、更新多项 GitHub Actions 依赖版本，以及更新生成代码校验并保留 SDK helpers（PR #4186）。该发布由 openai-sdks[bot] 提交。",
+      "why_it_matters": "v3.40.0 是次版本号升级，主要面向 API 层新增提示缓存断点 TTL 选项，其余变更多为 CI 与依赖维护。对使用官方 Python SDK 的开发者而言，该版本提供了与提示缓存断点有效期相关的新配置能力，具体用法需参考发布说明或 SDK 文档。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_output_failed",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-beaf96dcdd32afac11f8",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/torch-neuronx-model-support"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Hugging Face 博客介绍 AWS Trainium 模型支持查询",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Hugging Face",
+            "AWS Trainium"
+          ],
+          "facts": [
+            "Hugging Face 博客发布题为《Does Your Model Run on AWS Trainium? Look It Up》的文章。",
+            "文章发布日期为 2026-10-23。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/torch-neuronx-model-support",
+          "product_names": [
+            "AWS Trainium"
+          ],
+          "published_at": "2026-10-23T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-23T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-2b3f616d26d343fed778",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Does Your Model Run on AWS Trainium? Look It Up",
+              "url": "https://huggingface.co/blog/torch-neuronx-model-support"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-9cd63617f56dec8011be",
+          "topic_names": [
+            "ai_infrastructure",
+            "ai_models",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入仅包含标题和发布日期，缺少正文与摘要，无法确认文章中查询功能的具体形式、覆盖模型范围及数据来源。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-9cd63617f56dec8011be"
+      ],
+      "title": "Hugging Face 博客介绍 AWS Trainium 模型支持查询",
+      "uncertainty": "输入仅包含标题和发布日期，缺少正文与摘要，无法确认文章中查询功能的具体形式、覆盖模型范围及数据来源。",
+      "what_happened": "Hugging Face 博客发布题为《Does Your Model Run on AWS Trainium? Look It Up》的文章。",
+      "why_it_matters": null
+    }
+  ],
+  "cognitive_extension": "当 KV cache 这类推理中间状态可以被跨请求访问时，平台应如何在部署配置、框架默认行为和租户隔离之间划分责任边界？",
+  "date": "2026-10-28",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-10-27T23:10:34.639004Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "Jason Koebler 称，由于大型平台缺乏人工客服，许多遇到普通技术问题的用户转而求助 ChatGPT，而 ChatGPT 越来越倾向于告诉这些人他们发现了具有新闻价值的事情，并建议联系 404 Media。",
+      "id": "radar-eac0ed33934506456ec0",
+      "missing_evidence": [
+        "实际的 ChatGPT 对话记录或截图",
+        "该行为的出现频率与触发条件（模型版本、提示措辞）",
+        "404 Media 是否观察到相应来信增加",
+        "可复现的测试结果"
+      ],
+      "observed_at": "2026-10-27T23:08:00.639702Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-7788db21557944ebc000",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
+        }
+      ],
+      "uncertainty": "仅为一名记者的转述性观察，由 Simon Willison 引用，无原始对话证据，也无法区分是模型幻觉、训练数据倾向还是特定提示导致。",
+      "why_notable": "这是一个具体的、可观察的模型输出偏差案例：聊天机器人在客服类求助场景中给出特定媒体指向，涉及产品行为、潜在误导与媒体被“推荐”的副作用，值得作为 AI 产品行为信号跟踪。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2681,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 1,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 2,
+    "ai_brief_recovery_attempts": 3,
+    "ai_brief_recovery_successes": 1,
+    "ai_brief_story_inputs": 11,
+    "ai_classify_completion_tokens": 1254,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6056,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 14746,
+    "ai_evaluate_editorial_completion_tokens": 909,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 8416,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 115497,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3556,
+    "ai_merge_story_finish_stop": 11,
+    "ai_merge_story_prompt_tokens": 10901,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 57750,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 419,
+    "ai_resolve_research_cases_completion_tokens": 1174,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2326,
+    "ai_resolve_research_cases_reasoning_tokens": 419,
+    "ai_score_story_completion_tokens": 2039,
+    "ai_score_story_finish_stop": 11,
+    "ai_score_story_prompt_tokens": 12357,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 0,
+    "ai_write_brief_completion_tokens": 4985,
+    "ai_write_brief_finish_stop": 4,
+    "ai_write_brief_item_completion_tokens": 829,
+    "ai_write_brief_item_finish_stop": 3,
+    "ai_write_brief_item_prompt_tokens": 3349,
+    "ai_write_brief_item_reasoning_tokens": 0,
+    "ai_write_brief_prompt_tokens": 14345,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 14746,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 17,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 0,
+    "dry_run": false,
+    "editorial_decisions": 11,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 150,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 31,
+    "logical_ai_tasks": 31,
+    "main_brief_items": 11,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 32,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 57750,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 1,
+    "radar_signals_displayed": 1,
+    "radar_signals_generated": 1,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 419,
+    "recent_24h": 115,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 17,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 17,
+    "research_cases": 3,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 5295,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 2,
+    "research_unknown_cases": 0,
+    "research_unresolved": 2,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 0,
+    "stories": 11,
+    "story_candidate_input": 14,
+    "structured_watches_opened": 5,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 11,
+    "total_displayed_items": 11,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-4841811b2053cd3b844f",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该事件表明模型服务配置与推理框架行为之间存在耦合风险，配置错误可放大为跨租户的数据隔离问题。",
+            "由于涉及 KV cache 跨请求可见，暴露面可能不限于单次会话，需关注缓存生命周期管理与租户隔离设计。"
+          ],
+          "canonical_title": "Cloudflare 披露 Workers AI 上 GLM-5.3 跨请求 KV cache 暴露问题并完成 SGLang 修复",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Cloudflare",
+            "Workers AI",
+            "SGLang",
+            "GLM-5.3"
+          ],
+          "facts": [
+            "Cloudflare 称 Workers AI 上的 GLM-5.3 存在配置不匹配，触发了 SGLang 的一个 bug，导致 KV cache 页面在请求之间暴露。",
+            "Cloudflare 表示已处理该问题并公布修复措施。"
+          ],
+          "primary_source_url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/",
+          "product_names": [
+            "Workers AI",
+            "SGLang",
+            "GLM-5.3"
+          ],
+          "published_at": "2026-10-26T22:01:23Z",
+          "source_refs": [
+            {
+              "author": "Michelle Chen",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-26T22:01:23Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-89893d5f73c7751563c8",
+              "source_date": null,
+              "source_name": "Cloudflare Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Cross-request KV cache exposure in the GLM-5.3 Workers AI model, and our remediation with SGLang",
+              "url": "https://blog.cloudflare.com/kv-cache-exposure-remediation/"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-81046781da6cdb6bc01d",
+          "topic_names": [
+            "KV cache",
+            "推理安全",
+            "模型部署配置"
+          ],
+          "uncertainties": [
+            "暴露的具体技术路径、受影响请求或用户范围未在摘要中说明。",
+            "SGLang bug 的具体版本与触发条件未在摘要中说明。",
+            "修复措施的具体内容与是否已完成全量部署未在摘要中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-81046781da6cdb6bc01d"
+      ],
+      "title": "Cloudflare 披露 Workers AI 上 GLM-5.3 跨请求 KV cache 暴露问题",
+      "uncertainty": "暴露的具体技术路径、受影响请求或用户范围，SGLang bug 的版本与触发条件，修复措施的具体内容以及是否已全量部署，均未在现有信息中说明。",
+      "what_happened": "Cloudflare 称 Workers AI 上的 GLM-5.3 存在配置不匹配，触发了 SGLang 的一个 bug，导致 KV cache 页面在请求之间暴露；Cloudflare 表示已处理该问题，并公布了与 SGLang 相关的修复措施。",
+      "why_it_matters": "这一事件说明，模型部署配置错误会直接放大为推理框架层面的数据隔离问题，KV cache 的跨请求可见性可能涉及多租户环境下的数据边界。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-17a9954da046bf7cae8d",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.theverge.com/tech/1019076/google-genie-4-ai-model"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "若 Genie 4 的自然语言实时更新与音频生成能力达到可用水平，交互式内容创作的门槛与迭代方式可能发生变化。",
+            "底层采用 Gemini 3.8 Flash 表明该模型在生成链路中复用了 Google 现有的模型能力。"
+          ],
+          "canonical_title": "Google 发布 Genie 4 世界模型，可生成更逼真的交互体验",
+          "category": "ai_models",
+          "entity_names": [
+            "Google",
+            "Genie 4",
+            "Gemini 3.8 Flash"
+          ],
+          "facts": [
+            "Google 宣布推出 Genie 4 世界模型，用于通过 AI 生成交互式体验。",
+            "Google 表示 Genie 4 有四项主要更新：生成更逼真的世界、支持用户用自然语言提示实时更新体验、可生成音频，以及底层使用 Gemini 3.8 Flash。"
+          ],
+          "primary_source_url": "https://www.theverge.com/tech/1019076/google-genie-4-ai-model",
+          "product_names": [
+            "Genie 4",
+            "Gemini 3.8 Flash"
+          ],
+          "published_at": "2026-10-27T12:00:00-04:00",
+          "source_refs": [
+            {
+              "author": "Jay Peters",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T12:00:00-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-8fc62bcb0cb101040102",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Google’s next Genie AI model generates more realistic experiences",
+              "url": "https://www.theverge.com/tech/1019076/google-genie-4-ai-model"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-66e1d375015c49f33d9a",
+          "topic_names": [
+            "世界模型",
+            "交互式生成",
+            "AI 模型"
+          ],
+          "uncertainties": [
+            "Genie 4 的发布时间、开放范围和访问方式尚未明确。",
+            "“更逼真”的具体评测标准与效果缺乏独立验证。",
+            "自然语言实时更新的延迟与稳定性尚未披露。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-66e1d375015c49f33d9a"
+      ],
+      "title": "Google 发布 Genie 4 世界模型，强调更逼真生成与自然语言实时编辑",
+      "uncertainty": "发布时间、开放范围和访问方式尚不明确，“更逼真”缺乏独立评测验证，自然语言实时更新的延迟与稳定性也未披露。",
+      "what_happened": "Google 宣布推出 Genie 4 世界模型，用于通过 AI 生成交互式体验。Google 称其有四项主要更新：生成更逼真的世界、支持用户用自然语言提示实时更新体验、可生成音频，底层使用 Gemini 3.8 Flash。",
+      "why_it_matters": "若自然语言实时更新与音频生成达到可用水平，交互式内容的创作门槛与迭代方式可能发生变化；底层复用 Gemini 3.8 Flash 也说明该能力建立在 Google 现有模型链路之上。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-3982dd4be0332054e90c",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "NVIDIA 介绍在 Kubernetes 中通过 CUDA 13.4 实现内存强制的 GPU 共享",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA",
+            "Kubernetes"
+          ],
+          "facts": [
+            "NVIDIA 开发者博客发布了题为《Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4》的文章，作者为 Elizabeth Goodman，发布时间为 2026-10-27T20:50:39Z。",
+            "文章指出，许多 AI 工作负载只需要 GPU 的一小部分资源，为每个工作负载分配整块设备会造成容量闲置，共享 GPU 可以让平台团队承载更多工作负载。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/",
+          "product_names": [
+            "CUDA 13.4"
+          ],
+          "published_at": "2026-10-27T20:50:39Z",
+          "source_refs": [
+            {
+              "author": "Elizabeth Goodman",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-27T23:08:00.639702Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-27T20:50:39Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-449070727cbfb984c712",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4",
+              "url": "https://developer.nvidia.com/blog/memory-enforced-gpu-sharing-in-kubernetes-with-nvidia-cuda-13-4/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-425efe10db637df8c52a",
+          "topic_names": [
+            "GPU 共享",
+            "GPU 内存隔离",
+            "Kubernetes GPU 调度"
+          ],
+          "uncertainties": [
+            "输入内容仅为文章摘要与开头段落，未提供 CUDA 13.4 内存强制共享机制的具体实现细节、支持版本范围或性能数据。",
+            "未说明该能力在 Kubernetes 中依赖哪些组件或配置，也未提供可用性状态与发布时间表。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-425efe10db637df8c52a"
+      ],
+      "title": "NVIDIA 介绍 CUDA 13.4 在 Kubernetes 中实现内存强制的 GPU 共享",
+      "uncertainty": "现有输入仅为文章摘要与开头段落，缺少内存强制共享机制的具体实现细节、支持版本范围、性能数据，以及在 Kubernetes 中的组件依赖和可用性状态。",
+      "what_happened": "NVIDIA 开发者博客发布文章《Memory-Enforced GPU Sharing in Kubernetes with NVIDIA CUDA 13.4》。文章指出，许多 AI 工作负载只需要一小部分 GPU 资源，为每个工作负载分配整块设备会造成容量闲置，共享 GPU 可让平台团队承载更多工作负载。",
+      "why_it_matters": "内存强制的 GPU 共享关系到 Kubernetes 上多工作负载的隔离与利用率，是推理与训练平台调度设计中的关键能力方向。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "关注 Cloudflare 是否公布受影响请求或用户范围，以及 SGLang 修复是否完成全量部署。",
+    "关注 Genie 4 的开放范围、访问方式与自然语言实时更新的延迟和稳定性是否披露。",
+    "关注 CUDA 13.4 内存强制 GPU 共享在 Kubernetes 中的具体配置依赖、支持版本与可用性状态。",
+    "观察 GitHub Copilot 辅助权限功能在 CLI、独立应用与 VS Code 上的具体交互形式、可配置项和拒绝权限后的降级行为是否在后续文档中披露。",
+    "观察 GitHub Copilot SDK 服务器间身份验证公开预览的 API 范围、权限粒度、限流与计费策略是否明确，以及组织级 GitHub Apps 的配置步骤是否发布。",
+    "观察 NVIDIA RTX Spark 的具体 Blackwell RTX 型号、规格、算力参数、上市时间、定价与 OEM 合作伙伴是否公布。",
+    "观察 OpenAI 所称数学、计算机科学与物理突破的具体技术细节和验证情况是否公开，以及研究人员的批评是否升级为更具体的公开质疑。"
+  ]
+}

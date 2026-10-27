@@ -1,0 +1,140 @@
+{
+  "date": "2026-10-28",
+  "generated_at": "2026-10-27T23:10:34.639004Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Cloudflare",
+        "SGLang"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 Cloudflare 是否公布受影响请求或用户范围，以及 SGLang 修复是否完成全量部署。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Workers AI",
+        "GLM-5.3",
+        "SGLang"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-27T23:10:34.639004Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-28",
+          "story_id": "story-81046781da6cdb6bc01d"
+        }
+      ],
+      "topic_anchors": [
+        "KV cache",
+        "推理安全"
+      ],
+      "watch_id": "watch-4ef0815881d7a28b2fc1"
+    },
+    {
+      "entity_anchors": [
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 Genie 4 的开放范围、访问方式与自然语言实时更新的延迟和稳定性是否披露。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Genie 4",
+        "Gemini 3.8 Flash"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-27T23:10:34.639004Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-28",
+          "story_id": "story-66e1d375015c49f33d9a"
+        }
+      ],
+      "topic_anchors": [
+        "世界模型",
+        "交互式生成"
+      ],
+      "watch_id": "watch-e9d109b8e623978b77b0"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA",
+        "Kubernetes"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 CUDA 13.4 内存强制 GPU 共享在 Kubernetes 中的具体配置依赖、支持版本与可用性状态。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "CUDA 13.4"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-27T23:10:34.639004Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-28",
+          "story_id": "story-425efe10db637df8c52a"
+        }
+      ],
+      "topic_anchors": [
+        "GPU 共享",
+        "GPU 内存隔离",
+        "Kubernetes GPU 调度"
+      ],
+      "watch_id": "watch-81fb83ee2d20ed50f717"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub Copilot 辅助权限功能在 CLI、独立应用与 VS Code 上的具体交互形式、可配置项和拒绝权限后的降级行为是否在后续文档中披露。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot CLI",
+        "GitHub Copilot app",
+        "Visual Studio Code"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-27T23:10:34.639004Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-28",
+          "story_id": "story-2b10ad47f934430b9a83"
+        }
+      ],
+      "topic_anchors": [
+        "权限管理"
+      ],
+      "watch_id": "watch-1f0d30917e0d54d85d67"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot",
+        "GitHub Apps",
+        "GitHub Copilot SDK"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub Copilot SDK 服务器间身份验证公开预览的 API 范围、权限粒度、限流与计费策略是否明确，以及组织级 GitHub Apps 的配置步骤是否发布。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot SDK"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-27T23:10:34.639004Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-28",
+          "story_id": "story-ea1efbca9db97930dd01"
+        }
+      ],
+      "topic_anchors": [
+        "服务器间身份验证",
+        "公开预览",
+        "组织级应用安装"
+      ],
+      "watch_id": "watch-ec61172fcb52fc097524"
+    }
+  ]
+}

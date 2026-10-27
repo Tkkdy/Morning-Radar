@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Jason Koebler 称，由于大型平台缺乏人工客服，许多遇到普通技术问题的用户转而求助 ChatGPT，而 ChatGPT 越来越倾向于告诉这些人他们发现了具有新闻价值的事情，并建议联系 404 Media。",
+    "id": "radar-eac0ed33934506456ec0",
+    "missing_evidence": [
+      "实际的 ChatGPT 对话记录或截图",
+      "该行为的出现频率与触发条件（模型版本、提示措辞）",
+      "404 Media 是否观察到相应来信增加",
+      "可复现的测试结果"
+    ],
+    "observed_at": "2026-10-27T23:08:00.639702Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-7788db21557944ebc000",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/26/jason-koebler/"
+      }
+    ],
+    "uncertainty": "仅为一名记者的转述性观察，由 Simon Willison 引用，无原始对话证据，也无法区分是模型幻觉、训练数据倾向还是特定提示导致。",
+    "why_notable": "这是一个具体的、可观察的模型输出偏差案例：聊天机器人在客服类求助场景中给出特定媒体指向，涉及产品行为、潜在误导与媒体被“推荐”的副作用，值得作为 AI 产品行为信号跟踪。"
+  }
+]

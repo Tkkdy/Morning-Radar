@@ -1,0 +1,142 @@
+{
+  "date": "2026-10-28",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "TOP",
+      "reader_value": 4,
+      "reason": "跨租户 KV cache 暴露属于生产级推理基础设施隔离风险，对部署者高度相关。",
+      "retain_for_trends": true,
+      "story_id": "story-81046781da6cdb6bc01d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "multi-tenant-inference-isolation",
+        "kv-cache-lifecycle-security",
+        "inference-framework-config-risk"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅有厂商宣称的世界模型能力，缺少访问方式和独立验证，一句带过即可。",
+      "retain_for_trends": false,
+      "story_id": "story-66e1d375015c49f33d9a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "缺乏正文的基准介绍，先作为 LLM 评审可靠性的弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-ebe63455ffcdc574ea9d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "llm-as-judge-validity",
+        "research-novelty-evaluation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认权限功能 GA，但属于常规跨端能力补齐，对工作流改变有限。",
+      "retain_for_trends": false,
+      "story_id": "story-2b10ad47f934430b9a83",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "GPU 内存强制共享可提升集群利用率，但机制细节与性能数据仍待验证。",
+      "retain_for_trends": true,
+      "story_id": "story-425efe10db637df8c52a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-memory-enforced-sharing",
+        "kubernetes-gpu-multitenancy"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "服务器间身份验证公开预览利好 SDK 自动化，但细节截断且影响面窄。",
+      "retain_for_trends": false,
+      "story_id": "story-ea1efbca9db97930dd01",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "新 PC 平台定位清晰但无规格、价格和上市信息，暂不构成实质可用性变化。",
+      "retain_for_trends": false,
+      "story_id": "story-71ad86a34d9f7067dc1b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "突破内容与验证方式均未公开，报道核心是沟通争议而非能力事实。",
+      "retain_for_trends": false,
+      "story_id": "story-a3b09ec9aee48e3ae664",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有标题与产品名，无参数、许可或可用性信息，无法判断实际价值。",
+      "retain_for_trends": false,
+      "story_id": "story-b6d89682d2a6b1104dd7",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "SDK 常规版本发布，除 TTL 选项外均为依赖维护，无结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-c5c7642f6ef472abb2a6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "缺少正文的查询工具介绍，已过时且无可验证或可追踪内容。",
+      "retain_for_trends": false,
+      "story_id": "story-9cd63617f56dec8011be",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-27T23:10:34.639004Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
