@@ -1,0 +1,91 @@
+[
+  {
+    "created_at": "2026-10-28T23:30:57.344752Z",
+    "explanation": "ai_infrastructure 连续 3 天保持或增加事件量，且有 3 个来源支持。",
+    "id": "signal-da16485af1f1496c3251",
+    "metric_history": [
+      {
+        "date": "2026-10-27",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-28",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-29",
+        "story_count": 1
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 0.8,
+    "supporting_company_count": 12,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-29c393d5b45da70819c7",
+      "story-9cd63617f56dec8011be",
+      "story-4d282d293e64b49c280a"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-10-28T23:30:57.344752Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-28T23:30:57.344752Z",
+    "explanation": "open_source_ai 连续 3 天保持或增加事件量，且有 4 个来源支持。",
+    "id": "signal-355471320017bdbf87a4",
+    "metric_history": [
+      {
+        "date": "2026-10-27",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-28",
+        "story_count": 1
+      },
+      {
+        "date": "2026-10-29",
+        "story_count": 2
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 0.9,
+    "supporting_company_count": 12,
+    "supporting_source_count": 4,
+    "supporting_story_ids": [
+      "story-29c393d5b45da70819c7",
+      "story-9cd63617f56dec8011be",
+      "story-b9dd27076909da7dfef8",
+      "story-8a6c71ec6476e1c8b84b"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-10-28T23:30:57.344752Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-28T23:30:57.344752Z",
+    "explanation": "AMD 最近交易日变动 3.2%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-79e1906276ad0bd1a3af",
+    "metric_history": [
+      {
+        "change_percent": 0.032449206366498534,
+        "trading_date": "2026-10-28"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.5408201061083089,
+    "supporting_company_count": 3,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-4d282d293e64b49c280a"
+    ],
+    "topic": "AMD",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z",
+    "window_days": 1
+  }
+]

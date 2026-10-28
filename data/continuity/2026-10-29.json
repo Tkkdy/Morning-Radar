@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-29",
+  "generated_at": "2026-10-28T23:30:57.344752Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Copilot Fusion"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布 Copilot Fusion 的具体路由模型列表、路由机制说明，以及适用的 Copilot 套餐范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot Fusion"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-28T23:30:57.344752Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-29",
+          "story_id": "story-401f68ec46a177290114"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "model_routing"
+      ],
+      "watch_id": "watch-f60b3dba04b83ebf0de0"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Microsoft"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否发布完整公告，明确 GitHub Enterprise 包含 Copilot 访问权限的计费方式、价格变化与适用客户范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Enterprise",
+        "GitHub Copilot"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-28T23:30:57.344752Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-29",
+          "story_id": "story-aa7c16ec1439b666f791"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "企业软件授权"
+      ],
+      "watch_id": "watch-fdca0e00ab3c343015d7"
+    }
+  ]
+}

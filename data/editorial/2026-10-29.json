@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-29",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认模型自动路由与编排层上线，将改变开发者选择模型的工作流，但机制细节缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-401f68ec46a177290114",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-routing-abstraction-layer"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "前沿模型发布值得展开，但性能与榜单排名均为厂商单方声明，缺独立复现。",
+      "retain_for_trends": true,
+      "story_id": "story-5b5bedde2aab205ce694",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-benchmark-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Copilot 并入 Enterprise 授权影响企业采购成本结构，但细节被截断。",
+      "retain_for_trends": true,
+      "story_id": "story-aa7c16ec1439b666f791",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-ai-licensing-bundling"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "公共预览的安全扩展属常规功能迭代，尚无结构性影响证据。",
+      "retain_for_trends": false,
+      "story_id": "story-a69916605958019d53c2",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "公告摘要截断、功能范围不明，暂不足以支撑独立讨论或趋势判断。",
+      "retain_for_trends": false,
+      "story_id": "story-b9dd27076909da7dfef8",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "跨仓库工作流方向可提一句，但内容空泛缺具体功能与版本信息。",
+      "retain_for_trends": false,
+      "story_id": "story-feedf0f0d5ffd469f431",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "仅为 HN 社区发现且正文为空，作为 Gemini 4 Carbon 报道的社区讨论佐证。",
+      "retain_for_trends": false,
+      "story_id": "story-249219210a95f58a11c0",
+      "support_for_story_id": "story-5b5bedde2aab205ce694",
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商客户案例叙事，语音智能体基准与人均营收口径未披露，仅作弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-8da33c5e9cb6b35cf3d4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-customer-case-study-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "DGX Spark 上 MoE 小批量推理优化对本地部署有参考价值，但实测数据缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-2aef14332786e6fa8ad1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-hardware-local-inference",
+        "moe-inference-optimization"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "启动早期执行漏洞影响面广，但缺 CVE、版本与补丁信息，暂作轻量提示。",
+      "retain_for_trends": true,
+      "story_id": "story-12c09de01bbfa99204f4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "firmware-supply-chain-security"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "SDK 常规版本迭代与示例修复，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-8a6c71ec6476e1c8b84b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "微调本地化博客缺方法与评测细节，仅一句带过。",
+      "retain_for_trends": false,
+      "story_id": "story-aa3dd57df22f25b1adcb",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "单日股价波动为孤立行情，无因果证据也不构成趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-4d282d293e64b49c280a",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-28T23:30:57.344752Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

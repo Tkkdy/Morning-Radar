@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "作者在 GitHub Universe 现场听 EVP Jay Parikh 发布 Octoverse 2026：2026 年每月合并 PR 在不到一年内增至三倍，达 2.2 亿/月；每月提交数增至三倍以上，达 73.8 亿/月，并将大部分增长归因于 agentic engineering。",
+    "id": "radar-a4b5a0642daa3e905938",
+    "missing_evidence": [
+      "Octoverse 2026 官方报告原文与统计口径（是否含机器人/自动化账号）",
+      "PR 与提交增长的独立数据源或历史基线对照",
+      "将增长归因于 agentic engineering 的因果证据，目前仅为 GitHub 高管的现场表述",
+      "被截断的后续内容（原文在“most of that increase in th”处中断）"
+    ],
+    "observed_at": "2026-10-28T23:29:59.668429Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-5e9e44475572a25994c0",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/28/github-octoverse-2026/"
+      }
+    ],
+    "uncertainty": "仅有单一现场参会者的转述，官方报告未抓取核对；数字为发布方自报，且“归因于 agentic engineering”是因果判断而非实测结论。",
+    "why_notable": "若数字成立，这是 agentic coding 大规模改变代码贡献量的最直接平台级信号，量级远超以往增长曲线，可用于判断 AI 编码工具的实际渗透程度。"
+  }
+]

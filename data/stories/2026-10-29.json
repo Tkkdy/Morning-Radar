@@ -1,0 +1,833 @@
+[
+  {
+    "analysis": [
+      "该公告将 Fusion 定位为面向 Copilot 用户的模型选择抽象层，用户无需再逐任务手动选用模型。"
+    ],
+    "canonical_title": "GitHub Copilot Fusion 正式发布：自动路由与编排模型",
+    "category": "product_launch",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "GitHub",
+      "Copilot Fusion"
+    ],
+    "facts": [
+      "GitHub Copilot Fusion 已正式可用（generally available）。",
+      "根据 GitHub Changelog 公告，用户不再需要为每项任务选择模型，而是选择 Copilot Fusion，由 Copilot 智能路由并编排所使用的模型。"
+    ],
+    "id": "story-401f68ec46a177290114",
+    "importance_score": 0.75,
+    "novelty_score": 0.65,
+    "primary_source_url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion",
+    "product_names": [
+      "GitHub Copilot Fusion"
+    ],
+    "published_at": "2026-10-28T16:00:00Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-af8e72e013cbe8cf712f"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-af8e72e013cbe8cf712f",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Route and orchestrate models with GitHub Copilot Fusion",
+        "url": "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "model_routing"
+    ],
+    "uncertainties": [
+      "公告摘要未说明 Fusion 会路由到哪些具体模型、路由与编排的判定机制，以及是否适用于所有 Copilot 使用场景和套餐。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "若 Artificial Analysis Intelligence Index（v5.0）排名属实，Gemini 4 Carbon 在当前前沿模型竞争中处于领先位置，但该排名为 Google 单方面引述，需以榜单原始数据核实。"
+    ],
+    "canonical_title": "Google 发布前沿模型 Gemini 4 Carbon，宣称在网络安全等领域实现显著提升",
+    "category": "ai_models",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Google",
+      "Gemini 4 Carbon",
+      "Claude Opus 5.5",
+      "GPT-6 Astra"
+    ],
+    "facts": [
+      "The Verge AI 于 2026-10-28 报道，Google 发布了其最新前沿模型 Gemini 4 Carbon。",
+      "报道称 Google 在周三的公告中表示，Gemini 4 Carbon 在编码、智能体任务和网络安全方面带来“显著提升”。",
+      "报道称 Google 强调 Gemini 4 Carbon 在 Artificial Analysis Intelligence Index（v5.0）基准上排名第一，Claude Opus 5.5 和 GPT-6 Astra 位列其后。"
+    ],
+    "id": "story-5b5bedde2aab205ce694",
+    "importance_score": 0.85,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier",
+    "product_names": [
+      "Gemini 4 Carbon",
+      "Claude Opus 5.5",
+      "GPT-6 Astra"
+    ],
+    "published_at": "2026-10-28T16:03:00-04:00",
+    "relevance_score": 0.92,
+    "source_item_ids": [
+      "item-7b5653451a244c2d34ef"
+    ],
+    "source_refs": [
+      {
+        "author": "Emma Roth",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T16:03:00-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7b5653451a244c2d34ef",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google launches Gemini 4 Carbon with a ‘significant leap’ in cybersecurity",
+        "url": "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1021339/google-gemini-4-carbon-cybersecurity-frontier"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "cybersecurity"
+    ],
+    "uncertainties": [
+      "Artificial Analysis Intelligence Index（v5.0）的具体分数、评测方法与榜单原始数据尚未从输入中确认。",
+      "Gemini 4 Carbon 在编码、智能体任务和网络安全方面的“显著提升”缺少可核验的独立测试细节。",
+      "报道未提供模型发布时间、可用范围、定价或 API 访问方式等信息。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "该变更将 Copilot 的采购与授权并入 GitHub Enterprise 的既有许可范围，可能简化企业客户在 Copilot 与 GitHub Enterprise 之间的授权管理工作。",
+      "公告面向通过 GitHub 或 Microsoft 账户团队合作的 Enterprise 客户，说明该权益的获取可能依赖销售渠道而非自助开通。"
+    ],
+    "canonical_title": "GitHub Enterprise 现已为每位已授权用户包含 GitHub Copilot 访问权限",
+    "category": "产品发布/企业软件",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "Microsoft"
+    ],
+    "facts": [
+      "GitHub 于 2026-10-28 发布更新：通过与 GitHub 或 Microsoft 账户团队合作的 Enterprise 客户，现在可为每位已授权用户获得随 GitHub Enterprise 一同提供的 Copilot 访问权限。",
+      "此前客户需要分别管理两项内容，具体细节在摘要中被截断。"
+    ],
+    "id": "story-aa7c16ec1439b666f791",
+    "importance_score": 0.6,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot",
+    "product_names": [
+      "GitHub Enterprise",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-10-28T15:50:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-9084abaaec71303f8aba"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T15:50:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9084abaaec71303f8aba",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Enterprise now includes access to GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-28-github-enterprise-now-includes-access-to-github-copilot"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "企业软件授权"
+    ],
+    "uncertainties": [
+      "“每位已授权用户”所对应的具体计费方式、价格变化与生效条件未在摘要中说明。",
+      "公告正文被截断，此前需分别管理的“两项内容”具体指哪些授权或用量项目尚不明确。",
+      "是否对所有 GitHub Enterprise 客户普遍适用，还是仅限与账户团队合作的客户，需查看完整公告确认。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "将代码扫描告警接入 Copilot 应用的工作流，说明 GitHub 正在把安全修复环节向 AI 编程入口集中，减少在代码托管页面与编辑器/应用之间的切换。",
+      "以公共预览方式发布，意味着功能覆盖范围和稳定性仍处于早期阶段，后续可能调整。"
+    ],
+    "canonical_title": "GitHub Copilot 应用新增 GitHub 安全扩展，可在应用内处理代码扫描告警",
+    "category": "AI 编程工具/安全",
+    "credibility_score": 0.86,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 发布面向 GitHub Copilot 应用的安全扩展，该扩展目前处于公共预览阶段。",
+      "该扩展允许用户无需离开 GitHub Copilot 应用，即可处理仓库中的 GitHub code scanning 告警。"
+    ],
+    "id": "story-a69916605958019d53c2",
+    "importance_score": 0.58,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app",
+    "product_names": [
+      "GitHub Copilot 应用",
+      "GitHub 安全扩展"
+    ],
+    "published_at": "2026-10-28T15:45:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-532ef9d141d935742f5b"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T15:45:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-532ef9d141d935742f5b",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Security extension for the GitHub Copilot app",
+        "url": "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-28-security-extension-for-the-github-copilot-app"
+    ],
+    "status": "available",
+    "topic_names": [
+      "代码扫描告警",
+      "公共预览",
+      "应用内安全处理"
+    ],
+    "uncertainties": [
+      "该公共预览的可用范围、是否支持全部仓库类型，以及是否对所有用户开放，摘要中未说明。",
+      "该扩展具体支持哪些 code scanning 告警类型与修复操作，输入中未详细展开。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "该公告将 GitHub 的 AI 代理能力定位在代码之外，强调结合代码上下文、团队约定与历史记录，这符合当前 AI 编程工具从代码补全向理解工程约定演进的趋势。"
+    ],
+    "canonical_title": "GitHub 发布 intelligence 功能，利用代码、上下文与历史提升代理理解团队工作方式的能力",
+    "category": "AI 编程与开发者工具",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 发布 changelog 文章，标题为“GitHub intelligence puts your code, context, and history to work”，作者为 Allison，发布时间为 2026-10-28T15:40:00Z。",
+      "文章提出，代理不仅应理解代码库，还应理解团队的工作方式；由偏好设置、仓库约定、技能和自定义指令来指导变更应如何实施。"
+    ],
+    "id": "story-b9dd27076909da7dfef8",
+    "importance_score": 0.55,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work",
+    "product_names": [
+      "GitHub intelligence"
+    ],
+    "published_at": "2026-10-28T15:40:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-6e5ebe8af36db9505323"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T15:40:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6e5ebe8af36db9505323",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub intelligence puts your code, context, and history to work",
+        "url": "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-28-github-intelligence-puts-your-code-context-and-history-to-work"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "文章摘要被截断，GitHub intelligence 的具体功能范围、可用性、定价与发布时间等细节未在输入中说明。",
+      "输入未提供产品发布状态（如是否已普遍可用、处于预览或等待列表阶段）的明确信息。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "该公告强调跨多仓库和跨会话的工作流需求，指向 GitHub 正在扩展 Copilot 对分散式开发场景的支持范围。"
+    ],
+    "canonical_title": "GitHub 发布 Copilot 应用及 Universe 版本更新",
+    "category": "ai_coding",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-10-28 发布题为“GitHub Copilot app, Universe releases”的公告。",
+      "公告摘要指出，工作并不总是能容纳在单个仓库或单个会话中，一项功能可能跨越多个仓库，而发布计划也可能涉及规格、设计与素材，且无需接触仓库。"
+    ],
+    "id": "story-feedf0f0d5ffd469f431",
+    "importance_score": 0.5,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases",
+    "product_names": [
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-10-28T15:55:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-515b472922216f5193f8"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T15:55:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-515b472922216f5193f8",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Copilot app, Universe releases",
+        "url": "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 编程",
+      "开发者工具"
+    ],
+    "uncertainties": [
+      "公告未在现有摘录中说明“GitHub Copilot app”的具体功能、可用范围与发布时间细节。",
+      "摘要未明确“Universe releases”所指的具体发布内容与版本号。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Google 发布 Gemini 4 Carbon 模型",
+    "category": "模型发布",
+    "credibility_score": 0.22,
+    "entity_names": [
+      "Google",
+      "DeepMind"
+    ],
+    "facts": [],
+    "id": "story-249219210a95f58a11c0",
+    "importance_score": 0.68,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+    "product_names": [
+      "Gemini 4 Carbon"
+    ],
+    "published_at": "2026-10-28T17:01:23Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-c243e4eca2c0012bf71b"
+    ],
+    "source_refs": [
+      {
+        "author": "acossta",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50276792",
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T17:01:23Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c243e4eca2c0012bf71b",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Gemini 4 Carbon",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+      "https://news.ycombinator.com/item?id=50276792"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "大模型发布"
+    ],
+    "uncertainties": [
+      "该条目为 Hacker News 社区发现，来源标记为 unverified_lead，且摘要与正文摘录为空，无法从输入中核实 Gemini 4 Carbon 是否确为 Google 官方发布的产品。",
+      "Hacker News 讨论帖获得 749 分、607 条评论，说明社区关注度高，但讨论内容未提供，无法判断其真实性或具体细节。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "该来源为 OpenAI 官方发布渠道，其陈述可作为原始事实底座，但摘要未提供基准测试方法、样本规模与营收计算口径等细节。",
+      "将模型排名与人均营收并列呈现，属于厂商叙事框架，尚需独立数据验证其因果关联。"
+    ],
+    "canonical_title": "OpenAI 称 Retell 使用 OpenAI 模型支撑每月 1 亿次通话，GPT-6 Astra 登顶其语音智能体基准，Codex 助力人均年化营收达 160 万美元",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI",
+      "Retell",
+      "Codex",
+      "GPT-6 Astra"
+    ],
+    "facts": [
+      "OpenAI News 发布文章《Retell uses OpenAI models to help power 100M monthly calls》。",
+      "据该文章摘要，Retell 每月通话量为 1 亿次。",
+      "据该文章摘要，GPT-6 Astra 在 Retell 的语音智能体基准测试中排名第一。",
+      "据该文章摘要，Codex 帮助 Retell 达到每名员工 160 万美元的年化营收。",
+      "该文章发布于 2026-10-27T15:00:00Z。"
+    ],
+    "id": "story-8da33c5e9cb6b35cf3d4",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://openai.com/index/retell-ai",
+    "product_names": [
+      "GPT-6 Astra",
+      "Codex"
+    ],
+    "published_at": "2026-10-27T15:00:00Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-1e3ebf94e41ebe19793b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-27T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1e3ebf94e41ebe19793b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Retell uses OpenAI models to help power 100M monthly calls",
+        "url": "https://openai.com/index/retell-ai"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/retell-ai"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "voice_agent"
+    ],
+    "uncertainties": [
+      "Retell 语音智能体基准的评测方法、数据集与对比模型列表未披露。",
+      "每名员工 160 万美元年化营收的具体计算口径与统计时点不明确。",
+      "Retell 是否为主要或唯一使用 OpenAI 模型，以及调用量的统计范围未说明。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "从标题与摘要看，文章聚焦于在 DGX Spark 这一平台上针对 MoE 模型做推理加速，并以小批量（batch size 1）场景作为性能瓶颈分析的起点。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍在 DGX Spark 上提升 MoE 推理性能的三种方法",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.62,
+    "entity_names": [
+      "NVIDIA",
+      "DGX Spark",
+      "Inclusion AI",
+      "Ling-3.0-flash",
+      "Yang Liu"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-10-27T15:00:00Z 发布了作者为 Yang Liu 的文章《3 Ways to Boost MoE Inference on NVIDIA DGX Spark》。",
+      "文章摘要指出，要更快生成 token，首先需要识别限制推理性能的因素。",
+      "摘要提到对来自 Inclusion AI 的 Ling-3.0-flash 在 NVIDIA DGX Spark 上进行了 batch-size-1 评估。"
+    ],
+    "id": "story-2aef14332786e6fa8ad1",
+    "importance_score": 0.42,
+    "novelty_score": 0.38,
+    "primary_source_url": "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/",
+    "product_names": [
+      "NVIDIA DGX Spark",
+      "Ling-3.0-flash"
+    ],
+    "published_at": "2026-10-27T15:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-b836eb939c37ffa509e8"
+    ],
+    "source_refs": [
+      {
+        "author": "Yang Liu",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-27T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b836eb939c37ffa509e8",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "3 Ways to Boost MoE Inference on NVIDIA DGX Spark",
+        "url": "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/3-ways-to-boost-moe-inference-on-nvidia-dgx-spark/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "MoE 推理优化",
+      "推理性能",
+      "batch-size-1 评估"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要与标题，文章中提出的“3 种方法”的具体内容、实测数据与结论未在输入中出现，无法确认。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "由于 UEFI 固件会在操作系统加载前运行，在启动早期阶段执行代码可能让攻击者获得对平台的高度控制权，并可能绕过操作系统层的安全防护。"
+    ],
+    "canonical_title": "UEFI 固件 EDK2 存在可早期执行代码的严重漏洞",
+    "category": "security",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "EDK2",
+      "UEFI"
+    ],
+    "facts": [
+      "Ars Technica 报道称，UEFI 固件中的 EDK2 存在一个严重漏洞。",
+      "该报道称，该漏洞可让攻击者在启动过程的早期阶段执行代码。"
+    ],
+    "id": "story-12c09de01bbfa99204f4",
+    "importance_score": 0.7,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/",
+    "product_names": [
+      "EDK2"
+    ],
+    "published_at": "2026-10-27T20:25:55Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-7111ef88cef63a435929"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-27T20:25:55Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7111ef88cef63a435929",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Code-execution flaw in UEFI firmware affects most servers on planet Earth",
+        "url": "https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/10/code-execution-flaw-in-uefi-firmware-threatens-most-servers-on-planet-earth/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "firmware security",
+      "boot process",
+      "code execution vulnerability"
+    ],
+    "uncertainties": [
+      "输入未提及漏洞标识符（CVE 编号）、受影响版本、攻击前提条件、补丁可获得性或披露时间线。",
+      "输入未指明易受攻击的 EDK2 具体版本，也未说明实际有多少服务器受影响。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "该版本以 API 类型和会话能力的小幅演进为主，同时修复 Realtime 与 WebSocket 相关示例的健壮性问题。",
+      "文档类变更中提及即将到来的模型停用，但 release 片段未给出具体模型名与日期。"
+    ],
+    "canonical_title": "openai-python 发布 v3.41.0，新增 Realtime、响应工具用量模型、agent 会话过滤等功能",
+    "category": "open_source_release",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "2026-10-28，openai/openai-python 发布 v3.41.0（相较 v3.40.0）。",
+      "Features 部分包含：api 接受 Realtime 响应输入中的类型化引用（#4189）；新增响应工具用量模型（#4201）；支持按 metadata 过滤 agent 会话（#4200）；WebSocket 在重连后可恢复排队的二进制帧（#4191）。",
+      "Bug Fixes 部分包含：示例中检测不完整的 WebSocket 响应（#4187）；示例中处理 push-to-talk 的中断与断开（#4192）；在严格 Pyright 下保持 consumer fixtures 干净（#4204）。",
+      "Chores 部分包含：记录即将到来的模型停用（#4199）；更新图像模型文档（#4198）；强制生成文件归属（#4193）；将开发期类型检查迁移到 ty（#4202）。"
+    ],
+    "id": "story-8a6c71ec6476e1c8b84b",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.41.0",
+    "product_names": [
+      "openai-python",
+      "Realtime API"
+    ],
+    "published_at": "2026-10-28T22:26:54Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-c830f4bc72556ec9823d"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T22:26:54Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c830f4bc72556ec9823d",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.41.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.41.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.41.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "#4199 所述‘即将停用’的具体模型和停用时间未在输入中给出，无法确认。",
+      "WebSocket 重连恢复二进制帧的实际行为边界与兼容性影响需参考完整 release notes 与相关 PR。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "从标题与导语判断，该博客的主题是用微调让 Nemotron 掌握地方性规则与文化语境，而不仅是语言翻译能力，属于模型本地化适配方向。"
+    ],
+    "canonical_title": "NVIDIA 发布博客介绍如何微调 Nemotron 模型以掌握本地规则，而不仅是本地语言",
+    "category": "AI 模型开发",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇题为《Fine-Tuning NVIDIA Nemotron to Know Local Rules, Not Just Local Languages》的博客，作者为 Shara Tibken，发布时间为 2026-10-27T16:00:00Z。",
+      "该博客导语称，随着 AI 在全球普及，不同语言和文化背景的人正在日常生活中更广泛地使用 AI，而通用语言模型只能提供部分服务。"
+    ],
+    "id": "story-aa3dd57df22f25b1adcb",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/",
+    "product_names": [
+      "Nemotron"
+    ],
+    "published_at": "2026-10-27T16:00:00Z",
+    "relevance_score": 0.65,
+    "source_item_ids": [
+      "item-5ed14fffd1748be81239"
+    ],
+    "source_refs": [
+      {
+        "author": "Shara Tibken",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-27T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5ed14fffd1748be81239",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Fine-Tuning NVIDIA Nemotron to Know Local Rules, Not Just Local Languages",
+        "url": "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/fine-tuning-nvidia-nemotron-to-know-local-rules-not-just-local-languages/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "模型微调",
+      "本地化适配",
+      "多语言 AI"
+    ],
+    "uncertainties": [
+      "输入仅提供博客摘要与内容片段，未给出具体微调方法、数据集、评测结果或可用模型版本。",
+      "博客正文的完整技术细节与结论无法从现有输入核实。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  },
+  {
+    "analysis": [
+      "行情来源明确标注：市场价格变化仅作信息展示，不代表可确认单一原因；因此本次涨幅不应归因于单一事件或消息面因素。"
+    ],
+    "canonical_title": "AMD 在 2026 年 10 月 28 日交易日收盘上涨 3.24%，收于 578.44 美元",
+    "category": "市场行情",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "AMD",
+      "Yahoo Finance",
+      "yfinance"
+    ],
+    "facts": [
+      "AMD 在 2026-10-28 交易日收盘价为 578.4400024414062 美元。",
+      "AMD 上一交易日收盘价为 560.260009765625 美元。",
+      "AMD 当日涨跌幅为 3.2449206366498534%（约 3.24%）。",
+      "AMD 当日成交量为 18557439.0 股。",
+      "上述数据来源为 Yahoo Finance via yfinance，数据抓取时间为 2026-10-28T23:29:59.668429Z。"
+    ],
+    "id": "story-4d282d293e64b49c280a",
+    "importance_score": 0.08,
+    "novelty_score": 0.03,
+    "primary_source_url": "https://finance.yahoo.com/quote/AMD/",
+    "product_names": [],
+    "published_at": "2026-10-28T00:00:00Z",
+    "relevance_score": 0.15,
+    "source_item_ids": [
+      "item-25b4503af09d246e4fe2"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-28T23:29:59.668429Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T00:00:00Z",
+        "published_at_role": "market_trading_day",
+        "published_date_role": null,
+        "raw_item_id": "item-25b4503af09d246e4fe2",
+        "source_date": null,
+        "source_name": "Yahoo Finance via yfinance",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "market",
+        "statement_type": "factual_announcement",
+        "title": "AMD 最近交易日收盘上涨 3.24%",
+        "url": "https://finance.yahoo.com/quote/AMD/"
+      }
+    ],
+    "source_urls": [
+      "https://finance.yahoo.com/quote/AMD/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "输入未提供该交易日 AMD 股价上涨的具体原因或相关消息面证据。",
+      "行情数据来自 Yahoo Finance via yfinance，非公司官方披露，未与交易所或其他独立数据源交叉核对。"
+    ],
+    "updated_at": "2026-10-28T23:30:57.344752Z"
+  }
+]
