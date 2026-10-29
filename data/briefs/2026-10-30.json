@@ -1,0 +1,1058 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-fd316b0874c7311777f2",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+        "https://news.ycombinator.com/item?id=50284255"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Claude Code 被指将每个后台 agent 的 transcript 发送给其模型",
+          "category": "AI 开发工具/隐私",
+          "entity_names": [
+            "Anthropic",
+            "Claude Code"
+          ],
+          "facts": [],
+          "primary_source_url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
+          "product_names": [
+            "Claude Code"
+          ],
+          "published_at": "2026-10-29T03:33:42Z",
+          "source_refs": [
+            {
+              "author": "NikZaal",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=50284255",
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T03:33:42Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-623346e07f2b63477122",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Claude Code regularly sends each background agent’s transcript to its model",
+              "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-ad7f2b3296b8e4081425",
+          "topic_names": [
+            "后台 agent",
+            "transcript 传输",
+            "隐私与数据流"
+          ],
+          "uncertainties": [
+            "该说法仅来自一份 Hacker News 上分享的 gist（unverified lead），未提供官方文档或可复核的原始观察，因此不能作为已确认事实。",
+            "“每个后台 agent 的 transcript”具体包含哪些内容、传输频率与去向，均未在输入中说明。",
+            "Anthropic 是否对此作出回应尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ad7f2b3296b8e4081425"
+      ],
+      "title": "Claude Code 被指将每个后台 agent 的 transcript 发送给其模型",
+      "uncertainty": "该说法仅来自一份 Hacker News 上分享的 gist（unverified lead），未提供官方文档或可复核的原始观察，因此不能作为已确认事实。",
+      "what_happened": "Claude Code 被指将每个后台 agent 的 transcript 发送给其模型",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-7a6b57571b2455489ea3",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该更新将 Gemini 从对话式助手扩展为可直接产出和修改办公文件的工作界面，可能减少用户在 Google Workspace 应用与聊天界面之间切换的需要。"
+          ],
+          "canonical_title": "Google Gemini 聊天内支持直接生成与编辑 Google Docs 等文件",
+          "category": "ai_product",
+          "entity_names": [
+            "Google",
+            "Gemini"
+          ],
+          "facts": [
+            "The Verge AI 报道称，用户现在可以在 Google Gemini 中直接生成、预览和编辑 PDF、Google Docs、Google Sheets、幻灯片、Markdown 文件、TXT 文件以及代码。",
+            "报道称，新的文件编辑功能自报道发布当天起向所有 Gemini 用户提供。",
+            "报道称，PDF 预览和编辑在网页端和移动端均可使用，其他文件格式仅在网页端可用（原文此处被截断，仅明确提及“仅[在……]”）。"
+          ],
+          "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs",
+          "product_names": [
+            "Google Docs",
+            "Google Sheets",
+            "Gemini"
+          ],
+          "published_at": "2026-10-29T14:45:31-04:00",
+          "source_refs": [
+            {
+              "author": "Stevie Bonifield",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T14:45:31-04:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-4aa6b4f10322be2ed130",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "You can generate and edit Google Docs files directly in Gemini chats now",
+              "url": "https://www.theverge.com/ai-artificial-intelligence/1022519/google-gemini-file-editing-documents-pdfs"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-a771a23cca6da87e0211",
+          "topic_names": [
+            "文件编辑",
+            "AI 助手"
+          ],
+          "uncertainties": [
+            "报道摘要在此处被截断，“所有其他文件格式仅[在……]”的完整范围不明确，可能指仅限网页端或特定订阅层级。",
+            "移动端对其他文件格式的支持情况尚无法从现有输入确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a771a23cca6da87e0211"
+      ],
+      "title": "Google Gemini 聊天内支持直接生成与编辑 Google Docs 等文件",
+      "uncertainty": "报道摘要在此处被截断，“所有其他文件格式仅[在……]”的完整范围不明确，可能指仅限网页端或特定订阅层级。",
+      "what_happened": "The Verge AI 报道称，用户现在可以在 Google Gemini 中直接生成、预览和编辑 PDF、Google Docs、Google Sheets、幻灯片、Markdown 文件、TXT 文件以及代码。",
+      "why_it_matters": "该更新将 Gemini 从对话式助手扩展为可直接产出和修改办公文件的工作界面，可能减少用户在 Google Workspace 应用与聊天界面之间切换的需要。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-faa489169d5284d49f07",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/legora"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该案例表明 OpenAI 的通用模型与编程工具正被垂直行业软件厂商集成到专业工作流中，法律领域是其中一个落地场景。"
+          ],
+          "canonical_title": "Legora 基于 OpenAI 模型、ChatGPT 与 Codex 构建法律工作代理式操作系统",
+          "category": "ai_models",
+          "entity_names": [
+            "Legora",
+            "OpenAI",
+            "ChatGPT",
+            "Codex"
+          ],
+          "facts": [
+            "OpenAI 官方文章介绍 Legora 使用 OpenAI 模型、ChatGPT 和 Codex 加速法律工作流、扩展合同分析，并让律师专注于更高价值的工作。"
+          ],
+          "primary_source_url": "https://openai.com/index/legora",
+          "product_names": [
+            "ChatGPT",
+            "Codex"
+          ],
+          "published_at": "2026-10-28T09:30:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-28T09:30:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-709cc8e2bd467b791689",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Legora is building the agentic operating system for legal work",
+              "url": "https://openai.com/index/legora"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-8ba15e2c5ff23e848e85",
+          "topic_names": [
+            "ai_models",
+            "ai_coding",
+            "法律工作流",
+            "合同分析"
+          ],
+          "uncertainties": [
+            "输入仅包含官方摘要，未提供 Legora 具体产品形态、集成方式、性能数据或客户案例细节。",
+            "“代理式操作系统”为标题中的表述，输入未展开其具体功能范围。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8ba15e2c5ff23e848e85"
+      ],
+      "title": "Legora 基于 OpenAI 模型、ChatGPT 与 Codex 构建法律工作代理式操作系统",
+      "uncertainty": "输入仅包含官方摘要，未提供 Legora 具体产品形态、集成方式、性能数据或客户案例细节。",
+      "what_happened": "OpenAI 官方文章介绍 Legora 使用 OpenAI 模型、ChatGPT 和 Codex 加速法律工作流、扩展合同分析，并让律师专注于更高价值的工作。",
+      "why_it_matters": "该案例表明 OpenAI 的通用模型与编程工具正被垂直行业软件厂商集成到专业工作流中，法律领域是其中一个落地场景。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-7fbd70929a62e6980af0",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/openai-servicenow-partnership-expansion"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "合作方向为双向集成：OpenAI 能力进入 ServiceNow 平台，ServiceNow 工作流能力进入 OpenAI 的 ChatGPT 与 Codex 产品。",
+            "公告将合作范围定位于企业工作流场景，但未披露具体上线时间、模型版本或定价信息。"
+          ],
+          "canonical_title": "OpenAI 与 ServiceNow 扩大合作，将 OpenAI 模型与 Agent 引入 ServiceNow，并将 ServiceNow 工作流接入 ChatGPT 与 Codex",
+          "category": "企业合作与产品集成",
+          "entity_names": [
+            "OpenAI",
+            "ServiceNow",
+            "ChatGPT",
+            "Codex"
+          ],
+          "facts": [
+            "OpenAI 与 ServiceNow 宣布扩大双方合作。",
+            "根据公告，此次合作将把 OpenAI 模型与 Agent 引入 ServiceNow。",
+            "根据公告，此次合作将把 ServiceNow 工作流引入 ChatGPT 与 Codex。"
+          ],
+          "primary_source_url": "https://openai.com/index/openai-servicenow-partnership-expansion",
+          "product_names": [
+            "ChatGPT",
+            "Codex",
+            "ServiceNow"
+          ],
+          "published_at": "2026-10-28T13:15:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-28T13:15:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a395c7da350b5086cc15",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "OpenAI and ServiceNow expand partnership across enterprise workflows",
+              "url": "https://openai.com/index/openai-servicenow-partnership-expansion"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-4e7bdfd0da7f046cbf22",
+          "topic_names": [
+            "企业工作流",
+            "AI Agent",
+            "模型集成"
+          ],
+          "uncertainties": [
+            "公告未说明哪些 OpenAI 模型与 Agent 会进入 ServiceNow，以及具体可用时间。",
+            "公告未说明 ServiceNow 工作流在 ChatGPT 与 Codex 中的具体形态、权限与数据边界。",
+            "公告未披露合作涉及的商务条款、定价或收入分成安排。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-4e7bdfd0da7f046cbf22"
+      ],
+      "title": "OpenAI 与 ServiceNow 扩大合作，将 OpenAI 模型与 Agent 引入 ServiceNow，并将 ServiceNow 工作流接入 ChatGPT 与 Codex",
+      "uncertainty": "公告未说明哪些 OpenAI 模型与 Agent 会进入 ServiceNow，以及具体可用时间。",
+      "what_happened": "OpenAI 与 ServiceNow 宣布扩大双方合作。",
+      "why_it_matters": "合作方向为双向集成：OpenAI 能力进入 ServiceNow 平台，ServiceNow 工作流能力进入 OpenAI 的 ChatGPT 与 Codex 产品。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-28c1498c4c6230e2bc4d",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "NVIDIA 发布 Nemotron 3.5 Transcribe 与 Granary v2 多语言转录模型",
+          "category": "ai_models",
+          "entity_names": [
+            "NVIDIA",
+            "Hugging Face"
+          ],
+          "facts": [
+            "NVIDIA 在 Hugging Face 博客发布题为《NVIDIA Nemotron 3.5 Transcribe and Granary v2: Intelligent Multilingual Transcription You Can Prompt and Adapt》的文章。",
+            "该文章的发布日期为 2026-10-28T14:58:17Z。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary",
+          "product_names": [
+            "Nemotron 3.5 Transcribe",
+            "Granary v2"
+          ],
+          "published_at": "2026-10-28T14:58:17Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-28T14:58:17Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ec733f799e1aaee3d1ac",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "NVIDIA Nemotron 3.5 Transcribe and Granary v2: Intelligent Multilingual Transcription You Can Prompt and Adapt",
+              "url": "https://huggingface.co/blog/nvidia/nemotron-transcribe-granary"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-1b8c74bf0a9f341039c3",
+          "topic_names": [
+            "多语言转录",
+            "模型发布",
+            "可提示适配"
+          ],
+          "uncertainties": [
+            "输入内容为空，未提供 Nemotron 3.5 Transcribe 与 Granary v2 的模型参数、性能指标、语言覆盖范围、发布时间或获取方式等细节。",
+            "标题中的“可提示并适配”仅为描述性表述，缺乏可核实的实现细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-1b8c74bf0a9f341039c3"
+      ],
+      "title": "NVIDIA 发布 Nemotron 3.5 Transcribe 与 Granary v2 多语言转录模型",
+      "uncertainty": "输入内容为空，未提供 Nemotron 3.5 Transcribe 与 Granary v2 的模型参数、性能指标、语言覆盖范围、发布时间或获取方式等细节。",
+      "what_happened": "NVIDIA 在 Hugging Face 博客发布题为《NVIDIA Nemotron 3.5 Transcribe and Granary v2: Intelligent Multilingual Transcription You Can Prompt and Adapt》的文章。",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-ef94e1f977a6f3d73728",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章试图回答如何把 Tensor Core 的算力用于机器学习原子间势这一工作负载。",
+            "据标题和摘要判断，目标读者可能是从事原子模拟与机器学习势开发的工程或科研人员。"
+          ],
+          "canonical_title": "NVIDIA 开发者博客介绍如何为机器学习原子间势解锁 Tensor Core 性能",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA 开发者博客于 2026-10-29 发布了作者为 Anoushka Bhutani 的文章《Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials》。",
+            "文章摘要指出，原子尺度模拟帮助研究人员理解分子与材料行为，涵盖化学反应、相变到机械失效等议题。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/",
+          "product_names": [
+            "Tensor Core",
+            "Machine Learning Interatomic Potentials"
+          ],
+          "published_at": "2026-10-29T15:00:00Z",
+          "source_refs": [
+            {
+              "author": "Anoushka Bhutani",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T15:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-c37d4b7dab3a156e6535",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials",
+              "url": "https://developer.nvidia.com/blog/unlocking-tensor-core-performance-for-machine-learning-interatomic-potentials/"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-2d370d1ddb68ada69a7e",
+          "topic_names": [
+            "atomistic simulation",
+            "Machine Learning Interatomic Potentials",
+            "Tensor Core performance"
+          ],
+          "uncertainties": [
+            "输入只提供了摘要和内容片段，未能看到具体性能数据、基准方法和适用模型，因此无法核实文章中给出的性能提升幅度。",
+            "摘要提到“These...”，后续内容被截断，无法确认文章的主要论点和示例细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2d370d1ddb68ada69a7e"
+      ],
+      "title": "NVIDIA 开发者博客介绍如何为机器学习原子间势解锁 Tensor Core 性能",
+      "uncertainty": "输入只提供了摘要和内容片段，未能看到具体性能数据、基准方法和适用模型，因此无法核实文章中给出的性能提升幅度。",
+      "what_happened": "NVIDIA 开发者博客于 2026-10-29 发布了作者为 Anoushka Bhutani 的文章《Unlocking Tensor Core Performance for Machine Learning Interatomic Potentials》。",
+      "why_it_matters": "该文章试图回答如何把 Tensor Core 的算力用于机器学习原子间势这一工作负载。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-9dc6f453f65c0df32f8c",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从标题表述看，Granite Switch 4.1.1 强调以类似软件更新的方式更新模型，指向模型版本迭代与更新机制的产品定位；但输入未提供具体机制细节。"
+          ],
+          "canonical_title": "IBM 发布 Granite Switch 4.1.1",
+          "category": "ai_models",
+          "entity_names": [
+            "IBM",
+            "Hugging Face"
+          ],
+          "facts": [
+            "IBM 在 Hugging Face 博客发布标题为“Granite Switch 4.1.1 — Update models like you update software”的文章。",
+            "该文章发布于 2026-10-29T13:37:07Z，来源标记为 Hugging Face Blog，来源角色为 official_primary，陈述类型为 factual_announcement。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1",
+          "product_names": [
+            "Granite Switch 4.1.1",
+            "Granite"
+          ],
+          "published_at": "2026-10-29T13:37:07Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T13:37:07Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-e508e29ae812fe586e8d",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Granite Switch 4.1.1 — Update models like you update software",
+              "url": "https://huggingface.co/blog/ibm-granite/granite-switch-4-1-1"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-85122af3cb8164763cc5",
+          "topic_names": [
+            "ai_models",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入仅含标题与元数据，摘要与正文摘录为空，Granite Switch 4.1.1 的具体功能、更新方式与发布状态（仅公告、已可获取或已更新）无法确认。",
+            "输入未明确 Granite Switch 4.1.1 与既有 Granite 模型系列的具体关系及版本命名含义。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-85122af3cb8164763cc5"
+      ],
+      "title": "IBM 发布 Granite Switch 4.1.1",
+      "uncertainty": "输入仅含标题与元数据，摘要与正文摘录为空，Granite Switch 4.1.1 的具体功能、更新方式与发布状态（仅公告、已可获取或已更新）无法确认。",
+      "what_happened": "IBM 在 Hugging Face 博客发布标题为“Granite Switch 4.1.1 — Update models like you update software”的文章。",
+      "why_it_matters": "从标题表述看，Granite Switch 4.1.1 强调以类似软件更新的方式更新模型，指向模型版本迭代与更新机制的产品定位；但输入未提供具体机制细节。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-e5a53644004733c087fc",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-10-29-webhook-ip-ranges-added-to-the-meta-api"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "对于维护静态网络白名单的集成方，需要将新增 IP 段加入允许列表，否则可能影响 webhook 投递的接收。",
+            "公告摘要未列出具体 IP 段数值，实施前需查阅原始公告正文。"
+          ],
+          "canonical_title": "GitHub 为 github.com 的 Webhook 投递新增 IP 段并同步至 Meta API",
+          "category": "平台公告",
+          "entity_names": [
+            "GitHub",
+            "Meta API"
+          ],
+          "facts": [
+            "GitHub 为 github.com 上的 GitHub webhook 投递新增 IP 段。",
+            "Meta API 的 hooks 字段已包含这些新增 IP 段。",
+            "该公告由 GitHub Changelog 于 2026-10-29T17:14:38Z 发布。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-10-29-webhook-ip-ranges-added-to-the-meta-api",
+          "product_names": [
+            "Meta API",
+            "GitHub Webhook"
+          ],
+          "published_at": "2026-10-29T17:14:38Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T17:14:38Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-2746f11e7a8ea5235917",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Webhook IP ranges added to the Meta API",
+              "url": "https://github.blog/changelog/2026-10-29-webhook-ip-ranges-added-to-the-meta-api"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-3eb9d220fe1fb549ad92",
+          "topic_names": [
+            "webhook",
+            "IP 段",
+            "网络白名单"
+          ],
+          "uncertainties": [
+            "公告摘要未给出新增 IP 段的具体地址范围。",
+            "公告未说明旧 IP 段是否保留、替换或存在过渡期。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-3eb9d220fe1fb549ad92"
+      ],
+      "title": "GitHub 为 github.com 的 Webhook 投递新增 IP 段并同步至 Meta API",
+      "uncertainty": "公告摘要未给出新增 IP 段的具体地址范围。",
+      "what_happened": "GitHub 为 github.com 上的 GitHub webhook 投递新增 IP 段。",
+      "why_it_matters": "对于维护静态网络白名单的集成方，需要将新增 IP 段加入允许列表，否则可能影响 webhook 投递的接收。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-10-30",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-10-29T23:34:47.912300Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "OpenAI 为 100/200/500 美元档 ChatGPT 订阅用户提供与订阅费用等额的 API credits，形式与 Anthropic 近期面向 Max/Team 订阅的类似权益基本一致。",
+      "id": "radar-07515bd5617f5e880fa2",
+      "missing_evidence": [
+        "OpenAI 官方公告或定价页面",
+        "credits 的具体适用条件、有效期与是否限新订阅",
+        "Anthropic 侧政策的官方原文对照"
+      ],
+      "observed_at": "2026-10-29T23:34:00.009809Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "factual_announcement",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-88899755dba00e8dcefc",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Oct/29/api-credits/"
+        }
+      ],
+      "uncertainty": "仅有 Simon Willison 的博客摘录且内容被截断，未获取 OpenAI 官方页面；具体条款与生效范围尚不明确。",
+      "why_notable": "若属实，订阅与 API 消费之间的边界进一步打通，可能影响开发者选择订阅档位与 API 预算的方式，也显示 OpenAI 与 Anthropic 在订阅权益上的直接竞争。"
+    },
+    {
+      "claim": "Spawn 是一个多人在线游戏环境，玩家可用提示词让游戏内 agent Savi 修改游戏世界，被视为自主 agent 在前沿模型上的前沿工程实践。",
+      "id": "radar-0eb0dcd8e7de8d810114",
+      "missing_evidence": [
+        "Jacob Sansbury 原文的技术细节与架构说明",
+        "所谓 Fable-class 模型的具体所指",
+        "可复现的试用记录或性能/延迟数据"
+      ],
+      "observed_at": "2026-10-29T23:34:00.009809Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-e65fcafff408f8083fa1",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
+        }
+      ],
+      "uncertainty": "来自 Simon Willison 对他人文章的二手转述，摘录被截断；其本人仅简短试用，缺乏系统性验证。",
+      "why_notable": "展示了一种新的 agent 使用形态：玩家通过自然语言驱动游戏世界状态变更，对理解 agent 在实时多人环境中的能力边界有参考价值。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2691,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 3,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 11,
+    "ai_brief_recovery_attempts": 0,
+    "ai_brief_recovery_budget_exhausted": true,
+    "ai_brief_recovery_successes": 0,
+    "ai_brief_story_inputs": 11,
+    "ai_classify_completion_tokens": 1422,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 5935,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 16456,
+    "ai_direction_fallback": true,
+    "ai_direction_fallback_reason": "AI daily input character limit exceeded",
+    "ai_evaluate_editorial_completion_tokens": 1065,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9180,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 117050,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 4056,
+    "ai_merge_story_finish_stop": 12,
+    "ai_merge_story_prompt_tokens": 11593,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 61266,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 1150,
+    "ai_resolve_research_cases_completion_tokens": 1978,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2667,
+    "ai_resolve_research_cases_reasoning_tokens": 1150,
+    "ai_score_story_completion_tokens": 2141,
+    "ai_score_story_finish_stop": 12,
+    "ai_score_story_prompt_tokens": 13641,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 2,
+    "ai_write_brief_completion_tokens": 5794,
+    "ai_write_brief_finish_stop": 4,
+    "ai_write_brief_prompt_tokens": 18250,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 16456,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 18,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 2,
+    "dry_run": false,
+    "editorial_decisions": 12,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 151,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 29,
+    "logical_ai_tasks": 29,
+    "main_brief_items": 11,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 31,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 61266,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 3,
+    "radar_signals_displayed": 2,
+    "radar_signals_generated": 3,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 1,
+    "reasoning_tokens": 1150,
+    "recent_24h": 100,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 18,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 18,
+    "research_cases": 4,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 6501,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 2,
+    "research_unknown_cases": 0,
+    "research_unresolved": 1,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 2,
+    "stories": 12,
+    "story_candidate_input": 14,
+    "structured_watches_opened": 0,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 11,
+    "total_displayed_items": 11,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-9a5880143b58c61eaad7",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.com/huggingface/transformers/releases/tag/v5.22.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该发布说明同时覆盖模型能力介绍与 transformers 库自身的工程变更（FP8 训练支持、EP 逻辑拆分、CI 镜像调整），因此这条发布既是模型发布信号，也是库版本更新信号。",
+            "发布说明将 FP8 反向传播的内存优化定位为适配器训练可行性的关键突破，这表明在量化权重之上进行微调是该版本的主要工程方向。"
+          ],
+          "canonical_title": "huggingface/transformers v5.22.0 发布，新增 Mistral Large 4（Le Chonk）模型支持",
+          "category": "ai_models",
+          "entity_names": [
+            "huggingface",
+            "transformers",
+            "Mistral",
+            "Mistral AI",
+            "NVIDIA"
+          ],
+          "facts": [
+            "huggingface/transformers 发布 v5.22.0，新增对 Mistral Large 4（Le Chonk）模型的支持。",
+            "根据发布说明，Mistral Large 4 是 Mistral 迄今规模最大、能力最强的模型：总参数约 1 万亿，为原生多模态 Mixture-of-Experts 模型，每 token 激活参数约 490 亿（含嵌入和输出层为 520 亿）。",
+            "发布说明称，该模型从零训练于 Mistral 在欧洲自有数据中心的 3800 块 NVIDIA Grace Blackwell GPU 上。",
+            "发布说明称，Mistral Large 4 采用 128 个路由专家（每 token 激活 4 个）加 1 个共享专家的 MoE 结构，上下文长度为 1M，支持文本与图像输入、文本输出。",
+            "发布说明称，该模型支持可配置的推理强度（low/medium/high，默认 high）、原生函数调用、JSON 输出与严格的 JSON schema 约束，并原生支持 160 多种语言，包括欧盟全部官方语言。",
+            "发布说明称，该模型以 Mistral Ecosystem Open-Weight License 发布，该许可证是 MIT 许可证的修改版，允许商业和非商业使用；以模型即服务方式运营需要与 Mistral 单独签订商业许可。",
+            "v5.22.0 的破坏性变更为将 EP 逻辑拆分至独立文件（#49679）。",
+            "该版本量化相关更新包括：支持在 FP8 量化模型上进行适配器训练（如 PEFT 的 LoRA）（#50031），以及在稠密与分组 FP8 矩阵乘法中加入反向传播；发布说明称在 8k token 下 MoE 层反向传播的峰值内存从约 28.9 GiB 降至 2.8 GiB（#50117）。",
+            "该版本的另一项更新为在 AMD CI 镜像中安装 onnxscript、bitsandbytes 和 peft。"
+          ],
+          "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.22.0",
+          "product_names": [
+            "Mistral Large 4",
+            "Le Chonk",
+            "Mistral-Large-4-1T-A52B",
+            "transformers v5.22.0",
+            "NVIDIA Grace Blackwell"
+          ],
+          "published_at": "2026-10-29T14:15:39Z",
+          "source_refs": [
+            {
+              "author": "LysandreJik",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T14:15:39Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-128755116b8b9c05fe32",
+              "source_date": null,
+              "source_name": "GitHub · huggingface/transformers",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "huggingface/transformers: v5.22.0: Mistral Large 4 (Le Chonk)",
+              "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-f13ff1ec4b41d4170099",
+          "topic_names": [
+            "ai_models",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "发布说明中的性能表述（如“超越前沿闭源模型的视觉定位能力”“开放权重模型中的最先进水平”）来自 Mistral 与发布说明作者，本文未提供独立基准或第三方评测结果加以验证。",
+            "Mistral Large 4 的实际可用性、托管渠道与定价未在输入中说明。",
+            "发布说明中“3800 块 GPU 训练”“1M 上下文”等具体指标仅来自单一官方来源，尚无其他来源交叉印证。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f13ff1ec4b41d4170099"
+      ],
+      "title": "huggingface/transformers v5.22.0 发布，新增 Mistral Large 4（Le Chonk）模型支持",
+      "uncertainty": "发布说明中的性能表述（如“超越前沿闭源模型的视觉定位能力”“开放权重模型中的最先进水平”）来自 Mistral 与发布说明作者，本文未提供独立基准或第三方评测结果加以验证。",
+      "what_happened": "huggingface/transformers 发布 v5.22.0，新增对 Mistral Large 4（Le Chonk）模型的支持。",
+      "why_it_matters": "该发布说明同时覆盖模型能力介绍与 transformers 库自身的工程变更（FP8 训练支持、EP 逻辑拆分、CI 镜像调整），因此这条发布既是模型发布信号，也是库版本更新信号。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-f7aad0a0c7ba97380caf",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/how-we-detect-frontier-model-misalignment"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文章聚焦模型部署后的持续监控与响应机制，而非单一模型的发布或能力评测。"
+          ],
+          "canonical_title": "OpenAI 介绍其检测前沿模型失配的分层监控方法",
+          "category": "ai_models",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 发布文章《How we detect frontier model misalignment》。",
+            "OpenAI 表示其使用分层监控来检测前沿模型失配和未授权的代理行为，以便响应人员在事件升级前进行干预。"
+          ],
+          "primary_source_url": "https://openai.com/index/how-we-detect-frontier-model-misalignment",
+          "product_names": [],
+          "published_at": "2026-10-29T09:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T09:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-0f01adb2acab0a67ba71",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "How we detect frontier model misalignment",
+              "url": "https://openai.com/index/how-we-detect-frontier-model-misalignment"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-c13c1e6bb3a6bd3f266c",
+          "topic_names": [
+            "前沿模型失配检测",
+            "未授权代理行为监控",
+            "AI 安全监控"
+          ],
+          "uncertainties": [
+            "输入未说明分层监控的具体技术组成、覆盖的模型范围或已触发干预的实际案例。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-c13c1e6bb3a6bd3f266c"
+      ],
+      "title": "OpenAI 介绍其检测前沿模型失配的分层监控方法",
+      "uncertainty": "输入未说明分层监控的具体技术组成、覆盖的模型范围或已触发干预的实际案例。",
+      "what_happened": "OpenAI 发布文章《How we detect frontier model misalignment》。",
+      "why_it_matters": "该文章聚焦模型部署后的持续监控与响应机制，而非单一模型的发布或能力评测。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-86619151431efcf0bedd",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/updated-model-spec"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "Model Spec 属于规范人类意图与模型行为边界的基础性文档，此次更新以五项核心价值为框架，反映 OpenAI 在模型能力提升的同时强化对齐与治理表述。"
+          ],
+          "canonical_title": "OpenAI 发布更新版 Model Spec，提出五项核心价值",
+          "category": "AI 模型与治理",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 发布了更新版 Model Spec。",
+            "OpenAI 表示，该更新版 Model Spec 概述了五项核心价值，用于引导能力更强的 AI 走向合理判断、尊重人类能动性，并忠实于人类意图。"
+          ],
+          "primary_source_url": "https://openai.com/index/updated-model-spec",
+          "product_names": [
+            "Model Spec"
+          ],
+          "published_at": "2026-10-29T17:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-10-29T23:34:00.009809Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-10-29T17:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-9349f418e7bc7ab45091",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "An updated Model Spec for more capable and beneficial AI",
+              "url": "https://openai.com/index/updated-model-spec"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-9ed12388d65f74d3923c",
+          "topic_names": [
+            "AI 模型",
+            "AI 治理",
+            "AI 对齐"
+          ],
+          "uncertainties": [
+            "更新版 Model Spec 的具体条款变更内容与五项核心价值的具体表述未在现有摘要中展开。",
+            "该更新对模型实际行为与产品的影响尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-9ed12388d65f74d3923c"
+      ],
+      "title": "OpenAI 发布更新版 Model Spec，提出五项核心价值",
+      "uncertainty": "更新版 Model Spec 的具体条款变更内容与五项核心价值的具体表述未在现有摘要中展开。",
+      "what_happened": "OpenAI 发布了更新版 Model Spec。",
+      "why_it_matters": "Model Spec 属于规范人类意图与模型行为边界的基础性文档，此次更新以五项核心价值为框架，反映 OpenAI 在模型能力提升的同时强化对齐与治理表述。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": []
+}

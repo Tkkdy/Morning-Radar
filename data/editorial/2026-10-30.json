@@ -1,0 +1,161 @@
+{
+  "date": "2026-10-30",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方发布可确认，模型能力与训练指标仍属厂商声明，但开源权重许可与 FP8 训练工程变更具备实际采用与复现价值。",
+      "retain_for_trends": true,
+      "story_id": "story-f13ff1ec4b41d4170099",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weight-frontier-model-release",
+        "fp8-quantized-finetuning-memory",
+        "european-sovereign-training-infrastructure"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅确认官方更新文档与五项价值框架，具体条款未披露，对开发实践无直接变化。",
+      "retain_for_trends": false,
+      "story_id": "story-9ed12388d65f74d3923c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "部署后分层监控是前沿模型安全机制的弱信号，但无具体技术组成或干预案例。",
+      "retain_for_trends": true,
+      "story_id": "story-c13c1e6bb3a6bd3f266c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-deployment-monitoring",
+        "agent-behavior-audit-mechanisms"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "双向企业集成方向值得记录为 Agent 进入企业工作流的合作信号，但无时间表与数据边界。",
+      "retain_for_trends": true,
+      "story_id": "story-4e7bdfd0da7f046cbf22",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-workflow-agent-integration",
+        "chatgpt-codex-workflow-interop"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方客户案例叙述，无产品细节、性能数据或独立验证，宣传性强。",
+      "retain_for_trends": false,
+      "story_id": "story-8ba15e2c5ff23e848e85",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "未验证的社区线索，但涉及 Coding Agent 数据流与隐私边界，值得后台观察待官方回应。",
+      "retain_for_trends": true,
+      "story_id": "story-ad7f2b3296b8e4081425",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-transcript-data-flow",
+        "agent-privacy-observability"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "面向普通用户的办公文件编辑扩展，对开发者工作流影响有限且细节被截断。",
+      "retain_for_trends": false,
+      "story_id": "story-a771a23cca6da87e0211",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "可提示适配的多语言转录是实际可用工具方向，但输入正文为空，缺少参数与获取方式。",
+      "retain_for_trends": true,
+      "story_id": "story-1b8c74bf0a9f341039c3",
+      "support_for_story_id": null,
+      "trend_links": [
+        "promptable-multilingual-transcription",
+        "nvidia-speech-model-release"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 1,
+      "reason": "标题指向以软件更新方式迭代模型，是版本管理机制信号，但缺乏具体内容支撑更高位置。",
+      "retain_for_trends": true,
+      "story_id": "story-85122af3cb8164763cc5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-versioning-as-software-update"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "面向科研开发者的技术博客，无性能数据与基准方法，对广泛开发者影响有限。",
+      "retain_for_trends": false,
+      "story_id": "story-2d370d1ddb68ada69a7e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "例行的 IP 段更新与白名单维护，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-3eb9d220fe1fb549ad92",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "inference",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "观点性文章，无产品、数据或可验证论据，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-f63a80def78482f77a0c",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-29T23:34:47.912300Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

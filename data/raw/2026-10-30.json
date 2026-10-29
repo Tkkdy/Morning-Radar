@@ -7,6 +7,7 @@
     "id": "item-9349f418e7bc7ab45091",
     "language": "en-US",
     "metadata": {
+      "content_version": "aee78e5df6feecf580e1",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-2746f11e7a8ea5235917",
     "language": "en-US",
     "metadata": {
+      "content_version": "a5971a5f0b44f016aaf5",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-e508e29ae812fe586e8d",
     "language": "en-US",
     "metadata": {
+      "content_version": "57a3d401c3a22ac9d099",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-c37d4b7dab3a156e6535",
     "language": null,
     "metadata": {
+      "content_version": "36153abbb3ac91c586f2",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-b35042356bf7a80acb00",
     "language": "en-US",
     "metadata": {
+      "content_version": "11a3e54eb2a882f77628",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -218,6 +223,7 @@
     "id": "item-4aa6b4f10322be2ed130",
     "language": "en-US",
     "metadata": {
+      "content_version": "d73f24156facbd5f6c67",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +285,7 @@
     "id": "item-88899755dba00e8dcefc",
     "language": "en-us",
     "metadata": {
+      "content_version": "03d73db63df6180c8ada",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -341,6 +348,7 @@
     "id": "item-0f01adb2acab0a67ba71",
     "language": "en-US",
     "metadata": {
+      "content_version": "a162c07712c013230d4f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -613,6 +621,7 @@
     "id": "item-e65fcafff408f8083fa1",
     "language": "en-us",
     "metadata": {
+      "content_version": "741c7574b53db7a4e6e7",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1009,6 +1018,7 @@
     "id": "item-a395c7da350b5086cc15",
     "language": "en-US",
     "metadata": {
+      "content_version": "8f6fd6a065c9eefe9037",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1343,6 +1353,7 @@
     "id": "item-e2ed7680c50ae3f074e0",
     "language": "en-US",
     "metadata": {
+      "content_version": "9f30560c952ce579a64a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1433,6 +1444,7 @@
     "id": "item-ec733f799e1aaee3d1ac",
     "language": "en-US",
     "metadata": {
+      "content_version": "dac927e40df730b5c01a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1677,6 +1689,7 @@
     "id": "item-709cc8e2bd467b791689",
     "language": "en-US",
     "metadata": {
+      "content_version": "0bb58cbe9d8d8d0fb73d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -76961,6 +76974,7 @@
     "id": "item-128755116b8b9c05fe32",
     "language": "en",
     "metadata": {
+      "content_version": "5835d1ab09d88042c5ff",
       "data_anomaly": false,
       "forks": 35029,
       "official": true,
@@ -78903,6 +78917,7 @@
     "metadata": {
       "comments": 408,
       "community_signal": true,
+      "content_version": "f1765f6267c0b6de4c88",
       "discussion_url": "https://news.ycombinator.com/item?id=50294702",
       "official": false,
       "original_url": "https://www.nytimes.com/2026/10/29/arts/television/patrick-stewart-dead.html",
@@ -79323,11 +79338,20 @@
     "metadata": {
       "comments": 224,
       "community_signal": true,
+      "content_version": "bd011a1a4082949a0fe7",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50284255",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
       "score": 558,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79687,6 +79711,7 @@
     "metadata": {
       "change_percent": -0.0022760215351937765,
       "close": 403.29998779296875,
+      "content_version": "98ac135c43097ae4b99e",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 404.2200012207031,
@@ -82501,38 +82526,6 @@
     "title": "Point system Claude uses to ban accounts",
     "topic_candidates": [],
     "url": "https://twitter.com/make_claude/status/2115501814090969583"
-  },
-  {
-    "author": "NikZaal",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-29T23:34:00.009809Z",
-    "id": "item-623346e07f2b63477122",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50284255",
-      "hn_submission_time": 1793244822,
-      "lab_id": "anthropic",
-      "original_url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-29T03:33:42Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Code regularly sends each background agent’s transcript to its model",
-    "topic_candidates": [],
-    "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce"
   },
   {
     "author": "rzk",

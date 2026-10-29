@@ -1,0 +1,134 @@
+[
+  {
+    "claim": "OpenAI 为 100/200/500 美元档 ChatGPT 订阅用户提供与订阅费用等额的 API credits，形式与 Anthropic 近期面向 Max/Team 订阅的类似权益基本一致。",
+    "id": "radar-07515bd5617f5e880fa2",
+    "missing_evidence": [
+      "OpenAI 官方公告或定价页面",
+      "credits 的具体适用条件、有效期与是否限新订阅",
+      "Anthropic 侧政策的官方原文对照"
+    ],
+    "observed_at": "2026-10-29T23:34:00.009809Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-88899755dba00e8dcefc",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/29/api-credits/"
+      }
+    ],
+    "uncertainty": "仅有 Simon Willison 的博客摘录且内容被截断，未获取 OpenAI 官方页面；具体条款与生效范围尚不明确。",
+    "why_notable": "若属实，订阅与 API 消费之间的边界进一步打通，可能影响开发者选择订阅档位与 API 预算的方式，也显示 OpenAI 与 Anthropic 在订阅权益上的直接竞争。"
+  },
+  {
+    "claim": "Spawn 是一个多人在线游戏环境，玩家可用提示词让游戏内 agent Savi 修改游戏世界，被视为自主 agent 在前沿模型上的前沿工程实践。",
+    "id": "radar-0eb0dcd8e7de8d810114",
+    "missing_evidence": [
+      "Jacob Sansbury 原文的技术细节与架构说明",
+      "所谓 Fable-class 模型的具体所指",
+      "可复现的试用记录或性能/延迟数据"
+    ],
+    "observed_at": "2026-10-29T23:34:00.009809Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-e65fcafff408f8083fa1",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/29/how-i-built-the-most-ai-pilled-company-in-the-world/"
+      }
+    ],
+    "uncertainty": "来自 Simon Willison 对他人文章的二手转述，摘录被截断；其本人仅简短试用，缺乏系统性验证。",
+    "why_notable": "展示了一种新的 agent 使用形态：玩家通过自然语言驱动游戏世界状态变更，对理解 agent 在实时多人环境中的能力边界有参考价值。"
+  },
+  {
+    "claim": "Claude Code 会定期将每个后台 agent 的对话记录（transcript）发送给其模型。",
+    "id": "radar-18ad31bf47f464509c8f",
+    "missing_evidence": [
+      "该 gist 的正文内容与具体观察方法",
+      "Anthropic 官方文档或说明",
+      "可复现的抓包/日志证据及触发频率、数据范围"
+    ],
+    "observed_at": "2026-10-29T23:34:00.009809Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-623346e07f2b63477122",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce"
+      }
+    ],
+    "uncertainty": "线索内容缺失，仅有标题级陈述，无法判断上下文、发送频率与适用范围，需原始 gist 与官方说明验证。",
+    "why_notable": "若属实，意味着后台 agent 的上下文会被持续回传至模型，涉及 coding agent 的数据处理范围、隐私与 token 成本，对开发者选择后台 agent 工作流有实际影响。"
+  }
+]
