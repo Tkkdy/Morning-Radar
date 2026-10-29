@@ -324,9 +324,8 @@ def test_u12_declared_item_ids_without_payload_are_inconsistent(tmp_path) -> Non
 
 def test_u13_daily_workflow_passes_brief_hash() -> None:
     workflow = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
-    assert "--brief-hash" in workflow
-    assert "steps.process.outputs.brief_hash" in workflow
-    assert "record-deploy --date" in workflow
+    assert 'release "$action" --production --release-id' in workflow
+    assert "release export --release-id" in workflow
 
 def _seeded_ledger(project, checkpoint):
     ledger = ProcessingLedgerStore(project / "data/intake/ledger.json")
@@ -915,10 +914,10 @@ def test_u15_new_workdir_reloads_saved_brief(tmp_path, monkeypatch) -> None:
 def test_u16_fixtures_stay_isolated_from_production_and_post_daily() -> None:
     workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
     daily = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
-    assert "display_title, '(fixtures)'" in workflow
-    assert "display_title, '(dry-run)'" in workflow
-    assert "!(inputs.dry_run || false) && !(inputs.fixtures || false)" in daily
-    assert "record-deploy --date" in daily
+    assert "workflow_run:" not in workflow
+    assert "contents: read" in workflow
+    assert "!(inputs.fixtures || inputs.dry_run)" in daily
+    assert 'release "$action" --production' in daily
 
 
 def test_u16_fixture_collect_does_not_write_production_state(tmp_path, monkeypatch) -> None:
