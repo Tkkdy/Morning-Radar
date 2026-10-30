@@ -97,6 +97,7 @@
     "id": "item-037154e824aaff256e14",
     "language": "en-US",
     "metadata": {
+      "content_version": "99a8342e30756dd10230",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +129,7 @@
     "id": "item-869014b81cc7bf413692",
     "language": null,
     "metadata": {
+      "content_version": "df97a116efa2b85821b7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +190,7 @@
     "id": "item-bdbd23b4babdea0e86db",
     "language": "en-US",
     "metadata": {
+      "content_version": "1c2bf55574b40f2db9aa",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +282,7 @@
     "id": "item-54f20f9f7f25bd156a2f",
     "language": "en-us",
     "metadata": {
+      "content_version": "2298b4e98c5c9c276a77",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -341,6 +345,7 @@
     "id": "item-a86d24c59c826150d16d",
     "language": "en-US",
     "metadata": {
+      "content_version": "d8dbc4bf7b47b8f399fa",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +467,7 @@
     "id": "item-cfb4189f31938d74a87f",
     "language": null,
     "metadata": {
+      "content_version": "96ebd7018f36deb4b558",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -765,6 +771,7 @@
     "id": "item-718617961cab3abcc8e8",
     "language": "en-US",
     "metadata": {
+      "content_version": "4de103f5242e25a4ed21",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -796,6 +803,7 @@
     "id": "item-b0afceb347e7b188bf46",
     "language": null,
     "metadata": {
+      "content_version": "03cce39e8f3e9b5556d1",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1099,6 +1107,7 @@
     "id": "item-b6b30743068c26272d89",
     "language": "en-US",
     "metadata": {
+      "content_version": "83f6b529c11d596504dd",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1130,6 +1139,7 @@
     "id": "item-457063de4ee2957a09d5",
     "language": null,
     "metadata": {
+      "content_version": "b89c75ee02bd297ceebb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1433,6 +1443,7 @@
     "id": "item-6394645bd5105adc5435",
     "language": "en-US",
     "metadata": {
+      "content_version": "06f6ebf8588132a4d61b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1677,6 +1688,7 @@
     "id": "item-d948735545c20cf30721",
     "language": "en-US",
     "metadata": {
+      "content_version": "4d4d2feaa8130c014a84",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -77081,6 +77093,7 @@
     "id": "item-75a20b079e3b9559a8e8",
     "language": "en",
     "metadata": {
+      "content_version": "b820ec3a4ad42fbd9d89",
       "data_anomaly": false,
       "forks": 35051,
       "official": true,
@@ -79113,11 +79126,20 @@
     "metadata": {
       "comments": 440,
       "community_signal": true,
+      "content_version": "f6f5ad055cad903336bd",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50300683",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
       "score": 704,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79293,11 +79315,19 @@
     "metadata": {
       "comments": 17,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50302334",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://cyberplace.social/@GossiTheDog/117528831681803563",
       "score": 651,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79353,6 +79383,7 @@
     "metadata": {
       "comments": 467,
       "community_signal": true,
+      "content_version": "c1b282dd14d067aba4b3",
       "discussion_url": "https://news.ycombinator.com/item?id=50302814",
       "official": false,
       "original_url": "https://progressives.house.gov/2026/10/reps-casar-waters-lead-democratic-resolution-opposing-a-i-bubble-bailout-for-big-tech-commit-to-protecting-american-people-instead",
@@ -79735,6 +79766,7 @@
     "metadata": {
       "change_percent": -0.012266770039192403,
       "close": 344.6300048828125,
+      "content_version": "22fef6b7087527fe3545",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 348.9100036621094,
@@ -82044,38 +82076,6 @@
     "url": "https://github.com/vanmiku/mydash"
   },
   {
-    "author": "dsr_",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-10-30T23:11:01.793987Z",
-    "id": "item-0b47f34ad8ed62f569f9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50302334",
-      "hn_submission_time": 1793358353,
-      "lab_id": "anthropic",
-      "original_url": "https://cyberplace.social/@GossiTheDog/117528831681803563",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-30T11:05:53Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Backdoors in official Claude Code extensions",
-    "topic_candidates": [],
-    "url": "https://cyberplace.social/@GossiTheDog/117528831681803563"
-  },
-  {
     "author": "Dodaios",
     "company_candidates": [],
     "content_excerpt": "",
@@ -82116,6 +82116,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "d1affd545e3ad298018d",
       "discovery_paths": [
         "hn_search:anthropic:Claude"
       ],
@@ -82202,38 +82203,6 @@
     "title": "Malicious Claude Code Extension Found in Cursor Marketplace",
     "topic_candidates": [],
     "url": "https://cursor.com/blog/claude-code-extension-security-notice"
-  },
-  {
-    "author": "_chall",
-    "company_candidates": [],
-    "content_excerpt": "https://cursor.com/blog/claude-code-extension-security-notic...",
-    "fetched_at": "2026-10-30T23:11:01.793987Z",
-    "id": "item-5b27bfa071191728b4e0",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50300683",
-      "hn_submission_time": 1793344152,
-      "lab_id": "anthropic",
-      "original_url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-30T07:09:12Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "https://cursor.com/blog/claude-code-extension-security-notic...",
-    "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
-    "topic_candidates": [],
-    "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
   },
   {
     "author": "elffjs",

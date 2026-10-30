@@ -1,0 +1,107 @@
+[
+  {
+    "created_at": "2026-10-30T23:11:42.601998Z",
+    "explanation": "open_source_ai 连续 3 天保持或增加事件量，且有 8 个来源支持。",
+    "id": "signal-e61ed3cfd6c63bb1d937",
+    "metric_history": [
+      {
+        "date": "2026-10-29",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-30",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-31",
+        "story_count": 4
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 13,
+    "supporting_source_count": 8,
+    "supporting_story_ids": [
+      "story-b9dd27076909da7dfef8",
+      "story-8a6c71ec6476e1c8b84b",
+      "story-f13ff1ec4b41d4170099",
+      "story-85122af3cb8164763cc5",
+      "story-1ede1d9d7c6cd0f0ff7c",
+      "story-be01f73b8f033993bacb",
+      "story-7617518fd1e461740297",
+      "story-fee486785eb88ce2d22e"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-10-30T23:11:42.601998Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-30T23:11:42.601998Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 11 个来源支持。",
+    "id": "signal-2981f33036c2c9a4b0d9",
+    "metric_history": [
+      {
+        "date": "2026-10-29",
+        "story_count": 2
+      },
+      {
+        "date": "2026-10-30",
+        "story_count": 3
+      },
+      {
+        "date": "2026-10-31",
+        "story_count": 6
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 21,
+    "supporting_source_count": 11,
+    "supporting_story_ids": [
+      "story-5b5bedde2aab205ce694",
+      "story-8da33c5e9cb6b35cf3d4",
+      "story-f13ff1ec4b41d4170099",
+      "story-8ba15e2c5ff23e848e85",
+      "story-85122af3cb8164763cc5",
+      "story-1ede1d9d7c6cd0f0ff7c",
+      "story-1b9fc9a42e771cdc2a62",
+      "story-edd8e1cc7eeec301bad4",
+      "story-96fed5c802901d9c4f59",
+      "story-7617518fd1e461740297",
+      "story-fee486785eb88ce2d22e"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-10-30T23:11:42.601998Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-10-30T23:11:42.601998Z",
+    "explanation": "NVIDIA 最近交易日变动 -4.2%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-e01024e5f96429504437",
+    "metric_history": [
+      {
+        "change_percent": -0.042216625095287084,
+        "trading_date": "2026-10-30"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.7036104182547848,
+    "supporting_company_count": 6,
+    "supporting_source_count": 5,
+    "supporting_story_ids": [
+      "story-1b9fc9a42e771cdc2a62",
+      "story-edd8e1cc7eeec301bad4",
+      "story-a9a3f4c17292646e18b4",
+      "story-96fed5c802901d9c4f59",
+      "story-7617518fd1e461740297"
+    ],
+    "topic": "NVIDIA",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z",
+    "window_days": 1
+  }
+]

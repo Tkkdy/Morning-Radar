@@ -1,0 +1,88 @@
+{
+  "date": "2026-10-31",
+  "generated_at": "2026-10-30T23:11:42.601998Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "transformers 从“huggingface/transformers v5.22.0 发布，新增 Mistral Large 4（Le Chonk）模型支持”推进到“Hugging Face Transformers 发布补丁版本 v5.22.1，仅修复文档”。",
+      "current_story": {
+        "date": "2026-10-31",
+        "story_id": "story-fee486785eb88ce2d22e"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-30",
+            "story_id": "story-f13ff1ec4b41d4170099"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-10-31",
+            "story_id": "story-fee486785eb88ce2d22e"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-10-30",
+        "story_id": "story-f13ff1ec4b41d4170099"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-10-30T23:11:42.601998Z",
+      "relation_id": "relation-d02e35e21354ea57096d",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否公布该边缘 AI 方案所支持的具体模型、硬件平台与命令细节，以及是否有第三方开发者实测反馈。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-10-30T23:11:42.601998Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-31",
+          "story_id": "story-96fed5c802901d9c4f59"
+        }
+      ],
+      "topic_anchors": [
+        "edge AI",
+        "ai_models"
+      ],
+      "watch_id": "watch-a8279ca72d4a67077021"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否更新 GPUDirect Storage 的官方支持平台清单与版本要求，以及是否出现本地与云环境的性能对比数据。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPUDirect Storage",
+        "GDS"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-10-30T23:11:42.601998Z",
+      "source_story_refs": [
+        {
+          "date": "2026-10-31",
+          "story_id": "story-a9a3f4c17292646e18b4"
+        }
+      ],
+      "topic_anchors": [
+        "GPU 存储访问"
+      ],
+      "watch_id": "watch-5634875a6abf0ca25a89"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "date": "2026-10-31",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "同一后门指控的另一篇报道，开发者需了解但尚无一手验证，作为供应链风险的待验证信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-396c0a2e66a8bc8582ea",
+      "support_for_story_id": null,
+      "trend_links": [
+        "extension-marketplace-supply-chain-risk"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 4,
+      "reason": "HN 高热度且直接关系开发者笔记本安全，但目前仍属未核实指控，值得展开并保留为供应链趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-abe449ce6661489fee41",
+      "support_for_story_id": null,
+      "trend_links": [
+        "extension-marketplace-supply-chain-risk",
+        "coding-agent-toolchain-trust"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "可确认官方发布动作，但缺参数、许可与权重信息，只能作为发布节奏的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-1ede1d9d7c6cd0f0ff7c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weight-release-cadence"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认发布 NemoClaw 但细节缺失，作为厂商自控 Agent 运行时方向的弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-edd8e1cc7eeec301bad4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-controlled-agent-runtime"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅确认项目启动公告，无细节可评估，缺乏可命名趋势机制。",
+      "retain_for_trends": false,
+      "story_id": "story-be01f73b8f033993bacb",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方配置指南类内容，无结构性变化，一句带过即可。",
+      "retain_for_trends": false,
+      "story_id": "story-1b9fc9a42e771cdc2a62",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅标题无正文，模型规格与许可证均无法确认，只宜一句提及。",
+      "retain_for_trends": false,
+      "story_id": "story-d8b41499eae34f9e4441",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "法律行业应用案例，对开发者工作流影响有限，一句即可。",
+      "retain_for_trends": false,
+      "story_id": "story-1a445a291e80b5097b65",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规配置指导，无结构意义，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-a9a3f4c17292646e18b4",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "宣传性边缘部署指南，缺具体命令与硬件要求，无保留价值。",
+      "retain_for_trends": false,
+      "story_id": "story-96fed5c802901d9c4f59",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "标题为节日主题博客，无实质信息，属装饰性内容。",
+      "retain_for_trends": false,
+      "story_id": "story-7617518fd1e461740297",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅修复文档的补丁发布，普通维护，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-fee486785eb88ce2d22e",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-30T23:11:42.601998Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

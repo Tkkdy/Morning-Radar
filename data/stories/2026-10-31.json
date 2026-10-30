@@ -1,0 +1,766 @@
+[
+  {
+    "analysis": [
+      "该条目标记为社区发现和未经核实的线索，没有提供可验证的一手证据或官方公告。",
+      "标题主要讨论的是 Cursor 市场上分发的 Claude Code VS Code 扩展，而不是 Anthropic 官方渠道；扩展的来源和签名情况尚未确认。"
+    ],
+    "canonical_title": "有指控称：Cursor 市场上发布的 Claude Code VS Code 扩展被植入后门，并通过该扩展投放远程访问木马",
+    "category": "安全事件",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Anthropic",
+      "Claude Code",
+      "Cursor",
+      "VS Code"
+    ],
+    "facts": [],
+    "id": "story-396c0a2e66a8bc8582ea",
+    "importance_score": 0.85,
+    "novelty_score": 0.75,
+    "primary_source_url": "https://doublepulsar.com/anthropic-hacked-to-deliver-remote-access-trojan-to-claude-developer-laptops-worldwide-1148a92baae2",
+    "product_names": [
+      "Claude Code VS Code extension",
+      "Cursor marketplace"
+    ],
+    "published_at": "2026-10-30T10:22:51Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-aad6aca4e7b384d79087"
+    ],
+    "source_refs": [
+      {
+        "author": "bashtoni",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50301983",
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T10:22:51Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-aad6aca4e7b384d79087",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude Code VS Code extension with backdoor released on Cursor marketplace",
+        "url": "https://doublepulsar.com/anthropic-hacked-to-deliver-remote-access-trojan-to-claude-developer-laptops-worldwide-1148a92baae2"
+      }
+    ],
+    "source_urls": [
+      "https://doublepulsar.com/anthropic-hacked-to-deliver-remote-access-trojan-to-claude-developer-laptops-worldwide-1148a92baae2",
+      "https://news.ycombinator.com/item?id=50301983"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "后门",
+      "远程访问木马",
+      "供应链攻击",
+      "第三方市场分发"
+    ],
+    "uncertainties": [
+      "Claude Code VS Code 扩展是否确实包含后门或远程访问木马，目前无法确认。",
+      "Cursor 市场上该扩展的发布者是否为 Anthropic 官方，尚不清楚。",
+      "事件的影响范围、受影响的开发者数量以及具体攻击链尚不明确。",
+      "原始文章和 Hacker News 讨论中可能包含更多细节，但当前输入中没有摘录。",
+      "Anthropic、Cursor、微软是否已发布官方声明或安全公告，尚未确认。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该条目仅确认了官方发布渠道与标题信息，未包含模型参数、许可协议、基准测试或开放权重等具体细节，因此目前只能确认发布动作本身，无法评估模型能力或开放性。",
+      "选择在 Hugging Face 发布博客，可能意味着模型通过 Hugging Face 分发或与其平台集成，但输入未提供具体托管形式。"
+    ],
+    "canonical_title": "Mistral 在 Hugging Face 发布 Mistral Large 4",
+    "category": "模型发布",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Mistral",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客于 2026-10-29 发布了一篇题为《Welcome Le Chonk: Mistral Large 4 on Hugging Face》的文章。",
+      "该文章来源标记为 Hugging Face Blog，来源角色为 official_primary，属官方公告性质。"
+    ],
+    "id": "story-1ede1d9d7c6cd0f0ff7c",
+    "importance_score": 0.62,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/mistral-large4",
+    "product_names": [
+      "Mistral Large 4"
+    ],
+    "published_at": "2026-10-29T00:00:00Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-b6b30743068c26272d89"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-29T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b6b30743068c26272d89",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Welcome Le Chonk: Mistral Large 4 on Hugging Face",
+        "url": "https://huggingface.co/blog/mistral-large4"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/mistral-large4"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "Mistral Large 4 是否为开放权重模型、采用何种许可证，输入未说明。",
+      "模型的具体参数规模、上下文长度、基准表现与定价均无信息。",
+      "标题中的“Le Chonk”与模型的关系（昵称、版本代号或其他）不明确。",
+      "输入未提供正文内容，博客中可能包含的发布日期细节、可用区域与访问方式均无法核实。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 社区发现（得分 704、评论 440），属于社区讨论信号，本身不是官方事实陈述。",
+      "摘要指向 Phorion 博客文章和一个 cursor.com 博客安全通知链接，但正文片段被截断，无法确认具体技术细节、影响版本或处置措施。"
+    ],
+    "canonical_title": "Cursor Marketplace 上的 Claude Code VS Code 扩展被指存在后门",
+    "category": "security",
+    "credibility_score": 0.32,
+    "entity_names": [
+      "Anthropic",
+      "Claude Code",
+      "Cursor",
+      "VS Code",
+      "Phorion"
+    ],
+    "facts": [],
+    "id": "story-abe449ce6661489fee41",
+    "importance_score": 0.74,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+    "product_names": [
+      "Claude Code for VS Code",
+      "Cursor Marketplace"
+    ],
+    "published_at": "2026-10-30T07:09:12Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-5b27bfa071191728b4e0"
+    ],
+    "source_refs": [
+      {
+        "author": "_chall",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50300683",
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T07:09:12Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5b27bfa071191728b4e0",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Backdoor in Claude Code for VS Code extension on the Cursor Marketplace",
+        "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
+      }
+    ],
+    "source_urls": [
+      "https://phorion.io/blog/offical-claude-code-vsx-compromise/",
+      "https://news.ycombinator.com/item?id=50300683"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "供应链安全",
+      "扩展市场安全",
+      "后门指控"
+    ],
+    "uncertainties": [
+      "所指后门是否真实存在，以及具体技术机制尚不明确。",
+      "受影响的扩展版本、安装量与分发渠道范围未知。",
+      "Cursor 安全通知与 Phorion 博客的具体内容因正文截断而无法核实。",
+      "Anthropic 与 Cursor 是否已发布正式声明或修复版本未知。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该文章定位为官方技术指南，目标是帮助团队在 Kubernetes 上构建经过验证的运行时环境，以便将模型配置转化为可用的推理端点。"
+    ],
+    "canonical_title": "NVIDIA 发布面向 NVIDIA Dynamo 的经过验证的 Kubernetes 运行时构建指南",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA Dynamo",
+      "Kubernetes"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇由 Stefan Schimanski 撰写的文章，标题为《Build a Validated Kubernetes Runtime for NVIDIA Dynamo》。",
+      "文章于 2026-10-30T21:35:31Z 发布。",
+      "文章指出，构建 AI 应用的团队需要一条从模型配置到可用推理端点的可重复路径。",
+      "NVIDIA Dynamo 被描述为一种分布式推理系统。"
+    ],
+    "id": "story-1b9fc9a42e771cdc2a62",
+    "importance_score": 0.55,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo/",
+    "product_names": [
+      "NVIDIA Dynamo"
+    ],
+    "published_at": "2026-10-30T21:35:31Z",
+    "relevance_score": 0.75,
+    "source_item_ids": [
+      "item-869014b81cc7bf413692"
+    ],
+    "source_refs": [
+      {
+        "author": "Stefan Schimanski",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T21:35:31Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-869014b81cc7bf413692",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Build a Validated Kubernetes Runtime for NVIDIA Dynamo",
+        "url": "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/build-a-validated-kubernetes-runtime-for-nvidia-dynamo/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入内容仅为文章摘要摘录，未提供 Kubernetes 运行时的具体验证步骤、版本要求或部署细节。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该公告来自 Hugging Face 官方博客（official_primary），属于事实性发布，但输入中未提供项目细节、合作机构、数据集范围或时间表，因此不足以判断其覆盖规模或落地方式。"
+    ],
+    "canonical_title": "Hugging Face 发布 Project ProtoStar：让公共资助科学数据实现 AI 就绪",
+    "category": "open_source_ai",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Hugging Face",
+      "Project ProtoStar"
+    ],
+    "facts": [
+      "Hugging Face Blog 于 2026-10-29 发布公告，宣布启动 Project ProtoStar，目标是让公共资助的科学研究数据实现 AI 就绪（AI-ready）。"
+    ],
+    "id": "story-be01f73b8f033993bacb",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://huggingface.co/blog/announcing-project-protostar",
+    "product_names": [
+      "Project ProtoStar"
+    ],
+    "published_at": "2026-10-29T00:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-718617961cab3abcc8e8"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-29T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-718617961cab3abcc8e8",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+        "url": "https://huggingface.co/blog/announcing-project-protostar"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/announcing-project-protostar"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai",
+      "publicly funded science"
+    ],
+    "uncertainties": [
+      "Project ProtoStar 的具体工作内容、参与机构、数据来源范围、开放许可方式与发布时间表均未在输入中说明。",
+      "公告称项目旨在让公共资助科学数据“AI 就绪”，但该目标的衡量标准与交付物尚不明确。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "文章将 NemoClaw 定位为构建专用 Agent 的、由开发者掌控的技术栈与运行时，强调安全部署所需的前提条件。",
+      "输入内容为官方博客的摘要与节选，未提供 NemoClaw 具体功能、版本、可用时间或价格等细节。"
+    ],
+    "canonical_title": "NVIDIA 发布 NemoClaw，用于在自有可控技术栈上构建专用 Agent",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA NemoClaw"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了题为《Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw》的文章，作者为 Nicola Sessions，发布时间为 2026-10-30T16:00:00Z。",
+      "文章指出，构建自主 Agent 需要模型、harness 和领域专用工具。",
+      "文章指出，为了更安全地部署 Agent，开发者需要一个能够强制执行相关约束的运行时。"
+    ],
+    "id": "story-edd8e1cc7eeec301bad4",
+    "importance_score": 0.5,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/",
+    "product_names": [
+      "NVIDIA NemoClaw"
+    ],
+    "published_at": "2026-10-30T16:00:00Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-b0afceb347e7b188bf46"
+    ],
+    "source_refs": [
+      {
+        "author": "Nicola Sessions",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T16:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b0afceb347e7b188bf46",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Build Specialized Agents on a Stack You Control with NVIDIA NemoClaw",
+        "url": "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/build-specialized-agents-on-a-stack-you-control-with-nvidia-nemoclaw/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "NemoClaw 的具体产品形态、功能范围、可用状态与发布时间均未在输入中说明。",
+      "文章节选内容被截断，'enforces...' 之后的安全机制细节无法确认。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Hugging Face 发布 AnySpeechRecognizer 与 AnyDecisionModel 两款面向 Apple 平台的开放模型",
+    "category": "ai_models",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇题为《Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms》的文章，发布时间为 2026-10-29。",
+      "该文章标题称 AnySpeechRecognizer 与 AnyDecisionModel 是面向 Apple 平台的开放模型，分别涉及语音与决策。"
+    ],
+    "id": "story-d8b41499eae34f9e4441",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://huggingface.co/blog/anydecisionmodel",
+    "product_names": [
+      "AnySpeechRecognizer",
+      "AnyDecisionModel"
+    ],
+    "published_at": "2026-10-29T00:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-6394645bd5105adc5435"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-29T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6394645bd5105adc5435",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing AnySpeechRecognizer and AnyDecisionModel: Open Models for Speech and Decisions on Apple Platforms",
+        "url": "https://huggingface.co/blog/anydecisionmodel"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/anydecisionmodel"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "open source AI",
+      "speech recognition",
+      "decision models",
+      "Apple platforms"
+    ],
+    "uncertainties": [
+      "输入仅为 Hugging Face 官方博客条目的标题，未提供摘要或正文，因此任何模型规格、性能、发布方式、许可证与可用性均无法从输入确认。",
+      "两个模型名称与“Apple Platforms”的支持范围仅来自标题表述，尚无正文细节佐证。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该公告展示了法律行业将生成式 AI 嵌入尽职调查流程的实践方向，强调人工审阅环节的保留。"
+    ],
+    "canonical_title": "Ropes & Gray 与 OpenAI 合作开发交易尽职调查 AI 工具",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Ropes & Gray",
+      "OpenAI"
+    ],
+    "facts": [
+      "Ropes & Gray 正在与 OpenAI 合作开发用于交易尽职调查的 AI 工具。",
+      "该工具的工作流程包括律师审阅分组文档、摘要和报告，然后再向客户提供建议。"
+    ],
+    "id": "story-1a445a291e80b5097b65",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/ropes-gray-ai-diligence",
+    "product_names": [],
+    "published_at": "2026-10-29T07:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-d948735545c20cf30721"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-29T07:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d948735545c20cf30721",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Ropes & Gray is developing AI for transactional diligence",
+        "url": "https://openai.com/index/ropes-gray-ai-diligence"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/ropes-gray-ai-diligence"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "交易尽职调查",
+      "法律 AI",
+      "AI 应用"
+    ],
+    "uncertainties": [
+      "该 AI 工具的具体功能范围、准确率、部署时间及是否已实际投入使用尚未披露。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该文属于 NVIDIA 官方开发者博客的配置指导类内容，侧重帮助用户检查并启用 GDS。",
+      "GDS 的价值定位同时覆盖本地与云环境，说明其目标是跨部署形态的可移植数据路径。"
+    ],
+    "canonical_title": "NVIDIA 发布 GPUDirect Storage 检查与配置指南",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "NVIDIA",
+      "GPUDirect Storage"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了一篇题为《How to Check and Configure NVIDIA GPUDirect Storage for Your Platform》的文章，作者为 Phil Carns。",
+      "文章发布于 2026-10-30T15:01:36Z。",
+      "文章指出 NVIDIA GPUDirect Storage（GDS）可加速本地和云环境中的 GPU 存储访问。",
+      "文章称 GDS 提供稳健、可移植且高效的数据路径。"
+    ],
+    "id": "story-a9a3f4c17292646e18b4",
+    "importance_score": 0.31,
+    "novelty_score": 0.18,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/",
+    "product_names": [
+      "GPUDirect Storage",
+      "GDS"
+    ],
+    "published_at": "2026-10-30T15:01:36Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-457063de4ee2957a09d5"
+    ],
+    "source_refs": [
+      {
+        "author": "Phil Carns",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T15:01:36Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-457063de4ee2957a09d5",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Check and Configure NVIDIA GPUDirect Storage for Your Platform",
+        "url": "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-check-and-configure-nvidia-gpudirect-storage-for-your-platform/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_infrastructure",
+      "GPU 存储访问"
+    ],
+    "uncertainties": [
+      "输入未提供文章正文的完整配置步骤、支持平台清单及版本要求，无法核实具体操作细节。",
+      "输入未提及具体的性能数据或兼容性测试结果。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "该文章定位为面向开发者的边缘 AI 部署指南，强调降低在边缘运行模型的操作门槛。",
+      "若仅需少量命令即可运行模型，可能降低边缘 AI 应用原型的启动成本，但文章摘要未披露具体命令、支持模型或硬件要求。"
+    ],
+    "canonical_title": "NVIDIA 发布面向边缘应用开发的 AI 模型快速运行方案",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-10-30 发布文章《Run AI Models for Edge Application Development with Just a Few Commands》，作者为 Shara Tibken。",
+      "文章称 AI 正在从数据中心向边缘扩展，开发者正在构建新一代边缘智能体，用于监控驾驶员注意力与座舱状态等场景。",
+      "文章标题表明该方案只需少量命令即可运行面向边缘应用开发的 AI 模型。"
+    ],
+    "id": "story-96fed5c802901d9c4f59",
+    "importance_score": 0.32,
+    "novelty_score": 0.28,
+    "primary_source_url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/",
+    "product_names": [],
+    "published_at": "2026-10-30T20:33:18Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-cfb4189f31938d74a87f"
+    ],
+    "source_refs": [
+      {
+        "author": "Shara Tibken",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T20:33:18Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-cfb4189f31938d74a87f",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Run AI Models for Edge Application Development with Just a Few Commands",
+        "url": "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/run-ai-models-for-edge-application-development-with-just-a-few-commands/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "edge AI",
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "文章正文与摘要被截断，具体的命令、支持的模型、硬件平台与性能数据均未在输入中体现。",
+      "“只需少量命令”的具体含义与覆盖范围尚不明确。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "NVIDIA 在 Hugging Face 发布 Nemotron 万圣节相关博客",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA",
+      "Hugging Face"
+    ],
+    "facts": [
+      "NVIDIA 在 Hugging Face 博客发布标题为“nemotron-halloween”的文章，发布时间为 2026-10-30T17:57:24Z。"
+    ],
+    "id": "story-7617518fd1e461740297",
+    "importance_score": 0.2,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://huggingface.co/blog/nvidia/nemotron-halloween",
+    "product_names": [
+      "Nemotron"
+    ],
+    "published_at": "2026-10-30T17:57:24Z",
+    "relevance_score": 0.5,
+    "source_item_ids": [
+      "item-037154e824aaff256e14"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T17:57:24Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-037154e824aaff256e14",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "nemotron-halloween",
+        "url": "https://huggingface.co/blog/nvidia/nemotron-halloween"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/nvidia/nemotron-halloween"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入仅提供标题和来源，未包含正文摘要或内容摘录，因此无法确认该博客的具体内容、发布模型版本或项目细节。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  },
+  {
+    "analysis": [
+      "作为补丁版本，v5.22.1 的改动范围限于文档，不涉及代码或功能变更。"
+    ],
+    "canonical_title": "Hugging Face Transformers 发布补丁版本 v5.22.1，仅修复文档",
+    "category": "open_source_ai",
+    "credibility_score": 0.95,
+    "entity_names": [
+      "huggingface",
+      "transformers",
+      "ArthurZucker",
+      "remi-or"
+    ],
+    "facts": [
+      "Hugging Face 的 transformers 仓库发布了补丁版本 v5.22.1，发布者为 ArthurZucker，发布时间为 2026-10-30T09:36:03Z。",
+      "发布说明称本次补丁仅需修复文档，具体改动为通过 PR #50124 移除 Ml4 的工作文档（WIP doc），该改动来自 @remi-or。"
+    ],
+    "id": "story-fee486785eb88ce2d22e",
+    "importance_score": 0.03,
+    "novelty_score": 0.02,
+    "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.22.1",
+    "product_names": [
+      "transformers v5.22.1"
+    ],
+    "published_at": "2026-10-30T09:36:03Z",
+    "relevance_score": 0.12,
+    "source_item_ids": [
+      "item-75a20b079e3b9559a8e8"
+    ],
+    "source_refs": [
+      {
+        "author": "ArthurZucker",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-30T23:11:01.793987Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T09:36:03Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-75a20b079e3b9559a8e8",
+        "source_date": null,
+        "source_name": "GitHub · huggingface/transformers",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "huggingface/transformers: Patch release v5.22.1",
+        "url": "https://github.com/huggingface/transformers/releases/tag/v5.22.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/huggingface/transformers/releases/tag/v5.22.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "open_source_ai",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "发布说明未说明 Ml4 文档被移除的原因，也未说明该文档后续是否会重新提供。"
+    ],
+    "updated_at": "2026-10-30T23:11:42.601998Z"
+  }
+]

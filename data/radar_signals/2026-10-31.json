@@ -1,0 +1,91 @@
+[
+  {
+    "claim": "Drew Breunig 将 NES 6502 CPU 模拟器嵌入 Qwen3.5-4B 的权重，使模型能够（很慢地）运行《超级马力欧兄弟》等 NES ROM。",
+    "id": "radar-14baf2c9bb8c8c75b2cf",
+    "missing_evidence": [
+      "项目代码仓库或模型权重",
+      "可复现的演示与性能数据",
+      "独立第三方验证"
+    ],
+    "observed_at": "2026-10-30T23:11:01.793987Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-54f20f9f7f25bd156a2f",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/30/nesformer/"
+      }
+    ],
+    "uncertainty": "目前仅见 Simon Willison 的转述和 HN 评论片段，未核实实际可玩性、模型版本及实现细节。",
+    "why_notable": "把传统 CPU 模拟逻辑压进模型权重，是一种新颖且具体的模型内计算/仿真用法，可能启发对 LLM 内部计算和 agent 实验的讨论。"
+  },
+  {
+    "claim": "有博客称，Cursor Marketplace 上的 Claude Code VS Code 扩展被植入后门，可能向使用该扩展的开发者的机器分发远程访问木马。",
+    "id": "radar-94cb3a31e330407bf805",
+    "missing_evidence": [
+      "Cursor 官方安全公告正文",
+      "Anthropic 的确认或说明",
+      "受影响扩展的版本、哈希和分发范围",
+      "独立安全分析或攻击细节"
+    ],
+    "observed_at": "2026-10-30T23:11:01.793987Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-5b27bfa071191728b4e0",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://phorion.io/blog/offical-claude-code-vsx-compromise/"
+      }
+    ],
+    "uncertainty": "目前只有博客标题、HN 讨论和指向 cursor.com 的残缺链接，未获取官方公告正文，事件真实性、影响范围和归因均未确认。",
+    "why_notable": "若属实，将直接影响 AI 编程工具的供应链安全和开发者环境，属于高影响安全事件。"
+  }
+]
