@@ -1,0 +1,715 @@
+[
+  {
+    "analysis": [
+      "该事件涉及 AI 编程工具供应链中的账户与扩展发布渠道安全，攻击入口尚未确认。"
+    ],
+    "canonical_title": "Anthropic 的 VS Code 扩展在 Cursor 上被植入后门近12小时",
+    "category": "security",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Anthropic",
+      "Cursor",
+      "Ars Technica",
+      "Dan Goodin"
+    ],
+    "facts": [
+      "Ars Technica 报道称，Anthropic 的 VS Code 扩展在 Cursor 上被植入后门近12小时。",
+      "Ars Technica 报道称，目前仍不清楚攻击者是如何获取 Anthropic 已验证的 Cursor 账户访问权限的。"
+    ],
+    "id": "story-6d4f1a1f7b17213ad775",
+    "importance_score": 0.85,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/",
+    "product_names": [
+      "Anthropic VS Code extension"
+    ],
+    "published_at": "2026-10-30T21:09:54Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-eaad933c9eb95379c7b5"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T21:09:54Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-eaad933c9eb95379c7b5",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Anthropic VS code extension on Cursor backdoored for nearly 12 hours",
+        "url": "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "供应链安全",
+      "IDE 扩展安全",
+      "AI 开发工具"
+    ],
+    "uncertainties": [
+      "攻击者如何获取 Anthropic 验证过的 Cursor 账户访问权限仍未知。",
+      "后门的具体植入方式、影响范围与受影响用户数量在输入中未说明。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "该版本更新集中在 agent 相关 API 能力（上下文压缩、会话审查与工具设置、实验性时间感知）与 WebSocket/实时通信能力（恢复、投递报告、预热、cleanup 取消）两条线上。",
+      "callable API key 按请求限定作用域、修复 WebSocket helper 中的认证与拒答输出，表明该版本也在收紧凭证作用域与错误处理边界。",
+      "SIP DTMF 命令与投递事件的新增，显示该 SDK 正在扩展对语音/电话通道交互的支持。"
+    ],
+    "canonical_title": "openai-python 发布 v3.42.0，新增 agent 上下文压缩、会话审查、时间感知等 API 能力",
+    "category": "open_source_ai",
+    "credibility_score": 0.86,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 于 2026-10-31 发布 v3.42.0，对比基准为 v3.41.0。",
+      "该版本 Features 包括：add agent context compaction settings（#4209，commit f552fcf）。",
+      "该版本 Features 包括：add agent session review and tool settings（#4217，commit a63c4cd）。",
+      "该版本 Features 包括：add experimental agent time awareness（#4211，commit 10f9dd0）。",
+      "该版本 Features 包括：add image edit markup overlays（#4210，commit 72c656d）。",
+      "该版本 Features 包括：add organization external key management（#4205，commit 3ee373e）。",
+      "该版本 Features 包括：add SIP DTMF commands and delivery events（#4208，commit f9f3f76）。",
+      "该版本 Features 包括：improve WebSocket recovery and delivery reporting（#4213，commit 68b962c）。",
+      "该版本 Features 包括：keep callable API keys scoped to each request（#4216，commit 85bb536）。",
+      "该版本 Features 包括：support response format updates and local output types（#4212，commit bd61e84）。",
+      "该版本 Features 包括：support WebSocket warmup and preserve cleanup cancellation（#4215，commit 9abd656）。",
+      "该版本 Bug Fixes 包括：preserve refusal output and authentication in WebSocket helpers（#4214，commit 0599203）。",
+      "该 release 由 openai-sdks[bot] 发布，仓库 openai/openai-python 在抓取时约 32000 stars、7291 forks、95 open issues。"
+    ],
+    "id": "story-345d94bdeeee54e3c696",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.42.0",
+    "product_names": [
+      "openai-python",
+      "v3.42.0"
+    ],
+    "published_at": "2026-10-31T00:26:41Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-d35acc9f914a4b12ad72"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T00:26:41Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d35acc9f914a4b12ad72",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.42.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.42.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.42.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明中的 experimental agent time awareness 属于实验性能力，其行为与稳定性未在输入中说明。",
+      "输入未说明各 API 变更是否影响既有调用方的兼容性。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "若芯片销售方愿意为下游算力项目分担融资信用风险，可能缓解投资者对 AI 资本开支的担忧，并加强芯片供应商与数据中心运营商的绑定。"
+    ],
+    "canonical_title": "英伟达考虑为 Nscale 西弗吉尼亚 AI 数据中心提供贷款联署",
+    "category": "AI基础设施",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Nvidia",
+      "Nscale"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，英伟达考虑为 Nscale 位于西弗吉尼亚州的 AI 数据中心扮演贷款联署方角色。",
+      "报道发布于 2026-10-31T01:20:05Z。"
+    ],
+    "id": "story-aba1fe314350205c24b8",
+    "importance_score": 0.66,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/",
+    "product_names": [],
+    "published_at": "2026-10-31T01:20:05Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-778066fca87ac97904e5"
+    ],
+    "source_refs": [
+      {
+        "author": "Aditya Mehta",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T01:20:05Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-778066fca87ac97904e5",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Nvidia weighs playing the cosigner for Nscale’s AI data center in West Virginia",
+        "url": "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia/"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI数据中心",
+      "AI支出"
+    ],
+    "uncertainties": [
+      "英伟达是否已作出正式联署承诺、融资金额与具体条款尚不明确。",
+      "该数据中心项目的规模、建设进度与投产时间未在输入中说明。",
+      "报道仅给出简要摘要，未提供英伟达或 Nscale 的官方确认信息。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "该机制依赖参与 provider 共同遵循共享的 robots.txt 信号，因此其实际覆盖范围取决于有多少 provider 加入。"
+    ],
+    "canonical_title": "OpenAI 将遵循共享的 robots.txt 信号以表达网站的 AI 训练偏好",
+    "category": "Policy & Regulation",
+    "credibility_score": 0.78,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 表示将遵循一个共享的 robots.txt 信号，帮助网站运营者向参与的 provider 传达其 AI 训练偏好。"
+    ],
+    "id": "story-9bd6e5b1c675efbd6076",
+    "importance_score": 0.55,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/helping-websites-express-ai-training-preferences",
+    "product_names": [],
+    "published_at": "2026-10-30T09:30:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-84abd1857de5dfd951d9"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T09:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-84abd1857de5dfd951d9",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Making it easier for websites to express AI training preferences",
+        "url": "https://openai.com/index/helping-websites-express-ai-training-preferences"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/helping-websites-express-ai-training-preferences"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI training preferences",
+      "robots.txt",
+      "web crawling"
+    ],
+    "uncertainties": [
+      "共享 robots.txt 信号的具体技术规范尚未在输入中说明。",
+      "参与该机制的 provider 完整名单尚不明确。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "该消息由 The Verge 报道并援引 MacRumors，信息源头为 Apple 中国新闻编辑室，属于官方公告转述。",
+      "分阶段推送（先测试版后正式版）与中国区上线，意味着功能可用范围可能受地区合规与分批发布节奏影响。"
+    ],
+    "canonical_title": "Apple Intelligence 将于 iOS 27.3 登陆中国",
+    "category": "产品发布",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Apple",
+      "MacRumors",
+      "The Verge"
+    ],
+    "facts": [
+      "Apple 在其中国新闻编辑室网站宣布，将随 iOS 27.3 在中国推出 Apple Intelligence。",
+      "Apple Intelligence 相关功能将率先在 2026 年 11 月 4 日上线的 iOS 27.3 测试版中提供。",
+      "iOS 27.3 正式版计划于 2026 年 12 月发布。"
+    ],
+    "id": "story-d34896ea03aa510334c9",
+    "importance_score": 0.6,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3",
+    "product_names": [
+      "Apple Intelligence",
+      "iOS 27.3"
+    ],
+    "published_at": "2026-10-30T18:32:53-04:00",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-8edfa603fa5ede8d9b00"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T18:32:53-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8edfa603fa5ede8d9b00",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Apple Intelligence is finally coming to China with iOS 27.3",
+        "url": "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1023974/apple-intelligence-china-ios-27-3"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "人工智能",
+      "中国市场发布",
+      "移动操作系统"
+    ],
+    "uncertainties": [
+      "报道摘要未完整说明此次中国上线具体包含哪些 Apple Intelligence 功能，以及是否存在功能阉割或差异。",
+      "Apple 中国新闻编辑室的原始公告未在输入中直接给出，具体表述需以原文为准。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "该版本同时包含兼容性变更和功能新增，对使用 pydantic-ai 的开发者而言，升级时需要关注 ModelHTTPError 行为、服务端状态 ID 的回传范围以及 Coder 严格 tool schema 默认值的变化。",
+      "将 json-repair 改为可选依赖有助于减小基础安装体积，但依赖 Coder 或 RepairToolArguments 的用户需显式安装。",
+      "ModelFallback 相关能力（能力本身、prepare_model_request 钩子和 RetryModelRequest）在同一版本中集中出现，表明模型回退与重试机制是该版本的重点方向。"
+    ],
+    "canonical_title": "pydantic-ai 发布 v2.64.0，包含兼容性说明、新特性与多项能力更新",
+    "category": "open_source_ai",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "pydantic",
+      "pydantic-ai",
+      "DouweM",
+      "mpfaffenberger",
+      "dsfaccini",
+      "dmontagu",
+      "adtyavrdhn",
+      "MichielMAnalytics"
+    ],
+    "facts": [
+      "pydantic 在 GitHub 发布 pydantic-ai v2.64.0，发布日期为 2026-10-30，发布说明由 dsfaccini 提交。",
+      "该版本在兼容性说明中列出：将重试传输放弃时的错误状态抛出为 ModelHTTPError，以便 fallback 继续推进（PR #11934）。",
+      "兼容性说明还包括：通过 Model.accepts_server_state，仅将存储的 response、item、conversation 和 container ID 发送回创建它们的端点（PR #11774）。",
+      "json-repair 被改为可选依赖，仅 Coder 和 RepairToolArguments 需要（PR #11768）。",
+      "Coder 的工具默认关闭严格 tool schema，可通过 Coder(strict=True) 选择启用（PR #11743）。",
+      "新特性包括：@agent.system_prompt(dynamic=True) 支持以 on_change='append' 追加变更以保留缓存提示（PR #11445）。",
+      "新特性包括：新增 BoxdSandbox，可在 boxd 机器中运行 Coder、Shell、FileSystem 等 harness 能力（PR #11367）。",
+      "新特性包括：新增 ModelFallback 能力、每次尝试的 prepare_model_request 钩子以及 RetryModelRequest（PR #9348）。",
+      "新特性包括：在 Azure AI Voice Live 上新增 output_speech_timestamps 以报告实时语音的词级时间（PR #11685）。",
+      "新特性包括：新增 Harness Reminder(scope='conversation')，用于保留在消息历史中的提醒（PR #11642）。",
+      "发布说明还提到修复 AnthropicModel.count_tokens 拒绝全部延迟的 tool request 以及低估服务器工具计数的问题（PR #11343）。"
+    ],
+    "id": "story-8821efd112fc59918f0d",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0",
+    "product_names": [
+      "pydantic-ai",
+      "pydantic_evals",
+      "Coder",
+      "ModelFallback",
+      "ArtifactScanner",
+      "BoxdSandbox",
+      "DetectLoops"
+    ],
+    "published_at": "2026-10-30T23:27:24Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-0db38ea2d79cf8b4fdb8"
+    ],
+    "source_refs": [
+      {
+        "author": "dsfaccini",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T23:27:24Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0db38ea2d79cf8b4fdb8",
+        "source_date": null,
+        "source_name": "GitHub · pydantic/pydantic-ai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "pydantic/pydantic-ai: v2.64.0 (2026-10-30)",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/pydantic/pydantic-ai/releases/tag/v2.64.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明内容为截断的 excerpt，v2.64.0 的完整变更列表未能全部获取。",
+      "发布说明未提供各 PR 的详细行为说明，部分兼容性变更的具体影响范围无法从现有摘要确认。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 据报下调新一轮融资目标",
+    "category": "business_funding",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "OpenAI",
+      "TechCrunch"
+    ],
+    "facts": [],
+    "id": "story-5543d7636b11b9155f16",
+    "importance_score": 0.62,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/",
+    "product_names": [],
+    "published_at": "2026-10-31T16:12:55Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-c361ea6e6eba35fb9e53"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T16:12:55Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c361ea6e6eba35fb9e53",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI reportedly lowers funding target for new round",
+        "url": "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round/"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "融资",
+      "AI 公司"
+    ],
+    "uncertainties": [
+      "TechCrunch 报道称 OpenAI 最新一轮融资“似乎未达预期”，并据报下调了新一轮融资目标，但该报道未在提供的摘要中给出具体融资金额、下调幅度、时间点或消息来源。",
+      "该条目标题使用“reportedly”，表明消息源自二手转述，OpenAI 尚未就此公开发布确认。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Anthropic 推动澳大利亚内容版权采用“退出制”（opt-out）模式",
+    "category": "政策与监管",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic",
+      "澳大利亚",
+      "ABC"
+    ],
+    "facts": [],
+    "id": "story-4f8a8fa04f1344f0d917",
+    "importance_score": 0.55,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://www.theguardian.com/technology/2026/oct/02/anthropic-ai-opt-out-australia-copyright-abc-cannibalisation-of-news",
+    "product_names": [],
+    "published_at": "2026-10-31T22:42:51Z",
+    "relevance_score": 0.42,
+    "source_item_ids": [
+      "item-36127eca126eb73c5cde"
+    ],
+    "source_refs": [
+      {
+        "author": "cisc",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50320970",
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T22:42:51Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-36127eca126eb73c5cde",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Anthropic pushes for opt-out model for Australian content",
+        "url": "https://www.theguardian.com/technology/2026/oct/02/anthropic-ai-opt-out-australia-copyright-abc-cannibalisation-of-news"
+      }
+    ],
+    "source_urls": [
+      "https://www.theguardian.com/technology/2026/oct/02/anthropic-ai-opt-out-australia-copyright-abc-cannibalisation-of-news",
+      "https://news.ycombinator.com/item?id=50320970"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 版权",
+      "内容授权",
+      "退出制 opt-out"
+    ],
+    "uncertainties": [
+      "目前仅有 Hacker News 社区发现链接及 Guardian 文章标题可用，未提供正文内容，无法核实 Anthropic 的具体主张与澳大利亚版权框架细节。",
+      "该条目标记为 unverified_lead，Guardian 关于 Anthropic 推动 opt-out 模式及 ABC 新闻“cannibalisation”的表述尚未经原始信源确认。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "报道仅复述了苹果新任CEO为公司在AI领域现状所做辩护的总体基调，未提供具体产品、发布时间或技术细节。"
+    ],
+    "canonical_title": "苹果新任CEO回应公司在AI领域的定位，称不会“为AI而AI”",
+    "category": "行业动态",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Apple"
+    ],
+    "facts": [],
+    "id": "story-63c9586dd98a9668306f",
+    "importance_score": 0.35,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/",
+    "product_names": [],
+    "published_at": "2026-10-31T21:41:00Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-362d7951270f22867c3f"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T21:41:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-362d7951270f22867c3f",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Apple CEO says the company doesn’t ‘want to ship AI for AI’s sake’",
+        "url": "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/31/apple-ceo-says-the-company-doesnt-want-to-ship-ai-for-ais-sake/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI战略"
+    ],
+    "uncertainties": [
+      "新任CEO的具体身份及姓名未在输入中给出。",
+      "该表态的原始场合、完整原话与发布时间未在输入中提供。",
+      "输入仅有摘要式转述，缺少可核验的一手信息。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "案件获准继续推进，意味着相关污染指控将进入后续审理程序，而非在早期被驳回。",
+      "报道将 xAI 描述为 SpaceX 旗下的 AI 公司，这一公司归属关系是理解诉讼背景的关键。"
+    ],
+    "canonical_title": "法官允许NAACP针对xAI数据中心污染的诉讼继续推进",
+    "category": "AI监管与诉讼",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "NAACP",
+      "xAI",
+      "SpaceX"
+    ],
+    "facts": [
+      "TechCrunch AI 报道，一名法官允许 NAACP 就 xAI 数据中心污染提起的诉讼继续推进。",
+      "该诉讼指控这家由 SpaceX 拥有的 AI 公司违反《清洁空气法》。"
+    ],
+    "id": "story-bc3b6fbd0eb424824195",
+    "importance_score": 0.4,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/",
+    "product_names": [],
+    "published_at": "2026-10-31T21:17:03Z",
+    "relevance_score": 0.2,
+    "source_item_ids": [
+      "item-b57691e750415c605a04"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T21:17:03Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b57691e750415c605a04",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Judge allows NAACP lawsuit over xAI data center pollution to move forward",
+        "url": "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/31/judge-allows-naacp-lawsuit-over-xai-data-center-pollution-to-move-forward/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "数据中心污染",
+      "清洁空气法",
+      "AI环境诉讼"
+    ],
+    "uncertainties": [
+      "原文未披露承办法院、具体指控事实、涉事数据中心位置以及 xAI 的回应。",
+      "诉讼的具体诉求和潜在法律后果尚不明确。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  },
+  {
+    "analysis": [
+      "文章标题与摘要显示，这是一篇记者以 DIY 项目抢先体验 Meta 尚未上市产品的个人实践报道，而非 Meta 官方发布。",
+      "从 URL 中的 waveshare-esp32-claude-vibe-code 可以推断，作者的自制方案可能基于 Waveshare ESP32 硬件与 Claude 相关能力，但这属于从 URL 推测，正文摘要未明确说明。"
+    ],
+    "canonical_title": "The Verge 记者自制 AI 电子宠物，抢先于 Meta 的 Muse Charm",
+    "category": "consumer_gadget",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Meta",
+      "Waveshare",
+      "Claude"
+    ],
+    "facts": [
+      "The Verge 发表了一篇由 Sean Hollister 撰写的文章，标题为“I built an AI Tamagotchi before Meta could”。",
+      "文章提到 Meta 的 Mark Zuckerberg 计划在本假日季销售名为 Muse Charm 的 AI 助手设备，形态类似 Tamagotchi。",
+      "文章作者表示自己不会购买 Muse Charm，而是自行制作了一个类似的 AI 电子宠物。",
+      "文章的 URL 为 https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code，发布于 2026-10-31。"
+    ],
+    "id": "story-e8b612dc43bfb16e25de",
+    "importance_score": 0.2,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code",
+    "product_names": [
+      "Muse Charm",
+      "ESP32"
+    ],
+    "published_at": "2026-10-31T12:05:00-04:00",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-95235900cc342af4eb02"
+    ],
+    "source_refs": [
+      {
+        "author": "Sean Hollister",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-10-31T22:48:08.448278Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-31T12:05:00-04:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-95235900cc342af4eb02",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "I built an AI Tamagotchi before Meta could",
+        "url": "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/gadgets/1013375/muse-charm-gadgets-preview-waveshare-esp32-claude-vibe-code"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 硬件",
+      "DIY 电子宠物"
+    ],
+    "uncertainties": [
+      "Meta Muse Charm 的具体功能、售价与确切发售日期在摘要中未说明。",
+      "作者自制 AI 电子宠物所使用的具体硬件、软件与实现细节在摘要中未完整呈现。",
+      "该文章是否涉及实测或上手体验，输入仅给出 preview 字样，无法确认。"
+    ],
+    "updated_at": "2026-10-31T22:48:53.947483Z"
+  }
+]

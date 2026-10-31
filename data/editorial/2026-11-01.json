@@ -1,0 +1,145 @@
+{
+  "date": "2026-11-01",
+  "decisions": [
+    {
+      "evidence_value": 4,
+      "fact_status": "claim",
+      "placement": "TOP",
+      "reader_value": 4,
+      "reason": "AI 编程工具扩展发布渠道被植入后门，直接影响开发者环境安全，且攻击入口未明，值得今日关注并留作供应链安全趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-6d4f1a1f7b17213ad775",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-devtool-supply-chain-compromise",
+        "extension-marketplace-account-takeover"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "官方发布可验证，agent 上下文压缩与凭证作用域收紧对调用方有实际影响，但属常规 SDK 迭代，轻量呈现并保留为 agent API 能力演化信号。",
+      "retain_for_trends": true,
+      "story_id": "story-345d94bdeeee54e3c696",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-context-compaction-api",
+        "per-request-api-key-scoping"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "仅二手报道称英伟达考虑联署贷款，未经官方确认，一句话提及并留作芯片厂商分担算力资本风险的低可信信号。",
+      "retain_for_trends": true,
+      "story_id": "story-aba1fe314350205c24b8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "chip-vendor-datacenter-financing-backstop"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认的爬虫训练偏好机制，实际覆盖面取决于参与方数量，值得知道并保留为训练数据授权协议演化的证据。",
+      "retain_for_trends": true,
+      "story_id": "story-9bd6e5b1c675efbd6076",
+      "support_for_story_id": null,
+      "trend_links": [
+        "robots-txt-ai-training-preferences",
+        "crawler-training-opt-out-protocol"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "苹果官方渠道的区域上线安排，对开发者工具与工作流无实质影响，一句话告知即可，无趋势保留价值。",
+      "retain_for_trends": false,
+      "story_id": "story-d34896ea03aa510334c9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "pydantic-ai 常规版本迭代含少量兼容性变更，仅对现有使用者有升级提示价值，不足以构成趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-8821efd112fc59918f0d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "二手转述的融资目标下调，缺少金额与来源细节，一句话提及并留作 AI 资本募集节奏变化的待验证信号。",
+      "retain_for_trends": true,
+      "story_id": "story-5543d7636b11b9155f16",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-funding-target-revision"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅有社区标题链接、无正文可核实，版权立场本身不改变开发能力或成本，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-4f8a8fa04f1344f0d917",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "高管表态式宣传，无产品、时间或技术细节，属无结构意义公关内容。",
+      "retain_for_trends": false,
+      "story_id": "story-63c9586dd98a9668306f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "诉讼程序性进展且细节缺失，对开发者能力与工具无直接影响，暂不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-bc3b6fbd0eb424824195",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "记者 DIY 电子宠物趣闻，含 ESP32 本地硬件实践意味，一句带过即可，不足以作为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-e8b612dc43bfb16e25de",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-10-31T22:48:53.947483Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Anthropic 正在推动澳大利亚内容采用“选择退出”（opt-out）的版权模式。",
+    "id": "radar-9f0089a42d9384c24f33",
+    "missing_evidence": [
+      "卫报原文全文及具体提案细节",
+      "Anthropic 官方声明或提交文件",
+      "澳大利亚政府或监管机构对应文件",
+      "其他独立报道"
+    ],
+    "observed_at": "2026-10-31T22:48:08.448278Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-36127eca126eb73c5cde",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.theguardian.com/technology/2026/oct/02/anthropic-ai-opt-out-australia-copyright-abc-cannibalisation-of-news"
+      }
+    ],
+    "uncertainty": "目前仅有一条 HN 提交标题，正文缺失，无法核实 Anthropic 的具体主张、适用范围与政策进展。",
+    "why_notable": "若属实，将影响 AI 训练数据获取与新闻内容版权规则，对澳大利亚及全球 AI 内容生态有参考意义。"
+  }
+]
