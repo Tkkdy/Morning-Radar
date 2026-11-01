@@ -1,0 +1,134 @@
+[
+  {
+    "claim": "Kyle Kingsbury 认为，LLM 的广泛使用会侵蚀人们对文档、软件及生产这些内容的组织的信任；过去用来判断系统成熟的信号如今更容易被伪造。",
+    "id": "radar-be18b4e9021c2b504fe8",
+    "missing_evidence": [
+      "缺少具体案例或数据说明信任侵蚀的程度",
+      "缺少对哪些传统质量信号最易被伪造的分析",
+      "缺少维护者可采取的质量证明方案"
+    ],
+    "observed_at": "2026-11-01T23:01:07.111135Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "opinion",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-2dd1a315b516efdb2ccb",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/1/kyle-kingsbury/"
+      }
+    ],
+    "uncertainty": "属于观点性判断，未提供实证；摘要经过截断，无法确认完整论证。",
+    "why_notable": "来自知名从业者的判断，指向 AI 生成内容对软件可信度和维护者质量证明机制的系统性影响。"
+  },
+  {
+    "claim": "Parameter Labs 披露了一起针对 ChatGPT HTML 预览/artifacts 沙箱的复杂利用，可能让不受信任的交互式 HTML 接触 OpenAI API 或私有数据，并接管账户。",
+    "id": "radar-48d2aa482742d7f93bdd",
+    "missing_evidence": [
+      "Parameter Labs 原始漏洞报告",
+      "OpenAI 的确认、修复状态与影响范围",
+      "可复现步骤或独立验证"
+    ],
+    "observed_at": "2026-11-01T23:01:07.111135Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-785d4ceb71a807a6705c",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Oct/31/how-we-took-over-chatgpt-accounts/"
+      }
+    ],
+    "uncertainty": "仅有 Simon Willison 的摘要，正文截断；漏洞细节、影响版本和是否已修复均未知。",
+    "why_notable": "若属实，这是 AI 产品交互式代码执行边界的高影响安全缺陷，直接关系 ChatGPT 用户数据隔离。"
+  },
+  {
+    "claim": "一位开发者称，他用 Claude（Opus 5.5）几乎完成了 HackerBooks 的全部代码，包括数据管道和站点，自己主要负责方向决策；该站汇总约 1.65 万本在 HN 被至少两次提及的书。",
+    "id": "radar-a36922c24708500c0ff8",
+    "missing_evidence": [
+      "代码仓库或提交记录以核实 Claude 的贡献比例",
+      "数据管道与站点质量的可复现评估",
+      "项目数据来源与去重方法的细节"
+    ],
+    "observed_at": "2026-11-01T23:01:07.111135Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-f30b284e2cfa42e48995",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://hackerbooks.org"
+      }
+    ],
+    "uncertainty": "自述且未经独立审计；“Opus 5.5”命名和实际模型版本需核实。",
+    "why_notable": "提供了一个 AI 编码代理端到端搭建数据产品和站点的具体自述案例，涉及人机分工。"
+  }
+]

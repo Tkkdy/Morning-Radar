@@ -1,0 +1,448 @@
+[
+  {
+    "analysis": [
+      "该公告来自 GitHub 官方变更日志，属于官方一手信息，可作为事实依据；但摘要内容有限，尚未披露具体可用范围、计费方式或技术细节。"
+    ],
+    "canonical_title": "GitHub 推出共享版 Copilot Automations，支持团队共同构建 AI 工作流",
+    "category": "产品发布",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "Copilot Automations"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-10-28 宣布，共享版 Copilot Automations 正在逐步推广，使团队能够共同构建和维护 AI 驱动的工作流。",
+      "据 GitHub Changelog 描述，Copilot Automations 允许用户组合提示词、触发器和工具，围绕相关任务设计工作流。"
+    ],
+    "id": "story-23ac9f3f0cd9b337e81e",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations",
+    "product_names": [
+      "Copilot Automations"
+    ],
+    "published_at": "2026-10-28T15:35:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-e825f4123d0c16bf22c3"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-28T15:35:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e825f4123d0c16bf22c3",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Build shared workflows for your team with Copilot Automations",
+        "url": "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-10-28-build-shared-workflows-for-your-team-with-copilot-automations"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "共享版 Copilot Automations 的具体推广时间表、可用套餐和地域范围尚不明确。",
+      "公告摘要被截断，工作流能力边界和集成工具范围未完整披露。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  },
+  {
+    "analysis": [
+      "v3.42.1 为补丁版本，变更集中在 WebSocket 相关行为与认证校验，未体现新功能引入。",
+      "新增 SDK-owned Responses policy helpers 属于重构，可能与后续 WebSocket 策略调整相关。"
+    ],
+    "canonical_title": "openai-python 发布 v3.42.1，修复 Responses WebSocket 连接行为与实时 WebSocket 认证校验",
+    "category": "open_source_ai",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 发布 v3.42.1，发布日期为 2026-11-01，对比版本为 v3.42.0。",
+      "该版本 Bug Fixes 包含 api: preserve Responses WebSocket connection behavior（#4221，commit 38075d8）。",
+      "该版本 Bug Fixes 包含 realtime: validate beta WebSocket authentication profiles（#4218，commit 3622a97）。",
+      "该版本 Refactors 包含 websocket: add SDK-owned Responses policy helpers（#4219，commit 83ed269）。",
+      "该版本发布来源为 GitHub 上 openai/openai-python 仓库的 release tag v3.42.1，发布者为 openai-sdks[bot]。"
+    ],
+    "id": "story-feff63a45962e68dbd35",
+    "importance_score": 0.35,
+    "novelty_score": 0.18,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.42.1",
+    "product_names": [
+      "openai-python",
+      "Responses WebSocket",
+      "Realtime API"
+    ],
+    "published_at": "2026-11-01T20:56:19Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-1816c94a150b33fb518a"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-01T20:56:19Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1816c94a150b33fb518a",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.42.1",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.42.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.42.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI SDK",
+      "WebSocket",
+      "Bug Fix",
+      "Realtime API",
+      "open source"
+    ],
+    "uncertainties": [
+      "发布摘要未说明 Responses WebSocket 连接行为具体修复了何种问题，也未披露影响范围。",
+      "未说明 beta WebSocket 认证配置文件的校验变化是否会影响既有调用方。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  },
+  {
+    "analysis": [
+      "该数据来自供应商 OpenAI 的官方公告，属于 OpenAI 的自我披露，而非独立第三方验证；因此该 ROI 数值的测算口径和基准未在摘要中说明。"
+    ],
+    "canonical_title": "Credit Saison 的 ChatGPT Enterprise 试点实现 954% ROI",
+    "category": "企业AI应用",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Credit Saison",
+      "OpenAI",
+      "ChatGPT Enterprise"
+    ],
+    "facts": [
+      "Credit Saison 的 ChatGPT Enterprise 试点实现了 954% 的投资回报率（ROI）。",
+      "据 OpenAI 官方公告，该试点结果推动了公司范围内的采用。"
+    ],
+    "id": "story-506a89ed279725df43e3",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/credit-saison",
+    "product_names": [
+      "ChatGPT Enterprise"
+    ],
+    "published_at": "2026-10-29T00:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-85f94c0fe8f02a81789b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-29T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-85f94c0fe8f02a81789b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Credit Saison achieves 954% ROI in a ChatGPT Enterprise pilot",
+        "url": "https://openai.com/index/credit-saison"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/credit-saison"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "企业AI采用",
+      "AI投资回报率"
+    ],
+    "uncertainties": [
+      "954% ROI 的具体计算方法、统计周期和成本口径尚未披露。",
+      "该试点是否已有独立第三方审计或验证，尚不明确。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "一个 AI 运营小型网页工作室，以一年为期证明其存在价值",
+    "category": "AI 应用/实验项目",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "brasspage.com"
+    ],
+    "facts": [],
+    "id": "story-aaf7d39bfa16378186ec",
+    "importance_score": 0.5,
+    "novelty_score": 0.68,
+    "primary_source_url": "https://brasspage.com/alive/",
+    "product_names": [],
+    "published_at": "2026-11-01T22:46:33Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-802e9befb00d538935b5"
+    ],
+    "source_refs": [
+      {
+        "author": "FreeFlinstones",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50330716",
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-01T22:46:33Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-802e9befb00d538935b5",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "An AI runs a tiny web studio with a year to earn its existence",
+        "url": "https://brasspage.com/alive/"
+      }
+    ],
+    "source_urls": [
+      "https://brasspage.com/alive/",
+      "https://news.ycombinator.com/item?id=50330716"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 自主运营",
+      "AI 实验项目"
+    ],
+    "uncertainties": [
+      "该条目标题称“一个 AI 运营一家小型网页工作室，并有一年时间证明其存在价值”，但仅有标题级信息，正文摘要与内容摘录均为空，无法核实项目的具体运作方式、参与主体和期限安排。",
+      "来源为 Hacker News 社区发现（unverified lead），score 为 2、评论数为 1，热度与可信度均有限，不足以支撑事实性陈述。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  },
+  {
+    "analysis": [
+      "该项目的核心方法是用评论者数量作为阈值来过滤单次提及的噪声，属于基于社区语料的众包式推荐索引。",
+      "按提及次数而不区分情感倾向进行计数，会使结果偏向于被频繁讨论的书，而非被普遍推荐的书。",
+      "发布者称几乎全部代码由 Claude 生成，这体现了 AI 辅助开发在小型社区项目中的实际使用方式。"
+    ],
+    "canonical_title": "HackerBooks：基于 Hacker News 评论提及的书籍索引站点",
+    "category": "community_project",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Hacker News",
+      "HackerBooks",
+      "HackerTube",
+      "Anthropic",
+      "Claude"
+    ],
+    "facts": [
+      "HackerBooks 站点地址为 https://hackerbooks.org，由 Hacker News 用户 roansh 在 Show HN 发布，发布时间为 2026-11-01T15:58:28Z。",
+      "发布者称该站点收录约 16.5k 本书，这些书至少被两位不同的 Hacker News 评论者提及，时间范围为 2007 年至今。",
+      "每本书条目链接回提及它的评论，数据可从 about 页面下载。",
+      "发布者表示 Claude 撰写了几乎全部代码，包括数据管线与站点，其本人主要负责方向把控、决策与购买域名等事务。",
+      "发布者说明统计只按提及次数计算，因此对一本书的称赞与贬低都会被计入。",
+      "该 Show HN 帖在 Hacker News 获得 742 分与 160 条评论。"
+    ],
+    "id": "story-46ea5dc97bf5bcbe57b0",
+    "importance_score": 0.3,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://hackerbooks.org",
+    "product_names": [
+      "HackerBooks",
+      "Claude Opus 5.5",
+      "HackerTube"
+    ],
+    "published_at": "2026-11-01T15:58:28Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-f30b284e2cfa42e48995"
+    ],
+    "source_refs": [
+      {
+        "author": "roansh",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50326821",
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": "implementation_insight",
+        "published_at": "2026-11-01T15:58:28Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f30b284e2cfa42e48995",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: HackerBooks – HackerTube, but for books mentioned on HN",
+        "url": "https://hackerbooks.org"
+      }
+    ],
+    "source_urls": [
+      "https://hackerbooks.org",
+      "https://news.ycombinator.com/item?id=50326821"
+    ],
+    "status": "available",
+    "topic_names": [
+      "书籍推荐索引",
+      "社区评论数据挖掘",
+      "AI 辅助开发"
+    ],
+    "uncertainties": [
+      "约 16.5k 本书、至少两位评论者提及、2007 年至今的时间范围均为发布者自述，未见独立核验。",
+      "Claude 的具体版本被表述为 Opus 5.5，该版本标识未在输入中由其他来源确认。",
+      "书籍与评论的匹配准确性、数据管线的实际质量未经外部验证。",
+      "'HackerTube' 与 Karpathy 的关联仅有发布者转述，输入中无原始出处链接。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  },
+  {
+    "analysis": [
+      "OpenAI 以官方渠道集中呈现支持合理使用的第三方意见，属于在版权诉讼与政策讨论中塑造公共叙事的举措。",
+      "内容摘录未给出具体案件名称、法院、意见书数量或引文原文，信息颗粒度较低。"
+    ],
+    "canonical_title": "OpenAI 发布创作者、学者及法律专家关于合理使用支持 AI 训练的法庭意见书摘录",
+    "category": "policy_and_legal",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了一篇题为《Fair use benefits everyone》的文章，分享了法庭意见书的摘录。",
+      "OpenAI 表示，这些意见书来自创作者、学者、无障碍倡导者和法律专家等群体。",
+      "OpenAI 称这些意见书论述了合理使用如何支持 AI 训练与创新。"
+    ],
+    "id": "story-991ff74ddcf11f802dfe",
+    "importance_score": 0.35,
+    "novelty_score": 0.15,
+    "primary_source_url": "https://openai.com/index/fair-use-benefits-everyone",
+    "product_names": [],
+    "published_at": "2026-10-30T00:00:00Z",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-574dbaf7fc8731e40575"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-30T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-574dbaf7fc8731e40575",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Fair use benefits everyone",
+        "url": "https://openai.com/index/fair-use-benefits-everyone"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/fair-use-benefits-everyone"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "fair use",
+      "AI training",
+      "copyright",
+      "court briefs"
+    ],
+    "uncertainties": [
+      "OpenAI 未在摘要中说明所涉具体诉讼案件、提交法院及意见书数量。",
+      "被引述创作者、学者、无障碍倡导者和法律专家的具体身份未披露。",
+      "意见书摘录原文及合理使用论证细节未提供。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "TechCrunch 报道称 OpenAI 可能将数据中心更名为“AI compute campuses”",
+    "category": "industry_news",
+    "credibility_score": 0.15,
+    "entity_names": [
+      "OpenAI",
+      "TechCrunch"
+    ],
+    "facts": [],
+    "id": "story-576b5687e37b6264b1fd",
+    "importance_score": 0.2,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/",
+    "product_names": [],
+    "published_at": "2026-11-01T21:55:23Z",
+    "relevance_score": 0.18,
+    "source_item_ids": [
+      "item-e621a5b384ce839c8a49"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-01T23:01:07.111135Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-01T21:55:23Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e621a5b384ce839c8a49",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "OpenAI might rebrand its data centers as ‘AI compute campuses’",
+        "url": "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/01/openai-might-rebrand-its-data-centers-as-ai-compute-campuses/"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI 数据中心",
+      "数据中心公共形象"
+    ],
+    "uncertainties": [
+      "OpenAI 是否真的在考虑把数据中心重新命名为“AI compute campuses”，目前无法从所给信息中确认。",
+      "报道仅以一句反问和一句关于数据中心不受欢迎的评论为由，未提供官方确认或具体计划细节。"
+    ],
+    "updated_at": "2026-11-01T23:01:54.219704Z"
+  }
+]

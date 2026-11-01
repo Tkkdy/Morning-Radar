@@ -127,6 +127,7 @@
     "id": "item-e621a5b384ce839c8a49",
     "language": "en-US",
     "metadata": {
+      "content_version": "95c04fbc66b44ec8ecc3",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -218,6 +219,7 @@
     "id": "item-2dd1a315b516efdb2ccb",
     "language": "en-us",
     "metadata": {
+      "content_version": "604a68e136d9b794b2f1",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -400,6 +402,7 @@
     "id": "item-c33aab374796d53e0f1d",
     "language": "en-US",
     "metadata": {
+      "content_version": "45897ebfcd8c9c0d3413",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -491,6 +494,7 @@
     "id": "item-785d4ceb71a807a6705c",
     "language": "en-us",
     "metadata": {
+      "content_version": "6ea9fcac3f1e3f829020",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -553,6 +557,7 @@
     "id": "item-574dbaf7fc8731e40575",
     "language": "en-US",
     "metadata": {
+      "content_version": "a83a20b289c1dddfa4bd",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -764,6 +769,7 @@
     "id": "item-9fc5ee213b01bfece998",
     "language": "en-us",
     "metadata": {
+      "content_version": "3446f81289aa7e37c2bc",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1645,6 +1651,7 @@
     "id": "item-85f94c0fe8f02a81789b",
     "language": "en-US",
     "metadata": {
+      "content_version": "5073932497bbdab4c967",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1705,6 +1712,7 @@
     "id": "item-e825f4123d0c16bf22c3",
     "language": "en-US",
     "metadata": {
+      "content_version": "e3bff537c298d65059b6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -44467,6 +44475,7 @@
     "id": "item-1816c94a150b33fb518a",
     "language": "en",
     "metadata": {
+      "content_version": "e0c3163fb0790e471fd5",
       "data_anomaly": false,
       "forks": 6675,
       "official": true,
@@ -48279,6 +48288,7 @@
     "metadata": {
       "comments": 160,
       "community_signal": true,
+      "content_version": "39ce2910fc9b144a5208",
       "discussion_url": "https://news.ycombinator.com/item?id=50326821",
       "official": false,
       "original_url": "https://hackerbooks.org",
@@ -48459,6 +48469,7 @@
     "metadata": {
       "comments": 191,
       "community_signal": true,
+      "content_version": "1da04b80dc18319c9a87",
       "discussion_url": "https://news.ycombinator.com/item?id=50328251",
       "official": false,
       "original_url": "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it/",
@@ -48489,6 +48500,7 @@
     "metadata": {
       "comments": 387,
       "community_signal": true,
+      "content_version": "3145d5dd55b0e435850c",
       "discussion_url": "https://news.ycombinator.com/item?id=50324388",
       "official": false,
       "original_url": "https://www.visitnorway.com/plan-your-trip/travel-tips-a-z/norwegian-scenic-routes/worlds-best-toilets/",
@@ -48519,11 +48531,19 @@
     "metadata": {
       "comments": 250,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50319358",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://twitter.com/jiahaoshao1/status/2116475922190922088",
       "score": 448,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -48549,6 +48569,7 @@
     "metadata": {
       "comments": 1,
       "community_signal": true,
+      "content_version": "6b9f40834373852274b5",
       "discussion_url": "https://news.ycombinator.com/item?id=50330716",
       "official": false,
       "original_url": "https://brasspage.com/alive/",
@@ -48609,6 +48630,7 @@
     "metadata": {
       "comments": 35,
       "community_signal": true,
+      "content_version": "8facd55be2da59e11656",
       "discussion_url": "https://news.ycombinator.com/item?id=50325253",
       "official": false,
       "original_url": "https://github.com/ivankovic/omnidiff",
@@ -48639,6 +48661,7 @@
     "metadata": {
       "comments": 143,
       "community_signal": true,
+      "content_version": "bc6a3be706efd5d475a6",
       "discussion_url": "https://news.ycombinator.com/item?id=50326118",
       "official": false,
       "original_url": "https://www.thedrive.com/news/my-city-canceled-flocks-contract-flock-ignored-it-so-the-police-chief-unplugged-the-cameras",
@@ -48729,6 +48752,7 @@
     "metadata": {
       "comments": 121,
       "community_signal": true,
+      "content_version": "85314696236a7d9ab58b",
       "discussion_url": "https://news.ycombinator.com/item?id=50326099",
       "official": false,
       "original_url": "https://www.reddit.com/r/technology/comments/1xl2pr3/lenovos_encrypted_fingerprint_usb_drive_is_just/",
@@ -49033,6 +49057,7 @@
     "metadata": {
       "change_percent": -0.008653583783807508,
       "close": 399.80999755859375,
+      "content_version": "d4eaaae9c1ffe8764f4f",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 403.29998779296875,
@@ -50729,38 +50754,6 @@
     "title": "Anthropic: Scaling Misuse Detection with Self-Assessment of Chats",
     "topic_candidates": [],
     "url": "https://twitter.com/AnthropicAI/status/2115871889549865429"
-  },
-  {
-    "author": "pretext",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-01T23:01:07.111135Z",
-    "id": "item-b51bdcca7152d6d3aa59",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50319358",
-      "hn_submission_time": 1793475559,
-      "lab_id": "anthropic",
-      "original_url": "https://twitter.com/jiahaoshao1/status/2116475922190922088",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-10-31T19:39:19Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic blocks users for anything touching training larger models",
-    "topic_candidates": [],
-    "url": "https://twitter.com/jiahaoshao1/status/2116475922190922088"
   },
   {
     "author": "alepoll",

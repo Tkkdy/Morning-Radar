@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-02",
+  "generated_at": "2026-11-01T23:01:54.219704Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "openai python 从“openai-python 发布 v3.42.0，新增 agent 上下文压缩、会话审查、时间感知等 API 能力”推进到“openai-python 发布 v3.42.1，修复 Responses WebSocket 连接行为与实时 WebSocket 认证校验”。",
+      "current_story": {
+        "date": "2026-11-02",
+        "story_id": "story-feff63a45962e68dbd35"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-01",
+            "story_id": "story-345d94bdeeee54e3c696"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-02",
+            "story_id": "story-feff63a45962e68dbd35"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-11-01",
+        "story_id": "story-345d94bdeeee54e3c696"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-11-01T23:01:54.219704Z",
+      "relation_id": "relation-f3c512d61554761e3b2a",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": []
+}
