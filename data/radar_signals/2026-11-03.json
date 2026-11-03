@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Simon Willison 发布 LLM CLI/Python 库 0.37，新增 gpt-6.1-sol 和 gpt-6.1-terra 支持、llm openai endpoint add 命令，并将默认模型切换为 gpt-6-luna。",
+    "id": "radar-7d199fc66c0bc149b2ff",
+    "missing_evidence": [
+      "官方发布说明或代码仓库中的 0.37 版本变更记录",
+      "新增模型名称、定价和默认模型切换的独立确认",
+      "llm openai endpoint add 命令的实际用法与兼容性验证"
+    ],
+    "observed_at": "2026-11-03T01:46:16.954297Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-9d52bf97ae05725130de",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/2/llm/"
+      }
+    ],
+    "uncertainty": "证据仅来自作者本人的发布短文，且摘录被截断；模型名称和价格信息尚未由独立来源核实。",
+    "why_notable": "这是 AI 开发者常用命令行工具的功能更新，涉及新模型接入、OpenAI 兼容端点配置以及默认模型成本降低，对使用 LLM 工具链的开发者有实际参考价值。"
+  }
+]

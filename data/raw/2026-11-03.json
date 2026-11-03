@@ -37,6 +37,7 @@
     "id": "item-996c88dfa31d64c0a9d6",
     "language": "en-us",
     "metadata": {
+      "content_version": "1c5cc6c2a80e83de49e3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-f2ec68b6ee8d48832244",
     "language": "en-US",
     "metadata": {
+      "content_version": "ebf2c6119ed09b5f3cde",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-0dde73a752eec2652b74",
     "language": null,
     "metadata": {
+      "content_version": "a585c528fbe7ab1f7360",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -157,6 +160,7 @@
     "id": "item-d38f7b5068359c020195",
     "language": "en-US",
     "metadata": {
+      "content_version": "7265b0329a85d1dcc641",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +252,7 @@
     "id": "item-9d52bf97ae05725130de",
     "language": "en-us",
     "metadata": {
+      "content_version": "7d4c65d01bf61ea9e2fc",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -400,6 +405,7 @@
     "id": "item-6d49bd650ae9b86be9f3",
     "language": null,
     "metadata": {
+      "content_version": "b5d55c0e925a45a29ba6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -703,6 +709,7 @@
     "id": "item-6663ba9af98ba4a1d59d",
     "language": null,
     "metadata": {
+      "content_version": "372f1e6687d886084fde",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -854,6 +861,7 @@
     "id": "item-e2f2cd3ee0a6015b87d1",
     "language": "en-us",
     "metadata": {
+      "content_version": "615a125a481c147f0efb",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -916,6 +924,7 @@
     "id": "item-4094d4340f9e66f9e2fc",
     "language": "en-US",
     "metadata": {
+      "content_version": "c0345fc6fac061c3355e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1006,6 +1015,7 @@
     "id": "item-a840098ac4436b9824e7",
     "language": null,
     "metadata": {
+      "content_version": "713ad93a52f246fa3c8c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1219,6 +1229,7 @@
     "id": "item-945f879ef3a469b4aebe",
     "language": "en-US",
     "metadata": {
+      "content_version": "55e5dd2f23c16d50d901",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1309,6 +1320,7 @@
     "id": "item-fb338bda1aab8560d191",
     "language": null,
     "metadata": {
+      "content_version": "0fc5d74f8b544d39a499",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -2794,6 +2806,7 @@
     "id": "item-1e84e499960d1fc40c51",
     "language": "en-US",
     "metadata": {
+      "content_version": "7c72c185b4efa1743ddd",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -48377,6 +48390,7 @@
     "id": "item-85f0b11b847933bb21dd",
     "language": "en",
     "metadata": {
+      "content_version": "adb984857a93beecd254",
       "data_anomaly": false,
       "forks": 901,
       "official": true,
@@ -50277,6 +50291,7 @@
     "id": "item-f3123bdeed841684f4be",
     "language": "en",
     "metadata": {
+      "content_version": "a4cbc2b22fcf11f16d42",
       "data_anomaly": false,
       "forks": 18878,
       "official": true,
@@ -51429,6 +51444,7 @@
     "metadata": {
       "comments": 610,
       "community_signal": true,
+      "content_version": "24ba665c7589354d5fed",
       "discussion_url": "https://news.ycombinator.com/item?id=50341174",
       "official": false,
       "original_url": "https://rikiyat.github.io/blog/weight-space-programming/",
@@ -51789,11 +51805,20 @@
     "metadata": {
       "comments": 118,
       "community_signal": true,
+      "content_version": "9147c7140e8f9ce5c8df",
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50344919",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
       "score": 191,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -51819,11 +51844,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50346824",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://www.ft.com/content/e6b8fd40-ef92-46e8-aeaf-f98dade55a67",
       "score": 3,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -51969,11 +52002,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:openai:OpenAI"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50346759",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://www.tomshardware.com/tech-industry/data-centers/openai-considers-rebranding-data-centers-to-ai-compute-campuses-as-data-center-backlash-intensifies-company-reportedly-sees-2028-presidential-election-becoming-an-ai-issue",
       "score": 3,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -53145,70 +53186,6 @@
     "url": "https://www.youtube.com/watch?v=_zHhUSIAdP4"
   },
   {
-    "author": "mraniki",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-03T01:46:16.954297Z",
-    "id": "item-61aaab991cda3f37685d",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50346824",
-      "hn_submission_time": 1793669450,
-      "lab_id": "openai",
-      "original_url": "https://www.ft.com/content/e6b8fd40-ef92-46e8-aeaf-f98dade55a67",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-03T01:30:50Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI hires former US Army secretary as military seeks to expand AI use",
-    "topic_candidates": [],
-    "url": "https://www.ft.com/content/e6b8fd40-ef92-46e8-aeaf-f98dade55a67"
-  },
-  {
-    "author": "fraXis",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-03T01:46:16.954297Z",
-    "id": "item-ec63fed84c21dff8f4e0",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50346759",
-      "hn_submission_time": 1793668713,
-      "lab_id": "openai",
-      "original_url": "https://www.tomshardware.com/tech-industry/data-centers/openai-considers-rebranding-data-centers-to-ai-compute-campuses-as-data-center-backlash-intensifies-company-reportedly-sees-2028-presidential-election-becoming-an-ai-issue",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-03T01:18:33Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI considers rebranding data centers to 'AI compute campuses\"",
-    "topic_candidates": [],
-    "url": "https://www.tomshardware.com/tech-industry/data-centers/openai-considers-rebranding-data-centers-to-ai-compute-campuses-as-data-center-backlash-intensifies-company-reportedly-sees-2028-presidential-election-becoming-an-ai-issue"
-  },
-  {
     "author": "treyhuffine",
     "company_candidates": [],
     "content_excerpt": "",
@@ -53711,38 +53688,6 @@
     "title": "Anthropic's growth just flattened",
     "topic_candidates": [],
     "url": "https://www.regenerator1.com/p/anthropics-growth-just-flattened"
-  },
-  {
-    "author": "cdrnsf",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-03T01:46:16.954297Z",
-    "id": "item-803e384dbeec89cad647",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50344919",
-      "hn_submission_time": 1793658647,
-      "lab_id": "anthropic",
-      "original_url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-02T22:30:47Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "The SEC Should Block Anthropic's IPO to Protect the Public",
-    "topic_candidates": [],
-    "url": "https://www.techpolicy.press/the-sec-should-block-anthropics-ipo-to-protect-the-public/"
   },
   {
     "author": "bookofjoe",

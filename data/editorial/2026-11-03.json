@@ -1,0 +1,156 @@
+{
+  "date": "2026-11-03",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "分布式训练故障归因工具对生产运维有实用价值，但具体功能和可用性未明，官方单方面发布。",
+      "retain_for_trends": true,
+      "story_id": "story-ab84685eefc2011013f1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "distributed-ai-workload-fault-attribution"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "将企业规范注入 Codex 审查是上下文感知编码的案例，但缺乏效果验证和可用信息。",
+      "retain_for_trends": true,
+      "story_id": "story-4deae30593a398f39ade",
+      "support_for_story_id": null,
+      "trend_links": [
+        "context-aware-ai-code-review",
+        "enterprise-code-context-integrators"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "强调选择性的 Copilot 更新，具体功能清单缺失，无实质可验证变化。",
+      "retain_for_trends": false,
+      "story_id": "story-658d8ac79ddc753caa3a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅为故障恢复重要性的工程博客，无具体产品或可用方案，不占读者注意力。",
+      "retain_for_trends": false,
+      "story_id": "story-22cbf1ea24dc822412fb",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Workload Map 可能降低新框架适配成本，但功能、开源范围与效率数据均未说明。",
+      "retain_for_trends": true,
+      "story_id": "story-4a63fec751daa6cf38e0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "framework-onboarding-workload-mapping"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "常规 SDK 版本发布，新增类型和错误细分属维护性更新，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-d278db357f277eb7f165",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "HN 高讨论度的权重读写方法未经核实，但作为弱信号值得后台跟踪复现。",
+      "retain_for_trends": true,
+      "story_id": "story-5c17c87502f781391950",
+      "support_for_story_id": null,
+      "trend_links": [
+        "weight-space-programming",
+        "community-lead-model-weight-editing"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方开发者指南，未明确是否为新产品或更新，对开发者决策无直接可验影响。",
+      "retain_for_trends": false,
+      "story_id": "story-e18d5b57034914bd90bc",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "新 GPU 的 Kubernetes 适配指南，缺乏具体配置、版本和验证信息。",
+      "retain_for_trends": false,
+      "story_id": "story-0251a05cdce759404fef",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "个人年度 token 花费自述可作为 agent 成本弱信号，但未经独立核实。",
+      "retain_for_trends": true,
+      "story_id": "story-38f67d28be241a596df8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "individual-ai-agent-token-spend",
+        "agent-workflow-cost-signal"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "候选版本的常规维护修复，无结构性意义。",
+      "retain_for_trends": false,
+      "story_id": "story-6d862ac13c06455e7a6e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "月度汇总且输入无具体内容，无法提取可验证事实。",
+      "retain_for_trends": false,
+      "story_id": "story-da1a5f4ff8b8bbb9b7c2",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-03T01:47:06.622121Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
