@@ -1,0 +1,174 @@
+{
+  "date": "2026-11-04",
+  "generated_at": "2026-11-04T00:12:57.092495Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "ollama 从“Ollama 发布 v0.40.14-rc0 候选版本”推进到“Ollama 发布 v0.40.14”。",
+      "current_story": {
+        "date": "2026-11-04",
+        "story_id": "story-ff931af4873b28480721"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-03",
+            "story_id": "story-6d862ac13c06455e7a6e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-04",
+            "story_id": "story-ff931af4873b28480721"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-11-03",
+        "story_id": "story-6d862ac13c06455e7a6e"
+      },
+      "rationale": "同一明确产品在相邻版本或预发布到稳定版本之间发生可验证推进。",
+      "recorded_at": "2026-11-04T00:12:57.092495Z",
+      "relation_id": "relation-50ed099857dfca729c32",
+      "relation_type": "status_transition",
+      "retracts_relation_id": null
+    },
+    {
+      "change_summary": "Ollama 从 v0.40.14-rc0 推进到 v0.40.15-rc0，新增 Linux 进程内加载捆绑 CUDA 库与 MiMo V2.6 模型支持。",
+      "current_story": {
+        "date": "2026-11-04",
+        "story_id": "story-17066a0f64b97ca6d7b9"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-03",
+            "story_id": "story-6d862ac13c06455e7a6e"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-04",
+            "story_id": "story-17066a0f64b97ca6d7b9"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-11-03",
+        "story_id": "story-6d862ac13c06455e7a6e"
+      },
+      "rationale": "当前版本的变更日志以 v0.40.14 为基线并推进到 v0.40.15-rc0，构成连续版本跟进。",
+      "recorded_at": "2026-11-04T00:12:57.092495Z",
+      "relation_id": "relation-a229e05fb9ce4f21c955",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否公开 Pando 的架构细节、性能指标或上线状态（内部使用、预览或正式可用），以及是否向外部用户开放。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Pando",
+        "Codex"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-04T00:12:57.092495Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-04",
+          "story_id": "story-2496519e440ec87658b5"
+        }
+      ],
+      "topic_anchors": [
+        "Git 规模化"
+      ],
+      "watch_id": "watch-d8f3fa847cf5ec3b342f"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Dependabot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否披露 Dependabot 对 APM 支持的具体包类型、版本解析规则、依赖源范围与正式可用时间。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Agent Package Manager",
+        "APM"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-04T00:12:57.092495Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-04",
+          "story_id": "story-c7cf325d3bbf4c026f7a"
+        }
+      ],
+      "topic_anchors": [
+        "依赖管理",
+        "ai_coding"
+      ],
+      "watch_id": "watch-bd27dca6ff90493ba9f7"
+    },
+    {
+      "entity_anchors": [
+        "IBM Research"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 IBM Research 是否公开 Palette 的模型规模、训练方法与可用形态（开源或产品）。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Palette"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-04T00:12:57.092495Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-04",
+          "story_id": "story-80b0667b8cf29bbd31a7"
+        }
+      ],
+      "topic_anchors": [
+        "小模型",
+        "演示文稿生成"
+      ],
+      "watch_id": "watch-b5f5dbb8d79f509fe60e"
+    },
+    {
+      "entity_anchors": [
+        "AllenAI",
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 StateBench 是否公开数据集、评测指标或排行榜，以及 AllenAI 是否发布已测试模型的结果对比。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "StateBench"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-04T00:12:57.092495Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-04",
+          "story_id": "story-ef97b4c13c4535c6a078"
+        }
+      ],
+      "topic_anchors": [
+        "长文档状态追踪",
+        "语言模型评测基准"
+      ],
+      "watch_id": "watch-fbcbd14dfb7d4661604e"
+    }
+  ]
+}

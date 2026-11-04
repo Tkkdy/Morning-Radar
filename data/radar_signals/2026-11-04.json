@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 称，他在自己的笔记本电脑上运行的 Qwen 3.8 27B 也能解释模型权重；此前一篇论文/博客称 GPT-6 Astra 等前沿模型可以读写神经网络原始权重。",
+    "id": "radar-2f882132b7ca9ee8c0fa",
+    "missing_evidence": [
+      "原文实验设置、提示词和模型输出细节",
+      "具体如何验证模型是在解释权重而非根据上下文猜测",
+      "可复现步骤或代码/数据",
+      "被截断的原文后续内容"
+    ],
+    "observed_at": "2026-11-04T00:12:05.779810Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b5cba0d011349b3bc501",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/3/qwen-can-interpret-model-weights/"
+      }
+    ],
+    "uncertainty": "目前只有 Simon Willison 的第一手观察摘要，原文摘录在关键实验细节前被截断；尚无法判断该能力范围、可靠性和可复现性。",
+    "why_notable": "若本地 27B 级模型也能读取浮点权重并给出可理解解释，说明这种能力可能并非只属于最强前沿模型，对理解模型能力边界和本地推理实践有参考价值。"
+  }
+]

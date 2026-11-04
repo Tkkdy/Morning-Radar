@@ -1,0 +1,36 @@
+[
+  {
+    "created_at": "2026-11-04T00:12:57.092495Z",
+    "explanation": "ai_coding 连续 3 天保持或增加事件量，且有 5 个来源支持。",
+    "id": "signal-5b94acc522efec5de6af",
+    "metric_history": [
+      {
+        "date": "2026-11-02",
+        "story_count": 1
+      },
+      {
+        "date": "2026-11-03",
+        "story_count": 2
+      },
+      {
+        "date": "2026-11-04",
+        "story_count": 2
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 11,
+    "supporting_source_count": 5,
+    "supporting_story_ids": [
+      "story-23ac9f3f0cd9b337e81e",
+      "story-d278db357f277eb7f165",
+      "story-38f67d28be241a596df8",
+      "story-c7cf325d3bbf4c026f7a",
+      "story-1d38c3047d40904402cb"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-11-04T00:12:57.092495Z",
+    "window_days": 3
+  }
+]

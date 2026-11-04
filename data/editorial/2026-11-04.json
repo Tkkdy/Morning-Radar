@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-04",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认 Pando 存在及定位，但架构与性能未披露，作为 AI 编程规模倒逼版本控制基础设施的具体信号值得展开并保留。",
+      "retain_for_trends": true,
+      "story_id": "story-2496519e440ec87658b5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-driven-vcs-infrastructure",
+        "ai-coding-scale-tooling"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认 Dependabot 扩展至 APM，agent 配置纳入依赖更新流程是可验证的 workflow 变化，值得保留为证据。",
+      "retain_for_trends": true,
+      "story_id": "story-c7cf325d3bbf4c026f7a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-config-dependency-management",
+        "agent-skills-versioning"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有标题，方法、规模与可用性均不明，仅作一句提示并保留为小模型设计约束生成的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-80b0667b8cf29bbd31a7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "small-model-design-constrained-generation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认 Copilot 通过 ACP 进入 JetBrains Air，属可验证的代理式 IDE 集成扩展，读者值得知道但无需展开。",
+      "retain_for_trends": true,
+      "story_id": "story-1d38c3047d40904402cb",
+      "support_for_story_id": null,
+      "trend_links": [
+        "acp-agent-editor-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "长文档状态追踪评测基准填补评测空白，但输入无任务设计与结果细节，只能轻量呈现并保留为基准信号。",
+      "retain_for_trends": true,
+      "story_id": "story-ef97b4c13c4535c6a078",
+      "support_for_story_id": null,
+      "trend_links": [
+        "long-document-state-tracking-eval"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "模型集成契约可能影响开源模型接入流程，但输入无摘要细节，仅作轻量知悉并保留为待验证机制。",
+      "retain_for_trends": true,
+      "story_id": "story-f5e22110a5f4a6c71986",
+      "support_for_story_id": null,
+      "trend_links": [
+        "transformers-model-integration-contract"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规兼容层与采样默认值修复，属维护性更新，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-ff931af4873b28480721",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅标题声明覆盖面与透明度提升，无指标细节，一句提示并保留为漏洞检测评测演化的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-9f5aa8b0d35696739b14",
+      "support_for_story_id": null,
+      "trend_links": [
+        "secure-code-benchmark-coverage"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Linux 进程内加载捆绑 CUDA 库可降低本地 GPU 部署门槛，但为 rc 预发布且效果待验，轻量呈现并保留。",
+      "retain_for_trends": true,
+      "story_id": "story-17066a0f64b97ca6d7b9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-gpu-deployment-friction"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "社区对权重读写说法的纠偏有讨论热度但来源不可验证，适合提醒读者核实并保留为能力宣称验证缺口的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-5724a6c087ad253c11da",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-weight-claim-validation-gap"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-04T00:12:57.092495Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
