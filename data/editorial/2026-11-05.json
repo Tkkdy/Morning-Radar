@@ -1,0 +1,148 @@
+{
+  "date": "2026-11-05",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认 Copilot 进入 Xcode 原生工作流，对 iOS 开发者工具链有实质影响，可作为 IDE 内嵌编码 Agent 分发格局的显式证据。",
+      "retain_for_trends": true,
+      "story_id": "story-94c87ad41ed7fae23398",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ide-native-coding-agent-distribution"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方发布可验证，速度快、GIF 与编辑等效果仍是厂商 claim，属轻量产品更新但可留作多模态 API 迭代节奏的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-7f21f54a1cd3087da239",
+      "support_for_story_id": null,
+      "trend_links": [
+        "multimodal-api-capability-release-cadence"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有厂商博客叙事，缺部署规模与效果指标，前台一句带过，后台可作 Agent 运维应用的待验证线索。",
+      "retain_for_trends": true,
+      "story_id": "story-1dd51a39b3585a9d4a2a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-agents-for-infrastructure-operations"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Blueprint 定位明确但可用性、架构均未披露，值得一句知道，同时保留为工业多 Agent 协调模式的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-57ba4d99d748b0b4342f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "multi-agent-industrial-troubleshooting-blueprints"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "CUDA 版本与 Vera Rubin GA 支持是开发者工具链兼容性的客观变化，值得知道并留作 GPU 软件支持窗口期的证据。",
+      "retain_for_trends": true,
+      "story_id": "story-9fd6c068d2f45dabab20",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cuda-toolchain-support-for-new-gpu-generation",
+        "gpu-software-compatibility-windows"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "BYOK 与企业自定义模型用量可分账，对企业成本归因有边际意义，但字段与计量口径未明，轻量呈现并留作 BYOK 计量趋势线索。",
+      "retain_for_trends": true,
+      "story_id": "story-ef5b396f658ac4fad6cc",
+      "support_for_story_id": null,
+      "trend_links": [
+        "byok-usage-metering-and-cost-attribution"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "SDK 错误类与路径校验修复属常规维护，虽有升级价值但无结构性趋势含义，不保留后台证据。",
+      "retain_for_trends": false,
+      "story_id": "story-e8841103b42fbc4474d0",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "政府云上线是客观发布，但限定获批客户且能力与定价未披露，值得知道并留作合规云分发与专用模型分层的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-51be530d9d908db404fc",
+      "support_for_story_id": null,
+      "trend_links": [
+        "government-cloud-model-availability",
+        "cyber-specialized-model-segments"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有博客标题声明，无实现方式、准确率或可用形态，难命名可验证趋势，不保留后台证据。",
+      "retain_for_trends": false,
+      "story_id": "story-ce97dfbf497399c5edc2",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "静态分析引擎常规版本更新且细节截断，无结构意义，不占读者注意力也不留作证据。",
+      "retain_for_trends": false,
+      "story_id": "story-d8da0821580916c0ad26",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "单一交易日股价波动无原因归因，不具趋势或读者价值，价格数字本身不足以作为证据保留。",
+      "retain_for_trends": false,
+      "story_id": "story-5ece3435ccd0f2747bc3",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-05T00:32:56.273385Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

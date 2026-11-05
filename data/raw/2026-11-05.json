@@ -67,6 +67,7 @@
     "id": "item-f1b2d7334e4861fbba5a",
     "language": "en-US",
     "metadata": {
+      "content_version": "b7ce823415b377d7f1f0",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-32d4e91d243ef07f0795",
     "language": "en-US",
     "metadata": {
+      "content_version": "19966bd1044c0e7e36c1",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +130,7 @@
     "id": "item-4376fc05a5786b49752e",
     "language": null,
     "metadata": {
+      "content_version": "8a465ed13c48776288d2",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +191,7 @@
     "id": "item-5523ef782a102f9407e4",
     "language": "en-US",
     "metadata": {
+      "content_version": "3b9d94e746280a81ce28",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +283,7 @@
     "id": "item-cd09dc87fba0a54b67f7",
     "language": "en-us",
     "metadata": {
+      "content_version": "0a06901e68e89d80afe5",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -341,6 +346,7 @@
     "id": "item-a3433e936d2c04bfa772",
     "language": "en-US",
     "metadata": {
+      "content_version": "b17ef2fdaebb1d08c352",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -401,6 +407,7 @@
     "id": "item-d53634b505a78ccb6c4a",
     "language": "en-US",
     "metadata": {
+      "content_version": "86e37b3db84fa53ddc49",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +469,7 @@
     "id": "item-5acd07c875ea982ee441",
     "language": null,
     "metadata": {
+      "content_version": "e401403e767c1fc2fe8a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -613,6 +621,7 @@
     "id": "item-b3ab12a34ee36e8ab3ff",
     "language": "en-us",
     "metadata": {
+      "content_version": "e44ca3e06554ebe0cd09",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -735,6 +744,7 @@
     "id": "item-3120cb53fbc5954ecff0",
     "language": "en-US",
     "metadata": {
+      "content_version": "85c264e8aab887e5a5ab",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -796,6 +806,7 @@
     "id": "item-73bbcb2d707df5a34997",
     "language": null,
     "metadata": {
+      "content_version": "45cbf9eae0bf0e3f338c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -947,6 +958,7 @@
     "id": "item-b0671b3fa0f50f9188d5",
     "language": "en-us",
     "metadata": {
+      "content_version": "dd56bf051320798c58cf",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1009,6 +1021,7 @@
     "id": "item-295354ff422b0d4db922",
     "language": "en-US",
     "metadata": {
+      "content_version": "723d2812c18a4416740d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -76544,6 +76557,7 @@
     "id": "item-37ae1ef8b70b59f9a0aa",
     "language": "en",
     "metadata": {
+      "content_version": "a2e62daaf9a7cdca40c5",
       "data_anomaly": false,
       "forks": 902,
       "official": true,
@@ -79656,6 +79670,7 @@
     "metadata": {
       "comments": 620,
       "community_signal": true,
+      "content_version": "03e4d36950bac43a25c8",
       "discussion_url": "https://news.ycombinator.com/item?id=50364336",
       "official": false,
       "original_url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
@@ -79956,11 +79971,19 @@
     "metadata": {
       "comments": 163,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50363461",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": null,
       "score": 623,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -80106,6 +80129,7 @@
     "metadata": {
       "comments": 350,
       "community_signal": true,
+      "content_version": "a4203f4ab9b6dbdf0e0b",
       "discussion_url": "https://news.ycombinator.com/item?id=50365755",
       "official": false,
       "original_url": "https://www.theregister.com/security/2026/11/03/north-korean-fake-job-interview-led-to-63b-binance-heist/5307398",
@@ -80198,6 +80222,7 @@
     "metadata": {
       "change_percent": -0.03173833993472141,
       "close": 200.1300048828125,
+      "content_version": "7b7fd2e20cbb516c9664",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 206.69000244140625,
@@ -82195,38 +82220,6 @@
     "title": "Show HN: InstallRate – what Claude, GPT and Gemini npm install (20 categories)",
     "topic_candidates": [],
     "url": "https://installrate.com/leaderboard/"
-  },
-  {
-    "author": "jameslk",
-    "company_candidates": [],
-    "content_excerpt": "If you have a personal Google AI subscription, all your saved chat history in Gemini can be used for training and there is no way to opt out unless you turn off chat history or use temporary chat sessions. These chat transcripts may even be read by human reviewers. Although Google claims to disconnect them from your account when human-reviewed, they explicitly warn not to enter confidential information . https://support.google.com/gemini/answer/16836988 “[Gemini app activity] is used to improve Google services for everyone, including by training generative AI models, if your Keep Activity setting is on.“ https://support.google.com/gemini/answer/13594961?hl=en#human_review “A subset of chats are reviewed by human reviewers” https://support.google.com/gemini/answer/13594961?hl=en#pn_retain_data “Chats reviewed by human reviewers [...] are not deleted when you delete your activity. Instead, they are retained for up to three years.” https://support.google.com/gemini/answer/13594961?hl=en#pn_data_usage “Please don’t enter confidential information that you wouldn’t want a reviewer to see or Google to use to improve our services, including machine-learning technologies.” To disable their training on your chat sessions, you need to turn off “Keep Activity” in Gemini’s settings. Turning that off means you’ll lose any chat sessions after 72 hours. I learned this too late, thinking that having a paid subscription = not being turned into the product. Apparently paying is not enough. Thank you to this user on HN for mentioning in another thread: https://news.ycombinator.com/item?id=5035",
-    "fetched_at": "2026-11-05T00:31:53.700963Z",
-    "id": "item-d5eecd06151a76634490",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50363461",
-      "hn_submission_time": 1793787027,
-      "lab_id": "google_deepmind",
-      "original_url": null,
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-04T10:10:27Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "If you have a personal Google AI subscription, all your saved chat history in Gemini can be used for training and there is no way to opt out unless you turn off chat history or use temporary chat sessions. These chat transcripts may even be read by human reviewers. Although Googl",
-    "title": "Tell HN: Gemini trains on chat history, even for subscribers (personal accounts)",
-    "topic_candidates": [],
-    "url": "https://news.ycombinator.com/item?id=50363461"
   },
   {
     "author": "jonbaer",

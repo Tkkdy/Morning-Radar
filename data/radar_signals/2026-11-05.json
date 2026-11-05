@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "datasette-apps 0.3a0 支持在 Datasette 内托管和编辑自定义 HTML 应用，并改进与 Datasette Agent 的集成：可在聊天中用 # 引用应用，新增应用内存储查询的增删工具。",
+    "id": "radar-3531b0af6b3c279faef9",
+    "missing_evidence": [
+      "缺少独立试用验证",
+      "未提供权限与安全边界细节",
+      "发布说明被截断，工具能力未完整呈现"
+    ],
+    "observed_at": "2026-11-05T00:31:53.700963Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b3ab12a34ee36e8ab3ff",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/4/datasette-apps/"
+      }
+    ],
+    "uncertainty": "alpha 版本，信息来自作者自述，集成效果与安全性未经验证。",
+    "why_notable": "展示 LLM agent 参与创建和修改数据应用的工作流，降低应用搭建门槛，是 agent 与数据工具结合的具体用法。"
+  },
+  {
+    "claim": "datasette-agent 0.5a0 引入 panel，让 agent 聊天面板与 Datasette 的表格/查询页面并排；结合 datasette-apps 可通过对话创建并就地修改数据库应用。",
+    "id": "radar-0944e701ec69a56780a8",
+    "missing_evidence": [
+      "缺少独立测试或用户体验报告",
+      "对话生成应用的可靠性、权限控制与安全边界未说明",
+      "正文截断，完整功能列表未知"
+    ],
+    "observed_at": "2026-11-05T00:31:53.700963Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-b0671b3fa0f50f9188d5",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/3/datasette-agent/"
+      }
+    ],
+    "uncertainty": "单一作者发布说明，alpha 功能，实际体验和稳定性未知。",
+    "why_notable": "体现 agent 与数据工具并排协作的新交互模式，可能改变数据库应用的构建与修改方式。"
+  }
+]
