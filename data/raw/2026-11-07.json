@@ -67,6 +67,7 @@
     "id": "item-a5fcc1255202f357d721",
     "language": "en-US",
     "metadata": {
+      "content_version": "3963f88948ee1e491d37",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-5a90caffb2c87d2e6e8e",
     "language": "en-US",
     "metadata": {
+      "content_version": "7a76f7e542485616417e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +130,7 @@
     "id": "item-4e0aa3919fe104e56d23",
     "language": null,
     "metadata": {
+      "content_version": "a7bda4bafc84f850158f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -218,6 +221,7 @@
     "id": "item-6c7191a9daddd0328837",
     "language": "en-US",
     "metadata": {
+      "content_version": "8e4d96a274e6901e4cb5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +283,7 @@
     "id": "item-b7aa5d4fa5c79c451bb7",
     "language": "en-us",
     "metadata": {
+      "content_version": "41420149e288abfa946d",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +406,7 @@
     "id": "item-353c4d26111c8c919ddf",
     "language": "en-US",
     "metadata": {
+      "content_version": "fd9e393c15843dadf79d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +468,7 @@
     "id": "item-581dcf5cabc7cf1758ba",
     "language": null,
     "metadata": {
+      "content_version": "eeae16f5ac57250bb2e2",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -582,6 +589,7 @@
     "id": "item-975fa8e739b5760d69bc",
     "language": "en-US",
     "metadata": {
+      "content_version": "555799ac28723b04ebf0",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -675,6 +683,7 @@
     "id": "item-616c68177b707eae60eb",
     "language": "en-US",
     "metadata": {
+      "content_version": "db4670399a000d4a8af9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1009,6 +1018,7 @@
     "id": "item-bbd492caba72ca544b8b",
     "language": "en-US",
     "metadata": {
+      "content_version": "97caa9e674bc6c95afc0",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1403,6 +1413,7 @@
     "id": "item-ee0727a487e657fdee3a",
     "language": "en-US",
     "metadata": {
+      "content_version": "8efb31e6239af2612105",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -3224,6 +3235,7 @@
     "id": "item-ad929875c5a71925cbce",
     "language": "en-US",
     "metadata": {
+      "content_version": "3a9430138e11f21728dd",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -77256,6 +77268,7 @@
     "id": "item-2170df56b76c38758e4a",
     "language": "en",
     "metadata": {
+      "content_version": "04f2f653636d9ef431bf",
       "data_anomaly": false,
       "forks": 1059,
       "official": true,
@@ -78016,6 +78029,7 @@
     "id": "item-878fd3793321c4bbb74a",
     "language": "en",
     "metadata": {
+      "content_version": "67222c6101c800462566",
       "data_anomaly": false,
       "forks": 35123,
       "official": true,
@@ -79988,11 +80002,19 @@
     "metadata": {
       "comments": 488,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50385272",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://github.com/anthropics/claude-code/issues/107757",
       "score": 1545,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -80018,6 +80040,7 @@
     "metadata": {
       "comments": 115,
       "community_signal": true,
+      "content_version": "872c18ceb8bb208ddaab",
       "discussion_url": "https://news.ycombinator.com/item?id=50397994",
       "official": false,
       "original_url": "https://www.planned-obsolescence.org/p/ai-is-dramatically-accelerating-ai",
@@ -80048,6 +80071,7 @@
     "metadata": {
       "comments": 1618,
       "community_signal": true,
+      "content_version": "e46d4fd98bd9f452b0d8",
       "discussion_url": "https://news.ycombinator.com/item?id=50391456",
       "official": false,
       "original_url": "https://www.nbcnews.com/tech/tech-news/tesla-wind-cybertruck-production-years-poor-sales-markets-rcna607817",
@@ -80610,6 +80634,7 @@
     "metadata": {
       "change_percent": -0.005230026557571745,
       "close": 342.3699951171875,
+      "content_version": "420d3fe29abc40fdd096",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 344.1700134277344,
@@ -83388,38 +83413,6 @@
     "title": "Claude Now on Your Notch",
     "topic_candidates": [],
     "url": "https://Notcho.si"
-  },
-  {
-    "author": "motoroco",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-06T23:48:58.119673Z",
-    "id": "item-ad2eb49e9021ebf46753",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50385272",
-      "hn_submission_time": 1793917035,
-      "lab_id": "anthropic",
-      "original_url": "https://github.com/anthropics/claude-code/issues/107757",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-05T22:17:15Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Code sends your email address to websites",
-    "topic_candidates": [],
-    "url": "https://github.com/anthropics/claude-code/issues/107757"
   },
   {
     "author": "aashu_bel",

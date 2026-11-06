@@ -1,0 +1,157 @@
+{
+  "date": "2026-11-07",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "SDK 的破坏性变更同时影响 API 默认版本和 HTTP 依赖，对开发者升级有直接影响，并且是可复现的官方一手事实。",
+      "retain_for_trends": true,
+      "story_id": "story-0bec53c3a748d8138fa8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sdk-breaking-change-api-default-version",
+        "http-client-dependency-migration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "检测器覆盖范围的例行扩展对安全实践有一定参考价值，但影响面有限。",
+      "retain_for_trends": true,
+      "story_id": "story-b2bd9433b999a6c3b262",
+      "support_for_story_id": null,
+      "trend_links": [
+        "secret-scanning-detector-coverage-expansion"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "只有官方博客的标题级介绍，没有性能数据或实现细节，仅可作为一句话提及。",
+      "retain_for_trends": false,
+      "story_id": "story-ca6ee52d7af02a41e4f5",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "摘要内容仅为宣传性开头，没有方法或性能细节，不具备独立的阅读价值。",
+      "retain_for_trends": false,
+      "story_id": "story-9f0f2e6c7b48d9546c1e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Copilot 扩展 IDE 覆盖范围的官方周报，属于轻量但有跟踪意义的采用信号。",
+      "retain_for_trends": true,
+      "story_id": "story-9e3a7360e37a6526eeb6",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-ide-surface-expansion"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "超大估值与 Anthropic IPO 临近会推动资本结构变化，但数字目前仅为媒体转述，需要保留为待验证的趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-4b7f2dbc5cb48947c6d1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-lab-valuation-race",
+        "frontier-lab-capital-formation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仪表板新增统计窗口属于装饰性度量更新，没有结构性意义。",
+      "retain_for_trends": false,
+      "story_id": "story-75f6aa3513e07adea3f6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "常规补丁版本，包含安全与分布式修复，无需展开。",
+      "retain_for_trends": false,
+      "story_id": "story-e102ffcc9e7287f13279",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "属于企业合作公告，缺少规模、时间表与效果数据，只需简要报道。",
+      "retain_for_trends": false,
+      "story_id": "story-23a7655a11d06aa59130",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "该承诺是对数据中心扩张地方阻力的反应，可作为社区治理与地方政治压力的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-39ab0b5943591ff5fe05",
+      "support_for_story_id": null,
+      "trend_links": [
+        "data-center-community-consent-politics"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "可控机器人学习与评估环境属于研究基础设施增量，作为实验信号的轻量记录。",
+      "retain_for_trends": true,
+      "story_id": "story-2576721c2ebf636de589",
+      "support_for_story_id": null,
+      "trend_links": [
+        "robot-learning-benchmark-infrastructure"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅为厂商客户用例的宣传，没有部署细节或可验证效果，不具备阅读价值。",
+      "retain_for_trends": false,
+      "story_id": "story-27b8c351ba77580c1f37",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-06T23:54:29.975994Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
