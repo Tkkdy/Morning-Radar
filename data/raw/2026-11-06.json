@@ -7,6 +7,7 @@
     "id": "item-14e90e72d3401ddf817f",
     "language": "en-US",
     "metadata": {
+      "content_version": "9d6c398b9c1b8dc8b499",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-485654c1f98a7cdcb606",
     "language": "en-us",
     "metadata": {
+      "content_version": "3068fa4dcb4114eb2f82",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +69,7 @@
     "id": "item-525555dfe497cbaa420f",
     "language": "en-US",
     "metadata": {
+      "content_version": "55fa0cdc549512a513e3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +100,7 @@
     "id": "item-f25b9201ad6bdcc6fc96",
     "language": "en-US",
     "metadata": {
+      "content_version": "5aed2f8890c3257b1db7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +132,7 @@
     "id": "item-5ef5685b9690ae6c5fed",
     "language": null,
     "metadata": {
+      "content_version": "c7e4a625c8d67541cbcb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -218,6 +223,7 @@
     "id": "item-8b33f1382f19de19bb66",
     "language": "en-US",
     "metadata": {
+      "content_version": "a7422ddc8590175d8145",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +285,7 @@
     "id": "item-f88e63ee2c8108afc7ab",
     "language": "en-us",
     "metadata": {
+      "content_version": "16dab93846e0d834c158",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +408,7 @@
     "id": "item-0778fb85d9153ba6e8af",
     "language": "en-US",
     "metadata": {
+      "content_version": "597effa96f80ae139a73",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +439,7 @@
     "id": "item-c65c7708e93995ca4541",
     "language": "en-US",
     "metadata": {
+      "content_version": "6195af96fa37364c0be6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +471,7 @@
     "id": "item-7a4fd1de9b53747b5e4c",
     "language": null,
     "metadata": {
+      "content_version": "1511aed71615b5c6127e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -582,6 +592,7 @@
     "id": "item-c93bd43ca9b62628b02e",
     "language": "en-US",
     "metadata": {
+      "content_version": "ae0923f874157b965e82",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -916,6 +927,7 @@
     "id": "item-bca3ea2faebfe1ef01d2",
     "language": "en-US",
     "metadata": {
+      "content_version": "be80a99540d916c73c5e",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1343,6 +1355,7 @@
     "id": "item-1be4fdd8e6ca80f0ec01",
     "language": "en-US",
     "metadata": {
+      "content_version": "bec1ee045cf0fecba525",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -76695,6 +76708,7 @@
     "id": "item-89ed29d1c41fccaaa7be",
     "language": "en",
     "metadata": {
+      "content_version": "410386693c7a5dc0a0aa",
       "data_anomaly": false,
       "forks": 904,
       "official": true,
@@ -79747,11 +79761,20 @@
     "metadata": {
       "comments": 125,
       "community_signal": true,
+      "content_version": "f2b5eb41c789e3fcdcec",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50385272",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://github.com/anthropics/claude-code/issues/107757",
       "score": 370,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79777,6 +79800,7 @@
     "metadata": {
       "comments": 563,
       "community_signal": true,
+      "content_version": "ad87057217db5bea31fe",
       "discussion_url": "https://news.ycombinator.com/item?id=50378228",
       "official": false,
       "original_url": "https://sshhole.com",
@@ -80391,6 +80415,7 @@
     "metadata": {
       "change_percent": -0.039555528428819445,
       "close": 605.0800170898438,
+      "content_version": "ebe76a26d3b9ed421365",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 630.0,
@@ -82641,38 +82666,6 @@
     "title": "Claude Now on Your Notch",
     "topic_candidates": [],
     "url": "https://Notcho.si"
-  },
-  {
-    "author": "motoroco",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-06T00:32:44.010174Z",
-    "id": "item-ad2eb49e9021ebf46753",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50385272",
-      "hn_submission_time": 1793917035,
-      "lab_id": "anthropic",
-      "original_url": "https://github.com/anthropics/claude-code/issues/107757",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-05T22:17:15Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Code sends your email address to websites",
-    "topic_candidates": [],
-    "url": "https://github.com/anthropics/claude-code/issues/107757"
   },
   {
     "author": "gb2d_hn",

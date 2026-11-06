@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "有报告称 Claude Code 会将用户的邮箱地址发送给它访问的网站。",
+    "id": "radar-86710aca9fea0ea7353e",
+    "missing_evidence": [
+      "GitHub issue 正文、复现步骤与观察到的网络请求/抓包证据",
+      "涉及的 Claude Code 版本、触发条件与受影响范围",
+      "Anthropic 官方回应或 issue 处理状态",
+      "独立第三方复现或安全研究分析"
+    ],
+    "observed_at": "2026-11-06T00:32:44.010174Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-ad2eb49e9021ebf46753",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/anthropics/claude-code/issues/107757"
+      }
+    ],
+    "uncertainty": "仅有标题级线索，正文内容缺失，无法判断是设计行为、特定配置下的副作用还是误报，泄露的邮箱来源与发送目的均不明确。",
+    "why_notable": "若属实，这属于 AI 编程 Agent 的隐私与数据泄露行为，直接影响使用 Claude Code 进行 Web 相关工作的开发者，值得进一步核实；目前仅有 GitHub issue 标题与 HN 讨论线索，尚无细节。"
+  }
+]

@@ -1,0 +1,160 @@
+{
+  "date": "2026-11-06",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "TOP",
+      "reader_value": 3,
+      "reason": "官方确认的收购将直接改变 Codex 的代码理解与审查能力，是今日开发者最需知道的结构性动作。",
+      "retain_for_trends": true,
+      "story_id": "story-55564c204dbacd4853ee",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-toolchain-consolidation",
+        "acquisition-as-capability-acquisition"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "若属实影响所有 Claude Code 用户隐私，但当前仅有社区 issue，需标明未经证实并保留为后续验证线索。",
+      "retain_for_trends": true,
+      "story_id": "story-9b57d79e0ac3f364fea5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-data-leakage-risk",
+        "agent-privacy-surface-expansion"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "前沿模型推出安全专用智能体值得解释，但性能与授权机制仅有厂商声明，需保持 claim 标注。",
+      "retain_for_trends": true,
+      "story_id": "story-2285f6e6a98d0b55607d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "security-specialized-frontier-models",
+        "agent-authorization-boundaries"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "开放世界模拟模型发布有潜在生态意义，但输入仅有标题级信息，暂作轻量阅读并保留后台证据。",
+      "retain_for_trends": true,
+      "story_id": "story-eec59269cfb2bdda80ed",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weights-world-simulation-models"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "标题级发布且缺少参数与定价，价值不足以占用阅读空间，也无明确趋势可挂。",
+      "retain_for_trends": false,
+      "story_id": "story-a4ec02893df00d3b1e7a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "端侧 TTS 若属实可降低云端依赖，但基准领先仅为标题声称，需保留为待复现的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-341ddeed899e0c8476c6",
+      "support_for_story_id": null,
+      "trend_links": [
+        "on-device-tts-efficiency",
+        "vendor-benchmark-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "隐性 GPU 性能退化拖慢分布式训练是真实运维痛点，DSX OS 值得留意但细节不足。",
+      "retain_for_trends": true,
+      "story_id": "story-1bdf18879a1c87aebd02",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-cluster-hidden-degradation-detection",
+        "kubernetes-gpu-operations-tooling"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规 SDK 错误处理与跨平台修复属增量维护，无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-270c9e0541c364e8ed76",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "遥测缺失与版本缺口按用户标记是小幅管理面更新，一句话即可。",
+      "retain_for_trends": false,
+      "story_id": "story-8b65e8abb665bde11821",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "2027 年才上线的消费级旅行代理计划，对开发者无近期影响。",
+      "retain_for_trends": false,
+      "story_id": "story-6582d30e6388241418d8",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "在既有使用指标 API 上新增代码审查采纳指标，属常规可观测性扩充。",
+      "retain_for_trends": false,
+      "story_id": "story-c0a97d8dd53f49901027",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商协同设计的宣传性长文，缺少可验证数据或可复用机制。",
+      "retain_for_trends": false,
+      "story_id": "story-033d88e9798a69eef240",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-06T00:37:17.366834Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
