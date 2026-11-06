@@ -169,6 +169,7 @@ def test_generic_watch_is_dropped_without_whole_brief_fallback(caplog) -> None:
         source_urls=["https://example.com/real"],
         primary_source_url="https://example.com/real",
         entity_names=["OpenAI"],
+        facts=["OpenAI 发布了新模型。"],
         relevance_score=0.9,
         importance_score=0.8,
         novelty_score=0.8,
@@ -267,7 +268,7 @@ def test_core_brief_url_violation_remains_a_hard_output_failure() -> None:
     )
     configured = provider([invalid, invalid])
 
-    with pytest.raises(AIOutputError, match="not present in verified source set"):
+    with pytest.raises(AIOutputError, match="source URLs do not match its Story IDs"):
         configured.write_brief([source_story], [])
 
     assert configured.client.responses.calls == 2

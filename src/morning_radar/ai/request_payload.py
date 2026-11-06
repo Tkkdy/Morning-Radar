@@ -179,9 +179,67 @@ def strip_score_placeholders(value: Any) -> Any:
     return value
 
 
+def story_request_payload(story: Story) -> dict[str, Any]:
+    """Do not promote legacy ungrounded analysis into a fresh model request."""
+    payload = story.model_dump(mode="json")
+    legacy = payload.pop("analysis")
+    payload.pop("technical_quote_normalizations", None)
+    payload.pop("analysis_quote_normalizations", None)
+    if legacy:
+        payload["legacy_analysis_omitted"] = True
+    return payload
+
+
+def story_materials(items: Sequence[RawItem]) -> tuple[list[ResearchEvidenceRef], list[str]]:
+    """Input-order selection, at most 8 refs / 6000 text chars, with explicit omissions.
+
+    Each selected source gets an equal remaining allowance (capped at 2200).
+    Identical fragments at the same URL are retained once. No source text is
+    silently concatenated or synthesized; provenance remains per input item.
+    """
+    selected = list(items[:8])
+    result = []
+    remaining = 6000
+    seen: dict[str, list[str]] = {}
+    for index, item in enumerate(selected):
+        allowance = min(2200, remaining // (len(selected) - index))
+        summary_limit = min(600, allowance)
+        ref = evidence_snapshot(item, association_basis="story_input",
+                                summary_limit=summary_limit, excerpt_limit=min(1600, allowance))
+        # Deduplicate originals before considering clipped fragments, without
+        # changing the packing policy used by research/evaluation callers.
+        if item.summary and item.content_excerpt.startswith(item.summary):
+            ref.summary = ""
+            ref.excerpt_truncated = len(item.content_excerpt.strip()) > min(1600, allowance)
+        elif item.content_excerpt and item.summary.startswith(item.content_excerpt):
+            ref.content_excerpt = ""
+            ref.excerpt_truncated = len(item.summary.strip()) > summary_limit
+        reasons = []
+        if ref.excerpt_truncated:
+            reasons.append("truncated")
+        for source_field in ("summary", "content_excerpt"):
+            text = getattr(ref, source_field)
+            if text and any(text in prior for prior in seen.get(item.url, [])):
+                setattr(ref, source_field, "")
+                reasons.append("duplicate_same_url")
+                continue
+            kept, cut = clip_text(text, allowance)
+            setattr(ref, source_field, kept)
+            if cut:
+                ref.excerpt_truncated = True
+                reasons.append("truncated")
+            if kept:
+                seen.setdefault(item.url, []).append(kept)
+            allowance -= len(kept)
+            remaining -= len(kept)
+        ref.text_omission_reason = ",".join(dict.fromkeys(reasons)) or None
+        result.append(ref)
+    return result, [item.id for item in items[8:]]
+
+
 def score_story_payload(story: Story, topic_context: Mapping[str, Any] | None) -> dict[str, Any]:
     return wrap_business_payload(
-        strip_score_placeholders(story.model_dump(mode="json")),
+        strip_score_placeholders(story_request_payload(story)),
         topic_context,
     )
 
@@ -189,6 +247,12 @@ def score_story_payload(story: Story, topic_context: Mapping[str, Any] | None) -
 def classify_items_payload(
     items: Sequence[RawItem], topic_context: Mapping[str, Any] | None
 ) -> dict[str, Any]:
+    if items and all(item.metadata.get("review_only") for item in items):
+        return wrap_business_payload([
+            {"id": item.id, "title": item.title, "summary": item.summary,
+             "source_role": item.source_role.value}
+            for item in items
+        ], topic_context)
     return wrap_business_payload(
         [item.model_dump(mode="json") for item in items],
         topic_context,
@@ -201,10 +265,12 @@ def evidence_snapshot(
     association_basis: str,
     content_version: str | None = None,
     include_text: bool = True,
+    summary_limit: int = SUMMARY_CHAR_LIMIT,
+    excerpt_limit: int = EXCERPT_CHAR_LIMIT,
 ) -> ResearchEvidenceRef:
     title, _title_cut = clip_text(item.title, 500)
-    summary, summary_cut = clip_text(item.summary, SUMMARY_CHAR_LIMIT)
-    excerpt, excerpt_cut = clip_text(item.content_excerpt, EXCERPT_CHAR_LIMIT)
+    summary, summary_cut = clip_text(item.summary, summary_limit)
+    excerpt, excerpt_cut = clip_text(item.content_excerpt, excerpt_limit)
     if not include_text:
         summary, excerpt, summary_cut, excerpt_cut = "", "", False, False
     elif summary and excerpt and (excerpt == summary or excerpt.startswith(summary)):
@@ -255,6 +321,13 @@ def slim_evidence(ref: ResearchEvidenceRef) -> ResearchEvidenceRef:
     )
 
 
+def writing_story_payload(story: Story) -> dict[str, Any]:
+    """Remove only the generated headline from writing; retain original evidence."""
+    payload = story_request_payload(story)
+    payload.pop("canonical_title")
+    return payload
+
+
 def brief_request_payload(
     stories: Sequence[Story],
     signals: Sequence[Signal],
@@ -262,7 +335,7 @@ def brief_request_payload(
 ) -> dict[str, Any]:
     """Build the exact structured payload used by the brief-writing providers."""
     return {
-        "stories": [story.model_dump(mode="json") for story in stories],
+        "stories": [writing_story_payload(story) for story in stories],
         "signals": [signal.model_dump(mode="json") for signal in signals],
         "editorial_decisions": [
             decision.model_dump(mode="json") for decision in editorial_decisions or []
@@ -277,7 +350,7 @@ def brief_item_recovery_request_payload(
 ) -> dict[str, Any]:
     """Build the exact structured payload used for one-item brief recovery."""
     return {
-        "story": story.model_dump(mode="json"),
+        "story": writing_story_payload(story),
         "signals": [signal.model_dump(mode="json") for signal in signals],
         "editorial_decision": (
             editorial_decision.model_dump(mode="json")

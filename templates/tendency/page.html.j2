@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tendency · Morning Radar</title><link rel="stylesheet" href="assets/tendency.css"><script src="assets/tendency.js" defer></script></head>
+<body><header><nav aria-label="主导航"><a href="../index.html">Morning Radar 晨报</a><a href="index.html">Tendency</a><a href="history.html">独立历史</a><a href="receipts.html">投递回执</a><a href="edit.html">投递想法</a></nav>
+<p class="meta">TENDENCY · 条件变化与未来结构假设</p><h1>{% if kind == 'list' %}先记录判断，再让现实校准。{% elif kind == 'detail' %}判断与依据{% elif kind == 'history' %}独立修订历史{% elif kind == 'edit' %}投递、补充与纠偏{% for failure in inbox_failures %}<article><h2>GitHub 输入格式未通过</h2><p>Issue #{{ failure.source.number }} · 已保存取得的原文；请新建修正投递。</p><details><summary>查看取得的原文快照</summary><pre>{{ failure.source.body }}</pre></details></article>{% endfor %}
+{% elif kind == 'receipt' %}持久化回执{% elif kind == 'receipts' %}投递记录{% elif kind == 'login' %}本机写入授权{% else %}旧格式材料{% endif %}</h1>
+{% if synthetic %}<p class="notice">synthetic 演示：材料与模型输出均为人工构造，仅验证流程、保存和交互，不代表真实发现能力。</p>{% endif %}
+<p class="meta">构建版本 {{ version }} · 构建于 {{ built_at }} · 发布状态未确认</p></header><main>
+{% if reading_error %}<p role="alert" class="notice">读取失败，不能据此判断“没有方向”。原始记录未改写，请查看本机诊断。</p>{% endif %}
+{% if run_error %}<p class="notice">部分运行记录读取失败，检查状态不完整。</p>{% endif %}
+{% if kind in ['list', 'detail', 'history'] %}<p class="meta">此处只展示自动内容审查通过的修订；审查不证明事实真实性或未来必然发生。</p>{% endif %}
+{% if kind == 'unreviewed' %}<p class="notice">该版本未获内容准入，原文仍保留在本地历史档案。</p>{% endif %}
+{% if kind == 'list' %}
+<p>Early 是有待验证的结构假设。列表不按热度或概率排序；检查时间不等于实质更新。</p>
+{% if runs %}<p>最近运行：{{ runs[-1].status|label }} · {{ runs[-1].recorded_at }}</p>{% else %}<p>尚未完成独立检查。</p>{% endif %}
+<label for="filter">查看范围</label><select id="filter"><option value="all">全部</option><option value="early">早期假设</option><option value="active">活跃</option><option value="archived">已归档</option><option value="overturned">已推翻</option></select>
+<div class="cards">{% for id,r in current.items() %}<article data-standing="{{ r.standing }}"><p class="meta">{{ r.standing|label }} · {{ r.origin|label }}提出</p><h2><a href="{{ page('h',id) }}">{{ r.decision.hypothesis.claim }}</a></h2><p>范围：{{ r.decision.hypothesis.scope|join('、') }}{% if r.decision.hypothesis.scope_basis == 'inferred' %}（待验证外推）{% endif %}</p><p>{{ r.decision.reason }}</p><p class="meta">首次记录 {{ r.first_recorded_at }}<br>最近实质修订 {{ r.recorded_at }}</p>{% set checks=namespace(found=false) %}{% for run in runs|reverse %}{% for stage in run.stages.values() if id in stage.target_ids %}{% if not checks.found %}<p class="meta">最近检查尝试 {{ run.recorded_at }} · {% if id in stage.unaddressed_targets %}该方向未完成{% else %}{{ stage.status|label }}{% endif %}</p>{% set checks.found=true %}{% endif %}{% endfor %}{% endfor %}{% if not checks.found %}<p class="meta">尚无独立检查记录</p>{% endif %}</article>{% else %}{% if not reading_error %}<p>尚无已保存的结构假设。已投递内容可能仍待处理，请查看回执。</p>{% endif %}{% endfor %}</div>
+<p><a href="legacy.html">查看旧格式材料状态</a></p>
+{% elif kind == 'detail' %}
+{% set h=revision.decision.hypothesis %}{% set d=revision.decision %}
+{% if current[revision.hypothesis_id].revision_id != revision.revision_id %}<p class="notice">这是历史版本，不是当前判断。<a href="{{ page('h',revision.hypothesis_id) }}">查看当前版</a></p>{% endif %}
+<article><p class="meta">{{ revision.standing|label }} · {{ revision.origin|label }}提出 · {{ d.basis|label }}</p><h2>{{ h.claim }}</h2><p>适用范围：{{ h.scope|join('、') }}</p>{% if h.scope_basis == 'inferred' %}<p>范围为待验证外推：{{ h.scope_reason }}</p>{% endif %}<p>{{ h.from_state }} → {{ h.to_state }}</p>
+<p class="meta">首次记录 {{ revision.first_recorded_at }}<br>本次实质修订 {{ revision.recorded_at }}<br>假设 {{ revision.hypothesis_id }}<br>修订 {{ revision.revision_id }}</p>
+<h3>过去的限制</h3>{% for b in h.baseline %}<p>{{ b.text }} {% if b.assumption %}（待验证假定）{% else %}（已有依据）{% endif %}</p>{% endfor %}
+<h3>什么条件变了</h3>{% for c in h.conditions %}<p><strong>{{ c.key }}</strong> · 观察：{{ c.observation }}<br>推断：{{ c.interpretation }}</p>{% endfor %}
+<h3>为何可能改变结果</h3><p>{{ h.mechanism }}（系统推断）</p><h3>仍缺什么</h3><ul>{% for x in h.unresolved %}<li>{{ x }}</li>{% endfor %}</ul>
+<h3>什么会改变判断</h3>{% for t in h.tests %}<p>{{ t.observe }}<br>看到：{{ t.if_seen }}<br>完成观察而未看到：{{ t.if_absent }}</p>{% endfor %}
+<details><summary>证据、来源性质与其他解释</summary>{% for e in revision.evidence %}<section id="{{ e.evidence_id }}"><h3>{{ e.title }}</h3><p>{{ e.source_kind|label }} · 材料版本 {{ e.content_version }}</p><blockquote>{{ e.excerpt }}</blockquote>{% if source_link(e.source_url) %}<a href="{{ source_link(e.source_url) }}" rel="noreferrer">{% if e.synthetic %}synthetic 演示链接{% else %}原始材料链接{% endif %}</a>{% else %}<p>原始链接缺失或不可公开展示。</p>{% endif %}<p class="meta">证据 {{ e.evidence_id }} · 事件 {{ e.event_ids|join('、') }}<br>来源时间 {{ e.published_at or '未知' }} · 观察时间 {{ e.observed_at }} · 入库时间 {{ e.ingested_at }}</p>{% for ref in d.citations if ref.evidence_id == e.evidence_id %}<p>{{ ref.role|label }} → 条件 {{ ref.condition_key }}：{{ ref.quote }}</p>{% endfor %}{% for gap in e.information_gaps %}<p>材料缺口：{{ gap }}</p>{% endfor %}</section>{% else %}<p>该历史版本没有保存证据快照，不能用新材料替代。</p>{% endfor %}<h3>其他解释</h3><ul>{% for x in h.alternatives %}<li>{{ x }}</li>{% endfor %}</ul></details>
+<h3>这次改变了什么</h3><p>{{ d.kind|label }}：{{ d.reason }}</p>{% for x in d.relinquished %}<p>明确放弃：{{ x }}</p>{% endfor %}
+{% if check %}<p class="meta">最近尝试检查 {{ check.recorded_at }}：{% for s in check.stages.values() if revision.hypothesis_id in s.target_ids %}{% if revision.hypothesis_id in s.unaddressed_targets %}该方向未完成检查{% else %}{{ s.status|label }}{% endif %}{% endfor %}</p>{% else %}<p class="meta">尚无该方向的独立检查记录。</p>{% endif %}
+{% if revision.parent_hypothesis_id %}<p>分支自 <a href="{{ page('r',revision.parent_revision_id) }}">父命题的当时版本</a></p>{% endif %}
+{% for child in current.values() if child.parent_hypothesis_id == revision.hypothesis_id %}<p>子方向：<a href="{{ page('h',child.hypothesis_id) }}">{{ child.decision.hypothesis.claim }}</a></p>{% endfor %}
+<h3>逐次修订</h3><ol>{% for r in history if r.hypothesis_id == revision.hypothesis_id %}<li><a href="{{ page('r',r.revision_id) }}">{{ r.recorded_at }} · {{ r.decision.kind|label }}</a> — {{ r.decision.hypothesis.claim }}<p>{{ r.decision.reason }}</p></li>{% endfor %}</ol>
+<a class="button" href="{{ page('edit',revision.hypothesis_id) }}">追加材料 / 纠偏</a></article>
+{% elif kind == 'history' %}
+{% for r in history %}<article><p class="meta">{{ r.recorded_at }} · {{ r.decision.basis|label }} · {{ r.decision.kind|label }}</p><h2><a href="{{ page('r',r.revision_id) }}">{{ r.decision.hypothesis.claim }}</a></h2><p>{{ r.decision.reason }}</p>{% if r.previous_revision_id %}<a href="{{ page('r',r.previous_revision_id) }}">前一版原文与依据</a>{% endif %}</article>{% else %}<p>尚无保存的修订。</p>{% endfor %}
+{% elif kind == 'edit' %}
+{% if local_write %}<p>本机模式：先保存原文，再交独立核心处理；不会调用模型或自动发布。<a href="login.html">授权本机写入</a></p>
+<form id="submission" data-target="{{ revision.hypothesis_id if revision else '' }}" data-revision="{{ revision.revision_id if revision else '' }}">
+{% if revision %}<p>针对：{{ revision.decision.hypothesis.claim }}</p><p class="meta">本页期望版本 {{ revision.revision_id }}。遇到新版将保留原文并报冲突。</p>{% endif %}
+<label for="action">操作</label><select name="action" id="action">{% if not revision %}<option value="hypotheses">新假设</option>{% endif %}<option value="personal_observation">我的观察</option><option value="source_claim">外部材料</option>{% if revision %}<option value="correction">纠偏</option>{% endif %}</select>
+<label for="raw_text">原始输入（可包含多个判断）</label><textarea id="raw_text" name="raw_text" maxlength="32000" required></textarea>
+<label for="mode">拆分方式</label><select id="mode" name="mode"><option value="free">自由文本，等待核心拆分</option><option value="lines">每行一个判断，分别保存身份</option></select>
+<label for="source_url">原始链接（可选；外部材料必填）</label><input id="source_url" name="source_url" type="url">
+<label for="scope">适用范围（观察和材料必填）</label><input id="scope" name="scope" maxlength="300">
+<button type="submit">保存原文并查回执</button><button type="button" id="new-operation">作为另一次新投递</button><p class="meta">网络失败后可重试同一操作。修改内容需另起一次投递。</p></form>
+{% else %}<p class="notice">此静态预览不可写。此处不会显示本机保存成功；正式部署使用 GitHub 原生入口。</p>{% if github_url %}<a class="button" href="{{ github_url }}" rel="noreferrer">前往 GitHub 登录并投递</a><p>跳转不是保存。GitHub 保存之后，仅表示外部入口已收到；核心接收、处理与公开构建分别查回执。</p>{% else %}<p>未启用远端入口。</p>{% endif %}{% endif %}<div id="feedback" role="status" aria-live="polite"></div>
+{% elif kind == 'receipts' %}
+<p>原文接收、拆分、判断修订和页面发布是不同阶段。外部 GitHub 已保存但尚未摄取的内容，请先查看原 Issue；此处不假报接收。</p>
+{% for r in receipts %}<article><a href="{{ page('s',r.submission_id) }}">{{ r.submission_id }}</a><p>{{ r.acceptance.status|label }} · {{ r.input.received_at }}</p><p>{{ r.input.request.raw_text[:160] }}</p>{% if r.input.source.channel == 'github' %}<p>GitHub Issue #{{ r.input.source.number }} · 取得的正文版本 {{ r.input.source.source_version }}</p>{% endif %}</article>{% else %}<p>尚无 C 已接收的网页投递。</p>{% endfor %}
+{% for failure in inbox_failures %}<article><h2>GitHub 输入格式未通过</h2><p>Issue #{{ failure.source.number }} · 已保存取得的原文；请新建修正投递。</p><details><summary>查看取得的原文快照</summary><pre>{{ failure.source.body }}</pre></details></article>{% endfor %}
+{% elif kind == 'receipt' %}
+<article><h2>{{ received.acceptance.status|label }}</h2><p class="meta">{{ received.submission_id }} · {{ received.input.received_at }}</p><p>可信提交身份：{{ received.input.author }}</p><p class="meta">提交期望版本 {{ received.input.request.expected_revision or "无" }} · 当前版本 {{ received.latest_revision or "无" }}</p><h3>最初提交原文</h3><pre class="original">{{ received.input.request.raw_text }}</pre>
+{% if received.acceptance.status == 'conflict' %}<p class="notice">没有覆盖任何判断。原稿已在持久层保存；打开最新详情后复制原文重新提交，会产生新的操作身份。</p>{% endif %}
+{% if received.input.request.hypothesis_id %}<a href="{{ page('h',received.input.request.hypothesis_id) }}">打开最新判断与版本</a>{% endif %}
+{% if received.core %}{% if received.last_processing %}<p>最近拆分尝试：{{ received.last_processing.recorded_at }} · {{ received.last_processing.stages.submissions.status|label }}</p>{% endif %}<p>拆分状态：{{ received.core.receipt.status|label }}</p>{% for item in received.core.receipt['items'] %}<section><p>{{ item.status|label }} · {{ item.seed_id }}</p><pre>{{ item.text or '' }}</pre>{% if item.seed_id in received.core.analysis %}{% set a=received.core.analysis[item.seed_id] %}<p>{{ a.status|label }}{% if a.hypothesis_id %} · <a href="{{ page('h',a.hypothesis_id) }}">查看关联判断</a>{% endif %}</p>{% endif %}</section>{% endfor %}{% if received.core.receipt.uncovered_characters %}<p>尚未拆分字符：{{ received.core.receipt.uncovered_characters }}</p>{% endif %}{% else %}<p>尚未进入 C 处理队列。</p>{% endif %}
+<p class="notice">本页仅确认已保存内容；分析结果不等于公开发布。构建版本见页首，发布状态未确认。</p></article>
+{% elif kind == 'login' %}
+{% if local_write %}<p>只授权本机服务的写入会话。启动者从私有运行目录读取口令，口令不进入 URL 或静态构建。</p><form id="login"><label for="passphrase">本机一次运行口令</label><input type="password" autocomplete="off" id="passphrase" name="passphrase" required><button>授权会话</button></form><div id="feedback" role="status" aria-live="polite"></div>{% else %}<p>静态预览无本机写入会话。</p>{% endif %}
+{% elif kind == 'legacy' %}<p>这些是旧格式记录，未自动升级为新版结构假设。</p>{% for row in legacy %}<article><p>{{ row.date }} · {{ row.status }}</p><h2>{{ row.claim or "材料不可读" }}</h2><p>{{ row.reason or "" }}</p><p class="meta">{{ row.record_id or "" }}</p></article>{% else %}<p>没有旧格式记录。</p>{% endfor %}
+{% endif %}</main><footer>保存判断发生的时间与当时依据。构建版本 {{ version }}；没有部署回执时，不声称已公开发布。</footer></body></html>

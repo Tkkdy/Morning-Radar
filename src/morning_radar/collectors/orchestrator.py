@@ -67,6 +67,7 @@ def collect_available(
     for collector in collectors:
         try:
             collected = collector.collect()
+            result.failures.update(getattr(collector, "failures", {}))
             within_buffer = filter_items(collected) if filter_items else collected
             batches.append((collector.name, within_buffer))
             counts[collector.name] = (len(collected), len(within_buffer))

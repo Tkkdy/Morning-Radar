@@ -29,39 +29,52 @@ def run_tendency_workflow(
     app = load_model(root / "config/app.yaml", AppConfig)
     now = generated_at or utc_now()
     day = current_date or display_date(now)
-    active_provider = provider or DeepSeekProvider.from_environment(
-        budget=AIBudget(
-            app.tendency_maximum_ai_calls,
-            app.maximum_tendency_input_characters,
-            app.maximum_ai_items,
-            app.tendency_maximum_network_requests,
-        ),
-        prompt_dir=root / "prompts",
-    )
-    current_path = root / "data/stories" / f"{day}.json"
-    current_stories = load_models(current_path, Story) if current_path.exists() else []
-    current_memory = [
-        StoryMemory(
-            ref=StoryOccurrenceRef(date=day, story_id=story.id),
-            story=story,
+    from morning_radar.health import module_run
+    with module_run(root, str(day), "tendency") as health:
+        active_provider = provider or DeepSeekProvider.from_environment(
+            budget=AIBudget(
+                app.tendency_maximum_ai_calls,
+                app.maximum_tendency_input_characters,
+                app.maximum_ai_items,
+                app.tendency_maximum_network_requests,
+            ),
+            prompt_dir=root / "prompts",
         )
-        for story in current_stories
-    ]
-    historical = load_story_memory(
-        root,
-        current_date=day,
-        history_days=max(app.trend_window_days, app.deep_review_window_days),
-    )
-    result = evaluate_daily_tendencies(
-        current_date=day,
-        generated_at=now,
-        story_memory=[*historical, *current_memory],
-        continuities=load_continuity_history(root, current_date=day),
-        history=load_tendency_history(root, current_date=day),
-        provider=active_provider,
-        maximum_clusters=app.maximum_tendency_candidates,
-        maximum_input_characters=app.maximum_tendency_input_characters,
-    )
-    if not result.stats.get("tendency_unavailable"):
-        save_model(root / "data/tendencies" / f"{day}.json", result.daily)
-    return result
+        from morning_radar.ai.usage import attach_usage
+        attach_usage(active_provider, root, business_date=str(day), module="tendency")
+        current_path = root / "data/stories" / f"{day}.json"
+        current_stories = load_models(current_path, Story) if current_path.exists() else []
+        current_memory = [
+            StoryMemory(
+                ref=StoryOccurrenceRef(date=day, story_id=story.id),
+                story=story,
+            )
+            for story in current_stories
+        ]
+        historical = load_story_memory(
+            root,
+            current_date=day,
+            history_days=max(app.trend_window_days, app.deep_review_window_days),
+        )
+        result = evaluate_daily_tendencies(
+            current_date=day,
+            generated_at=now,
+            story_memory=[*historical, *current_memory],
+            continuities=load_continuity_history(root, current_date=day),
+            history=load_tendency_history(root, current_date=day),
+            provider=active_provider,
+            maximum_clusters=app.maximum_tendency_candidates,
+            maximum_input_characters=app.maximum_tendency_input_characters,
+        )
+        if not result.stats.get("tendency_unavailable"):
+            save_model(root / "data/tendencies" / f"{day}.json", result.daily)
+        health["details"] = dict(result.stats)
+        health["status"] = (
+            "budget_skipped" if result.stats.get("tendency_budget_skipped") else
+            "validation_failed" if result.stats.get("tendency_validation_failed") else
+            "failed" if result.stats.get("tendency_unavailable") else
+            "no_candidates" if result.stats.get("tendency_clusters", 0) < 2 else
+            "insufficient_evidence" if result.stats.get("tendency_insufficient_evidence") else
+            "no_changes" if not result.daily.decisions else "completed"
+        )
+        return result

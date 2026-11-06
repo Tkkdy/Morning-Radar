@@ -5,6 +5,7 @@ from pydantic import ValidationError
 
 from morning_radar.ai.models import (
     BriefDraft,
+    BriefItemRecoveryDraft,
     DirectionObservation,
     GeneratedBriefItem,
     GeneratedJudgementDraft,
@@ -162,7 +163,10 @@ def test_valid_multi_story_references_and_optional_sanitization_both_work() -> N
 
     result = validate_and_sanitize_brief(draft, [first, second], [])
 
-    assert result.items == draft.items
+    assert result.items[0].story_ids == draft.items[0].story_ids
+    assert result.items[0].what_happened == draft.items[0].what_happened
+    assert result.items[0].why_it_matters is None
+    assert result.items[0]._why_omission_reason == "unstructured_explanation"
     assert result.watch_next == ["观察 OpenAI 是否更新 API。"]
 
 
@@ -487,3 +491,21 @@ def test_research_user_visible_output_rejects_long_english_prose() -> None:
 
     with pytest.raises(ValueError, match="English prose"):
         validate_core_simplified_chinese_output(output)
+
+
+@pytest.mark.parametrize("recovery", [False, True])
+@pytest.mark.parametrize("why_it_matters", [
+    None,
+    "This report describes a concrete method that developers can use to evaluate software systems.",
+])
+def test_optional_why_it_matters_is_skipped_only_when_absent(recovery, why_it_matters):
+    item = brief_item(["story-openai"], ["https://example.com/openai"]).model_copy(
+        update={"why_it_matters": why_it_matters}
+    )
+    output = BriefItemRecoveryDraft(item=item) if recovery else BriefDraft(items=[item])
+    for validate in (validate_core_simplified_chinese_output, validate_simplified_chinese_output):
+        if why_it_matters is None:
+            validate(output)
+        else:
+            with pytest.raises(ValueError, match="English prose"):
+                validate(output)
