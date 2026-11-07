@@ -1,0 +1,625 @@
+[
+  {
+    "analysis": [
+      "该基准聚焦原始实验数据的解读与湿实验室日常操作，指向以实验科学工作流为对象的 agent 评测方向。"
+    ],
+    "canonical_title": "OpenAI 发布 BioBasicsBench：用于评估 AI agent 处理湿实验室日常科学的 100 项任务基准",
+    "category": "ai_benchmark",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "OpenAI",
+      "BioBasicsBench"
+    ],
+    "facts": [
+      "OpenAI 发布了 BioBasicsBench。",
+      "BioBasicsBench 是一个包含 100 项任务的基准。",
+      "该基准用于衡量 AI agent 解读原始实验数据以及处理湿实验室日常科学任务的能力。"
+    ],
+    "id": "story-e2537dc0a766556d83d8",
+    "importance_score": 0.78,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science",
+    "product_names": [
+      "BioBasicsBench"
+    ],
+    "published_at": "2026-11-06T00:00:00Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-5f721228af3682c2417b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-06T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-5f721228af3682c2417b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Measuring how AI agents handle everyday wet-lab science",
+        "url": "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/measuring-how-ai-agents-handle-wet-lab-science"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "AI agents",
+      "wet-lab science"
+    ],
+    "uncertainties": [
+      "输入未披露 BioBasicsBench 的任务构成细节、评分方法、参与评测的模型及结果。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "该报道将 METR 的这一发现描述为引发研究人员担忧，指向 AI 自动化研发可能加速的前景。"
+    ],
+    "canonical_title": "METR 报告称 Anthropic 模型在 AI 辅助研发下能力提升速度约为去年两倍",
+    "category": "ai_safety_research",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Anthropic",
+      "METR",
+      "The Verge"
+    ],
+    "facts": [
+      "The Verge AI 报道称，AI 安全研究机构 METR 于周四发布一份报告，基于为期 11 周的调查。",
+      "报道称 Anthropic 正使用 AI 构建更强的 AI，其模型能力提升速度约为一年前的两倍，且几乎没有放缓迹象。"
+    ],
+    "id": "story-d3081464c171b95d5009",
+    "importance_score": 0.8,
+    "novelty_score": 0.68,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development",
+    "product_names": [],
+    "published_at": "2026-11-07T07:30:00-05:00",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-eecad6fef1daea32eacd"
+    ],
+    "source_refs": [
+      {
+        "author": "Robert Hart",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-07T07:30:00-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-eecad6fef1daea32eacd",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Why a new report on Anthropic automating AI development is alarming researchers",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1029126/anthropic-metr-report-accelerating-ai-development"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 自动化研发",
+      "AI 安全",
+      "模型能力提升速度"
+    ],
+    "uncertainties": [
+      "METR 报告原文的测量方法、样本范围与具体数值未在输入中给出，报道所述“约两倍”为二手转述，需核对原报告。",
+      "“几乎没有放缓迹象”属报道转述的判断，缺乏可追溯的量化依据。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "获准名单企业办公场所空置，可能削弱出口许可审查机制的可信度，但单一案例不足以判断整体审查流程的有效性。"
+    ],
+    "canonical_title": "美方批准Nvidia H200芯片对华出口名单中的新矩阵公司办公室空置引发尽职调查质疑",
+    "category": "政策与监管",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Nvidia",
+      "美国商务部",
+      "New Matrix",
+      "The New York Times",
+      "The Verge"
+    ],
+    "facts": [
+      "据 The New York Times 报道，New Matrix 在获准处理 Nvidia H200 AI 芯片的中国公司名单上，但其办公室是空置的，被描述为“a hollow gray shell”。",
+      "The Verge 报道称，有人对商务部与 Nvidia 在审查获准处理 H200 芯片的中国公司时是否尽职提出关切。"
+    ],
+    "id": "story-bd7c24f0c42bb591b9bd",
+    "importance_score": 0.78,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government",
+    "product_names": [
+      "H200"
+    ],
+    "published_at": "2026-11-07T10:43:45-05:00",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-b521172828d62613029c"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-07T10:43:45-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b521172828d62613029c",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "The US let Nvidia sell chips to an empty office in China",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1029483/nvidia-ai-chips-china-blacklist-government"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI芯片出口管制",
+      "尽职调查",
+      "对华出口许可"
+    ],
+    "uncertainties": [
+      "New Matrix 办公室空置的原因、时长及其与实际芯片接收和处理活动的关系尚不清楚。",
+      "商务部与 Nvidia 是否已就此事启动调查或回应，目前无公开信息。",
+      "The Verge 的报道主要转述 The New York Times 的调查，原始证据细节未在摘要中完整呈现。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "本期内容围绕当前网络安全形势的混乱状况展开讨论，属于访谈性质，不构成对具体产品或事件的事实陈述。"
+    ],
+    "canonical_title": "The Verge 播客：与 Alex Stamos 谈 AI 如何冲击网络安全及下一步走向",
+    "category": "podcast_interview",
+    "credibility_score": 0.62,
+    "entity_names": [
+      "The Verge",
+      "Alex Stamos",
+      "Cognition"
+    ],
+    "facts": [
+      "The Verge AI 于 2026-11-07 发布播客节目《AI broke the cybersecurity world. What’s next?》，作者为 Nilay Patel。",
+      "节目主持人为 Nilay Patel，嘉宾为 Cognition 首席安全官、长期网络安全专家 Alex Stamos。",
+      "该节目是探讨 AI 在现实生活中应用的特辑系列的第一部分。"
+    ],
+    "id": "story-917c4189ff4247e720a5",
+    "importance_score": 0.58,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos",
+    "product_names": [],
+    "published_at": "2026-11-07T10:00:00-05:00",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-4b429bd7582936e31a06"
+    ],
+    "source_refs": [
+      {
+        "author": "Nilay Patel",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-07T10:00:00-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4b429bd7582936e31a06",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "AI broke the cybersecurity world. What’s next?",
+        "url": "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/podcast/1029038/ai-cybersecurity-hackers-data-breach-dark-age-alex-stamos"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 与网络安全",
+      "AI 实际应用"
+    ],
+    "uncertainties": [
+      "节目具体对话内容与嘉宾观点细节未在摘要和摘录中充分给出，无法确认完整论述。",
+      "摘要中提到的“AI broke the cybersecurity world”为节目标题表述，并非可核验的事实主张。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "该变更将 Copilot 代码审查的配置能力从界面操作扩展到 API，便于企业按层级批量管理策略。"
+    ],
+    "canonical_title": "GitHub Copilot 代码审查支持通过 REST 与 GraphQL API 管理设置，并更新审查概览评论",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 官方更新日志称，用户现在可以通过 REST 和 GraphQL API 管理 GitHub Copilot 代码审查设置。",
+      "该 API 管理能力覆盖从企业策略到单个仓库的层级。",
+      "Copilot 的审查概览评论现已更紧凑。"
+    ],
+    "id": "story-a3e77371cac30db534ae",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates",
+    "product_names": [
+      "GitHub Copilot code review"
+    ],
+    "published_at": "2026-11-07T00:27:19Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-cc9249299f5d778e839b"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-07T00:27:19Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-cc9249299f5d778e839b",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Copilot code review: API management and review overview updates",
+        "url": "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-06-copilot-code-review-api-management-and-review-overview-updates"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 代码审查",
+      "API 管理",
+      "企业策略",
+      "仓库设置"
+    ],
+    "uncertainties": [
+      "更新日志未说明 REST 与 GraphQL API 的具体端点、权限范围或可用版本限制。",
+      "更新日志未给出审查概览评论“更紧凑”的具体样式或行为变化细节。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "官方发布说明将该功能定位为把对话直接转化为代码的协作入口，覆盖从问题调查到提交 PR 的完整流程。"
+    ],
+    "canonical_title": "GitHub 宣布 Slack 和 Teams 中的 @GitHub 功能正式可用",
+    "category": "产品发布",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "GitHub",
+      "Slack",
+      "Microsoft Teams"
+    ],
+    "facts": [
+      "GitHub 官方更新日志于 2026-11-06 宣布，Slack 和 Teams 中的 @GitHub 功能已正式可用（generally available）。",
+      "官方描述称，该功能允许用户在不离开对话的情况下调查缺陷、创建 issue、实施改动并提交 pull request。"
+    ],
+    "id": "story-0411e389ce4749ea4883",
+    "importance_score": 0.42,
+    "novelty_score": 0.38,
+    "primary_source_url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available",
+    "product_names": [
+      "@GitHub"
+    ],
+    "published_at": "2026-11-06T20:31:08Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-2b1caf305a698efd8ff3"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-06T20:31:08Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2b1caf305a698efd8ff3",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "@GitHub in Slack and Teams is generally available and more",
+        "url": "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-06-github-copilot-in-slack-and-teams-is-generally-available"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "协作工具集成"
+    ],
+    "uncertainties": [
+      "官方摘要未说明支持的具体 Slack 和 Teams 版本、定价层级或可用区域范围。",
+      "官方摘要未披露该功能所依赖的底层模型或技术实现细节。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "该交易被描述为凸显开发大规模 AI 数据中心所面临的挑战。"
+    ],
+    "canonical_title": "Crusoe 将陷入困境的怀俄明州数据中心项目出售给 Google",
+    "category": "AI 基础设施与数据中心",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Crusoe",
+      "Google"
+    ],
+    "facts": [
+      "TechCrunch AI 报道，Crusoe 已将怀俄明州数据中心项目出售给 Google。",
+      "报道发布时间为 2026-11-07T01:40:28Z，作者为 Marina Temkin。"
+    ],
+    "id": "story-fcde464bf1dd5d72c076",
+    "importance_score": 0.6,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/",
+    "product_names": [],
+    "published_at": "2026-11-07T01:40:28Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-2af345503cb4dc3ab8a9"
+    ],
+    "source_refs": [
+      {
+        "author": "Marina Temkin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-07T01:40:28Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2af345503cb4dc3ab8a9",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Crusoe sells troubled Wyoming data center project to Google",
+        "url": "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/06/crusoe-sells-troubled-wyoming-data-center-project-to-google/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 数据中心",
+      "数据中心开发"
+    ],
+    "uncertainties": [
+      "交易金额、具体条款和出售原因未在输入中披露。",
+      "项目此前“陷入困境”的具体表现缺乏输入细节。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI与Hacktron合作排查其系统漏洞",
+    "category": "安全合作",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "Hacktron"
+    ],
+    "facts": [
+      "OpenAI宣布与Hacktron建立合作伙伴关系，目的是发现OpenAI系统中的漏洞、测试与第三方服务的连接，并借助前沿AI加强防御。",
+      "该消息由OpenAI官方渠道于2026-11-06T08:00:00Z发布。"
+    ],
+    "id": "story-15d1d3172d5fa3e3de79",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://openai.com/index/partnering-with-hacktron",
+    "product_names": [],
+    "published_at": "2026-11-06T08:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-a0a44ed09dc9a1089b4e"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-06T08:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a0a44ed09dc9a1089b4e",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Partnering with Hacktron to find vulnerabilities in OpenAI’s systems",
+        "url": "https://openai.com/index/partnering-with-hacktron"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/partnering-with-hacktron"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "漏洞排查",
+      "第三方服务连接测试",
+      "前沿AI防御"
+    ],
+    "uncertainties": [
+      "公告未说明合作的具体范围、时间表、漏洞披露机制或是否涉及报酬安排。",
+      "公告未披露Hacktron将测试哪些具体的第三方服务或系统边界。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "报道摘要将此次事件定性为针对 Chainalysis 全部客户的凭证与令牌泄露，且攻击方式被描述为包含 AI agents 与路径中数据截取两类手段。"
+    ],
+    "canonical_title": "Chainalysis 称黑客窃取了其全部客户的凭证与令牌",
+    "category": "security",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "Chainalysis",
+      "Ars Technica",
+      "Dan Goodin"
+    ],
+    "facts": [
+      "Ars Technica 于 2026-11-06T20:56:41Z 发表由 Dan Goodin 署名的报道，标题为“Chainalysis says hackers stole credentials and tokens for all of its customers”。",
+      "报道称 Chainalysis 表示一次“multifront cyberattack”（多线网络攻击）包含 AI agents 和一次 on-path data snatch（路径中数据窃取）。"
+    ],
+    "id": "story-b0a367ce7235bf263c28",
+    "importance_score": 0.45,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers/",
+    "product_names": [],
+    "published_at": "2026-11-06T20:56:41Z",
+    "relevance_score": 0.12,
+    "source_item_ids": [
+      "item-7142f0ef7fb76f39c0d4"
+    ],
+    "source_refs": [
+      {
+        "author": "Dan Goodin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-06T20:56:41Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7142f0ef7fb76f39c0d4",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Chainalysis says hackers stole credentials and tokens for all of its customers",
+        "url": "https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/security/2026/11/chainalysis-says-hackers-stole-credentials-and-tokens-for-all-of-its-customers/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "cybersecurity",
+      "credential theft"
+    ],
+    "uncertainties": [
+      "除标题与摘要外，输入未提供事件时间、入侵途径、受影响客户数量、Chainalysis 官方声明原文等细节。",
+      "“multifront cyberattack”“AI agents”“on-path data snatch”等表述来自报道转述，输入未给出 Chainalysis 的原始措辞或技术细节。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  },
+  {
+    "analysis": [
+      "The Verge 的评测聚焦于同一款 NYT Cooking AI 助手在两类烹饪场景中的使用体验：帮助作者解决工作日晚餐的“吃什么”难题，但在烘焙蛋糕时几乎出了问题。文中没有提供具体的模型、版本、功能清单或评测结果数据，因此无法提炼可核验的事实性结论。"
+    ],
+    "canonical_title": "NYT Cooking 的 AI 助手使用体验评测",
+    "category": "AI 产品评测",
+    "credibility_score": 0.58,
+    "entity_names": [
+      "NYT Cooking",
+      "The Verge",
+      "Jennifer Pattison Tuohy"
+    ],
+    "facts": [],
+    "id": "story-74adc0631bcf211a129d",
+    "importance_score": 0.22,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://www.theverge.com/tech/1029489/nyt-cooking-ai-assistant-review",
+    "product_names": [
+      "NYT Cooking AI assistant"
+    ],
+    "published_at": "2026-11-07T10:50:00-05:00",
+    "relevance_score": 0.32,
+    "source_item_ids": [
+      "item-1ab28dde47a3074f5d54"
+    ],
+    "source_refs": [
+      {
+        "author": "Jennifer Pattison Tuohy",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-07T22:58:10.902152Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-07T10:50:00-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1ab28dde47a3074f5d54",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "NYT Cooking’s AI assistant saved my weeknight chicken, but almost ruined my cake",
+        "url": "https://www.theverge.com/tech/1029489/nyt-cooking-ai-assistant-review"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1029489/nyt-cooking-ai-assistant-review"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 烹饪助手",
+      "消费者 AI 应用"
+    ],
+    "uncertainties": [
+      "该 AI 助手的具体名称、版本、上线状态及功能范围在输入中均未说明。",
+      "作者对助手在烘焙蛋糕中“几乎毁掉”蛋糕的具体过程和原因在截断摘要中未展开，无法判断是产品缺陷还是使用方式问题。"
+    ],
+    "updated_at": "2026-11-07T23:03:48.864782Z"
+  }
+]

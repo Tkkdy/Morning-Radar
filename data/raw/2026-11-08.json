@@ -7,6 +7,7 @@
     "id": "item-a0a44ed09dc9a1089b4e",
     "language": "en-US",
     "metadata": {
+      "content_version": "ea2816e8af692edda5c8",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-cc9249299f5d778e839b",
     "language": "en-US",
     "metadata": {
+      "content_version": "c9181908fc4e2db770eb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -127,6 +129,7 @@
     "id": "item-51a247b5b6ae00e91ef5",
     "language": "en-US",
     "metadata": {
+      "content_version": "4a7d8cfb36786f28dda1",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -157,6 +160,7 @@
     "id": "item-1ab28dde47a3074f5d54",
     "language": "en-US",
     "metadata": {
+      "content_version": "7266fd1f5913c060912c",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -187,6 +191,7 @@
     "id": "item-7142f0ef7fb76f39c0d4",
     "language": "en-US",
     "metadata": {
+      "content_version": "41e00d28d44e184150c7",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -249,6 +254,7 @@
     "id": "item-5f721228af3682c2417b",
     "language": "en-US",
     "metadata": {
+      "content_version": "de505f95e54642b077f9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -369,6 +375,7 @@
     "id": "item-3b069222ecbd3b59ba7f",
     "language": "en-US",
     "metadata": {
+      "content_version": "0bb74241ef8aa39a8de5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -399,6 +406,7 @@
     "id": "item-b521172828d62613029c",
     "language": "en-US",
     "metadata": {
+      "content_version": "ce8688ec108d83b33f4d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -611,6 +619,7 @@
     "id": "item-2af345503cb4dc3ab8a9",
     "language": "en-US",
     "metadata": {
+      "content_version": "c111c49c29a802c45e7a",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -641,6 +650,7 @@
     "id": "item-4b429bd7582936e31a06",
     "language": "en-US",
     "metadata": {
+      "content_version": "a4c4f5bf0dc20472f065",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -793,6 +803,7 @@
     "id": "item-2b1caf305a698efd8ff3",
     "language": "en-US",
     "metadata": {
+      "content_version": "c610f4f41c56119cfaff",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -883,6 +894,7 @@
     "id": "item-eecad6fef1daea32eacd",
     "language": "en-US",
     "metadata": {
+      "content_version": "0431381837f1d924f38a",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -48129,6 +48141,7 @@
     "metadata": {
       "comments": 167,
       "community_signal": true,
+      "content_version": "58d845bcecf1409948d3",
       "discussion_url": "https://news.ycombinator.com/item?id=50406563",
       "official": false,
       "original_url": "https://hunch.net/?p=13764006",
@@ -48309,6 +48322,7 @@
     "metadata": {
       "comments": 176,
       "community_signal": true,
+      "content_version": "3d573c0c88e7790040e6",
       "discussion_url": "https://news.ycombinator.com/item?id=50399933",
       "official": false,
       "original_url": "https://mitchellh.com/writing/libghostty-1-0",
@@ -48369,6 +48383,7 @@
     "metadata": {
       "comments": 214,
       "community_signal": true,
+      "content_version": "b37e37838e3190151819",
       "discussion_url": "https://news.ycombinator.com/item?id=50403052",
       "official": false,
       "original_url": "https://nfsu2.xyz/",
@@ -48549,11 +48564,19 @@
     "metadata": {
       "comments": 52,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50407882",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
       "score": 61,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -48639,6 +48662,7 @@
     "metadata": {
       "comments": 326,
       "community_signal": true,
+      "content_version": "fe88d37757f70929be08",
       "discussion_url": "https://news.ycombinator.com/item?id=50403097",
       "official": false,
       "original_url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph",
@@ -48837,6 +48861,7 @@
     "metadata": {
       "change_percent": -0.003497189546875933,
       "close": 259.29998779296875,
+      "content_version": "10d89039e8e389dab745",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 260.2099914550781,
@@ -50361,38 +50386,6 @@
     "title": "GPT-6 Astra Covertly Underperforms on Safety Research Tasks",
     "topic_candidates": [],
     "url": "https://thezvi.substack.com/p/gpt-6-astra-covertly-underperforms"
-  },
-  {
-    "author": "shmulc",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-07T22:58:10.902152Z",
-    "id": "item-1b952e8ccf388d9f34d9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50407882",
-      "hn_submission_time": 1794084332,
-      "lab_id": "anthropic",
-      "original_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-07T20:45:32Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-    "topic_candidates": [],
-    "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
   },
   {
     "author": "alpbahadur",

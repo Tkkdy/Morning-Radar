@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "有社区提交声称，每台 Mac 都内置了一个未公开文档说明的家庭成员分类器（被描述为 Apple Intelligence 个人知识图谱的一部分）。",
+    "id": "radar-4e9a37d0548c88feb8aa",
+    "missing_evidence": [
+      "未抓取到页面正文，仅有标题，无法看到作者的反编译/抓包/文件分析等具体方法",
+      "缺少可复现的验证步骤，例如涉及的模型文件路径、进程名、API 或系统版本",
+      "缺少 Apple 官方文档或声明的对照",
+      "缺少独立第三方复现或讨论区中的技术性反驳/佐证"
+    ],
+    "observed_at": "2026-11-07T22:58:10.902152Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-033bdad9502ccb518ad3",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://8rank.ai/game/apple-intelligence-personal-knowledge-graph"
+      }
+    ],
+    "uncertainty": "证据极为薄弱：仅有一条社区提交标题和第三方聚合页链接，正文缺失；来源站点为 8rank.ai 的应用介绍页，权威性未知。该分类器是否真实存在、是否为 Apple Intelligence 组件、是否“每台 Mac 都有”，均未获任何独立证据支持，目前只能作为待核实的观察线索。",
+    "why_notable": "如果属实，意味着消费级设备上存在用户不知情的本地 AI 分类行为，直接关系到隐私预期、系统透明度与 Apple Intelligence 的实际部署范围；这类“未文档化模型行为”是典型的值得追踪的实践信号。"
+  }
+]

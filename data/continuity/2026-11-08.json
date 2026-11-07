@@ -1,0 +1,57 @@
+{
+  "date": "2026-11-08",
+  "generated_at": "2026-11-07T23:03:48.864782Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布 Copilot 代码审查 API 的具体端点、权限模型与版本限制，以及企业层级策略管理是否出现实际使用案例。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot code review"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-07T23:03:48.864782Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-08",
+          "story_id": "story-a3e77371cac30db534ae"
+        }
+      ],
+      "topic_anchors": [
+        "API 管理",
+        "企业策略"
+      ],
+      "watch_id": "watch-2262d98bde7c72fb8e27"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Slack",
+        "Microsoft Teams"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 @GitHub 在 Slack 和 Teams 正式可用后，是否公布支持的版本、定价层级与区域范围，以及是否有对话到 PR 流程的实际使用数据。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "@GitHub"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-07T23:03:48.864782Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-08",
+          "story_id": "story-0411e389ce4749ea4883"
+        }
+      ],
+      "topic_anchors": [
+        "协作工具集成"
+      ],
+      "watch_id": "watch-ac272e0a2cb6e4a0d4bf"
+    }
+  ]
+}

@@ -1,0 +1,138 @@
+{
+  "date": "2026-11-08",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 2,
+      "reason": "官方发布基准属实，但任务构成、评分方法与会结果未披露，性能意义待独立复现。",
+      "retain_for_trends": true,
+      "story_id": "story-e2537dc0a766556d83d8",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-eval-wet-lab-science"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "自动化研发加速是重要可检验信号，但输入仅为二手转述，需核对 METR 原报告方法与数值。",
+      "retain_for_trends": true,
+      "story_id": "story-d3081464c171b95d5009",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-automating-ai-rd-recursive-acceleration",
+        "ai-capability-doubling-time"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "出口许可审查空壳企业疑点值得知道，但单一案例与二手转述不足以升级为结构性证据。",
+      "retain_for_trends": true,
+      "story_id": "story-bd7c24f0c42bb591b9bd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "export-control-due-diligence-integrity",
+        "ai-chip-export-licensing-structure"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "访谈播客无产品事件或可核验主张，只适合一句提及。",
+      "retain_for_trends": false,
+      "story_id": "story-917c4189ff4247e720a5",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "API 层级化配置是企业策略管理机制变化，官方可验证；虽属常规更新仍小有流程价值。",
+      "retain_for_trends": true,
+      "story_id": "story-a3e77371cac30db534ae",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-code-review-api-policy-automation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "@GitHub 正式可用把对话入口接入 issue 到 PR 流程，是协作工作流变化的可追踪信号。",
+      "retain_for_trends": true,
+      "story_id": "story-0411e389ce4749ea4883",
+      "support_for_story_id": null,
+      "trend_links": [
+        "chatops-agent-issue-to-pr-workflow"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "数据中心项目转售反映大规模 AI 基建风险，条款与原因缺失故仅作轻量阅读与后台线索。",
+      "retain_for_trends": true,
+      "story_id": "story-fcde464bf1dd5d72c076",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-datacenter-capex-project-failure"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "安全合作公告范围与机制均未披露，无结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-15d1d3172d5fa3e3de79",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "全部客户凭证与令牌泄露若有 AI agent 参与属重要安全信号，但细节均来自转述需保留待核。",
+      "retain_for_trends": true,
+      "story_id": "story-b0a367ce7235bf263c28",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-agent-assisted-credential-theft",
+        "third-party-supply-chain-token-compromise"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "消费级烹饪助手主观体验，无版本事实或可复用趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-74adc0631bcf211a129d",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-07T23:03:48.864782Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
