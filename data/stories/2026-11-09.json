@@ -1,0 +1,733 @@
+[
+  {
+    "analysis": [
+      "从报道看，苹果将 Siri 的定位从语音助手推向可与外部 AI 代理产品竞争的代理形态，管理层施压反映其对该能力的优先级提升。",
+      "报道强调交付节奏极短，这通常意味着功能上线的速度优先于完整能力铺开。"
+    ],
+    "canonical_title": "苹果正加速推进Siri的AI代理能力升级",
+    "category": "AI产品动态",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Apple",
+      "Siri",
+      "Bloomberg",
+      "Mark Gurman",
+      "John Ternus",
+      "Craig Federighi",
+      "OpenAI",
+      "Dots",
+      "Meta",
+      "Muse"
+    ],
+    "facts": [
+      "The Verge AI 于 2026-11-08 报道，Bloomberg 的 Mark Gurman 称 CEO John Ternus 正向 AI 负责人 Craig Federighi 施压，要求加速 Siri 路线图并交付可与 OpenAI 的 Dots 或 Meta 的 Muse 竞争的强大 AI 代理。",
+      "报道称 Federighi 已在极短时间内交付了可用的 Siri AI 版本。"
+    ],
+    "id": "story-f53309b7b6beefc4e08c",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic",
+    "product_names": [
+      "Siri",
+      "Siri AI",
+      "Dots",
+      "Muse"
+    ],
+    "published_at": "2026-11-08T14:18:19-05:00",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-b9c0dd474c98ba84113b"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T14:18:19-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b9c0dd474c98ba84113b",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Apple is racing to make Siri more agentic",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1029552/apple-siri-ai-agentic"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "报道未给出 Siri 代理功能的具体发布时间、功能范围与可用地区。",
+      "‘Dots’ 与 ‘Muse’ 的具体产品形态与能力细节在输入中未说明。",
+      "所引内容来自二手转述（Bloomberg 经 The Verge 转述），原始爆料细节无法从输入直接核实。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "本次版本以 alpha 形式发布，核心变化集中在执行环境写入策略与模型默认推理强度两项默认行为调整，升级前需重点关注兼容性操作。",
+      "会话存储能力目前限定于根级历史与自动 Python 工具结果，不覆盖原生工具、子级与可移植检查点，显示持久化能力仍处于早期配置阶段。",
+      "托管工具依赖兼容 Responses 模型与 API-key 提供商，并与 Responses Lite、Codex login 互斥，选型时需核对提供商能力。"
+    ],
+    "canonical_title": "OpenAI Agents SDK 发布 v0.24.0-alpha.7",
+    "category": "open_source_ai",
+    "credibility_score": 0.78,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-agents-python",
+      "markstuart-oai"
+    ],
+    "facts": [
+      "OpenAI 的 openai/openai-agents-python 仓库发布了 Agents SDK v0.24.0-alpha.7，发布者署名 markstuart-oai，发布时间为 2026-11-08T07:05:11Z。",
+      "该版本说明标题为 Highlights 的部分提出：可通过 agents.classic 导入保留的 v0 运行时，以便在原生执行之外使用 Classic 工作流。",
+      "版本说明称新增可通过 CustomStorage 实现持久化的根级 Session，用于将对话保存在自有存储中。",
+      "版本说明称新增面向原生 agent 的语音与托管工具，包括 FileSearch、CodeInterpreter 和 ImageGeneration，需通过兼容的 Responses 提供商使用。",
+      "版本说明称新增对上下文、完成过程与用量控制的能力：可转换模型输入、在压缩时保留选定上下文、审阅拟定答案，并限制观察到的根级用量。",
+      "升级条目说明：新 Environment 默认 write_policy='strict'，需要兼容的 Linux 或 macOS 执行器；原有远程策略（包括 Windows 执行器）需显式设置 write_policy='legacy' 并保持 writable_roots=None。",
+      "升级条目说明：捆绑模型目录将 gpt-6-astra、gpt-6.1-sol 和 gpt-5.6-sol 的默认 reasoning effort 从 low 改为 medium，如需沿用需显式设置 model_settings={'reasoning_effort': 'low'}。",
+      "升级条目说明：MCP 审批模式重命名，approval_mode='auto' 改为 'native'，'approve' 改为 'preapproved'，旧值会被拒绝。",
+      "升级条目说明：NativeAgents.before_step 现在接收单个 ChildStepContext（含 context、child、step_index），根级 before_step 回调签名不变。",
+      "升级条目说明：ElicitationRequest 现为 FormRequest | UrlRequest 的联合类型，分别通过 FormRequest.reply()/respond() 与 UrlRequest.reply_url_accept()/accept_url() 处理。",
+      "Added 部分说明：SessionStore、SQLiteSessionStore 和 CustomStorage 可持久化根级历史与自动 Python 工具结果；该初始配置不包含原生工具、Environments、子级、规划工具、生成代码执行、手工工具和可移植检查点。",
+      "Added 部分说明：SQLiteSessionStore 要求单主机与本地 POSIX 文件系统；本地配置与自定义存储可报告不确定的根级调用以供显式核对，且不会自动重放这些效果。",
+      "Added 部分说明：托管工具需要 API-key 提供商和兼容的标准 Responses 模型，排除 Responses Lite 与 Codex login；托管网页搜索增加域名与位置控制并保留引文。",
+      "Added 部分说明：新增 Agent.transform_context、before_compact、before_complete 等上下文与完成钩子；被拒绝的文本可能已经流式输出并保留。",
+      "该仓库当前约 30561 stars、5016 forks、49 open issues，24 小时 stars 增量 12。"
+    ],
+    "id": "story-b67ebc0666f3edef1763",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7",
+    "product_names": [
+      "Agents SDK",
+      "openai-agents-python",
+      "gpt-6-astra",
+      "gpt-6.1-sol",
+      "gpt-5.6-sol"
+    ],
+    "published_at": "2026-11-08T07:05:11Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-abdb22d1039cf6cb83b8"
+    ],
+    "source_refs": [
+      {
+        "author": "markstuart-oai",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T07:05:11Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-abdb22d1039cf6cb83b8",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-agents-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-agents-python: Agents SDK v0.24.0-alpha.7",
+        "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-agents-python/releases/tag/v0.24.0-alpha.7"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "默认推理强度变更仅覆盖捆绑模型目录的元数据描述，显式设置或提供商模型元数据可覆盖该值，实际行为取决于运行时配置。",
+      "被拒绝的模型文本可能已经流式输出并保留，其可见范围与存储位置在摘要中未完全展开。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "高盛据称正在撤回银行家和交易员使用的 Claude Code",
+    "category": "企业AI应用",
+    "credibility_score": 0.22,
+    "entity_names": [
+      "Goldman Sachs",
+      "Anthropic"
+    ],
+    "facts": [],
+    "id": "story-7a9eb071e2b33f7f8835",
+    "importance_score": 0.66,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+    "product_names": [
+      "Claude Code"
+    ],
+    "published_at": "2026-11-08T18:16:07Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-2c38b580d423d1806fb6"
+    ],
+    "source_refs": [
+      {
+        "author": "TheWiggles",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50415628",
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T18:16:07Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2c38b580d423d1806fb6",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
+        "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
+      }
+    ],
+    "source_urls": [
+      "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+      "https://news.ycombinator.com/item?id=50415628"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "企业AI工具部署",
+      "AI编程工具"
+    ],
+    "uncertainties": [
+      "来源为 Hacker News 社区讨论（unverified_lead），标题称高盛正从银行家和交易员处撤回 Claude Code，但正文摘要为空、未提供可核实细节，事件真实性、范围与时间均未经确认。",
+      "讨论帖有 317 条评论、Hacker News 得分 518，说明社区关注度较高，但讨论热度不构成事实证据。",
+      "高盛是否曾部署 Claude Code、撤下原因（合规、安全或其他）及涉及人数均无原始证据支持。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 社区发现，仅为未经验证的线索（unverified_lead），其标题与仓库地址不构成可核实的事实底座。",
+      "在缺乏官方说明、文档或可复现测试记录的情况下，无法确认 284B 参数模型是否真能在 64GB 内存且无 GPU 的条件下运行，也无法确认真实吞吐与可用上下文长度。"
+    ],
+    "canonical_title": "llama-modchip 项目声称在 64GB 内存、无 GPU 环境下运行 284B DeepSeek 模型",
+    "category": "AI 推理与本地部署",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "synchopate",
+      "DeepSeek",
+      "Llama"
+    ],
+    "facts": [],
+    "id": "story-07703e0d57dac4757b8d",
+    "importance_score": 0.68,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://github.com/synchopate/llama-modchip",
+    "product_names": [
+      "llama-modchip",
+      "DeepSeek 284B"
+    ],
+    "published_at": "2026-11-08T10:22:04Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-81d9dcf31ca176f3f914"
+    ],
+    "source_refs": [
+      {
+        "author": "joshcsimmons",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50411961",
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T10:22:04Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-81d9dcf31ca176f3f914",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+        "url": "https://github.com/synchopate/llama-modchip"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/synchopate/llama-modchip",
+      "https://news.ycombinator.com/item?id=50411961"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "本地推理",
+      "无 GPU 部署",
+      "大模型内存优化"
+    ],
+    "uncertainties": [
+      "仓库 llama-modchip 是否确为可运行实现，还是仅为实验性/占位仓库，尚不明确。",
+      "“284B DeepSeek”具体指哪一模型版本、量化方式与精度，输入未给出。",
+      "“64GB RAM、no GPU”下的实际推理速度、内存占用与可用性未经任何独立验证。",
+      "该线索无官方来源支持，也未提供作者的一手测试数据。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "董事会声明中仅提及启动独立调查，报道未给出调查范围、时间表或结论。",
+      "报道将调查对象同时指向 CEO 黄仁勋的个人关系与 Alice Huang 的间谍指控，二者因果关系尚不明确。"
+    ],
+    "canonical_title": "英伟达董事会就黄仁勋与Megaspeed高管Alice Huang的关系启动独立调查",
+    "category": "company_governance",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang",
+      "Alice Huang",
+      "Megaspeed",
+      "Ministry of State Security"
+    ],
+    "facts": [
+      "The Verge AI 报道，英伟达宣布对 CEO 黄仁勋（Jensen Huang）与 Megaspeed 高管 Alice Huang 的关系展开调查。",
+      "报道称 Alice Huang 据称被中国国家安全部招募，用于刺探该公司。",
+      "报道援引英伟达董事会发布的一份声明称，董事会正在启动一项独立调查。"
+    ],
+    "id": "story-f49f3e60774d8e4ebc15",
+    "importance_score": 0.75,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy",
+    "product_names": [],
+    "published_at": "2026-11-08T15:22:39-05:00",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-54c06e97d6e0a2b71c0f"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T15:22:39-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-54c06e97d6e0a2b71c0f",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Nvidia is investigating Jensen Huang’s relationship with a Chinese spy",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1029562/nvidia-investigating-jensen-huang-relationship-chinese-spy"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "corporate investigation",
+      "espionage allegations"
+    ],
+    "uncertainties": [
+      "Alice Huang 被中国国家安全部招募的说法目前仅见于报道转述，未经独立核实。",
+      "英伟达董事会声明的完整内容未被披露，调查具体指向尚不清楚。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "该条目为 OpenAI 官方来源的客户案例式公告，说明 Merge 在工程、营销和内部运营等多个环节采用 OpenAI 产品。",
+      "官方摘要未披露具体部署规模、效果指标或使用时间线，因此可确认的是工具使用范围而非量化收益。"
+    ],
+    "canonical_title": "Merge 使用 OpenAI 的 GPT-6 Astra、ChatGPT 和 Codex 支持产品代码审查、营销及内部业务工作",
+    "category": "ai_models",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "OpenAI",
+      "Merge",
+      "GPT-6 Astra",
+      "ChatGPT",
+      "Codex"
+    ],
+    "facts": [
+      "OpenAI 官方内容称，Merge 使用 GPT-6 Astra、ChatGPT 和 Codex 来审查产品代码并支持营销工作。",
+      "OpenAI 官方内容称，Merge 的团队还使用 AI 来规划高管晚宴和准备销售更新。"
+    ],
+    "id": "story-474856ecc2de92969e07",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/merge-builds-with-openai",
+    "product_names": [
+      "GPT-6 Astra",
+      "ChatGPT",
+      "Codex"
+    ],
+    "published_at": "2026-11-05T08:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-db9792e954d447010915"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-05T08:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-db9792e954d447010915",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Merge builds product and business tools with OpenAI technology",
+        "url": "https://openai.com/index/merge-builds-with-openai"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/merge-builds-with-openai"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "官方摘要未说明 GPT-6 Astra、ChatGPT 和 Codex 各自承担的具体任务边界。",
+      "未提供代码审查、营销支持、活动规划和销售更新的成效数据或评估方式。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "该消息由 OpenAI 官方发布，属于合作与产品应用的官方公告，可作为事实底座，但未披露具体模型、部署规模或效果指标。"
+    ],
+    "canonical_title": "Franklin Templeton 与 OpenAI 合作，以 AI 工作流支持投资研究",
+    "category": "企业AI应用",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "Franklin Templeton",
+      "OpenAI"
+    ],
+    "facts": [
+      "Franklin Templeton 正在使用 OpenAI 支持投资研究，从权益研究起步。",
+      "Franklin Templeton 正在开发 AI 工作流，帮助投资组合经理比较研究观点并审视投资风险。"
+    ],
+    "id": "story-d5e0da5b39a3a51bc9c3",
+    "importance_score": 0.35,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/index/franklin-templeton",
+    "product_names": [],
+    "published_at": "2026-11-05T00:00:00Z",
+    "relevance_score": 0.42,
+    "source_item_ids": [
+      "item-a8e215d1c3fca63aee0f"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-05T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a8e215d1c3fca63aee0f",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Franklin Templeton uses OpenAI to support investment research",
+        "url": "https://openai.com/index/franklin-templeton"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/franklin-templeton"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "投资研究",
+      "权益研究",
+      "AI工作流"
+    ],
+    "uncertainties": [
+      "具体使用的 OpenAI 模型或产品未说明。",
+      "AI 工作流的部署范围、上线时间与量化效果未披露。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "该发布属于政策与行业倡议层面，而非具体产品或模型发布。",
+      "两项文件分别从社区承诺和算力园区政策蓝图两个层面，覆盖 AI 基础设施建设的社会与治理议题。"
+    ],
+    "canonical_title": "OpenAI 发布 National Community Compact 与 Compute Campus Policy Blueprint，提出负责任 AI 基础设施建设标准",
+    "category": "policy/industry",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 发布了 National Community Compact 和 Compute Campus Policy Blueprint。",
+      "OpenAI 表示，这两项举措旨在保护当地资源、创造就业，并指导负责任的 AI 基础设施开发。"
+    ],
+    "id": "story-ddde74853e7b38c5689d",
+    "importance_score": 0.3,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure",
+    "product_names": [
+      "National Community Compact",
+      "Compute Campus Policy Blueprint"
+    ],
+    "published_at": "2026-11-05T02:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-25fa4dd18ec78a48a923"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-05T02:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-25fa4dd18ec78a48a923",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Setting a new standard for responsible AI infrastructure",
+        "url": "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/setting-new-standard-responsible-ai-infrastructure"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "responsible AI infrastructure",
+      "AI infrastructure policy",
+      "community development"
+    ],
+    "uncertainties": [
+      "输入未提供 National Community Compact 与 Compute Campus Policy Blueprint 的具体条款、适用范围或执行机制。",
+      "输入未说明这两项举措是否具有约束力，也未提及涉及的具体地区、合作方或时间表。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "该事件涉及公司治理与高管行为，可能对英伟达的公众形象与内部管理产生影响。"
+    ],
+    "canonical_title": "英伟达就CEO黄仁勋与Alice Huang的关系启动调查，黄仁勋向员工发送备忘录",
+    "category": "company_news",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang",
+      "Alice Huang",
+      "Board of Directors"
+    ],
+    "facts": [
+      "The Verge AI报道称，英伟达于周日宣布对CEO黄仁勋与Alice Huang的关系启动调查。",
+      "The Verge AI报道称，除董事会宣布调查外，黄仁勋还向英伟达员工发送了一份备忘录，承认该段关系。",
+      "The Verge AI将Alice Huang描述为一名AI高管及中国政府代理人。"
+    ],
+    "id": "story-2e58cc386e48ad281c6a",
+    "importance_score": 0.55,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia",
+    "product_names": [],
+    "published_at": "2026-11-08T17:54:50-05:00",
+    "relevance_score": 0.15,
+    "source_item_ids": [
+      "item-f0be6325bfc4dec9fdd9"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T17:54:50-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f0be6325bfc4dec9fdd9",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Here’s the full text of Jensen Huang’s memo to Nvidia",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1029595/full-text-jensen-huang-affair-memo-nvidia"
+    ],
+    "status": "announced",
+    "topic_names": [],
+    "uncertainties": [
+      "调查的具体范围、时间表与结论尚未披露。",
+      "关于Alice Huang身份的表述来自The Verge AI的报道，目前缺乏独立核实。",
+      "黄仁勋备忘录全文内容尚未在本条输入中完整呈现。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "一篇 Hacker News 帖子讨论从 Claude 转向 Pi",
+    "category": "社区讨论",
+    "credibility_score": 0.15,
+    "entity_names": [
+      "Claude",
+      "Pi",
+      "Hacker News",
+      "Anthropic"
+    ],
+    "facts": [],
+    "id": "story-4e205299544a7f708612",
+    "importance_score": 0.2,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://caleb.software/posts/claude-to-pi.html",
+    "product_names": [
+      "Claude",
+      "Pi"
+    ],
+    "published_at": "2026-11-08T03:11:48Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-ce58a06ff55adbbdb01e"
+    ],
+    "source_refs": [
+      {
+        "author": "karagenit",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50410107",
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T03:11:48Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ce58a06ff55adbbdb01e",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Goodbye Claude, hello Pi",
+        "url": "https://caleb.software/posts/claude-to-pi.html"
+      }
+    ],
+    "source_urls": [
+      "https://caleb.software/posts/claude-to-pi.html",
+      "https://news.ycombinator.com/item?id=50410107"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 编程助手",
+      "开发者工具迁移",
+      "社区讨论"
+    ],
+    "uncertainties": [
+      "该帖子的具体内容不可用，仅有标题和讨论链接。",
+      "Pi 是什么产品、以及它与 Claude 的关系，未在输入中说明。",
+      "输入中没有官方来源或可核实的证据。",
+      "没有证据表明存在实际的产品变更或官方公告；这只是一篇社区帖子。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  },
+  {
+    "analysis": [
+      "报道同时涉及企业调查与高管个人关系两条线索，但现有摘要未说明调查由谁主导、涉及何种安全审查程序，也未说明该疑似间谍身份是否已获官方确认。",
+      "摘要只引述了备忘录中承认婚外情这一点，未提供备忘录全文或 Nvidia 官方声明原文，因此事件细节目前高度依赖单一媒体转述。"
+    ],
+    "canonical_title": "Nvidia 将调查 CEO 黄仁勋与疑似中国间谍的关系；黄仁勋在备忘录中承认婚外情",
+    "category": "企业治理与安全",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang",
+      "TechCrunch AI",
+      "Anthony Ha"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，Nvidia 将调查 CEO Jensen Huang 与一名疑似中国间谍的关系。",
+      "报道称，黄仁勋在一份致全公司的备忘录中承认自己有婚外情。",
+      "该报道由 Anthony Ha 撰写，发布时间为 2026-11-08T21:00:11Z。"
+    ],
+    "id": "story-37ce906fefcf320628b5",
+    "importance_score": 0.35,
+    "novelty_score": 0.22,
+    "primary_source_url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/",
+    "product_names": [],
+    "published_at": "2026-11-08T21:00:11Z",
+    "relevance_score": 0.18,
+    "source_item_ids": [
+      "item-8a86cf9d70b8065c8241"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-08T23:06:38.443877Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-08T21:00:11Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8a86cf9d70b8065c8241",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Nvidia will investigate CEO Jensen Huang’s relationship with possible Chinese spy",
+        "url": "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/08/nvidia-says-its-investigating-ceo-jensen-huangs-relationship-with-possible-chinese-spy/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "企业调查",
+      "高管关系",
+      "国家安全"
+    ],
+    "uncertainties": [
+      "“疑似中国间谍”这一表述的来源与认定依据不明，是否已有执法或情报机构介入尚不清楚。",
+      "调查的具体范围、时间表、负责方以及是否已正式启动均未在输入中说明。",
+      "黄仁勋备忘录的完整内容、发布对象和日期未在输入中给出。",
+      "Nvidia 官方是否已就调查发表正式声明的原文未被提供。"
+    ],
+    "updated_at": "2026-11-08T23:11:46.177227Z"
+  }
+]

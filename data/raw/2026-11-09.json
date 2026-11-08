@@ -97,6 +97,7 @@
     "id": "item-8a86cf9d70b8065c8241",
     "language": "en-US",
     "metadata": {
+      "content_version": "876289bb2c4fb1c85f33",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -127,6 +128,7 @@
     "id": "item-f0be6325bfc4dec9fdd9",
     "language": "en-US",
     "metadata": {
+      "content_version": "ddb0e3fa5af7ff447721",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -188,6 +190,7 @@
     "id": "item-71c843041955ebc1fdc1",
     "language": "en-us",
     "metadata": {
+      "content_version": "371257b59f7eceea095c",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -370,6 +373,7 @@
     "id": "item-54c06e97d6e0a2b71c0f",
     "language": "en-US",
     "metadata": {
+      "content_version": "40fbe2951c1ad8ffe0c6",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -431,6 +435,7 @@
     "id": "item-5f8103aa8ad8e667fe99",
     "language": "en-us",
     "metadata": {
+      "content_version": "48c75f6f9339c2536037",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -613,6 +618,7 @@
     "id": "item-b9c0dd474c98ba84113b",
     "language": "en-US",
     "metadata": {
+      "content_version": "14c9eb8b4f7d063c8799",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -856,6 +862,7 @@
     "id": "item-c08233254ab556923442",
     "language": "en-US",
     "metadata": {
+      "content_version": "a74cbcd692af3753d3b0",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -1222,6 +1229,7 @@
     "id": "item-db9792e954d447010915",
     "language": "en-US",
     "metadata": {
+      "content_version": "616ad0260636cb5a6fe5",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1465,6 +1473,7 @@
     "id": "item-25fa4dd18ec78a48a923",
     "language": "en-US",
     "metadata": {
+      "content_version": "116b9021c6470dee1490",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1708,6 +1717,7 @@
     "id": "item-2d1d326185a62641bed0",
     "language": "en-US",
     "metadata": {
+      "content_version": "1a9c23136403f71c948d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1951,6 +1961,7 @@
     "id": "item-a8e215d1c3fca63aee0f",
     "language": "en-US",
     "metadata": {
+      "content_version": "934105f4644f23f91de8",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -45327,6 +45338,7 @@
     "id": "item-abdb22d1039cf6cb83b8",
     "language": "en",
     "metadata": {
+      "content_version": "32a08dba0a74ee8dadb0",
       "data_anomaly": false,
       "forks": 5016,
       "official": true,
@@ -48969,11 +48981,20 @@
     "metadata": {
       "comments": 422,
       "community_signal": true,
+      "content_version": "475d6aafb181d18f5db3",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50410107",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://caleb.software/posts/claude-to-pi.html",
       "score": 665,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -48999,11 +49020,20 @@
     "metadata": {
       "comments": 317,
       "community_signal": true,
+      "content_version": "b471944015cfccbf0f07",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50415628",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
       "score": 518,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -49029,11 +49059,19 @@
     "metadata": {
       "comments": 387,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50407882",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
       "score": 571,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -49059,6 +49097,7 @@
     "metadata": {
       "comments": 147,
       "community_signal": true,
+      "content_version": "614494afaa2cf8529cc4",
       "discussion_url": "https://news.ycombinator.com/item?id=50416158",
       "official": false,
       "original_url": "https://mailroute.net/blog/outlook-rejecting-email-without-dmarc",
@@ -49209,11 +49248,21 @@
     "metadata": {
       "comments": 133,
       "community_signal": true,
+      "content_version": "c4957578d852de128ae6",
+      "discovery_paths": [
+        "hn_search:deepseek:DeepSeek",
+        "hn_search:meta:Llama"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50411961",
+      "lab_id": "deepseek",
       "official": false,
       "original_url": "https://github.com/synchopate/llama-modchip",
       "score": 331,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -49335,6 +49384,7 @@
     "metadata": {
       "change_percent": -0.009926683329770586,
       "close": 530.6099853515625,
+      "content_version": "afcbf16ca6de1d0c55fa",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 535.9299926757812,
@@ -50383,42 +50433,6 @@
     "url": "https://twitter.com/DeepSeekHarness/status/2119431663642153128"
   },
   {
-    "author": "joshcsimmons",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-08T23:06:38.443877Z",
-    "id": "item-81d9dcf31ca176f3f914",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:deepseek:DeepSeek",
-        "hn_search:meta:Llama"
-      ],
-      "discovery_reasons": [
-        "watchlist_discovery"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50411961",
-      "hn_submission_time": 1794133324,
-      "lab_id": "deepseek",
-      "original_url": "https://github.com/synchopate/llama-modchip",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-08T10:22:04Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
-    "topic_candidates": [],
-    "url": "https://github.com/synchopate/llama-modchip"
-  },
-  {
     "author": "sexy_seedbox",
     "company_candidates": [],
     "content_excerpt": "",
@@ -51099,38 +51113,6 @@
     "url": "https://github.com/rohith0707/llm-cost-watch"
   },
   {
-    "author": "TheWiggles",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-08T23:06:38.443877Z",
-    "id": "item-2c38b580d423d1806fb6",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50415628",
-      "hn_submission_time": 1794161767,
-      "lab_id": "anthropic",
-      "original_url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-08T18:16:07Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Goldman Sachs is pulling Claude Code from its bankers and traders",
-    "topic_candidates": [],
-    "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
-  },
-  {
     "author": "diogomendes",
     "company_candidates": [],
     "content_excerpt": "",
@@ -51195,38 +51177,6 @@
     "url": "https://github.com/sshah03/recalc"
   },
   {
-    "author": "karagenit",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-08T23:06:38.443877Z",
-    "id": "item-ce58a06ff55adbbdb01e",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50410107",
-      "hn_submission_time": 1794107508,
-      "lab_id": "anthropic",
-      "original_url": "https://caleb.software/posts/claude-to-pi.html",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-08T03:11:48Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Goodbye Claude, hello Pi",
-    "topic_candidates": [],
-    "url": "https://caleb.software/posts/claude-to-pi.html"
-  },
-  {
     "author": "xlayn",
     "company_candidates": [],
     "content_excerpt": "",
@@ -51257,38 +51207,6 @@
     "title": "Claude Watermark Text",
     "topic_candidates": [],
     "url": "https://www.notebookcheck.net/Claude-now-watermarks-text-from-older-models-with-no-opt-out.1444769.0.html"
-  },
-  {
-    "author": "shmulc",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-08T23:06:38.443877Z",
-    "id": "item-1b952e8ccf388d9f34d9",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50407882",
-      "hn_submission_time": 1794084332,
-      "lab_id": "anthropic",
-      "original_url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-07T20:45:32Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Code's \"Don't Ask Again\" exposes passwords in 1,122 public GitHub files",
-    "topic_candidates": [],
-    "url": "https://apiiro.com/blog/coding-agents-leaking-secrets-github-dont-ask-again"
   },
   {
     "author": "alpbahadur",

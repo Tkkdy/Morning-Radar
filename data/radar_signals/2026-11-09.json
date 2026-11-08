@@ -1,0 +1,137 @@
+[
+  {
+    "claim": "Simon Willison 记录用 Claude 聊天（Opus 5.5）辅助开发 SQLite parse_number() 扩展，并比较 C 与 Rust 实现。",
+    "id": "radar-2ab668db8b91e2186ac7",
+    "missing_evidence": [
+      "完整文章正文与最终结论",
+      "C 与 Rust 实现代码及测试结果",
+      "Claude 生成内容与人工修改的边界",
+      "性能、可维护性等比较数据"
+    ],
+    "observed_at": "2026-11-08T23:06:38.443877Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-71c843041955ebc1fdc1",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/8/sqlite-parse-number-c-vs-rust/"
+      }
+    ],
+    "uncertainty": "摘要截断，无法确认最终实现质量、比较结论及可复现性。",
+    "why_notable": "展示了 AI 辅助编写底层 SQLite 扩展的实践，并涉及 C/Rust 两种实现路径的对比。"
+  },
+  {
+    "claim": "有社区线索称 Goldman Sachs 正在从其银行家和交易员处撤下 Claude Code。",
+    "id": "radar-5a1eddd5b643a04819a0",
+    "missing_evidence": [
+      "原文正文或内部通知",
+      "Goldman Sachs 或 Anthropic 的官方回应",
+      "撤下范围、时间与原因",
+      "独立信源交叉验证"
+    ],
+    "observed_at": "2026-11-08T23:06:38.443877Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-2c38b580d423d1806fb6",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers"
+      }
+    ],
+    "uncertainty": "仅见 HN 标题与二级来源域名，正文缺失，未获独立佐证。",
+    "why_notable": "若属实，是大型金融机构对 AI 编程工具采用的重要反向信号，可能影响企业级 AI 编程市场预期。"
+  },
+  {
+    "claim": "GitHub 项目 llama-modchip 声称可在 64GB RAM、无 GPU 环境下运行 284B DeepSeek 模型。",
+    "id": "radar-227e8dcc2820e575c2b7",
+    "missing_evidence": [
+      "README 与实现细节",
+      "推理速度、内存占用和精度数据",
+      "可复现的测试步骤",
+      "模型量化或卸载方案说明"
+    ],
+    "observed_at": "2026-11-08T23:06:38.443877Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-81d9dcf31ca176f3f914",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/synchopate/llama-modchip"
+      }
+    ],
+    "uncertainty": "仅有项目标题，未见技术说明或第三方验证；该资源条件下运行 284B 模型的可信度待核实。",
+    "why_notable": "若可复现，将显著降低大模型本地推理的硬件门槛，属于 AI 推理与开源生态的重要信号。"
+  }
+]
