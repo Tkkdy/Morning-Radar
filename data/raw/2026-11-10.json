@@ -7,6 +7,7 @@
     "id": "item-caa9073cefb43725f1a5",
     "language": "en-US",
     "metadata": {
+      "content_version": "fa151d6ec9c880ee89ff",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-a3eb4dc7ae89c15a4a4c",
     "language": "en-US",
     "metadata": {
+      "content_version": "6cf89614ca0603afb32a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-ac8f18750241a65f1eaf",
     "language": "en-US",
     "metadata": {
+      "content_version": "68e7f8689a4344fe0ca0",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-2379109f43cc3c2befa8",
     "language": null,
     "metadata": {
+      "content_version": "59313f43ae9e0a0bb996",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-4f4fd1b1da1f00aa7f03",
     "language": "en-US",
     "metadata": {
+      "content_version": "bf003ecdea18a9ac92df",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +284,7 @@
     "id": "item-9a8fde6cfa9ab68cee22",
     "language": "en-us",
     "metadata": {
+      "content_version": "5eeb812fa884039a671c",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +316,7 @@
     "id": "item-e2976b7a70bf42f47c18",
     "language": "en",
     "metadata": {
+      "content_version": "8eaff03266939d39c382",
       "official": false,
       "practitioner_id": "armin-ronacher",
       "priority": "high",
@@ -341,6 +348,7 @@
     "id": "item-952d2516af2e905436ad",
     "language": "en-US",
     "metadata": {
+      "content_version": "7dda171180f32ba3cfcb",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -401,6 +409,7 @@
     "id": "item-2f743c2a4cd5a559f7e2",
     "language": "en-US",
     "metadata": {
+      "content_version": "f6d0e15a7c623ef6a606",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +440,7 @@
     "id": "item-55d059b88c6c576a2f3d",
     "language": "en-US",
     "metadata": {
+      "content_version": "f2f740103cf14293af01",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1099,6 +1109,7 @@
     "id": "item-13e4c95dcbaa6d34090e",
     "language": "en-US",
     "metadata": {
+      "content_version": "e472e0441b9ca7e3f1cd",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1615,6 +1626,7 @@
     "id": "item-71c843041955ebc1fdc1",
     "language": "en-us",
     "metadata": {
+      "content_version": "f1e0a6356bd030604edb",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -2800,6 +2812,7 @@
     "id": "item-1f522e8436ab4f4eb31b",
     "language": null,
     "metadata": {
+      "content_version": "cb5718f653764a83815a",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -77027,6 +77040,7 @@
     "id": "item-324a37cfaa0631c3cd66",
     "language": "en",
     "metadata": {
+      "content_version": "0e77bdcf7e9995f61d90",
       "data_anomaly": false,
       "forks": 907,
       "official": true,
@@ -78927,6 +78941,7 @@
     "id": "item-9e6aebddb26b309846fc",
     "language": "en",
     "metadata": {
+      "content_version": "be94da9c6826f4fc242d",
       "data_anomaly": false,
       "forks": 18981,
       "official": true,
@@ -80079,11 +80094,19 @@
     "metadata": {
       "comments": 592,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50429068",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "score": 163,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -80109,11 +80132,20 @@
     "metadata": {
       "comments": 2,
       "community_signal": true,
+      "content_version": "5b3afb480c6e78ab5c2f",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50429906",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
       "score": 961,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -80289,6 +80321,7 @@
     "metadata": {
       "comments": 140,
       "community_signal": true,
+      "content_version": "71d517db171b31da8cd9",
       "discussion_url": "https://news.ycombinator.com/item?id=50424581",
       "official": false,
       "original_url": "https://www.foldableflight.com",
@@ -82978,38 +83011,6 @@
     "url": "https://deepsense.ai/blog/eda-benchmark-leaderboard-october-28th-2026/"
   },
   {
-    "author": "meetpateltech",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-10T02:22:44.991535Z",
-    "id": "item-ef571b3dbb63b0916486",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50429906",
-      "hn_submission_time": 1794250589,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-09T18:56:29Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Fable 5.2 and Mythos 5.2",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
-  },
-  {
     "author": "lumpa",
     "company_candidates": [],
     "content_excerpt": "",
@@ -83072,38 +83073,6 @@
     "title": "Picard on My Claude Code",
     "topic_candidates": [],
     "url": "https://tomaytotomato.com/picard-on-my-claude-code/"
-  },
-  {
-    "author": "lairv",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-10T02:22:44.991535Z",
-    "id": "item-0febcf5d53b5fb1807a0",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50429068",
-      "hn_submission_time": 1794247270,
-      "lab_id": "anthropic",
-      "original_url": "https://www.anthropic.com/claude-fable-and-mythos-5-2",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-09T18:01:10Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude Fable 5.2 and Mythos 5.2",
-    "topic_candidates": [],
-    "url": "https://www.anthropic.com/claude-fable-and-mythos-5-2"
   },
   {
     "author": "smarch27",

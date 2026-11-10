@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "作者将 Anthropic 新发布的 Fable 5.2 与 Mythos 5.2 接入 llm-anthropic 0.31，并用同一 pelican SVG 提示词在 low、medium、high、xhigh、max 五个推理档位下实测，称最佳结果来自 xhigh。",
+    "id": "radar-6aa765bca2d60c163faf",
+    "missing_evidence": [
+      "Anthropic 关于 Fable 5.2、Mythos 5.2 的官方发布说明",
+      "五个推理档位的完整输出与横向对比",
+      "独立第二来源或他人复现"
+    ],
+    "observed_at": "2026-11-10T02:22:44.991535Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-9a8fde6cfa9ab68cee22",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/9/llm-anthropic/"
+      }
+    ],
+    "uncertainty": "仅来自单一从业者博客且摘录被截断；模型名称、发布事实与“最佳结果”判断均未获官方或独立材料佐证。",
+    "why_notable": "同时给出新模型在开发者 CLI 工具中的可用方式与多推理档位的实际产出差异，对使用 llm 工具链的开发者有直接参考价值。"
+  },
+  {
+    "claim": "作者用 Claude（Opus 5.5）对话辅助，为 SQLite 编写 parse_number() 扩展以解析「-$1,234.56」「12.5%」等字符串，并比较 C 与 Rust 两种实现路径。",
+    "id": "radar-2ab668db8b91e2186ac7",
+    "missing_evidence": [
+      "C 与 Rust 两版实现的完整代码与可运行结果",
+      "各方案耗时、正确性与失败情况的具体对比",
+      "独立复现"
+    ],
+    "observed_at": "2026-11-10T02:22:44.991535Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "test_experiment",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-71c843041955ebc1fdc1",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/8/sqlite-parse-number-c-vs-rust/"
+      }
+    ],
+    "uncertainty": "单一从业者博客、摘录被截断；比较结论与实现质量无法从现有片段核实。",
+    "why_notable": "提供了一个具体的 AI 辅助系统编程小实验，涉及提示词、语言选型与实现结果，可作为评估 AI 编码能力的真实样本。"
+  }
+]

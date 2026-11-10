@@ -1,0 +1,163 @@
+{
+  "date": "2026-11-10",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方可验证 CI/CD 日志成为密钥扫描新覆盖面的客观动作，对开发工作流有实际防护意义。",
+      "retain_for_trends": true,
+      "story_id": "story-4c2cfb1c614ef123c591",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cicd-log-credential-leak-detection"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "内存占用大幅下降与本地运行新编程模型是开发者可验证的方向性变化，但效果仍属厂商声明。",
+      "retain_for_trends": true,
+      "story_id": "story-721c3cf0cdcaeb5e0e87",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-hardware-local-inference-memory-footprint",
+        "local-runtime-third-party-model-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "将 Agent 失败转为测试与 harness 修复的实践值得知道，但仅厂商博客描述、无独立效果验证。",
+      "retain_for_trends": true,
+      "story_id": "story-a1072403b9b66159bdbd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-failure-to-eval-loop"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认模型在 Copilot 上架，但信息被截断且为常规集成更新，缺乏独立评估价值。",
+      "retain_for_trends": false,
+      "story_id": "story-ff06fb267189e016304b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方 SDK 发布，新增多后端兼容修复与模型 ID，属可核实的接口能力演进。",
+      "retain_for_trends": true,
+      "story_id": "story-4585bb297f2a9b244c5a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sdk-multi-backend-compatibility",
+        "model-catalog-expansion-via-sdk"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "研究基础设施层集中熔断能力是 AI 安全治理机制的早期信号，但实现与成效未披露。",
+      "retain_for_trends": true,
+      "story_id": "story-322082525a4f72a2b57f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-workload-kill-switch-infrastructure"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅标题可确认，合成本地化数据集发布是弱信号，可留作数据生态趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-e26fca436f5e3ef44509",
+      "support_for_story_id": null,
+      "trend_links": [
+        "synthetic-persona-datasets-localization"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "榜单新增语言属常规评测扩展，无具体数据也无结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-dab479e9b359f2351191",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "企业 AI 产品进入云市场采购渠道是可核实的分发结构变化。",
+      "retain_for_trends": true,
+      "story_id": "story-77e3ec318460c8355d68",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cloud-marketplace-ai-procurement-channel"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "专家剪枝保持配对关系的方法方向有技术意义，但无正文与复现信息。",
+      "retain_for_trends": true,
+      "story_id": "story-7f78c047eaa8f4abc1a1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "moe-expert-pruning-paired-experts"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅媒体转述的 IPO 传闻，未获官方确认，作为读者快讯即可。",
+      "retain_for_trends": false,
+      "story_id": "story-27996f7153870ba853ab",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "TOP",
+      "reader_value": 3,
+      "reason": "HN 高分讨论表明模型发布具备今日关注度，但一手链接未经核实且无摘要，作为待验证重点事件。",
+      "retain_for_trends": true,
+      "story_id": "story-dcffe2282a10f063cbad",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-release-validation-gap"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-10T02:28:03.935694Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
