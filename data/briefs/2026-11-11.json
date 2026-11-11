@@ -1,0 +1,1032 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-b2edab71c3dc4bfcc84f",
+      "market_or_community_reaction": "输入未提供社区或市场反应。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该消息来自 NVIDIA 官方开发者博客，属于官方一手发布，可作为产品发布事实的底座。",
+            "摘要与内容片段仅提到推理场景下的复用，未说明具体支持框架、性能数据或开放时间。",
+            "若该组件确为开源，可能降低 GPU 工作负载初始化开销，但需以官方文档或代码仓库进一步验证。"
+          ],
+          "canonical_title": "NVIDIA 推出 NVIDIA Snapshot，可让已初始化的 GPU 工作负载在数秒内启动和恢复",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA 开发者博客发布文章，标题为“Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot”，作者为 Ron Kahn，发布时间为 2026-11-10T15:00:00Z。",
+            "文章称 NVIDIA Snapshot 是 NVIDIA DSX AI Factory Platform 的一个新开源组件。",
+            "文章称 NVIDIA Snapshot 可让已初始化的 GPU 工作负载在推理场景中复用。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/",
+          "product_names": [
+            "NVIDIA Snapshot",
+            "NVIDIA DSX AI Factory Platform"
+          ],
+          "published_at": "2026-11-10T15:00:00Z",
+          "source_refs": [
+            {
+              "author": "Ron Kahn",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T15:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-25d05ca668539a664912",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Start and Restore GPU Workloads in Seconds with NVIDIA Snapshot",
+              "url": "https://developer.nvidia.com/blog/start-and-restore-gpu-workloads-in-seconds-with-nvidia-snapshot/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-6ebec38c5d665796c164",
+          "topic_names": [
+            "GPU 工作负载快照",
+            "推理工作负载复用"
+          ],
+          "uncertainties": [
+            "文章摘要称 Snapshot 为“新开源组件”，但输入未提供代码仓库地址、许可证或开源发布范围。",
+            "输入未给出 Snapshot 与 DSX AI Factory Platform 的具体集成方式、可用版本或上市时间。",
+            "输入未提供启动和恢复的实测数据，标题中“数秒”缺少可追溯的性能证据。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6ebec38c5d665796c164"
+      ],
+      "title": "NVIDIA Snapshot 开源组件：让已初始化 GPU 工作负载数秒内启动和恢复",
+      "uncertainty": "输入未提供代码仓库地址、许可证或开源发布范围；未说明与 DSX AI Factory Platform 的具体集成方式、可用版本或上市时间；标题中“数秒”缺少可追溯的性能证据。",
+      "what_happened": "NVIDIA 开发者博客发布文章，介绍 NVIDIA Snapshot 是 NVIDIA DSX AI Factory Platform 的新开源组件，可让已初始化的 GPU 工作负载在推理场景中复用，标题称可在数秒内启动和恢复。",
+      "why_it_matters": "GPU 工作负载初始化开销是推理服务弹性伸缩和冷启动时延的重要成本项；若 Snapshot 能显著降低该开销，可能影响推理服务的部署密度与资源调度方式，但这一影响目前尚未被实测数据证实。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-58dd22e1842e0b053570",
+      "market_or_community_reaction": "输入未提供社区或市场反应。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从标题和官方来源属性看，这是一则关于 Gemini Intelligence 功能更新与设备覆盖范围扩大的官方公告。"
+          ],
+          "canonical_title": "Google 发布 Gemini Intelligence 新功能并扩展至更多设备",
+          "category": "产品发布",
+          "entity_names": [
+            "Google"
+          ],
+          "facts": [
+            "Google 官方博客发布了标题为《Gemini Intelligence: New features, on more devices》的文章，作者为 Karthik Thirumalai，发布时间为 2026-11-10T19:00:00Z。",
+            "该来源将内容标注为官方公告（official_primary），主题候选包含 ai_models 与 ai_infrastructure。"
+          ],
+          "primary_source_url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/",
+          "product_names": [
+            "Gemini Intelligence"
+          ],
+          "published_at": "2026-11-10T19:00:00Z",
+          "source_refs": [
+            {
+              "author": "Karthik Thirumalai",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T19:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-fafff4292c09fd9370c5",
+              "source_date": null,
+              "source_name": "Google AI",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Gemini Intelligence: New features, on more devices",
+              "url": "https://blog.google/products-and-platforms/platforms/android/gemini-intelligence-november-features-devices/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-8899870371110a359d9b",
+          "topic_names": [
+            "AI 助手",
+            "Android"
+          ],
+          "uncertainties": [
+            "输入仅提供标题和极简摘要，未说明具体新增功能、支持设备型号、上线时间与地区范围。",
+            "摘要文本为图片替代描述，未包含可核实的实质产品细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8899870371110a359d9b"
+      ],
+      "title": "Google 发布 Gemini Intelligence 新功能并扩展设备覆盖",
+      "uncertainty": "输入仅提供标题和极简摘要，未说明具体新增功能、支持设备型号、上线时间与地区范围。",
+      "what_happened": "Google 官方博客发布文章，标题为《Gemini Intelligence: New features, on more devices》，宣布 Gemini Intelligence 的功能更新并扩展至更多设备。",
+      "why_it_matters": "这是 Google 对 Gemini 端侧助手能力的官方更新，设备覆盖扩大可能影响 Android 生态中 AI 助手的入口竞争，但具体功能与设备清单尚未披露。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-f359654160cff63e3c99",
+      "market_or_community_reaction": "输入未提供社区或市场反应。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文聚焦于自动驾驶推理模型在车载算力与延迟约束下的部署问题，属于 NVIDIA 官方开发者渠道发布的技术内容。"
+          ],
+          "canonical_title": "NVIDIA 开发者博客探讨在车载计算与延迟限制内运行自动驾驶推理模型",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA",
+            "NVIDIA Developer Blog",
+            "Marco Pavone"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 于 2026-11-10T16:00:00Z 发布了由 Marco Pavone 撰写的文章，标题为《Running AV Reasoning Models Within Onboard Compute and Latency Limits》。",
+            "文章摘要指出，自动驾驶（AV）开发者需要能在车载系统的计算和延迟约束内运行的推理模型。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/",
+          "product_names": [],
+          "published_at": "2026-11-10T16:00:00Z",
+          "source_refs": [
+            {
+              "author": "Marco Pavone",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T16:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-031b00b4f99d2f30104c",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Running AV Reasoning Models Within Onboard Compute and Latency Limits",
+              "url": "https://developer.nvidia.com/blog/running-av-reasoning-models-within-onboard-compute-and-latency-limits/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-3a7ef687255f0b7048ce",
+          "topic_names": [
+            "自动驾驶",
+            "推理模型",
+            "车载计算",
+            "延迟限制"
+          ],
+          "uncertainties": [
+            "输入仅提供摘要片段，文章具体技术方案、模型规格与性能数据均未披露。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-3a7ef687255f0b7048ce"
+      ],
+      "title": "NVIDIA 开发者博客讨论在车载算力与延迟限制内运行自动驾驶推理模型",
+      "uncertainty": "输入仅提供摘要片段，文章具体技术方案、模型规格与性能数据均未披露。",
+      "what_happened": "NVIDIA 开发者博客发布 Marco Pavone 撰写的技术文章，讨论自动驾驶开发者需要能在车载系统的计算和延迟约束内运行的推理模型。",
+      "why_it_matters": "该文聚焦自动驾驶推理模型在车载算力与延迟约束下的部署问题，属于 NVIDIA 官方开发者渠道的技术内容，反映端侧推理约束仍是 AV 落地关键议题。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-f4395c439407e36c01d8",
+      "market_or_community_reaction": "输入未提供社区反应。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本为 rc0 预发布，说明改动尚未标记为稳定正式发布。",
+            "多项改动集中在运行时与后端层（Vulkan mmap、MLX 并发生成、llama.cpp 版本升级），反映 Ollama 在本地推理性能与多后端适配上持续迭代。"
+          ],
+          "canonical_title": "Ollama 发布 v0.40.17-rc0 预发布版本，改进 Vulkan 集显 mmap 与 MLX 并发生成",
+          "category": "AI 基础设施与开源工具",
+          "entity_names": [
+            "Ollama",
+            "GitHub",
+            "llama.cpp",
+            "MLX",
+            "MLX-C",
+            "Vulkan",
+            "OpenCode",
+            "ChatGPT"
+          ],
+          "facts": [
+            "Ollama 在 GitHub 上发布 v0.40.17-rc0 预发布版本，comparing 范围是 v0.40.16...v0.40.17-rc0。",
+            "该版本包含改进 ChatGPT CLI 恢复与优雅重启的改动（PR #19583，作者 hoyyeva）。",
+            "cmd/launch 改为在 OpenCode 设置中使用 thinking 元数据（PR #19409，作者 hoyyeva）。",
+            "llm 对 Vulkan 集成 GPU 使用 mmap（PR #19640，作者 dhiltgen）。",
+            "mlx 支持并发生成（PR #19197，作者 dhiltgen）。",
+            "llama.cpp 版本升级到 b12257（PR #19646）。",
+            "MLX、MLX-C 进行版本升级（PR #19647）。",
+            "rpreslar4765 通过 PR #17163 成为新贡献者。"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc0",
+          "product_names": [
+            "Ollama v0.40.17-rc0",
+            "llama.cpp b12257"
+          ],
+          "published_at": "2026-11-10T22:25:00Z",
+          "source_refs": [
+            {
+              "author": "github-actions[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T22:25:00Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-60786b016c122ab8631c",
+              "source_date": null,
+              "source_name": "GitHub · ollama/ollama",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "ollama/ollama: v0.40.17",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc0"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-7ee5a4ab4e1458f9f556",
+          "topic_names": [
+            "开源 AI 工具",
+            "本地推理",
+            "Vulkan 集显支持",
+            "MLX 并发生成"
+          ],
+          "uncertainties": [
+            "输入仅提供变更列表，未给出各项改动的具体性能收益或兼容性影响。",
+            "v0.40.17-rc0 是否会转为正式版以及具体发布时间未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-7ee5a4ab4e1458f9f556"
+      ],
+      "title": "Ollama 发布 v0.40.17-rc0：改进 Vulkan 集显 mmap 与 MLX 并发生成",
+      "uncertainty": "该版本为 rc0 预发布，改动尚未标记为稳定正式发布；输入未给出各项改动的具体性能收益或兼容性影响，也未说明转正式版的时间。",
+      "what_happened": "Ollama 在 GitHub 发布 v0.40.17-rc0 预发布版本，包含改进 ChatGPT CLI 恢复与优雅重启、OpenCode 设置使用 thinking 元数据、Vulkan 集成 GPU 使用 mmap、MLX 支持并发生成，以及 llama.cpp 升级到 b12257 等改动。",
+      "why_it_matters": "多项改动集中在运行时与后端层，反映 Ollama 在本地推理性能与多后端适配上持续迭代；Vulkan 集显 mmap 与 MLX 并发生成可能影响本地推理在消费级硬件上的可用性。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-185edcaf78564ef662c8",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.ft.com/content/269b0245-44c4-4e34-94df-202bef642539",
+        "https://news.ycombinator.com/item?id=50448213"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "美国监管机构推迟华尔街关于 AI 算力期货交易的推进",
+          "category": "监管政策",
+          "entity_names": [
+            "美国监管机构",
+            "华尔街"
+          ],
+          "facts": [],
+          "primary_source_url": "https://www.ft.com/content/269b0245-44c4-4e34-94df-202bef642539",
+          "product_names": [
+            "AI 算力期货"
+          ],
+          "published_at": "2026-11-11T00:19:05Z",
+          "source_refs": [
+            {
+              "author": "throwaway2037",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=50448213",
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-11T00:19:05Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-745613a54baddedc6f6e",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "US regulator postpones Wall Street push to trade AI computing futures",
+              "url": "https://www.ft.com/content/269b0245-44c4-4e34-94df-202bef642539"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-d1a85549e90459201c68",
+          "topic_names": [
+            "AI 算力期货",
+            "金融监管"
+          ],
+          "uncertainties": [
+            "该信息来自 Hacker News 社区发现，标记为 unverified_lead，且摘要与摘录内容为空，无法确认具体监管机构、推迟原因及涉及方",
+            "仅有标题信息称“美国监管机构推迟了华尔街推动 AI 算力期货交易的进程”，缺少一手来源细节"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-d1a85549e90459201c68"
+      ],
+      "title": "美国监管机构推迟华尔街关于 AI 算力期货交易的推进",
+      "uncertainty": "该信息来自 Hacker News 社区发现，标记为 unverified_lead，且摘要与摘录内容为空，无法确认具体监管机构、推迟原因及涉及方",
+      "what_happened": "美国监管机构推迟华尔街关于 AI 算力期货交易的推进",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-dd584b0414f2a7a365ac",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将 MSBuild 编译命令提取器内置并自动调用，可减少代理在 C++ 项目上进行构建配置时的手动步骤。",
+            "该变更面向 GitHub Copilot CLI 使用场景，可能影响代理对 MSBuild 工程的编译数据库获取流程。"
+          ],
+          "canonical_title": "GitHub Copilot CLI 的微软 C++ 语言服务器现可自动配置 MSBuild 构建",
+          "category": "开发工具与AI编程",
+          "entity_names": [
+            "GitHub",
+            "Microsoft",
+            "GitHub Copilot CLI"
+          ],
+          "facts": [
+            "GitHub Changelog 于 2026-11-10 发布公告称，GitHub Copilot CLI 所使用的微软 C++ 语言服务器现已内置 MSBuild 编译命令提取器，并会自动调用它。",
+            "公告指出，代理不再需要自行发现并运行该提取器。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds",
+          "product_names": [
+            "C++ Language Server",
+            "MSBuild",
+            "GitHub Copilot CLI"
+          ],
+          "published_at": "2026-11-10T17:04:10Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T17:04:10Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ce169ea5d1f169f19da4",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "C++ language server now auto-configures MSBuild builds",
+              "url": "https://github.blog/changelog/2026-11-10-c-language-server-now-auto-configures-msbuild-builds"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-f19ed260d6a97ce5662f",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "公告摘要未说明该自动配置在哪些 MSBuild 版本、项目类型或平台上生效，也未说明失败时的回退行为。",
+            "输入仅提供 RSS 摘要与内容摘录，未包含完整公告细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f19ed260d6a97ce5662f"
+      ],
+      "title": "GitHub Copilot CLI 所用 C++ 语言服务器现可自动配置 MSBuild 构建",
+      "uncertainty": "公告摘要未说明该自动配置在哪些 MSBuild 版本、项目类型或平台上生效，也未说明失败时的回退行为；输入仅提供 RSS 摘要与内容摘录，未包含完整公告细节。",
+      "what_happened": "GitHub Changelog 于 2026-11-10 发布公告称，GitHub Copilot CLI 所使用的微软 C++ 语言服务器现已内置 MSBuild 编译命令提取器，并会自动调用它；代理不再需要自行发现并运行该提取器。",
+      "why_it_matters": "将 MSBuild 编译命令提取器内置并自动调用，可减少代理在 C++ 项目上进行构建配置时的手动步骤，可能影响代理对 MSBuild 工程的编译数据库获取流程。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-6487f3c90ba048579ba5",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/decision"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该条目被标记为 official_primary 和 factual_announcement，来源为 Hugging Face 官方博客，可作为一手事实底座。",
+            "输入未提供摘要或正文摘录，无法据此判断文章涉及的具体模型、功能或项目内容。"
+          ],
+          "canonical_title": "Hugging Face 博客发布《Decision Models in Hugging Face》",
+          "category": "ai_models",
+          "entity_names": [
+            "Hugging Face"
+          ],
+          "facts": [
+            "Hugging Face Blog 于 2026-11-10 发布标题为《Decision Models in Hugging Face》的文章，URL 为 https://huggingface.co/blog/decision。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/decision",
+          "product_names": [],
+          "published_at": "2026-11-10T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-5f3963726dbe36e6ccf9",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Decision Models in Hugging Face",
+              "url": "https://huggingface.co/blog/decision"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-ee816739d61a87112d65",
+          "topic_names": [
+            "decision models",
+            "开放模型平台"
+          ],
+          "uncertainties": [
+            "文章具体内容、涉及的产品或模型名称以及发布性质（如公告、教程或观点文）均未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ee816739d61a87112d65"
+      ],
+      "title": "Hugging Face 博客发布《Decision Models in Hugging Face》",
+      "uncertainty": "文章具体内容、涉及的产品或模型名称以及发布性质（如公告、教程或观点文）均未在输入中说明。",
+      "what_happened": "Hugging Face Blog 于 2026-11-10 发布标题为《Decision Models in Hugging Face》的文章，URL 为 https://huggingface.co/blog/decision。",
+      "why_it_matters": "该条目被标记为 official_primary 和 factual_announcement，来源为 Hugging Face 官方博客，可作为一手事实底座。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-11-11",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-11-11T00:21:15.422296Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "Simon Willison 发布 llm-gemini 0.36，称 Gemini 4 Carbon 已面向所有用户开放，并给出定价及 12 月 1 日涨价计划。",
+      "id": "radar-de091a7b19f66ba16ec2",
+      "missing_evidence": [
+        "Google 官方 Gemini 4 Carbon 发布页与定价页",
+        "llm-gemini 0.36 的 release notes 或包元数据",
+        "独立第三方对模型能力与价格条款的核验"
+      ],
+      "observed_at": "2026-11-11T00:14:15.522970Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "factual_announcement",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-5bf610d1dd7d8e146382",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Nov/10/llm-gemini/"
+        }
+      ],
+      "uncertainty": "仅有一篇 practitioner 博客摘要，且正文被截断；未获取官方页面，无法独立确认模型可用范围、价格和涨价日期。",
+      "why_notable": "若属实，说明 Gemini 4 Carbon 从受限开放转为普遍可用，且定价策略将在短期内翻倍；LLM CLI 插件同步支持对开发者有直接使用价值。"
+    },
+    {
+      "claim": "Simon Willison 报道 Meta AI 发布小型高效模型 Muse Ember，定位工具调用、编码子任务、路由、抽取和长文档解析，短提示定价与 GPT-6 Luna、Claude Haiku 5.5 同为每百万输入 token 0.10 美元。",
+      "id": "radar-fe660bd314348a0730cb",
+      "missing_evidence": [
+        "Meta 官方 Muse Ember 发布页与定价页",
+        "模型卡、上下文长度、可用地区和限流信息",
+        "独立基准测试与真实 agent 任务表现"
+      ],
+      "observed_at": "2026-11-11T00:14:15.522970Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "factual_announcement",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-cba41f0395d50b9e1105",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Nov/10/muse-ember/"
+        }
+      ],
+      "uncertainty": "仅有二手博客摘要且内容截断；缺少 Meta 官方材料与独立测试，定价与能力描述未核实。",
+      "why_notable": "若属实，Meta 进入小模型/高效 agent 模型竞争，并以低价对标现有 Haiku/Luna 级产品，可能影响 agent 工作流的成本结构。"
+    },
+    {
+      "claim": "Simon Willison 称 Anthropic 发布 Fable 5.2 与 Mythos 5.2，Fable 5.2 在 Artificial Analysis 排名第一，并已将其加入 llm-anthropic 0.31。",
+      "id": "radar-6aa765bca2d60c163faf",
+      "missing_evidence": [
+        "Anthropic 官方 Fable 5.2/Mythos 5.2 发布说明",
+        "Artificial Analysis 排名原始页面",
+        "llm-anthropic 0.31 release notes",
+        "独立能力测试与基准复现"
+      ],
+      "observed_at": "2026-11-11T00:14:15.522970Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "factual_announcement",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-9a8fde6cfa9ab68cee22",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Nov/9/llm-anthropic/"
+        }
+      ],
+      "uncertainty": "仅有一篇 practitioner 博客，摘要截断；排行榜第一及“解决黑洞物理问题”等表述未获官方或独立来源确认。",
+      "why_notable": "若属实，Anthropic 新模型发布并伴随第三方排行榜第一的说法，值得关注其对模型竞争格局和 LLM CLI 用户的影响。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2762,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 2,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 5,
+    "ai_brief_recovery_attempts": 1,
+    "ai_brief_recovery_budget_exhausted": true,
+    "ai_brief_recovery_successes": 1,
+    "ai_brief_story_inputs": 10,
+    "ai_classify_completion_tokens": 1139,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 4957,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 17488,
+    "ai_direction_fallback": true,
+    "ai_direction_fallback_reason": "AI daily input character limit exceeded",
+    "ai_evaluate_editorial_completion_tokens": 1126,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9558,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 119972,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3998,
+    "ai_merge_story_finish_stop": 13,
+    "ai_merge_story_prompt_tokens": 11801,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 64648,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 2309,
+    "ai_resolve_research_cases_completion_tokens": 3325,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2811,
+    "ai_resolve_research_cases_reasoning_tokens": 2309,
+    "ai_score_story_completion_tokens": 2060,
+    "ai_score_story_finish_stop": 13,
+    "ai_score_story_prompt_tokens": 14539,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 3,
+    "ai_write_brief_completion_tokens": 5561,
+    "ai_write_brief_finish_stop": 4,
+    "ai_write_brief_item_completion_tokens": 279,
+    "ai_write_brief_item_finish_stop": 1,
+    "ai_write_brief_item_prompt_tokens": 1922,
+    "ai_write_brief_item_reasoning_tokens": 0,
+    "ai_write_brief_prompt_tokens": 19060,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 17488,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 16,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 3,
+    "dry_run": false,
+    "editorial_decisions": 13,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 156,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 32,
+    "logical_ai_tasks": 32,
+    "main_brief_items": 10,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 34,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 64648,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 3,
+    "radar_signals_displayed": 3,
+    "radar_signals_generated": 3,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 2309,
+    "recent_24h": 151,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 16,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 16,
+    "research_cases": 4,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 6744,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 3,
+    "research_unknown_cases": 0,
+    "research_unresolved": 1,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 3,
+    "stories": 13,
+    "story_candidate_input": 13,
+    "structured_watches_opened": 3,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 10,
+    "total_displayed_items": 10,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-50d4a25764c77e8a72cd",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该报道属于媒体编辑内容，不是官方声明；关于泄露规模与受影响对象的细节来自研究人员的发现，报道本身未提供完整技术细节。",
+            "若报道描述的开放暴露情况属实，则涉及 AI 编程代理的访问控制与数据隔离风险。"
+          ],
+          "canonical_title": "Grok Build 编程代理被指泄露大量机密信息，部分涉及 SpaceXSI",
+          "category": "security",
+          "entity_names": [
+            "Grok Build",
+            "SpaceXSI",
+            "Ars Technica",
+            "Dan Goodin"
+          ],
+          "facts": [
+            "Ars Technica 发表由 Dan Goodin 署名的报道，标题称 Grok Build 编程代理泄露大量机密信息，部分属于 SpaceXSI。",
+            "报道摘要称，一名研究人员发现 35,000 个 Grok Build 应用对任何主动查找它们的人完全开放。"
+          ],
+          "primary_source_url": "https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/",
+          "product_names": [
+            "Grok Build"
+          ],
+          "published_at": "2026-11-10T21:12:59Z",
+          "source_refs": [
+            {
+              "author": "Dan Goodin",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T21:12:59Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-80500b1292cc170c8e32",
+              "source_date": null,
+              "source_name": "Ars Technica Technology Lab",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Grok Build coding agent leaks oodles of confidential info, some belonging to SpaceXSI",
+              "url": "https://arstechnica.com/security/2026/11/grok-build-coding-agent-leaks-oodles-of-confidential-info-some-belonging-to-spacexsi/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-e155861fe81174a7b647",
+          "topic_names": [
+            "ai_security",
+            "data_leak",
+            "ai_models"
+          ],
+          "uncertainties": [
+            "35,000 个 Grok Build 应用的具体统计口径、扫描方法与确认流程未被说明。",
+            "泄露信息的具体内容、严重程度以及 SpaceXSI 的关联范围尚不明确。",
+            "Grok Build 的开发方是否已回应或采取修复措施未知。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-e155861fe81174a7b647"
+      ],
+      "title": "Grok Build 编程代理被指泄露大量机密信息，部分涉及 SpaceXSI",
+      "uncertainty": "35,000 个 Grok Build 应用的具体统计口径、扫描方法与确认流程未被说明。",
+      "what_happened": "Ars Technica 发表由 Dan Goodin 署名的报道，标题称 Grok Build 编程代理泄露大量机密信息，部分属于 SpaceXSI。",
+      "why_it_matters": "该报道属于媒体编辑内容，不是官方声明；关于泄露规模与受影响对象的细节来自研究人员的发现，报道本身未提供完整技术细节。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-2e56dcb38a3783254323",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该发布将 Google 最新模型接入 GitHub Copilot，可能影响 Copilot 用户在复杂编码与 agentic 工作流中的模型选择。"
+          ],
+          "canonical_title": "GitHub Copilot 正式上线 Gemini 4 Carbon",
+          "category": "产品发布",
+          "entity_names": [
+            "GitHub",
+            "Google",
+            "GitHub Copilot",
+            "Gemini 4 Carbon"
+          ],
+          "facts": [
+            "GitHub Changelog 于 2026-11-10 发布公告，Gemini 4 Carbon 已在 GitHub Copilot 中正式可用（generally available）。",
+            "公告称 Gemini 4 Carbon 是 Google 最新的模型，面向复杂编码、agentic 与推理任务，并聚焦安全代码生成。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot",
+          "product_names": [
+            "Gemini 4 Carbon",
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-11-10T19:26:51Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T19:26:51Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-78c954e9f04a3e5c8643",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Gemini 4 Carbon in GitHub Copilot",
+              "url": "https://github.blog/changelog/2026-11-10-gemini-4-carbon-in-github-copilot"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-e13d71d5a328fe224ad2",
+          "topic_names": [
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "公告未披露 Gemini 4 Carbon 的具体上下文长度、定价、速率限制及各 Copilot 套餐的可用范围。",
+            "公告未说明该模型在 GitHub Copilot 中的具体功能限制或与既有模型的切换方式。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-e13d71d5a328fe224ad2"
+      ],
+      "title": "GitHub Copilot 正式上线 Gemini 4 Carbon",
+      "uncertainty": "公告未披露 Gemini 4 Carbon 的具体上下文长度、定价、速率限制及各 Copilot 套餐的可用范围。",
+      "what_happened": "GitHub Changelog 于 2026-11-10 发布公告，Gemini 4 Carbon 已在 GitHub Copilot 中正式可用（generally available）。",
+      "why_it_matters": "该发布将 Google 最新模型接入 GitHub Copilot，可能影响 Copilot 用户在复杂编码与 agentic 工作流中的模型选择。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-136ead40710d9a1f7d0b",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/manage-kubernetes-clusters-for-gpu-infrastructure-with-nvidia-kubernetes-engine/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "NVIDIA 以开源方式提供托管 Kubernetes 能力的项目，指向其为 GPU 基础设施补齐集群编排层的方向；但由于摘要被截断，除 NVKE 外的第二个项目名称及具体功能细节尚不可知。"
+          ],
+          "canonical_title": "NVIDIA 发布 NVIDIA Kubernetes Engine（NVKE）等两个用于 GPU 基础设施托管 Kubernetes 服务的开源项目",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA",
+            "NVIDIA Kubernetes Engine",
+            "NVKE"
+          ],
+          "facts": [
+            "NVIDIA 宣布两个用于在 GPU 基础设施上构建和运营托管 Kubernetes 服务的开源项目，其中包括 NVIDIA Kubernetes Engine（NVKE）。",
+            "该消息来自 NVIDIA Developer Blog，作者为 Nathan Taber，发布时间为 2026-11-10T15:00:00Z。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/manage-kubernetes-clusters-for-gpu-infrastructure-with-nvidia-kubernetes-engine/",
+          "product_names": [
+            "NVIDIA Kubernetes Engine",
+            "NVKE"
+          ],
+          "published_at": "2026-11-10T15:00:00Z",
+          "source_refs": [
+            {
+              "author": "Nathan Taber",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-11T00:14:15.522970Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-10T15:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-5cd7ff8934485154fbfc",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Manage Kubernetes Clusters for GPU Infrastructure with NVIDIA Kubernetes Engine",
+              "url": "https://developer.nvidia.com/blog/manage-kubernetes-clusters-for-gpu-infrastructure-with-nvidia-kubernetes-engine/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-f2324ca98993ded42fc4",
+          "topic_names": [
+            "GPU 基础设施",
+            "托管 Kubernetes 服务",
+            "开源项目"
+          ],
+          "uncertainties": [
+            "第二个开源项目的名称、功能与发布状态未在现有输入中给出。",
+            "NVKE 的具体功能范围、可用版本与开源许可证细节未披露。",
+            "该发布对现有托管 Kubernetes 服务生态的实际影响尚无法评估。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f2324ca98993ded42fc4"
+      ],
+      "title": "NVIDIA 发布 NVIDIA Kubernetes Engine（NVKE）等两个用于 GPU 基础设施托管 Kubernetes 服务的开源项目",
+      "uncertainty": "第二个开源项目的名称、功能与发布状态未在现有输入中给出。",
+      "what_happened": "NVIDIA 宣布两个用于在 GPU 基础设施上构建和运营托管 Kubernetes 服务的开源项目，其中包括 NVIDIA Kubernetes Engine（NVKE）。",
+      "why_it_matters": "NVIDIA 以开源方式提供托管 Kubernetes 能力的项目，指向其为 GPU 基础设施补齐集群编排层的方向；但由于摘要被截断，除 NVKE 外的第二个项目名称及具体功能细节尚不可知。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "观察 NVIDIA 是否公开 NVIDIA Snapshot 的代码仓库、许可证与可用版本，并给出启动/恢复时延的实测数据。",
+    "观察 Google 是否公布 Gemini Intelligence 的具体新增功能清单、支持设备型号与地区上线时间。",
+    "观察 Ollama v0.40.17-rc0 是否转为正式版本，以及 Vulkan 集显 mmap 与 MLX 并发生成是否带来可复现的性能或兼容性变化。"
+  ]
+}

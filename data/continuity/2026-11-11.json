@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-11",
+  "generated_at": "2026-11-11T00:21:15.422296Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否公开 NVIDIA Snapshot 的代码仓库、许可证与可用版本，并给出启动/恢复时延的实测数据。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA Snapshot",
+        "NVIDIA DSX AI Factory Platform"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-11T00:21:15.422296Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-11",
+          "story_id": "story-6ebec38c5d665796c164"
+        }
+      ],
+      "topic_anchors": [
+        "GPU 工作负载快照",
+        "推理工作负载复用"
+      ],
+      "watch_id": "watch-72ec47573af8ccc74d42"
+    },
+    {
+      "entity_anchors": [
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Google 是否公布 Gemini Intelligence 的具体新增功能清单、支持设备型号与地区上线时间。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Gemini Intelligence"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-11T00:21:15.422296Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-11",
+          "story_id": "story-8899870371110a359d9b"
+        }
+      ],
+      "topic_anchors": [
+        "AI 助手",
+        "Android"
+      ],
+      "watch_id": "watch-2c6d8c877ea9e9e7b615"
+    },
+    {
+      "entity_anchors": [
+        "Ollama"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Ollama v0.40.17-rc0 是否转为正式版本，以及 Vulkan 集显 mmap 与 MLX 并发生成是否带来可复现的性能或兼容性变化。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Ollama v0.40.17-rc0",
+        "llama.cpp b12257"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-11T00:21:15.422296Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-11",
+          "story_id": "story-7ee5a4ab4e1458f9f556"
+        }
+      ],
+      "topic_anchors": [
+        "本地推理",
+        "Vulkan 集显支持",
+        "MLX 并发生成"
+      ],
+      "watch_id": "watch-2f113e3e0964181d261c"
+    }
+  ]
+}

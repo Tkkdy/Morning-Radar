@@ -37,6 +37,7 @@
     "id": "item-fafff4292c09fd9370c5",
     "language": "en-us",
     "metadata": {
+      "content_version": "ff69fab3c2c8f03c0600",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +68,7 @@
     "id": "item-78c954e9f04a3e5c8643",
     "language": "en-US",
     "metadata": {
+      "content_version": "6822b4263cf7ff38df72",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +99,7 @@
     "id": "item-cb93d68b445c05b0e3dc",
     "language": "en-US",
     "metadata": {
+      "content_version": "b4c73a72152c8a306265",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-031b00b4f99d2f30104c",
     "language": null,
     "metadata": {
+      "content_version": "d5439af7133f48b2e7e6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -248,6 +252,7 @@
     "id": "item-80500b1292cc170c8e32",
     "language": "en-US",
     "metadata": {
+      "content_version": "1e90b471d3b00c038980",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +284,7 @@
     "id": "item-5bf610d1dd7d8e146382",
     "language": "en-us",
     "metadata": {
+      "content_version": "4a22e29ce10da662b237",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +407,7 @@
     "id": "item-ce169ea5d1f169f19da4",
     "language": "en-US",
     "metadata": {
+      "content_version": "5f7451f44f436f531530",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +438,7 @@
     "id": "item-5f3963726dbe36e6ccf9",
     "language": "en-US",
     "metadata": {
+      "content_version": "7cd32efe3655f6cdbd5c",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -582,6 +590,7 @@
     "id": "item-eb9aae20ddecf55386a0",
     "language": "en-US",
     "metadata": {
+      "content_version": "3d6d565a58f4babb99a4",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -613,6 +622,7 @@
     "id": "item-cba41f0395d50b9e1105",
     "language": "en-us",
     "metadata": {
+      "content_version": "780a5894ee4417af3af4",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -796,6 +806,7 @@
     "id": "item-25d05ca668539a664912",
     "language": null,
     "metadata": {
+      "content_version": "53fb00b6168b4cb849df",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1130,6 +1141,7 @@
     "id": "item-5cd7ff8934485154fbfc",
     "language": null,
     "metadata": {
+      "content_version": "98532c179e067c253532",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1615,6 +1627,7 @@
     "id": "item-9a8fde6cfa9ab68cee22",
     "language": "en-us",
     "metadata": {
+      "content_version": "da656926a7da1cc493b9",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -79109,6 +79122,7 @@
     "id": "item-60786b016c122ab8631c",
     "language": "en",
     "metadata": {
+      "content_version": "87d9ab5234be649db42e",
       "data_anomaly": false,
       "forks": 19006,
       "official": true,
@@ -80321,6 +80335,7 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "content_version": "d16fc00e98f23a6e63f6",
       "discussion_url": "https://news.ycombinator.com/item?id=50448213",
       "official": false,
       "original_url": "https://www.ft.com/content/269b0245-44c4-4e34-94df-202bef642539",
@@ -80561,11 +80576,19 @@
     "metadata": {
       "comments": 147,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50429426",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://github.com/thisisme6598/gemini_files/",
       "score": 713,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -80651,6 +80674,7 @@
     "metadata": {
       "comments": 241,
       "community_signal": true,
+      "content_version": "75ff5f3d926fbee4e99c",
       "discussion_url": "https://news.ycombinator.com/item?id=50436640",
       "official": false,
       "original_url": "https://strandsagents.com/blog/amazon-saves-millions-replacing-sonnet-with-strands-decider/",
@@ -80931,6 +80955,7 @@
     "metadata": {
       "change_percent": -0.0026721812596965993,
       "close": 287.3800048828125,
+      "content_version": "0468cd8c588770b87b01",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 288.1499938964844,
@@ -82979,38 +83004,6 @@
     "title": "Tell HN: Gemini Carbon released",
     "topic_candidates": [],
     "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/."
-  },
-  {
-    "author": "gf74918",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-11T00:14:15.522970Z",
-    "id": "item-a6b36ce4d3520c895e4a",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50429426",
-      "hn_submission_time": 1794248678,
-      "lab_id": "google_deepmind",
-      "original_url": "https://github.com/thisisme6598/gemini_files/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-09T18:24:38Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Google Gemini routes personal Drive files and emails to human annotators",
-    "topic_candidates": [],
-    "url": "https://github.com/thisisme6598/gemini_files/"
   },
   {
     "author": "3pun0x",

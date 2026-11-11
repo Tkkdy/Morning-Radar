@@ -1,0 +1,173 @@
+{
+  "date": "2026-11-11",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "知名媒体记者报道的编程代理泄露事件，涉及访问控制与数据隔离，是代理安全趋势的可验证证据。",
+      "retain_for_trends": true,
+      "story_id": "story-e155861fe81174a7b647",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-data-isolation-failures",
+        "agent-access-control-exposure"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认 Copilot 接入 Google 最新模型，影响模型选择，但性能和价格细节缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-e13d71d5a328fe224ad2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-multi-model-routing",
+        "frontier-model-coding-agent-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "NVIDIA 开源 GPU 托管 Kubernetes 项目是基础设施层动作，但细节和许可证未披露。",
+      "retain_for_trends": true,
+      "story_id": "story-f2324ca98993ded42fc4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-infrastructure-orchestration",
+        "vendor-open-source-cluster-management"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方声称开源快照组件可秒级恢复推理负载，但仓库、许可证和实测数据均缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-6ebec38c5d665796c164",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-workload-snapshot-restore",
+        "inference-startup-latency-reduction"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "预发布版本的常规运行时迭代，缺少性能收益与兼容性影响，不构成趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-7ee5a4ab4e1458f9f556",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅 HN 标题级未验证线索，前台不占注意力，但算力期货监管是可后台观察的市场结构信号。",
+      "retain_for_trends": true,
+      "story_id": "story-d1a85549e90459201c68",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-compute-futures-market-regulation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "官方公告仅标题级信息，缺少具体功能与设备范围，属于消费端宣传性更新。",
+      "retain_for_trends": false,
+      "story_id": "story-8899870371110a359d9b",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商开发者博客的技术观点文，无具体方案或性能数据，无结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-3a7ef687255f0b7048ce",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "语言服务器自动配置 MSBuild 的局部工具改进，影响面有限。",
+      "retain_for_trends": false,
+      "story_id": "story-f19ed260d6a97ce5662f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅有博客标题，无任何可判断的内容或机制，无阅读与证据价值。",
+      "retain_for_trends": false,
+      "story_id": "story-ee816739d61a87112d65",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认 Hub 可通过 Google Cloud 账户付款，改变企业采购路径，但细节缺失。",
+      "retain_for_trends": true,
+      "story_id": "story-0af111a155d687eb278e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "cloud-marketplace-ai-tooling-billing",
+        "open-model-hub-enterprise-payment"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "成本替换案例有讨论热度但仅社区线索，作为未验证的成本优化弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-c1672200c9e557758332",
+      "support_for_story_id": null,
+      "trend_links": [
+        "inference-cost-routing-model-substitution"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "SSH 漏洞主动利用与开发者基础设施相关，但漏洞编号与补丁状态均缺失，不适合成为趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-cf67b1dbb18dc45fb825",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-11T00:21:15.422296Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
