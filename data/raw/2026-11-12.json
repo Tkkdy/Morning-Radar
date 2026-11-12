@@ -7,6 +7,7 @@
     "id": "item-65b96c238445cdedc96b",
     "language": "en-US",
     "metadata": {
+      "content_version": "0887e49882c217d355dd",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-02bfed5e7aa817ea9dcb",
     "language": "en-us",
     "metadata": {
+      "content_version": "b62d8dc44f993517cbe7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +69,7 @@
     "id": "item-dabe5024097687c5a343",
     "language": "en-US",
     "metadata": {
+      "content_version": "4e0879504b023bd268aa",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +131,7 @@
     "id": "item-4b30bf9e8a4d0303bec6",
     "language": null,
     "metadata": {
+      "content_version": "9cddf139238c562f5343",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -188,6 +192,7 @@
     "id": "item-3927e8656e242ccd5091",
     "language": "en-US",
     "metadata": {
+      "content_version": "95ba18d79330fb19fc74",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +284,7 @@
     "id": "item-8cfe95d5a7efcad05530",
     "language": "en-us",
     "metadata": {
+      "content_version": "594a9bd388acb11bd6e0",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -371,6 +377,7 @@
     "id": "item-3d65ccc2f5cdce6978b3",
     "language": "en-us",
     "metadata": {
+      "content_version": "e8d0dd4ff59e1b268ea8",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -401,6 +408,7 @@
     "id": "item-b5d37a4739ec4800cfc0",
     "language": "en-US",
     "metadata": {
+      "content_version": "953e4aff59c93d2f05d5",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -431,6 +439,7 @@
     "id": "item-11568aa8dfcf9a3c0750",
     "language": "en-US",
     "metadata": {
+      "content_version": "83f10af7b806b406b1a4",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -675,6 +684,7 @@
     "id": "item-55ff14dc4213127df72a",
     "language": "en-US",
     "metadata": {
+      "content_version": "17f3f5a63ba8800e574b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -705,6 +715,7 @@
     "id": "item-e09fad6dcc25f1ba697c",
     "language": "en-us",
     "metadata": {
+      "content_version": "0741ea08450fe97230b9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -796,6 +807,7 @@
     "id": "item-a8c416e2c7748124802b",
     "language": null,
     "metadata": {
+      "content_version": "6dc0c36216cdc5b5dbd9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -77801,6 +77813,7 @@
     "id": "item-c933882f1a7e1eeadb11",
     "language": "en",
     "metadata": {
+      "content_version": "43d92964c90c5e588714",
       "data_anomaly": false,
       "forks": 1065,
       "official": true,
@@ -80533,6 +80546,7 @@
     "metadata": {
       "comments": 337,
       "community_signal": true,
+      "content_version": "04ee07829a9e343189f1",
       "discussion_url": "https://news.ycombinator.com/item?id=50452455",
       "official": false,
       "original_url": "https://pietromiotti.com/latest/maya-site",
@@ -80563,6 +80577,7 @@
     "metadata": {
       "comments": 94,
       "community_signal": true,
+      "content_version": "4a3ca2ab66d7dca5be7d",
       "discussion_url": "https://news.ycombinator.com/item?id=50450488",
       "official": false,
       "original_url": "https://discuss.python.org/t/in-memoriam-tim-peters-1952-2026/110028",
@@ -80803,11 +80818,19 @@
     "metadata": {
       "comments": 83,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50456791",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
       "score": 268,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -81155,6 +81178,7 @@
     "metadata": {
       "change_percent": -0.0062162954763601685,
       "close": 348.510009765625,
+      "content_version": "787d28c90c7bb7e1aa13",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 350.69000244140625,
@@ -82943,38 +82967,6 @@
     "url": "https://aistudio.google.com/docs/decisions-api"
   },
   {
-    "author": "iamdelirium",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-12T01:40:07.832687Z",
-    "id": "item-6e8bfd61dabbaeed6226",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50456791",
-      "hn_submission_time": 1794421962,
-      "lab_id": "google_deepmind",
-      "original_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-11T18:32:42Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Gemini Decisions API",
-    "topic_candidates": [],
-    "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
-  },
-  {
     "author": "wwind123",
     "company_candidates": [],
     "content_excerpt": "",
@@ -83308,6 +83300,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "9f30694f1c2e29e749cd",
       "discovery_paths": [
         "hn_search:anthropic:Claude"
       ],

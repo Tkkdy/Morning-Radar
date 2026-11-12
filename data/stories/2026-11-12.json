@@ -1,0 +1,634 @@
+[
+  {
+    "analysis": [
+      "文章切入点是 AI Agent 工作负载的闲置等待特征与 Kubernetes 现有调度/Pod 模型的错配，暗示 Agent Substrate 意在优化大规模 Agent 的资源利用方式。"
+    ],
+    "canonical_title": "NVIDIA 发布 Agent Substrate：面向大规模 AI Agent 的 Kubernetes 扩展",
+    "category": "AI 基础设施",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "NVIDIA",
+      "Kubernetes"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-11-10 发布题为《Agent Substrate: Advancing Kubernetes for Agents at Scale》的文章，作者为 Ekin Karabulut。",
+      "文章摘要指出，AI Agent 大部分时间处于空闲状态，等待人类提示、工具返回结果或模型响应。",
+      "文章称 Kubernetes 并非为此类场景而设计，并提到按每个 Agent 运行一个 Pod 的做法存在问题。"
+    ],
+    "id": "story-31ee04744973f467a872",
+    "importance_score": 0.65,
+    "novelty_score": 0.7,
+    "primary_source_url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/",
+    "product_names": [
+      "Agent Substrate"
+    ],
+    "published_at": "2026-11-10T15:00:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-a8c416e2c7748124802b"
+    ],
+    "source_refs": [
+      {
+        "author": "Ekin Karabulut",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-10T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a8c416e2c7748124802b",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Agent Substrate: Advancing Kubernetes for Agents at Scale",
+        "url": "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/agent-substrate-advancing-kubernetes-for-agents-at-scale/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI Agent 基础设施",
+      "Kubernetes 调度"
+    ],
+    "uncertainties": [
+      "输入仅提供文章标题、摘要和内容片段，Agent Substrate 的具体技术机制、是否开源、可用时间与支持范围均未在输入中说明。",
+      "文章未给出 Kubernetes 承载 Agent 时具体瓶颈的量化证据，相关性能收益无法从输入确认。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "该条目为官方博客发布，属于单一来源的发布公告；除产品定位与命名外，未提供模型规格、基准数据或可用性细节。"
+    ],
+    "canonical_title": "Google 发布 Gemini Decisions API，由 Gemini Decision 模型驱动",
+    "category": "ai_models",
+    "credibility_score": 0.62,
+    "entity_names": [
+      "Google",
+      "Gemini Decisions API",
+      "Gemini Decision"
+    ],
+    "facts": [
+      "Google AI 官方博客发布条目《Gemini Decisions API: Fast, calibrated multimodal decisions》，作者 Felix Yu，发布时间为 2026-11-11T18:00:00Z。",
+      "博客称 Gemini Decisions API 由其最先进模型 Gemini Decision 驱动，用于快速、经校准的多模态决策。"
+    ],
+    "id": "story-7e47f59b63e5f7c94354",
+    "importance_score": 0.7,
+    "novelty_score": 0.74,
+    "primary_source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+    "product_names": [
+      "Gemini Decisions API",
+      "Gemini Decision"
+    ],
+    "published_at": "2026-11-11T18:00:00Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-02bfed5e7aa817ea9dcb"
+    ],
+    "source_refs": [
+      {
+        "author": "Felix Yu",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T18:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-02bfed5e7aa817ea9dcb",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Gemini Decisions API: Fast, calibrated multimodal decisions",
+        "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "Gemini Decision 模型的具体架构、参数规模与基准表现未在输入中披露。",
+      "API 的开放范围、计费方式与正式可用状态未在输入中说明。",
+      "“state-of-the-art”“calibrated”为官方自述表述，缺乏第三方验证。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "该能力将席位分配从手动管理扩展为可由企业级 GitHub App 自动化调用，可能简化大规模 Copilot 部署的席位治理流程。"
+    ],
+    "canonical_title": "GitHub Enterprise App 支持 Copilot 席位管理 API",
+    "category": "ai_coding",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 变更日志宣布，企业级 GitHub App 现在可以调用企业级 Copilot 席位管理 API。",
+      "通过该 API，企业可以控制将 Copilot 席位分配给哪些用户和企业团队。"
+    ],
+    "id": "story-0790da23f53d17eae16d",
+    "importance_score": 0.5,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management",
+    "product_names": [
+      "GitHub Copilot",
+      "Enterprise GitHub Apps",
+      "Copilot seat management APIs"
+    ],
+    "published_at": "2026-11-11T00:10:31Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-b5d37a4739ec4800cfc0"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T00:10:31Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b5d37a4739ec4800cfc0",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub App support for Enterprise Copilot seat management",
+        "url": "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-10-github-app-support-for-enterprise-copilot-seat-management"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "摘要未说明该 API 的具体端点、权限范围、限流或可用性计划（如是否需申请预览）。",
+      "未说明是否支持批量操作或与现有 SCIM/团队同步机制的交互细节。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "这是官方发布的版本更新公告，事实边界清晰；Decisions API 与 environments BYOS 能力的引入可能扩展 SDK 在企业自托管场景下的适用性，但公告未披露具体实现细节或兼容性说明。"
+    ],
+    "canonical_title": "googleapis/python-genai 发布 v3.2.0，新增 Decisions API 与自托管 BYOS 模式",
+    "category": "ai_models",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "googleapis",
+      "python-genai"
+    ],
+    "facts": [
+      "googleapis/python-genai 发布 v3.2.0，发布日期为 2026-11-11。",
+      "v3.2.0 新增 Decisions API（client.decisions.create）至 GenAI SDKs，对应提交 9efe1e4。",
+      "v3.2.0 在 SDK 与 CLI 中引入 environments 相关能力：自托管 BYOS 模式、system_instruction、custom_config 和 environment_key，对应提交 96b79b3。"
+    ],
+    "id": "story-4a4f4856fd5902835215",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v3.2.0",
+    "product_names": [
+      "python-genai",
+      "GenAI SDK",
+      "Decisions API"
+    ],
+    "published_at": "2026-11-11T17:22:30Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-c933882f1a7e1eeadb11"
+    ],
+    "source_refs": [
+      {
+        "author": "release-please[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T17:22:30Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c933882f1a7e1eeadb11",
+        "source_date": null,
+        "source_name": "GitHub · googleapis/python-genai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "googleapis/python-genai: v3.2.0",
+        "url": "https://github.com/googleapis/python-genai/releases/tag/v3.2.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/googleapis/python-genai/releases/tag/v3.2.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "Decisions API 的具体功能范围与接口语义未在发布说明中详细说明。",
+      "自托管 BYOS 模式的支持范围、部署要求和可用区域未披露。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "文章将 GPU 平台验证与运行时 AI 清单关联，说明在 Dynamo、Kubeflow、Slurm 等多调度环境中，仅依赖平台层可见性不足以掌握实际运行的工作负载。",
+      "该内容属 NVIDIA 官方开发者博客发布，可作为方法/能力介绍的原始来源，但摘要未提供具体实现步骤或量化结果。"
+    ],
+    "canonical_title": "NVIDIA 发布通过 DSX AI Factory 以运行时 AI 清单验证 GPU 平台的方法",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布文章《Validating GPU Platforms with Runtime AI Inventory via the NVIDIA DSX AI Factory》，作者为 Mark Chmarny，发布时间为 2026-11-11T17:00:00Z。",
+      "文章指出，团队使用 NVIDIA Dynamo、Kubeflow 或 Slurm 部署和扩展 AI 工作负载时，要跟踪实际运行内容，需要的可见性超出平台本身。",
+      "文章主题涉及通过 NVIDIA DSX AI Factory 进行运行时 AI 清单验证 GPU 平台。"
+    ],
+    "id": "story-f461edc8a0c64daff773",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory/",
+    "product_names": [
+      "NVIDIA DSX AI Factory",
+      "NVIDIA Dynamo",
+      "Kubeflow",
+      "Slurm"
+    ],
+    "published_at": "2026-11-11T17:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-4b30bf9e8a4d0303bec6"
+    ],
+    "source_refs": [
+      {
+        "author": "Mark Chmarny",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4b30bf9e8a4d0303bec6",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Validating GPU Platforms with Runtime AI Inventory via the NVIDIA DSX AI Factory",
+        "url": "https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/validating-gpu-platforms-with-runtime-ai-inventory-via-the-nvidia-dsx-ai-factory/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "文章正文仅提供摘要片段，未说明运行时 AI 清单的具体数据来源、采集机制或支持范围。",
+      "未说明 DSX AI Factory 是新产品、现有产品更新，还是方法论/参考架构。",
+      "未提供验证效果、性能影响或适用 GPU 平台清单。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Hugging Face 博客发布面向多向量嵌入模型的 Token Pooling-Aware Training 方法",
+    "category": "ai_models",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇题为 Token Pooling-Aware Training for Multi-Vector Embedding Models 的文章。",
+      "文章发布页 URL 为 https://huggingface.co/blog/token-pooling。",
+      "该条目标记为 official_primary 来源与 factual_announcement 陈述类型。"
+    ],
+    "id": "story-6860c7687dd563466853",
+    "importance_score": 0.42,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://huggingface.co/blog/token-pooling",
+    "product_names": [
+      "Token Pooling-Aware Training",
+      "多向量嵌入模型"
+    ],
+    "published_at": "2026-11-11T00:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-11568aa8dfcf9a3c0750"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-11568aa8dfcf9a3c0750",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Token Pooling-Aware Training for Multi-Vector Embedding Models",
+        "url": "https://huggingface.co/blog/token-pooling"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/token-pooling"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供文章摘要或正文摘录，因此无法核实该方法的具体技术细节、实验结果和适用范围。",
+      "除标题与发布日期外，输入未给出可追溯的性能数据或对比结论。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "此次更新将原本面向组织账户的 Issue 规划能力扩展到个人账户仓库，有助于个人开发者与开源维护者在同一套 Issue 类型与字段体系下组织工作。"
+    ],
+    "canonical_title": "GitHub 个人账户仓库正式支持 Issue 类型与 Issue 字段",
+    "category": "开发者工具与平台更新",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 发布更新公告，称 Issue types 与 issue fields 已在个人账户拥有的仓库中正式可用（generally available）。",
+      "该更新使个人开发者与开源维护者获得与组织账户相同的规划能力，可用于标准化工作流程。"
+    ],
+    "id": "story-b613bca1746e5016aba6",
+    "importance_score": 0.35,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://github.blog/changelog/2026-11-11-issue-types-and-fields-are-available-for-personal-accounts",
+    "product_names": [
+      "Issue types",
+      "issue fields"
+    ],
+    "published_at": "2026-11-11T17:16:46Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-dabe5024097687c5a343"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T17:16:46Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dabe5024097687c5a343",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Issue types and fields are available for personal accounts",
+        "url": "https://github.blog/changelog/2026-11-11-issue-types-and-fields-are-available-for-personal-accounts"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-11-issue-types-and-fields-are-available-for-personal-accounts"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "公告摘要使用省略号截断，未说明 Issue types 与 issue fields 的具体功能细节、限制条件或此前个人账户的支持状态。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "该访谈属于大规模消费场景下的AI工程实践披露，其价值主要在于评估体系与护栏设计等可复用的经验，而非新的模型或产品发布。",
+      "5亿用户规模下的AI发现场景，意味着对延迟、成本、内容安全和效果评估都有较高要求，因此评估与护栏成为这类生产系统的关键环节。"
+    ],
+    "canonical_title": "JioStar首席架构师Vijay Seshadri谈在5亿用户规模下用AI做发现：评估、护栏与生产落地",
+    "category": "AI工程实践",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "JioStar",
+      "OpenAI",
+      "Vijay Seshadri"
+    ],
+    "facts": [
+      "JioStar首席架构师Vijay Seshadri就“在5亿用户规模下的AI发现”这一话题作了分享。",
+      "OpenAI官网发布了Vijay Seshadri的访谈，内容涵盖评估、护栏以及将AI投入生产的经验。"
+    ],
+    "id": "story-7279e12fce4d0d1d5f27",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/index/jiostar-vijay-seshadri",
+    "product_names": [],
+    "published_at": "2026-11-11T00:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-55ff14dc4213127df72a"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-55ff14dc4213127df72a",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "JioStar’s chief architect on AI discovery at 500M-user scale",
+        "url": "https://openai.com/index/jiostar-vijay-seshadri"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/jiostar-vijay-seshadri"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI发现",
+      "规模化AI部署",
+      "评估",
+      "护栏",
+      "生产环境"
+    ],
+    "uncertainties": [
+      "摘要未披露JioStar使用的具体模型、系统架构和评估指标，访谈中经验的可迁移性尚不明确。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [
+      "该条目来源为 Hacker News 社区发现，属于 unverified_lead，正文摘要与内容摘录均为空，无法据此确认文章所描述的具体部署故障、使用的 Claude 模型版本或修复细节。"
+    ],
+    "canonical_title": "博客文章介绍用 Claude 调试失败部署、从构建失败到修复发布的过程",
+    "category": "开发者工具与AI应用",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Railyard"
+    ],
+    "facts": [],
+    "id": "story-2a7a724573f9d4696c98",
+    "importance_score": 0.4,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://railyard.run/blog/debug-failed-deploy-with-claude/",
+    "product_names": [
+      "Claude"
+    ],
+    "published_at": "2026-11-11T22:26:51Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-94c45606de254931d8d3"
+    ],
+    "source_refs": [
+      {
+        "author": "RailyardRun",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50459640",
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T22:26:51Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-94c45606de254931d8d3",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Debug a failed deploy with Claude: from red build to fixed release",
+        "url": "https://railyard.run/blog/debug-failed-deploy-with-claude/"
+      }
+    ],
+    "source_urls": [
+      "https://railyard.run/blog/debug-failed-deploy-with-claude/",
+      "https://news.ycombinator.com/item?id=50459640"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI辅助调试",
+      "部署故障排查",
+      "CI/CD"
+    ],
+    "uncertainties": [
+      "文章是否真实描述了一次完整的部署调试过程，以及涉及的具体项目、错误信息和修复方法均未知。",
+      "该条目的实际发布时间与 HN 提交时间存在换算差异，未核实。",
+      "文章作者 RailyardRun 与 Railyard 站点之间的关系及其可信度未确认。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "博主称其AI代理发现一处未测绘的玛雅遗址",
+    "category": "AI应用与考古发现",
+    "credibility_score": 0.18,
+    "entity_names": [
+      "Hacker News",
+      "pietromiotti.com"
+    ],
+    "facts": [],
+    "id": "story-10e2bbd3663a4bbf563d",
+    "importance_score": 0.22,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://pietromiotti.com/latest/maya-site",
+    "product_names": [],
+    "published_at": "2026-11-11T12:05:22Z",
+    "relevance_score": 0.34,
+    "source_item_ids": [
+      "item-f789e2ecd24dddb1060f"
+    ],
+    "source_refs": [
+      {
+        "author": "eyvindn",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50452455",
+        "fetched_at": "2026-11-12T01:40:07.832687Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T12:05:22Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f789e2ecd24dddb1060f",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "My AI agents found an unmapped Maya site?",
+        "url": "https://pietromiotti.com/latest/maya-site"
+      }
+    ],
+    "source_urls": [
+      "https://pietromiotti.com/latest/maya-site",
+      "https://news.ycombinator.com/item?id=50452455"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "AI代理",
+      "玛雅遗址",
+      "遥感考古"
+    ],
+    "uncertainties": [
+      "该遗址是否确实存在、是否真的“未被测绘”，以及 AI 代理在其中究竟起了什么作用，均无独立证据支持。",
+      "原文链接内容为空（仅有摘要占位），无法核实作者的具体主张与方法。",
+      "帖子的社区高热度仅反映讨论关注度，不构成对发现本身的验证。"
+    ],
+    "updated_at": "2026-11-12T01:46:41.259102Z"
+  }
+]

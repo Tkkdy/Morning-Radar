@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Google 推出“Gemini Decision 1”决策模型 API，支持是非、选择与评分三类问题，定价为每百万输入 token 10 美分、输出免费，与 Jev、OpenAI GPT-6 Luna 同属“决策模型”类别。",
+    "id": "radar-c38a170459a2b93fa784",
+    "missing_evidence": [
+      "Google 官方发布页或模型卡",
+      "独立来源对该模型存在与定价的确认",
+      "完整原文（现有摘录被截断）",
+      "实际 API 行为、可用性与限制的验证"
+    ],
+    "observed_at": "2026-11-12T01:40:07.832687Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "factual_announcement",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-8cfe95d5a7efcad05530",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/11/gemini-decisions-api/"
+      }
+    ],
+    "uncertainty": "目前仅有 Simon Willison 单一博客片段，且 Jev、“Noul”、GPT-6 Luna 等命名少见，无法排除讽刺或虚构内容，也无独立佐证。",
+    "why_notable": "若属实，说明“决策模型”正成为独立产品品类，并出现按输入 token 计费、输出免费的差异化定价竞争。"
+  }
+]

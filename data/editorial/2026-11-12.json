@@ -1,0 +1,133 @@
+{
+  "date": "2026-11-12",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认发布，但技术机制与效果未披露，仅值得短讯并作为 Agent 调度基础设施的弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-31ee04744973f467a872",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-workload-orchestration-kubernetes"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "面向开发者的新决策 API 可能改变多模态工作流，但性能与计费细节仅有官方自述。",
+      "retain_for_trends": true,
+      "story_id": "story-7e47f59b63e5f7c94354",
+      "support_for_story_id": null,
+      "trend_links": [
+        "calibrated-decision-api-adoption",
+        "multimodal-decision-model-productization"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "席位管理 API 属运维便利性更新，缺乏结构性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-0790da23f53d17eae16d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "该发版是 Gemini Decisions API 的 SDK 落地证据，补充主 Story 的可用性。",
+      "retain_for_trends": true,
+      "story_id": "story-4a4f4856fd5902835215",
+      "support_for_story_id": "story-7e47f59b63e5f7c94354",
+      "trend_links": [
+        "calibrated-decision-api-adoption",
+        "sdk-byos-self-hosting"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "摘要未说明是新能力还是方法论，也无可验证结果，读者价值有限。",
+      "retain_for_trends": false,
+      "story_id": "story-f461edc8a0c64daff773",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "方法类博文无摘要与数据，仅标题层面值得记录为嵌入效率训练弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-6860c7687dd563466853",
+      "support_for_story_id": null,
+      "trend_links": [
+        "embedding-efficiency-training-methods"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "个人账户功能对齐组织能力，属常规产品收敛。",
+      "retain_for_trends": false,
+      "story_id": "story-b613bca1746e5016aba6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "大规模生产中的评估与护栏经验有参考价值，但为厂商访谈且细节不足。",
+      "retain_for_trends": true,
+      "story_id": "story-7279e12fce4d0d1d5f27",
+      "support_for_story_id": null,
+      "trend_links": [
+        "large-scale-ai-eval-guardrails-practice"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "单一未验证社区博客且无实质内容，属个案叙述。",
+      "retain_for_trends": false,
+      "story_id": "story-2a7a724573f9d4696c98",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "无独立证据的传闻，不具开发相关读者价值。",
+      "retain_for_trends": false,
+      "story_id": "story-10e2bbd3663a4bbf563d",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-12T01:46:41.259102Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

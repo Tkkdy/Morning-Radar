@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-12",
+  "generated_at": "2026-11-12T01:46:41.259102Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Google",
+        "Gemini Decision"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 Gemini Decisions API 是否公布正式可用范围、计费方式或第三方基准评测结果。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Gemini Decisions API"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-12T01:46:41.259102Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-12",
+          "story_id": "story-7e47f59b63e5f7c94354"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models"
+      ],
+      "watch_id": "watch-5f52dff4d765bed3544a"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA",
+        "Kubernetes"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 Agent Substrate 是否开源、发布技术细节或给出 Kubernetes 承载 Agent 的量化性能数据。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Agent Substrate"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-12T01:46:41.259102Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-12",
+          "story_id": "story-31ee04744973f467a872"
+        }
+      ],
+      "topic_anchors": [
+        "AI Agent 基础设施",
+        "Kubernetes 调度"
+      ],
+      "watch_id": "watch-a3037e1d6f68b4b88d8a"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "关注 NVIDIA 是否将 DSX AI Factory 的运行时 AI 清单能力作为具体产品功能发布，并公布支持范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA DSX AI Factory",
+        "NVIDIA Dynamo",
+        "Kubeflow",
+        "Slurm"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-12T01:46:41.259102Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-12",
+          "story_id": "story-f461edc8a0c64daff773"
+        }
+      ],
+      "topic_anchors": [
+        "ai_infrastructure"
+      ],
+      "watch_id": "watch-c9a2b7a4f6be5f404136"
+    }
+  ]
+}
