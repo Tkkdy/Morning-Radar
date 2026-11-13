@@ -1,0 +1,117 @@
+{
+  "date": "2026-11-13",
+  "generated_at": "2026-11-13T00:43:06.519538Z",
+  "judgements": [],
+  "relations": [
+    {
+      "change_summary": "python-genai 从 v3.2.0 的 Decisions API 与 BYOS 能力，推进到次日发布的 v3.3.0，新增打包 flavor、ThinkingLevel XHIGH、枚举补全及 gemini-4-hydrogen 模型枚举。",
+      "current_story": {
+        "date": "2026-11-13",
+        "story_id": "story-50a2fa8b5a38711cb539"
+      },
+      "disposition": "confirmed",
+      "evidence_refs": [
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-12",
+            "story_id": "story-4a4f4856fd5902835215"
+          }
+        },
+        {
+          "fact_indexes": [],
+          "story": {
+            "date": "2026-11-13",
+            "story_id": "story-50a2fa8b5a38711cb539"
+          }
+        }
+      ],
+      "previous_story": {
+        "date": "2026-11-12",
+        "story_id": "story-4a4f4856fd5902835215"
+      },
+      "rationale": "两个 Story 是同一仓库连续版本发布，当前版本直接承接上一版本。",
+      "recorded_at": "2026-11-13T00:43:06.519538Z",
+      "relation_id": "relation-7885b8c068e95d1ec5df",
+      "relation_type": "follow_up",
+      "retracts_relation_id": null
+    }
+  ],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Hugging Face",
+        "qvac"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 BotPsy 是否公开模型参数、可用平台与授权方式，以及是否提供可实际试用的端侧运行版本。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "BotPsy"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-13T00:43:06.519538Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-13",
+          "story_id": "story-c9f7293574c5d992f7fe"
+        }
+      ],
+      "topic_anchors": [
+        "端侧 AI",
+        "智能体语言模型"
+      ],
+      "watch_id": "watch-cce94b2a2318765c86ba"
+    },
+    {
+      "entity_anchors": [
+        "googleapis/python-genai",
+        "Google"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 googleapis/python-genai 后续版本是否公布 gemini-4-hydrogen 的能力说明或可用范围，以及 XHIGH/xhigh 推理等级的具体行为差异。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "python-genai",
+        "GenAI SDK",
+        "gemini-4-hydrogen"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-13T00:43:06.519538Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-13",
+          "story_id": "story-50a2fa8b5a38711cb539"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "watch_id": "watch-e17673dbd9a813b27424"
+    },
+    {
+      "entity_anchors": [
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Hugging Face 是否在后续内容中公布 3D 生成模型微调指南涉及的具体方法、模型与 LoRA 技术细节。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-11-13T00:43:06.519538Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-13",
+          "story_id": "story-a35825aac0883893e84c"
+        }
+      ],
+      "topic_anchors": [
+        "3D 生成模型",
+        "LoRA 微调",
+        "开源 AI"
+      ],
+      "watch_id": "watch-9aede13d8a1d73d125a7"
+    }
+  ]
+}

@@ -1,0 +1,78 @@
+[
+  {
+    "created_at": "2026-11-13T00:43:06.519538Z",
+    "explanation": "ai_coding 连续 3 天保持或增加事件量，且有 8 个来源支持。",
+    "id": "signal-382c8b3fb66f210b4570",
+    "metric_history": [
+      {
+        "date": "2026-11-11",
+        "story_count": 2
+      },
+      {
+        "date": "2026-11-12",
+        "story_count": 3
+      },
+      {
+        "date": "2026-11-13",
+        "story_count": 3
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 15,
+    "supporting_source_count": 8,
+    "supporting_story_ids": [
+      "story-e13d71d5a328fe224ad2",
+      "story-f19ed260d6a97ce5662f",
+      "story-0790da23f53d17eae16d",
+      "story-4a4f4856fd5902835215",
+      "story-b613bca1746e5016aba6",
+      "story-50a2fa8b5a38711cb539",
+      "story-80f2fb2a6d735d7e4b7e",
+      "story-7b2113cce87cd2b0dc84"
+    ],
+    "topic": "ai_coding",
+    "uncertainties": [],
+    "updated_at": "2026-11-13T00:43:06.519538Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-11-13T00:43:06.519538Z",
+    "explanation": "ai_models 连续 3 天保持或增加事件量，且有 10 个来源支持。",
+    "id": "signal-e0099c2ae58084074964",
+    "metric_history": [
+      {
+        "date": "2026-11-11",
+        "story_count": 1
+      },
+      {
+        "date": "2026-11-12",
+        "story_count": 4
+      },
+      {
+        "date": "2026-11-13",
+        "story_count": 5
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 1.0,
+    "supporting_company_count": 23,
+    "supporting_source_count": 10,
+    "supporting_story_ids": [
+      "story-e155861fe81174a7b647",
+      "story-7e47f59b63e5f7c94354",
+      "story-4a4f4856fd5902835215",
+      "story-f461edc8a0c64daff773",
+      "story-6860c7687dd563466853",
+      "story-c9c8dab5842e5ccc62ac",
+      "story-50a2fa8b5a38711cb539",
+      "story-69ccc9ebafeab58486d0",
+      "story-80f2fb2a6d735d7e4b7e",
+      "story-7b2113cce87cd2b0dc84"
+    ],
+    "topic": "ai_models",
+    "uncertainties": [],
+    "updated_at": "2026-11-13T00:43:06.519538Z",
+    "window_days": 3
+  }
+]

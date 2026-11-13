@@ -1,0 +1,518 @@
+[
+  {
+    "analysis": [
+      "官方博客以发布公告形式呈现该信息，属于官方一手来源，可作为事实底座。"
+    ],
+    "canonical_title": "Google 搜索引入 Gemini 4 Hydrogen 升级",
+    "category": "ai_models",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Google",
+      "Gemini 4 Hydrogen",
+      "Google Search"
+    ],
+    "facts": [
+      "Google AI 官方博客发布文章，标题为“Google Search gets a major upgrade with Gemini 4 Hydrogen”，作者为 Robby Stein，发布时间为 2026-11-12T18:00:00Z。",
+      "文章内容为轮播卡片，卡片文字包含“Gemini 4 Hydrogen”“Now in Google Search”，并展示 Google 搜索界面的示例。"
+    ],
+    "id": "story-c9c8dab5842e5ccc62ac",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/",
+    "product_names": [
+      "Gemini 4 Hydrogen",
+      "Google Search"
+    ],
+    "published_at": "2026-11-12T18:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-d6d23163b98ddfa1ea7a"
+    ],
+    "source_refs": [
+      {
+        "author": "Robby Stein",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T18:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d6d23163b98ddfa1ea7a",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Google Search gets a major upgrade with Gemini 4 Hydrogen",
+        "url": "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products-and-platforms/products/search/gemini-4-hydrogen-search-upgrade/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models"
+    ],
+    "uncertainties": [
+      "输入摘要与内容摘录均为同一段轮播卡片描述，未提供 Gemini 4 Hydrogen 在搜索中的具体功能、覆盖范围或上线时间等细节。",
+      "输入未说明 Gemini 4 Hydrogen 的模型规格、可用地区或与既有搜索功能的差异。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [
+      "该版本以列举的功能与文档改动为主，属常规功能迭代发布；新增枚举值表明 SDK 正在同步扩展模型与推理等级的支持范围。"
+    ],
+    "canonical_title": "googleapis/python-genai 发布 v3.3.0",
+    "category": "ai_models",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "googleapis/python-genai",
+      "Google"
+    ],
+    "facts": [
+      "googleapis/python-genai 仓库于 2026-11-12 发布 v3.3.0 版本。",
+      "v3.3.0 新增 --flavor=interactions-eap 打包方式，并清理私有导出。",
+      "v3.3.0 在 GenAI SDK 与 CLI 的 ThinkingLevel 中新增 XHIGH 和 xhigh。",
+      "v3.3.0 为 FinishReason 和 ReinforcementTuningThinkingLevel 补充缺失的枚举值。",
+      "v3.3.0 在 interactions 中向 Model 枚举加入 gemini-4-hydrogen。",
+      "v3.3.0 更新 README，以反映主版本 3 的破坏性变更。"
+    ],
+    "id": "story-50a2fa8b5a38711cb539",
+    "importance_score": 0.35,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v3.3.0",
+    "product_names": [
+      "python-genai",
+      "GenAI SDK",
+      "gemini-4-hydrogen"
+    ],
+    "published_at": "2026-11-12T19:37:25Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-fb75312f56d0fce8426e"
+    ],
+    "source_refs": [
+      {
+        "author": "release-please[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T19:37:25Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-fb75312f56d0fce8426e",
+        "source_date": null,
+        "source_name": "GitHub · googleapis/python-genai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "googleapis/python-genai: v3.3.0",
+        "url": "https://github.com/googleapis/python-genai/releases/tag/v3.3.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/googleapis/python-genai/releases/tag/v3.3.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "发布说明未解释 gemini-4-hydrogen 模型的具体能力或可用范围。",
+      "发布说明未说明 XHIGH/xhigh 对应的具体推理预算或行为差异。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [
+      "该内容来自IBM Granite官方博客，属于官方一手发布，可作为事件事实底座。",
+      "标题把LLMON与Granite 4.1的具体参数规模3B、8B关联，说明该标记语言已进入具体模型版本。"
+    ],
+    "canonical_title": "LLMON：一种面向LLM的标记语言，现已用于Granite 4.1 3B和8B",
+    "category": "ai_models",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "IBM",
+      "Granite",
+      "LLMON"
+    ],
+    "facts": [
+      "Hugging Face博客发布文章《LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B》。",
+      "文章标题表明LLMON是一种LLM原生标记语言，并已应用于Granite 4.1 3B和8B。"
+    ],
+    "id": "story-69ccc9ebafeab58486d0",
+    "importance_score": 0.4,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite",
+    "product_names": [
+      "LLMON",
+      "Granite 4.1 3B",
+      "Granite 4.1 8B"
+    ],
+    "published_at": "2026-11-12T19:07:35Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-84ec87286cb35a64f463"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T19:07:35Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-84ec87286cb35a64f463",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "LLMON: An LLM-Native Markup Language, now in Granite 4.1 3B and 8B",
+        "url": "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/ibm-granite/llmon-an-llm-native-markup-language-now-in-granite"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai",
+      "llm_native_markup_language"
+    ],
+    "uncertainties": [
+      "文章正文与摘要为空，无法从输入中获知LLMON的具体语法、训练方式、评测结果或发布状态细节。",
+      "无法确认Granite 4.1 3B和8B是新增模型还是既有模型更新。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [
+      "从标题看，BotPsy 被定位为一款端侧个人助理，其驱动模型参数量不足十亿，并具有智能体能力。"
+    ],
+    "canonical_title": "Hugging Face 博客介绍 BotPsy：基于不足十亿参数智能体语言模型的端侧个人助理",
+    "category": "ai_models",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Hugging Face",
+      "BotPsy",
+      "qvac"
+    ],
+    "facts": [
+      "Hugging Face 博客发布标题为「BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model」的文章。",
+      "该文章的发布者为 Hugging Face 博客，作者署名为 qvac。",
+      "该文章发布于 2026-11-11T05:01:16Z。"
+    ],
+    "id": "story-c9f7293574c5d992f7fe",
+    "importance_score": 0.45,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://huggingface.co/blog/qvac/botpsy",
+    "product_names": [
+      "BotPsy"
+    ],
+    "published_at": "2026-11-11T05:01:16Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-19b4fcb1faac9c9bdbcc"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T05:01:16Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-19b4fcb1faac9c9bdbcc",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "BotPsy: On-Device Personal Assistant with a Sub-Billion-Parameter Agentic Language Model",
+        "url": "https://huggingface.co/blog/qvac/botpsy"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/qvac/botpsy"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "端侧 AI",
+      "智能体语言模型",
+      "开源 AI"
+    ],
+    "uncertainties": [
+      "输入未提供文章正文内容，因此 BotPsy 的具体功能、模型架构、授权方式与可用平台等信息均无法确认。",
+      "标题中的「Sub-Billion-Parameter」为发布方表述，输入未提供可核验的参数量数字。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Hugging Face 发布面向 3D 生成模型的微调指南",
+    "category": "ai_models",
+    "credibility_score": 0.65,
+    "entity_names": [
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face Blog 于 2026-11-12 发布了题为《The Definitive Fine-Tuning Guide for 3D Generation Models》的文章。",
+      "该文章 URL 为 https://huggingface.co/blog/3d-lora-finetuning。",
+      "该条目被标记为 official_primary 来源，并标注为 factual_announcement。"
+    ],
+    "id": "story-a35825aac0883893e84c",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://huggingface.co/blog/3d-lora-finetuning",
+    "product_names": [],
+    "published_at": "2026-11-12T00:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-cbda9238a3684b28e47a"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-cbda9238a3684b28e47a",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The Definitive Fine-Tuning Guide for 3D Generation Models",
+        "url": "https://huggingface.co/blog/3d-lora-finetuning"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/3d-lora-finetuning"
+    ],
+    "status": "available",
+    "topic_names": [
+      "3D 生成模型",
+      "LoRA 微调",
+      "开源 AI"
+    ],
+    "uncertainties": [
+      "输入中未提供文章摘要或正文内容，因此无法确认指南涵盖的具体方法、模型或技术细节。",
+      "输入中未列出文章作者。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [
+      "该来源为 OpenAI 官方客户案例页面，属于厂商发布的客户叙事，可用于说明所述部署方式与使用场景，但性能与周期表述缺乏独立验证。"
+    ],
+    "canonical_title": "OpenAI 发布 Amplitude 客户案例：基于 OpenAI 模型的主动式产品代理 Wave 助力 1–2 天完成产品改进",
+    "category": "ai_coding",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Amplitude",
+      "OpenAI",
+      "Wave"
+    ],
+    "facts": [
+      "OpenAI 商业客户案例页面介绍了 Amplitude 使用 OpenAI 模型的情况。",
+      "Amplitude 的主动式产品代理 Wave 主要基于 OpenAI 模型构建。",
+      "该案例称 Wave 能识别应构建哪些功能，帮助团队借助编码代理交付变更，并衡量影响。",
+      "OpenAI 案例标题称 Amplitude 可在 1–2 天内交付产品改进。"
+    ],
+    "id": "story-80f2fb2a6d735d7e4b7e",
+    "importance_score": 0.4,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/business/customer-stories/amplitude",
+    "product_names": [
+      "Wave"
+    ],
+    "published_at": "2026-11-12T20:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-67672a694e389b29af55"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T20:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-67672a694e389b29af55",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Amplitude ships product improvements in 1–2 days with OpenAI",
+        "url": "https://openai.com/business/customer-stories/amplitude"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/amplitude"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_coding",
+      "product agent",
+      "coding agents"
+    ],
+    "uncertainties": [
+      "“1–2 天交付产品改进”的具体统计口径、样本范围和衡量方式未在摘要中说明。",
+      "Wave 具体调用了哪些 OpenAI 模型及版本未披露。",
+      "编码代理在交付流程中的具体角色与自动化程度未详细说明。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [
+      "该内容来自 OpenAI 官方客户案例，属于厂商官方叙事，其量化收益（收入翻倍、产出提升 50%）未提供独立验证细节。"
+    ],
+    "canonical_title": "OpenAI 发布 Gondola 使用 Codex 的客户案例：收入翻倍，首席工程师产出提升 50%",
+    "category": "AI 应用与客户案例",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI",
+      "Gondola",
+      "Codex",
+      "ChatGPT"
+    ],
+    "facts": [
+      "OpenAI News 于 2026-11-12T12:00:00Z 发布题为“Gondola doubles revenue as its team builds more with Codex”的客户案例，URL 为 https://openai.com/business/customer-stories/gondola。",
+      "该案例摘要称，Gondola 帮助创意工作者获得署名和就业机会，Codex 使其首席工程师的产出提升 50%，ChatGPT 简化了日常工作。"
+    ],
+    "id": "story-7b2113cce87cd2b0dc84",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/business/customer-stories/gondola",
+    "product_names": [
+      "Codex",
+      "ChatGPT"
+    ],
+    "published_at": "2026-11-12T12:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-b9840fd67063a36a400d"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b9840fd67063a36a400d",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Gondola doubles revenue as its team builds more with Codex",
+        "url": "https://openai.com/business/customer-stories/gondola"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/gondola"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "Gondola 收入翻倍的具体统计口径、时间区间与基线未在摘要中说明。",
+      "首席工程师产出提升 50% 的衡量方式与统计方法未在摘要中披露。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  },
+  {
+    "analysis": [
+      "这笔资助指向“共享测量工具”，说明重点在于建立可复用的风险评估与机会衡量方法，而非单一产品功能。",
+      "由 OpenAI 官方渠道发布，属于正式对外公告，可作为该承诺的原始事实依据。"
+    ],
+    "canonical_title": "OpenAI 承诺投入 200 万美元支持 AI 与儿童安全研究",
+    "category": "AI 安全与儿童保护",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 承诺投入 200 万美元用于 AI 与儿童安全研究。",
+      "该工作支持用于衡量年轻人面临的风险与机会的共享工具。"
+    ],
+    "id": "story-446844e0546a882db48a",
+    "importance_score": 0.35,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://openai.com/index/children-first-declaration",
+    "product_names": [],
+    "published_at": "2026-11-12T00:00:00Z",
+    "relevance_score": 0.2,
+    "source_item_ids": [
+      "item-d7c1da8cb7dc41da688b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-13T00:40:58.273050Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-d7c1da8cb7dc41da688b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Supporting research on AI and children’s safety",
+        "url": "https://openai.com/index/children-first-declaration"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/children-first-declaration"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 安全",
+      "儿童安全",
+      "研究资助"
+    ],
+    "uncertainties": [
+      "公告未说明资金的具体分配方式、受资助方名单与项目时间表。",
+      "“共享工具”的具体形态、覆盖指标与开放范围尚未披露。"
+    ],
+    "updated_at": "2026-11-13T00:43:06.519538Z"
+  }
+]

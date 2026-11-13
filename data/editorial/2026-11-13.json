@@ -1,0 +1,111 @@
+{
+  "date": "2026-11-13",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认 Gemini 4 Hydrogen 进入搜索，但细节缺失，值得知道而不足以展开。",
+      "retain_for_trends": true,
+      "story_id": "story-c9c8dab5842e5ccc62ac",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gemini-in-search-surface-integration",
+        "search-as-ai-agent-entrypoint"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "SDK 版本发布并同步模型与推理等级枚举，属开发工具链可验证的小幅演进。",
+      "retain_for_trends": true,
+      "story_id": "story-50a2fa8b5a38711cb539",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sdk-model-enum-sync-release-cadence",
+        "reasoning-level-api-expansion"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "LLM 原生标记语言进入具体小模型，协议与结构化输出机制值得解释但缺乏评测验证。",
+      "retain_for_trends": true,
+      "story_id": "story-69ccc9ebafeab58486d0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "llm-native-markup-protocol-adoption",
+        "small-model-structured-output"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "端侧小于十亿参数智能体助理是本地部署信号，但参数与效果均为发布方单方表述。",
+      "retain_for_trends": true,
+      "story_id": "story-c9f7293574c5d992f7fe",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sub-billion-agentic-on-device-assistant",
+        "consumer-hardware-local-inference"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅确认博客教程发布，无方法或模型细节，无法命名可验证趋势机制。",
+      "retain_for_trends": false,
+      "story_id": "story-a35825aac0883893e84c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商客户案例的周期数字未经独立验证，缺乏可复用趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-80f2fb2a6d735d7e4b7e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "同为 OpenAI 客户案例营销叙事，仅可作为前一条案例的补充材料。",
+      "retain_for_trends": false,
+      "story_id": "story-7b2113cce87cd2b0dc84",
+      "support_for_story_id": "story-80f2fb2a6d735d7e4b7e",
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "研究资助承诺对开发能力与工具无实质影响，无明确未来验证用途。",
+      "retain_for_trends": false,
+      "story_id": "story-446844e0546a882db48a",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-13T00:43:06.519538Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

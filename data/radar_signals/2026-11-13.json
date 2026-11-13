@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "Simon Willison 发布 llm-gemini 0.37 插件，并记录 Google 新推出 Gemini 4 Hydrogen（Gemini 4 家族中成本最低的成员），同时指出 Gemini 4 家族（Carbon、Argon、Hydrogen）的定价结构令人困惑，且部分价格将在 2026 年 12 月 1 日上调。",
+    "id": "radar-d87c90da8dbc973b2fd9",
+    "missing_evidence": [
+      "Google 官方模型与定价页面，用于核实 Hydrogen/Carbon/Argon 的名称、价格与调价时间",
+      "llm-gemini 0.37 的发布说明与变更内容",
+      "摘录被截断，Hydrogen 的具体价格数字缺失"
+    ],
+    "observed_at": "2026-11-13T00:40:58.273050Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-aeee01f562824dca326f",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/12/llm-gemini/"
+      }
+    ],
+    "uncertainty": "仅有一篇被截断的博客摘录，价格表不完整；模型命名与定价是否与官方一致未验证。",
+    "why_notable": "来自长期跟踪 LLM 工具链的实践者的第一手观察，提供了 Gemini 4 家族分层与定价复杂度的具体线索，对使用 Gemini API 的开发者有直接参考价值。"
+  },
+  {
+    "claim": "Simon Willison 介绍 AWS 官方推出的本地服务仿真器 aws-emulator（Rust 编写，可在无付费 API Key 情况下本地测试），并称该项目由一大群 agent 在三周内产生 29,684 次提交；AWS 的 Swaminathan Sivasubramanian 在 Werner Vogels 博客客座文章中讲述了其由来；目前在 macOS/Windows 上仍需 Docker。",
+    "id": "radar-cd1b392ed2f743f1be76",
+    "missing_evidence": [
+      "AWS 官方博客原文与项目仓库链接",
+      "提交数量与 agent 参与方式的一手核实（作者转述，未见原始数据）",
+      "代码质量、维护性与人工审核比例的说明"
+    ],
+    "observed_at": "2026-11-13T00:40:58.273050Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-fd0e38b70a90d204adaa",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/11/aws-emulator/"
+      }
+    ],
+    "uncertainty": "agent 生成与提交数均为二手转述，摘录被截断，缺乏可验证的原始来源。",
+    "why_notable": "若属实，这是一个大规模 agent 协作产出生产级代码的具体案例，对评估 coding agent 在真实工程项目中的吞吐与协作模式有参考意义。"
+  }
+]

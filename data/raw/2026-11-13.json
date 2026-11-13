@@ -7,6 +7,7 @@
     "id": "item-67672a694e389b29af55",
     "language": "en-US",
     "metadata": {
+      "content_version": "16c8adb60ef565d90bf6",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -37,6 +38,7 @@
     "id": "item-d6d23163b98ddfa1ea7a",
     "language": "en-us",
     "metadata": {
+      "content_version": "e1b36b2a69e155639c56",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -67,6 +69,7 @@
     "id": "item-35ac62249c0a485d5c84",
     "language": "en-US",
     "metadata": {
+      "content_version": "34da47169bc412034bf7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +100,7 @@
     "id": "item-84ec87286cb35a64f463",
     "language": "en-US",
     "metadata": {
+      "content_version": "675db1739502b2cf9aef",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -158,6 +162,7 @@
     "id": "item-cbdc8f6b1c4c9f015936",
     "language": "en-US",
     "metadata": {
+      "content_version": "0df5dc34c4caafe78d7d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -249,6 +254,7 @@
     "id": "item-aeee01f562824dca326f",
     "language": "en-us",
     "metadata": {
+      "content_version": "e24ff91db05bfbc3757b",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -311,6 +317,7 @@
     "id": "item-b9840fd67063a36a400d",
     "language": "en-US",
     "metadata": {
+      "content_version": "b0917490bc6c9cf9471e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -371,6 +378,7 @@
     "id": "item-a95ceb4f7bc23b6c4276",
     "language": "en-US",
     "metadata": {
+      "content_version": "8c67287a8c3b6bab4097",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -401,6 +409,7 @@
     "id": "item-cbda9238a3684b28e47a",
     "language": "en-US",
     "metadata": {
+      "content_version": "9ca1585fa47ea04bce44",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -675,6 +684,7 @@
     "id": "item-9d93b67611de91b81b7a",
     "language": "en-US",
     "metadata": {
+      "content_version": "df7adaa417d709e13b96",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -705,6 +715,7 @@
     "id": "item-19b4fcb1faac9c9bdbcc",
     "language": "en-US",
     "metadata": {
+      "content_version": "bf15b00993f20b36b3be",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -857,6 +868,7 @@
     "id": "item-fd0e38b70a90d204adaa",
     "language": "en-us",
     "metadata": {
+      "content_version": "6899755dcff59bee1d31",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -919,6 +931,7 @@
     "id": "item-d7c1da8cb7dc41da688b",
     "language": "en-US",
     "metadata": {
+      "content_version": "0f4538b739c357a3d95b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -74983,6 +74996,7 @@
     "id": "item-fb75312f56d0fce8426e",
     "language": "en",
     "metadata": {
+      "content_version": "117d22cdb9276c4cfa0e",
       "data_anomaly": false,
       "forks": 1065,
       "official": true,
@@ -77655,6 +77669,7 @@
     "metadata": {
       "comments": 2709,
       "community_signal": true,
+      "content_version": "536463a7b9f4ad3ea898",
       "discussion_url": "https://news.ycombinator.com/item?id=50467087",
       "official": false,
       "original_url": "https://apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f",
@@ -77775,11 +77790,19 @@
     "metadata": {
       "comments": 61,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50472260",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
       "score": 278,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -77985,11 +78008,20 @@
     "metadata": {
       "comments": 795,
       "community_signal": true,
+      "content_version": "c176c02143766ef1fc32",
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50465829",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://ipo.anthropic.com/us/",
       "score": 804,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -78285,11 +78317,19 @@
     "metadata": {
       "comments": 291,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50471431",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
       "score": 449,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -78555,6 +78595,7 @@
     "metadata": {
       "change_percent": -0.019015400394532072,
       "close": 405.489990234375,
+      "content_version": "de8a324a835d302bab01",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 413.3500061035156,
@@ -79695,38 +79736,6 @@
     "url": "https://www.tikr.com/blog/anthropics-model-taught-itself-to-run-on-amd-in-three-days-bad-news-for-nvidias-moat"
   },
   {
-    "author": "josephljohnston",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-13T00:40:58.273050Z",
-    "id": "item-d460a4b0323b387ec5f7",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50465829",
-      "hn_submission_time": 1794484001,
-      "lab_id": "anthropic",
-      "original_url": "https://ipo.anthropic.com/us/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-12T11:46:41Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Anthropic IPO",
-    "topic_candidates": [],
-    "url": "https://ipo.anthropic.com/us/"
-  },
-  {
     "author": "millspore",
     "company_candidates": [],
     "content_excerpt": "",
@@ -79887,38 +79896,6 @@
     "url": "https://ploum.net/2026-11-12-anti-marketing-gemini.html"
   },
   {
-    "author": "jonbaer",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-13T00:40:58.273050Z",
-    "id": "item-bf0cdfe9bbc20fcda779",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50472260",
-      "hn_submission_time": 1794509521,
-      "lab_id": "google_deepmind",
-      "original_url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-12T18:52:01Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Gemini 4 Hydrogen and Orchestrator",
-    "topic_candidates": [],
-    "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/"
-  },
-  {
     "author": "theanonymousone",
     "company_candidates": [],
     "content_excerpt": "",
@@ -80013,38 +79990,6 @@
     "title": "Gemini 4 Hydrogen",
     "topic_candidates": [],
     "url": "https://aistudio.google.com/docs/whats-new-gemini-4-hydrogen"
-  },
-  {
-    "author": "dvaplima",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-13T00:40:58.273050Z",
-    "id": "item-e19b76611531f3af1b3c",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50471431",
-      "hn_submission_time": 1794506508,
-      "lab_id": "google_deepmind",
-      "original_url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-12T18:01:48Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Gemini 4 Hydrogen",
-    "topic_candidates": [],
-    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-hydrogen/"
   },
   {
     "author": "it_works",
