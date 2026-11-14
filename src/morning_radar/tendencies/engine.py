@@ -236,6 +236,7 @@ def evaluate_daily_tendencies(
             stats={
                 "tendency_clusters": len(clusters),
                 "tendency_input_characters": tendency_input_characters,
+                "tendency_insufficient_evidence": len(dates) < 2 and not current_views,
                 "tendency_logical_ai_calls": 0,
                 "tendency_network_ai_requests": 0,
                 "tendency_structured_retries": 0,
@@ -247,7 +248,7 @@ def evaluate_daily_tendencies(
     requests_before = getattr(budget, "network_requests_used", 0)
     try:
         output = provider.evaluate_tendencies(clusters, evaluation_views)
-    except (AIOutputError, AIBudgetExceeded):
+    except (AIOutputError, AIBudgetExceeded) as exc:
         network_requests = (
             getattr(budget, "network_requests_used", requests_before) - requests_before
         )
@@ -270,6 +271,8 @@ def evaluate_daily_tendencies(
                 "tendency_logical_ai_calls": getattr(budget, "calls_used", 0) - calls_before,
                 "tendency_network_ai_requests": network_requests,
                 "tendency_structured_retries": structured_retries,
+                "tendency_budget_skipped": isinstance(exc, AIBudgetExceeded),
+                "tendency_validation_failed": isinstance(exc, AIOutputError),
                 "tendency_unavailable": True,
             },
         )

@@ -58,6 +58,24 @@ from morning_radar.models import (
 
 
 class FakeAIProvider:
+    def review_hypotheses(self, context):
+        from morning_radar.tendencies.grounded_review import ReviewOutput
+        return ReviewOutput()  # Fake never certifies real content.
+
+    def discover_hypotheses(self, context):
+        from morning_radar.tendencies.core_models import CoreOutput
+        return CoreOutput(
+            outcome="insufficient_evidence", gaps=["Fake does not discover hypotheses"]
+        )
+
+    def calibrate_hypotheses(self, context):
+        from morning_radar.tendencies.core_models import CoreOutput
+        return CoreOutput(outcome="no_changes", gaps=["Fake does not assess reasoning quality"])
+
+    def split_hypotheses(self, context):
+        from morning_radar.tendencies.core_models import SplitOutput
+        return SplitOutput(gaps=["Use structured spans or a real provider for free-text splitting"])
+
     def __init__(
         self,
         topic_context: dict | None = None,
@@ -144,7 +162,7 @@ class FakeAIProvider:
                 dict.fromkeys(name for item in items for name in item.topic_candidates)
             ),
             facts=[item.summary or item.title for item in items],
-            analysis=["多个 Fixture 来源在离线流程中被结构化合并。"],
+            analysis=[],
             uncertainties=[],
             source_urls=[item.url for item in items],
             primary_source_url=first.url,
@@ -207,9 +225,7 @@ class FakeAIProvider:
                     section=story.category,
                     title=story.canonical_title,
                     what_happened=story.facts[0] if story.facts else story.canonical_title,
-                    why_it_matters=(
-                        story.analysis[0] if story.analysis else "该事件与配置关注主题相关。"
-                    ),
+                    why_it_matters=None,
                     uncertainty=story.uncertainties[0] if story.uncertainties else None,
                     source_urls=story.source_urls,
                 )
@@ -232,9 +248,7 @@ class FakeAIProvider:
                 section=story.category,
                 title=story.canonical_title,
                 what_happened=story.facts[0] if story.facts else story.canonical_title,
-                why_it_matters=(
-                    story.analysis[0] if story.analysis else "该事件与配置关注主题相关。"
-                ),
+                why_it_matters=None,
                 uncertainty=story.uncertainties[0] if story.uncertainties else None,
                 source_urls=story.source_urls,
             )

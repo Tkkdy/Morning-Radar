@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -20,6 +21,10 @@ from pydantic import BaseModel, ValidationError
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 from morning_radar.ai.budget import AIBudget, AIBudgetExceeded, AITaskPriority
+from morning_radar.ai.candidate_classification import (
+    CandidateClassificationBatch,
+    validate_candidate_ids,
+)
 from morning_radar.ai.errors import (
     AIAuthenticationError,
     AIBillingUnavailable,
@@ -60,6 +65,7 @@ from morning_radar.ai.request_payload import (
     score_story_payload,
     snapshot_call_meta,
 )
+from morning_radar.ai.tendency_core import TendencyCoreProviderMixin
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
@@ -87,6 +93,16 @@ class DeepSeekTaskPolicy:
 
 
 TASK_POLICIES = {
+    "tendency_review": DeepSeekTaskPolicy(
+        "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
+    ),
+    "tendency_discover": DeepSeekTaskPolicy(
+        "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
+    ),
+    "tendency_calibrate": DeepSeekTaskPolicy(
+        "disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1
+    ),
+    "tendency_split": DeepSeekTaskPolicy("disabled", 6000, 6000, None, AITaskPriority.OPTIONAL, 1),
     "classify": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "merge_story": DeepSeekTaskPolicy("disabled", 4096, 4096),
     "score_story": DeepSeekTaskPolicy("disabled", 2048, 2048),
@@ -127,7 +143,7 @@ def _usage_value(value: Any, name: str) -> int:
     return int(getattr(value, name, 0) or 0) if value is not None else 0
 
 
-class DeepSeekProvider:
+class DeepSeekProvider(TendencyCoreProviderMixin):
     provider_name = "deepseek"
 
     def __init__(
@@ -210,13 +226,15 @@ class DeepSeekProvider:
         call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
         policy = TASK_POLICIES[task]
         try:
-            self.budget.consume(payload, item_count=item_count, priority=policy.priority)
+            self.budget.consume(payload, item_count=item_count, priority=policy.priority, task=task)
         except AIBudgetExceeded as exc:
             call_meta["blocked_reason"] = str(exc)
             attach_call_meta(exc, call_meta)
             raise
         self.budget.reset_task_attempts(task)
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
+        from morning_radar.ai.tendency_core import core_instructions
+        instructions = core_instructions(task, instructions)
         self.last_prompt_hash = prompt_hash_for(instructions)
         call_meta["prompt_hash"] = self.last_prompt_hash
         schema_json = json.dumps(
@@ -306,9 +324,17 @@ class DeepSeekProvider:
                 max_tokens=max_tokens,
                 request_timeout=request_timeout,
             )
+            recorder = getattr(self, "usage_recorder", None)
+            record = recorder.start(
+                provider=self.provider_name, model=self.model, task=task,
+                request_characters=len(json.dumps(request.get("messages"), ensure_ascii=False)),
+                maximum_output_tokens=max_tokens,
+            ) if recorder else None
             try:
-                return self.client.chat.completions.create(**request)
+                response = self.client.chat.completions.create(**request)
             except Exception as exc:
+                if recorder and record:
+                    recorder.finish(record, usage=None, state="transport_failed")
                 normalized = normalize_provider_error(exc, self.provider_name)
                 if isinstance(normalized, AIBillingUnavailable):
                     self.circuit_open = True
@@ -319,6 +345,22 @@ class DeepSeekProvider:
                         self.circuit_reason,
                     )
                 raise normalized from exc
+            if recorder and record:
+                usage = getattr(response, "usage", None)
+                observed = None
+                if usage is not None:
+                    observed = {
+                        "prompt_tokens": getattr(usage, "prompt_tokens", None),
+                        "completion_tokens": getattr(usage, "completion_tokens", None),
+                        "reasoning_tokens": getattr(
+                            getattr(usage, "completion_tokens_details", None),
+                            "reasoning_tokens", None,
+                        ),
+                        "cache_hit_tokens": getattr(usage, "prompt_cache_hit_tokens", None),
+                        "cache_miss_tokens": getattr(usage, "prompt_cache_miss_tokens", None),
+                    }
+                recorder.finish(record, usage=observed, state="response_received")
+            return response
 
         last_error: Exception | None = None
         for structured_attempt in range(1, maximum_structured_attempts + 1):
@@ -374,15 +416,26 @@ class DeepSeekProvider:
                 content = choice.message.content
                 if not isinstance(content, str) or not content.strip():
                     raise AIOutputError(f"{self.provider_name} response contained no JSON content")
+                if task.startswith("tendency_"):
+                    self.last_core_response = {
+                        "sha256": hashlib.sha256(content.encode()).hexdigest(),
+                        "characters": len(content), "raw_retained": False,
+                    }
+                if task == "tendency_review":
+                    self.last_review_response = content
                 parsed = json.loads(content)
                 if skip_model_validate:
                     call_meta["structured_retry"] = max(0, structured_attempt - 1)
                     return parsed
                 validated = schema.model_validate(parsed)
+                # Optional explanation errors degrade locally, without a model retry.
+                brief_validated = isinstance(validated, (BriefDraft, BriefItemRecoveryDraft))
+                if brief_validated and output_validator is not None:
+                    validated = output_validator(validated)
                 validate_output_urls(validated, allowed_urls)
                 if validate_language:
                     validate_core_simplified_chinese_output(validated)
-                if output_validator is not None:
+                if output_validator is not None and not brief_validated:
                     transformed = output_validator(validated)
                     if transformed is not None:
                         validated = transformed
@@ -436,12 +489,18 @@ class DeepSeekProvider:
         return request
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
+        candidate_review = bool(items) and all(
+            item.metadata.get("review_only") is True for item in items
+        )
         return self._parse(
             task="classify",
-            schema=ClassificationBatch,
+            schema=CandidateClassificationBatch if candidate_review else ClassificationBatch,
             payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
+            output_validator=(
+                lambda output: validate_candidate_ids(output, {item.id for item in items})
+            ) if candidate_review else None,
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:

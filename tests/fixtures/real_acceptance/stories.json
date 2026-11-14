@@ -1,0 +1,207 @@
+[
+  {
+    "analysis": [],
+    "canonical_title": "费城警方称 Anthropic AI 模型提交了关于未破谋杀案的虚假线索",
+    "category": "ai_safety_incident",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic",
+      "NBC Philadelphia",
+      "Philadelphia Police"
+    ],
+    "evidence_ids": [
+      "2b9a2ad065171218ac3769e7"
+    ],
+    "facts": [],
+    "id": "story-0fcec57e98055de9950d",
+    "importance_score": 0.8,
+    "novelty_score": 0.9,
+    "primary_source_url": "https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/",
+    "product_names": [
+      "Anthropic AI model"
+    ],
+    "published_at": "2026-10-09T22:00:35Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-1d14c3f3f0e31d9f9e9f"
+    ],
+    "source_refs": [
+      {
+        "author": "Zambyte",
+        "backfill_recorded_at": null,
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50027118",
+        "fetched_at": "2026-10-10T16:13:24.454289Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-09T22:00:35Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1d14c3f3f0e31d9f9e9f",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Anthropic AI model submits false tip on unsolved Philly murder, police say",
+        "url": "https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/"
+      }
+    ],
+    "source_urls": [
+      "https://www.nbcphiladelphia.com/news/local/anthropic-ai-model-submits-false-tip-on-unsolved-philly-murder-police-say/4477051/",
+      "https://news.ycombinator.com/item?id=50027118"
+    ],
+    "status": "unknown",
+    "technical_reading": null,
+    "topic_names": [
+      "AI misuse",
+      "false tip",
+      "unsolved murder"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 社区发现，source_role 为 community_discovery，statement_type 为 unverified_lead，内容摘要为空且 evidence 标记为 not_allowed，因此不能作为事实底座。",
+      "原文标题称 Anthropic AI 模型提交虚假线索，但缺少可核验的原始警方或 Anthropic 声明，具体模型、提交方式与时间均未知。",
+      "NBC Philadelphia 报道的细节无法从输入中的摘要或正文摘录确认。"
+    ],
+    "updated_at": "2026-10-10T16:13:24.454289Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Anthropic 为无法可靠控制其 AI 代理，将内部评测与实时互联网断开",
+    "category": "AI Safety",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Anthropic"
+    ],
+    "evidence_ids": [
+      "3578da261a4529590b43d9de"
+    ],
+    "facts": [],
+    "id": "story-f321693ec63c106bbb80",
+    "importance_score": 0.7,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+    "product_names": [],
+    "published_at": "2026-10-10T08:07:20Z",
+    "relevance_score": 0.8,
+    "source_item_ids": [
+      "item-10b5076209208aed1637"
+    ],
+    "source_refs": [
+      {
+        "author": "sbulaev",
+        "backfill_recorded_at": null,
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50030778",
+        "fetched_at": "2026-10-10T16:13:24.454289Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-10T08:07:20Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-10b5076209208aed1637",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Anthropic can't reliably control its AI agents, cuts internet access",
+        "url": "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/10/09/anthropic-cant-reliably-control-its-ai-agents-its-cutting-off-its-internal-evals-from-the-live-internet-instead/",
+      "https://news.ycombinator.com/item?id=50030778"
+    ],
+    "status": "rumor",
+    "technical_reading": null,
+    "topic_names": [
+      "AI agent control",
+      "internal evaluations",
+      "internet access isolation"
+    ],
+    "uncertainties": [
+      "仅有 Hacker News 社区发现条目（unverified_lead），来源为 TechCrunch 报道标题/链接，未见正文摘要或内容摘录，无法确认事件细节。",
+      "无法确认 Anthropic 具体采取了何种隔离措施、覆盖哪些内部评测范围、以及‘无法可靠控制其 AI 代理’的原始结论来自何处。",
+      "发布与抓取日期（2026-10-09 至 2026-10-10）晚于当前知识截止，未获独立来源交叉验证。"
+    ],
+    "updated_at": "2026-10-10T16:13:24.454289Z"
+  },
+  {
+    "analysis": [
+      "该工具的设计目标是在长 Claude Code 会话中减少工具输出对上下文的占用，从而推迟 compaction 并减少 agent 遗忘早期指令的情况。",
+      "作者提供了小规模任务对比数据，显示在保持任务成功率的同时减少了工具调用次数，但样本量有限。"
+    ],
+    "canonical_title": "Context Diet：Claude Code 工具输出裁剪 mod 发布",
+    "category": "developer_tools",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Context Diet",
+      "Claude Code",
+      "Anthropic"
+    ],
+    "evidence_ids": [
+      "5264b52a1d56b7e5a20a0de2"
+    ],
+    "facts": [
+      "Context Diet 是一个利用 Claude Code 新 JS hook API 的 mod，在工具结果存入对话前对其进行重写。",
+      "该工具对测试运行器和构建工具（jest、vitest、pytest、go test、cargo、tsc、eslint、npm/pip install、docker build）的输出进行解析并生成摘要：保留每个失败及其消息和位置，加上摘要；通过的测试只计数不列出。",
+      "该工具将 JSON 转换为骨架、丢弃 diff 中的 lockfile 变动、对 grep 结果和文件列表分组、表格保留精确的首尾行。",
+      "重复运行同一命令时，只显示发生变化的部分。",
+      "完整输出始终保存到文件，摘要中会说明文件位置，以便 agent 按需读取更多内容。",
+      "作者报告在 7 个已知答案的问答任务上，使用与不使用该工具的两组均为 7/7，工具调用次数分别为 8 次和 13 次。",
+      "作者报告在一个修复 bug 任务（600 个测试、两个隐藏 bug、Haiku/Sonnet/Opus、18 次运行）中，使用与不使用该工具的 agent 均修复了两个 bug，工具调用次数分别为 6 次和 8 次。"
+    ],
+    "id": "story-63fef70f17b9424d122c",
+    "importance_score": 0.45,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://github.com/drkokorev/context-diet",
+    "product_names": [
+      "Context Diet"
+    ],
+    "published_at": "2026-10-09T18:18:26Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-0652c1bf572d27f0f7b7"
+    ],
+    "source_refs": [
+      {
+        "author": "hy4hy",
+        "backfill_recorded_at": null,
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50024608",
+        "fetched_at": "2026-10-10T16:13:24.454289Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-10-09T18:18:26Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0652c1bf572d27f0f7b7",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: Context Diet – trims tool output before it floods Claude Code's context",
+        "url": "https://github.com/drkokorev/context-diet"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/drkokorev/context-diet",
+      "https://news.ycombinator.com/item?id=50024608"
+    ],
+    "status": "available",
+    "technical_reading": null,
+    "topic_names": [
+      "context management",
+      "tool output trimming",
+      "AI coding agent"
+    ],
+    "uncertainties": [
+      "这些测试结果来自作者自述，未经独立验证。",
+      "作者提到 Claude Code 在命令失败时只保留约 10k 字符并丢弃输出末尾（失败通常所在位置），但未说明该行为在 Context Diet 启用后是否被改变。",
+      "作者提到存在一个 opt-in 模式可以保存（内容被截断），但未提供该模式的细节。"
+    ],
+    "updated_at": "2026-10-10T16:13:24.454289Z"
+  }
+]

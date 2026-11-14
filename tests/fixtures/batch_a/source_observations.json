@@ -1,0 +1,68 @@
+[
+  {
+    "source_id": "anthropic_news",
+    "url": "https://www.anthropic.com/news",
+    "observed_at": "2026-10-10T09:31:03.500508+00:00",
+    "http_status": 200,
+    "response_bytes": 429419,
+    "response_sha256": "2c19afd5d60aa39ba0c7f2dfca6bd4c6c29147d8e591c255070d6c6f8adc4b30",
+    "parsed_items": 10,
+    "audit": [
+      {
+        "source_id": "anthropic_news",
+        "status": "ok",
+        "latest_source_date": "2026-10-08",
+        "response_bytes": 429419,
+        "truncated": false,
+        "requests": 1,
+        "persisted": 10
+      }
+    ],
+    "fixture": "tests\\fixtures\\batch_a\\anthropic_news-observed-listing.html",
+    "fixture_type": "observed_current_listing_card_excerpt_not_historical_snapshot"
+  },
+  {
+    "source_id": "anthropic_research",
+    "url": "https://www.anthropic.com/research",
+    "observed_at": "2026-10-10T09:31:04.345079+00:00",
+    "http_status": 200,
+    "response_bytes": 282283,
+    "response_sha256": "418c46f88fecf14979adfa415a887bbfb3be31a4409f29433c7193a33550bda4",
+    "parsed_items": 11,
+    "audit": [
+      {
+        "source_id": "anthropic_research",
+        "status": "ok",
+        "latest_source_date": "2026-10-09",
+        "response_bytes": 282283,
+        "truncated": false,
+        "requests": 1,
+        "persisted": 11
+      }
+    ],
+    "fixture": "tests\\fixtures\\batch_a\\anthropic_research-observed-listing.html",
+    "fixture_type": "observed_current_listing_card_excerpt_not_historical_snapshot"
+  },
+  {
+    "source_id": "xai_news",
+    "url": "https://x.ai/news",
+    "observed_at": "2026-10-10T09:31:06.570557+00:00",
+    "http_status": 200,
+    "response_bytes": 274956,
+    "response_sha256": "3b1f592b6bfb6af789ff6158efb9a2729b742e1efb4a38ab24f1c9e9b62c8e81",
+    "parsed_items": 85,
+    "audit": [
+      {
+        "source_id": "xai_news",
+        "status": "stale_or_undated",
+        "latest_source_date": "2026-09-28",
+        "response_bytes": 274956,
+        "truncated": false,
+        "requests": 1,
+        "persisted": 85
+      }
+    ],
+    "fixture": "tests\\fixtures\\batch_a\\xai_news-observed-listing.html",
+    "fixture_type": "observed_current_listing_card_excerpt_not_historical_snapshot"
+  }
+]

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import logging
 import os
@@ -18,6 +19,10 @@ from pydantic import BaseModel, ValidationError
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
 from morning_radar.ai.budget import AIBudget, AIBudgetExceeded, AITaskPriority
+from morning_radar.ai.candidate_classification import (
+    CandidateClassificationBatch,
+    validate_candidate_ids,
+)
 from morning_radar.ai.errors import (
     AIAuthenticationError,
     AIBillingUnavailable,
@@ -56,6 +61,7 @@ from morning_radar.ai.request_payload import (
     score_story_payload,
     snapshot_call_meta,
 )
+from morning_radar.ai.tendency_core import TendencyCoreProviderMixin
 from morning_radar.continuity.validation import validate_continuity_resolution
 from morning_radar.editorial.models import EditorialDecision, EditorialDecisionBatch
 from morning_radar.models import (
@@ -79,6 +85,10 @@ class OpenAITaskPolicy:
 
 
 OPENAI_TASK_POLICIES = {
+    "tendency_review": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
+    "tendency_discover": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
+    "tendency_calibrate": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
+    "tendency_split": OpenAITaskPolicy(6000, AITaskPriority.OPTIONAL, 1),
     "classify": OpenAITaskPolicy(4096, AITaskPriority.CORE, 3),
     "merge_story": OpenAITaskPolicy(4096, AITaskPriority.CORE, 3),
     "score_story": OpenAITaskPolicy(2048, AITaskPriority.CORE, 3),
@@ -116,7 +126,7 @@ def validate_output_urls(output: BaseModel, allowed_urls: set[str]) -> None:
         raise AIOutputError(f"AI returned URL not present in verified source set: {invented[0]}")
 
 
-class OpenAIProvider:
+class OpenAIProvider(TendencyCoreProviderMixin):
     def __init__(
         self,
         *,
@@ -189,13 +199,18 @@ class OpenAIProvider:
         self.last_policy_hash = policy_hash(self.topic_context)
         call_meta = snapshot_call_meta(self, task, prompt_hash=None, executed=False)
         try:
-            self.budget.consume(payload, item_count=item_count)
+            self.budget.consume(
+                payload, item_count=item_count, task=task,
+                priority=OPENAI_TASK_POLICIES[task].priority
+            )
         except AIBudgetExceeded as exc:
             call_meta["blocked_reason"] = str(exc)
             attach_call_meta(exc, call_meta)
             raise
         self.budget.reset_task_attempts(task)
         instructions = (self.prompt_dir / f"{task}.md").read_text(encoding="utf-8")
+        from morning_radar.ai.tendency_core import core_instructions
+        instructions = core_instructions(task, instructions)
         self.last_prompt_hash = prompt_hash_for(instructions)
         call_meta["prompt_hash"] = self.last_prompt_hash
         policy = OPENAI_TASK_POLICIES[task]
@@ -221,8 +236,16 @@ class OpenAIProvider:
                 task, maximum_task_attempts=policy.max_network_attempts
             )
             call_meta["executed"] = True
+            recorder = getattr(self, "usage_recorder", None)
+            attempt = recorder.start(
+                provider=self.provider_name, model=self.model, task=task,
+                request_characters=(
+                    len(payload) + len(instructions) + len(str(schema.model_json_schema()))
+                ),
+                maximum_output_tokens=policy.max_output_tokens,
+            ) if recorder else None
             try:
-                return self.client.responses.parse(
+                response = self.client.responses.parse(
                     model=self.model,
                     instructions=instructions,
                     input=payload,
@@ -230,11 +253,26 @@ class OpenAIProvider:
                     max_output_tokens=policy.max_output_tokens,
                 )
             except Exception as exc:
+                if recorder:
+                    recorder.finish(attempt, usage=None, state="transport_failure")
                 normalized = normalize_provider_error(exc, self.provider_name)
                 if isinstance(normalized, AIBillingUnavailable):
                     self.circuit_open = True
                     self.circuit_reason = normalized.kind.value
                 raise normalized from exc
+            if recorder:
+                usage = getattr(response, "usage", None)
+                recorder.finish(attempt, state="response_received", usage={
+                    "prompt_tokens": getattr(usage, "input_tokens", None),
+                    "completion_tokens": getattr(usage, "output_tokens", None),
+                    "reasoning_tokens": getattr(
+                        getattr(usage, "output_tokens_details", None), "reasoning_tokens", None
+                    ),
+                    "cached_tokens": getattr(
+                        getattr(usage, "input_tokens_details", None), "cached_tokens", None
+                    ),
+                } if usage else None)
+            return response
 
         last_error: Exception | None = None
         for structured_attempt in range(1, maximum_structured_attempts + 1):
@@ -249,6 +287,12 @@ class OpenAIProvider:
                     reasoning_tokens=_usage_value(details, "reasoning_tokens"),
                     finish_reason=str(getattr(response, "status", None) or "unknown"),
                 )
+                if task.startswith("tendency_"):
+                    summary = str(response.output_parsed)
+                    self.last_core_response = {
+                        "sha256": hashlib.sha256(summary.encode()).hexdigest(),
+                        "characters": len(summary), "raw_retained": False,
+                    }
                 parsed = response.output_parsed
             except (AIAuthenticationError, AIBillingUnavailable, AIBudgetExceeded) as exc:
                 if isinstance(exc, AIBudgetExceeded):
@@ -262,9 +306,13 @@ class OpenAIProvider:
                 if parsed is None:
                     raise AIOutputError("OpenAI response contained no parsed structured output")
                 validated = schema.model_validate(parsed)
+                # Optional explanation errors degrade locally, without a model retry.
+                brief_validated = isinstance(validated, (BriefDraft, BriefItemRecoveryDraft))
+                if brief_validated and output_validator is not None:
+                    validated = output_validator(validated)
                 validate_output_urls(validated, allowed_urls)
                 validate_core_simplified_chinese_output(validated)
-                if output_validator is not None:
+                if output_validator is not None and not brief_validated:
                     transformed = output_validator(validated)
                     if transformed is not None:
                         validated = transformed
@@ -275,12 +323,18 @@ class OpenAIProvider:
         raise AIOutputError(f"Invalid structured AI output after retry: {last_error}")
 
     def classify_items(self, items: list[RawItem]) -> ClassificationBatch:
+        candidate_review = bool(items) and all(
+            item.metadata.get("review_only") is True for item in items
+        )
         return self._parse(
             task="classify",
-            schema=ClassificationBatch,
+            schema=CandidateClassificationBatch if candidate_review else ClassificationBatch,
             payload_data=classify_items_payload(items, self.topic_context),
             item_count=len(items),
             allowed_urls={item.url for item in items},
+            output_validator=(
+                lambda output: validate_candidate_ids(output, {item.id for item in items})
+            ) if candidate_review else None,
         )
 
     def merge_story(self, items: list[RawItem]) -> MergedStoryDraft:

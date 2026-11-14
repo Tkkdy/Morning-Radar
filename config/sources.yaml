@@ -11,6 +11,7 @@ sources:
     name: Anthropic News
     type: official_listing
     url: https://www.anthropic.com/news
+    maximum_response_bytes: 1048576
     priority: high
     enabled: true
     topics: [ai_models, ai_infrastructure]
@@ -19,6 +20,7 @@ sources:
     name: Anthropic Research
     type: official_listing
     url: https://www.anthropic.com/research
+    maximum_response_bytes: 1048576
     priority: high
     enabled: true
     topics: [ai_models, ai_infrastructure]
@@ -35,6 +37,7 @@ sources:
     name: xAI News
     type: official_listing
     url: https://x.ai/news
+    maximum_response_bytes: 1048576
     priority: high
     enabled: true
     topics: [ai_models, ai_coding]

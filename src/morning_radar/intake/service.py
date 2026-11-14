@@ -273,7 +273,7 @@ def prepare_process(
             normal_hours=collection_hours,
             lookback_days=app.intake_recovery_lookback_days,
         )
-        if eligibility not in {"fresh", "eligible_late"}:
+        if eligibility not in {"fresh", "eligible_late", "eligible_backlog"}:
             missing_listing_event_time = (
                 eligibility == "missing_event_time"
                 and record.item.metadata.get("official_page_fetched")
@@ -388,6 +388,8 @@ def prepare_process(
             },
         )
     for record in selection.records:
+        if not filter_news_window([record.item], now=process_now, hours=app.news_window_hours):
+            record.item.metadata["backfill_recorded_at"] = process_now.isoformat()
         ledger.update(
             record.input_id,
             record.content_version,
@@ -519,7 +521,7 @@ def _production_collect(
                 http=discovery_http,
                 source=source,
                 now=now,
-                maximum_response_bytes=watchlist.maximum_response_bytes,
+                maximum_response_bytes=source.maximum_response_bytes,
                 maximum_excerpt_characters=watchlist.maximum_excerpt_characters,
             )
             for source in sources

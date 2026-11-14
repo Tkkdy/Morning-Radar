@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from datetime import date, datetime
 from enum import StrEnum
-from typing import Any
+from typing import Any, Literal
 from urllib.parse import urlsplit
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
@@ -139,11 +139,13 @@ class StorySourceRef(RadarModel):
     practice_signal_kind: PracticeSignalKind | None = None
     source_date: str | None = None
     date_precision: str | None = None
+    backfill_recorded_at: datetime | None = None
     source_timezone: str | None = None
     published_date_role: str | None = None
 
     _url_is_http = field_validator("url")(_validate_http_url)
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
+    _backfill_is_aware = field_validator("backfill_recorded_at")(_validate_aware_datetime)
     _fetched_is_aware = field_validator("fetched_at")(_validate_aware_datetime)
 
     @field_validator("discussion_url")
@@ -154,6 +156,66 @@ class StorySourceRef(RadarModel):
         if info.data.get("source_type") != "hacker_news":
             raise ValueError("discussion_url is only supported for hacker_news sources")
         return _validate_http_url(value)
+
+
+class GroundedPoint(RadarModel):
+    text: str = Field(min_length=1, max_length=600)
+    source_url: str
+    quote: str = Field(min_length=12, max_length=280)
+    _source_http = field_validator("source_url")(_validate_http_url)
+
+
+class GroundedAnalysis(RadarModel):
+    """Source-local premises and an explicitly separate system inference."""
+
+    premises: list[GroundedPoint] = Field(min_length=1, max_length=3)
+    inference: str = Field(min_length=1, max_length=600)
+
+
+class BriefEvidenceReference(RadarModel):
+    story_id: str
+    field: Literal["facts", "opinions", "grounded_analysis"]
+    index: int = Field(ge=0)
+
+
+class BriefPremise(GroundedPoint):
+    story_id: str
+
+
+class BriefExplanation(RadarModel):
+    """Typed explanation with input-local references or quoted source premises."""
+
+    kind: Literal["fact", "source_opinion", "inference"]
+    text: str = Field(min_length=1, max_length=600)
+    references: list[BriefEvidenceReference] = Field(default_factory=list, max_length=3)
+    premises: list[BriefPremise] = Field(default_factory=list, max_length=3)
+
+
+class TechnicalReading(RadarModel):
+    kind: Literal["paper", "technical_report", "technical_article"]
+    problem: GroundedPoint | None = None
+    method: GroundedPoint | None = None
+    engineering_value: GroundedPoint | None = None
+    author_evidence: GroundedPoint | None = None
+    evaluation_results: GroundedPoint | None = Field(
+        default=None,
+        description="材料实际提供的作者评测结果；仅声明做过评测不足以填写。",
+    )
+    conditions: GroundedPoint | None = None
+    limitations: GroundedPoint | None = None
+
+
+class TechnicalQuoteNormalization(RadarModel):
+    """Evidence for restoring a model quote to a contiguous source span."""
+
+    point: str
+    original_quote: str
+    source_url: str
+    raw_item_id: str
+    source_field: Literal["summary", "content_excerpt"]
+    source_start: int
+    source_end: int
+    rule: Literal["whitespace-v1", "quotation-marks-v1"]
 
 
 class Story(RadarModel):
@@ -169,8 +231,16 @@ class Story(RadarModel):
     source_urls: list[str] = Field(min_length=1)
     primary_source_url: str
     source_refs: list[StorySourceRef] = Field(default_factory=list)
+    technical_reading: TechnicalReading | None = None
+    technical_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
+    analysis_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
+    source_materials: list[ResearchEvidenceRef] = Field(default_factory=list, max_length=8)
+    source_materials_omitted: list[str] = Field(default_factory=list)
+    evidence_ids: list[str] = Field(default_factory=list)
     facts: list[str] = Field(default_factory=list)
-    analysis: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(default_factory=list)  # Legacy records only.
+    opinions: list[str] = Field(default_factory=list)
+    grounded_analysis: list[GroundedAnalysis] = Field(default_factory=list, max_length=3)
     uncertainties: list[str] = Field(default_factory=list)
     relevance_score: float = Field(ge=0, le=1)
     importance_score: float = Field(ge=0, le=1)
@@ -191,6 +261,19 @@ class Story(RadarModel):
         if value not in info.data.get("source_urls", []):
             raise ValueError("primary_source_url must be present in source_urls")
         return value
+
+    @field_validator("source_materials")
+    @classmethod
+    def materials_must_match_story(
+        cls, values: list[ResearchEvidenceRef], info: Any,
+    ) -> list[ResearchEvidenceRef]:
+        for value in values:
+            if (value.raw_item_id not in info.data.get("source_item_ids", [])
+                    or value.url not in info.data.get("source_urls", [])):
+                raise ValueError("source material must belong to this Story")
+        if sum(len(v.summary) + len(v.content_excerpt) for v in values) > 6000:
+            raise ValueError("Story source material exceeds 6000 characters")
+        return values
 
     @field_validator("source_refs")
     @classmethod
@@ -317,11 +400,15 @@ class BriefStoryContext(RadarModel):
     topic_names: list[str] = Field(default_factory=list)
     published_at: datetime | None = None
     facts: list[str] = Field(default_factory=list)
-    analysis: list[str] = Field(default_factory=list)
+    analysis: list[str] = Field(default_factory=list)  # Legacy records only.
+    opinions: list[str] = Field(default_factory=list)
+    grounded_analysis: list[GroundedAnalysis] = Field(default_factory=list, max_length=3)
     uncertainties: list[str] = Field(default_factory=list)
     status: StoryStatus = StoryStatus.UNKNOWN
     primary_source_url: str
     source_refs: list[StorySourceRef] = Field(default_factory=list)
+    technical_reading: TechnicalReading | None = None
+    evidence_ids: list[str] = Field(default_factory=list)
 
     _published_is_aware = field_validator("published_at")(_validate_aware_datetime)
     _primary_url_is_http = field_validator("primary_source_url")(_validate_http_url)
@@ -362,6 +449,9 @@ class BriefItem(RadarModel):
     # ``None`` deliberately means that the reader-facing importance block is
     # omitted; it is not an invitation to manufacture a generic explanation.
     why_it_matters: str | None = None
+    why_it_matters_evidence: BriefExplanation | None = None
+    why_it_matters_omission_reason: str | None = None
+    why_quote_normalizations: list[TechnicalQuoteNormalization] = Field(default_factory=list)
     market_or_community_reaction: str | None = None
     uncertainty: str | None = None
     source_urls: list[str] = Field(min_length=1)
