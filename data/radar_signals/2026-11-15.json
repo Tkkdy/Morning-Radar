@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "有研究指称 Lovable 生成/托管的应用存在数据暴露问题，涉及护照信息及超过 20 万条私密消息。",
+    "id": "radar-f7d5aedbb6ca10183f10",
+    "missing_evidence": [
+      "原始研究报告正文与复现方法",
+      "受影响应用数量、数据样本类型与暴露时长的具体统计",
+      "Lovable 及所涉后端服务方的回应或修复说明",
+      "独立第三方对漏洞机制与影响范围的复核"
+    ],
+    "observed_at": "2026-11-14T23:21:02.615573Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-e8dc2cece69c90f01b9e",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.crissyfield.de/research/lovable-en/"
+      }
+    ],
+    "uncertainty": "目前仅有 Hacker News 标题，正文与摘要均未抓取，无法确认漏洞成因（平台默认设置、生成代码缺陷还是用户误配）、实际影响规模以及是否已修复。",
+    "why_notable": "若属实，将说明 AI 应用生成平台的默认配置可能让非专业用户在不自知的情况下公开敏感数据，对 AI 建站/Agent 生成代码的安全默认值具有普遍警示意义，也涉及大量第三方用户隐私。"
+  }
+]

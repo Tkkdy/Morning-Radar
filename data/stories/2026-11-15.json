@@ -1,0 +1,453 @@
+[
+  {
+    "analysis": [
+      "该公告将支付能力嵌入 ChatGPT Work、Codex 和 dots 中的智能体工作流，表明 OpenAI 正从对话式助手向可执行交易任务的智能体平台延伸。",
+      "强调用户批准和现有卡片保护，说明产品设计将授权控制与既有支付风控作为核心信任卖点。"
+    ],
+    "canonical_title": "OpenAI 推出 ChatGPT Wallet，让 ChatGPT Work、Codex 和 dots 中的智能体在用户批准下完成购买",
+    "category": "product_announcement",
+    "credibility_score": 0.78,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT"
+    ],
+    "facts": [
+      "OpenAI 于 2026-11-13 发布 ChatGPT Wallet。",
+      "ChatGPT Wallet 被定位为一种安全方式，让 ChatGPT Work、Codex 和 dots 中的智能体在用户批准下完成购买。",
+      "OpenAI 表示购买使用现有卡片保护机制。"
+    ],
+    "id": "story-f085fb5cd99cdeb5a9d2",
+    "importance_score": 0.8,
+    "novelty_score": 0.82,
+    "primary_source_url": "https://openai.com/index/introducing-chatgpt-wallet",
+    "product_names": [
+      "ChatGPT Wallet",
+      "ChatGPT Work",
+      "Codex",
+      "dots"
+    ],
+    "published_at": "2026-11-13T15:00:00Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-7d4d71d056da02862d0b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T15:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7d4d71d056da02862d0b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing ChatGPT Wallet",
+        "url": "https://openai.com/index/introducing-chatgpt-wallet"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-chatgpt-wallet"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "agentic_commerce",
+      "ai_agents",
+      "payments"
+    ],
+    "uncertainties": [
+      "公告未说明 ChatGPT Wallet 支持的卡组织、地区范围与上线时间。",
+      "用户批准的具体交互形式、额度限制和退款流程未在摘要中披露。",
+      "ChatGPT Work、Codex 和 dots 各自启用该功能的先后顺序尚不明确。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  },
+  {
+    "analysis": [
+      "开源使外部开发者能够检查并本地运行 Kitesurf 代码，也可在 Cloudflare Workers 上部署自有实例；这有望降低基于该引擎构建 AI 智能体工具的门槛。"
+    ],
+    "canonical_title": "Cloudflare 将 AI 智能体浏览器引擎 Kitesurf 开源",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.82,
+    "entity_names": [
+      "Cloudflare",
+      "Luís Duarte"
+    ],
+    "facts": [
+      "Cloudflare 在官方博客宣布，其面向 AI 智能体的实验性浏览器引擎 Kitesurf 已开源。",
+      "Cloudflare 表示，用户可以查看 Kitesurf 的代码、在本地运行，或在 Cloudflare Workers 上部署自有实例。",
+      "该公告由 Luís Duarte 署名，发布于 2026-11-13。"
+    ],
+    "id": "story-fe66db2edc6b6f92e3bd",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://blog.cloudflare.com/kitesurf-open-source/",
+    "product_names": [
+      "Kitesurf",
+      "Cloudflare Workers"
+    ],
+    "published_at": "2026-11-13T20:20:21Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-a443b3b05538516102c1"
+    ],
+    "source_refs": [
+      {
+        "author": "Luís Duarte",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T20:20:21Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a443b3b05538516102c1",
+        "source_date": null,
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Kitesurf is now open source",
+        "url": "https://blog.cloudflare.com/kitesurf-open-source/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/kitesurf-open-source/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "open source",
+      "AI agents",
+      "browser engine"
+    ],
+    "uncertainties": [
+      "输入未披露 Kitesurf 的开源许可证、代码仓库地址及具体开源范围。",
+      "“实验性浏览器引擎”具体包含哪些功能与限制，输入未说明。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  },
+  {
+    "analysis": [
+      "该报道源自 Hacker News 社区发现，标题使用“allegedly”表述，属于未经证实的线索，不构成事实底座。",
+      "来源类型为 community_discovery，证据等级低，需等待官方回应或一手调查材料才能进一步核实。"
+    ],
+    "canonical_title": "Nvidia 被指通过投资 AI 初创公司购买其 GPU 以人为制造稀缺",
+    "category": "半导体与AI芯片",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Nvidia"
+    ],
+    "facts": [],
+    "id": "story-6492ed16c6ab77b5e260",
+    "importance_score": 0.7,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+    "product_names": [
+      "GPU"
+    ],
+    "published_at": "2026-11-14T02:52:59Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-0a79d1ea38bf13d6be4d"
+    ],
+    "source_refs": [
+      {
+        "author": "speckx",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50493251",
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-14T02:52:59Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0a79d1ea38bf13d6be4d",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Nvidia allegedly engineered scarcity by funding AI startups to buy its GPUs",
+        "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus"
+      }
+    ],
+    "source_urls": [
+      "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+      "https://news.ycombinator.com/item?id=50493251"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "GPU稀缺",
+      "AI芯片供应"
+    ],
+    "uncertainties": [
+      "Nvidia 是否确实通过投资 AI 初创公司并要求其购买自家 GPU，尚无一手证据。",
+      "相关指控的具体时间范围、涉及公司与投资规模均不明确。",
+      "Nvidia 方面是否已就此作出回应未知。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  },
+  {
+    "analysis": [
+      "该案例的定位是让智能体承担传统门户系统中重复性的导航与操作任务，从而把技术人员的精力集中到需要人工判断的环节。"
+    ],
+    "canonical_title": "Shield 借助 OpenAI 帮助 IT 技术人员交接传统门户系统中的工作",
+    "category": "企业 AI 应用",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Shield",
+      "OpenAI",
+      "Forge"
+    ],
+    "facts": [
+      "OpenAI 发布客户案例称，Shield 使用 OpenAI 帮助 IT 技术人员交接传统门户系统中的工作。",
+      "该案例称 Shield 的 Forge 智能体可导航这些系统，使技术人员能专注于需要自身判断的问题。"
+    ],
+    "id": "story-fd78589f3b0c58b0a06e",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/business/customer-stories/shield",
+    "product_names": [
+      "Forge",
+      "OpenAI"
+    ],
+    "published_at": "2026-11-13T08:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-a99dfdd20d85acbbb850"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T08:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a99dfdd20d85acbbb850",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Shield helps technicians hand off legacy portal work with OpenAI",
+        "url": "https://openai.com/business/customer-stories/shield"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/shield"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入仅给出 Shield 使用 OpenAI 与 Forge 智能体的概括性描述，未披露具体使用的 OpenAI 模型、部署规模及效果量化数据。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 社区发现，属未经验证的线索，其披露内容尚不能作为事实底座。",
+      "若相关说法得到独立核实，则涉及 Lovable 生成应用中的数据暴露问题，可能影响使用该平台构建并上线的应用。"
+    ],
+    "canonical_title": "研究人员披露 Lovable 构建的应用泄露护照信息和超过 20 万条私信",
+    "category": "安全漏洞",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Lovable"
+    ],
+    "facts": [],
+    "id": "story-db7c9ff490d39ec5bba5",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://www.crissyfield.de/research/lovable-en/",
+    "product_names": [
+      "Lovable"
+    ],
+    "published_at": "2026-11-14T17:43:10Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-e8dc2cece69c90f01b9e"
+    ],
+    "source_refs": [
+      {
+        "author": "armcat",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50499017",
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-14T17:43:10Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e8dc2cece69c90f01b9e",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Lovable apps expose passport details and more than 200K private messages",
+        "url": "https://www.crissyfield.de/research/lovable-en/"
+      }
+    ],
+    "source_urls": [
+      "https://www.crissyfield.de/research/lovable-en/",
+      "https://news.ycombinator.com/item?id=50499017"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "数据泄露",
+      "应用安全"
+    ],
+    "uncertainties": [
+      "泄露细节、受影响应用数量与用户范围均未经原始研究页面之外的独立来源核实。",
+      "研究页面是否由 Lovable 官方确认、漏洞是否已修复，均不明确。",
+      "超过 20 万条私信与护照信息的具体暴露途径尚不清楚。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  },
+  {
+    "analysis": [
+      "该文章属于汇总性盘点而非单一事件报道，其价值在于提供行业失败案例的横向参照，但每个项目的具体状态需回溯原始报道核实。"
+    ],
+    "canonical_title": "TechCrunch 发布“AI 墓地”清单，盘点关停或未达预期的 AI 项目",
+    "category": "industry_news",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "TechCrunch",
+      "Apple",
+      "OpenAI",
+      "Lauren Forristal"
+    ],
+    "facts": [
+      "TechCrunch 于 2026-11-14 发布一篇题为“The AI graveyard: a running list of projects and startups that didn't make it”的文章，作者为 Lauren Forristal。",
+      "文章摘要提到，清单涵盖已关停或未达预期的 AI 项目，并举例包括 Apple 多次延期的 Siri AI 以及 OpenAI 的“super app”发布。"
+    ],
+    "id": "story-5d7f54a3a07b7ef8b10a",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/",
+    "product_names": [
+      "Siri AI",
+      "OpenAI super app"
+    ],
+    "published_at": "2026-11-14T17:30:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-238432e278b3a0376a6f"
+    ],
+    "source_refs": [
+      {
+        "author": "Lauren Forristal",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-14T17:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-238432e278b3a0376a6f",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "The AI graveyard: a running list of projects and startups that didn’t make it",
+        "url": "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/14/the-ai-graveyard-a-running-list-of-projects-and-startups-that-didnt-make-it/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "输入仅提供标题与摘要，未列出清单的完整项目范围、入选标准或各项目的关停时间与原因。",
+      "摘要对 OpenAI“super app”发布以“messy”描述，但未给出具体事实细节。",
+      "Apple Siri AI“多次延期”的具体时间线与当前状态在输入中未说明。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  },
+  {
+    "analysis": [
+      "文章将 AI 编排渗透测试平台定位为针对暴露基础设施的攻防能力演进，并据此提出防御侧的反制建议，属于厂商基于自身观测的安全态势分析。"
+    ],
+    "canonical_title": "Cloudflare 分享对 AI 编排渗透测试平台（如 ARTEX）的观察与应对建议",
+    "category": "security",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Cloudflare",
+      "Cloudforce One",
+      "ARTEX"
+    ],
+    "facts": [
+      "Cloudflare 博客文章标题为《Adapting to AI penetration testing orchestrators: The Modern Security Model》，作者为 Cloudforce One，发布于 2026-11-13T19:26:07Z。",
+      "文章称，像 ARTEX 这类 AI 编排的渗透测试平台已成为越来越强大的工具，可用于对暴露在外部的基础设施实施有效攻击。",
+      "文章表示将分享 Cloudflare 的观察结果和推荐的应对措施。"
+    ],
+    "id": "story-4c53ca47bc1880e13c5e",
+    "importance_score": 0.4,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/",
+    "product_names": [
+      "ARTEX"
+    ],
+    "published_at": "2026-11-13T19:26:07Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-83270260bb0f21b115a2"
+    ],
+    "source_refs": [
+      {
+        "author": "Cloudforce One",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T23:21:02.615573Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T19:26:07Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-83270260bb0f21b115a2",
+        "source_date": null,
+        "source_name": "Cloudflare Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Adapting to AI penetration testing orchestrators: The Modern Security Model",
+        "url": "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.cloudflare.com/adapting-to-ai-penetration-testing-orchestrators/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 渗透测试",
+      "AI 编排攻击",
+      "基础设施安全"
+    ],
+    "uncertainties": [
+      "输入未提供 Cloudflare 具体观测到的攻击案例、时间范围、影响范围或量化数据。",
+      "ARTEX 的具体运营方、能力边界与使用方式在输入中未说明。",
+      "文章推荐的具体应对措施内容未在输入摘要中展开。"
+    ],
+    "updated_at": "2026-11-14T23:28:36.785696Z"
+  }
+]

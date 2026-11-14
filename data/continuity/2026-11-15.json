@@ -1,0 +1,108 @@
+{
+  "date": "2026-11-15",
+  "generated_at": "2026-11-14T23:28:36.785696Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否公布 ChatGPT Wallet 支持的具体卡组织、地区范围、上线时间，以及用户批准交互和额度限制的细则。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "ChatGPT Wallet",
+        "ChatGPT Work",
+        "Codex",
+        "dots"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-14T23:28:36.785696Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-15",
+          "story_id": "story-f085fb5cd99cdeb5a9d2"
+        }
+      ],
+      "topic_anchors": [
+        "agentic_commerce",
+        "payments"
+      ],
+      "watch_id": "watch-e029785c4666d823c00e"
+    },
+    {
+      "entity_anchors": [
+        "Cloudflare"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Cloudflare 是否公开 Kitesurf 的代码仓库地址、开源许可证及“实验性浏览器引擎”的功能与限制说明。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Kitesurf",
+        "Cloudflare Workers"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-14T23:28:36.785696Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-15",
+          "story_id": "story-fe66db2edc6b6f92e3bd"
+        }
+      ],
+      "topic_anchors": [
+        "open source",
+        "browser engine"
+      ],
+      "watch_id": "watch-9c8463f8b25907effe8a"
+    },
+    {
+      "entity_anchors": [
+        "Nvidia"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Nvidia 是否就“通过投资 AI 初创公司购买自家 GPU 以人为制造稀缺”的指控作出回应，或是否出现一手调查材料。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GPU"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-14T23:28:36.785696Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-15",
+          "story_id": "story-6492ed16c6ab77b5e260"
+        }
+      ],
+      "topic_anchors": [
+        "GPU稀缺",
+        "AI芯片供应"
+      ],
+      "watch_id": "watch-1f1e2d46f7792c4e1eaf"
+    },
+    {
+      "entity_anchors": [
+        "Lovable"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Lovable 是否确认相关应用泄露护照信息和超过 20 万条私信的研究披露，以及漏洞是否已修复。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Lovable"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-14T23:28:36.785696Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-15",
+          "story_id": "story-db7c9ff490d39ec5bba5"
+        }
+      ],
+      "topic_anchors": [
+        "数据泄露",
+        "应用安全"
+      ],
+      "watch_id": "watch-c9ed0099a0ff42631fe3"
+    }
+  ]
+}

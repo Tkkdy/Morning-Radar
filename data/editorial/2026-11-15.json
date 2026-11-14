@@ -1,0 +1,97 @@
+{
+  "date": "2026-11-15",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认支付能力进入智能体工作流，机制与权限边界值得解释并留作代理交易趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-f085fb5cd99cdeb5a9d2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agentic-commerce-payment-authorization",
+        "agent-api-transaction-permissions"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "实验性智能体浏览器引擎开源降低本地运行门槛，但许可和范围未披露，先作轻量记录。",
+      "retain_for_trends": true,
+      "story_id": "story-fe66db2edc6b6f92e3bd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-source-agent-browser-engine"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅为社区未证实线索，给一句低权重提示，后台保留等待一手证据。",
+      "retain_for_trends": true,
+      "story_id": "story-6492ed16c6ab77b5e260",
+      "support_for_story_id": null,
+      "trend_links": [
+        "gpu-supply-scarcity-allegation"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 1,
+      "reason": "OpenAI 自家客户案例缺乏量化与独立验证，仅可作为智能体工作流叙事的辅助材料。",
+      "retain_for_trends": false,
+      "story_id": "story-fd78589f3b0c58b0a06e",
+      "support_for_story_id": "story-f085fb5cd99cdeb5a9d2",
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "若属实涉及生成式应用的数据暴露，对实践者重要但尚未独立核实，值得轻量关注并留证。",
+      "retain_for_trends": true,
+      "story_id": "story-db7c9ff490d39ec5bba5",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vibe-coding-app-data-exposure"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "inference",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "汇总型清单非单一事件，缺乏入选标准和原始核实，不占读者注意力也不作趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-5d7f54a3a07b7ef8b10a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商安全形势分析无具体案例、时间范围或量化数据，暂无结构意义。",
+      "retain_for_trends": false,
+      "story_id": "story-4c53ca47bc1880e13c5e",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-14T23:28:36.785696Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
