@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Morning Radar：可追溯的 AI、市场与开发者晨报">
+  <title>Morning Radar · 2026-11-14</title>
+  <link rel="stylesheet" href="../assets/style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav><a class="brand" href="../index.html">Morning Radar</a><a href="../archive.html">历史晨报</a></nav>
+    <p class="eyebrow">2026-11-14 · Asia/Singapore</p>
+    <h1>少而重要，事实可追溯。</h1>
+    <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
+  </header>
+  <main>
+<section>
+  <h2>今日重点</h2>
+  <div class="cards">
+<article class="brief-card" id="story-story-f355cb9b2d405cc31538">
+  <p class="section-label">今日重点</p>
+  <h3>DeepSeek 开放 App 全家桶能力 API，并开源演示对话客户端</h3>
+  <p>DeepSeek 官方更新文档宣布，将 App（含网页端）对话服务中的联网搜索、文件输入、阅读链接、语音交互及安全等能力开放给开发者：在原有 API 中开启对应参数即可获得相关对话功能，工具调用与上下文拼接由服务端完成。其中，deepseek-flash 模型已在 Messages、Responses 与 Chat Completions 接口下支持联网搜索；文件输入支持 PDF、Office、图片等格式，先提取文本或解析图文混排内容，再拼入上下文；deepseek_read_url 工具可自动识别消息中的链接并抓取网页内容；开启安全校验参数后提供基础风控，命中风险时返回拒答标识。上述底层能力及语音能力也可作为独立接口单独调用，包括 Search、Fetch、OCR、ASR、TTS。此外，DeepSeek 基于这些 API 构建并开源了一个演示用对话客户端，支持导入 DeepSeek 历史对话。</p>
+<p class="why"><strong>为什么重要：</strong>此次更新实质上是把 DeepSeek App 侧的对话增强能力（搜索、文件解析、链接阅读、风控、语音）产品化为 API 能力，有望降低开发者自行实现工具调用与上下文拼接的成本。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://api-docs.deepseek.com/zh-cn/updates/#发布全家桶应用-api" rel="noopener noreferrer">
+        DeepSeek Updates · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>官方更新文档未标注明确的发布时间，仅元数据记录来源日期为 2026-11-13（时区 Asia/Singapore），日期精度为日。摘要与正文未列出各项独立接口的计费细则，仅指向“模型 & 价格”页面。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>DeepSeek 官方更新文档宣布将 App（含网页端）对话服务中的联网搜索、文件输入、阅读链接、语音交互及安全等能力开放给开发者，在原有 API 中开启对应参数即可获得相关对话功能，工具调用与上下文拼接由服务端完成。</li><li>deepseek-flash 模型已在 Messages、Responses 与 Chat Completions 接口下支持联网搜索：非思考模式下打开 deepseek_web_search 工具后，模型可根据提问自动发起网页或图片搜索并附引用作答；思考模式下模型可在多步推理中自主联网搜索与阅读链接。</li><li>文件输入支持上传 PDF、Office、图片等格式文件，完成纯文本提取或图文混排解析后拼入对话上下文供模型作答。</li><li>打开 deepseek_read_url 工具后，模型可自动识别用户消息中的链接，抓取网页内容并结合上下文作答。</li><li>开启安全校验参数后提供基础风控，审核模型输入输出，命中风险时返回拒答标识。</li><li>上述底层能力及语音能力均支持作为独立接口单独调用，包括 Search、Fetch、OCR、ASR、TTS。</li><li>DeepSeek 基于这些 API 构建并开源了一个演示用对话客户端，支持导入 DeepSeek 历史对话。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>此次更新实质是把 DeepSeek App 侧的对话增强能力（搜索、文件解析、链接阅读、风控、语音）产品化为 API 能力，降低开发者自建工具调用与上下文拼接的成本。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>官方更新文档未标注明确的发布时间，仅元数据记录来源日期为 2026-11-13（时区 Asia/Singapore），日期精度为日。</li><li>摘要与正文未列出各项独立接口的计费细则，仅指向“模型 & 价格”页面。</li></ul></div><div class="detail-tags">
+<span>实体：DeepSeek</span><span>产品：DeepSeek App、deepseek-flash、Messages、Responses、Chat Completions、deepseek_web_search、deepseek_read_url</span><span>主题：联网搜索、文件输入、阅读链接、语音交互、模型安全、API、开源</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>DeepSeek Updates</strong><span class="primary-indicator">主来源</span></div>
+        <div>发布全家桶应用 API</div>
+      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-a9b4f2b064b2377cd004">
+  <p class="section-label">今日重点</p>
+  <h3>Google 发布 Gemini 4 Hydrogen 模型，提升对复杂问题的理解能力</h3>
+  <p>Google 发布了新的 Gemini 4 Hydrogen 模型。据 The Verge 报道，Google 表示该模型能针对“包含多个部分的问题、难以理解的拼写错误或高度具体的请求”等复杂问题给出更有帮助的回答，并可拆解用户问题、在回答中逐一处理各个部分。该模型自报道发布当日起在 Google 搜索、Gemini 应用以及 Google 所有层级中可用。</p>
+<p class="why"><strong>为什么重要：</strong>将复杂问题拆解并逐项回答的能力，主要针对查询包含多重意图或存在输入错误等场景，而这些正是传统搜索摘要表现较弱的环节；若该能力在搜索入口实际生效，可能改变用户处理复杂查询的体验。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen" rel="noopener noreferrer">
+        The Verge AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-12
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>Gemini 4 Hydrogen 在各产品入口的具体可用范围仅由报道以“所有层级”等概括性表述给出，详细分级情况无法从输入确认；报道也未提供该模型与上一代模型或竞品在复杂问题理解上的可量化对比数据。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>Google 表示，其新的 Gemini 4 Hydrogen 模型能对复杂问题给出更有帮助的回答，包括“包含多个部分的问题、难以理解的拼写错误或高度具体的请求”。</li><li>该新模型可以拆解用户的问题，并在回答中逐一处理各个部分。</li><li>该模型自报道发布当日起在搜索、Gemini 应用以及 Google 所有层级中可用。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>将复杂问题拆解并逐项回答的能力，针对的是查询中包含多重意图或存在输入错误等场景，这些场景是传统搜索摘要表现较弱的环节。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>Gemini 4 Hydrogen 在各产品入口的具体可用范围仅由报道摘要以“所有层级”等概括性表述给出，详细分级情况未能从输入确认。</li><li>报道未提供该模型与上一代模型或竞品在复杂问题理解上的可量化对比数据。</li></ul></div><div class="detail-tags">
+<span>实体：Google、Gemini</span><span>产品：Gemini 4 Hydrogen、Google Search、Gemini 应用</span><span>主题：AI 模型、搜索</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>The Verge AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>Google’s new Gemini model is better at understanding complicated questions</div>
+<div>作者：Stevie Bonifield</div><div class="source-time">
+来源条目时间：2026-11-12
+        </div>      </li></ul></div>    </div>
+  </details>
+</article><article class="brief-card" id="story-story-12e13bdd5b21a7800889">
+  <p class="section-label">今日重点</p>
+  <h3>Google Cloud 推出面向医疗健康的 Gemini</h3>
+  <p>Google Cloud 于 2026-11-10 推出面向医疗健康的 Gemini。</p>
+<p class="why"><strong>为什么重要：</strong>该产品定位聚焦于临床数据整合与行政流程自动化，而非直接的临床诊断能力。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/" rel="noopener noreferrer">
+        Google AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-10
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>官方摘要未披露定价、可用区域、具体医院或客户名单，也未说明底层模型版本与合规认证细节。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>根据官方公告，该产品旨在统一临床数据并自动化工作流程，以减轻行政负担。</li></ul></div><div class="detail-tags">
+<span>实体：Google Cloud、Gemini</span><span>产品：Gemini for healthcare</span><span>主题：ai_infrastructure、ai_models</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>Google AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>Google Cloud launches Gemini for healthcare.</div>
+<div class="source-time">
+来源条目时间：2026-11-10
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article>  </div>
+</section>
+<section>
+  <h2>AI 与开源</h2>
+  <div class="cards">
+<article class="brief-card" id="story-story-fc5607a32ed628af778c">
+  <p class="section-label">AI 与开源</p>
+  <h3>谷歌与Adobe宣布整合创意与生产力工具，Drive中可编辑PDF、Gemini中可用Adobe AI</h3>
+  <p>Google与Adobe正在整合创意与生产力工具。</p>
+    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/" rel="noopener noreferrer">
+        Google AI · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-10
+    </span>
+  </div>
+  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>用户可在Google Drive中编辑PDF。</li><li>用户可在Gemini中使用Adobe AI。</li></ul></div><div class="detail-tags">
+<span>实体：Google、Adobe</span><span>产品：Google Drive、Gemini</span><span>主题：AI集成、生产力工具、创意工具</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>Google AI</strong><span class="primary-indicator">主来源</span></div>
+        <div>We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.</div>
+<div class="source-time">
+来源条目时间：2026-11-10
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-ffbbba786491ef3f920c">
+  <p class="section-label">AI 与开源</p>
+  <h3>GitHub Copilot 将于 2026 年 12 月 14 日弃用部分模型</h3>
+  <p>GitHub 发布公告称，将于 2026 年 12 月 14 日在所有 GitHub Copilot 体验中弃用部分模型，包括 Copilot Chat、内联编辑、ask 与 agent 模式以及代码补全。</p>
+<p class="why"><strong>为什么重要：</strong>公告将弃用范围设定为 Copilot 的多个交互入口，意味着依赖这些模型的补全与对话工作流可能需要在截止日期前迁移到替代模型。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december" rel="noopener noreferrer">
+        GitHub Changelog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-13
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>摘要中被弃用模型的具体名称列表未给出，只显示“Model Deprecation date…”占位内容。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该公告由 GitHub Changelog 于 2026-11-13T20:40:05Z 发布，作者为 Allison。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>公告未在摘要中列出具体被弃用的模型名称与对应日期，需查看正文表格以确认受影响范围。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>公告未说明替代模型的推荐路径或对现有用户配置的自动迁移安排。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、GitHub Copilot</span><span>产品：GitHub Copilot、Copilot Chat</span><span>主题：模型弃用、AI 编程</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
+        <div>Upcoming deprecation of selected GitHub Copilot models in December</div>
+<div>作者：Allison</div><div class="source-time">
+来源条目时间：2026-11-13
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-0b1bfdb3adb7d62cbf81">
+  <p class="section-label">AI 与开源</p>
+  <h3>Claude.ai、Claude Code 与 platform.claude.com 出现错误率升高</h3>
+  <p>Claude.ai、Claude Code 与 platform.claude.com 出现错误率升高</p>
+  <div class="card-meta">
+    <a class="primary-source" href="https://status.claude.com/incidents/nn11wk485zfn" rel="noopener noreferrer">
+status.claude.com · 原文    </a>
+    <span class="discovery-note">经 Hacker News 发现</span>
+    <a href="https://news.ycombinator.com/item?id=50481187" rel="noopener noreferrer">Hacker News · 讨论</a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+2026-11-13 在 Hacker News 提交
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>该事件来自 Hacker News 的社区发现条目，标记为 unverified_lead，且内容摘要为空，因此无法确认故障的实际范围、持续时间和根因。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>不确定性</h4><ul><li>状态页事件链接（https://status.claude.com/incidents/nn11wk485zfn）仅作为社区发现线索提供，未在输入中给出官方确认细节。</li></ul></div><div class="detail-tags">
+<span>实体：Anthropic、Claude</span><span>产品：claude.ai、Claude Code、platform.claude.com</span><span>主题：服务状态、错误率升高、服务中断</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>status.claude.com · 原文</strong><span class="primary-indicator">主来源</span></div>
+<div class="discovery-note">经 Hacker News 发现</div>        <div>Elevated errors on claude.ai, Claude Code, and platform.claude.com</div>
+<div>作者：__vivek</div><div class="source-time">
+2026-11-13 在 Hacker News 提交
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article><article class="brief-card" id="story-story-a6cfeecb60015719e7bf">
+  <p class="section-label">AI 与开源</p>
+  <h3>GitHub Copilot 应用新增 GitHub Enterprise Server (GHES) 支持</h3>
+  <p>GitHub 于 2026-11-13 发布更新，GitHub Copilot 应用现支持 GitHub Enterprise Server (GHES)。</p>
+<p class="why"><strong>为什么重要：</strong>该更新面向使用自托管 GHES 的企业客户，使其能在 Copilot 应用中接入企业内部代码协作资源。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app" rel="noopener noreferrer">
+        GitHub Changelog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-13
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>公告未说明 GHES 支持的具体版本范围、功能限制或发布时间表。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>用户可在 Copilot 应用中添加 GHES 账号，以处理远程仓库、issue 和 pull request。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、GitHub Copilot、GitHub Enterprise Server</span><span>产品：GitHub Copilot app、GitHub Enterprise Server (GHES)</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
+        <div>GitHub Enterprise Server support in the GitHub Copilot app</div>
+<div>作者：Allison</div><div class="source-time">
+来源条目时间：2026-11-13
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-68f3cc49dab0d4dad533">
+  <p class="section-label">AI 与开源</p>
+  <h3>openai-python 发布 v3.51.0，扩展 agent、image、Live 与外部密钥支持</h3>
+  <p>openai/openai-python 发布 v3.51.0，日期为 2026-11-12。</p>
+<p class="why"><strong>为什么重要：</strong>从变更摘要看，本次版本为功能扩展型发布，涉及 agent、image、Live 和外部密钥四类 API 能力，而非补丁式修复。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.com/openai/openai-python/releases/tag/v3.51.0" rel="noopener noreferrer">
+        GitHub · openai/openai-python · Release
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+Release 发布于 2026-11-13
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>发布说明仅给出功能条目名称，未说明 agent、image、Live 和外部密钥支持的具体接口变化与兼容性影响。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该版本变更说明为：api: expand agent, image, Live, and external key support（#4269，commit 59738a2）。</li><li>v3.51.0 与上一版本 v3.50.0 的对比链接为 https://github.com/openai/openai-python/compare/v3.50.0...v3.51.0。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、openai/openai-python</span><span>产品：openai-python、v3.51.0</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · openai/openai-python</strong><span class="primary-indicator">主来源</span></div>
+        <div>openai/openai-python: v3.51.0</div>
+<div>作者：openai-sdks[bot]</div><div class="source-time">
+Release 发布于 2026-11-13
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-fc01085dd5d0304e2aa7">
+  <p class="section-label">AI 与开源</p>
+  <h3>NVIDIA 开发者博客介绍如何在 NVIDIA Jetson AGX Orin 上通过 cuDLA 在 Python 中运行原生 DLA 推理</h3>
+  <p>NVIDIA 开发者博客发布了一篇文章，标题为《Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA》。</p>
+<p class="why"><strong>为什么重要：</strong>该内容属于 NVIDIA 官方开发者博客发布的技术说明，介绍在 Jetson AGX Orin 上使用 cuDLA 进行原生 DLA 推理的 Python 路径，面向边缘 AI 部署场景。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla/" rel="noopener noreferrer">
+        NVIDIA Developer Blog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-13
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>输入仅提供摘要与内容片段，未包含文章的具体 API 用法、性能数据或代码示例细节。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该文章作者为 Nikshay Shrivastava，发布时间为 2026-11-13T18:57:10Z。</li><li>文章摘要指出，边缘 AI 应用常常需要在有限的计算和功耗预算内运行多个神经网络，并提及 NVIDIA Deep Learning Accelerator（DLA）。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>文章是否包含基准测试结果或与其他推理路径的对比，输入中未说明。</li></ul></div><div class="detail-tags">
+<span>实体：NVIDIA、NVIDIA Jetson AGX Orin、cuDLA、NVIDIA Deep Learning Accelerator</span><span>产品：cuDLA、NVIDIA Jetson AGX Orin、NVIDIA Deep Learning Accelerator</span><span>主题：边缘 AI 推理、DLA 硬件加速</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>NVIDIA Developer Blog</strong><span class="primary-indicator">主来源</span></div>
+        <div>Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA</div>
+<div>作者：Nikshay Shrivastava</div><div class="source-time">
+来源条目时间：2026-11-13
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-f90694e2f4a1b1fad430">
+  <p class="section-label">AI 与开源</p>
+  <h3>GitHub Copilot 正式上线 Gemini 4 Hydrogen</h3>
+  <p>GitHub Changelog 于 2026-11-13 宣布，Gemini 4 Hydrogen 已在 GitHub Copilot 中正式可用（generally available）。</p>
+<p class="why"><strong>为什么重要：</strong>该公告由 GitHub 官方发布渠道 GitHub Changelog 发布，属于一手事实陈述，可作为本次上线事件的原始事实依据。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot" rel="noopener noreferrer">
+        GitHub Changelog · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-13
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>原文摘要被截断（“improved instruction…”），未给出指令遵循改进的具体指标或对比基准。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该公告将 Gemini 4 Hydrogen 称为 Google 最新的 Flash 模型，面向快速、高效的 agentic coding、工具调用和多步骤工作流。</li><li>公告称该模型在指令遵循方面有所改进。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>公告中关于模型能力的描述（快速、高效、适合 agentic coding 与多步骤工作流）属于发布方对产品定位的说明，未附独立评测数据。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>公告未提供该模型在 Copilot 中的具体计费、可见范围或灰度细节。</li><li>公告未说明 Gemini 4 Hydrogen 与既有模型在 Copilot 中的切换或默认选择策略。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、Google、GitHub Copilot、Gemini 4 Hydrogen</span><span>产品：GitHub Copilot、Gemini 4 Hydrogen</span><span>主题：ai_coding</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
+        <div>Gemini 4 Hydrogen in GitHub Copilot</div>
+<div>作者：Allison</div><div class="source-time">
+来源条目时间：2026-11-13
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-ccccfd25fded971dda51">
+  <p class="section-label">AI 与开源</p>
+  <h3>OpenAI 发布 Holiday Extras 使用 Codex 的客户案例</h3>
+  <p>OpenAI 发布了一篇关于 Holiday Extras 使用 Codex 的客户案例文章。</p>
+<p class="why"><strong>为什么重要：</strong>该案例被定位为借助 Codex 将客户专业知识转化为更好的应用、更高的预订转化率，并为增长带来新的可能性。</p>    <span class="status-badge">已宣布</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://openai.com/business/customer-stories/holidays-extras-codex" rel="noopener noreferrer">
+        OpenAI News · 原文
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+来源条目时间：2026-11-12
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>除案例摘要外，缺乏关于具体应用、转化率提升幅度及部署细节的量化证据。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>该案例文章发布于 2026-11-12T09:30:00Z。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、Holiday Extras、Codex</span><span>产品：Codex</span><span>主题：ai_models、ai_coding</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
+        <div>Holiday Extras is rethinking what it can build with Codex</div>
+<div class="source-time">
+来源条目时间：2026-11-12
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article>  </div>
+</section>
+    <section><h2>方向观察</h2><div class="observation">AI 编程（ai_coding）相关事件在 2026-11-12 至 11-14 连续三天维持或增加，并覆盖 10 个来源、16 家公司，显示该主题讨论热度持续。</div></section>
+  </main>
+  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-11-14 00:34:26.424952+00:00。</footer>
+</body>
+</html>

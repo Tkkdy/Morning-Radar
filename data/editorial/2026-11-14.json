@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-14",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方将 App 侧联网、文件、链接、语音与风控能力产品化为 API 并开源演示客户端，实质降低开发者自建工具链成本。",
+      "retain_for_trends": true,
+      "story_id": "story-f355cb9b2d405cc31538",
+      "support_for_story_id": null,
+      "trend_links": [
+        "app-capability-api-productization",
+        "server-side-tool-orchestration",
+        "open-source-reference-client"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "仅有媒体转述的厂商能力声明，无量化对比与独立复现，知道即可。",
+      "retain_for_trends": false,
+      "story_id": "story-a9b4f2b064b2377cd004",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方仅公布医疗行业方案定位，定价、客户与合规细节缺失，暂无需展开。",
+      "retain_for_trends": false,
+      "story_id": "story-12e13bdd5b21a7800889",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "明确的模型弃用日期会迫使依赖特定模型的 Copilot 工作流迁移，对开发者有实际排期影响。",
+      "retain_for_trends": true,
+      "story_id": "story-ffbbba786491ef3f920c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-model-lifecycle-migration"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "常规 SDK 功能扩展发布，变更说明未给出接口细节与兼容性影响。",
+      "retain_for_trends": false,
+      "story_id": "story-68f3cc49dab0d4dad533",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "GHES 接入属面向企业自托管用户的小幅功能补齐，一句话即可。",
+      "retain_for_trends": false,
+      "story_id": "story-a6cfeecb60015719e7bf",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "工具整合宣传缺乏开发者可用细节，对本地部署与工作流影响有限。",
+      "retain_for_trends": false,
+      "story_id": "story-fc5607a32ed628af778c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅社区发现线索、无官方确认细节，且属已过去的一般性故障，无持续后果。",
+      "retain_for_trends": false,
+      "story_id": "story-0b1bfdb3adb7d62cbf81",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方技术说明给出边缘 DLA 原生推理路径，但缺少性能数据，作为弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-fc01085dd5d0304e2aa7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "edge-dla-native-inference-path"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "Copilot 上线第三方模型是真实可用性事件，能力描述仍属发布方声明。",
+      "retain_for_trends": true,
+      "story_id": "story-f90694e2f4a1b1fad430",
+      "support_for_story_id": null,
+      "trend_links": [
+        "coding-agent-multi-model-routing"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "厂商营销型客户案例，无量化方法与独立证据，无前台或后台价值。",
+      "retain_for_trends": false,
+      "story_id": "story-ccccfd25fded971dda51",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-14T00:34:26.424952Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

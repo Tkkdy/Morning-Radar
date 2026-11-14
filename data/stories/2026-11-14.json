@@ -1,0 +1,712 @@
+[
+  {
+    "analysis": [
+      "此次更新实质是把 DeepSeek App 侧的对话增强能力（搜索、文件解析、链接阅读、风控、语音）产品化为 API 能力，降低开发者自建工具调用与上下文拼接的成本。"
+    ],
+    "canonical_title": "DeepSeek 开放 App 全家桶能力 API 并开源演示对话客户端",
+    "category": "产品发布",
+    "credibility_score": 0.86,
+    "entity_names": [
+      "DeepSeek"
+    ],
+    "facts": [
+      "DeepSeek 官方更新文档宣布将 App（含网页端）对话服务中的联网搜索、文件输入、阅读链接、语音交互及安全等能力开放给开发者，在原有 API 中开启对应参数即可获得相关对话功能，工具调用与上下文拼接由服务端完成。",
+      "deepseek-flash 模型已在 Messages、Responses 与 Chat Completions 接口下支持联网搜索：非思考模式下打开 deepseek_web_search 工具后，模型可根据提问自动发起网页或图片搜索并附引用作答；思考模式下模型可在多步推理中自主联网搜索与阅读链接。",
+      "文件输入支持上传 PDF、Office、图片等格式文件，完成纯文本提取或图文混排解析后拼入对话上下文供模型作答。",
+      "打开 deepseek_read_url 工具后，模型可自动识别用户消息中的链接，抓取网页内容并结合上下文作答。",
+      "开启安全校验参数后提供基础风控，审核模型输入输出，命中风险时返回拒答标识。",
+      "上述底层能力及语音能力均支持作为独立接口单独调用，包括 Search、Fetch、OCR、ASR、TTS。",
+      "DeepSeek 基于这些 API 构建并开源了一个演示用对话客户端，支持导入 DeepSeek 历史对话。"
+    ],
+    "id": "story-f355cb9b2d405cc31538",
+    "importance_score": 0.82,
+    "novelty_score": 0.74,
+    "primary_source_url": "https://api-docs.deepseek.com/zh-cn/updates/#发布全家桶应用-api",
+    "product_names": [
+      "DeepSeek App",
+      "deepseek-flash",
+      "Messages",
+      "Responses",
+      "Chat Completions",
+      "deepseek_web_search",
+      "deepseek_read_url"
+    ],
+    "published_at": null,
+    "relevance_score": 0.91,
+    "source_item_ids": [
+      "item-2cae33d082e1ea45b1de"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": "day",
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": "official_update_date",
+        "raw_item_id": "item-2cae33d082e1ea45b1de",
+        "source_date": "2026-11-13",
+        "source_name": "DeepSeek Updates",
+        "source_role": "official_primary",
+        "source_timezone": "Asia/Singapore",
+        "source_type": "official_changelog",
+        "statement_type": "factual_announcement",
+        "title": "发布全家桶应用 API",
+        "url": "https://api-docs.deepseek.com/zh-cn/updates/#发布全家桶应用-api"
+      }
+    ],
+    "source_urls": [
+      "https://api-docs.deepseek.com/zh-cn/updates/#发布全家桶应用-api"
+    ],
+    "status": "available",
+    "topic_names": [
+      "联网搜索",
+      "文件输入",
+      "阅读链接",
+      "语音交互",
+      "模型安全",
+      "API",
+      "开源"
+    ],
+    "uncertainties": [
+      "官方更新文档未标注明确的发布时间，仅元数据记录来源日期为 2026-11-13（时区 Asia/Singapore），日期精度为日。",
+      "摘要与正文未列出各项独立接口的计费细则，仅指向“模型 & 价格”页面。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "将复杂问题拆解并逐项回答的能力，针对的是查询中包含多重意图或存在输入错误等场景，这些场景是传统搜索摘要表现较弱的环节。"
+    ],
+    "canonical_title": "Google 发布 Gemini 4 Hydrogen 模型，提升对复杂问题的理解能力",
+    "category": "AI 模型发布",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google",
+      "Gemini"
+    ],
+    "facts": [
+      "Google 表示，其新的 Gemini 4 Hydrogen 模型能对复杂问题给出更有帮助的回答，包括“包含多个部分的问题、难以理解的拼写错误或高度具体的请求”。",
+      "该新模型可以拆解用户的问题，并在回答中逐一处理各个部分。",
+      "该模型自报道发布当日起在搜索、Gemini 应用以及 Google 所有层级中可用。"
+    ],
+    "id": "story-a9b4f2b064b2377cd004",
+    "importance_score": 0.8,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen",
+    "product_names": [
+      "Gemini 4 Hydrogen",
+      "Google Search",
+      "Gemini 应用"
+    ],
+    "published_at": "2026-11-12T16:55:32-05:00",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-a3e1afb4a33deb1bb631"
+    ],
+    "source_refs": [
+      {
+        "author": "Stevie Bonifield",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T16:55:32-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a3e1afb4a33deb1bb631",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Google’s new Gemini model is better at understanding complicated questions",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1032505/google-search-ai-mode-gemini-4-hydrogen"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 模型",
+      "搜索"
+    ],
+    "uncertainties": [
+      "Gemini 4 Hydrogen 在各产品入口的具体可用范围仅由报道摘要以“所有层级”等概括性表述给出，详细分级情况未能从输入确认。",
+      "报道未提供该模型与上一代模型或竞品在复杂问题理解上的可量化对比数据。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "该产品定位聚焦于临床数据整合与行政流程自动化，而非直接的临床诊断能力。"
+    ],
+    "canonical_title": "Google Cloud 推出面向医疗健康的 Gemini",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "Google Cloud",
+      "Gemini"
+    ],
+    "facts": [
+      "Google Cloud 于 2026-11-10 推出面向医疗健康的 Gemini。",
+      "根据官方公告，该产品旨在统一临床数据并自动化工作流程，以减轻行政负担。"
+    ],
+    "id": "story-12e13bdd5b21a7800889",
+    "importance_score": 0.66,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/",
+    "product_names": [
+      "Gemini for healthcare"
+    ],
+    "published_at": "2026-11-10T13:00:00Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-c979be8e72cc92b8a0fb"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-10T13:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c979be8e72cc92b8a0fb",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Google Cloud launches Gemini for healthcare.",
+        "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-for-healthcare/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "官方摘要未披露定价、可用区域、具体医院或客户名单，也未说明底层模型版本与合规认证细节。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "公告将弃用范围设定为 Copilot 的多个交互入口，意味着依赖这些模型的补全与对话工作流可能需要在截止日期前迁移到替代模型。",
+      "公告未在摘要中列出具体被弃用的模型名称与对应日期，需查看正文表格以确认受影响范围。"
+    ],
+    "canonical_title": "GitHub Copilot 将于 2026 年 12 月 14 日弃用部分模型",
+    "category": "产品公告",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot"
+    ],
+    "facts": [
+      "GitHub 发布公告称，将于 2026 年 12 月 14 日在所有 GitHub Copilot 体验中弃用部分模型，包括 Copilot Chat、内联编辑、ask 与 agent 模式以及代码补全。",
+      "该公告由 GitHub Changelog 于 2026-11-13T20:40:05Z 发布，作者为 Allison。"
+    ],
+    "id": "story-ffbbba786491ef3f920c",
+    "importance_score": 0.58,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december",
+    "product_names": [
+      "GitHub Copilot",
+      "Copilot Chat"
+    ],
+    "published_at": "2026-11-13T20:40:05Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-995c4a805a2dae47d62a"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T20:40:05Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-995c4a805a2dae47d62a",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Upcoming deprecation of selected GitHub Copilot models in December",
+        "url": "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-13-upcoming-deprecation-of-selected-github-copilot-models-in-december"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "模型弃用",
+      "AI 编程"
+    ],
+    "uncertainties": [
+      "摘要中被弃用模型的具体名称列表未给出，只显示“Model Deprecation date…”占位内容。",
+      "公告未说明替代模型的推荐路径或对现有用户配置的自动迁移安排。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "从变更摘要看，本次版本为功能扩展型发布，涉及 agent、image、Live 和外部密钥四类 API 能力，而非补丁式修复。"
+    ],
+    "canonical_title": "openai-python 发布 v3.51.0，扩展 agent、image、Live 与外部密钥支持",
+    "category": "open_source_ai",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-python"
+    ],
+    "facts": [
+      "openai/openai-python 发布 v3.51.0，日期为 2026-11-12。",
+      "该版本变更说明为：api: expand agent, image, Live, and external key support（#4269，commit 59738a2）。",
+      "v3.51.0 与上一版本 v3.50.0 的对比链接为 https://github.com/openai/openai-python/compare/v3.50.0...v3.51.0。"
+    ],
+    "id": "story-68f3cc49dab0d4dad533",
+    "importance_score": 0.45,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.51.0",
+    "product_names": [
+      "openai-python",
+      "v3.51.0"
+    ],
+    "published_at": "2026-11-13T21:12:49Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-7e81db885b5d4d830e83"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T21:12:49Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7e81db885b5d4d830e83",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.51.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.51.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.51.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明仅给出功能条目名称，未说明 agent、image、Live 和外部密钥支持的具体接口变化与兼容性影响。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "该更新面向使用自托管 GHES 的企业客户，使其能在 Copilot 应用中接入企业内部代码协作资源。"
+    ],
+    "canonical_title": "GitHub Copilot 应用新增 GitHub Enterprise Server (GHES) 支持",
+    "category": "产品更新",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "GitHub Copilot",
+      "GitHub Enterprise Server"
+    ],
+    "facts": [
+      "GitHub 于 2026-11-13 发布更新，GitHub Copilot 应用现支持 GitHub Enterprise Server (GHES)。",
+      "用户可在 Copilot 应用中添加 GHES 账号，以处理远程仓库、issue 和 pull request。"
+    ],
+    "id": "story-a6cfeecb60015719e7bf",
+    "importance_score": 0.5,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app",
+    "product_names": [
+      "GitHub Copilot app",
+      "GitHub Enterprise Server (GHES)"
+    ],
+    "published_at": "2026-11-13T18:27:13Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-a82a582d254d179cb311"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T18:27:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-a82a582d254d179cb311",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Enterprise Server support in the GitHub Copilot app",
+        "url": "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-13-github-enterprise-server-support-in-the-github-copilot-app"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "公告未说明 GHES 支持的具体版本范围、功能限制或发布时间表。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "谷歌与Adobe宣布整合创意与生产力工具，Drive中可编辑PDF、Gemini中可用Adobe AI",
+    "category": "partnership",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "Google",
+      "Adobe"
+    ],
+    "facts": [
+      "Google与Adobe正在整合创意与生产力工具。",
+      "用户可在Google Drive中编辑PDF。",
+      "用户可在Gemini中使用Adobe AI。"
+    ],
+    "id": "story-fc5607a32ed628af778c",
+    "importance_score": 0.6,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/",
+    "product_names": [
+      "Google Drive",
+      "Gemini"
+    ],
+    "published_at": "2026-11-10T14:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-e192e4f92a704298f96f"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-10T14:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e192e4f92a704298f96f",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "We’re bringing Adobe’s creative and productivity tools closer to your everyday Google apps.",
+        "url": "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/company-news/inside-google/company-announcements/adobe-google-partnership-integration/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI集成",
+      "生产力工具",
+      "创意工具"
+    ],
+    "uncertainties": [],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Claude.ai、Claude Code 与 platform.claude.com 出现错误率升高",
+    "category": "服务中断与可靠性",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "Anthropic",
+      "Claude"
+    ],
+    "facts": [],
+    "id": "story-0b1bfdb3adb7d62cbf81",
+    "importance_score": 0.55,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://status.claude.com/incidents/nn11wk485zfn",
+    "product_names": [
+      "claude.ai",
+      "Claude Code",
+      "platform.claude.com"
+    ],
+    "published_at": "2026-11-13T10:18:13Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-149e2174cd6fd58332a7"
+    ],
+    "source_refs": [
+      {
+        "author": "__vivek",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50481187",
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T10:18:13Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-149e2174cd6fd58332a7",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
+        "url": "https://status.claude.com/incidents/nn11wk485zfn"
+      }
+    ],
+    "source_urls": [
+      "https://status.claude.com/incidents/nn11wk485zfn",
+      "https://news.ycombinator.com/item?id=50481187"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "服务状态",
+      "错误率升高",
+      "服务中断"
+    ],
+    "uncertainties": [
+      "该事件来自 Hacker News 的社区发现条目，标记为 unverified_lead，且内容摘要为空，因此无法确认故障的实际范围、持续时间和根因。",
+      "状态页事件链接（https://status.claude.com/incidents/nn11wk485zfn）仅作为社区发现线索提供，未在输入中给出官方确认细节。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "该内容属于 NVIDIA 官方开发者博客发布的技术说明，介绍在 Jetson AGX Orin 上使用 cuDLA 进行原生 DLA 推理的 Python 路径，面向边缘 AI 部署场景。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍如何在 NVIDIA Jetson AGX Orin 上通过 cuDLA 在 Python 中运行原生 DLA 推理",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA Jetson AGX Orin",
+      "cuDLA",
+      "NVIDIA Deep Learning Accelerator"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布了一篇文章，标题为《Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA》。",
+      "该文章作者为 Nikshay Shrivastava，发布时间为 2026-11-13T18:57:10Z。",
+      "文章摘要指出，边缘 AI 应用常常需要在有限的计算和功耗预算内运行多个神经网络，并提及 NVIDIA Deep Learning Accelerator（DLA）。"
+    ],
+    "id": "story-fc01085dd5d0304e2aa7",
+    "importance_score": 0.4,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla/",
+    "product_names": [
+      "cuDLA",
+      "NVIDIA Jetson AGX Orin",
+      "NVIDIA Deep Learning Accelerator"
+    ],
+    "published_at": "2026-11-13T18:57:10Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-b46b6bb43e745acd7c60"
+    ],
+    "source_refs": [
+      {
+        "author": "Nikshay Shrivastava",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T18:57:10Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b46b6bb43e745acd7c60",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Run Native DLA Inference in Python on NVIDIA Jetson AGX Orin Using cuDLA",
+        "url": "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/run-native-dla-inference-in-python-on-nvidia-jetson-agx-orin-using-cudla/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "边缘 AI 推理",
+      "DLA 硬件加速"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要与内容片段，未包含文章的具体 API 用法、性能数据或代码示例细节。",
+      "文章是否包含基准测试结果或与其他推理路径的对比，输入中未说明。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "该公告由 GitHub 官方发布渠道 GitHub Changelog 发布，属于一手事实陈述，可作为本次上线事件的原始事实依据。",
+      "公告中关于模型能力的描述（快速、高效、适合 agentic coding 与多步骤工作流）属于发布方对产品定位的说明，未附独立评测数据。"
+    ],
+    "canonical_title": "GitHub Copilot 正式上线 Gemini 4 Hydrogen",
+    "category": "AI 编程工具",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "GitHub",
+      "Google",
+      "GitHub Copilot",
+      "Gemini 4 Hydrogen"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-11-13 宣布，Gemini 4 Hydrogen 已在 GitHub Copilot 中正式可用（generally available）。",
+      "该公告将 Gemini 4 Hydrogen 称为 Google 最新的 Flash 模型，面向快速、高效的 agentic coding、工具调用和多步骤工作流。",
+      "公告称该模型在指令遵循方面有所改进。"
+    ],
+    "id": "story-f90694e2f4a1b1fad430",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot",
+    "product_names": [
+      "GitHub Copilot",
+      "Gemini 4 Hydrogen"
+    ],
+    "published_at": "2026-11-13T18:23:48Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-dde13a6350f0c89d7a8f"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T18:23:48Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-dde13a6350f0c89d7a8f",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Gemini 4 Hydrogen in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-13-gemini-4-hydrogen-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "原文摘要被截断（“improved instruction…”），未给出指令遵循改进的具体指标或对比基准。",
+      "公告未提供该模型在 Copilot 中的具体计费、可见范围或灰度细节。",
+      "公告未说明 Gemini 4 Hydrogen 与既有模型在 Copilot 中的切换或默认选择策略。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  },
+  {
+    "analysis": [
+      "该案例被定位为借助 Codex 将客户专业知识转化为更好的应用、更高的预订转化率，并为增长带来新的可能性。"
+    ],
+    "canonical_title": "OpenAI 发布 Holiday Extras 使用 Codex 的客户案例",
+    "category": "ai_coding",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI",
+      "Holiday Extras",
+      "Codex"
+    ],
+    "facts": [
+      "OpenAI 发布了一篇关于 Holiday Extras 使用 Codex 的客户案例文章。",
+      "该案例文章发布于 2026-11-12T09:30:00Z。"
+    ],
+    "id": "story-ccccfd25fded971dda51",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://openai.com/business/customer-stories/holidays-extras-codex",
+    "product_names": [
+      "Codex"
+    ],
+    "published_at": "2026-11-12T09:30:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-4922ca6fb0dd92994c34"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-14T00:27:59.205192Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-12T09:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4922ca6fb0dd92994c34",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Holiday Extras is rethinking what it can build with Codex",
+        "url": "https://openai.com/business/customer-stories/holidays-extras-codex"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/holidays-extras-codex"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_coding"
+    ],
+    "uncertainties": [
+      "除案例摘要外，缺乏关于具体应用、转化率提升幅度及部署细节的量化证据。"
+    ],
+    "updated_at": "2026-11-14T00:34:26.424952Z"
+  }
+]

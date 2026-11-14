@@ -67,6 +67,7 @@
     "id": "item-995c4a805a2dae47d62a",
     "language": "en-US",
     "metadata": {
+      "content_version": "a5c7489891d7b008dd43",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +129,7 @@
     "id": "item-fbc50dc6203beec2f155",
     "language": null,
     "metadata": {
+      "content_version": "6b50b294352ace57d139",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -218,6 +220,7 @@
     "id": "item-96048276e5de0ccf8cbe",
     "language": "en-US",
     "metadata": {
+      "content_version": "5302b6d7ebe14439cebc",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -279,6 +282,7 @@
     "id": "item-2053de078f05bd0a49e0",
     "language": "en-us",
     "metadata": {
+      "content_version": "70423e6b3b7a206e5698",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -401,6 +405,7 @@
     "id": "item-a82a582d254d179cb311",
     "language": "en-US",
     "metadata": {
+      "content_version": "ce2bbbc74e3158e1b14f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -462,6 +467,7 @@
     "id": "item-8fc5d8ced20e6bdd730b",
     "language": null,
     "metadata": {
+      "content_version": "a73732379d48f83b22dd",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -735,6 +741,7 @@
     "id": "item-dde13a6350f0c89d7a8f",
     "language": "en-US",
     "metadata": {
+      "content_version": "1d3881981d7c982a7ea9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -796,6 +803,7 @@
     "id": "item-b46b6bb43e745acd7c60",
     "language": null,
     "metadata": {
+      "content_version": "97e69109c0c71de2a7ae",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1343,6 +1351,7 @@
     "id": "item-4922ca6fb0dd92994c34",
     "language": "en-US",
     "metadata": {
+      "content_version": "c564f0513e5ec120afe9",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1707,6 +1716,7 @@
     "id": "item-e192e4f92a704298f96f",
     "language": "en-us",
     "metadata": {
+      "content_version": "579c07dd0d2539def743",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1888,6 +1898,7 @@
     "id": "item-a3e1afb4a33deb1bb631",
     "language": "en-US",
     "metadata": {
+      "content_version": "3061a55c51a078253aa5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -2041,6 +2052,7 @@
     "id": "item-c979be8e72cc92b8a0fb",
     "language": "en-us",
     "metadata": {
+      "content_version": "6445a14d0238b2194577",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -76934,6 +76946,7 @@
     "id": "item-7e81db885b5d4d830e83",
     "language": "en",
     "metadata": {
+      "content_version": "b2fc4c12c48deecb2bb4",
       "data_anomaly": false,
       "forks": 5883,
       "official": true,
@@ -80746,6 +80759,7 @@
     "metadata": {
       "comments": 717,
       "community_signal": true,
+      "content_version": "6bdd12ba16b6b979fe6c",
       "discussion_url": "https://news.ycombinator.com/item?id=50489641",
       "official": false,
       "original_url": "https://www.nbcnews.com/news/us-news/faa-orders-nationwide-ground-stop-departing-flights-reasons-safety-rcna609247",
@@ -81016,11 +81030,19 @@
     "metadata": {
       "comments": 1,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50492093",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://github.com/memrohq/memro",
       "score": 2,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": "implementation_insight",
@@ -81226,11 +81248,19 @@
     "metadata": {
       "comments": 160,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50472260",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
       "score": 495,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -81256,11 +81286,20 @@
     "metadata": {
       "comments": 382,
       "community_signal": true,
+      "content_version": "ec44c246bedd51d513c1",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50481187",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://status.claude.com/incidents/nn11wk485zfn",
       "score": 484,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -81560,6 +81599,7 @@
     "metadata": {
       "change_percent": -0.018190994500616647,
       "close": 390.2200012207031,
+      "content_version": "3363f4368cb4dc874205",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 397.45001220703125,
@@ -81590,6 +81630,7 @@
     "id": "item-2cae33d082e1ea45b1de",
     "language": "zh",
     "metadata": {
+      "content_version": "2ebacaa5d12f15d0fd4a",
       "date_precision": "day",
       "excerpt_truncated": false,
       "official_page_fetched": true,
@@ -83287,38 +83328,6 @@
     "url": "https://ploum.net/2026-11-12-anti-marketing-gemini.html"
   },
   {
-    "author": "jonbaer",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-14T00:27:59.205192Z",
-    "id": "item-bf0cdfe9bbc20fcda779",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50472260",
-      "hn_submission_time": 1794509521,
-      "lab_id": "google_deepmind",
-      "original_url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-12T18:52:01Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Gemini 4 Hydrogen and Orchestrator",
-    "topic_candidates": [],
-    "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/"
-  },
-  {
     "author": "aidotguru",
     "company_candidates": [],
     "content_excerpt": "",
@@ -83477,38 +83486,6 @@
     "title": "Grow your Llama army, win the territory",
     "topic_candidates": [],
     "url": "https://warlama.com/"
-  },
-  {
-    "author": "subalyo",
-    "company_candidates": [],
-    "content_excerpt": "Memro is go bases persistent memory system that lets ai agents share context acssion session using mcp, built on top of postgreSQL",
-    "fetched_at": "2026-11-14T00:27:59.205192Z",
-    "id": "item-77e8e9789c426360fb45",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50492093",
-      "hn_submission_time": 1794615615,
-      "lab_id": "anthropic",
-      "original_url": "https://github.com/memrohq/memro",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-14T00:20:15Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "Memro is go bases persistent memory system that lets ai agents share context acssion session using mcp, built on top of postgreSQL",
-    "title": "Show HN: Memro – Persistent Memory for Claude Code, Cursor and Codex",
-    "topic_candidates": [],
-    "url": "https://github.com/memrohq/memro"
   },
   {
     "author": "geoffbp",
@@ -83989,38 +83966,6 @@
     "title": "Ask HN: Claude – OAuth request failed Temporarily unable to authenticate",
     "topic_candidates": [],
     "url": "https://news.ycombinator.com/item?id=50481201"
-  },
-  {
-    "author": "__vivek",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-14T00:27:59.205192Z",
-    "id": "item-149e2174cd6fd58332a7",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50481187",
-      "hn_submission_time": 1794565093,
-      "lab_id": "anthropic",
-      "original_url": "https://status.claude.com/incidents/nn11wk485zfn",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-13T10:18:13Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Elevated errors on claude.ai, Claude Code, and platform.claude.com",
-    "topic_candidates": [],
-    "url": "https://status.claude.com/incidents/nn11wk485zfn"
   },
   {
     "author": "cheptsov",
