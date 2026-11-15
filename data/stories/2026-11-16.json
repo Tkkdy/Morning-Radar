@@ -1,0 +1,907 @@
+[
+  {
+    "analysis": [
+      "该条目的来源为 OpenAI 官方渠道，属于官方一手信息，可作为事件的事实底座；但其中涉及 GPT-6 Astra 贡献程度的具体细节，仅来自官方摘要，尚缺少第三方验证。",
+      "若该候选格点定义成立，将为标准模型提供非微扰框架下的严格定义路径，但其学术价值仍需同行评议与复现来评估。"
+    ],
+    "canonical_title": "OpenAI 研究：用 GPT-6 Astra 辅助完成标准模型的候选非微扰格点定义与证明",
+    "category": "AI 研究/基础科学",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "OpenAI",
+      "GPT-6 Astra",
+      "Standard Model"
+    ],
+    "facts": [
+      "OpenAI 在 2026-11-15 发布文章《A step toward defining the Standard Model on a lattice》。",
+      "该文介绍了一个关于标准模型的候选非微扰格点定义。",
+      "该文称 GPT-6 Astra 帮助把这一想法推进为一份详细证明。"
+    ],
+    "id": "story-c64bc0dc0d7efa85d924",
+    "importance_score": 0.75,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://openai.com/index/step-toward-defining-the-standard-model",
+    "product_names": [
+      "GPT-6 Astra"
+    ],
+    "published_at": "2026-11-15T22:00:01Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-2e8f421d2ee2a3dfd36b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T22:00:01Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2e8f421d2ee2a3dfd36b",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "A step toward defining the Standard Model on a lattice",
+        "url": "https://openai.com/index/step-toward-defining-the-standard-model"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/step-toward-defining-the-standard-model"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "lattice field theory",
+      "nonperturbative definition",
+      "AI for science",
+      "AI-assisted proof"
+    ],
+    "uncertainties": [
+      "该候选非微扰格点定义的具体数学形式、适用范围和已知局限性未在摘要中说明。",
+      "GPT-6 Astra 在该证明中的实际角色，包括是提出关键思路还是辅助整理推导，尚不明确。",
+      "该证明是否经过独立同行评议、是否已公开可查，尚无信息。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "该公告属于官方产品发布信息，具体功能范围与可用性细节未在提供的摘要中展开。",
+      "从摘要描述看，该功能面向企业侧信息管理与曝光分析场景。"
+    ],
+    "canonical_title": "OpenAI 在 ChatGPT 中推出 Businesses 功能",
+    "category": "ai_product_launch",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT"
+    ],
+    "facts": [
+      "OpenAI 在其官方新闻页面发布题为《Introducing Businesses in ChatGPT》的公告。",
+      "公告称该功能可让企业管理其业务信息、获取关于企业在 ChatGPT 中展示情况的洞察，并将兴趣转化为行动。"
+    ],
+    "id": "story-b0e4f89c4326dcc86b9a",
+    "importance_score": 0.6,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/index/introducing-businesses-chatgpt",
+    "product_names": [
+      "ChatGPT"
+    ],
+    "published_at": "2026-11-10T10:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-991ad48e8559b2fefa9f"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-10T10:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-991ad48e8559b2fefa9f",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Introducing Businesses in ChatGPT",
+        "url": "https://openai.com/index/introducing-businesses-chatgpt"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-businesses-chatgpt"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "business_tools",
+      "ai_assistant"
+    ],
+    "uncertainties": [
+      "该功能的具体上线时间、覆盖地区、支持语言、定价与完整功能细节在提供的输入中未说明。",
+      "该功能是否面向所有 ChatGPT 用户或仅限特定企业账户类型，输入未明确。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "文章援引一名前情报官员的说法，指出这类泄密会出现在日常对话中，而多数企业安全团队缺乏发现这类泄密的能力。",
+      "安全主管离职与 CEO 辞任叠加，可能暴露出 Nvidia 内部安全治理与人事连续性方面的薄弱环节。"
+    ],
+    "canonical_title": "Nvidia安全主管于8月离职，黄仁勋因人际关系辞任CEO",
+    "category": "industry_news",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang"
+    ],
+    "facts": [
+      "TechCrunch AI 于 2026-11-15T00:08:07Z 发布文章，标题为《Where was Nvidia’s security team?》，作者为 Connie Loizos。",
+      "摘要称 Nvidia 的安全主管于 8 月悄然离职。",
+      "摘要称 CEO Jensen Huang 已辞任，原因涉及他的私人关系，其中一段关系与一名公司高管有关，该公司被怀疑向中国输送芯片。"
+    ],
+    "id": "story-738f3ab486d53ab634be",
+    "importance_score": 0.85,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/",
+    "product_names": [],
+    "published_at": "2026-11-15T00:08:07Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-167c81c5d6fc7db57e5d"
+    ],
+    "source_refs": [
+      {
+        "author": "Connie Loizos",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T00:08:07Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-167c81c5d6fc7db57e5d",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Where was Nvidia’s security team?",
+        "url": "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/14/where-was-nvidias-security-team/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "corporate security",
+      "executive departure",
+      "chip export"
+    ],
+    "uncertainties": [
+      "一名前情报官员的身份未披露。",
+      "被怀疑向中国输送芯片的公司名称未披露。",
+      "Jensen Huang 辞任与该安全事件之间的具体因果关系尚不明确。",
+      "“8月”具体指哪一年，摘要未明确说明。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "TechCrunch 文章以“Jensen 就是英伟达，而这个经济体的很大一部分都依赖英伟达”这一引述为核心，探讨黄仁勋相关的负面消息是否等同于 AI 行业的负面消息。"
+    ],
+    "canonical_title": "TechCrunch 讨论：黄仁勋与英伟达的负面消息是否意味着 AI 行业的负面消息",
+    "category": "AI 行业评论",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Jensen Huang",
+      "Nvidia",
+      "TechCrunch",
+      "Anthony Ha"
+    ],
+    "facts": [],
+    "id": "story-21f4858457956360a4ee",
+    "importance_score": 0.55,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/",
+    "product_names": [],
+    "published_at": "2026-11-15T21:56:35Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-24cbece72f55c409692d"
+    ],
+    "source_refs": [
+      {
+        "author": "Anthony Ha",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T21:56:35Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-24cbece72f55c409692d",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Is bad news for Jensen Huang also bad news for the AI industry?",
+        "url": "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/15/is-bad-news-for-jensen-huang-also-bad-news-for-the-ai-industry/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 行业经济依赖"
+    ],
+    "uncertainties": [
+      "输入仅有标题、引述式摘要和简短摘录，未说明所谓“负面消息”的具体内容、时间与来源。",
+      "文章的具体论证、受访者身份及结论在输入中未完整呈现。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "印度芯片初创公司 Bharat Semi 完成 2400 万美元种子轮融资，瞄准全球 AI 传感器市场",
+    "category": "融资",
+    "credibility_score": 0.55,
+    "entity_names": [
+      "Bharat Semi",
+      "General Atomics",
+      "TechCrunch AI"
+    ],
+    "facts": [
+      "TechCrunch AI 报道，印度芯片初创公司 Bharat Semi 获得 2400 万美元种子轮融资。",
+      "Bharat Semi 表示其 AI 传感器技术已获得设计订单，客户包括 General Atomics。"
+    ],
+    "id": "story-a158dad3cbe508e2870b",
+    "importance_score": 0.45,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/",
+    "product_names": [],
+    "published_at": "2026-11-15T23:30:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-61200927e23c6bf1a95c"
+    ],
+    "source_refs": [
+      {
+        "author": "Jagmeet Singh",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T23:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-61200927e23c6bf1a95c",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Indian chip startup Bharat Semi lands $24M seed round as it eyes global AI sensor market",
+        "url": "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/15/indian-chip-startup-bharat-semi-lands-24m-seed-round-as-it-eyes-global-ai-sensor-market/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 传感器"
+    ],
+    "uncertainties": [
+      "报道未披露本轮融资的投资方、估值及具体融资条款。",
+      "Bharat Semi 的“设计订单”未提供合同金额、数量或生产时间表等细节。",
+      "文中未说明 Bharat Semi 的 AI 传感器具体产品形态、制程或量产状态。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "国会拟在英伟达间谍风波后收紧AI芯片出口规则",
+    "category": "policy",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Nvidia",
+      "Congress",
+      "Jensen Huang"
+    ],
+    "facts": [],
+    "id": "story-2b9f02c09328368c71ef",
+    "importance_score": 0.7,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china",
+    "product_names": [],
+    "published_at": "2026-11-15T14:15:43-05:00",
+    "relevance_score": 0.4,
+    "source_item_ids": [
+      "item-6c2c64409dfbba0f00e1"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T14:15:43-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6c2c64409dfbba0f00e1",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Congress wants to tighten export rules on AI chips after Nvidia spy scandal",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1033984/congress-export-rules-ai-chips-china"
+    ],
+    "status": "unknown",
+    "topic_names": [],
+    "uncertainties": [
+      "报道称黄仁勋为“现已离任的英伟达CEO”，并称存在涉及一名疑似中国间谍的丑闻；这些说法仅来自单一编辑类来源的摘要，未经官方一手来源确认。",
+      "据报道，民主党和共和党议员均表态支持收紧规则的多项措施与法案，并要求黄仁勋及其他英伟达高管赴国会作证；具体法案名称、条款和作证安排尚不清楚。",
+      "报道未说明相关立法目前处于何种程序阶段，也未给出投票或生效时间。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "从文章标题与摘要看，OpenAI 将“AI 指导差距”框定为教育领域的核心议题，并以外部研究加自身合作经验作为论述依据。"
+    ],
+    "canonical_title": "OpenAI 发布 ThinkYoung 研究及 EMEA 教育合作经验，聚焦弥合教育中的 AI 指导差距",
+    "category": "education",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "OpenAI",
+      "ThinkYoung"
+    ],
+    "facts": [
+      "OpenAI 发布了一篇题为《Closing the AI guidance gap in education》的文章，发布于 2026-11-10T09:00:00Z。",
+      "该文章引用了 ThinkYoung 的新研究，以及 OpenAI 在 EMEA 地区教育合作中获得的经验。",
+      "文章主题涉及支持教师、AI 素养和独立学习。"
+    ],
+    "id": "story-9784cb16c4a7f2fbb24a",
+    "importance_score": 0.4,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/closing-ai-guidance-gap-education",
+    "product_names": [],
+    "published_at": "2026-11-10T09:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-69d4d9d74efa01629a6c"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-10T09:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-69d4d9d74efa01629a6c",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Closing the AI guidance gap in education",
+        "url": "https://openai.com/index/closing-ai-guidance-gap-education"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/closing-ai-guidance-gap-education"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 教育",
+      "AI 素养",
+      "教师支持",
+      "独立学习"
+    ],
+    "uncertainties": [
+      "摘要未说明 ThinkYoung 研究的具体结论、样本规模或发布形式。",
+      "OpenAI 在 EMEA 教育合作的具体伙伴、项目规模与实施时间未在输入中披露。",
+      "“AI 指导差距”的具体定义与衡量方式未在输入中说明。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "博客文章主张所有 AI 生成代码应当开源",
+    "category": "AI政策与开源",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "Jakub Jankiewicz"
+    ],
+    "facts": [],
+    "id": "story-13e881c2698a84c48bd7",
+    "importance_score": 0.55,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+    "product_names": [],
+    "published_at": "2026-11-15T14:46:58Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-8f00aa5c3092c3805f4e"
+    ],
+    "source_refs": [
+      {
+        "author": "jcubic",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50507303",
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T14:46:58Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8f00aa5c3092c3805f4e",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "All AI-generated code should be Open Source",
+        "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/"
+      }
+    ],
+    "source_urls": [
+      "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+      "https://news.ycombinator.com/item?id=50507303"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI生成代码",
+      "开源许可"
+    ],
+    "uncertainties": [
+      "该主张仅以博客文章标题形式出现，未获取正文内容，作者完整论证不明。",
+      "该来源为社区发现（Hacker News）中的未验证线索，不能作为事实底座；讨论热度（570 条评论、1036 分）仅为社区信号，不构成对主张的支持或事实依据。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 Hacker News 社区发现渠道，发布方为 litnews.ai，属于未经验证的线索，其报道内容不能单独作为已确认事实。",
+      "摘要仅提及法院驳回撤诉动议，未提供法院名称、案号、裁决日期、具体指控或各方回应，因此事实底座尚不完整。"
+    ],
+    "canonical_title": "法院驳回三星、SK海力士与美光在DRAM价格操纵案中的撤诉动议",
+    "category": "legal",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Samsung",
+      "SK Hynix",
+      "Micron",
+      "Garciaguirre"
+    ],
+    "facts": [],
+    "id": "story-e53709b55b4fa8047f57",
+    "importance_score": 0.55,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://litnews.ai/articles/garciaguirre-samsung-sk-hynix-micron-dram-conspiracy-suit-survives-dismissal",
+    "product_names": [
+      "DRAM"
+    ],
+    "published_at": "2026-11-15T01:18:36Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-628deff4c22006d37812"
+    ],
+    "source_refs": [
+      {
+        "author": "ybathaee",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50502988",
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T01:18:36Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-628deff4c22006d37812",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Court denies motion to dismiss DRAM price fixing case",
+        "url": "https://litnews.ai/articles/garciaguirre-samsung-sk-hynix-micron-dram-conspiracy-suit-survives-dismissal"
+      }
+    ],
+    "source_urls": [
+      "https://litnews.ai/articles/garciaguirre-samsung-sk-hynix-micron-dram-conspiracy-suit-survives-dismissal",
+      "https://news.ycombinator.com/item?id=50502988"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "DRAM价格操纵",
+      "反垄断诉讼"
+    ],
+    "uncertainties": [
+      "该诉讼的具体法院、案号及裁决日期未知。",
+      "被驳回的撤诉动议由哪一方提出、驳回理由为何均未说明。",
+      "Garciaguirre 与三星、SK 海力士、美光在案中的具体关系（原告/集体代表等）未确认。",
+      "该报道本身尚未获得官方裁定文书或主流媒体独立核实，需等待一手法律文件。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "该举措将 AI 工具的免费使用权与退伍军人职业转型支持结合，属于面向特定人群的产品可及性计划。",
+      "20,000 名领取者的数据来自 OpenAI 官方公告，可作为该福利领取规模的官方口径事实，但公告未披露领取人群的地区分布、使用时长或成效评估细节。"
+    ],
+    "canonical_title": "OpenAI 为退伍军人和过渡期服役人员提供一年免费 ChatGPT Plus",
+    "category": "企业公益与产品推广",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT Plus"
+    ],
+    "facts": [
+      "OpenAI 宣布为退伍军人和过渡期服役人员提供一年免费 ChatGPT Plus。",
+      "已有超过 20,000 名退伍军人和过渡期服役人员领取了这项免费一年 ChatGPT Plus 权益。",
+      "OpenAI 表示这些用户使用该工具为进入平民职业做准备。"
+    ],
+    "id": "story-82bc5d451dad17b7bd33",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/index/chatgpt-plus-for-veterans",
+    "product_names": [
+      "ChatGPT Plus"
+    ],
+    "published_at": "2026-11-11T08:00:00Z",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-ac94b61a25ade5edbf71"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-11T08:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ac94b61a25ade5edbf71",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "ChatGPT Plus for veterans and servicemembers",
+        "url": "https://openai.com/index/chatgpt-plus-for-veterans"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/chatgpt-plus-for-veterans"
+    ],
+    "status": "available",
+    "topic_names": [
+      "退伍军人就业支持",
+      "AI 职业准备"
+    ],
+    "uncertainties": [
+      "公告未说明该免费一年权益的申请资格细则、截止日期和可领取总量上限。",
+      "目前没有独立证据评估该计划对退伍军人就业准备的实际效果。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "该举措属于 OpenAI 面向特定职业群体的 AI 技能普及项目，重点覆盖照护场景中的日常使用。"
+    ],
+    "canonical_title": "OpenAI Academy 在美国五座城市为照护者提供免费的 ChatGPT 实操工作坊",
+    "category": "公司动态",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "OpenAI",
+      "OpenAI Academy",
+      "ChatGPT"
+    ],
+    "facts": [
+      "OpenAI Academy 正在美国五座城市为照护者提供免费的、动手实操的 ChatGPT 工作坊。",
+      "这些工作坊旨在帮助照护者建立日常生活所需的实用 AI 技能。"
+    ],
+    "id": "story-05d8ae7892b67ca435d1",
+    "importance_score": 0.28,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life",
+    "product_names": [
+      "ChatGPT"
+    ],
+    "published_at": "2026-11-10T12:00:00Z",
+    "relevance_score": 0.32,
+    "source_item_ids": [
+      "item-0f0020abcf733229d29f"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-10T12:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0f0020abcf733229d29f",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Helping caregivers use AI in everyday life",
+        "url": "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/helping-caregivers-use-ai-in-everyday-life"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 技能普及",
+      "照护者培训"
+    ],
+    "uncertainties": [
+      "五座城市的具体名称未在输入中披露。",
+      "工作坊的具体时间安排、课程内容与参与方式未在输入中披露。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 推出面向科学的新博客",
+    "category": "公司动态",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [
+      "OpenAI 在其官网发布了一篇题为“Our new blog for science”的文章，宣布推出一个科学博客。",
+      "该博客将分享新发现、实用方法，以及研究人员使用 AI 推进科学发现的第一手叙述。"
+    ],
+    "id": "story-36fe3861a5e14207208f",
+    "importance_score": 0.25,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://openai.com/index/our-new-blog-for-science",
+    "product_names": [],
+    "published_at": "2026-11-15T22:00:00Z",
+    "relevance_score": 0.3,
+    "source_item_ids": [
+      "item-33b95c2112c46efd0955"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T22:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-33b95c2112c46efd0955",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Our new blog for science",
+        "url": "https://openai.com/index/our-new-blog-for-science"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/our-new-blog-for-science"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "科学传播",
+      "AI 科研应用"
+    ],
+    "uncertainties": [
+      "该科学博客的具体上线时间、发布频率和栏目设置尚不明确。",
+      "摘要未说明博客中是否会包含 OpenAI 自身的研究内容，或仅收录外部研究人员的使用案例。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [
+      "单日约 8.75% 的跌幅属于较大幅度的股价波动，但现有输入仅提供价格与成交量数据，未包含任何公司公告、财报或行业事件，因此无法据此归因。"
+    ],
+    "canonical_title": "AMD 最近交易日收盘下跌 8.75%",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "AMD"
+    ],
+    "facts": [
+      "AMD（代码 AMD）在交易日期 2026-11-13 的收盘价为 534.06。",
+      "AMD 在 2026-11-13 的上一交易日收盘价为 585.30。",
+      "AMD 在 2026-11-13 的涨跌幅为 -8.754483393650696%，即约 -8.75%。",
+      "AMD 在 2026-11-13 的成交量为 49163200。",
+      "数据来源标注：市场价格变化仅作信息展示，不代表可确认单一原因。"
+    ],
+    "id": "story-4b7f6ce6d34dd001beef",
+    "importance_score": 0.35,
+    "novelty_score": 0.05,
+    "primary_source_url": "https://finance.yahoo.com/quote/AMD/",
+    "product_names": [],
+    "published_at": "2026-11-13T00:00:00Z",
+    "relevance_score": 0.15,
+    "source_item_ids": [
+      "item-60ae0df45ff0826beacd"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-13T00:00:00Z",
+        "published_at_role": "market_trading_day",
+        "published_date_role": null,
+        "raw_item_id": "item-60ae0df45ff0826beacd",
+        "source_date": null,
+        "source_name": "Yahoo Finance via yfinance",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "market",
+        "statement_type": "factual_announcement",
+        "title": "AMD 最近交易日收盘下跌 8.75%",
+        "url": "https://finance.yahoo.com/quote/AMD/"
+      }
+    ],
+    "source_urls": [
+      "https://finance.yahoo.com/quote/AMD/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "此次下跌的具体原因未在输入中说明，无法确认是否与特定事件相关。",
+      "输入仅提供单一数据时点的收盘、前收盘、成交量与涨跌幅，未包含盘中走势或其他市场背景。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "英伟达联合创始人、前CEO黄仁勋或谋求回归CEO职位，相关传闻发酵",
+    "category": "科技公司动态",
+    "credibility_score": 0.15,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang"
+    ],
+    "facts": [],
+    "id": "story-dd41a4bc97c21d07cd9e",
+    "importance_score": 0.3,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://www.theverge.com/tech/1033999/jensen-huang-return-nvidia-megaspeed",
+    "product_names": [],
+    "published_at": "2026-11-15T15:43:49-05:00",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-7310523931ec31d7ed58"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T15:43:49-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7310523931ec31d7ed58",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Jensen Huang might be plotting a return and more of the latest Nvidia drama",
+        "url": "https://www.theverge.com/tech/1033999/jensen-huang-return-nvidia-megaspeed"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1033999/jensen-huang-return-nvidia-megaspeed"
+    ],
+    "status": "rumor",
+    "topic_names": [],
+    "uncertainties": [
+      "有传闻称黄仁勋正试图寻找重返英伟达CEO职位的途径，但该说法未获证实。",
+      "除传闻外，报道提到的其他“新进展”具体内容不明。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "The Verge 专栏概述黄仁勋动荡时期与英伟达领导层危机",
+    "category": "tech_industry",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Jensen Huang",
+      "Nvidia",
+      "The Verge"
+    ],
+    "facts": [],
+    "id": "story-d7f72d36928f1d4694e0",
+    "importance_score": 0.32,
+    "novelty_score": 0.15,
+    "primary_source_url": "https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation",
+    "product_names": [],
+    "published_at": "2026-11-15T08:00:00-05:00",
+    "relevance_score": 0.18,
+    "source_item_ids": [
+      "item-13482003797f2776b71c"
+    ],
+    "source_refs": [
+      {
+        "author": "Terrence O’Brien",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-15T23:31:05.818287Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-15T08:00:00-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-13482003797f2776b71c",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "An overview of Jensen Huang’s messy days",
+        "url": "https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/column/1033943/jensen-huang-nvidia-china-spying-scandal-resignation"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "leadership_crisis",
+      "executive_resignation"
+    ],
+    "uncertainties": [
+      "黄仁勋是否已辞去英伟达职务，以及辞职的具体时间与原因，均无法从摘要中得到独立证实。",
+      "所谓“中国间谍丑闻”的具体内容、涉及方与真实性无法从现有摘要确认。",
+      "该文为专栏评论，其中叙述可能包含作者观点而非经核实的事实。"
+    ],
+    "updated_at": "2026-11-15T23:37:44.407332Z"
+  }
+]

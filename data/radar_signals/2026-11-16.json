@@ -1,0 +1,45 @@
+[
+  {
+    "claim": "Simon Willison 发布 datasette-llm 0.1a11，新增对 OpenAI 兼容端点的支持，可配置 Datasette 使用 LM Studio、Ollama、llama.cpp 等本地模型。",
+    "id": "radar-90292026e1a5c52fbf04",
+    "missing_evidence": [
+      "独立发布页或仓库 commit/diff 以核实 0.1a11 变更内容",
+      "实际配置与运行测试结果"
+    ],
+    "observed_at": "2026-11-15T23:31:05.818287Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-9c481a0931060f36109e",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/14/datasette-llm/"
+      }
+    ],
+    "uncertainty": "摘录被截断，仅见发布说明片段，未验证兼容范围与稳定性。",
+    "why_notable": "把 Datasette 的 LLM 配置扩展到 OpenAI 兼容协议，降低本地模型接入门槛，对数据工具与本地推理工作流有实践参考价值。"
+  }
+]
