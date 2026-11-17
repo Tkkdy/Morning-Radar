@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 发布 datasette-maplibre 0.1a0，并称该插件的大部分代码由对 Claude Fable 5.2 的单条提示生成。",
+    "id": "radar-f4dc0dd3779f5bb01dc4",
+    "missing_evidence": [
+      "完整的提示词内容",
+      "AI 生成代码与人工修改代码的具体比例",
+      "插件测试与运行结果",
+      "Claude Fable 5.2 的准确模型版本与调用配置"
+    ],
+    "observed_at": "2026-11-17T02:36:28.162065Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-c6febd82e4661f8df7bb",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/15/datasette-maplibre/"
+      }
+    ],
+    "uncertainty": "仅有作者自述且摘要被截断，缺少可复现细节与独立验证，尚不能证明该插件主要由单条提示完成。",
+    "why_notable": "提供了一个具体案例：用单条提示让 AI 模型参照现有插件与示例，构建出可用的 Datasette 地理空间插件，对评估 AI 编程 agent 的端到端开发能力有参考价值。"
+  }
+]

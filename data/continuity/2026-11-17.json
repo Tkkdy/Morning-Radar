@@ -1,0 +1,130 @@
+{
+  "date": "2026-11-17",
+  "generated_at": "2026-11-17T02:39:51.285815Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布 11 月 9 日当周周更中提到但被截断的第二款新模型名称及其在 Copilot 中的上线范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot",
+        "Claude"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-17T02:39:51.285815Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-17",
+          "story_id": "story-9d9b7e4282c2f09c3392"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding"
+      ],
+      "watch_id": "watch-eaeb646ca584f3a23706"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 的 CSAM 分类器是否公布准确率、误报率与面向调查机构的开放范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "CSAM classifier"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-17T02:39:51.285815Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-17",
+          "story_id": "story-0efd90653190492b2a9d"
+        }
+      ],
+      "topic_anchors": [
+        "content moderation",
+        "deepfakes"
+      ],
+      "watch_id": "watch-d617e8894a877be1d735"
+    },
+    {
+      "entity_anchors": [
+        "Hugging Face",
+        "OpenRouter"
+      ],
+      "event_type": "opened",
+      "expectation": "若 Hugging Face 与 OpenRouter 的合作后续公布具体支持的开放权重模型列表、集成方式或上线时间，可观察其是否兑现“易于运行”的承诺。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-11-17T02:39:51.285815Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-17",
+          "story_id": "story-86845593587260dd4f6f"
+        }
+      ],
+      "topic_anchors": [
+        "open-weight models",
+        "模型运行与部署"
+      ],
+      "watch_id": "watch-428ab11d9978fd833ce5"
+    },
+    {
+      "entity_anchors": [
+        "Microsoft",
+        "Windows 11"
+      ],
+      "event_type": "opened",
+      "expectation": "若 Microsoft 或 Windows 官方文档、隐私声明或独立技术分析出现，可验证 Windows 11 是否确实收集编码智能体与开发工具使用数据，以及收集范围与机制。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Windows 11"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-17T02:39:51.285815Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-17",
+          "story_id": "story-ecb81d3317c86ad16c8a"
+        }
+      ],
+      "topic_anchors": [
+        "遥测",
+        "隐私",
+        "编码智能体"
+      ],
+      "watch_id": "watch-8bf3d004d12b9e91cdff"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "若 NVIDIA 后续公布 cuPotential 的性能基准、API 文档或正式可用状态，可观察其是否提供准确且灵活的原语并实际加速分子动力学模拟。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "cuPotential"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-17T02:39:51.285815Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-17",
+          "story_id": "story-6a823f761f77d9209032"
+        }
+      ],
+      "topic_anchors": [
+        "分子动力学模拟",
+        "GPU 加速"
+      ],
+      "watch_id": "watch-00ad34bce3854d94310c"
+    }
+  ]
+}

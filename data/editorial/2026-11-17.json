@@ -1,0 +1,143 @@
+{
+  "date": "2026-11-17",
+  "decisions": [
+    {
+      "evidence_value": 4,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 4,
+      "reason": "默认 KV cache 定容与移除 V1 runner 会实质改变推理吞吐和升级迁移，需展开机制与代价",
+      "retain_for_trends": true,
+      "story_id": "story-2d6af29bd5a7ee6302aa",
+      "support_for_story_id": null,
+      "trend_links": [
+        "kv-cache-capacity-by-actual-idle-memory",
+        "model-runner-v2-single-gpu-runner",
+        "inference-default-behavior-breaking-changes"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "企业仓库接入与智能体会话优先级值得知道，但细节截断且属常规周更",
+      "retain_for_trends": false,
+      "story_id": "story-9d9b7e4282c2f09c3392",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "企业自定义配置治理小更新，影响面窄一句即可",
+      "retain_for_trends": false,
+      "story_id": "story-32b9c2a66054dcfbeba3",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "开放权重模型运行入口整合可能影响部署路径，但细节缺失仅作弱信号保留",
+      "retain_for_trends": true,
+      "story_id": "story-86845593587260dd4f6f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "open-weight-model-runtime-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "分类器用于分流 AI 生成内容，属政策工具但准确率与部署未知，作后台弱证据",
+      "retain_for_trends": true,
+      "story_id": "story-0efd90653190492b2a9d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-content-detection-for-investigation",
+        "csam-deepfake-triage"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "厂商博客介绍性文章，缺少性能数据与可用性细节，无可复用机制",
+      "retain_for_trends": false,
+      "story_id": "story-6a823f761f77d9209032",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "新基准仅标题可知，可作意图评测方向的弱信号保留",
+      "retain_for_trends": true,
+      "story_id": "story-fde414a07749d60c6756",
+      "support_for_story_id": null,
+      "trend_links": [
+        "benchmark-intent-behind-question"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "关闭请求有效期调整属普通流程维护，无结构意义",
+      "retain_for_trends": false,
+      "story_id": "story-6842e742db0c91cce17e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "模型弃用通知未列具体模型，迁移影响不明，一句提示即可",
+      "retain_for_trends": false,
+      "story_id": "story-5cfd8553a32aac6b1df1",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 2,
+      "reason": "仅有社区讨论帖且无原始证据，遥测主张未核实不进入读者选择",
+      "retain_for_trends": false,
+      "story_id": "story-ecb81d3317c86ad16c8a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "纯教程文章，无版本或能力变化信息",
+      "retain_for_trends": false,
+      "story_id": "story-ca5ed17f40d3c83411b8",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-17T02:39:51.285815Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

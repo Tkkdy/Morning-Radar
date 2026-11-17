@@ -1,0 +1,953 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-e914fa137b09581833c8",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/openrouter"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该公告来自 Hugging Face 官方博客，属于官方一手信息，可作为事件的基础事实来源。",
+            "由于内容摘录为空，合作的具体技术方式、支持范围与上线时间无法从现有内容中确认。"
+          ],
+          "canonical_title": "Hugging Face 与 OpenRouter 合作简化开放权重模型的运行",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Hugging Face",
+            "OpenRouter"
+          ],
+          "facts": [
+            "Hugging Face 博客宣布与 OpenRouter 合作，使开放权重模型易于运行。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/openrouter",
+          "product_names": [],
+          "published_at": "2026-11-16T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-8ec21efa2c62273428cb",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Hugging Face and OpenRouter join forces to make open-weight models easy to run",
+              "url": "https://huggingface.co/blog/openrouter"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-86845593587260dd4f6f",
+          "topic_names": [
+            "open-weight models",
+            "模型运行与部署",
+            "开放源 AI"
+          ],
+          "uncertainties": [
+            "合作涉及哪些具体模型、集成形式、可用时间与地区范围尚未明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-86845593587260dd4f6f"
+      ],
+      "title": "Hugging Face 与 OpenRouter 合作简化开放权重模型运行",
+      "uncertainty": "合作涉及哪些具体模型、集成形式、可用时间与地区范围尚未明确，文章摘要与正文摘录为空。",
+      "what_happened": "Hugging Face 官方博客宣布与 OpenRouter 合作，目标是让开放权重模型更易于运行。公告本身确认了合作意向，但未披露具体技术集成方式、支持的模型范围或上线时间。",
+      "why_it_matters": "若合作落地，可能降低开发者运行开放权重模型的门槛，并影响开源模型的分发与调用路径；但目前仅有公告标题级信息，尚不足以判断实际影响。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-139a0571caef46d61fdc",
+      "market_or_community_reaction": "Hacker News 帖子获得 279 分和 156 条评论，反映社区关注度，但不能作为事件事实依据。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+        "https://news.ycombinator.com/item?id=50524736"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Hacker News 帖子称 Windows 11 在收集开发者所用编码智能体与开发工具的数据",
+          "category": "开发者工具与操作系统遥测",
+          "entity_names": [
+            "Microsoft",
+            "Windows 11"
+          ],
+          "facts": [],
+          "primary_source_url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+          "product_names": [
+            "Windows 11"
+          ],
+          "published_at": "2026-11-16T22:58:20Z",
+          "source_refs": [
+            {
+              "author": "cwaffles",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=50524736",
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T22:58:20Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-0ce5abe49658b2c48ba6",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use",
+              "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-ecb81d3317c86ad16c8a",
+          "topic_names": [
+            "遥测",
+            "隐私",
+            "编码智能体",
+            "开发者工具"
+          ],
+          "uncertainties": [
+            "该信息来源为 Hacker News 社区发现帖，标记为 unverified_lead，标题所述 Windows 11 遥测行为未经原始证据核实。",
+            "该帖正文内容摘要为空，无法确认具体收集哪些数据、通过何种机制、以及是否有官方文档说明。",
+            "该帖在 Hacker News 获得 279 分和 156 条评论，但这只反映社区关注度，不能作为事件事实依据。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-ecb81d3317c86ad16c8a"
+      ],
+      "title": "Hacker News 热帖称 Windows 11 收集开发者编码智能体与工具使用数据",
+      "uncertainty": "该信息为社区发现帖，未经原始证据核实；具体收集哪些数据、通过何种机制、是否有官方文档说明均不明确。",
+      "what_happened": "Hacker News 出现一篇社区发现帖，标题称 Windows 11 正在收集用户使用哪些编码智能体和开发工具的数据。该帖获得 279 分和 156 条评论，但来源被标记为未经核实的线索，正文摘要为空。",
+      "why_it_matters": "该话题触及开发者工具遥测与隐私边界，社区关注度较高；但在官方文档或独立验证出现前，不宜将其视为已确认事实。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-8e46217e6116e5af138d",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "NVIDIA 发布 cuPotential 加速分子动力学模拟",
+          "category": "developer_tools",
+          "entity_names": [
+            "NVIDIA"
+          ],
+          "facts": [
+            "NVIDIA Developer Blog 发布文章，介绍使用 NVIDIA cuPotential 加速分子动力学模拟（原文：比原文：Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential）。",
+            "文章作者为 Yutong Zhao，发布时间为 2026-11-16T22:30:00Z。",
+            "文章指出分子动力学（MD）在物理、化学、生物学和材料科学中是不可或缺的工具。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential/",
+          "product_names": [
+            "cuPotential"
+          ],
+          "published_at": "2026-11-16T22:30:00Z",
+          "source_refs": [
+            {
+              "author": "Yutong Zhao",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T22:30:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-2be1284eeb479683b14e",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential",
+              "url": "https://developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-6a823f761f77d9209032",
+          "topic_names": [
+            "分子动力学模拟",
+            "GPU 加速"
+          ],
+          "uncertainties": [
+            "输入仅提供摘要与内容片段，cuPotential 的具体功能特性、性能数据与可用性细节尚不明确。",
+            "输入未说明 cuPotential 的发布状态（如是否已正式可用）。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6a823f761f77d9209032"
+      ],
+      "title": "NVIDIA 发布 cuPotential，用于加速分子动力学模拟",
+      "uncertainty": "cuPotential 的具体功能特性、性能数据、发布状态与可用性细节尚不明确。",
+      "what_happened": "NVIDIA Developer Blog 发布文章，介绍使用 NVIDIA cuPotential 加速分子动力学模拟，作者为 Yutong Zhao。文章指出分子动力学在物理、化学、生物学和材料科学中是不可或缺的工具。",
+      "why_it_matters": "若 cuPotential 提供准确且灵活的基础原语，可能降低分子动力学模拟的 GPU 加速门槛；但当前输入未给出性能数据或可用性细节。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-01bf190f2e26d7b979b5",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/allenai/xybench"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从标题看，XYBench 关注的不是问题本身，而是“问题背后的问题”，即可能涉及对用户真实意图或隐含前提的处理；但该解读仅基于标题，文章摘要与正文摘录均为空，无法确认具体方法或结论。"
+          ],
+          "canonical_title": "XYBench：AllenAI 在 Hugging Face 发布用于处理“问题背后问题”的基准",
+          "category": "ai_benchmarks",
+          "entity_names": [
+            "AllenAI",
+            "Hugging Face"
+          ],
+          "facts": [
+            "AllenAI 在 Hugging Face 博客发布了一篇题为“XYBench: Helping with the problem behind the question”的文章。",
+            "该文章发布在 Hugging Face Blog，标记为官方来源（official_primary），发布时间为 2026-11-13T17:02:35Z。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/allenai/xybench",
+          "product_names": [
+            "XYBench"
+          ],
+          "published_at": "2026-11-13T17:02:35Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-13T17:02:35Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-96c7f67bef86f8316048",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "XYBench: Helping with the problem behind the question",
+              "url": "https://huggingface.co/blog/allenai/xybench"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-fde414a07749d60c6756",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入中文章摘要与正文摘录为空，无法确认 XYBench 的具体定义、评测范围、数据构成与结果。",
+            "无法确认 XYBench 是基准数据集、评测框架还是其他形式，也无法确认其是否已公开发布或开放使用。",
+            "标题中的“problem behind the question”具体指代不明，不能据此推断技术细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-fde414a07749d60c6756"
+      ],
+      "title": "AllenAI 在 Hugging Face 发布 XYBench 基准",
+      "uncertainty": "XYBench 的具体定义、评测范围、数据构成与结果无法确认；也无法确认其是数据集、评测框架还是其他形式，以及是否已公开发布。",
+      "what_happened": "AllenAI 在 Hugging Face 博客发布题为“XYBench: Helping with the problem behind the question”的文章，标记为官方来源。文章摘要与正文摘录为空，仅标题可确认。",
+      "why_it_matters": "从标题看，XYBench 可能关注用户问题背后的真实意图或隐含前提，但这一解读仅基于标题，无法确认其方法或结论；对评测方向是否有实质推进尚待更多信息。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-920eebaab8731ddcfd02",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-11-16-dependabot-alert-dismissal-requests-now-last-one-year"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "将关闭请求有效期从一周延长到一年，意味着安全警报的处置周期变得更宽松，但也会拉长未决请求在系统内的滞留时间。"
+          ],
+          "canonical_title": "GitHub 将 Dependabot 警报关闭请求的有效期从一周延长至一年",
+          "category": "开发者工具与安全",
+          "entity_names": [
+            "GitHub",
+            "Dependabot"
+          ],
+          "facts": [
+            "GitHub Changelog 宣布，Dependabot 的委托警报关闭请求有效期由一周改为一年。",
+            "该变更适用于使用 Dependabot 委托警报关闭（delegated alert dismissal）的用户。",
+            "公告称审核者现在有更多时间在请求过期前作出回应。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-16-dependabot-alert-dismissal-requests-now-last-one-year",
+          "product_names": [
+            "Dependabot"
+          ],
+          "published_at": "2026-11-17T00:09:27Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-17T00:09:27Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-f2c1bc1061d380e6903a",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Dependabot alert dismissal requests now last one year",
+              "url": "https://github.blog/changelog/2026-11-16-dependabot-alert-dismissal-requests-now-last-one-year"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-6842e742db0c91cce17e",
+          "topic_names": [
+            "安全警报管理",
+            "代码安全",
+            "委托关闭流程"
+          ],
+          "uncertainties": [
+            "公告未说明该变更是否影响此前已创建的关闭请求，也未说明其是否可配置或适用范围细节。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-6842e742db0c91cce17e"
+      ],
+      "title": "GitHub 将 Dependabot 警报关闭请求的有效期从一周延长至一年",
+      "uncertainty": "公告未说明该变更是否影响此前已创建的关闭请求，也未说明其是否可配置或适用范围细节。",
+      "what_happened": "GitHub Changelog 宣布，Dependabot 的委托警报关闭请求有效期由一周改为一年。",
+      "why_it_matters": "将关闭请求有效期从一周延长到一年，意味着安全警报的处置周期变得更宽松，但也会拉长未决请求在系统内的滞留时间。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-99f6e962ed64e70e00f9",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-11-16-github-copilot-models-deprecated-on-november-16-2026"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "GitHub Copilot 于 2026 年 11 月 16 日弃用部分模型",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot"
+          ],
+          "facts": [
+            "GitHub 于 2026 年 11 月 16 日宣布，已在大多数 GitHub Copilot 体验中弃用部分模型。",
+            "受影响的 GitHub Copilot 体验包括 Copilot Chat、内联编辑、ask 与 agent 模式以及代码补全。",
+            "公告由 GitHub Changelog 于 2026 年 11 月 16 日发布，作者为 Allison。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-16-github-copilot-models-deprecated-on-november-16-2026",
+          "product_names": [
+            "Copilot Chat",
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-11-16T20:25:20Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T20:25:20Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ff1caf51baeac277f598",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GitHub Copilot models deprecated on November 16, 2026",
+              "url": "https://github.blog/changelog/2026-11-16-github-copilot-models-deprecated-on-november-16-2026"
+            }
+          ],
+          "status": "updated",
+          "story_id": "story-5cfd8553a32aac6b1df1",
+          "topic_names": [
+            "模型弃用",
+            "AI 编程助手"
+          ],
+          "uncertainties": [
+            "输入摘要未列出本次被弃用的具体模型名称。",
+            "输入未说明此次弃用对现有用户工作流的具体迁移影响。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-5cfd8553a32aac6b1df1"
+      ],
+      "title": "GitHub Copilot 于 2026 年 11 月 16 日弃用部分模型",
+      "uncertainty": "输入摘要未列出本次被弃用的具体模型名称。",
+      "what_happened": "GitHub 于 2026 年 11 月 16 日宣布，已在大多数 GitHub Copilot 体验中弃用部分模型。",
+      "why_it_matters": null
+    }
+  ],
+  "cognitive_extension": "当 vLLM 把 KV cache 定容从“估算”改为“实测空闲显存”，推理部署的性能调优是否会从参数经验转向更依赖启动时硬件测量结果的可复现流程？",
+  "date": "2026-11-17",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-11-17T02:39:51.285815Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "Simon Willison 发布 datasette-maplibre 0.1a0，并称该插件的大部分代码由对 Claude Fable 5.2 的单条提示生成。",
+      "id": "radar-f4dc0dd3779f5bb01dc4",
+      "missing_evidence": [
+        "完整的提示词内容",
+        "AI 生成代码与人工修改代码的具体比例",
+        "插件测试与运行结果",
+        "Claude Fable 5.2 的准确模型版本与调用配置"
+      ],
+      "observed_at": "2026-11-17T02:36:28.162065Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "firsthand_observation",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-c6febd82e4661f8df7bb",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Nov/15/datasette-maplibre/"
+        }
+      ],
+      "uncertainty": "仅有作者自述且摘要被截断，缺少可复现细节与独立验证，尚不能证明该插件主要由单条提示完成。",
+      "why_notable": "提供了一个具体案例：用单条提示让 AI 模型参照现有插件与示例，构建出可用的 Datasette 地理空间插件，对评估 AI 编程 agent 的端到端开发能力有参考价值。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2747,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 1,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 2,
+    "ai_brief_recovery_attempts": 0,
+    "ai_brief_recovery_budget_exhausted": true,
+    "ai_brief_recovery_successes": 0,
+    "ai_brief_story_inputs": 10,
+    "ai_classify_completion_tokens": 1428,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6875,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 16081,
+    "ai_direction_fallback": true,
+    "ai_direction_fallback_reason": "AI daily input character limit exceeded",
+    "ai_evaluate_editorial_completion_tokens": 908,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9176,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 118183,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 5704,
+    "ai_merge_story_finish_stop": 12,
+    "ai_merge_story_prompt_tokens": 13749,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 59537,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 830,
+    "ai_resolve_research_cases_completion_tokens": 1427,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2432,
+    "ai_resolve_research_cases_reasoning_tokens": 830,
+    "ai_score_story_completion_tokens": 1974,
+    "ai_score_story_finish_stop": 11,
+    "ai_score_story_prompt_tokens": 13117,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 4,
+    "ai_write_brief_completion_tokens": 4640,
+    "ai_write_brief_finish_stop": 3,
+    "ai_write_brief_prompt_tokens": 14188,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 16081,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 20,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 3,
+    "dry_run": false,
+    "editorial_decisions": 11,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 154,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 27,
+    "logical_ai_tasks": 27,
+    "main_brief_items": 9,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 29,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 59537,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 1,
+    "radar_signals_displayed": 1,
+    "radar_signals_generated": 1,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 830,
+    "recent_24h": 117,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 20,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 20,
+    "research_cases": 3,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 5318,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 2,
+    "research_unknown_cases": 0,
+    "research_unresolved": 2,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 0,
+    "signals": 4,
+    "stories": 11,
+    "story_candidate_input": 15,
+    "structured_watches_opened": 5,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 10,
+    "total_displayed_items": 9,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-f0c193097cd86a609c84",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "KV cache 改为按预热后实际空闲显存定容，是本版本对吞吐影响最大的默认行为变化；它倾向提升高并发下的缓存容量与 TTFT，但可能牺牲部分单 token 解码延迟。",
+            "移除 Model Runner V1 与调整 block size 默认值，意味着升级需要主动检查启动参数与自定义 logits processor 的迁移路径。",
+            "依赖与后端组合要求收紧（huggingface_hub >= 2.0.0、ROCm 10.0、移除 ROCm 7.2 与 fp_quant/Marlin W4A8），升级前需核对部署镜像与量化格式兼容性。"
+          ],
+          "canonical_title": "vLLM 发布 v0.34.0：默认启用可扩展 KV cache，Model Runner V2 成为唯一 GPU runner",
+          "category": "open_source_ai",
+          "entity_names": [
+            "vllm-project",
+            "vLLM",
+            "khluu",
+            "Mistral AI",
+            "MiniMax",
+            "NVIDIA",
+            "Zyphra",
+            "Baidu",
+            "Liquid AI",
+            "AMD",
+            "Arctic Inference"
+          ],
+          "facts": [
+            "vLLM 发布 v0.34.0，该版本包含 1,061 个提交，来自 412 位贡献者，其中 120 位为新贡献者。",
+            "v0.34.0 新增 10 个模型，包括 Mistral Large 4、MiniMax-M3.1-Flash、Nemotron-3.5-Transcribe 等。",
+            "可扩展 KV cache 在 CUDA 和 ROCm 上默认启用；KV cache 按 CUDA graph 捕获与预热后实际空闲内存来定容，而非估算（PR #56492）。",
+            "官方示例称 MiniMax-M3 在 H200 上的 KV cache 由 433k tokens 增至 672k tokens。",
+            "官方称在部分 H200 模型上，并发 128 时每 token 解码延迟可能上升，TPOT 增加 6%–18%；可通过 --gpu-memory-utilization 0.9 或 --no-enable-extensible-kv-cache 关闭。",
+            "Model Runner V1 已被移除（PR #63373），Model Runner V2 成为唯一 GPU runner；设置 VLLM_USE_V2_MODEL_RUNNER=0 会在启动时报错。",
+            "默认 --block-size 由 16 改为 64（PR #63231），ROCm paged attention 仍使用 16。",
+            "默认 gpu_memory_utilization 改为 1.0。",
+            "ROCm 7.2 相关构建产物被移除（PR #61939），改用 ROCm 10.0 wheels 与镜像。",
+            "该版本要求 huggingface_hub >= 2.0.0，同时要求 tokenizers >= 0.23.3 与 timm >= 1.0.30（PR #64779）。",
+            "QuTLASS / fp_quant 被移除（PR #65230），Marlin W4A8 被移除（PR #65542）。",
+            "Keye-VL 与 Keye-VL-1.5 被移除（PR #64287）。",
+            "新增模型清单包含 Mistral Large 4（1T 总参数 / 52B 激活，FP8 与 NVFP4，支持 NVIDIA Blackwell/Hopper 与 AMD MI350，PR #64534）、MiniMax-M3.1-Flash（PR #64111）、NVIDIA Nemotron-3.5-Transcribe（30B-A4B 语音模型，PR #64282）、Ricursive Ripple-65B Preview（PR #65745）、Zyphra ZAYA1（PR #65302）、Baidu Unlimited-OCR-2（PR #64016）、Liquid AI LFM3 系列（PR #65826、#65827、#65828）、NVIDIA Canary-1B-v2（PR #64215）、Ming3-ASR（PR #63585）、NVIDIA Parakeet TDT（PR #65005）。",
+            "推测解码方面，suffix decoding 在 MRV2 上运行并使用 GPU speculator，不再需要 Arctic Inference（PR #60339）；新增声明式配置与 register_speculative_method 插件 API（PR #63205）；MRV2 draft-model speculator 支持 CUDA graphs（PR #60989）；自适应验证支持 XPress（PR #65175）。"
+          ],
+          "primary_source_url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0",
+          "product_names": [
+            "vLLM v0.34.0",
+            "Mistral Large 4",
+            "MiniMax-M3.1-Flash",
+            "Nemotron-3.5-Transcribe",
+            "Ricursive Ripple-65B Preview",
+            "ZAYA1",
+            "ZAYA1-8B",
+            "ZAYA1-74B-preview",
+            "Baidu Unlimited-OCR-2",
+            "LFM3",
+            "LFM3-VL",
+            "LFM3-Audio",
+            "NVIDIA Canary-1B-v2",
+            "Ming3-ASR",
+            "NVIDIA Parakeet TDT",
+            "Model Runner V2",
+            "Model Runner V1",
+            "GLM-5.3-Flash",
+            "GLM-5.3",
+            "Step5"
+          ],
+          "published_at": "2026-11-16T23:22:00Z",
+          "source_refs": [
+            {
+              "author": "khluu",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T23:22:00Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-c876496118766282bf93",
+              "source_date": null,
+              "source_name": "GitHub · vllm-project/vllm",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "vllm-project/vllm: v0.34.0",
+              "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-2d6af29bd5a7ee6302aa",
+          "topic_names": [
+            "ai_infrastructure",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "官方给出的性能提升倍数缺乏独立基准复现，实际收益取决于模型、硬件与并发配置。",
+            "KV cache 定容变化对 TPOT 的影响（6%–18%）仅在部分 H200 模型与并发 128 条件下给出，其他硬件与负载下的表现未知。",
+            "摘要中推测解码的“Draft KV cache 与目标 dtype 匹配”条目被截断，完整细节需查阅 changelog。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-2d6af29bd5a7ee6302aa"
+      ],
+      "title": "vLLM v0.34.0 默认启用可扩展 KV cache，Model Runner V2 成为唯一 GPU runner",
+      "uncertainty": "官方给出的性能提升倍数缺乏独立基准复现；TPOT 上升 6%–18% 仅在部分 H200 模型与并发 128 条件下给出，其他硬件与负载下未知；摘要中推测解码的“Draft KV cache 与目标 dtype 匹配”条目被截断，需查阅 changelog。",
+      "what_happened": "vLLM 发布 v0.34.0，包含来自 412 位贡献者的 1,061 个提交，新增 Mistral Large 4、MiniMax-M3.1-Flash、NVIDIA Nemotron-3.5-Transcribe、Liquid AI LFM3 系列等 10 个模型。可扩展 KV cache 在 CUDA 与 ROCm 上默认启用，改成按 CUDA graph 捕获与预热后的实际空闲显存定容；官方示例称 MiniMax-M3 在 H200 上的 KV cache 由 433k tokens 增至 672k tokens。同时 Model Runner V1 被移除，Model Runner V2 成为唯一 GPU runner，默认 block size 由 16 改为 64，gpu_memory_utilization 改为 1.0，ROCm 7.2 构建产物、QuTLASS/fp_quant、Marlin W4A8、Keye-VL 等被移除，并要求 huggingface_hub >= 2.0.0。",
+      "why_it_matters": "按预热后实际空闲显存定容的 KV cache 是本版本对吞吐影响最大的默认行为变化，倾向提升高并发缓存容量与首 token 延迟表现；但移除 V1 runner、改默认 block size 与收紧依赖，意味着升级需要主动核对启动参数、自定义 logits processor 与量化格式兼容性。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-19bff0316f749f794e61",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://github.blog/changelog/2026-11-16-github-copilot-weekly-releases-november-9",
+        "https://github.blog/changelog/2026-11-16-control-where-github-copilot-customizations-come-from"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该能力将 Copilot 自定义配置的治理权上收至企业管理员，可减少来自分散的用户或项目配置的未经审核自定义内容。"
+          ],
+          "canonical_title": "GitHub Copilot 企业管理员可限制自定义配置来源",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot"
+          ],
+          "facts": [
+            "GitHub 发布更新，允许企业管理员要求选定的 GitHub Copilot customizations 来自 plugins 或 managed settings，而不是独立的用户或项目配置。",
+            "该更新可与 marketplace restrictions 结合使用。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-16-control-where-github-copilot-customizations-come-from",
+          "product_names": [
+            "GitHub Copilot"
+          ],
+          "published_at": "2026-11-16T19:48:33Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T19:48:33Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a06076806a0e698d5e36",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Control where GitHub Copilot customizations come from",
+              "url": "https://github.blog/changelog/2026-11-16-control-where-github-copilot-customizations-come-from"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-32b9c2a66054dcfbeba3",
+          "topic_names": [
+            "ai_coding",
+            "enterprise_administration",
+            "customization_governance"
+          ],
+          "uncertainties": [
+            "“选定的”自定义配置具体范围、可由管理员设定的粒度以及 marketplace restrictions 的具体联动方式在摘要中未说明。"
+          ]
+        },
+        {
+          "analysis": [
+            "本期周更把企业代码托管（GitHub Enterprise Server）与 Copilot 应用打通，意味着 Copilot 的可用范围从公共 GitHub 仓库向企业自托管环境延伸，可能影响企业内 Copilot 的落地路径。",
+            "VS Code 中加入“哪些 agent 会话需要你先处理”的优先级视图，反映智能体（agent）多会话并行后的任务管理需求正在成为 IDE 体验的一部分。",
+            "摘要提到新增两款模型、其中之一为 Claude，表明 Copilot 的模型选择继续多源化。"
+          ],
+          "canonical_title": "GitHub Copilot 周更（11月9日当周）：企业服务器仓库接入 Copilot 应用、VS Code 智能体会话优先级，并上线两款新模型",
+          "category": "ai_coding",
+          "entity_names": [
+            "GitHub",
+            "GitHub Copilot",
+            "GitHub Enterprise Server",
+            "VS Code",
+            "Claude"
+          ],
+          "facts": [
+            "GitHub 官方 Changelog 发布《GitHub Copilot weekly releases — November 9》，发布时间为 2026-11-16T21:34:53Z。",
+            "该周更内容称，用户可将 GitHub Enterprise Server 仓库接入 Copilot 应用。",
+            "该周更内容称，VS Code 中可优先看到需要用户处理的 agent 会话。",
+            "该周更内容称，用户可以试用两款新模型，摘要中提到 Claude。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-16-github-copilot-weekly-releases-november-9",
+          "product_names": [
+            "GitHub Copilot",
+            "GitHub Enterprise Server",
+            "VS Code",
+            "Claude"
+          ],
+          "published_at": "2026-11-16T21:34:53Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T21:34:53Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-fd96ccdd509bd9584255",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GitHub Copilot weekly releases — November 9",
+              "url": "https://github.blog/changelog/2026-11-16-github-copilot-weekly-releases-november-9"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-9d9b7e4282c2f09c3392",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "原文摘要与正文摘录均在“Claude…”处被截断，第二款新模型的具体名称、两款模型的上线范围与计费方式无法从输入确认。",
+            "GitHub Enterprise Server 仓库接入 Copilot 应用的具体前提条件、版本要求与可用区域未在输入中说明。",
+            "VS Code 中 agent 会话优先级功能的具体版本号与开启方式未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-32b9c2a66054dcfbeba3",
+        "story-9d9b7e4282c2f09c3392"
+      ],
+      "title": "GitHub Copilot 周更：企业仓库接入 Copilot 应用，管理员可限制自定义配置来源",
+      "uncertainty": "周更正文在“Claude…”处被截断，第二款新模型名称、上线范围与计费方式无法确认；GitHub Enterprise Server 接入的前提条件、版本要求与可用区域未知；VS Code agent 会话优先级的版本号与开启方式未知；“选定的”自定义配置的具体范围与管理员可设定的粒度也未说明。",
+      "what_happened": "GitHub 发布 Copilot 周更（11 月 9 日当周），称用户可将 GitHub Enterprise Server 仓库接入 Copilot 应用，VS Code 中可优先看到需要用户处理的 agent 会话，并可试用两款新模型（摘要提到 Claude）。同日另一则更新允许企业管理员要求选定的 Copilot customizations 来自 plugins 或 managed settings，而非独立的用户或项目配置，并可与 marketplace restrictions 结合使用。",
+      "why_it_matters": "企业自托管代码托管与 Copilot 应用的打通扩大了 Copilot 的可用范围；自定义配置治理权上收至管理员，则回应了企业环境中分散配置带来的审核与合规问题。这两条都指向 Copilot 在企业侧的落地路径正在从“可用”转向“可管”。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-f6404baccc57e1b825da",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://www.theverge.com/policy/1034527/openai-csam-classifier"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该工具针对的是儿童虐待举报热线中因生成式模型普及而出现的大量噪音，其核心价值在于分流与优先级判断，而非直接执法。",
+            "将“是否为 AI 生成”作为检测维度，意味着平台与调查机构需要区分真实受害者影像与合成内容，这会影响取证与响应流程。"
+          ],
+          "canonical_title": "OpenAI 发布儿童性虐待材料（CSAM）分类器，帮助调查员筛查 AI 生成内容",
+          "category": "policy",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 于周一在华盛顿特区举行的新闻发布会上宣布了一款分类器，称其能更好地检测儿童性虐待图像，包括判断该图像是否为 AI 生成。",
+            "OpenAI 表示，该工具旨在帮助儿童性虐待调查员从大量线索中筛出可据以采取行动的有害材料。"
+          ],
+          "primary_source_url": "https://www.theverge.com/policy/1034527/openai-csam-classifier",
+          "product_names": [
+            "CSAM classifier"
+          ],
+          "published_at": "2026-11-16T14:23:45-05:00",
+          "source_refs": [
+            {
+              "author": "Lauren Feiner",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-17T02:36:28.162065Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-16T14:23:45-05:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-019849ec10d9fd5ab0c3",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "OpenAI wants to stop deepfakes from overwhelming child abuse tiplines",
+              "url": "https://www.theverge.com/policy/1034527/openai-csam-classifier"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-0efd90653190492b2a9d",
+          "topic_names": [
+            "child sexual abuse material",
+            "deepfakes",
+            "AI-generated imagery",
+            "content moderation",
+            "tiplines"
+          ],
+          "uncertainties": [
+            "报道未给出该分类器的准确率、误报率、部署范围或面向哪些机构开放。",
+            "OpenAI 除该分类器外“还提供”的其他措施在摘要中被截断，具体内容未知。",
+            "报道未说明该工具是否已上线或仅处于发布/试点阶段。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-0efd90653190492b2a9d"
+      ],
+      "title": "OpenAI 发布 CSAM 分类器，帮助调查员筛查 AI 生成内容",
+      "uncertainty": "报道未给出准确率、误报率、部署范围或面向哪些机构开放；OpenAI 除该分类器外的其他措施在摘要中被截断；也不清楚该工具是否已上线或仅处于发布/试点阶段。",
+      "what_happened": "OpenAI 于周一在华盛顿特区新闻发布会上宣布一款分类器，称其能更好地检测儿童性虐待图像，包括判断图像是否为 AI 生成。OpenAI 表示，该工具旨在帮助儿童性虐待调查员从大量线索中筛出可据以采取行动的有害材料。",
+      "why_it_matters": "该工具针对的是生成式模型普及后儿童虐待举报热线中激增的噪音，核心价值在分流与优先级判断而非直接执法；将“是否为 AI 生成”纳入检测维度，会影响取证与响应流程。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "观察 GitHub 是否公布 11 月 9 日当周周更中提到但被截断的第二款新模型名称及其在 Copilot 中的上线范围。",
+    "观察 OpenAI 的 CSAM 分类器是否公布准确率、误报率与面向调查机构的开放范围。",
+    "若 Hugging Face 与 OpenRouter 的合作后续公布具体支持的开放权重模型列表、集成方式或上线时间，可观察其是否兑现“易于运行”的承诺。",
+    "若 Microsoft 或 Windows 官方文档、隐私声明或独立技术分析出现，可验证 Windows 11 是否确实收集编码智能体与开发工具使用数据，以及收集范围与机制。",
+    "若 NVIDIA 后续公布 cuPotential 的性能基准、API 文档或正式可用状态，可观察其是否提供准确且灵活的原语并实际加速分子动力学模拟。"
+  ]
+}

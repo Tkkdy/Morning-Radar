@@ -1,0 +1,89 @@
+[
+  {
+    "created_at": "2026-11-17T02:39:51.285815Z",
+    "explanation": "2 家公司在 ai_infrastructure 上出现同向事件，由 2 个来源支持。",
+    "id": "signal-81a0775585e4fa8c7bb9",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-2d6af29bd5a7ee6302aa",
+      "story-fde414a07749d60c6756"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-11-17T02:39:51.285815Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-11-17T02:39:51.285815Z",
+    "explanation": "2 家公司在 open_source_ai 上出现同向事件，由 3 个来源支持。",
+    "id": "signal-478d5acf930f32c5b828",
+    "metric_history": [],
+    "signal_type": "multi_company_direction",
+    "strength": 0.7,
+    "supporting_company_count": 2,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-2d6af29bd5a7ee6302aa",
+      "story-9d9b7e4282c2f09c3392",
+      "story-fde414a07749d60c6756"
+    ],
+    "topic": "open_source_ai",
+    "uncertainties": [],
+    "updated_at": "2026-11-17T02:39:51.285815Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-11-17T02:39:51.285815Z",
+    "explanation": "NVIDIA 最近交易日变动 -4.1%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-11090b453be2df14ad6d",
+    "metric_history": [
+      {
+        "change_percent": -0.04120360124274095,
+        "trading_date": "2026-11-16"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.6867266873790159,
+    "supporting_company_count": 12,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-2d6af29bd5a7ee6302aa",
+      "story-6a823f761f77d9209032",
+      "story-ca5ed17f40d3c83411b8"
+    ],
+    "topic": "NVIDIA",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-11-17T02:39:51.285815Z",
+    "window_days": 1
+  },
+  {
+    "created_at": "2026-11-17T02:39:51.285815Z",
+    "explanation": "AMD 最近交易日变动 -5.6%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-a2faa34e7d937c6ddb70",
+    "metric_history": [
+      {
+        "change_percent": -0.05576152289149797,
+        "trading_date": "2026-11-16"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 0.9293587148582995,
+    "supporting_company_count": 11,
+    "supporting_source_count": 1,
+    "supporting_story_ids": [
+      "story-2d6af29bd5a7ee6302aa"
+    ],
+    "topic": "AMD",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-11-17T02:39:51.285815Z",
+    "window_days": 1
+  }
+]
