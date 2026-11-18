@@ -1,0 +1,85 @@
+{
+  "date": "2026-11-18",
+  "generated_at": "2026-11-18T01:57:46.733027Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "NATO"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 与北约及盟国网络机构合作是否披露具体合作机构、参与方数量、技术细节或项目时间表。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-11-18T01:57:46.733027Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-18",
+          "story_id": "story-5e85c3d3e9b8a34c2acb"
+        }
+      ],
+      "topic_anchors": [
+        "AI 网络防御",
+        "漏洞发现",
+        "关键系统保护"
+      ],
+      "watch_id": "watch-3f0b5132fcd0d8608914"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Copilot"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否进一步说明 Copilot code review 自适应审查的判定逻辑与阈值，以及密钥检测的覆盖范围和默认开启策略。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Copilot code review"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-18T01:57:46.733027Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-18",
+          "story_id": "story-12368bdd0ee20c5c602a"
+        }
+      ],
+      "topic_anchors": [
+        "AI 编码",
+        "代码审查",
+        "密钥检测"
+      ],
+      "watch_id": "watch-9770d337b9a9e654f8fc"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "ChatGPT Enterprise",
+        "Astra for Law"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Astra for Law 是否公开其发布评估的方法、对比基线，以及 ChatGPT Enterprise 客户申请访问的具体限制条件。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Astra for Law",
+        "ChatGPT Enterprise"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-18T01:57:46.733027Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-18",
+          "story_id": "story-6f4d6339c124a10eb6d7"
+        }
+      ],
+      "topic_anchors": [
+        "法律人工智能",
+        "AI 模型评估"
+      ],
+      "watch_id": "watch-977932f55870d97aceee"
+    }
+  ]
+}

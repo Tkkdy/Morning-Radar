@@ -67,6 +67,7 @@
     "id": "item-57e7781a892d4960f0cc",
     "language": "en-US",
     "metadata": {
+      "content_version": "f2f3e5f3b9c3dcd16251",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -157,6 +158,7 @@
     "id": "item-0d4a3780c61dc50a9792",
     "language": "en-US",
     "metadata": {
+      "content_version": "8a020cf5ed496d37eb03",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -248,6 +250,7 @@
     "id": "item-e45fd791e1fe03c27509",
     "language": "en-us",
     "metadata": {
+      "content_version": "e3ce854cceb055e763bc",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -310,6 +313,7 @@
     "id": "item-0e7f690aa4ff229bd2e8",
     "language": "en-US",
     "metadata": {
+      "content_version": "9f7259b516c08e24be9b",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -340,6 +344,7 @@
     "id": "item-11608d311d0047796796",
     "language": "en-us",
     "metadata": {
+      "content_version": "27014ddf1492eeaff688",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -370,6 +375,7 @@
     "id": "item-75073ab854943bd97c37",
     "language": "en-US",
     "metadata": {
+      "content_version": "4dc31cf3ff0880ea15c7",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -673,6 +679,7 @@
     "id": "item-c381f1f20c433e7d3983",
     "language": "en-US",
     "metadata": {
+      "content_version": "f4ca1c71c8c9e887c29e",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -823,6 +830,7 @@
     "id": "item-9507e63bd34bba49d4de",
     "language": "en-US",
     "metadata": {
+      "content_version": "6df806723c83e3f92b7d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -916,6 +924,7 @@
     "id": "item-b43ef08ac3ed4f7af6f4",
     "language": "en-US",
     "metadata": {
+      "content_version": "4cf005f9fad9505bcf01",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -976,6 +985,7 @@
     "id": "item-6beb5088ff95eeeac7d6",
     "language": "en-US",
     "metadata": {
+      "content_version": "f96d18818046e991fe47",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1279,6 +1289,7 @@
     "id": "item-467e19c06d56952c4a19",
     "language": "en-US",
     "metadata": {
+      "content_version": "6f6caf506da3680aaf7d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1582,6 +1593,7 @@
     "id": "item-453bf04922152159bc47",
     "language": "en-US",
     "metadata": {
+      "content_version": "9b5cae128379df3a445d",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -49767,6 +49779,7 @@
     "id": "item-395eb2f50bbc7a2cf6a2",
     "language": "en",
     "metadata": {
+      "content_version": "2f7a2c173ab6559e97a3",
       "data_anomaly": false,
       "forks": 5071,
       "official": true,
@@ -53259,11 +53272,20 @@
     "metadata": {
       "comments": 696,
       "community_signal": true,
+      "content_version": "5c845293186ac2bbd122",
+      "discovery_paths": [
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50535230",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
       "score": 1085,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -53289,6 +53311,7 @@
     "metadata": {
       "comments": 582,
       "community_signal": true,
+      "content_version": "7a751ef7b37df7c19f66",
       "discussion_url": "https://news.ycombinator.com/item?id=50530163",
       "official": false,
       "original_url": "https://www.nytimes.com/2026/11/17/upshot/school-phone-bans-study-scores.html",
@@ -54073,6 +54096,7 @@
     "metadata": {
       "change_percent": -0.026856673039680437,
       "close": 379.739990234375,
+      "content_version": "af79f3e442bcc0911ca9",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 390.2200012207031,
@@ -56432,6 +56456,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "4e5ff5a66dafefc61d34",
       "discovery_paths": [
         "hn_search:anthropic:Claude"
       ],
@@ -57254,38 +57279,6 @@
     "title": "GPT 6.2 Astra and Sol are now live",
     "topic_candidates": [],
     "url": "https://twitter.com/cheatyyyy/status/2122748218320785567"
-  },
-  {
-    "author": "jasondavies",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-18T01:51:43.743483Z",
-    "id": "item-173b2a976c96e34b5d84",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:GPT"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50535230",
-      "hn_submission_time": 1794937603,
-      "lab_id": "openai",
-      "original_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-17T17:46:43Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "GPT‑6.2 Astra and Sol",
-    "topic_candidates": [],
-    "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
   },
   {
     "author": "feynmansletters",

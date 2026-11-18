@@ -1,0 +1,166 @@
+{
+  "date": "2026-11-18",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "GitHub 官方确认微软自研编程模型进入 Copilot，但能力与定价细节缺失，值得展开但不宜 TOP。",
+      "retain_for_trends": true,
+      "story_id": "story-fb3fbc13470643db3cc9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-model-pool-multi-vendor"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "Ignite 窗口集中推送多项 Copilot 更新，属产品覆盖扩展，轻量阅读即可。",
+      "retain_for_trends": true,
+      "story_id": "story-7fbff0ec021534316833",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-cross-surface-expansion",
+        "public-benchmark-transparency"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "新模型进入 Copilot 是事实，但能力优于前代的说法仅为厂商 claim，需独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-d83735e2b782c853e91a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-model-pool-multi-vendor",
+        "agentic-coding-model-competition"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "代码审查自适应力度与密钥检测有实际工作流影响，但细节未披露，适合轻量阅读。",
+      "retain_for_trends": true,
+      "story_id": "story-12368bdd0ee20c5c602a",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-code-review-adaptive-effort",
+        "secret-detection-in-review"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "政府合作仅停留在抽象公告层面，未见对开发能力或成本的实际影响，仅作后台信号。",
+      "retain_for_trends": true,
+      "story_id": "story-5e85c3d3e9b8a34c2acb",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-cyber-defense-institutional-partnership"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规 SDK 维护与依赖升级，无结构性变化。",
+      "retain_for_trends": false,
+      "story_id": "story-df53b10d22b0c0470f58",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "SUPPORT",
+      "reader_value": 2,
+      "reason": "HN 社区发现线索，仅作为 Copilot 上线模型的讨论旁证，不能独立成新闻。",
+      "retain_for_trends": true,
+      "story_id": "story-6a7101bc21b4d4bb6472",
+      "support_for_story_id": "story-d83735e2b782c853e91a",
+      "trend_links": [
+        "agentic-coding-model-competition"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "本地常开 Claude Code 服务器实践是值得记录的 weak signal，但未经独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-92972d5c8206b941471e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "always-on-local-coding-server",
+        "cross-device-session-continuity"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "法律专用产品与自评排名均来自厂商自身，保留为垂直化与自评基准证据。",
+      "retain_for_trends": true,
+      "story_id": "story-6f4d6339c124a10eb6d7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-benchmark-self-evaluation",
+        "vertical-domain-model-packs"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "650亿美元持仓与九个月近三倍增长值得知道，但标题中退出传闻与估值口径不可靠。",
+      "retain_for_trends": true,
+      "story_id": "story-16e480ab6ce7b985e422",
+      "support_for_story_id": null,
+      "trend_links": [
+        "strategic-investor-portfolio-concentration"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "股东诉讼与单日跌幅属市场与法律事件，对开发者和模型能力无直接影响。",
+      "retain_for_trends": false,
+      "story_id": "story-27587345a1f7ce8d8439",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "节假日地图消费功能，内容为占位摘要，与开发者无关。",
+      "retain_for_trends": false,
+      "story_id": "story-a443508c776e7379a6f2",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-18T01:57:46.733027Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

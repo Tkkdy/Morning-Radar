@@ -1,0 +1,134 @@
+[
+  {
+    "claim": "Simon Willison 正在探索面向编码 Agent 的外部沙箱模式，让 Agent 执行的代码在隔离环境中运行，以降低本地模型出错或提示注入造成破坏的风险；该项目与 Prime Radiant 合作。",
+    "id": "radar-6dfab5f7c561b5c1d7e7",
+    "missing_evidence": [
+      "外部沙箱的具体隔离机制与威胁模型",
+      "实际测试结果或绕过案例",
+      "Prime Radiant 博客原文的完整细节"
+    ],
+    "observed_at": "2026-11-18T01:51:43.743483Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-e45fd791e1fe03c27509",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/"
+      }
+    ],
+    "uncertainty": "仅有作者博文摘录且被截断，未提供独立验证或测试数据。",
+    "why_notable": "编码 Agent 的安全隔离是落地关键问题；外部沙箱模式若有效，可支持更安全地试用本地模型和不可信代码。"
+  },
+  {
+    "claim": "有线索称 OpenAI 发布 GPT‑6.2 Astra 与 Sol 模型。",
+    "id": "radar-49852bac234225984ea9",
+    "missing_evidence": [
+      "OpenAI 官方页面正文或公告细节",
+      "模型能力、可用性和定价信息",
+      "独立来源或实测验证"
+    ],
+    "observed_at": "2026-11-18T01:51:43.743483Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-173b2a976c96e34b5d84",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+      }
+    ],
+    "uncertainty": "仅有 Hacker News 提交标题，正文缺失，未抓取官方页面，也无独立证据。",
+    "why_notable": "若属实，将是重要基础模型更新，可能影响模型选型与竞争格局。"
+  },
+  {
+    "claim": "Show HN 项目 Eso-box 旨在把闲置笔记本变成常开的 Claude Code 服务器，让 Claude Code 会话跨设备延续并可直接迭代项目。",
+    "id": "radar-7f799e0c36e55bb5b09a",
+    "missing_evidence": [
+      "项目代码与安装/运行文档的实际质量",
+      "安全性与多设备会话同步机制",
+      "独立用户测试或可复现演示"
+    ],
+    "observed_at": "2026-11-18T01:51:43.743483Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-7a8cef167acff0e80219",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/blumalex/eso-box"
+      }
+    ],
+    "uncertainty": "来自作者自述的 Show HN，摘录被截断，尚无独立验证。",
+    "why_notable": "反映编码 Agent 从单机 CLI 向常开、跨设备工作流的实际需求；若可用，会改变个人开发者的远程 Agent 使用方式。"
+  }
+]

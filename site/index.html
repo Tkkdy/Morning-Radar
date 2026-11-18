@@ -4,13 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="Morning Radar：可追溯的 AI、市场与开发者晨报">
-  <title>Morning Radar · 2026-11-17</title>
+  <title>Morning Radar · 2026-11-18</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
   <header class="hero">
     <nav><a class="brand" href="index.html">Morning Radar</a><a href="archive.html">历史晨报</a></nav>
-    <p class="eyebrow">2026-11-17 · Asia/Singapore</p>
+    <p class="eyebrow">2026-11-18 · Asia/Singapore</p>
     <h1>少而重要，事实可追溯。</h1>
     <p class="lede">AI 科技、重点公司与开发者生态的每日信号。</p>
   </header>
@@ -18,199 +18,169 @@
 <section>
   <h2>今日重点</h2>
   <div class="cards">
-<article class="brief-card" id="story-story-2d6af29bd5a7ee6302aa">
+<article class="brief-card" id="story-story-5e85c3d3e9b8a34c2acb">
   <p class="section-label">今日重点</p>
-  <h3>vLLM v0.34.0 默认启用可扩展 KV cache，Model Runner V2 成为唯一 GPU runner</h3>
-  <p>vLLM 发布 v0.34.0，包含来自 412 位贡献者的 1,061 个提交，新增 Mistral Large 4、MiniMax-M3.1-Flash、NVIDIA Nemotron-3.5-Transcribe、Liquid AI LFM3 系列等 10 个模型。可扩展 KV cache 在 CUDA 与 ROCm 上默认启用，改成按 CUDA graph 捕获与预热后的实际空闲显存定容；官方示例称 MiniMax-M3 在 H200 上的 KV cache 由 433k tokens 增至 672k tokens。同时 Model Runner V1 被移除，Model Runner V2 成为唯一 GPU runner，默认 block size 由 16 改为 64，gpu_memory_utilization 改为 1.0，ROCm 7.2 构建产物、QuTLASS/fp_quant、Marlin W4A8、Keye-VL 等被移除，并要求 huggingface_hub >= 2.0.0。</p>
-<p class="why"><strong>为什么重要：</strong>按预热后实际空闲显存定容的 KV cache 是本版本对吞吐影响最大的默认行为变化，倾向提升高并发缓存容量与首 token 延迟表现；但移除 V1 runner、改默认 block size 与收紧依赖，意味着升级需要主动核对启动参数、自定义 logits processor 与量化格式兼容性。</p>    <span class="status-badge">已上线</span>
+  <h3>OpenAI 与北约及盟国网络机构合作，以 AI 强化防御</h3>
+  <p>OpenAI 于 2026-11-17 发布公告称，其正与北约及盟国网络机构合作，帮助可信防御者发现漏洞、测试修复方案并保护关键系统。</p>
+<p class="why"><strong>为什么重要：</strong>该合作将 AI 能力明确定位为防御性网络安全工具，使用场景集中在漏洞发现与修复验证环节，而非进攻性用途。</p>    <span class="status-badge">已宣布</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://github.com/vllm-project/vllm/releases/tag/v0.34.0" rel="noopener noreferrer">
-        GitHub · vllm-project/vllm · Release
+    <a class="primary-source" href="https://openai.com/index/strengthening-nato-allied-cyber-defences-ai" rel="noopener noreferrer">
+        OpenAI News · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-Release 发布于 2026-11-16
+来源条目时间：2026-11-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>官方给出的性能提升倍数缺乏独立基准复现；TPOT 上升 6%–18% 仅在部分 H200 模型与并发 128 条件下给出，其他硬件与负载下未知；摘要中推测解码的“Draft KV cache 与目标 dtype 匹配”条目被截断，需查阅 changelog。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>公告未披露具体合作机构名单、参与方数量、技术细节或项目时间表；也未说明相关 AI 模型或工具的具体版本与部署范围。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>vLLM 发布 v0.34.0，该版本包含 1,061 个提交，来自 412 位贡献者，其中 120 位为新贡献者。</li><li>v0.34.0 新增 10 个模型，包括 Mistral Large 4、MiniMax-M3.1-Flash、Nemotron-3.5-Transcribe 等。</li><li>可扩展 KV cache 在 CUDA 和 ROCm 上默认启用；KV cache 按 CUDA graph 捕获与预热后实际空闲内存来定容，而非估算（PR #56492）。</li><li>官方示例称 MiniMax-M3 在 H200 上的 KV cache 由 433k tokens 增至 672k tokens。</li><li>官方称在部分 H200 模型上，并发 128 时每 token 解码延迟可能上升，TPOT 增加 6%–18%；可通过 --gpu-memory-utilization 0.9 或 --no-enable-extensible-kv-cache 关闭。</li><li>Model Runner V1 已被移除（PR #63373），Model Runner V2 成为唯一 GPU runner；设置 VLLM_USE_V2_MODEL_RUNNER=0 会在启动时报错。</li><li>默认 --block-size 由 16 改为 64（PR #63231），ROCm paged attention 仍使用 16。</li><li>默认 gpu_memory_utilization 改为 1.0。</li><li>ROCm 7.2 相关构建产物被移除（PR #61939），改用 ROCm 10.0 wheels 与镜像。</li><li>该版本要求 huggingface_hub >= 2.0.0，同时要求 tokenizers >= 0.23.3 与 timm >= 1.0.30（PR #64779）。</li><li>QuTLASS / fp_quant 被移除（PR #65230），Marlin W4A8 被移除（PR #65542）。</li><li>Keye-VL 与 Keye-VL-1.5 被移除（PR #64287）。</li><li>新增模型清单包含 Mistral Large 4（1T 总参数 / 52B 激活，FP8 与 NVFP4，支持 NVIDIA Blackwell/Hopper 与 AMD MI350，PR #64534）、MiniMax-M3.1-Flash（PR #64111）、NVIDIA Nemotron-3.5-Transcribe（30B-A4B 语音模型，PR #64282）、Ricursive Ripple-65B Preview（PR #65745）、Zyphra ZAYA1（PR #65302）、Baidu Unlimited-OCR-2（PR #64016）、Liquid AI LFM3 系列（PR #65826、#65827、#65828）、NVIDIA Canary-1B-v2（PR #64215）、Ming3-ASR（PR #63585）、NVIDIA Parakeet TDT（PR #65005）。</li><li>推测解码方面，suffix decoding 在 MRV2 上运行并使用 GPU speculator，不再需要 Arctic Inference（PR #60339）；新增声明式配置与 register_speculative_method 插件 API（PR #63205）；MRV2 draft-model speculator 支持 CUDA graphs（PR #60989）；自适应验证支持 XPress（PR #65175）。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>KV cache 改为按预热后实际空闲显存定容，是本版本对吞吐影响最大的默认行为变化；它倾向提升高并发下的缓存容量与 TTFT，但可能牺牲部分单 token 解码延迟。</li><li>移除 Model Runner V1 与调整 block size 默认值，意味着升级需要主动检查启动参数与自定义 logits processor 的迁移路径。</li><li>依赖与后端组合要求收紧（huggingface_hub >= 2.0.0、ROCm 10.0、移除 ROCm 7.2 与 fp_quant/Marlin W4A8），升级前需核对部署镜像与量化格式兼容性。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>官方给出的性能提升倍数缺乏独立基准复现，实际收益取决于模型、硬件与并发配置。</li><li>KV cache 定容变化对 TPOT 的影响（6%–18%）仅在部分 H200 模型与并发 128 条件下给出，其他硬件与负载下的表现未知。</li><li>摘要中推测解码的“Draft KV cache 与目标 dtype 匹配”条目被截断，完整细节需查阅 changelog。</li></ul></div><div class="detail-tags">
-<span>实体：vllm-project、vLLM、khluu、Mistral AI、MiniMax、NVIDIA、Zyphra、Baidu、Liquid AI、AMD、Arctic Inference</span><span>产品：vLLM v0.34.0、Mistral Large 4、MiniMax-M3.1-Flash、Nemotron-3.5-Transcribe、Ricursive Ripple-65B Preview、ZAYA1、ZAYA1-8B、ZAYA1-74B-preview、Baidu Unlimited-OCR-2、LFM3、LFM3-VL、LFM3-Audio、NVIDIA Canary-1B-v2、Ming3-ASR、NVIDIA Parakeet TDT、Model Runner V2、Model Runner V1、GLM-5.3-Flash、GLM-5.3、Step5</span><span>主题：ai_infrastructure、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>GitHub · vllm-project/vllm</strong><span class="primary-indicator">主来源</span></div>
-        <div>vllm-project/vllm: v0.34.0</div>
-<div>作者：khluu</div><div class="source-time">
-Release 发布于 2026-11-16
+<div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI 发布公告称，其正与北约及盟国网络机构合作，帮助可信防御者发现漏洞、测试修复方案并保护关键系统。</li><li>该信息发布于 OpenAI 新闻页，时间为 2026-11-17。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该合作将 AI 能力定位为防御性网络安全工具，使用场景集中在漏洞发现与修复验证环节，而非进攻性用途。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>公告未披露具体合作机构名单、参与方数量、技术细节或项目时间表。</li><li>公告未说明相关 AI 模型或工具的具体版本与部署范围。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、NATO</span><span>主题：AI 网络防御、漏洞发现、关键系统保护</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
+        <div>Strengthening NATO and allied cyber defenses with AI</div>
+<div class="source-time">
+来源条目时间：2026-11-17
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-32b9c2a66054dcfbeba3">
+</article><article class="brief-card" id="story-story-fb3fbc13470643db3cc9">
   <p class="section-label">今日重点</p>
-  <h3>GitHub Copilot 周更：企业仓库接入 Copilot 应用，管理员可限制自定义配置来源</h3>
-  <p>GitHub 发布 Copilot 周更（11 月 9 日当周），称用户可将 GitHub Enterprise Server 仓库接入 Copilot 应用，VS Code 中可优先看到需要用户处理的 agent 会话，并可试用两款新模型（摘要提到 Claude）。同日另一则更新允许企业管理员要求选定的 Copilot customizations 来自 plugins 或 managed settings，而非独立的用户或项目配置，并可与 marketplace restrictions 结合使用。</p>
-<p class="why"><strong>为什么重要：</strong>企业自托管代码托管与 Copilot 应用的打通扩大了 Copilot 的可用范围；自定义配置治理权上收至管理员，则回应了企业环境中分散配置带来的审核与合规问题。这两条都指向 Copilot 在企业侧的落地路径正在从“可用”转向“可管”。</p>    <span class="status-badge">已上线</span>
+  <h3>GitHub Copilot 上线 MAI Code 2 与 MAI Code 2 Flash 两款微软 AI 编程模型</h3>
+  <p>GitHub Changelog 于 2026-11-17T18:01:45Z 发布文章，宣布微软 AI（MAI）的新一代编程模型 MAI Code 2 和 MAI Code 2 Flash 已进入 GitHub Copilot。</p>
+<p class="why"><strong>为什么重要：</strong>该消息来自 GitHub 官方 Changelog，属于官方一手发布，可作为事件事实底座；但摘要仅给出模型名称与上线平台，未披露参数规模、上下文长度、定价、可用范围或具体能力对比。</p>    <span class="status-badge">已上线</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://github.blog/changelog/2026-11-16-control-where-github-copilot-customizations-come-from" rel="noopener noreferrer">
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot" rel="noopener noreferrer">
         GitHub Changelog · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-11-16
+来源条目时间：2026-11-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>周更正文在“Claude…”处被截断，第二款新模型名称、上线范围与计费方式无法确认；GitHub Enterprise Server 接入的前提条件、版本要求与可用区域未知；VS Code agent 会话优先级的版本号与开启方式未知；“选定的”自定义配置的具体范围与管理员可设定的粒度也未说明。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>MAI Code 2 与 MAI Code 2 Flash 的具体能力、基准测试结果、上下文窗口和定价均未在输入中说明。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>GitHub 发布更新，允许企业管理员要求选定的 GitHub Copilot customizations 来自 plugins 或 managed settings，而不是独立的用户或项目配置。</li><li>该更新可与 marketplace restrictions 结合使用。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该能力将 Copilot 自定义配置的治理权上收至企业管理员，可减少来自分散的用户或项目配置的未经审核自定义内容。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>“选定的”自定义配置具体范围、可由管理员设定的粒度以及 marketplace restrictions 的具体联动方式在摘要中未说明。</li></ul></div><div class="detail-tags">
-<span>实体：GitHub、GitHub Copilot</span><span>产品：GitHub Copilot</span><span>主题：ai_coding、enterprise_administration、customization_governance</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>文章将这两款模型描述为 MAI 的下一代编程模型，并称其代表一次重大进展。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>两款模型在 GitHub Copilot 中的可用范围（如计划层级、地区限制）和具体上线时间点不明确。</li><li>摘要称其为“重大进展”，但未给出支撑这一判断的细节。</li></ul></div><div class="detail-tags">
+<span>实体：Microsoft AI、GitHub、GitHub Copilot、MAI Code 2、MAI Code 2 Flash</span><span>产品：MAI Code 2、MAI Code 2 Flash、GitHub Copilot</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
         <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Control where GitHub Copilot customizations come from</div>
+        <div>MAI Code 2 and MAI Code 2 Flash in GitHub Copilot</div>
 <div>作者：Allison</div><div class="source-time">
-来源条目时间：2026-11-16
-        </div>      </li></ul></div><div class="detail-block"><h4>已验证事实</h4><ul><li>GitHub 官方 Changelog 发布《GitHub Copilot weekly releases — November 9》，发布时间为 2026-11-16T21:34:53Z。</li><li>该周更内容称，用户可将 GitHub Enterprise Server 仓库接入 Copilot 应用。</li><li>该周更内容称，VS Code 中可优先看到需要用户处理的 agent 会话。</li><li>该周更内容称，用户可以试用两款新模型，摘要中提到 Claude。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>本期周更把企业代码托管（GitHub Enterprise Server）与 Copilot 应用打通，意味着 Copilot 的可用范围从公共 GitHub 仓库向企业自托管环境延伸，可能影响企业内 Copilot 的落地路径。</li><li>VS Code 中加入“哪些 agent 会话需要你先处理”的优先级视图，反映智能体（agent）多会话并行后的任务管理需求正在成为 IDE 体验的一部分。</li><li>摘要提到新增两款模型、其中之一为 Claude，表明 Copilot 的模型选择继续多源化。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>原文摘要与正文摘录均在“Claude…”处被截断，第二款新模型的具体名称、两款模型的上线范围与计费方式无法从输入确认。</li><li>GitHub Enterprise Server 仓库接入 Copilot 应用的具体前提条件、版本要求与可用区域未在输入中说明。</li><li>VS Code 中 agent 会话优先级功能的具体版本号与开启方式未在输入中说明。</li></ul></div><div class="detail-tags">
-<span>实体：GitHub、GitHub Copilot、GitHub Enterprise Server、VS Code、Claude</span><span>产品：GitHub Copilot、GitHub Enterprise Server、VS Code、Claude</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
-        <div>GitHub Copilot weekly releases — November 9</div>
-<div>作者：Allison</div><div class="source-time">
-来源条目时间：2026-11-16
-        </div><a href="https://github.blog/changelog/2026-11-16-github-copilot-weekly-releases-november-9" rel="noopener noreferrer">原文</a>      </li></ul></div>    </div>
-  </details>
-</article><article class="brief-card" id="story-story-0efd90653190492b2a9d">
-  <p class="section-label">今日重点</p>
-  <h3>OpenAI 发布 CSAM 分类器，帮助调查员筛查 AI 生成内容</h3>
-  <p>OpenAI 于周一在华盛顿特区新闻发布会上宣布一款分类器，称其能更好地检测儿童性虐待图像，包括判断图像是否为 AI 生成。OpenAI 表示，该工具旨在帮助儿童性虐待调查员从大量线索中筛出可据以采取行动的有害材料。</p>
-<p class="why"><strong>为什么重要：</strong>该工具针对的是生成式模型普及后儿童虐待举报热线中激增的噪音，核心价值在分流与优先级判断而非直接执法；将“是否为 AI 生成”纳入检测维度，会影响取证与响应流程。</p>    <span class="status-badge">已宣布</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://www.theverge.com/policy/1034527/openai-csam-classifier" rel="noopener noreferrer">
-        The Verge AI · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-11-16
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>报道未给出准确率、误报率、部署范围或面向哪些机构开放；OpenAI 除该分类器外的其他措施在摘要中被截断；也不清楚该工具是否已上线或仅处于发布/试点阶段。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI 于周一在华盛顿特区举行的新闻发布会上宣布了一款分类器，称其能更好地检测儿童性虐待图像，包括判断该图像是否为 AI 生成。</li><li>OpenAI 表示，该工具旨在帮助儿童性虐待调查员从大量线索中筛出可据以采取行动的有害材料。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该工具针对的是儿童虐待举报热线中因生成式模型普及而出现的大量噪音，其核心价值在于分流与优先级判断，而非直接执法。</li><li>将“是否为 AI 生成”作为检测维度，意味着平台与调查机构需要区分真实受害者影像与合成内容，这会影响取证与响应流程。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>报道未给出该分类器的准确率、误报率、部署范围或面向哪些机构开放。</li><li>OpenAI 除该分类器外“还提供”的其他措施在摘要中被截断，具体内容未知。</li><li>报道未说明该工具是否已上线或仅处于发布/试点阶段。</li></ul></div><div class="detail-tags">
-<span>实体：OpenAI</span><span>产品：CSAM classifier</span><span>主题：child sexual abuse material、deepfakes、AI-generated imagery、content moderation、tiplines</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>The Verge AI</strong><span class="primary-indicator">主来源</span></div>
-        <div>OpenAI wants to stop deepfakes from overwhelming child abuse tiplines</div>
-<div>作者：Lauren Feiner</div><div class="source-time">
-来源条目时间：2026-11-16
+来源条目时间：2026-11-17
         </div>      </li></ul></div>    </div>
   </details>
-</article>  </div>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-6a7101bc21b4d4bb6472">
+  <p class="section-label">今日重点</p>
+  <h3>OpenAI 发布 GPT-6.2 Astra 与 Sol</h3>
+  <p>OpenAI 发布 GPT-6.2 Astra 与 Sol</p>
+    <span class="status-badge">传闻</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://openai.com/index/introducing-gpt-6-2-astra-sol/" rel="noopener noreferrer">
+openai.com · 原文    </a>
+    <span class="discovery-note">经 Hacker News 发现</span>
+    <a href="https://news.ycombinator.com/item?id=50535230" rel="noopener noreferrer">Hacker News · 讨论</a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+2026-11-17 在 Hacker News 提交
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>该条目来自 Hacker News 社区发现，source_role 为 community_discovery，statement_type 为 unverified_lead，尚未经过官方一手来源核实，因此不能作为事实。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>不确定性</h4><ul><li>标题所称的 GPT-6.2 Astra 与 Sol 的发布细节（模型能力、发布时间、可用范围等）在输入中没有可核实的内容，summary 与 content_excerpt 均为空。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI</span><span>产品：GPT-6.2 Astra、GPT-6.2 Sol</span><span>主题：模型发布</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>openai.com · 原文</strong><span class="primary-indicator">主来源</span></div>
+<div class="discovery-note">经 Hacker News 发现</div>        <div>GPT‑6.2 Astra and Sol</div>
+<div>作者：jasondavies</div><div class="source-time">
+2026-11-17 在 Hacker News 提交
+        </div>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article>  </div>
 </section>
 <section>
   <h2>AI 与开源</h2>
   <div class="cards">
-<article class="brief-card" id="story-story-86845593587260dd4f6f">
+<article class="brief-card" id="story-story-12368bdd0ee20c5c602a">
   <p class="section-label">AI 与开源</p>
-  <h3>Hugging Face 与 OpenRouter 合作简化开放权重模型运行</h3>
-  <p>Hugging Face 官方博客宣布与 OpenRouter 合作，目标是让开放权重模型更易于运行。公告本身确认了合作意向，但未披露具体技术集成方式、支持的模型范围或上线时间。</p>
-<p class="why"><strong>为什么重要：</strong>若合作落地，可能降低开发者运行开放权重模型的门槛，并影响开源模型的分发与调用路径；但目前仅有公告标题级信息，尚不足以判断实际影响。</p>    <span class="status-badge">已宣布</span>
+  <h3>GitHub Copilot 代码审查新增自适应审查力度与密钥检测</h3>
+  <p>GitHub 在官方 Changelog 中宣布 Copilot code review 更新，新增自适应审查力度、密钥检测等功能。官方说明称，自适应会按每个拉取请求匹配审查深度，使常规改动获得快速审查。</p>
+<p class="why"><strong>为什么重要：</strong>从官方描述看，本次更新让审查力度随改动复杂度自动调整，在常规改动上减少投入，把更深度的审查留给更需要关注的变化；密钥检测被列入本次更新，说明 GitHub 试图把安全类问题更早暴露在代码审查环节。</p>    <span class="status-badge">已更新</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://huggingface.co/blog/openrouter" rel="noopener noreferrer">
-        Hugging Face Blog · 原文
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more" rel="noopener noreferrer">
+        GitHub Changelog · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-11-16
+来源条目时间：2026-11-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>合作涉及哪些具体模型、集成形式、可用时间与地区范围尚未明确，文章摘要与正文摘录为空。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>官方公告未在所提供的摘要中说明自适应审查的具体判定逻辑与阈值；密钥检测的具体覆盖范围、误报率及是否对所有仓库默认开启，未在输入中说明。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>Hugging Face 博客宣布与 OpenRouter 合作，使开放权重模型易于运行。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>该公告来自 Hugging Face 官方博客，属于官方一手信息，可作为事件的基础事实来源。</li><li>由于内容摘录为空，合作的具体技术方式、支持范围与上线时间无法从现有内容中确认。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>合作涉及哪些具体模型、集成形式、可用时间与地区范围尚未明确。</li></ul></div><div class="detail-tags">
-<span>实体：Hugging Face、OpenRouter</span><span>主题：open-weight models、模型运行与部署、开放源 AI</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Hugging Face and OpenRouter join forces to make open-weight models easy to run</div>
-<div class="source-time">
-来源条目时间：2026-11-16
+<div class="detail-block"><h4>已验证事实</h4><ul><li>GitHub 在官方 Changelog 中宣布 Copilot code review 更新，新增自适应审查力度、密钥检测等功能。</li><li>官方说明称，自适应会按每个拉取请求匹配审查深度，使常规改动获得快速审查。</li><li>该公告的发布时间为 2026-11-17T18:02:05Z。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>从官方描述看，本次更新的重点是让审查力度随改动复杂度自动调整，从而在常规改动上减少投入，并把更深度的审查留给更需要关注的变化。</li><li>密钥检测被列入本次更新，说明 GitHub 试图把安全类问题更早地暴露在代码审查环节。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>官方公告未在所提供的摘要中说明自适应审查的具体判定逻辑与阈值。</li><li>密钥检测的具体覆盖范围、误报率及是否对所有仓库默认开启，未在输入中说明。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、Copilot</span><span>产品：Copilot code review</span><span>主题：AI 编码、代码审查、密钥检测</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
+        <div>Copilot code review: Adaptive effort, secret detection, and more</div>
+<div>作者：Allison</div><div class="source-time">
+来源条目时间：2026-11-17
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-ecb81d3317c86ad16c8a">
+</article><article class="brief-card" id="story-story-92972d5c8206b941471e">
   <p class="section-label">AI 与开源</p>
-  <h3>Hacker News 热帖称 Windows 11 收集开发者编码智能体与工具使用数据</h3>
-  <p>Hacker News 出现一篇社区发现帖，标题称 Windows 11 正在收集用户使用哪些编码智能体和开发工具的数据。该帖获得 279 分和 156 条评论，但来源被标记为未经核实的线索，正文摘要为空。</p>
-<p class="why"><strong>为什么重要：</strong>该话题触及开发者工具遥测与隐私边界，社区关注度较高；但在官方文档或独立验证出现前，不宜将其视为已确认事实。</p>  <div class="card-meta">
-    <a class="primary-source" href="https://xusheng.dev/posts/windows-coding-agent-telemetry/" rel="noopener noreferrer">
-xusheng.dev · 原文    </a>
+  <h3>Eso-box：将备用笔记本变为常开 Claude Code 服务器的开源项目</h3>
+  <p>Hacker News 上出现一则 Show HN 帖子，介绍开源项目 Eso-box，声称可将备用笔记本变为常开 Claude Code 服务器，用户可通过 SSH（笔记本）和 Claude 应用（手机）连接该服务器，并支持在对话中途于设备之间切换。</p>
+<p class="why"><strong>为什么重要：</strong>该提交的动机被描述为作者希望从移动设备上试做想法，并对已有方案（claude --cloud 或 /remote-control）感到不满，认为这些方案会把会话分散到多个设备上。</p>  <div class="card-meta">
+    <a class="primary-source" href="https://github.com/blumalex/eso-box" rel="noopener noreferrer">
+github.com · 原文    </a>
     <span class="discovery-note">经 Hacker News 发现</span>
-    <a href="https://news.ycombinator.com/item?id=50524736" rel="noopener noreferrer">Hacker News · 讨论</a>
+    <a href="https://news.ycombinator.com/item?id=50536502" rel="noopener noreferrer">Hacker News · 讨论</a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-2026-11-16 在 Hacker News 提交
+2026-11-17 在 Hacker News 提交
     </span>
   </div>
-<p><strong>市场/社区：</strong>Hacker News 帖子获得 279 分和 156 条评论，反映社区关注度，但不能作为事件事实依据。</p><p class="uncertainty"><strong>不确定性：</strong>该信息为社区发现帖，未经原始证据核实；具体收集哪些数据、通过何种机制、是否有官方文档说明均不明确。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>这是作者的一份未经核实的一手说明，因此无法独立确认 Eso-box 是否能实现所声称的跨设备会话连续性；内容仅以 Hacker News 上的一则项目讨论帖形式提供，未附官方文档、演示或用户测试；实体和仓库标识符均来自该帖子的元数据，尚未由任何主要来源确认。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>不确定性</h4><ul><li>该信息来源为 Hacker News 社区发现帖，标记为 unverified_lead，标题所述 Windows 11 遥测行为未经原始证据核实。</li><li>该帖正文内容摘要为空，无法确认具体收集哪些数据、通过何种机制、以及是否有官方文档说明。</li><li>该帖在 Hacker News 获得 279 分和 156 条评论，但这只反映社区关注度，不能作为事件事实依据。</li></ul></div><div class="detail-tags">
-<span>实体：Microsoft、Windows 11</span><span>产品：Windows 11</span><span>主题：遥测、隐私、编码智能体、开发者工具</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>xusheng.dev · 原文</strong><span class="primary-indicator">主来源</span></div>
-<div class="discovery-note">经 Hacker News 发现</div>        <div>Windows 11 Is Collecting Data on Which Coding Agents and Developer Tools You Use</div>
-<div>作者：cwaffles</div><div class="source-time">
-2026-11-16 在 Hacker News 提交
+<div class="detail-block"><h4>分析</h4><ul><li>该提交将 Eso-box 描述为一个在备用笔记本上常开运行的 Claude Code 服务器，用户可通过 SSH（笔记本）和 Claude 应用（手机）连接该服务器，并支持在对话中途于设备之间切换。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>这是作者的一份未经核实的一手说明，因此无法独立确认 Eso-box 是否能实现所声称的跨设备会话连续性。</li><li>内容仅以 Hacker News 上的一则项目讨论帖形式提供，未附官方文档、演示或用户测试。</li><li>实体和仓库标识符均来自该帖子的元数据，尚未由任何主要来源确认。</li></ul></div><div class="detail-tags">
+<span>实体：blumalex、Eso-box、Claude Code、Hacker News</span><span>产品：Eso-box、Claude Code</span><span>主题：常开开发服务器、跨设备会话连续性、SSH 访问</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>github.com · 原文</strong><span class="primary-indicator">主来源</span></div>
+<div class="discovery-note">经 Hacker News 发现</div>        <div>Show HN: Eso-box: turn a spare laptop into an always-on Claude Code server</div>
+<div>作者：andale</div><div class="source-time">
+2026-11-17 在 Hacker News 提交
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-6a823f761f77d9209032">
+</article><article class="brief-card" id="story-story-6f4d6339c124a10eb6d7">
   <p class="section-label">AI 与开源</p>
-  <h3>NVIDIA 发布 cuPotential，用于加速分子动力学模拟</h3>
-  <p>NVIDIA Developer Blog 发布文章，介绍使用 NVIDIA cuPotential 加速分子动力学模拟，作者为 Yutong Zhao。文章指出分子动力学在物理、化学、生物学和材料科学中是不可或缺的工具。</p>
-<p class="why"><strong>为什么重要：</strong>若 cuPotential 提供准确且灵活的基础原语，可能降低分子动力学模拟的 GPU 加速门槛；但当前输入未给出性能数据或可用性细节。</p>    <span class="status-badge">已宣布</span>
+  <h3>OpenAI 推出 Astra for Law，称在 24 个法律领域评估中排名第一</h3>
+  <p>OpenAI 发布 Astra for Law，称该产品在覆盖 24 个法律领域的发布评估中排名第一。ChatGPT Enterprise 客户现在可以申请 Astra for Law 的访问权限。</p>
+<p class="why"><strong>为什么重要：</strong>OpenAI 将 Astra for Law 定位为面向法律场景的专用产品，并以自有的发布评估结果作为其能力佐证，但该评估的评测方法、基线模型与对比对象均未在摘要中披露。</p>    <span class="status-badge">已宣布</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://developer.nvidia.com/blog/accelerate-molecular-dynamics-simulations-with-accurate-flexible-primitives-using-nvidia-cupotential/" rel="noopener noreferrer">
-        NVIDIA Developer Blog · 原文
+    <a class="primary-source" href="https://openai.com/index/astra-law-6-2" rel="noopener noreferrer">
+        OpenAI News · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-11-16
+来源条目时间：2026-11-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>cuPotential 的具体功能特性、性能数据、发布状态与可用性细节尚不明确。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>“排名第一”仅来自 OpenAI 自身的发布评估，摘要未说明参与对比的其他产品或基线模型；Astra for Law 的具体模型版本、能力边界与可用时间表未披露；ChatGPT Enterprise 客户申请后如何获得访问权限、是否存在名额或地域限制，尚不明确。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>NVIDIA Developer Blog 发布文章，介绍使用 NVIDIA cuPotential 加速分子动力学模拟（原文：比原文：Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential）。</li><li>文章作者为 Yutong Zhao，发布时间为 2026-11-16T22:30:00Z。</li><li>文章指出分子动力学（MD）在物理、化学、生物学和材料科学中是不可或缺的工具。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入仅提供摘要与内容片段，cuPotential 的具体功能特性、性能数据与可用性细节尚不明确。</li><li>输入未说明 cuPotential 的发布状态（如是否已正式可用）。</li></ul></div><div class="detail-tags">
-<span>实体：NVIDIA</span><span>产品：cuPotential</span><span>主题：分子动力学模拟、GPU 加速</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>NVIDIA Developer Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Accelerate Molecular Dynamics Simulations with Accurate, Flexible Primitives Using NVIDIA cuPotential</div>
-<div>作者：Yutong Zhao</div><div class="source-time">
-来源条目时间：2026-11-16
-        </div>      </li></ul></div>    </div>
-  </details>
-</article><article class="brief-card" id="story-story-fde414a07749d60c6756">
-  <p class="section-label">AI 与开源</p>
-  <h3>AllenAI 在 Hugging Face 发布 XYBench 基准</h3>
-  <p>AllenAI 在 Hugging Face 博客发布题为“XYBench: Helping with the problem behind the question”的文章，标记为官方来源。文章摘要与正文摘录为空，仅标题可确认。</p>
-<p class="why"><strong>为什么重要：</strong>从标题看，XYBench 可能关注用户问题背后的真实意图或隐含前提，但这一解读仅基于标题，无法确认其方法或结论；对评测方向是否有实质推进尚待更多信息。</p>    <span class="status-badge">已宣布</span>
-  <div class="card-meta">
-    <a class="primary-source" href="https://huggingface.co/blog/allenai/xybench" rel="noopener noreferrer">
-        Hugging Face Blog · 原文
-    </a>
-    <span class="primary-indicator">主来源</span>
-    <span class="source-time">
-来源条目时间：2026-11-13
-    </span>
-  </div>
-<p class="uncertainty"><strong>不确定性：</strong>XYBench 的具体定义、评测范围、数据构成与结果无法确认；也无法确认其是数据集、评测框架还是其他形式，以及是否已公开发布。</p>  <details class="brief-details">
-    <summary>查看详情</summary>
-    <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>AllenAI 在 Hugging Face 博客发布了一篇题为“XYBench: Helping with the problem behind the question”的文章。</li><li>该文章发布在 Hugging Face Blog，标记为官方来源（official_primary），发布时间为 2026-11-13T17:02:35Z。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>从标题看，XYBench 关注的不是问题本身，而是“问题背后的问题”，即可能涉及对用户真实意图或隐含前提的处理；但该解读仅基于标题，文章摘要与正文摘录均为空，无法确认具体方法或结论。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入中文章摘要与正文摘录为空，无法确认 XYBench 的具体定义、评测范围、数据构成与结果。</li><li>无法确认 XYBench 是基准数据集、评测框架还是其他形式，也无法确认其是否已公开发布或开放使用。</li><li>标题中的“problem behind the question”具体指代不明，不能据此推断技术细节。</li></ul></div><div class="detail-tags">
-<span>实体：AllenAI、Hugging Face</span><span>产品：XYBench</span><span>主题：ai_models、ai_infrastructure、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>Hugging Face Blog</strong><span class="primary-indicator">主来源</span></div>
-        <div>XYBench: Helping with the problem behind the question</div>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>OpenAI 发布 Astra for Law，该产品在覆盖 24 个法律领域的发布评估中排名第一。</li><li>ChatGPT Enterprise 客户现在可以申请 Astra for Law 的访问权限。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>“排名第一”仅来自 OpenAI 自身的发布评估，摘要未说明参与对比的其他产品或基线模型。</li><li>Astra for Law 的具体模型版本、能力边界与可用时间表未披露。</li><li>ChatGPT Enterprise 客户申请后如何获得访问权限、是否存在名额或地域限制，尚不明确。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、ChatGPT Enterprise、Astra for Law</span><span>产品：Astra for Law、ChatGPT Enterprise</span><span>主题：法律人工智能、AI 模型评估</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>OpenAI News</strong><span class="primary-indicator">主来源</span></div>
+        <div>Astra for Law leads in legal intelligence</div>
 <div class="source-time">
-来源条目时间：2026-11-13
+来源条目时间：2026-11-17
         </div>      </li></ul></div>    </div>
   </details>
-</article><article class="brief-card" id="story-story-6842e742db0c91cce17e">
+</article><article class="brief-card" id="story-story-d83735e2b782c853e91a">
   <p class="section-label">AI 与开源</p>
-  <h3>GitHub 将 Dependabot 警报关闭请求的有效期从一周延长至一年</h3>
-  <p>GitHub Changelog 宣布，Dependabot 的委托警报关闭请求有效期由一周改为一年。</p>
-<p class="why"><strong>为什么重要：</strong>将关闭请求有效期从一周延长到一年，意味着安全警报的处置周期变得更宽松，但也会拉长未决请求在系统内的滞留时间。</p>    <span class="status-badge">已更新</span>
+  <h3>OpenAI 的 GPT-6.2 Astra 与 GPT-6.2 Sol 在 GitHub Copilot 中正式可用</h3>
+  <p>GitHub Changelog 宣布 OpenAI 的 GPT-6.2 Astra 与 GPT-6.2 Sol 已在 GitHub Copilot 中正式可用（generally available）。</p>
+<p class="why"><strong>为什么重要：</strong>该发布将新模型直接嵌入 GitHub Copilot，说明 Copilot 正持续扩展其可选模型池，并把 agentic coding 与 code review 作为重点场景。</p>    <span class="status-badge">已上线</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://github.blog/changelog/2026-11-16-dependabot-alert-dismissal-requests-now-last-one-year" rel="noopener noreferrer">
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available" rel="noopener noreferrer">
         GitHub Changelog · 原文
     </a>
     <span class="primary-indicator">主来源</span>
@@ -218,60 +188,94 @@ xusheng.dev · 原文    </a>
 来源条目时间：2026-11-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>公告未说明该变更是否影响此前已创建的关闭请求，也未说明其是否可配置或适用范围细节。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>输入摘要被截断，未给出更早 GPT-6 系列的具体版本与完整对比细节。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>该变更适用于使用 Dependabot 委托警报关闭（delegated alert dismissal）的用户。</li><li>公告称审核者现在有更多时间在请求过期前作出回应。</li></ul></div><div class="detail-tags">
-<span>实体：GitHub、Dependabot</span><span>产品：Dependabot</span><span>主题：安全警报管理、代码安全、委托关闭流程</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>公告称这两款模型面向 agentic coding 和代码审查（code review）设计。</li><li>公告称这两款模型的编码判断力（coding judgment）强于更早的 GPT-6 系列模型。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>未提供模型上下文长度、定价、速率限制或地区可用性等信息。</li><li>未说明 GPT-6.2 Astra 与 GPT-6.2 Sol 两者之间的具体差异。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、GitHub Copilot、GitHub</span><span>产品：GPT-6.2 Astra、GPT-6.2 Sol、GitHub Copilot</span><span>主题：agentic coding、code review、模型发布</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
         <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
-        <div>Dependabot alert dismissal requests now last one year</div>
+        <div>OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available</div>
 <div>作者：Allison</div><div class="source-time">
 来源条目时间：2026-11-17
         </div>      </li></ul></div>    </div>
   </details>
-<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-5cfd8553a32aac6b1df1">
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-7fbff0ec021534316833">
   <p class="section-label">AI 与开源</p>
-  <h3>GitHub Copilot 于 2026 年 11 月 16 日弃用部分模型</h3>
-  <p>GitHub 于 2026 年 11 月 16 日宣布，已在大多数 GitHub Copilot 体验中弃用部分模型。</p>
-    <span class="status-badge">已更新</span>
+  <h3>GitHub 在 Microsoft Ignite 2026 发布多项 Copilot 更新：Fusion 扩容、Copilot 应用与 JetBrains 版功能增强</h3>
+  <p>GitHub 于 2026-11-17 在官方 Changelog 发布三项 Copilot 更新，时间戳分别为 18:00:59Z、18:03:42Z 和 18:04:48Z。</p>
+<p class="why"><strong>为什么重要：</strong>三项公告共同发布在 Microsoft Ignite 时间窗口，表明 GitHub 借大会节点集中推送 Copilot 跨产品线更新。</p>    <span class="status-badge">已更新</span>
   <div class="card-meta">
-    <a class="primary-source" href="https://github.blog/changelog/2026-11-16-github-copilot-models-deprecated-on-november-16-2026" rel="noopener noreferrer">
+    <a class="primary-source" href="https://github.blog/changelog/2026-11-17-github-copilot-app-microsoft-ignite-releases" rel="noopener noreferrer">
         GitHub Changelog · 原文
     </a>
     <span class="primary-indicator">主来源</span>
     <span class="source-time">
-来源条目时间：2026-11-16
+来源条目时间：2026-11-17
     </span>
   </div>
-<p class="uncertainty"><strong>不确定性：</strong>输入摘要未列出本次被弃用的具体模型名称。</p>  <details class="brief-details">
+<p class="uncertainty"><strong>不确定性：</strong>GitHub Copilot Fusion 新增的具体模型名称与版本未在摘要中披露。</p>  <details class="brief-details">
     <summary>查看详情</summary>
     <div class="detail-content">
-<div class="detail-block"><h4>已验证事实</h4><ul><li>受影响的 GitHub Copilot 体验包括 Copilot Chat、内联编辑、ask 与 agent 模式以及代码补全。</li><li>公告由 GitHub Changelog 于 2026 年 11 月 16 日发布，作者为 Allison。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>输入未说明此次弃用对现有用户工作流的具体迁移影响。</li></ul></div><div class="detail-tags">
-<span>实体：GitHub、GitHub Copilot</span><span>产品：Copilot Chat、GitHub Copilot</span><span>主题：模型弃用、AI 编程助手</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
-        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
-        <div>GitHub Copilot models deprecated on November 16, 2026</div>
+<div class="detail-block"><h4>已验证事实</h4><ul><li>GitHub 宣布扩展 GitHub Copilot Fusion，新增模型、覆盖更多 Copilot 界面，并公布两个公开 Terminal-Bench 榜单结果。</li><li>GitHub Copilot 应用新增对 Azure DevOps 仓库、GitHub Enterprise Server 实例以及用户所用浏览器的支持。</li><li>GitHub Copilot for JetBrains 更新带来远程访问、设备端语音听写、浏览器使用控制，以及上下文用量快捷方式、历史 diff 等能力。</li><li>上述三项更新均来自 GitHub 官方 Changelog，属于官方一手公告。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>Fusion 的扩展重点在模型供给、界面覆盖与公开基准对比，目标是提升可及性与可评估性；应用端与 JetBrains 端的更新则偏向工作场景覆盖与交互能力。</li><li>将 Fusion 结果投射到两个公开 Terminal-Bench 榜单，有助于外部观察者横向比较，但公告摘要未给出具体分数与对比基线。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>两个 Terminal-Bench 榜单上的具体成绩、对比对象及评测方法未在摘要中说明。</li><li>Fusion 新增可用界面的完整清单未见详细说明。</li><li>GitHub Copilot 应用对浏览器支持的具体范围与限制未明确。</li></ul></div><div class="detail-tags">
+<span>实体：GitHub、Microsoft、Azure DevOps、GitHub Enterprise Server、JetBrains</span><span>产品：GitHub Copilot Fusion、GitHub Copilot app、GitHub Copilot for JetBrains、Terminal-Bench</span><span>主题：AI 编程、Copilot 更新、Microsoft Ignite</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub Changelog</strong></div>
+        <div>GitHub Copilot Fusion updates: more availability, benchmarks, and models</div>
 <div>作者：Allison</div><div class="source-time">
-来源条目时间：2026-11-16
+来源条目时间：2026-11-17
+        </div><a href="https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models" rel="noopener noreferrer">原文</a>      </li><li>
+        <div><strong>GitHub Changelog</strong><span class="primary-indicator">主来源</span></div>
+        <div>GitHub Copilot app, Microsoft Ignite releases</div>
+<div>作者：Allison</div><div class="source-time">
+来源条目时间：2026-11-17
+        </div>      </li><li>
+        <div><strong>GitHub Changelog</strong></div>
+        <div>GitHub Copilot in JetBrains, Ignite releases</div>
+<div>作者：Allison</div><div class="source-time">
+来源条目时间：2026-11-17
+        </div><a href="https://github.blog/changelog/2026-11-17-github-copilot-in-jetbrains-ignite-releases" rel="noopener noreferrer">原文</a>      </li></ul></div>    </div>
+  </details>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article><article class="brief-card" id="story-story-df53b10d22b0c0470f58">
+  <p class="section-label">AI 与开源</p>
+  <h3>openai/openai-agents-python 发布 v0.25.0</h3>
+  <p>openai/openai-agents-python 发布 v0.25.0，版本对比范围为 v0.24.0...v0.25.0，日期为 2026-11-17。</p>
+<p class="why"><strong>为什么重要：</strong>此次发布以工具与兼容性修正为主，其中移除 sandbox 的 Runloop provider 属于能力调整，第三方 session 适配器工具则可能扩展集成面。</p>    <span class="status-badge">已上线</span>
+  <div class="card-meta">
+    <a class="primary-source" href="https://github.com/openai/openai-agents-python/releases/tag/v0.25.0" rel="noopener noreferrer">
+        GitHub · openai/openai-agents-python · Release
+    </a>
+    <span class="primary-indicator">主来源</span>
+    <span class="source-time">
+Release 发布于 2026-11-18
+    </span>
+  </div>
+<p class="uncertainty"><strong>不确定性：</strong>摘要内容在依赖更新部分被截断，可能仍有未列出的变更条目。</p>  <details class="brief-details">
+    <summary>查看详情</summary>
+    <div class="detail-content">
+<div class="detail-block"><h4>已验证事实</h4><ul><li>v0.25.0 的 Features 包含：暴露供第三方 session 适配器使用的工具（#5428）；sandbox 移除 Runloop provider（#5369）。</li><li>Bug Fixes 包括：为 handoff 增加需主动开启的错误恢复（#5418）；使隐式设置与 provider 选定的模型对齐（#5425）；模型默认值与 TS SDK 对齐（#6064）；在 MCP v2 上允许并发的 Streamable HTTP 请求（#5641）；GPT-6 Chat Completions 工具请求默认使用非推理模式（#5420）。</li><li>依赖更新包括：aiohttp 从 3.14.3 升至 3.14.5、dapr 从 1.18.3 升至 1.19.0、fastapi 从 0.141.1 升至 0.162.2、playwright 从 1.50.0 升至 1.63.0、pytest 从 9.0.3 升至 9.2.0、rich 从 14.3.3 升至 15.0.0、ruff 从 0.16.8 升至 0.17.1、twilio 从 9.11.1 升至 9.12.0、websockets 从 15.0.1 升至 16.1.1，并允许 websockets 17。</li><li>该仓库 metadata 显示 stars 30742、forks 5071、open issues 36。</li></ul></div><div class="detail-block"><h4>分析</h4><ul><li>多项修复指向跨 SDK 行为一致性（与 TS SDK 对齐默认模型、对齐 provider 选定模型的隐式设置），有助于减少多语言实现差异。</li><li>依赖批量升级与允许 websockets 17，反映维护者对运行时与测试工具链的跟进。</li></ul></div><div class="detail-block"><h4>不确定性</h4><ul><li>发布说明未解释移除 Runloop provider 的迁移影响与替代方案。</li></ul></div><div class="detail-tags">
+<span>实体：OpenAI、openai/openai-agents-python</span><span>产品：openai-agents-python</span><span>主题：ai_coding、open_source_ai</span>      </div><div class="detail-block source-details"><h4>来源详情</h4><ul><li>
+        <div><strong>GitHub · openai/openai-agents-python</strong><span class="primary-indicator">主来源</span></div>
+        <div>openai/openai-agents-python: v0.25.0</div>
+<div>作者：openai-sdks[bot]</div><div class="source-time">
+Release 发布于 2026-11-18
         </div>      </li></ul></div>    </div>
   </details>
-<p class="generation-note">补充分析未生成，已保留已验证事实与来源。</p></article>  </div>
+<p class="generation-note">本次成稿使用已验证的已有分析。</p></article>  </div>
 </section>
 <section class="radar-signals">
   <h2>雷达信号 · 尚待验证</h2>
   <div class="cards">
     <article class="radar-signal">
       <p class="section-label">尚待验证</p>
-      <h3>Simon Willison 发布 datasette-maplibre 0.1a0，并称该插件的大部分代码由对 Claude Fable 5.2 的单条提示生成。</h3>
-      <p>提供了一个具体案例：用单条提示让 AI 模型参照现有插件与示例，构建出可用的 Datasette 地理空间插件，对评估 AI 编程 agent 的端到端开发能力有参考价值。</p>
-      <p class="uncertainty"><strong>不确定性：</strong>仅有作者自述且摘要被截断，缺少可复现细节与独立验证，尚不能证明该插件主要由单条提示完成。</p>
-<p><strong>还缺：</strong>完整的提示词内容；AI 生成代码与人工修改代码的具体比例；插件测试与运行结果；Claude Fable 5.2 的准确模型版本与调用配置</p>      <div class="sources">
-<a href="https://simonwillison.net/2026/Nov/15/datasette-maplibre/" rel="noopener noreferrer">simonwillison.net</a>      </div>
+      <h3>Simon Willison 正在探索面向编码 Agent 的外部沙箱模式，让 Agent 执行的代码在隔离环境中运行，以降低本地模型出错或提示注入造成破坏的风险；该项目与 Prime Radiant 合作。</h3>
+      <p>编码 Agent 的安全隔离是落地关键问题；外部沙箱模式若有效，可支持更安全地试用本地模型和不可信代码。</p>
+      <p class="uncertainty"><strong>不确定性：</strong>仅有作者博文摘录且被截断，未提供独立验证或测试数据。</p>
+<p><strong>还缺：</strong>外部沙箱的具体隔离机制与威胁模型；实际测试结果或绕过案例；Prime Radiant 博客原文的完整细节</p>      <div class="sources">
+<a href="https://simonwillison.net/2026/Nov/17/external-sandboxes-for-coding-agents/" rel="noopener noreferrer">simonwillison.net</a>      </div>
     </article>
   </div>
 </section>
-    <section><h2>值得继续思考</h2><div class="observation">当 vLLM 把 KV cache 定容从“估算”改为“实测空闲显存”，推理部署的性能调优是否会从参数经验转向更依赖启动时硬件测量结果的可复现流程？</div></section>
-    <section><h2>继续观察</h2><ul class="watch"><li>观察 GitHub 是否公布 11 月 9 日当周周更中提到但被截断的第二款新模型名称及其在 Copilot 中的上线范围。</li><li>观察 OpenAI 的 CSAM 分类器是否公布准确率、误报率与面向调查机构的开放范围。</li><li>若 Hugging Face 与 OpenRouter 的合作后续公布具体支持的开放权重模型列表、集成方式或上线时间，可观察其是否兑现“易于运行”的承诺。</li><li>若 Microsoft 或 Windows 官方文档、隐私声明或独立技术分析出现，可验证 Windows 11 是否确实收集编码智能体与开发工具使用数据，以及收集范围与机制。</li><li>若 NVIDIA 后续公布 cuPotential 的性能基准、API 文档或正式可用状态，可观察其是否提供准确且灵活的原语并实际加速分子动力学模拟。</li></ul></section>
+    <section><h2>继续观察</h2><ul class="watch"><li>观察 OpenAI 与北约及盟国网络机构合作是否披露具体合作机构、参与方数量、技术细节或项目时间表。</li><li>观察 GitHub 是否进一步说明 Copilot code review 自适应审查的判定逻辑与阈值，以及密钥检测的覆盖范围和默认开启策略。</li><li>观察 Astra for Law 是否公开其发布评估的方法、对比基线，以及 ChatGPT Enterprise 客户申请访问的具体限制条件。</li></ul></section>
   </main>
-  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-11-17 02:39:51.285815+00:00。</footer>
+  <footer>市场数据仅供信息参考，不构成投资建议。生成于 2026-11-18 01:57:46.733027+00:00。</footer>
 </body>
 </html>

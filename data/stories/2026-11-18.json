@@ -1,0 +1,834 @@
+[
+  {
+    "analysis": [
+      "该消息来自 GitHub 官方 Changelog，属于官方一手发布，可作为事件事实底座；但摘要仅给出模型名称与上线平台，未披露参数规模、上下文长度、定价、可用范围或具体能力对比。"
+    ],
+    "canonical_title": "GitHub Copilot 上线 MAI Code 2 与 MAI Code 2 Flash 两款微软 AI 编程模型",
+    "category": "产品发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Microsoft AI",
+      "GitHub",
+      "GitHub Copilot",
+      "MAI Code 2",
+      "MAI Code 2 Flash"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-11-17T18:01:45Z 发布文章，宣布微软 AI（MAI）的新一代编程模型 MAI Code 2 和 MAI Code 2 Flash 已进入 GitHub Copilot。",
+      "文章将这两款模型描述为 MAI 的下一代编程模型，并称其代表一次重大进展。"
+    ],
+    "id": "story-fb3fbc13470643db3cc9",
+    "importance_score": 0.72,
+    "novelty_score": 0.66,
+    "primary_source_url": "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot",
+    "product_names": [
+      "MAI Code 2",
+      "MAI Code 2 Flash",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-11-17T18:01:45Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-467e19c06d56952c4a19"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T18:01:45Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-467e19c06d56952c4a19",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "MAI Code 2 and MAI Code 2 Flash in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-17-mai-code-2-and-mai-code-2-flash-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "MAI Code 2 与 MAI Code 2 Flash 的具体能力、基准测试结果、上下文窗口和定价均未在输入中说明。",
+      "两款模型在 GitHub Copilot 中的可用范围（如计划层级、地区限制）和具体上线时间点不明确。",
+      "摘要称其为“重大进展”，但未给出支撑这一判断的细节。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "三项公告共同发布在 Microsoft Ignite 时间窗口，表明 GitHub 借大会节点集中推送 Copilot 跨产品线更新。",
+      "Fusion 的扩展重点在模型供给、界面覆盖与公开基准对比，目标是提升可及性与可评估性；应用端与 JetBrains 端的更新则偏向工作场景覆盖与交互能力。",
+      "将 Fusion 结果投射到两个公开 Terminal-Bench 榜单，有助于外部观察者横向比较，但公告摘要未给出具体分数与对比基线。"
+    ],
+    "canonical_title": "GitHub 在 Microsoft Ignite 2026 发布多项 Copilot 更新：Fusion 扩容、Copilot 应用与 JetBrains 版功能增强",
+    "category": "AI 编程工具",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "GitHub",
+      "Microsoft",
+      "Azure DevOps",
+      "GitHub Enterprise Server",
+      "JetBrains"
+    ],
+    "facts": [
+      "GitHub 于 2026-11-17 在官方 Changelog 发布三项 Copilot 更新，时间戳分别为 18:00:59Z、18:03:42Z 和 18:04:48Z。",
+      "GitHub 宣布扩展 GitHub Copilot Fusion，新增模型、覆盖更多 Copilot 界面，并公布两个公开 Terminal-Bench 榜单结果。",
+      "GitHub Copilot 应用新增对 Azure DevOps 仓库、GitHub Enterprise Server 实例以及用户所用浏览器的支持。",
+      "GitHub Copilot for JetBrains 更新带来远程访问、设备端语音听写、浏览器使用控制，以及上下文用量快捷方式、历史 diff 等能力。",
+      "上述三项更新均来自 GitHub 官方 Changelog，属于官方一手公告。"
+    ],
+    "id": "story-7fbff0ec021534316833",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-11-17-github-copilot-app-microsoft-ignite-releases",
+    "product_names": [
+      "GitHub Copilot Fusion",
+      "GitHub Copilot app",
+      "GitHub Copilot for JetBrains",
+      "Terminal-Bench"
+    ],
+    "published_at": "2026-11-17T18:00:59Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-75073ab854943bd97c37",
+      "item-c381f1f20c433e7d3983",
+      "item-453bf04922152159bc47"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T18:04:48Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-75073ab854943bd97c37",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Copilot Fusion updates: more availability, benchmarks, and models",
+        "url": "https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models"
+      },
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T18:03:42Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c381f1f20c433e7d3983",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Copilot app, Microsoft Ignite releases",
+        "url": "https://github.blog/changelog/2026-11-17-github-copilot-app-microsoft-ignite-releases"
+      },
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T18:00:59Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-453bf04922152159bc47",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "GitHub Copilot in JetBrains, Ignite releases",
+        "url": "https://github.blog/changelog/2026-11-17-github-copilot-in-jetbrains-ignite-releases"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-17-github-copilot-fusion-updates-more-availability-benchmarks-and-models",
+      "https://github.blog/changelog/2026-11-17-github-copilot-app-microsoft-ignite-releases",
+      "https://github.blog/changelog/2026-11-17-github-copilot-in-jetbrains-ignite-releases"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 编程",
+      "Copilot 更新",
+      "Microsoft Ignite"
+    ],
+    "uncertainties": [
+      "GitHub Copilot Fusion 新增的具体模型名称与版本未在摘要中披露。",
+      "两个 Terminal-Bench 榜单上的具体成绩、对比对象及评测方法未在摘要中说明。",
+      "Fusion 新增可用界面的完整清单未见详细说明。",
+      "GitHub Copilot 应用对浏览器支持的具体范围与限制未明确。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "该发布将新模型直接嵌入 GitHub Copilot，说明 Copilot 正持续扩展其可选模型池，并把 agentic coding 与 code review 作为重点场景。"
+    ],
+    "canonical_title": "OpenAI 的 GPT-6.2 Astra 与 GPT-6.2 Sol 在 GitHub Copilot 中正式可用",
+    "category": "AI 编程工具/模型发布",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "OpenAI",
+      "GitHub Copilot",
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub Changelog 宣布 OpenAI 的 GPT-6.2 Astra 与 GPT-6.2 Sol 已在 GitHub Copilot 中正式可用（generally available）。",
+      "公告称这两款模型面向 agentic coding 和代码审查（code review）设计。",
+      "公告称这两款模型的编码判断力（coding judgment）强于更早的 GPT-6 系列模型。"
+    ],
+    "id": "story-d83735e2b782c853e91a",
+    "importance_score": 0.6,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available",
+    "product_names": [
+      "GPT-6.2 Astra",
+      "GPT-6.2 Sol",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-11-17T20:20:29Z",
+    "relevance_score": 0.92,
+    "source_item_ids": [
+      "item-57e7781a892d4960f0cc"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T20:20:29Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-57e7781a892d4960f0cc",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "OpenAI’s GPT-6.2 Astra and GPT-6.2 Sol now available",
+        "url": "https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-17-openais-gpt-6-2-astra-and-gpt-6-2-sol-now-available"
+    ],
+    "status": "available",
+    "topic_names": [
+      "agentic coding",
+      "code review",
+      "模型发布"
+    ],
+    "uncertainties": [
+      "输入摘要被截断，未给出更早 GPT-6 系列的具体版本与完整对比细节。",
+      "未提供模型上下文长度、定价、速率限制或地区可用性等信息。",
+      "未说明 GPT-6.2 Astra 与 GPT-6.2 Sol 两者之间的具体差异。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "从官方描述看，本次更新的重点是让审查力度随改动复杂度自动调整，从而在常规改动上减少投入，并把更深度的审查留给更需要关注的变化。",
+      "密钥检测被列入本次更新，说明 GitHub 试图把安全类问题更早地暴露在代码审查环节。"
+    ],
+    "canonical_title": "GitHub Copilot 代码审查新增自适应审查力度与密钥检测",
+    "category": "产品更新",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub",
+      "Copilot"
+    ],
+    "facts": [
+      "GitHub 在官方 Changelog 中宣布 Copilot code review 更新，新增自适应审查力度、密钥检测等功能。",
+      "官方说明称，自适应会按每个拉取请求匹配审查深度，使常规改动获得快速审查。",
+      "该公告的发布时间为 2026-11-17T18:02:05Z。"
+    ],
+    "id": "story-12368bdd0ee20c5c602a",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more",
+    "product_names": [
+      "Copilot code review"
+    ],
+    "published_at": "2026-11-17T18:02:05Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-6beb5088ff95eeeac7d6"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T18:02:05Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6beb5088ff95eeeac7d6",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Copilot code review: Adaptive effort, secret detection, and more",
+        "url": "https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-17-copilot-code-review-adaptive-effort-secret-detection-and-more"
+    ],
+    "status": "updated",
+    "topic_names": [
+      "AI 编码",
+      "代码审查",
+      "密钥检测"
+    ],
+    "uncertainties": [
+      "官方公告未在所提供的摘要中说明自适应审查的具体判定逻辑与阈值。",
+      "密钥检测的具体覆盖范围、误报率及是否对所有仓库默认开启，未在输入中说明。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "该合作将 AI 能力定位为防御性网络安全工具，使用场景集中在漏洞发现与修复验证环节，而非进攻性用途。"
+    ],
+    "canonical_title": "OpenAI 与北约及盟国网络机构合作，以 AI 强化网络防御",
+    "category": "AI 与网络安全",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "OpenAI",
+      "NATO"
+    ],
+    "facts": [
+      "OpenAI 发布公告称，其正与北约及盟国网络机构合作，帮助可信防御者发现漏洞、测试修复方案并保护关键系统。",
+      "该信息发布于 OpenAI 新闻页，时间为 2026-11-17。"
+    ],
+    "id": "story-5e85c3d3e9b8a34c2acb",
+    "importance_score": 0.6,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+    "product_names": [],
+    "published_at": "2026-11-17T00:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-0e7f690aa4ff229bd2e8"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0e7f690aa4ff229bd2e8",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Strengthening NATO and allied cyber defenses with AI",
+        "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 网络防御",
+      "漏洞发现",
+      "关键系统保护"
+    ],
+    "uncertainties": [
+      "公告未披露具体合作机构名单、参与方数量、技术细节或项目时间表。",
+      "公告未说明相关 AI 模型或工具的具体版本与部署范围。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "此次发布以工具与兼容性修正为主，其中移除 sandbox 的 Runloop provider 属于能力调整，第三方 session 适配器工具则可能扩展集成面。",
+      "多项修复指向跨 SDK 行为一致性（与 TS SDK 对齐默认模型、对齐 provider 选定模型的隐式设置），有助于减少多语言实现差异。",
+      "依赖批量升级与允许 websockets 17，反映维护者对运行时与测试工具链的跟进。"
+    ],
+    "canonical_title": "openai/openai-agents-python 发布 v0.25.0",
+    "category": "开源发布",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "OpenAI",
+      "openai/openai-agents-python"
+    ],
+    "facts": [
+      "openai/openai-agents-python 发布 v0.25.0，版本对比范围为 v0.24.0...v0.25.0，日期为 2026-11-17。",
+      "v0.25.0 的 Features 包含：暴露供第三方 session 适配器使用的工具（#5428）；sandbox 移除 Runloop provider（#5369）。",
+      "Bug Fixes 包括：为 handoff 增加需主动开启的错误恢复（#5418）；使隐式设置与 provider 选定的模型对齐（#5425）；模型默认值与 TS SDK 对齐（#6064）；在 MCP v2 上允许并发的 Streamable HTTP 请求（#5641）；GPT-6 Chat Completions 工具请求默认使用非推理模式（#5420）。",
+      "依赖更新包括：aiohttp 从 3.14.3 升至 3.14.5、dapr 从 1.18.3 升至 1.19.0、fastapi 从 0.141.1 升至 0.162.2、playwright 从 1.50.0 升至 1.63.0、pytest 从 9.0.3 升至 9.2.0、rich 从 14.3.3 升至 15.0.0、ruff 从 0.16.8 升至 0.17.1、twilio 从 9.11.1 升至 9.12.0、websockets 从 15.0.1 升至 16.1.1，并允许 websockets 17。",
+      "该仓库 metadata 显示 stars 30742、forks 5071、open issues 36。"
+    ],
+    "id": "story-df53b10d22b0c0470f58",
+    "importance_score": 0.42,
+    "novelty_score": 0.38,
+    "primary_source_url": "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0",
+    "product_names": [
+      "openai-agents-python"
+    ],
+    "published_at": "2026-11-18T00:22:25Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-395eb2f50bbc7a2cf6a2"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T00:22:25Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-395eb2f50bbc7a2cf6a2",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-agents-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-agents-python: v0.25.0",
+        "url": "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-agents-python/releases/tag/v0.25.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "摘要内容在依赖更新部分被截断，可能仍有未列出的变更条目。",
+      "发布说明未解释移除 Runloop provider 的迁移影响与替代方案。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 发布 GPT-6.2 Astra 与 Sol",
+    "category": "模型发布",
+    "credibility_score": 0.15,
+    "entity_names": [
+      "OpenAI"
+    ],
+    "facts": [],
+    "id": "story-6a7101bc21b4d4bb6472",
+    "importance_score": 0.72,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+    "product_names": [
+      "GPT-6.2 Astra",
+      "GPT-6.2 Sol"
+    ],
+    "published_at": "2026-11-17T17:46:43Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-173b2a976c96e34b5d84"
+    ],
+    "source_refs": [
+      {
+        "author": "jasondavies",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50535230",
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T17:46:43Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-173b2a976c96e34b5d84",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "GPT‑6.2 Astra and Sol",
+        "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol/"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/introducing-gpt-6-2-astra-sol/",
+      "https://news.ycombinator.com/item?id=50535230"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "模型发布"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 社区发现，source_role 为 community_discovery，statement_type 为 unverified_lead，尚未经过官方一手来源核实，因此不能作为事实。",
+      "标题所称的 GPT-6.2 Astra 与 Sol 的发布细节（模型能力、发布时间、可用范围等）在输入中没有可核实的内容，summary 与 content_excerpt 均为空。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "该提交将 Eso-box 描述为一个在备用笔记本上常开运行的 Claude Code 服务器，用户可通过 SSH（笔记本）和 Claude 应用（手机）连接该服务器，并支持在对话中途于设备之间切换。",
+      "该提交的动机被描述为作者希望从移动设备上试做想法，并对已有方案（claude --cloud 或 /remote-control）感到不满，认为这些方案会把会话分散到多个设备上。"
+    ],
+    "canonical_title": "Eso-box：在 Hacker News 上展示的将备用笔记本变为常开 Claude Code 服务器的开源项目",
+    "category": "开发者工具",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "blumalex",
+      "Eso-box",
+      "Claude Code",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-92972d5c8206b941471e",
+    "importance_score": 0.42,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.com/blumalex/eso-box",
+    "product_names": [
+      "Eso-box",
+      "Claude Code"
+    ],
+    "published_at": "2026-11-17T19:04:01Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-7a8cef167acff0e80219"
+    ],
+    "source_refs": [
+      {
+        "author": "andale",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50536502",
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T19:04:01Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7a8cef167acff0e80219",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: Eso-box: turn a spare laptop into an always-on Claude Code server",
+        "url": "https://github.com/blumalex/eso-box"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/blumalex/eso-box",
+      "https://news.ycombinator.com/item?id=50536502"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "常开开发服务器",
+      "跨设备会话连续性",
+      "SSH 访问"
+    ],
+    "uncertainties": [
+      "这是作者的一份未经核实的一手说明，因此无法独立确认 Eso-box 是否能实现所声称的跨设备会话连续性。",
+      "内容仅以 Hacker News 上的一则项目讨论帖形式提供，未附官方文档、演示或用户测试。",
+      "实体和仓库标识符均来自该帖子的元数据，尚未由任何主要来源确认。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "OpenAI 将 Astra for Law 定位为面向法律场景的专用产品，并以自有的发布评估结果作为其能力佐证，但该评估的评测方法、基线模型与对比对象均未在摘要中披露。"
+    ],
+    "canonical_title": "OpenAI 推出 Astra for Law，并在覆盖 24 个法律领域的发布评估中排名第一",
+    "category": "产品发布",
+    "credibility_score": 0.36,
+    "entity_names": [
+      "OpenAI",
+      "ChatGPT Enterprise",
+      "Astra for Law"
+    ],
+    "facts": [
+      "OpenAI 发布 Astra for Law，该产品在覆盖 24 个法律领域的发布评估中排名第一。",
+      "ChatGPT Enterprise 客户现在可以申请 Astra for Law 的访问权限。"
+    ],
+    "id": "story-6f4d6339c124a10eb6d7",
+    "importance_score": 0.45,
+    "novelty_score": 0.48,
+    "primary_source_url": "https://openai.com/index/astra-law-6-2",
+    "product_names": [
+      "Astra for Law",
+      "ChatGPT Enterprise"
+    ],
+    "published_at": "2026-11-17T00:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-b43ef08ac3ed4f7af6f4"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-b43ef08ac3ed4f7af6f4",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Astra for Law leads in legal intelligence",
+        "url": "https://openai.com/index/astra-law-6-2"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/index/astra-law-6-2"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "法律人工智能",
+      "AI 模型评估"
+    ],
+    "uncertainties": [
+      "“排名第一”仅来自 OpenAI 自身的发布评估，摘要未说明参与对比的其他产品或基线模型。",
+      "Astra for Law 的具体模型版本、能力边界与可用时间表未披露。",
+      "ChatGPT Enterprise 客户申请后如何获得访问权限、是否存在名额或地域限制，尚不明确。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "若相关数字成立，英伟达的投资持仓在九个月内接近三倍增长，反映其风险投资敞口在短时间内显著扩大。",
+      "估值上升既可能来自新增交易，也可能来自既有投资组合公司的估值重估；输入未拆解二者的贡献比例。"
+    ],
+    "canonical_title": "英伟达初创企业投资持仓价值升至约650亿美元，黄仁勋退出传闻令后续交易存疑",
+    "category": "投资与并购",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "Nvidia",
+      "Jensen Huang",
+      "TechCrunch AI"
+    ],
+    "facts": [
+      "TechCrunch AI 报道称，英伟达的私人投资价值在过去九个月里几乎增长了两倍。",
+      "报道将这轮估值上升归因于黄仁勋激进的交易运作，以及其现有投资组合公司估值的上升。",
+      "报道标题称英伟达的初创企业投资持仓已膨胀至650亿美元。",
+      "报道标题称黄仁勋的退出使未来交易存疑。"
+    ],
+    "id": "story-16e480ab6ce7b985e422",
+    "importance_score": 0.55,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/",
+    "product_names": [],
+    "published_at": "2026-11-18T01:44:21Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-0d4a3780c61dc50a9792"
+    ],
+    "source_refs": [
+      {
+        "author": "Dominic-Madori Davis, Marina Temkin",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T01:44:21Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0d4a3780c61dc50a9792",
+        "source_date": null,
+        "source_name": "TechCrunch AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Nvidia’s startup stakes ballooned to $65B, but Huang’s exit puts future deals in doubt",
+        "url": "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/"
+      }
+    ],
+    "source_urls": [
+      "https://techcrunch.com/2026/11/17/nvidias-startup-stakes-ballooned-to-65b-but-huangs-exit-puts-future-deals-in-doubt/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "初创企业投资",
+      "投资组合估值",
+      "公司治理"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要与标题，未给出650亿美元估值的具体计算口径或对照基期。",
+      "“九个月”的起止时间未在输入中说明。",
+      "“黄仁勋的退出”具体所指不明：是退出投资决策、退出某笔交易，还是其他职务或角色安排，输入未说明。",
+      "英伟达官方未在输入中就该报道作出回应或确认。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "该诉讼将公司披露与股价单日大幅波动联系起来，反映出投资者对英特尔业务基本面的担忧。",
+      "报道将股价下跌归因于股东所主张的PC需求疲软与AI收益之间的此消彼长。"
+    ],
+    "canonical_title": "英特尔因单日股价下跌28.6%遭股东起诉，CEO与CFO一同被列为被告",
+    "category": "tech_business",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Intel",
+      "Ars Technica"
+    ],
+    "facts": [
+      "Ars Technica 报道，英特尔股东已对英特尔、其CEO及CFO提起诉讼。",
+      "报道称，英特尔股价曾在一个交易日内下跌28.6%。",
+      "股东方面称，PC销售低迷“more than offset”（抵消并超过）了AI热潮带来的收益。"
+    ],
+    "id": "story-27587345a1f7ce8d8439",
+    "importance_score": 0.45,
+    "novelty_score": 0.2,
+    "primary_source_url": "https://arstechnica.com/tech-policy/2026/11/shareholders-sue-intel-its-ceo-and-cfo-after-stock-drops-28-6-percent-in-one-day/",
+    "product_names": [],
+    "published_at": "2026-11-16T20:37:47Z",
+    "relevance_score": 0.25,
+    "source_item_ids": [
+      "item-9507e63bd34bba49d4de"
+    ],
+    "source_refs": [
+      {
+        "author": "Scharon Harding",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-16T20:37:47Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9507e63bd34bba49d4de",
+        "source_date": null,
+        "source_name": "Ars Technica Technology Lab",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Shareholders sue Intel, its CEO, and CFO after stock drops 28.6 percent in one day",
+        "url": "https://arstechnica.com/tech-policy/2026/11/shareholders-sue-intel-its-ceo-and-cfo-after-stock-drops-28-6-percent-in-one-day/"
+      }
+    ],
+    "source_urls": [
+      "https://arstechnica.com/tech-policy/2026/11/shareholders-sue-intel-its-ceo-and-cfo-after-stock-drops-28-6-percent-in-one-day/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "股东诉讼",
+      "股价暴跌",
+      "PC销售低迷",
+      "AI业务"
+    ],
+    "uncertainties": [
+      "诉讼的具体法院、案号、起诉时间及诉由（如证券欺诈指控的细节）未在输入中提供。",
+      "“28.6%”的具体交易日、收盘价与市值损失金额未在输入中给出。",
+      "英特尔、CEO及CFO是否已作出回应，输入未提及。",
+      "股东关于PC销售“more than offset”AI收益的说法目前仅为原告主张，未经独立核实。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  },
+  {
+    "analysis": [
+      "该公告属于 Google 官方一手发布的产品功能介绍，可作为事实底座，但摘要与正文摘录均为“tbd”，具体功能细节尚未提供。"
+    ],
+    "canonical_title": "Google 地图为假期出行与准备推出新 Ask Maps 功能",
+    "category": "产品更新",
+    "credibility_score": 0.7,
+    "entity_names": [
+      "Google",
+      "Google 地图",
+      "Ask Maps"
+    ],
+    "facts": [
+      "Google 官方博客于 2026-11-16 发布文章，标题为“New Ask Maps features to help with holiday travel and prep”。",
+      "文章作者为 Maz Khorasani，发布在 Google AI 的博客栏目下。",
+      "文章介绍的 Ask Maps 功能面向假期出行与行前准备场景。"
+    ],
+    "id": "story-a443508c776e7379a6f2",
+    "importance_score": 0.25,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/",
+    "product_names": [
+      "Ask Maps"
+    ],
+    "published_at": "2026-11-16T14:00:00Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-11608d311d0047796796"
+    ],
+    "source_refs": [
+      {
+        "author": "Maz Khorasani",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-18T01:51:43.743483Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-16T14:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-11608d311d0047796796",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "New Ask Maps features to help with holiday travel and prep",
+        "url": "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products-and-platforms/products/maps/ask-maps-holiday-travel-features-2026/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "假期出行",
+      "旅行规划"
+    ],
+    "uncertainties": [
+      "新 Ask Maps 功能的具体能力、上线时间、覆盖地区与设备范围尚不明确。",
+      "文章摘要与正文摘录均为“tbd”，无法核实具体功能清单。"
+    ],
+    "updated_at": "2026-11-18T01:57:46.733027Z"
+  }
+]
