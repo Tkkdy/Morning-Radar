@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Daniel Stenberg 指出，在 AI 代理将 18.5 万行 C 代码转换为 34 万行 Rust 代码期间，curl 项目合并了 300 多个提交并修复了 200 多个缺陷；这些修复并未出现在 Rust 重写版本中。",
+    "id": "radar-82dc132cfba9ff4abbf4",
+    "missing_evidence": [
+      "缺少 Stenberg 原文完整上下文",
+      "缺少 Rust 重写仓库、agent 配置和具体转换流程",
+      "缺少 bugfix 对比方法与统计数据"
+    ],
+    "observed_at": "2026-11-19T01:28:05.495328Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-1c2cff6fe54921cead04",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/18/daniel-stenberg/"
+      }
+    ],
+    "uncertainty": "仅见 Simon Willison 转述的片段，未独立验证 18.5 万/34 万行数、200 多个缺陷统计及 Rust 版本当前状态。",
+    "why_notable": "这是来自 curl 维护者的一手观察，涉及 coding agents 大规模代码重写与真实项目维护的对比，对评估 AI 编程代理产出质量和长期可维护性有参考价值。"
+  }
+]

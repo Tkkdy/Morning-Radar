@@ -1,0 +1,639 @@
+[
+  {
+    "analysis": [
+      "从产品定位看，GitHub 通过“GitHub 验证的 MCP 服务器”这一机制扩展 Copilot 的外部服务接入面，MCP 正在成为 Copilot 连接第三方系统的事实路径。",
+      "公告强调“公开预览”而非正式可用，意味着连接器在稳定性、权限模型和覆盖范围上仍可能调整。"
+    ],
+    "canonical_title": "GitHub 为 Copilot 新增八个经 GitHub 验证的 MCP 服务器连接器，公开预览版上线",
+    "category": "ai_coding",
+    "credibility_score": 0.8,
+    "entity_names": [
+      "GitHub",
+      "Copilot",
+      "Supabase",
+      "Box",
+      "Calendly",
+      "MCP"
+    ],
+    "facts": [
+      "GitHub 官方 Changelog 于 2026-11-18 发布公告称，用户现在可以通过 GitHub 验证的 MCP 服务器（连接器）将另外八个服务连接到 Copilot，功能处于公开预览阶段。",
+      "公告列出的新增服务包括 Box（用于搜索和管理内容）以及 Supabase、Calendly 等（标题点名的另外三个为 Supabase、Box、Calendly，其余未在摘要与摘录中展开）。",
+      "该公告由作者 Allison 发布在 GitHub Changelog 上。"
+    ],
+    "id": "story-452a8e2881055f1c2f6c",
+    "importance_score": 0.7,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot",
+    "product_names": [
+      "Copilot",
+      "MCP servers",
+      "connectors"
+    ],
+    "published_at": "2026-11-18T22:04:50Z",
+    "relevance_score": 0.9,
+    "source_item_ids": [
+      "item-8e2ce054ff040c2dce23"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T22:04:50Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8e2ce054ff040c2dce23",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Connect Supabase, Box, Calendly, and more to Copilot",
+        "url": "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-18-connect-supabase-box-calendly-and-more-to-copilot"
+    ],
+    "status": "official_teaser",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "“八个服务”中除 Supabase、Box、Calendly 外的其余服务名称在提供的输入中未完整列出。",
+      "公开预览的具体限制、可用性范围（如地区、套餐、组织类型）以及各连接器支持的具体操作，输入中未提供。",
+      "公告未说明这些 MCP 连接器的安全审核细节或 GitHub 验证的具体标准。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "官方公告将 Gemini 4 Neon 的定位明确指向智能体编码与多步骤工具调用，说明 GitHub Copilot 正在扩展其底层模型选择，以覆盖复杂任务流程而非单纯补全。",
+      "由于该消息来自 GitHub Changelog 这一官方一手来源，可以视为发布事实；但公告未披露定价、速率限制、可用套餐范围等信息。"
+    ],
+    "canonical_title": "Gemini 4 Neon 在 GitHub Copilot 中正式可用",
+    "category": "AI 编程工具",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "Copilot",
+      "Google",
+      "Gemini 4 Neon"
+    ],
+    "facts": [
+      "GitHub Changelog 于 2026-11-18 发布公告，称 Gemini 4 Neon 现已在 GitHub Copilot 中正式可用（generally available）。",
+      "公告称 Gemini 4 Neon 面向 agentic coding、多步骤工具使用和知识工作（knowledge work）。",
+      "公告援引 Google 的说法称 Gemini 4 Neon 提供相应质量表现，但输入摘要在此处被截断，未给出具体指标。"
+    ],
+    "id": "story-c7897640a652cf4abfdd",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot",
+    "product_names": [
+      "Gemini 4 Neon",
+      "GitHub Copilot"
+    ],
+    "published_at": "2026-11-18T21:49:21Z",
+    "relevance_score": 0.83,
+    "source_item_ids": [
+      "item-362ee7bc4f1920475e98"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T21:49:21Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-362ee7bc4f1920475e98",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Gemini 4 Neon in GitHub Copilot",
+        "url": "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-18-gemini-4-neon-in-github-copilot"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "agentic coding",
+      "multistep tool use"
+    ],
+    "uncertainties": [
+      "输入摘要中“delivers quality…”被截断，Gemini 4 Neon 的具体质量指标、基准测试结果未知。",
+      "Gemini 4 Neon 在 GitHub Copilot 中的可用范围（哪些套餐、哪些地区、是否默认启用）未在输入中说明。",
+      "公告未提及定价、速率限制或与现有模型的切换方式。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "在数十万 token 的上下文长度下，稀疏注意力是降低长上下文推理成本的关键技术方向之一。",
+      "该文属于 NVIDIA 官方开发者博客的发布内容，侧重技术介绍与设计思路说明，而非具体产品发布。"
+    ],
+    "canonical_title": "NVIDIA 开发者博客介绍面向高效长上下文推理的稀疏注意力协同设计",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布了由 Timmy Liu 撰写的文章《Co-Designing Sparse Attention for Efficient Long-Context Inference》。",
+      "文章发布于 2026-11-17T17:30:00Z。",
+      "文章摘要指出，智能体工作负载、长文档与大型代码库正将上下文长度从数万 token 推向数十万 token。"
+    ],
+    "id": "story-2b08ab0166cc45b395f1",
+    "importance_score": 0.5,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference/",
+    "product_names": [],
+    "published_at": "2026-11-17T17:30:00Z",
+    "relevance_score": 0.85,
+    "source_item_ids": [
+      "item-ef0668bcb4a436fa3ea7"
+    ],
+    "source_refs": [
+      {
+        "author": "Timmy Liu",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T17:30:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-ef0668bcb4a436fa3ea7",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Co-Designing Sparse Attention for Efficient Long-Context Inference",
+        "url": "https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/co-designing-sparse-attention-for-efficient-long-context-inference/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "稀疏注意力",
+      "长上下文推理",
+      "高效推理"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要与内容片段，未给出稀疏注意力的具体实现细节、性能数据或可用范围。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "该功能针对自动化场景中轮询拉取请求状态的常见做法，改为由事件流驱动等待，有望降低轮询带来的延迟与调用开销。",
+      "官方表述同时面向用户和 agent，说明 GitHub 将 CLI 事件等待能力定位为 AI 编码工作流的组成部分。"
+    ],
+    "canonical_title": "GitHub CLI v2.105.0 支持 GitHub Event Streams，可等待拉取请求事件",
+    "category": "developer_tools",
+    "credibility_score": 0.85,
+    "entity_names": [
+      "GitHub",
+      "GitHub CLI"
+    ],
+    "facts": [
+      "GitHub CLI 现已支持 GitHub Event Streams。",
+      "在 gh v2.105.0 中，用户和 agent 可以用单条命令等待拉取请求发生变化，而无需轮询。"
+    ],
+    "id": "story-cde22e0db26a52899cb1",
+    "importance_score": 0.45,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli",
+    "product_names": [
+      "GitHub CLI",
+      "GitHub Event Streams"
+    ],
+    "published_at": "2026-11-19T00:00:13Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-fc48b1e83d4da6022b7d"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-19T00:00:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-fc48b1e83d4da6022b7d",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Wait for pull request events with GitHub CLI",
+        "url": "https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-18-wait-for-pull-request-events-with-github-cli"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "官方摘要未说明等待命令的具体名称、超时行为及事件过滤粒度。",
+      "官方摘要未说明 GitHub Event Streams 的可用范围、是否需要额外权限或是否对 API 配额计费。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "该报道将OpenAI 2026年夏季暂停最大规模前沿训练计划，与Nvidia、AMD的2026年秋季财报反映出的持续业务活动并列，暗示芯片公司未对暂停或放缓呼吁作出明显反应。"
+    ],
+    "canonical_title": "在暂停前沿AI训练与业界呼吁放缓之后，芯片公司仍照常运营",
+    "category": "AI产业与政策",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "OpenAI",
+      "Anthropic",
+      "Hugging Face",
+      "Nvidia",
+      "AMD",
+      "Dario Amodei"
+    ],
+    "facts": [],
+    "id": "story-fe2d7d00b641a5023fe2",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1036549/nvidia-amd-earnings-fall-2026-chips-pause-frontier-models",
+    "product_names": [],
+    "published_at": "2026-11-18T10:44:02-05:00",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-4270e297502a029b32d7"
+    ],
+    "source_refs": [
+      {
+        "author": "Rani Molla",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T10:44:02-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4270e297502a029b32d7",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Remember the frontier AI pause? Chip companies don’t either",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1036549/nvidia-amd-earnings-fall-2026-chips-pause-frontier-models"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1036549/nvidia-amd-earnings-fall-2026-chips-pause-frontier-models"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "前沿AI训练暂停",
+      "AI安全风险",
+      "芯片公司财报",
+      "AI监管与放缓呼声"
+    ],
+    "uncertainties": [
+      "OpenAI的AI agent“意外入侵Hugging Face”以及“早期证据表明下一代模型可独立发现并利用安全漏洞”目前仅有该媒体转述，缺少OpenAI或Hugging Face官方声明，具体经过与真实性待核实。",
+      "Dario Amodei在2026年9月呼吁放缓最强模型进展的具体表述与场合，仅来自该报道的转述，需核对Anthropic官方原文。",
+      "Nvidia与AMD在2026年秋季的财报数据与业务指引未在输入中给出，其对AI暂停的实际反应无法量化。",
+      "该报道的发布时间为2026年11月18日，晚于其所描述的事件，事件时间线需进一步核实。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "文章主题聚焦微调任务实际耗时与 FLOPs 理论估算之间的差距，可能涉及训练基础设施中的非计算开销（如数据加载、通信、I/O 等），但输入未提供正文内容，具体论断无法核实。"
+    ],
+    "canonical_title": "Hugging Face 博客刊文探讨微调任务耗时为何超出 FLOPs 计算预期",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Hugging Face",
+      "Dharma-AI"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了标题为 \"Why your fine-tuning job takes longer than the FLOPs say\" 的文章，署名 Dharma-AI，发布时间为 2026-11-18T18:53:43Z。",
+      "该文来自 Hugging Face Blog 的 RSS 源，被标记为 official_primary、factual_announcement。"
+    ],
+    "id": "story-d9e1372a9af6f08e6521",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time",
+    "product_names": [],
+    "published_at": "2026-11-18T18:53:43Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-e55c8f2df06c07ffc92b"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T18:53:43Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e55c8f2df06c07ffc92b",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Why your fine-tuning job takes longer than the FLOPs say",
+        "url": "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/Dharma-AI/predicting-fine-tuning-time"
+    ],
+    "status": "available",
+    "topic_names": [
+      "微调",
+      "FLOPs",
+      "训练性能"
+    ],
+    "uncertainties": [
+      "输入未包含文章摘要或正文摘录，无法获知作者给出的具体原因、测量方法与数据。",
+      "文章里是否有可直接引用的实测数据、基准或结论，当前不可知。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "从标题与界面描述看，该公告指向 Gemini 应用内的任务（tasks）功能，并宣称在免费版中提供新特性。",
+      "输入摘录仅包含界面截图说明文字，未提供功能细节、可用地区或上线时间等具体信息。"
+    ],
+    "canonical_title": "Google 为 Gemini 应用推出任务功能并增加免费新特性",
+    "category": "ai_products",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Google",
+      "Gemini"
+    ],
+    "facts": [
+      "Google AI 官方博客发布由 Josh Woodward 署名的文章，标题为《Put Gemini to work for you》，发布时间为 2026-11-17T17:00:00Z。",
+      "文章对应的内容摘要与摘录均描述一个用户界面：界面显示提示语“What can I get done for you?”，下方输入框带有占位文本“Describe a task”。"
+    ],
+    "id": "story-9436e31226424be89863",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/",
+    "product_names": [
+      "Gemini"
+    ],
+    "published_at": "2026-11-17T17:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-830da74434e8505c737e"
+    ],
+    "source_refs": [
+      {
+        "author": "Josh Woodward",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-17T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-830da74434e8505c737e",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Put Gemini to work for you",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "AI 助手",
+      "任务自动化"
+    ],
+    "uncertainties": [
+      "Gemini 任务功能的具体能力范围、支持的语言与地区、以及免费版与付费版的边界尚不明确。",
+      "除发布日期外，功能是否已实际可用（status 为 announced 还是 available）无法从输入确认。",
+      "摘要中的界面描述是图片替代文本，并非完整公告内容，可能存在遗漏。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "DaisyRose-27B：提升后训练效率",
+    "category": "ai_models",
+    "credibility_score": 0.45,
+    "entity_names": [
+      "RadixArk",
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了题为《DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency》的文章。",
+      "该条目来自 Hugging Face Blog 的 RSS 源，标记为 official_primary 类型的 factual_announcement。"
+    ],
+    "id": "story-6c51093034b065e547fc",
+    "importance_score": 0.4,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin",
+    "product_names": [
+      "DaisyRose-27B"
+    ],
+    "published_at": "2026-11-18T19:54:56Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-f0b81ce3c14612880642"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T19:54:56Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f0b81ce3c14612880642",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "DaisyRose-27B: Pushing the Frontier of Post-Training Efficiency",
+        "url": "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/RadixArk/daisyrose-27b-pushing-the-frontier-of-post-trainin"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未提供摘要或正文片段，无法核实 DaisyRose-27B 的具体能力、参数规模、后训练方法及发布状态。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Google Gemini 应用现已支持低内存 Android 设备",
+    "category": "ai_products",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "Google",
+      "Android"
+    ],
+    "facts": [
+      "Google 官方博客宣布，Gemini 应用现已支持低内存 Android 设备。",
+      "该公告称用户可在手机上使用 Gemini Live 和自定义图像生成功能。"
+    ],
+    "id": "story-37c41ac84df03ae64524",
+    "importance_score": 0.3,
+    "novelty_score": 0.18,
+    "primary_source_url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/",
+    "product_names": [
+      "Gemini",
+      "Gemini Live"
+    ],
+    "published_at": "2026-11-18T17:00:00Z",
+    "relevance_score": 0.42,
+    "source_item_ids": [
+      "item-0191a8cf5007a7e305ee"
+    ],
+    "source_refs": [
+      {
+        "author": "Angus Logan",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0191a8cf5007a7e305ee",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "The Gemini app is now available on lower-memory Android devices.",
+        "url": "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/innovation-and-ai/products/gemini-app/gemini-lower-memory-devices/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 应用",
+      "设备兼容性"
+    ],
+    "uncertainties": [
+      "公告未说明具体的设备内存门槛或支持机型列表。",
+      "公告未给出支持的低内存设备的具体性能表现。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  },
+  {
+    "analysis": [
+      "该版本为小型补丁更新，仅包含一项枚举更新修复，未涉及新功能或行为变更。"
+    ],
+    "canonical_title": "googleapis/python-genai 发布 v3.6.1 修复版本",
+    "category": "developer_tools",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "googleapis",
+      "python-genai"
+    ],
+    "facts": [
+      "googleapis/python-genai 于 2026-11-18 发布 v3.6.1 版本，该版本为对比 v3.6.0 的补丁版本。",
+      "v3.6.1 的变更内容为 Bug Fixes 类别的“Update sdk enum”（提交 4c4ab16）。"
+    ],
+    "id": "story-d9de0646178765baafb3",
+    "importance_score": 0.1,
+    "novelty_score": 0.05,
+    "primary_source_url": "https://github.com/googleapis/python-genai/releases/tag/v3.6.1",
+    "product_names": [
+      "python-genai"
+    ],
+    "published_at": "2026-11-18T21:48:51Z",
+    "relevance_score": 0.35,
+    "source_item_ids": [
+      "item-4e2fa6d45da3ff044cb7"
+    ],
+    "source_refs": [
+      {
+        "author": "release-please[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-19T01:28:05.495328Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-18T21:48:51Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4e2fa6d45da3ff044cb7",
+        "source_date": null,
+        "source_name": "GitHub · googleapis/python-genai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "googleapis/python-genai: v3.6.1",
+        "url": "https://github.com/googleapis/python-genai/releases/tag/v3.6.1"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/googleapis/python-genai/releases/tag/v3.6.1"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "“Update sdk enum”的具体影响范围及其修复的具体问题在发布说明中未展开说明。"
+    ],
+    "updated_at": "2026-11-19T01:29:31.361378Z"
+  }
+]

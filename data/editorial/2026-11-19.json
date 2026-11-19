@@ -1,0 +1,141 @@
+{
+  "date": "2026-11-19",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认八个验证过的 MCP 连接器公开预览，直接影响 Copilot 接入第三方系统的工作流。",
+      "retain_for_trends": true,
+      "story_id": "story-452a8e2881055f1c2f6c",
+      "support_for_story_id": null,
+      "trend_links": [
+        "mcp-connector-ecosystem-expansion",
+        "copilot-external-service-integration"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认模型在 Copilot 正式可用，但质量表现仍属厂商声明，作为多模型接入趋势的弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-c7897640a652cf4abfdd",
+      "support_for_story_id": null,
+      "trend_links": [
+        "copilot-multimodel-routing",
+        "agentic-coding-model-selection"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "技术方向有参考价值，但仅有厂商博客的摘要，缺少可复现数据，后台保留为长上下文成本趋势线索。",
+      "retain_for_trends": true,
+      "story_id": "story-2b08ab0166cc45b395f1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sparse-attention-long-context-cost",
+        "long-context-inference-efficiency"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "CLI 事件流等待替代轮询，是 agent 自动化工作流的实质可用性变化，且官方可验证。",
+      "retain_for_trends": true,
+      "story_id": "story-cde22e0db26a52899cb1",
+      "support_for_story_id": null,
+      "trend_links": [
+        "event-driven-agent-workflows",
+        "cli-polling-replacement"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "关于暂停训练与芯片需求脱节的叙事仅有单家媒体转述，事实存疑，仅作低置信度趋势线索。",
+      "retain_for_trends": true,
+      "story_id": "story-fe2d7d00b641a5023fe2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-training-pause-vs-chip-demand",
+        "ai-safety-incident-verification-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "微调耗时偏离 FLOPs 估算对实际训练成本有用，但输入无正文数据，只能作为弱证据。",
+      "retain_for_trends": true,
+      "story_id": "story-d9e1372a9af6f08e6521",
+      "support_for_story_id": null,
+      "trend_links": [
+        "fine-tuning-cost-modeling-gap",
+        "training-non-compute-overhead"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "面向消费者的 Gemini 任务功能，摘要仅界面文字，无开发者可用的结构性变化。",
+      "retain_for_trends": false,
+      "story_id": "story-9436e31226424be89863",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "开放权重模型后训练效率主题值得关注，但缺少摘要与独立复现，保留为弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-6c51093034b065e547fc",
+      "support_for_story_id": null,
+      "trend_links": [
+        "post-training-efficiency-open-weights"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "低内存 Android 设备支持属兼容性扩展，对开发能力与工作流无结构影响。",
+      "retain_for_trends": false,
+      "story_id": "story-37c41ac84df03ae64524",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "单一枚举修复的补丁版本，属普通维护，无阅读与趋势价值。",
+      "retain_for_trends": false,
+      "story_id": "story-d9de0646178765baafb3",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-19T01:29:31.361378Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

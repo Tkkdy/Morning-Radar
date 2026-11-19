@@ -1,0 +1,142 @@
+{
+  "date": "2026-11-19",
+  "generated_at": "2026-11-19T01:29:31.361378Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Copilot",
+        "Supabase",
+        "Box",
+        "Calendly"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub 在公开预览阶段后续披露其余五个 MCP 连接器名称，以及各连接器支持的具体操作和可用套餐范围。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "MCP servers",
+        "connectors"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-19T01:29:31.361378Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-19",
+          "story_id": "story-452a8e2881055f1c2f6c"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-b073c835b0ac6fe27af6"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "Google",
+        "Gemini 4 Neon"
+      ],
+      "event_type": "opened",
+      "expectation": "GitHub 或 Google 公布 Gemini 4 Neon 在 Copilot 中的基准测试指标、定价、速率限制及默认启用状态。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub Copilot",
+        "Gemini 4 Neon"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-19T01:29:31.361378Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-19",
+          "story_id": "story-c7897640a652cf4abfdd"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "agentic coding",
+        "multistep tool use"
+      ],
+      "watch_id": "watch-b0f71113e4ba0d0c8299"
+    },
+    {
+      "entity_anchors": [
+        "GitHub",
+        "GitHub CLI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 GitHub 是否公布 gh v2.105.0 等待拉取请求事件命令的具体名称、超时行为与事件过滤粒度，以及 GitHub Event Streams 的可用范围与权限/配额规则。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "GitHub CLI",
+        "GitHub Event Streams"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-19T01:29:31.361378Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-19",
+          "story_id": "story-cde22e0db26a52899cb1"
+        }
+      ],
+      "topic_anchors": [
+        "ai_coding",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-6a4df8db6fed8e97c604"
+    },
+    {
+      "entity_anchors": [
+        "Google",
+        "Gemini"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Gemini 任务功能是否公布具体能力清单、支持语言与地区、以及免费版与付费版的边界，并确认其是否已实际可用。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Gemini"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-19T01:29:31.361378Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-19",
+          "story_id": "story-9436e31226424be89863"
+        }
+      ],
+      "topic_anchors": [
+        "AI 助手",
+        "任务自动化"
+      ],
+      "watch_id": "watch-bec492309516837fadf9"
+    },
+    {
+      "entity_anchors": [
+        "RadixArk",
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 DaisyRose-27B 是否公开模型能力、参数规模与后训练方法等可核验细节，以及模型是否实际开放获取。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "DaisyRose-27B"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-19T01:29:31.361378Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-19",
+          "story_id": "story-6c51093034b065e547fc"
+        }
+      ],
+      "topic_anchors": [
+        "ai_models",
+        "ai_infrastructure",
+        "open_source_ai"
+      ],
+      "watch_id": "watch-d34b82af99c425f0a758"
+    }
+  ]
+}
