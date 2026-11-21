@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-22",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认发布防御框架，但具体技术与效果未披露，值得展开机制讨论并留作能力提取攻防趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-17253737506893ccd345",
+      "support_for_story_id": null,
+      "trend_links": [
+        "adversarial-distillation-defense",
+        "capability-extraction-enforcement"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认 Gemini API 新增工具检索，但细节缺失，适合轻量告知并留作工具规模化管理趋势弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-8deb582b7e658851aac4",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-tool-retrieval-scaling"
+      ]
+    },
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "可追踪金丝雀揭示供应链隐私泄露，方法有价值但来源与方法细节不足，值得展开并保留为隐私风险证据。",
+      "retain_for_trends": true,
+      "story_id": "story-eb4cff72665ee8bbc3cf",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-supply-chain-data-leakage",
+        "canary-token-tracing"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "发布说明确认多模型集成与循环架构支持，属常规生态更新，轻量阅读并留作架构趋势弱信号。",
+      "retain_for_trends": true,
+      "story_id": "story-43cc17199ed109dc75ad",
+      "support_for_story_id": null,
+      "trend_links": [
+        "recurrent-depth-architecture-adoption",
+        "multimodal-model-integration"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "单例肖像授权报道信息单薄，无结构性影响，不占读者注意力也不构成趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-9591c3f5313b9ab69fe9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "播客评论缺乏一手事实，IPO 说法未验证，不具可复用证据价值。",
+      "retain_for_trends": false,
+      "story_id": "story-4d8111691992cbce4b9c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "编辑性摘要无财报数字与具体发言，无法核实事件边界，不保留。",
+      "retain_for_trends": false,
+      "story_id": "story-92989b415c0a673ea42c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "名单类汇总无具体产品与评测依据，一句话提及即可，不构成趋势证据。",
+      "retain_for_trends": false,
+      "story_id": "story-be2858fc0652e723d7b6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "无内容摘要、零讨论的未验证线索，无法命名机制，直接丢弃。",
+      "retain_for_trends": false,
+      "story_id": "story-7ab229a777840d7e9b6e",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-21T23:58:13.967035Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

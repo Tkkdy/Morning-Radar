@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-22",
+  "generated_at": "2026-11-21T23:58:13.967035Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否公开对抗性蒸馏防御中训练、safeguards、检测与 enforcement 各环节的具体措施或效果数据。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-11-21T23:58:13.967035Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-22",
+          "story_id": "story-17253737506893ccd345"
+        }
+      ],
+      "topic_anchors": [
+        "adversarial distillation",
+        "capability extraction"
+      ],
+      "watch_id": "watch-8c36aaab6baac59ba885"
+    }
+  ]
+}

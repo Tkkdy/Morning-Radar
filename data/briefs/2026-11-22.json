@@ -1,0 +1,684 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-fb3f1d03c46f6683d1d1",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "报道指出，若这种模式在好莱坞成为趋势，专家对其长期影响提出质疑。"
+          ],
+          "canonical_title": "演员将面部肖像授权给微短剧初创公司，引发AI换脸趋势讨论",
+          "category": "AI应用与伦理",
+          "entity_names": [
+            "TechCrunch",
+            "Lucas Ropek"
+          ],
+          "facts": [
+            "TechCrunch 于 2026-11-21 报道，一名演员将其面部授权给一家微短剧初创公司。",
+            "报道称此类做法在中国已经较为流行。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/",
+          "product_names": [],
+          "published_at": "2026-11-21T16:00:00Z",
+          "source_refs": [
+            {
+              "author": "Lucas Ropek",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-21T16:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-f2e0e504895b9fb3da93",
+              "source_date": null,
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Is selling an AI version of your face to this microdrama startup the future of Hollywood?",
+              "url": "https://techcrunch.com/2026/11/21/is-selling-an-ai-version-of-your-face-to-this-microdrama-startup-the-future-of-hollywood/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-9591c3f5313b9ab69fe9",
+          "topic_names": [
+            "AI换脸",
+            "微短剧",
+            "演员肖像授权",
+            "好莱坞"
+          ],
+          "uncertainties": [
+            "报道未披露涉事演员姓名及微短剧初创公司名称。",
+            "该模式对演员长期权益的具体影响尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-9591c3f5313b9ab69fe9"
+      ],
+      "title": "演员向微短剧初创公司授权 AI 面部肖像",
+      "uncertainty": "报道未披露涉事演员姓名与初创公司名称，也未说明授权条款；该模式对演员长期权益的影响尚不明确。",
+      "what_happened": "TechCrunch 于 2026 年 11 月 21 日报道，一名演员将其面部授权给一家微短剧初创公司，并称此类做法在中国已较为流行；报道讨论了这能否成为好莱坞的未来模式。",
+      "why_it_matters": "它把肖像授权与 AI 换脸从争议话题推进到商业合同层面，但专家对该模式的长期影响仍存质疑。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-816aa63a0facdcab591b",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/huggingface/transformers/releases/tag/v5.24.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "v5.24.0 一次性引入多个模型家族，显示 Transformers 对多模态与循环/潜在循环架构的集成节奏加快。",
+            "循环层与可变循环次数的设计让同一检查点可在推理时按算力预算权衡速度与质量，这是本批次模型的共同趋势。"
+          ],
+          "canonical_title": "Hugging Face Transformers 发布 v5.24.0，新增 Inkling 2 Mini、Apertus 1.5 等多个模型支持",
+          "category": "open_source_ai",
+          "entity_names": [
+            "Hugging Face",
+            "Thinking Machines Lab",
+            "Swiss AI Initiative",
+            "NVIDIA",
+            "Hunyuan",
+            "huggingface/transformers"
+          ],
+          "facts": [
+            "huggingface/transformers 发布 v5.24.0，发布者为 Cyrilvallez。",
+            "Inkling 2 Mini 是 Thinking Machines Lab 的多模态模型，接受文本和图像输入并生成文本输出，是 v5.23.0 中新增的 Inkling 2 Small 的小型版本。",
+            "Inkling 2 Mini 有 24 个解码器层（Inkling 2 Small 为 48 层），通过循环机制补偿：第 6 至 17 层运行三次。",
+            "Inkling 2 Mini 解码器隐藏维度为 2304，每个 token 路由到 128 个专家中的 8 个；图像编码器、分词器和处理器与 Inkling 2 Small 相同。",
+            "研究检查点 TML-d24-varloop-research 采用相同架构，但支持可变循环次数；两个检查点都包含 NVFP4 和 MXFP8 量化层，在加载时反量化。",
+            "Apertus 1.5 是 Swiss AI Initiative 的多模态模型，接受文本、图像和音频输入并生成文本；图像使用 EMU3.5 视觉分词器，音频使用 WavTokenizer。",
+            "WavTokenizer 将 24 kHz 单声道音频编码为离散 token，使用单一码本，根据检查点不同为每秒 40 或 75 个 token；WavTokenizerModel 进行编解码，WavTokenizerEncoderModel 仅编码。",
+            "Dory 是 NVIDIA 的循环（潜在循环）语言模型，采用归一化 GPT 架构，交错使用滑动窗口注意力和全注意力层，推理时可调整循环次数以权衡速度与质量。",
+            "HY4-VL（Hunyuan V4 Vision-Language）将 HYV4 混合专家文本骨干与视觉编码器结合，支持图像-文本和视频-文本生成，基于 Qwen2-VL 设计。",
+            "v5.24.0 还新增了 Omnilingual ASR 多语言语音模型套件支持。"
+          ],
+          "primary_source_url": "https://github.com/huggingface/transformers/releases/tag/v5.24.0",
+          "product_names": [
+            "Transformers v5.24.0",
+            "Inkling 2 Mini",
+            "Inkling 2 Small",
+            "Apertus 1.5",
+            "WavTokenizer",
+            "Dory",
+            "HY4-VL",
+            "Omnilingual ASR"
+          ],
+          "published_at": "2026-11-21T12:28:26Z",
+          "source_refs": [
+            {
+              "author": "Cyrilvallez",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-21T12:28:26Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-4bdb6d39f683fd871529",
+              "source_date": null,
+              "source_name": "GitHub · huggingface/transformers",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "huggingface/transformers: Release v5.24.0",
+              "url": "https://github.com/huggingface/transformers/releases/tag/v5.24.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-43cc17199ed109dc75ad",
+          "topic_names": [
+            "开放模型",
+            "多模态模型",
+            "开源库发布"
+          ],
+          "uncertainties": [
+            "输入摘要未完整覆盖 Omnilingual ASR 及 v5.24.0 的其他条目，发布说明全文内容不完整。",
+            "Inkling 2 Mini、Apertus 1.5、Dory 等模型的实际性能与基准表现未在输入中给出。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-43cc17199ed109dc75ad"
+      ],
+      "title": "Hugging Face Transformers 发布 v5.24.0，新增 Inkling 2 Mini、Apertus 1.5 等多款模型支持",
+      "uncertainty": "输入摘要未完整覆盖 Omnilingual ASR 及 v5.24.0 的其他条目，发布说明全文内容不完整；Inkling 2 Mini、Apertus 1.5、Dory 等模型的实际性能与基准表现未在输入中给出。相关信号仅显示 NVIDIA 最近交易日变动 -14.0% 且当日存在相关事件，两者不构成因果确认。",
+      "what_happened": "huggingface/transformers 发布 v5.24.0（发布者 Cyrilvallez），新增对多个模型家族的支持。据发布说明，Thinking Machines Lab 的多模态模型 Inkling 2 Mini 接受文本和图像输入、生成文本输出，是 v5.23.0 中新增的 Inkling 2 Small 的小型版本：有 24 个解码器层（Inkling 2 Small 为 48 层），通过循环机制补偿——第 6 至 17 层运行三次；解码器隐藏维度为 2304，每个 token 路由到 128 个专家中的 8 个，图像编码器、分词器和处理器与 Inkling 2 Small 相同。研究检查点 TML-d24-varloop-research 采用相同架构但支持可变循环次数，两个检查点都包含 NVFP4 和 MXFP8 量化层，在加载时反量化。Swiss AI Initiative 的 Apertus 1.5 接受文本、图像和音频输入并生成文本，图像使用 EMU3.5 视觉分词器，音频使用 WavTokenizer（将 24 kHz 单声道音频编码为离散 token，使用单一码本，根据检查点不同为每秒 40 或 75 个 token；WavTokenizerModel 进行编解码，WavTokenizerEncoderModel 仅编码）。NVIDIA 的 Dory 是循环（潜在循环）语言模型，采用归一化 GPT 架构，交错使用滑动窗口注意力和全注意力层，推理时可调整循环次数以权衡速度与质量。HY4-VL（Hunyuan V4 Vision-Language）将 HYV4 混合专家文本骨干与视觉编码器结合，支持图像-文本和视频-文本生成，基于 Qwen2-VL 设计。v5.24.0 还新增了 Omnilingual ASR 多语言语音模型套件支持。",
+      "why_it_matters": "v5.24.0 一次性引入多个模型家族，显示 Transformers 对多模态与循环/潜在循环架构的集成节奏加快。循环层与可变循环次数的设计让同一检查点可在推理时按算力预算权衡速度与质量，这是本批次模型的共同趋势。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本条仅为单条已核实 Story 的展示恢复，事实与分析已分开呈现，IPO 细节以官方披露为准。",
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-6edc12f08342ea267d2f",
+      "market_or_community_reaction": "目前仅有一档播客的编辑评论，暂无更广泛的市场或社区反应数据。",
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该期播客围绕 Anthropic 的 IPO 及其能否坚持安全优先展开讨论，属于第三人称编辑评论，而非对事件的直接事实披露。"
+          ],
+          "canonical_title": "The Verge 播客讨论 Anthropic IPO 及其安全优先定位",
+          "category": "ai_industry",
+          "entity_names": [
+            "Anthropic",
+            "Claude",
+            "Nasdaq",
+            "OpenAI",
+            "Nvidia",
+            "The Verge",
+            "Hayden Field",
+            "Nilay Patel"
+          ],
+          "facts": [],
+          "primary_source_url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure",
+          "product_names": [
+            "Claude"
+          ],
+          "published_at": "2026-11-21T10:00:00-05:00",
+          "source_refs": [
+            {
+              "author": "Nilay Patel",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-21T10:00:00-05:00",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-3298713995b153167b47",
+              "source_date": null,
+              "source_name": "The Verge AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Can Anthropic afford to put safety first?",
+              "url": "https://www.theverge.com/podcast/1038701/anthropic-ipo-ai-safety-openai-nvidia-structure"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-4d8111691992cbce4b9c",
+          "topic_names": [
+            "ai_models",
+            "ai_safety",
+            "ai_ipo"
+          ],
+          "uncertainties": [
+            "摘要提及 Anthropic 上周四在纳斯达克上市，但该说法仅出自播客摘要，无官方一手来源佐证。",
+            "摘要未给出具体 IPO 数字、估值或发行细节。",
+            "OpenAI 与 Nvidia 在播客中的具体讨论内容不明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-4d8111691992cbce4b9c"
+      ],
+      "title": "The Verge 播客讨论 Anthropic IPO 及其安全优先定位",
+      "uncertainty": "播客摘要提到 Anthropic 上周四在纳斯达克上市，但该说法没有官方一手来源佐证，也未给出 IPO 的具体数字、估值或发行细节；节目中关于 OpenAI 和 Nvidia 的具体讨论内容不明。",
+      "what_happened": "The Verge 播客节目以“Can Anthropic afford to put safety first?”为题，围绕 Anthropic 的 IPO 以及该公司能否在上市后坚持安全优先的定位展开讨论，节目由 Nilay Patel 主持，同场话题还涉及 OpenAI 与 Nvidia。",
+      "why_it_matters": "如果 Anthropic 确实完成上市，它将是一家把安全优先作为核心叙事的头部 AI 公司接受公开市场检验的案例，其治理结构与商业压力之间的张力值得持续关注。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-a0aa7138b7887c528327",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该文属于编者整理的名单类内容，不是单一产品的发布或更新，因此适合作为 AI 代理产品形态的行业观察，而非事实性发布事件。"
+          ],
+          "canonical_title": "TechCrunch 汇总可在短信中使用的 AI 代理名单",
+          "category": "ai_industry_roundup",
+          "entity_names": [
+            "TechCrunch",
+            "Lauren Forristal"
+          ],
+          "facts": [
+            "TechCrunch 于 2026-11-21T17:00:00Z 发布文章《Here are the top AI agents that can live in your text messages》，作者为 Lauren Forristal。",
+            "文章摘要称，该文整理了一份可在短信中使用的知名 AI 代理名单，涵盖通用助手以及面向家庭、旅行和工作场景设计的代理。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/",
+          "product_names": [],
+          "published_at": "2026-11-21T17:00:00Z",
+          "source_refs": [
+            {
+              "author": "Lauren Forristal",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-21T17:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-f52216bdae320c5247f4",
+              "source_date": null,
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Here are the top AI agents that can live in your text messages",
+              "url": "https://techcrunch.com/2026/11/21/all-the-ai-agents-that-can-live-in-your-text-messages/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-be2858fc0652e723d7b6",
+          "topic_names": [
+            "AI 代理",
+            "短信 AI 助手",
+            "通用助手",
+            "家庭场景 AI",
+            "旅行场景 AI",
+            "工作场景 AI"
+          ],
+          "uncertainties": [
+            "输入仅提供标题、摘要和短内容摘录，未列出具体代理名称、功能细节或评测依据。",
+            "文章所称“most notable”的筛选标准未在输入中说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-be2858fc0652e723d7b6"
+      ],
+      "title": "TechCrunch 汇总可在短信中使用的 AI 代理名单",
+      "uncertainty": "输入仅提供标题、摘要和短内容摘录，未列出具体代理名称、功能细节或评测依据；文章所称“most notable”的筛选标准也未在输入中说明。",
+      "what_happened": "TechCrunch 于 2026-11-21T17:00:00Z 发布文章《Here are the top AI agents that can live in your text messages》，作者为 Lauren Forristal。文章摘要称，该文整理了一份可在短信中使用的知名 AI 代理名单，涵盖通用助手以及面向家庭、旅行和工作场景设计的代理。",
+      "why_it_matters": "该文属于编者整理的名单类内容，而非单一产品的发布或更新，因此适合作为观察 AI 代理产品形态的行业参考，而不是作为某个发布事件的依据。"
+    }
+  ],
+  "cognitive_extension": "当 OpenAI 把“执法”列为对抗性蒸馏防御的一环时，这类 enforcement 针对的是模型输出、账号行为还是合同条款？不同选择会如何改变对“能力提取”边界的理解？",
+  "date": "2026-11-22",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-11-21T23:58:13.967035Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 1710,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 1,
+    "ai_brief_batches": 2,
+    "ai_brief_item_fallbacks": 0,
+    "ai_brief_recovery_attempts": 3,
+    "ai_brief_recovery_successes": 3,
+    "ai_brief_story_inputs": 7,
+    "ai_classify_completion_tokens": 1431,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6779,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 14381,
+    "ai_evaluate_editorial_completion_tokens": 774,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 7412,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 116403,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 3062,
+    "ai_merge_story_finish_stop": 9,
+    "ai_merge_story_prompt_tokens": 9116,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 60497,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 1419,
+    "ai_resolve_continuity_completion_tokens": 1205,
+    "ai_resolve_continuity_finish_stop": 3,
+    "ai_resolve_continuity_prompt_tokens": 8376,
+    "ai_resolve_continuity_reasoning_tokens": 880,
+    "ai_resolve_research_cases_completion_tokens": 1001,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 2106,
+    "ai_resolve_research_cases_reasoning_tokens": 539,
+    "ai_score_story_completion_tokens": 1670,
+    "ai_score_story_finish_stop": 9,
+    "ai_score_story_prompt_tokens": 10313,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 3936,
+    "ai_write_brief_finish_stop": 3,
+    "ai_write_brief_item_completion_tokens": 1302,
+    "ai_write_brief_item_finish_stop": 3,
+    "ai_write_brief_item_prompt_tokens": 4487,
+    "ai_write_brief_item_reasoning_tokens": 0,
+    "ai_write_brief_prompt_tokens": 11908,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 14381,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 0,
+    "continuity_candidates": 3,
+    "continuity_character_budget_available": 11075,
+    "continuity_input_chars": 10909,
+    "continuity_judgement_inputs": 3,
+    "continuity_logical_ai_calls": 4,
+    "continuity_network_requests": 4,
+    "continuity_relation_inputs": 2,
+    "continuity_watch_inputs": 3,
+    "direction_signal_inputs": 0,
+    "dry_run": false,
+    "editorial_decisions": 9,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fast_continuity_degraded": 0,
+    "fixture_mode": false,
+    "historical_story_candidates": 130,
+    "judgement_candidates": 3,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 29,
+    "logical_ai_tasks": 29,
+    "main_brief_items": 7,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 30,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 60497,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 0,
+    "radar_signals_displayed": 0,
+    "radar_signals_generated": 0,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 1419,
+    "recent_24h": 47,
+    "relation_ai_inputs": 2,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 2,
+    "relation_unresolved": 1,
+    "relations_confirmed": 0,
+    "relations_rejected": 2,
+    "relations_unresolved": 1,
+    "research_cases": 3,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 4267,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 0,
+    "research_unknown_cases": 0,
+    "research_unresolved": 3,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 1,
+    "signals": 1,
+    "stories": 9,
+    "story_candidate_input": 16,
+    "structured_watches_opened": 1,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 7,
+    "total_displayed_items": 7,
+    "watch_inputs": 3,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-f9f2234c390c9c22bd32",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/combatting-adversarial-distillation"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该来源为 OpenAI 官方发布渠道（official_primary），文章以事实性公告形式介绍其对抗性蒸馏的防御思路。",
+            "从文章摘要看，OpenAI 将对抗性蒸馏视为需要通过训练、safeguards、检测与执法多环节协同应对的能力提取风险。"
+          ],
+          "canonical_title": "OpenAI 发布多层防御对抗性蒸馏的方法",
+          "category": "ai_models",
+          "entity_names": [
+            "OpenAI"
+          ],
+          "facts": [
+            "OpenAI 发布文章《Combatting adversarial distillation》，发布时间为 2026-11-20T10:00:00Z。",
+            "OpenAI 称其应对对抗性蒸馏的分层方法结合了模型训练、safeguards、检测和执法（enforcement），用于防范能力提取。"
+          ],
+          "primary_source_url": "https://openai.com/index/combatting-adversarial-distillation",
+          "product_names": [],
+          "published_at": "2026-11-20T10:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-20T10:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-7ad44f990f0c53ef2e2a",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Combatting adversarial distillation",
+              "url": "https://openai.com/index/combatting-adversarial-distillation"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-17253737506893ccd345",
+          "topic_names": [
+            "adversarial distillation",
+            "capability extraction",
+            "model training",
+            "safeguards",
+            "detection",
+            "enforcement"
+          ],
+          "uncertainties": [
+            "输入仅提供文章摘要，未披露分层防御各环节的具体技术细节、实施时间表或效果数据。",
+            "“enforcement”所指的具体措施对象与执行方式在输入中未说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-17253737506893ccd345"
+      ],
+      "title": "OpenAI 阐述对抗性蒸馏的多层防御思路",
+      "uncertainty": "文章摘要未披露各环节的具体技术细节、实施时间表或效果数据；“enforcement”所指的具体措施对象与执行方式也未说明。",
+      "what_happened": "OpenAI 于 2026 年 11 月 20 日发布文章《Combatting adversarial distillation》，称其应对对抗性蒸馏的分层方法结合了模型训练、safeguards、检测和执法（enforcement），用于防范能力提取。",
+      "why_it_matters": "这显示头部模型厂商正把“能力被蒸馏提取”当作需要训练、检测与执法协同处理的持续风险，而非单一技术问题。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-c79d3915e4ffaed9aeee",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该测试使用携带唯一且可追踪的密钥的提示词，表明数据在AI供应链中未被保持私密，但具体涉及哪些供应商、模型或数据流转路径，现有输入未提供。"
+          ],
+          "canonical_title": "研究人员在AI供应链中植入200万个“金丝雀”追踪标记，揭示用户数据泄露问题",
+          "category": "AI安全与隐私",
+          "entity_names": [
+            "Ars Technica Technology Lab",
+            "Dan Goodin"
+          ],
+          "facts": [],
+          "primary_source_url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/",
+          "product_names": [],
+          "published_at": "2026-11-20T20:59:08Z",
+          "source_refs": [
+            {
+              "author": "Dan Goodin",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-20T20:59:08Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-f22d46a83ecd25c4b9af",
+              "source_date": null,
+              "source_name": "Ars Technica Technology Lab",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Researcher plants 2m canaries into the AI supply chain. A privacy disaster surfaced.",
+              "url": "https://arstechnica.com/security/2026/11/a-leaky-ai-supply-chain-is-exposing-secret-user-data-at-an-alarming-rate/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-eb4cff72665ee8bbc3cf",
+          "topic_names": [
+            "AI供应链隐私",
+            "用户数据传输",
+            "隐私泄露"
+          ],
+          "uncertainties": [
+            "“200万个金丝雀”中金丝雀的具体定义与计数方式不明确",
+            "测试由哪位研究者或哪个机构实施、在什么时间范围进行、采用何种方法，输入未说明",
+            "数据泄露的具体规模、受影响用户范围及涉及的具体AI供应链环节，输入未披露",
+            "事件的发生时间不明确，仅知报道发布于2026年11月20日"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-eb4cff72665ee8bbc3cf"
+      ],
+      "title": "研究者向 AI 供应链植入 200 万个“金丝雀”标记",
+      "uncertainty": "“金丝雀”的具体定义与计数方式、实施者与时间范围、泄露规模与受影响用户范围、涉及的具体供应链环节均未明确；报道本身可信度评估偏低，需谨慎对待。",
+      "what_happened": "据 Ars Technica 报道，一名研究者向 AI 供应链植入 200 万个携带唯一且可追踪密钥的“金丝雀”提示词，测试显示用户数据在 AI 供应链中未被保持私密。",
+      "why_it_matters": "若该测试方法可靠，它把 AI 供应链中的数据流转问题从抽象担忧变成可追踪、可计数的证据，指向提示词与用户数据在多环节流转中的隐私暴露。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": null,
+      "generation_reason": null,
+      "generation_status": "generated",
+      "id": "brief-14dec95d3b44d513c1dd",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "工具检索功能面向 Gemini API 开发者，可能用于在大量可用工具中筛选相关工具，但输入材料未提供具体机制、参数或性能数据，无法进一步评估。"
+          ],
+          "canonical_title": "Google 在 Gemini API 中推出工具检索（Tool Retrieval）功能",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Google",
+            "Gemini API"
+          ],
+          "facts": [
+            "Google AI 官方博客发布了题为《Introducing Tool Retrieval in the Gemini API》的文章，作者为 Nora Kassner，发布时间为 2026-11-19T18:00:00Z。",
+            "该文章宣布 Gemini API 新增工具检索（Tool Retrieval）功能。"
+          ],
+          "primary_source_url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+          "product_names": [
+            "Gemini API",
+            "Tool Retrieval"
+          ],
+          "published_at": "2026-11-19T18:00:00Z",
+          "source_refs": [
+            {
+              "author": "Nora Kassner",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-21T23:55:21.437838Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-19T18:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-056cf0b58a3dbace6833",
+              "source_date": null,
+              "source_name": "Google AI",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Introducing Tool Retrieval in the Gemini API",
+              "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-8deb582b7e658851aac4",
+          "topic_names": [
+            "ai_infrastructure",
+            "ai_models"
+          ],
+          "uncertainties": [
+            "输入材料仅有标题与占位式摘要（“Gemini spark on a space background”），缺少功能细节、上线范围、定价与兼容性信息。",
+            "工具检索的具体实现方式、适用模型版本与限制条件尚不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-8deb582b7e658851aac4"
+      ],
+      "title": "Gemini API 新增工具检索功能",
+      "uncertainty": "仅有标题与占位式摘要，缺少功能细节、上线范围、定价与兼容性信息；具体实现方式、适用模型版本与限制条件尚不明确。",
+      "what_happened": "Google AI 官方博客于 2026 年 11 月 19 日发布文章《Introducing Tool Retrieval in the Gemini API》，宣布 Gemini API 新增工具检索（Tool Retrieval）功能。",
+      "why_it_matters": "该功能面向在大量可用工具中筛选相关工具的开发场景，但输入材料缺少机制、参数与性能数据，暂无法评估实际影响。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": [
+    "观察 OpenAI 是否公开对抗性蒸馏防御中训练、safeguards、检测与 enforcement 各环节的具体措施或效果数据。"
+  ]
+}
