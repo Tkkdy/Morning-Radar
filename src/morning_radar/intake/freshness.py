@@ -19,9 +19,9 @@ def late_discovery_reason(
     """Classify an out-of-window record without treating fetch time as publication.
 
     A late item remains bounded by both its durable first observation and its
-    source publication date.  Only high-priority primary-source material is
-    admitted to the existing recovery lane; downstream relevance, evidence,
-    and publish decisions remain unchanged.
+    source publication date. Timely captures remain actionable; newly found
+    old articles still require high-priority primary-source provenance.
+    Downstream relevance, evidence, and publish decisions remain unchanged.
     """
     item = record.item
     if item.metadata.get("official_page_fetched") and item.metadata.get("event_time_unverified"):
@@ -38,6 +38,10 @@ def late_discovery_reason(
         return "missing_event_time"
     if not filter_news_window([item], now=now, hours=lookback_hours):
         return "expired"
+    # A timely durable capture is unfinished work, not a newly discovered old article.
+    # Keep it recoverable within the same bounded publication AND durability window.
+    if filter_news_window([item], now=first_seen, hours=normal_hours):
+        return "eligible_backlog"
     if item.source_role.value != "official_primary" or item.metadata.get("priority") != "high":
         return "low_value"
     return "eligible_late"

@@ -55,7 +55,11 @@ def recover_unfinished_records(
             normal_hours=collection_hours or 1,
             lookback_days=lookback_days,
         )
-        if collection_hours is not None and freshness not in {"fresh", "eligible_late"}:
+        if collection_hours is not None and freshness not in {
+            "fresh",
+            "eligible_late",
+            "eligible_backlog",
+        }:
             ledger.update(
                 entry.input_id,
                 entry.content_version,

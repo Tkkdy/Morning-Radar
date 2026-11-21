@@ -193,7 +193,7 @@ def test_site_builder_renders_v2_story_context_with_safe_source_semantics(tmp_pa
     assert "已宣布" in html
     assert "主来源" in html
     assert "<details" in html
-    assert "已验证事实" in html
+    assert "材料中的事实陈述" in html
     assert "HN source title" in html
 
 

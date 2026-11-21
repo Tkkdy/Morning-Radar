@@ -156,6 +156,30 @@ def run_model_ab_experiment(
     challenger: AIProvider | None = None,
     current_date: date | None = None,
 ) -> dict[str, Any]:
+    """Observe the optional experiment separately from required delivery modules."""
+    from morning_radar.health import module_run
+
+    day = current_date or display_date(utc_now())
+    with module_run(root, str(day), "model_ab") as health:
+        result = _run_model_ab_experiment(
+            root, production=production, challenger=challenger, current_date=day
+        )
+        health["status"] = (
+            "not_configured" if result.get("status") == "NOT_CONFIGURED" else
+            "completed" if result.get("successful_pair") else
+            "partial" if result.get("experiment_started") else "no_changes"
+        )
+        health["details"] = {"successful_pair": result.get("successful_pair", False)}
+        return result
+
+
+def _run_model_ab_experiment(
+    root: Path,
+    *,
+    production: AIProvider | None = None,
+    challenger: AIProvider | None = None,
+    current_date: date | None = None,
+) -> dict[str, Any]:
     """Run both experiment lanes from one bundle; never mutate production state."""
     root = root.resolve()
     day = current_date or display_date(utc_now())
@@ -201,6 +225,9 @@ def run_model_ab_experiment(
         budget=AIBudget(2, 50000, 40, 4),
         prompt_dir=root / "prompts",
     )
+    from morning_radar.ai.usage import attach_usage
+    attach_usage(deepseek, root, business_date=str(day), module="model_ab_deepseek")
+    attach_usage(qwen, root, business_date=str(day), module="model_ab_qwen")
     lanes = {
         "deepseek": _run_lane(deepseek, stories, signals),
         "qwen": _run_lane(qwen, stories, signals),

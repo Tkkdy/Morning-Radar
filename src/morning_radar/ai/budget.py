@@ -30,9 +30,17 @@ class AIBudget:
     task_network_requests: dict[str, int] = field(default_factory=dict)
     task_usage: dict[str, dict[str, int]] = field(default_factory=dict)
     task_finish_reasons: dict[str, dict[str, int]] = field(default_factory=dict)
+    planned_tail_calls: int = 0
+    planned_tail_characters: int = 0
     reserved_core_calls: int = 0
     reserved_core_input_characters: int = 0
     _lock: Lock = field(default_factory=Lock, repr=False)
+
+    def plan_tail(self, *, calls: int, input_characters: int) -> None:
+        """Protect later stages before any expensive preprocessing starts."""
+        with self._lock:
+            self.planned_tail_calls = max(0, calls)
+            self.planned_tail_characters = max(0, input_characters)
 
     def reserve_core(self, *, calls: int, input_characters: int) -> None:
         """Keep bounded capacity for an imminent core phase."""
@@ -54,18 +62,23 @@ class AIBudget:
         *,
         item_count: int,
         priority: AITaskPriority = AITaskPriority.CORE,
+        task: str | None = None,
     ) -> None:
         """Reserve one logical task. Structured retries must not call this again."""
         with self._lock:
-            self._consume_locked(payload, item_count=item_count, priority=priority)
+            self._consume_locked(payload, item_count=item_count, priority=priority, task=task)
 
     def _consume_locked(
-        self, payload: str, *, item_count: int, priority: AITaskPriority
+        self, payload: str, *, item_count: int, priority: AITaskPriority, task: str | None
     ) -> None:
         if item_count > self.maximum_items:
             raise AIBudgetExceeded(f"AI item limit exceeded: {item_count} > {self.maximum_items}")
         call_limit = self.maximum_calls
         character_limit = self.maximum_input_characters
+        if task in {"classify", "merge_story", "score_story",
+                    "resolve_research_cases", "evaluate_editorial"}:
+            call_limit -= self.planned_tail_calls
+            character_limit -= self.planned_tail_characters
         if priority is not AITaskPriority.CORE:
             call_limit -= self.reserved_core_calls
             character_limit -= self.reserved_core_input_characters

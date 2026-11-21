@@ -1,0 +1,44 @@
+{
+  "provenance": "Unedited assistant content from MR-R1 closeout response-03.raw; original raw preserved. Offline replay, not a new semantic pass.",
+  "inputs": [
+    {
+      "id": "item-e943411c2e8b32ee0aed",
+      "title": "gpt-oss-safeguard technical report",
+      "url": "https://openai.com/index/gpt-oss-safeguard-technical-report",
+      "source_name": "OpenAI News",
+      "source_type": "rss",
+      "author": null,
+      "published_at": "2025-10-29T00:00:00Z",
+      "fetched_at": "2026-10-10T16:13:24.454289Z",
+      "language": "en-US",
+      "summary": "gpt-oss-safeguard-120b and gpt-oss-safeguard-20b are two open-weight reasoning models post-trained from the gpt-oss models and trained to reason from a provided policy in order to label content under that policy. In this report, we describe gpt-oss-safeguard’s capabilities and provide our baseline safety evaluations on the gpt-oss-safeguard models, using the underlying gpt-oss models as a baseline. For more information about the development and architecture of the underlying gpt-oss models, see the original gpt-oss model model card⁠.",
+      "content_excerpt": "gpt-oss-safeguard-120b and gpt-oss-safeguard-20b are two open-weight reasoning models post-trained from the gpt-oss models and trained to reason from a provided policy in order to label content under that policy. In this report, we describe gpt-oss-safeguard’s capabilities and provide our baseline safety evaluations on the gpt-oss-safeguard models, using the underlying gpt-oss models as a baseline. For more information about the development and architecture of the underlying gpt-oss models, see the original gpt-oss model model card⁠.",
+      "topic_candidates": [
+        "ai_models",
+        "ai_coding"
+      ],
+      "company_candidates": [],
+      "product_candidates": [],
+      "repository_candidates": [],
+      "source_role": "official_primary",
+      "statement_type": "factual_announcement",
+      "practice_signal_kind": null,
+      "metadata": {
+        "official": true,
+        "practitioner_id": null,
+        "priority": "high",
+        "source_id": "openai_news",
+        "source_role": null,
+        "evidence_id": "62638a818b64014bb77eed19",
+        "material_links": [],
+        "material_information_gaps": [
+          "method",
+          "conditions",
+          "limitations"
+        ],
+        "material_status": "captured"
+      }
+    }
+  ],
+  "content": "{\n  \"same_event\": true,\n  \"canonical_title\": \"OpenAI 发布 gpt-oss-safeguard 技术报告，介绍开放权重推理模型及安全评估基线\",\n  \"category\": \"ai_models\",\n  \"entity_names\": [\"OpenAI\", \"gpt-oss-safeguard-120b\", \"gpt-oss-safeguard-20b\", \"gpt-oss\"],\n  \"product_names\": [\"gpt-oss-safeguard-120b\", \"gpt-oss-safeguard-20b\"],\n  \"topic_names\": [\"ai_models\", \"safety_evaluation\", \"open_weights\"],\n  \"facts\": [\n    \"OpenAI 发布了 gpt-oss-safeguard 技术报告，对应发布页面标题为 \\\"gpt-oss-safeguard technical report\\\"。\",\n    \"gpt-oss-safeguard-120b 与 gpt-oss-safeguard-20b 是两个开放权重推理模型。\",\n    \"这两个模型是基于 gpt-oss 模型进行后训练（post-trained）得到的。\",\n    \"模型被训练为根据给定策略（provided policy）进行推理，以便在该策略下对内容进行标注（label content）。\",\n    \"报告描述了 gpt-oss-safeguard 的能力，并提供了对 gpt-oss-safeguard 模型的基线安全评估（baseline safety evaluations），以底层 gpt-oss 模型作为基线。\",\n    \"关于底层 gpt-oss 模型的开发与架构，报告指向原始 gpt-oss model card。\"\n  ],\n  \"analysis\": [],\n  \"grounded_analysis\": [],\n  \"opinions\": [],\n  \"uncertainties\": [\n    \"技术报告的具体方法、适用条件（conditions）、限制（limitations）以及作者的评测结果（evaluation_results）在输入摘要中未提供，因此 technical_reading 的对应字段留空。\",\n    \"输入未说明这两个模型是否向公众开放下载、调用或交付，因此无法确认可用状态；当前状态仅可确认为报告发布。\",\n    \"输入未提供基线安全评估的具体指标、数据集或量化结果。\"\n  ],\n  \"source_urls\": [\"https://openai.com/index/gpt-oss-safeguard-technical-report\"],\n  \"primary_source_url\": \"https://openai.com/index/gpt-oss-safeguard-technical-report\",\n  \"status\": \"announced\",\n  \"technical_reading\": {\n    \"kind\": \"technical_report\",\n    \"problem\": {\n      \"text\": \"材料说明模型的任务是根据给定策略对内容进行标注。\",\n      \"source_url\": \"https://openai.com/index/gpt-oss-safeguard-technical-report\",\n      \"quote\": \"trained to reason from a provided policy in order to label content under that policy\"\n    },\n    \"method\": null,\n    \"engineering_value\": null,\n    \"author_evidence\": {\n      \"text\": \"作者报告在报告中提供了对 gpt-oss-safeguard 模型的基线安全评估，并以底层 gpt-oss 模型作为基线。\",\n      \"source_url\": \"https://openai.com/index/gpt-oss-safeguard-technical-report\",\n      \"quote\": \"we describe gpt-oss-safeguard’s capabilities and provide our baseline safety evaluations on the gpt-oss-safeguard models, using the underlying gpt-oss models as a baseline\"\n    },\n    \"evaluation_results\": null,\n    \"conditions\": null,\n    \"limitations\": null\n  }\n}"
+}

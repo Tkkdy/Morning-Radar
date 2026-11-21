@@ -1,52 +1,59 @@
 from pathlib import Path
 
+import yaml
 
-def test_workflow_has_manual_schedule_pages_and_safety_controls() -> None:
-    workflow = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
 
-    assert "workflow_dispatch:" in workflow
-    assert 'cron: "37 3 * * *"' in workflow
-    assert 'timezone: "Asia/Singapore"' in workflow
-    assert "python-version: \"3.12\"" in workflow
-    assert "timeout-minutes: 45" in workflow
-    assert "concurrency:" in workflow
-    assert "actions/deploy-pages@v4" in workflow
-    assert "- name: Publish failed Radar status" in workflow
-    assert "python -m morning_radar write-status" in workflow
-    assert "--status FAILED" in workflow
-    assert "steps.radar_failure_status.outcome == 'success'" in workflow
-    assert "steps.pages_artifact.outcome == 'success'" in workflow
-    assert workflow.index("- name: Publish failed Radar status") < workflow.index(
-        "- name: Upload Pages artifact"
+def workflow(name):
+    return yaml.load(
+        Path(".github/workflows", name).read_text(encoding="utf-8"), Loader=yaml.BaseLoader
     )
-    assert "secrets.DEEPSEEK_API_KEY" in workflow
-    assert "secrets.DEEPSEEK_MODEL" in workflow
-    assert "secrets.DEEPSEEK_BASE_URL" in workflow
-    assert "secrets.OPENAI_API_KEY" not in workflow
-    assert "github.token" in workflow
-    assert "git diff --cached --quiet" in workflow
 
 
-def test_notification_runs_only_after_pages_deploy_without_push_loop() -> None:
-    workflow = Path(".github/workflows/daily-brief.yml").read_text(encoding="utf-8")
+def test_single_release_owner_and_recovery_graph():
+    daily = workflow("daily-brief.yml")
+    assert daily["on"]["schedule"] == [{"cron": "37 3 * * *", "timezone": "Asia/Singapore"}]
+    assert daily["concurrency"] == {
+        "group": "morning-radar-generated-data",
+        "cancel-in-progress": "false",
+        "queue": "max",
+    }
+    job = daily["jobs"]["release"]
+    assert job["permissions"] == {
+        "contents": "write",
+        "issues": "read",
+        "pages": "write",
+        "id-token": "write",
+    }
+    assert "github.ref == 'refs/heads/master'" in job["if"]
+    steps = job["steps"]
+    commands = [s["run"] for s in steps if "run" in s]
+    joined = "\n".join(commands)
+    assert joined.index("release generate") < joined.index("release export")
+    assert joined.index("release export") < joined.index('release "$action"')
+    assert joined.index('release "$action"') < joined.index("release notify")
+    assert "record-deploy" not in joined and "notify-latest" not in joined
+    assert "run-tendency" not in joined
+    for step in steps:
+        if "run" in step:
+            assert "github.event.issue" not in step["run"]
+    preview = daily["jobs"]["preview"]
+    assert "inputs.fixtures || inputs.dry_run" in preview["if"]
+    assert "secrets." not in str(preview)
+    assert "workflow_run" not in daily["on"]
 
-    deploy_index = workflow.index("- name: Deploy GitHub Pages")
-    record_index = workflow.index("- name: Record successful Pages deployment")
-    deploy_state_index = workflow.index("- name: Commit deployment confirmation")
-    notify_index = workflow.index("- name: Notify after successful Pages deployment")
-    state_index = workflow.index("- name: Commit notification state")
 
-    assert "--skip-notify" in workflow
-    assert "--batch-id" in workflow
-    assert "--brief-hash" in workflow
-    assert deploy_index < record_index < deploy_state_index < notify_index < state_index
-    assert "python -m morning_radar collect" in workflow
-    assert "python -m morning_radar process" in workflow
-    assert "python -m morning_radar record-deploy" in workflow
-    assert "python -m morning_radar notify-latest" in workflow
-    assert "!(inputs.dry_run || false) && !(inputs.fixtures || false)" in workflow
-    assert "!(inputs.dry_run || false) && !(inputs.fixtures || false)" in workflow
-    assert "\n  push:" not in workflow
+def test_ingest_and_post_daily_have_no_model_or_delivery_authority():
+    ingest = workflow("tendency-ingest.yml")
+    daily = workflow("daily-brief.yml")
+    assert ingest["concurrency"] == daily["concurrency"]
+    assert ingest["permissions"] == {"contents": "write", "issues": "read"}
+    assert set(ingest["on"]["issues"]["types"]) == {"opened", "edited", "reopened", "closed"}
+    assert "secrets." not in str(ingest)
+    post = workflow("post-daily.yml")
+    assert set(post["on"]) == {"workflow_dispatch"}
+    assert post["permissions"] == {"contents": "read"}
+    assert "release status" in str(post)
+    assert "deploy" not in str(post) and "secrets." not in str(post)
 
 
 def test_manual_preview_includes_v035_intelligence_artifacts() -> None:
@@ -90,51 +97,6 @@ def test_editorial_eval_uses_safe_configuration_and_uploads_evidence() -> None:
     assert "enforce quality Gate" in workflow
 
 
-def test_post_daily_only_follows_successful_daily_on_master() -> None:
-    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
-
-    assert "workflow_run:" in workflow
-    assert 'workflows: ["Daily Morning Radar"]' in workflow
-    assert "types: [completed]" in workflow
-    assert "branches: [master]" in workflow
-    assert "workflow_run.conclusion == 'success'" in workflow
-    assert "schedule:" not in workflow
-
-
-def test_post_daily_orders_isolated_intelligence_and_redeploys_without_notification() -> None:
-    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
-
-    tendency = workflow.index("python -m morning_radar run-tendency")
-    deep = workflow.index("python -m morning_radar run-deep-continuity")
-    model_ab = workflow.index("python -m morning_radar run-model-ab")
-    build = workflow.index("python -m morning_radar build-site")
-    commit = workflow.index("git add data/tendencies data/continuity")
-    deploy = workflow.index("actions/deploy-pages@v4")
-    assert tendency < deep < model_ab < build < commit < deploy
-    assert workflow.count("continue-on-error: true") == 3
-    assert workflow.count("git push") == 1
-    assert "notify-latest" not in workflow
-    assert "WXPUSHER" not in workflow
-
-
-def test_post_daily_reads_business_date_through_canonical_status_contract() -> None:
-    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
-
-    assert "python -m morning_radar read-status-date" in workflow
-    assert 'status["date"]' not in workflow
-
-
-def test_post_daily_is_the_only_optional_generated_data_writer() -> None:
-    workflows = Path(".github/workflows")
-
-    assert not (workflows / "tendency.yml").exists()
-    assert not (workflows / "deep-continuity.yml").exists()
-    assert not (workflows / "model-ab.yml").exists()
-    assert "morning-radar-generated-data" in (
-        workflows / "post-daily.yml"
-    ).read_text(encoding="utf-8")
-
-
 def test_pr_ci_is_read_only_and_offline() -> None:
     workflow = Path(".github/workflows/ci.yml").read_text(encoding="utf-8")
 
@@ -146,12 +108,6 @@ def test_pr_ci_is_read_only_and_offline() -> None:
     assert "secrets." not in workflow
     assert "deploy-pages" not in workflow
     assert "git push" not in workflow
-
-
-def test_post_daily_skips_fixture_and_dry_run_daily_runs() -> None:
-    workflow = Path(".github/workflows/post-daily.yml").read_text(encoding="utf-8")
-    assert "display_title, '(fixtures)'" in workflow
-    assert "display_title, '(dry-run)'" in workflow
 
 
 def test_daily_run_name_distinguishes_preview_from_production() -> None:

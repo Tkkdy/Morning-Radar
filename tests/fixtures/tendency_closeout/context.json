@@ -1,0 +1,216 @@
+{
+  "as_of": "2026-10-13T13:48:45.354076+00:00",
+  "evidence": [
+    {
+      "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+      "input_id": "item-62bd2b4c042758daf6fa",
+      "content_version": "89a4910d140cf155233d6f65",
+      "event_ids": [],
+      "source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.4-rc0",
+      "source_kind": "source_claim",
+      "source_role": "official_primary",
+      "title": "ollama/ollama: v0.40.4",
+      "excerpt": "## What's Changed * llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2 by @jmorganca in https://github.com/ollama/ollama/pull/18917 * server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947 * mlx: compact restored recurrent state after speculative rollback by @dhiltgen in https://github.com/ollama/ollama/pull/18955 * launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887 * MLX, MLX-C: version bump by @dhiltgen in https://github.com/ollama/ollama/pull/18956 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.3...v0.40",
+      "excerpt_spans": [
+        [
+          0,
+          700
+        ]
+      ],
+      "excerpt_source_sha256": "23269a1e19d97865b37d5ac69c36be0041ec4750356cd0639fe5443f6a967bdf",
+      "scope": [],
+      "published_at": "2026-10-12T19:00:12Z",
+      "observed_at": "2026-10-13T01:36:45.048666Z",
+      "ingested_at": "2026-10-13T01:36:45.048666Z",
+      "status": "captured",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-929585e9a5c0ef30ccc44e61",
+      "input_id": "item-d1b7828d133bfee68d01",
+      "content_version": "ad2dd14025f822f68e6ff16b",
+      "event_ids": [],
+      "source_url": "https://victorribeiro.com/aimAndShoot/",
+      "source_kind": "source_claim",
+      "source_role": "community_discovery",
+      "title": "Show HN: I used Claude Code to address the HN comments on my 2019 game",
+      "excerpt": "In 2019 I posted Aim and Shoot here, a browser shooter where every enemy is a neural network evolved by a genetic algorithm between rounds: https://news.ycombinator.com/item?id=21353123 The thread had a lot of good feedback that I never got around to.\n[…]\nThis year I gave Claude Code the thread and the repo and worked through it: - \"Give the player full health every round\" (four of you asked): done.\n[…]\n- \"I wish there was a scoreboard, I wanted a screenshot of how far I got\": the game-over screen now shows the round you reached and your best.\n[…]\n- \"The gun sound is jarring\": quieter, and M mutes it.\n[…]\nIt's PHP + SQLite on a small VPS, with a local fallback if the server is down.",
+      "excerpt_spans": [
+        [
+          0,
+          251
+        ],
+        [
+          252,
+          398
+        ],
+        [
+          399,
+          541
+        ],
+        [
+          542,
+          596
+        ],
+        [
+          1489,
+          1567
+        ]
+      ],
+      "excerpt_source_sha256": "a629be5c7b3f60d7fdd06d809c4cb53ff23e5023a630cbba01edee1bdccaa120",
+      "scope": [],
+      "published_at": "2026-10-08T16:40:14Z",
+      "observed_at": "2026-10-08T23:56:04.793194Z",
+      "ingested_at": "2026-10-08T23:56:04.793194Z",
+      "status": "unverified",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-e28f0090ef7fb7e281f94b4a",
+      "input_id": "item-1f073325dc394b50df94",
+      "content_version": "eefa2d73de3284ce2eab1670",
+      "event_ids": [],
+      "source_url": "https://www.theverge.com/news/1009465/microsoft-maia-300-chip-improvements-rollout",
+      "source_kind": "source_claim",
+      "source_role": "editorial",
+      "title": "Microsoft’s new AI chip makes it less reliant on Nvidia’s GPUs",
+      "excerpt": "Microsoft is announcing its third-generation Maia in-house AI chip today, designed to be the \"primary AI inference system\" for Microsoft's products and services. Maia 300 not only improves the cost and efficiency of running AI workloads in the cloud, it's also more capable of handling the latest reasoning models and agentic tasks. Maia 300 will […]",
+      "excerpt_spans": [
+        [
+          0,
+          350
+        ]
+      ],
+      "excerpt_source_sha256": "5d0a0e62020468f14cf52420c638b844951ef51a7382485d41ec5362970735ff",
+      "scope": [],
+      "published_at": "2026-10-12T09:00:00-04:00",
+      "observed_at": "2026-10-13T01:36:45.048666Z",
+      "ingested_at": "2026-10-13T01:36:45.048666Z",
+      "status": "captured",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-86dd02f51e7057ca0a8c51b1",
+      "input_id": "item-e7c10cb9c04156fb6148",
+      "content_version": "83d13ef22d3a872bbea1dd99",
+      "event_ids": [],
+      "source_url": "https://blog.simbastack.com/claude-edited-my-youtube-videos-davinci-resolve/",
+      "source_kind": "source_claim",
+      "source_role": "community_discovery",
+      "title": "Show HN: Runbook and scripts for Claude to edit raw footage in DaVinci Resolve",
+      "excerpt": "But I did not realize connecting it to the DaVinci Resolve MCP can create complete edited YouTube videos just by me dropping some raw files into a folder!\n[…]\nBut it's crazy how good it's getting to.\n[…]\nBut the MCP only lets Claude run scripts inside Resolve, everything else (transcribing, picking the cuts, the graphics, the music) is stuff Claude built up over my last three videos.\n[…]\nThat’s what’s in the repo.\n[…]\nBut without these tools I would probably procrastinate and never post videos on YouTube.\n[…]\nLet me know your experience if anyone else has tried similar AI editing tools as well Write-up with details: https://blog.simbastack.com/claude-edited-my-youtube-videos-...",
+      "excerpt_spans": [
+        [
+          193,
+          347
+        ],
+        [
+          484,
+          524
+        ],
+        [
+          610,
+          792
+        ],
+        [
+          793,
+          819
+        ],
+        [
+          1026,
+          1114
+        ],
+        [
+          1332,
+          1504
+        ]
+      ],
+      "excerpt_source_sha256": "8a31c6808babbd615371a2e9557151624f089c0c95699056cea39ce95c1779d0",
+      "scope": [],
+      "published_at": "2026-10-08T10:10:39Z",
+      "observed_at": "2026-10-08T23:56:04.793194Z",
+      "ingested_at": "2026-10-08T23:56:04.793194Z",
+      "status": "unverified",
+      "information_gaps": []
+    },
+    {
+      "evidence_id": "ev-dc4778d97d09f6ca3b02483e",
+      "input_id": "item-5086a26c24b9017fd585",
+      "content_version": "61ee80f495b5a69cb1051bd7",
+      "event_ids": [],
+      "source_url": "https://techcrunch.com/2026/10/12/windborne-wins-a-hefty-us-air-force-contract-for-its-balloon-data/",
+      "source_kind": "source_claim",
+      "source_role": "editorial",
+      "title": "WindBorne wins a hefty US Air Force contract for its balloon data",
+      "excerpt": "A Silicon Valley startup that uses weather balloons and AI to predict the weather won a U.S. military contract worth almost $50 million.",
+      "excerpt_spans": [
+        [
+          0,
+          136
+        ]
+      ],
+      "excerpt_source_sha256": "66efaf4ac3ff378da560e70d17a7af6478e330dda2c7c63f76a93bdbd26af697",
+      "scope": [],
+      "published_at": "2026-10-12T17:19:14Z",
+      "observed_at": "2026-10-13T01:36:45.048666Z",
+      "ingested_at": "2026-10-13T01:36:45.048666Z",
+      "status": "captured",
+      "information_gaps": []
+    }
+  ],
+  "registry": [],
+  "targets": [],
+  "seeds": [],
+  "reanalyze": false,
+  "evidence_overview": [
+    {
+      "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+      "title": "ollama/ollama: v0.40.4",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": "## What's Changed * llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2 by @j"
+    },
+    {
+      "evidence_id": "ev-f9d3e54ff3d66c24ee32ffce",
+      "title": "Show HN: I ran the same founder dilemma through ChatGPT, Claude, and B",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-f7d32242d4b0e79ced146cb9",
+      "title": "Linus Torvalds used Claude Code to rewrite how Linux reads cached file",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-f173f7655d067e37e444721e",
+      "title": "Odd Lots: How OpenAI's Rogue Model Hacked Hugging Face",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-ee426cb7c210a8ee611c22ca",
+      "title": "Show HN: An OpenAI-compatible API that coding agents sign up for thems",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-ea3f1b42af0011aa400758c6",
+      "title": "Just say no to OpenAI and Anthropic",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-e789cc070586731f4b38edc8",
+      "title": "\"Just Ask Claude\" Is a Rare and Valuable Skill",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": ""
+    },
+    {
+      "evidence_id": "ev-e28f0090ef7fb7e281f94b4a",
+      "title": "Microsoft’s new AI chip makes it less reliant on Nvidia’s GPUs",
+      "observed_at": "2026-10-13T01:36:45.048666+00:00",
+      "summary": "Microsoft is announcing its third-generation Maia in-house AI chip today, designed to be the \"primar"
+    }
+  ],
+  "overview_role": "discovery_leads_only; not citable evidence"
+}
