@@ -1,0 +1,121 @@
+{
+  "date": "2026-11-23",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方公告标题显示推理服务商数据处理事件，对使用路由平台的开发者有直接相关性，但正文未经核实。",
+      "retain_for_trends": true,
+      "story_id": "story-3e7bcd7615f196c3e382",
+      "support_for_story_id": null,
+      "trend_links": [
+        "inference-provider-data-handling-incidents"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "第三方推算的电力结构比例无法核实，仅可作AI数据中心能源结构的弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-7193bf933264b7207b91",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-datacenter-power-mix-disclosure"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "mixed",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方发布评估方法论述，可影响模型对比口径，但无产品动作或独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-e21f8d03cab1ec6d8f5f",
+      "support_for_story_id": null,
+      "trend_links": [
+        "shared-model-evaluation-methodology"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅有标题级转述且具体观点与出处不明，缺乏可验证内容。",
+      "retain_for_trends": false,
+      "story_id": "story-22d81432a1668e3a6065",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商客户案例仅有定性提升声明，无独立复现，作为验证缺口弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-e2f374fee70e1a0907a7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "vendor-customer-case-performance-claims",
+        "citation-quality-evaluation"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "可靠市场数据确认单日大幅下跌，但成因未明，只能作为市场波动记录。",
+      "retain_for_trends": true,
+      "story_id": "story-2da04a1d628924f59ba7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-hardware-equity-volatility"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "inference",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "纯专栏趋势论断，无具体产品、实践或可验证机制。",
+      "retain_for_trends": false,
+      "story_id": "story-a2d23a8a7d067e84e5b9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "访谈与书评简介，未提供对开发能力或成本的可验证影响。",
+      "retain_for_trends": false,
+      "story_id": "story-4a7e5967f95fb0b9eac0",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "官方对话节目宣传，无产品、政策或实践变化。",
+      "retain_for_trends": false,
+      "story_id": "story-daa9eec2d2e9eb47df4e",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-23T00:30:50.366259Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

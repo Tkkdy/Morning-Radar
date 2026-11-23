@@ -7,6 +7,7 @@
     "id": "item-1a10f1676d46fc01a909",
     "language": "en-US",
     "metadata": {
+      "content_version": "f15f880f460d60225012",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -97,6 +98,7 @@
     "id": "item-883b69d3f986860bffa5",
     "language": "en-US",
     "metadata": {
+      "content_version": "c51edf09e302fc23fb35",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -127,6 +129,7 @@
     "id": "item-7d27fffa3906bd9ac7f9",
     "language": "en-US",
     "metadata": {
+      "content_version": "2424c7534a62aae6d695",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -188,6 +191,7 @@
     "id": "item-71ff2ee8bf23be9b6db7",
     "language": "en-us",
     "metadata": {
+      "content_version": "8c5f73f840327abf2bdb",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -280,6 +284,7 @@
     "id": "item-63610b904de29506452a",
     "language": "en-us",
     "metadata": {
+      "content_version": "71e65db65cc034f5dec1",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -340,6 +345,7 @@
     "id": "item-47b2738e2872fd88c166",
     "language": "en-US",
     "metadata": {
+      "content_version": "5422c7e45aaa526193e5",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -370,6 +376,7 @@
     "id": "item-28c764e2cf8a36efd027",
     "language": "en-US",
     "metadata": {
+      "content_version": "f94d2b92222cb5006364",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -431,6 +438,7 @@
     "id": "item-aaa55aaf598950923826",
     "language": "en-us",
     "metadata": {
+      "content_version": "6a29713204acdf05b3bf",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -493,6 +501,7 @@
     "id": "item-8145fefb47ff1ca9fa55",
     "language": "en-US",
     "metadata": {
+      "content_version": "a704fa85c03823a71b92",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -613,6 +622,7 @@
     "id": "item-e8029993afd719ae8379",
     "language": "en-US",
     "metadata": {
+      "content_version": "b0607a1784600f057153",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -50409,6 +50419,7 @@
     "metadata": {
       "comments": 674,
       "community_signal": true,
+      "content_version": "dfe0d807bfc705e0ccbb",
       "discussion_url": "https://news.ycombinator.com/item?id=50596133",
       "official": false,
       "original_url": "https://www.caranddriver.com/news/a74490092/toyota-nissan-honda-standardize-parts-lower-costs/",
@@ -50469,11 +50480,20 @@
     "metadata": {
       "comments": 872,
       "community_signal": true,
+      "content_version": "5de1d8e2959978cc7da4",
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50597612",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
       "score": 870,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -50499,6 +50519,7 @@
     "metadata": {
       "comments": 134,
       "community_signal": true,
+      "content_version": "9762415bac71e2a953d7",
       "discussion_url": "https://news.ycombinator.com/item?id=50602843",
       "official": false,
       "original_url": "https://www.audubon.org/magazine/birds-of-gta-6-field-guide-vice-city-wildlife",
@@ -50529,11 +50550,20 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini",
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50605688",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://github.com/ericwang915/agent-hive",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": "implementation_insight",
@@ -50709,6 +50739,7 @@
     "metadata": {
       "comments": 309,
       "community_signal": true,
+      "content_version": "fe6c3590d7993545a19c",
       "discussion_url": "https://news.ycombinator.com/item?id=50601525",
       "official": false,
       "original_url": "https://openai.com/index/perplexity-and-intelligence/",
@@ -50769,6 +50800,7 @@
     "metadata": {
       "comments": 210,
       "community_signal": true,
+      "content_version": "27adbd79aee25b4965a4",
       "discussion_url": "https://news.ycombinator.com/item?id=50602947",
       "official": false,
       "original_url": "https://www.oreilly.com/radar/what-happened-to-silicon-valley/",
@@ -50799,6 +50831,7 @@
     "metadata": {
       "comments": 97,
       "community_signal": true,
+      "content_version": "5139ce812776fc343547",
       "discussion_url": "https://news.ycombinator.com/item?id=50595554",
       "official": false,
       "original_url": "https://openrouter.ai/blog/announcements/data-processing-incidents-on-inference-providers/",
@@ -50831,6 +50864,7 @@
     "metadata": {
       "change_percent": -0.14008766643897294,
       "close": 125.52999877929688,
+      "content_version": "5b4f07070529318e931e",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 145.97999572753906,
@@ -52173,38 +52207,6 @@
     "url": "https://www.reuters.com/world/like-spacex-anthropic-ran-an-unusual-ipo-process-chafing-some-bankers-2026-11-22/"
   },
   {
-    "author": "happosai",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-23T00:28:26.005066Z",
-    "id": "item-127bc957bcd42469b2fa",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50597612",
-      "hn_submission_time": 1795337854,
-      "lab_id": "anthropic",
-      "original_url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-22T08:57:34Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "87% of the Anthropic power will come from gas and 11% from coal in 2028",
-    "topic_candidates": [],
-    "url": "https://betterdatacenterproject.com/2026/11/16/how-ai-is-powered-a-breakdown-of-byop-and-grid-power/"
-  },
-  {
     "author": "ares623",
     "company_candidates": [],
     "content_excerpt": "Now that Anthropic has a \"fiduciary duty to maximize shareholder value\"*, have you or your org started thinking about what that means medium to long term? For example, if you are using their models in production or production-adjacent systems, how do price changes impact your business? * I know they have a complicated governing system, but at the end of the day they have different pressures now than when they were private.",
@@ -52367,42 +52369,6 @@
     "title": "Anthropic Opened Its Books. What Is It Worth? [video]",
     "topic_candidates": [],
     "url": "https://www.youtube.com/watch?v=Ic1Jf7VlXRM"
-  },
-  {
-    "author": "ericwang915",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-23T00:28:26.005066Z",
-    "id": "item-6bd4e00fd809cf12dfc8",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini",
-        "hn_search:anthropic:Claude"
-      ],
-      "discovery_reasons": [
-        "watchlist_discovery"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50605688",
-      "hn_submission_time": 1795393321,
-      "lab_id": "google_deepmind",
-      "original_url": "https://github.com/ericwang915/agent-hive",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-23T00:22:01Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Show HN: Run Mult AI Agents (Claude, Gemini, etc.) as a team of bees, maids",
-    "topic_candidates": [],
-    "url": "https://github.com/ericwang915/agent-hive"
   },
   {
     "author": "iotage",

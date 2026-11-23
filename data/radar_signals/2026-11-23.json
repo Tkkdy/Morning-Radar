@@ -1,0 +1,46 @@
+[
+  {
+    "claim": "Graham Dumpleton（mod_wsgi 作者）发布 Muru，一个 AI 辅助编写的 Rust 服务器，目标是为 ASGI/WSGI Python 应用在开发与生产环境提供更优的运行方案，并随开发进度持续公开极其详细的构建记录。",
+    "id": "radar-062710f5481d1ec7517e",
+    "missing_evidence": [
+      "缺少与 uvicorn、gunicorn、mod_wsgi 等现有方案的实际性能与兼容性对比数据",
+      "缺少 AI 辅助在代码、测试、文档各环节具体占比与方式的说明",
+      "缺少项目成熟度、生产可用性与维护承诺的信息"
+    ],
+    "observed_at": "2026-11-23T00:28:26.005066Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-aaa55aaf598950923826",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/21/muru/"
+      }
+    ],
+    "uncertainty": "证据仅来自一篇被截断的博客摘要，无法核实工程质量、AI 参与程度以及“最理想部署方案”这一主张是否成立。",
+    "why_notable": "作者是 Python WSGI 生态的长期维护者，项目展示了“AI 辅助 + 全程公开构建日志”这一开发与传播模式；若能兑现性能与兼容性目标，可能成为 Python 部署栈的新选项。"
+  }
+]

@@ -1,0 +1,54 @@
+{
+  "date": "2026-11-23",
+  "generated_at": "2026-11-23T00:30:50.366259Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Anthropic",
+        "Better Data Center Project"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Better Data Center Project 文章的方法论细节是否公开、Anthropic 或第三方是否对该电力结构测算作出回应或纠正。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-11-23T00:30:50.366259Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-23",
+          "story_id": "story-7193bf933264b7207b91"
+        }
+      ],
+      "topic_anchors": [
+        "数据中心电力结构",
+        "BYOP",
+        "AI 能源消耗"
+      ],
+      "watch_id": "watch-df2b60af53740783c030"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否在后续模型评估讨论或开发者文档中进一步采用困惑度作为共享评估口径，以及是否出现外部复现或反驳。",
+      "matched_story_refs": [],
+      "product_anchors": [],
+      "rationale": null,
+      "recorded_at": "2026-11-23T00:30:50.366259Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-23",
+          "story_id": "story-e21f8d03cab1ec6d8f5f"
+        }
+      ],
+      "topic_anchors": [
+        "perplexity",
+        "模型评估"
+      ],
+      "watch_id": "watch-599639ed60d87f3429d7"
+    }
+  ]
+}
