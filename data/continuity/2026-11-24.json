@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-24",
+  "generated_at": "2026-11-24T04:28:44.849682Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Anthropic",
+        "Claude"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Anthropic 是否公布 Claude Ship 中 Claude 批准 pull request 的权限边界与人工复核规则，以及定价和可用地区信息。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Claude Ship",
+        "Claude Code Review"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-24T04:28:44.849682Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-24",
+          "story_id": "story-86341ed1189ede83b5f7"
+        }
+      ],
+      "topic_anchors": [
+        "Pull Request",
+        "代码审查"
+      ],
+      "watch_id": "watch-c015c631cc0a6221d5ca"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否公布 Dynamo 在强化学习 rollout 场景的基准测试数据与性能提升幅度。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA Dynamo"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-24T04:28:44.849682Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-24",
+          "story_id": "story-f87a19783eb979141116"
+        }
+      ],
+      "topic_anchors": [
+        "reinforcement learning",
+        "rollout"
+      ],
+      "watch_id": "watch-d69daddadcf605b44ce7"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA",
+        "DuckDB"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否公布 Sirius Core 扩展的可用状态（正式可用或预览）、支持的 DuckDB 版本与性能数据。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Sirius Core",
+        "DuckDB"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-24T04:28:44.849682Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-24",
+          "story_id": "story-a56350ed53a5667f1a06"
+        }
+      ],
+      "topic_anchors": [
+        "GPU 加速分析"
+      ],
+      "watch_id": "watch-2669188e8321a6b69305"
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+[
+  {
+    "created_at": "2026-11-24T04:28:44.849682Z",
+    "explanation": "ai_infrastructure 连续 3 天保持或增加事件量，且有 3 个来源支持。",
+    "id": "signal-cf44716fa75ead7acff1",
+    "metric_history": [
+      {
+        "date": "2026-11-22",
+        "story_count": 1
+      },
+      {
+        "date": "2026-11-23",
+        "story_count": 1
+      },
+      {
+        "date": "2026-11-24",
+        "story_count": 1
+      }
+    ],
+    "signal_type": "topic_heating",
+    "strength": 0.8,
+    "supporting_company_count": 8,
+    "supporting_source_count": 3,
+    "supporting_story_ids": [
+      "story-8deb582b7e658851aac4",
+      "story-2da04a1d628924f59ba7",
+      "story-ac954020123b85944acc"
+    ],
+    "topic": "ai_infrastructure",
+    "uncertainties": [],
+    "updated_at": "2026-11-24T04:28:44.849682Z",
+    "window_days": 3
+  },
+  {
+    "created_at": "2026-11-24T04:28:44.849682Z",
+    "explanation": "NVIDIA 最近交易日变动 31.5%，且当日存在相关事件；两者不构成因果确认。",
+    "id": "signal-4124f1e6f23c726de2f0",
+    "metric_history": [
+      {
+        "change_percent": 0.3148251784973235,
+        "trading_date": "2026-11-23"
+      }
+    ],
+    "signal_type": "market_attention",
+    "strength": 1.0,
+    "supporting_company_count": 3,
+    "supporting_source_count": 2,
+    "supporting_story_ids": [
+      "story-f87a19783eb979141116",
+      "story-a56350ed53a5667f1a06"
+    ],
+    "topic": "NVIDIA",
+    "uncertainties": [
+      "价格变化可能由多种因素共同导致。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z",
+    "window_days": 1
+  }
+]

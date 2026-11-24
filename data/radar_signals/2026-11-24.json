@@ -1,0 +1,47 @@
+[
+  {
+    "claim": "Simon Willison 报道 Z.ai 发布 GLM-5.4，称其为首个采用 Loop Transformer 架构的模型，可在不增加参数量的情况下加深网络。",
+    "id": "radar-0460ce371e91e8a240e7",
+    "missing_evidence": [
+      "Z.ai 官方模型卡或技术博客",
+      "独立基准测试与编码任务评测",
+      "Loop Transformer 的具体实现细节和消融实验",
+      "与同规模模型的参数、成本和延迟对比"
+    ],
+    "observed_at": "2026-11-24T04:25:59.210983Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-105d2dd6f5d647be40a4",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/23/glm-54/"
+      }
+    ],
+    "uncertainty": "目前仅有一篇 practitioner 摘要，技术描述转述厂商说法，缺少官方页面和独立验证；摘要被截断。",
+    "why_notable": "若属实，Loop Transformer 是架构层面的新尝试，且 GLM-5.4 主打通用编码能力，可能影响开源模型竞争。"
+  }
+]

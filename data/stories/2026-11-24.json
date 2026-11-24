@@ -1,0 +1,587 @@
+[
+  {
+    "analysis": [
+      "报道将 Claude Ship 定位为面向软件工程交付流程的产品，把代码审查、修复和批准串为一条能力链，而非单一审查助手。",
+      "从产品命名「Ship」及功能描述看，Anthropic 的切入点是 PR 生命周期的后端环节，可能影响工程师的合并与交付工作流。"
+    ],
+    "canonical_title": "Anthropic 推出 Claude Ship，Claude 可自主审查、修复并批准 Pull Request",
+    "category": "ai_coding",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Claude Ship"
+    ],
+    "facts": [
+      "Anthropic 正在推出新的 Claude AI 功能，以帮助软件工程师交付代码。",
+      "The Verge 报道，Anthropic 今日宣布名为 Claude Ship 的新产品。",
+      "作为 Claude Ship 的一部分，Claude 现在可以审查、修复并批准 pull request。",
+      "工程师此前已可通过 Code Review 功能使用 Claude 的代码审查能力。"
+    ],
+    "id": "story-86341ed1189ede83b5f7",
+    "importance_score": 0.85,
+    "novelty_score": 0.8,
+    "primary_source_url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests",
+    "product_names": [
+      "Claude Ship",
+      "Claude Code Review"
+    ],
+    "published_at": "2026-11-23T15:00:00-05:00",
+    "relevance_score": 0.95,
+    "source_item_ids": [
+      "item-6545db87281ad58ecc44"
+    ],
+    "source_refs": [
+      {
+        "author": "Jay Peters",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T15:00:00-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6545db87281ad58ecc44",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Claude AI can review pull requests and ship fixes on its own now",
+        "url": "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/ai-artificial-intelligence/1040134/anthropic-claude-ship-ai-pull-requests"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "ai_models",
+      "代码审查",
+      "Pull Request"
+    ],
+    "uncertainties": [
+      "Claude 批准 pull request 的具体机制、权限边界与人工复核要求尚不明确。",
+      "Claude Ship 的定价、可用地区与发布时间表未在摘要中说明。",
+      "Claude 的审查与修复能力相较既有 Code Review 功能的具体提升幅度未知。",
+      "原始报道正文在摘要处被截断，可能还有未覆盖的功能细节。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [
+      "该条目来自 NVIDIA 官方开发者博客，属于厂商官方信息，可作为事件事实底座；其关于性能改善的具体幅度尚未在输入中体现。"
+    ],
+    "canonical_title": "NVIDIA Dynamo 减轻强化学习 rollout 瓶颈",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA Dynamo"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布文章，题为《Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo》，作者 Amr Elmeleegy，发布时间为 2026-11-19T20:28:13Z。",
+      "文章摘要指出，强化学习（RL）通过奖励训练模型更好地解决问题和完成任务，而推理驱动这一过程。",
+      "文章内容围绕使用 NVIDIA Dynamo 减少强化学习 rollout 瓶颈展开。"
+    ],
+    "id": "story-f87a19783eb979141116",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/",
+    "product_names": [
+      "NVIDIA Dynamo"
+    ],
+    "published_at": "2026-11-19T20:28:13Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-fdf247289ced7fca8c81"
+    ],
+    "source_refs": [
+      {
+        "author": "Amr Elmeleegy",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-19T20:28:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-fdf247289ced7fca8c81",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Reducing Rollout Bottlenecks in Reinforcement Learning with NVIDIA Dynamo",
+        "url": "https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/reducing-rollout-bottlenecks-in-reinforcement-learning-with-nvidia-dynamo/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "reinforcement learning",
+      "rollout",
+      "inference"
+    ],
+    "uncertainties": [
+      "输入仅包含摘要与内容节选，未给出 rollout 瓶颈的具体指标、基准测试结果或性能提升数据。",
+      "强化学习工作负载使用 Dynamo 的具体部署条件与适用范围在输入中未说明。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [
+      "该文章由 NVIDIA 官方开发者博客发布，属于厂商一手公告，因此可作为 Sirius Core 扩展存在及其面向 DuckDB GPU 加速定位的原始事实依据。",
+      "由于摘要只提及减少查询时间，未给出基准测试、版本号或可用性细节，目前尚无法评估其实际性能表现。"
+    ],
+    "canonical_title": "NVIDIA 发布 Sirius Core 扩展，为 DuckDB 提供 GPU 加速分析",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.78,
+    "entity_names": [
+      "NVIDIA",
+      "DuckDB"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布了 Allison Ding 撰写的文章，标题为《Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension》。",
+      "文章于 2026-11-23T17:09:28Z 发布。",
+      "文章指出，随着数据集增长，分析查询耗时变长，拖慢数据探索、管道和应用；对于使用 DuckDB 的开发者，这与减少查询时间相关。"
+    ],
+    "id": "story-a56350ed53a5667f1a06",
+    "importance_score": 0.5,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension/",
+    "product_names": [
+      "Sirius Core",
+      "DuckDB"
+    ],
+    "published_at": "2026-11-23T17:09:28Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-8be96404238dc665f51c"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison Ding",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T17:09:28Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-8be96404238dc665f51c",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Get Started with GPU-Accelerated DuckDB Analytics Using the Sirius Core Extension",
+        "url": "https://developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/get-started-with-gpu-accelerated-duckdb-analytics-using-the-sirius-core-extension/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "GPU 加速分析",
+      "数据分析"
+    ],
+    "uncertainties": [
+      "Sirius Core 扩展的具体功能范围、支持版本、获取方式与性能数据在输入中未说明。",
+      "Sirius Core 是正式可用产品还是预览/实验性项目，输入未明确。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Hugging Face 发布《如何构建与维护智能体评估》指南",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Hugging Face"
+    ],
+    "facts": [
+      "Hugging Face 博客发布题为《How to build and maintain an agentic evaluation》的文章，URL 为 https://huggingface.co/blog/agentic-evals，发布日期为 2026-11-23。"
+    ],
+    "id": "story-d307349a99b9bf236b01",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://huggingface.co/blog/agentic-evals",
+    "product_names": [],
+    "published_at": "2026-11-23T00:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-00d52199bef25f9eda98"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-00d52199bef25f9eda98",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to build and maintain an agentic evaluation",
+        "url": "https://huggingface.co/blog/agentic-evals"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/agentic-evals"
+    ],
+    "status": "available",
+    "topic_names": [
+      "agentic evaluation",
+      "智能体评估"
+    ],
+    "uncertainties": [
+      "输入仅提供标题与元数据，缺少正文摘要与内容，文章的具体方法论、示例细节无法确认。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [
+      "从标题与栏目归属看，该工作聚焦将点跟踪技术用于真实世界机器人操作场景，属于 AI 模型与机器人视觉交叉方向。",
+      "由于仅提供了官方博客标题级信息，尚无法核实其方法细节、数据集与评测结果。"
+    ],
+    "canonical_title": "RoboTrack：面向真实机器人操作的点跟踪方法（Hugging Face 博客发布）",
+    "category": "ai_models",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "Hugging Face",
+      "AllenAI",
+      "RoboTrack"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了题为《RoboTrack: Point tracking for real-world robotic manipulation》的文章，发布来源标注为 allenai。",
+      "该博客条目发布载于 2026-11-23T17:20:37Z，来源类型为 RSS，来源角色为 official_primary，声明类型为 factual_announcement。"
+    ],
+    "id": "story-6e3153e0501c2d8fd67b",
+    "importance_score": 0.5,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://huggingface.co/blog/allenai/robotrack",
+    "product_names": [
+      "RoboTrack"
+    ],
+    "published_at": "2026-11-23T17:20:37Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-eb2701ff66febea27293"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T17:20:37Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-eb2701ff66febea27293",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "RoboTrack: Point tracking for real-world robotic manipulation",
+        "url": "https://huggingface.co/blog/allenai/robotrack"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/allenai/robotrack"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "机器人操作",
+      "点跟踪",
+      "计算机视觉"
+    ],
+    "uncertainties": [
+      "输入未提供博客正文摘要与内容摘录，RoboTrack 的具体方法、发布时间表、模型或代码是否开源均未知。",
+      "标题中的 allenai 与 Hugging Face 博客之间的具体发布关系（作者身份、机构归属）无法从输入确认。",
+      "RoboTrack 是模型、工具还是数据集，输入未明确。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [
+      "该功能针对 issue 生命周期表达不足的问题，将状态管理从二元开关扩展到更细粒度，有利于人和自动化代理在同一上下文中协作。",
+      "作为 GitHub 官方变更日志的公开预览公告，功能可用性和具体行为仍可能随预览阶段调整。"
+    ],
+    "canonical_title": "GitHub 发布 Issue 状态与仓库看板公开预览",
+    "category": "产品发布",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "GitHub"
+    ],
+    "facts": [
+      "GitHub 发布 Issue 状态（Issue statuses）和仓库看板（repository boards）公开预览。",
+      "GitHub 表示，仅用开启或关闭状态并不总能说明 issue 当前所处的阶段，新功能允许使用更具体的状态，为团队和代理提供关于工作进展的共享上下文。"
+    ],
+    "id": "story-e94ef60a01986e0d12e4",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview",
+    "product_names": [
+      "Issue 状态",
+      "仓库看板"
+    ],
+    "published_at": "2026-11-23T20:37:11Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-2c2222474a62f387fcad"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T20:37:11Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2c2222474a62f387fcad",
+        "source_date": null,
+        "source_name": "GitHub Changelog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Issue statuses and repository boards are in public preview",
+        "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview"
+      }
+    ],
+    "source_urls": [
+      "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "输入未说明具体状态选项有哪些、仓库看板的具体交互方式及可用范围。",
+      "输入未说明公开预览的结束时间或正式发布时间。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [
+      "从标题表述看，Inkling 2 Mini 定位于本地环境部署，并强调性能表现；但输入未提供具体基准数据或硬件要求。"
+    ],
+    "canonical_title": "Hugging Face 发布 Inkling 2 Mini，面向本地部署",
+    "category": "AI 模型发布",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "Hugging Face",
+      "Inkling"
+    ],
+    "facts": [
+      "Hugging Face 博客于 2026-11-20 发布题为《Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup》的文章。"
+    ],
+    "id": "story-455d1287e58eb9f90e9a",
+    "importance_score": 0.4,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://huggingface.co/blog/inkling2mini",
+    "product_names": [
+      "Inkling 2 Mini"
+    ],
+    "published_at": "2026-11-20T00:00:00Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-824c03b970f1dc58cad6"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-20T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-824c03b970f1dc58cad6",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Welcome Inkling 2 Mini, Cutting-edge Performance for your Local Setup",
+        "url": "https://huggingface.co/blog/inkling2mini"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/inkling2mini"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "open_source_ai",
+      "local_deployment"
+    ],
+    "uncertainties": [
+      "输入未提供 Inkling 2 Mini 的模型参数、许可证、基准测试结果与可用下载渠道等细节。",
+      "无法确认 Inkling 2 Mini 是否已开放权重下载，或仅处于发布预告阶段。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [
+      "发布说明中的条目均为 Pull Request 合并摘要，未提供性能提升的量化数据或基准测试结果。",
+      "Inkling2 相关的两项改动（residual mixing 融合与解码/预填充/草稿加速）均集中在 Metal 后端，表明本轮优化主要针对 Apple 硬件平台。",
+      "移除 jetpack5 支持属于兼容性调整，可能影响仍在使用该环境的部分部署场景。"
+    ],
+    "canonical_title": "Ollama 发布 v0.40.18-rc0，优化 Metal 上的 Inkling2 推理性能",
+    "category": "开源AI基础设施",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "ollama/ollama",
+      "dhiltgen",
+      "jaingaurav",
+      "pdevine",
+      "llama.cpp"
+    ],
+    "facts": [
+      "Ollama 发布 v0.40.18-rc0 版本，发布页面由 github-actions[bot] 于 2026-11-24T04:18:13Z 发布。",
+      "该版本的变更包括：mlx 在 Metal 上融合 Inkling residual mixing（PR #19808，作者 dhiltgen）。",
+      "该版本变更包括：mlxrunner 跨架构共享 tensor helpers 与模型初始化（PR #19805，作者 jaingaurav）。",
+      "该版本将 llama.cpp 版本提升至 b12651，并移除 jetpack5 支持（PR #19865，作者 pdevine）。",
+      "该版本变更包括 inkling2 在 Metal 上更快的解码、预填充与 draft rounds（PR #19843，作者 dhiltgen）。",
+      "完整变更对比链接为 https://github.com/ollama/ollama/compare/v0.40.17...v0.40.18-rc0。"
+    ],
+    "id": "story-ac954020123b85944acc",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.18-rc0",
+    "product_names": [
+      "ollama",
+      "Inkling",
+      "Inkling2",
+      "MLX"
+    ],
+    "published_at": "2026-11-24T04:18:13Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-410111e56cecf65e1657"
+    ],
+    "source_refs": [
+      {
+        "author": "github-actions[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T04:18:13Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-410111e56cecf65e1657",
+        "source_date": null,
+        "source_name": "GitHub · ollama/ollama",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "ollama/ollama: v0.40.18",
+        "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18-rc0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ollama/ollama/releases/tag/v0.40.18-rc0"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_infrastructure",
+      "open_source_ai",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "各 PR 所述性能改进的具体幅度未在发布说明中给出，无法确认实际加速比例。",
+      "该版本标记为 rc0，尚未确认是否为正式稳定版本。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Juncts 在 Hacker News 发布：为五个应用提供统一 DM 收件箱，Claude 与 ChatGPT 可在其中工作",
+    "category": "产品发布",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Juncts",
+      "Hacker News",
+      "Claude",
+      "ChatGPT",
+      "jlaufr"
+    ],
+    "facts": [],
+    "id": "story-c3b6f4d281b38daac6ec",
+    "importance_score": 0.35,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://juncts.com/app?demo=1&utm_source=hackernews&utm_medium=launch&utm_campaign=launch-nov26",
+    "product_names": [
+      "Juncts"
+    ],
+    "published_at": "2026-11-24T03:16:58Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-551ace39e6dd6bb565a8"
+    ],
+    "source_refs": [
+      {
+        "author": "jlaufr",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50623175",
+        "fetched_at": "2026-11-24T04:25:59.210983Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T03:16:58Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-551ace39e6dd6bb565a8",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: Juncts, one DM inbox for five apps that Claude and ChatGPT can work in",
+        "url": "https://juncts.com/app?demo=1&utm_source=hackernews&utm_medium=launch&utm_campaign=launch-nov26"
+      }
+    ],
+    "source_urls": [
+      "https://juncts.com/app?demo=1&utm_source=hackernews&utm_medium=launch&utm_campaign=launch-nov26",
+      "https://news.ycombinator.com/item?id=50623175"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "统一收件箱",
+      "DM 收件箱",
+      "AI 助手集成"
+    ],
+    "uncertainties": [
+      "该条目来自 Hacker News 的社区发现，属于未经证实的线索（unverified lead），其内容摘要与正文摘录均为空，无法核实 Juncts 的具体功能、支持的五个应用名称以及 Claude 与 ChatGPT 的实际集成方式。",
+      "发布时间 2026-11-24T03:16:58Z 与抓取时间 2026-11-24T04:25:59Z 来自输入元数据，但产品是否已上线、是否真实可用尚无法确认。",
+      "标题称『为五个应用提供统一 DM 收件箱』，但输入未列出这五个应用的名称，无法追溯。",
+      "Hacker News 讨论链接 https://news.ycombinator.com/item?id=50623175 仅作为社区讨论入口，未提供可验证的一手事实。"
+    ],
+    "updated_at": "2026-11-24T04:28:44.849682Z"
+  }
+]
