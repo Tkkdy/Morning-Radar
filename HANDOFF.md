@@ -1,5 +1,7 @@
 # Morning Radar v0.1 交接
 
+P2-A 本地交接：.ai/handoffs/MR-COVERAGE-P2-A.md
+
 代码、Fixture、测试和本地静态站点已准备好。以下事项涉及你的账号、密钥或远程仓库，
 必须由你手动完成。
 
