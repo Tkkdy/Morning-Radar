@@ -1,0 +1,140 @@
+{
+  "date": "2026-11-25",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方确认发布但细节缺失，搜索接入个人数据服务值得解释后续影响。",
+      "retain_for_trends": true,
+      "story_id": "story-338dd7afcf28f335390e",
+      "support_for_story_id": null,
+      "trend_links": [
+        "search-personal-data-integration"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "SDK 常规版本更新，仅代理变量语义变化对升级者有提醒价值。",
+      "retain_for_trends": false,
+      "story_id": "story-c637330032e1349ccc0d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "MCP 事件跨 harness 互操作中间层是可验证的早期信号，但自述未获独立证实。",
+      "retain_for_trends": true,
+      "story_id": "story-81489ff05e60ab4ec857",
+      "support_for_story_id": null,
+      "trend_links": [
+        "mcp-events-cross-harness-interop"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方教程未提供显存数字或复现方法，信息增量有限。",
+      "retain_for_trends": false,
+      "story_id": "story-7501aa42661b4224baa6",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅标题级技术博客，无可验证方法或指标。",
+      "retain_for_trends": false,
+      "story_id": "story-9dd404552fe9b8b050f7",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "开发者工具遥测隐私问题对用户有实际决策价值，但当前仅社区线索。",
+      "retain_for_trends": true,
+      "story_id": "story-9222b4a207c9d51c3ef2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-tool-telemetry-privacy"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "缺正文的官方教程简介，无具体方法或结果。",
+      "retain_for_trends": false,
+      "story_id": "story-649e733491b3683db65f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "厂商客户案例可作规模化编码智能体采用的弱信号，但效果未独立验证。",
+      "retain_for_trends": true,
+      "story_id": "story-476ef194ed38267db771",
+      "support_for_story_id": null,
+      "trend_links": [
+        "enterprise-coding-agent-scale-adoption"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "观点型社区讨论，无一手证据，一句话可读。",
+      "retain_for_trends": false,
+      "story_id": "story-bbb9ee969d3dda19e67c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "月度工具汇总式更新，缺具体版本与结构影响。",
+      "retain_for_trends": false,
+      "story_id": "story-60a8c9b43477e62c6618",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "无量化收益的供应商客户故事，缺乏可验证信息。",
+      "retain_for_trends": false,
+      "story_id": "story-e78d6d91d2955d360da8",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-25T03:11:20.983255Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

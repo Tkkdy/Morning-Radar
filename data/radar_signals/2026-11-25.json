@@ -1,0 +1,92 @@
+[
+  {
+    "claim": "T3 Code v0.1.11 在首次启动时会发送经过哈希处理的 OpenAI 与 Claude 账户 ID。",
+    "id": "radar-f2e1777fde5567b9b6a4",
+    "missing_evidence": [
+      "缺少 HN 讨论正文与任何一手复现、抓包或源码分析",
+      "未确认发送目标域名、触发条件与是否可关闭",
+      "未确认哈希算法、是否可逆以及是否包含其他标识信息",
+      "未获得 T3 Code 官方声明或更新日志"
+    ],
+    "observed_at": "2026-11-25T03:09:46.978729Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-680141b899341e58cc00",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://www.everydev.ai/p/tool-t3-code-v0111-sends-hashed-openai-and-claude-account-ids-at-first-launch"
+      }
+    ],
+    "uncertainty": "目前仅有一条 HN 标题，正文内容缺失，主张完全未经独立验证；无法判断是真实行为、误报还是对正常遥测的夸大描述。",
+    "why_notable": "若属实，这涉及 AI 编程工具在用户不知情时的遥测与第三方账户标识外发，是开发者关心的隐私与信任问题，也可能影响企业采用决策。"
+  },
+  {
+    "claim": "Wakeshift 开源项目让任意 MCP 服务器通过 MCP Events 或针对具体 harness 的桥接，向尚不支持 MCP Events 的 Claude Code、Codex、Cursor 推送事件；作者称 MCP Events 规范已于五天前获批并合并。",
+    "id": "radar-a396ae98d710ea709fbd",
+    "missing_evidence": [
+      "未核验 MCP Events 规范在 modelcontextprotocol 仓库中的实际合并状态与时间",
+      "未审阅 Wakeshift 仓库代码、star 数、维护活跃度与许可证",
+      "缺少第三方使用者反馈或实际接入案例",
+      "未验证其在 Claude Code、Codex、Cursor 上的桥接是否真实可用"
+    ],
+    "observed_at": "2026-11-25T03:09:46.978729Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-9aacf82d4c1e9c24525d",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/wakeshift/server"
+      }
+    ],
+    "uncertainty": "内容来自作者本人的 Show HN 自述，属自我宣传性质；规范合并说法与桥接能力均未经独立来源核实，摘要被截断。",
+    "why_notable": "若 MCP Events 规范确已合并，MCP 服务器可从被动响应工具调用转为主动向 agent 推送事件，这会改变编码代理的事件驱动集成模式，对 agent 工作流设计有实际影响。"
+  }
+]

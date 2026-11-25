@@ -1,0 +1,732 @@
+[
+  {
+    "analysis": [
+      "从官方配图可看出，Personal Intelligence 与 Google 旗下多项个人数据服务（Wallet、Drive、Gmail、Photos、Calendar）并列呈现，可能意味着搜索个性化将整合跨应用的私人数据。",
+      "该发布来自 Google 官方博客，属于正式公告，但摘要仅含标题与配图描述，未披露具体功能、上线时间或覆盖范围。"
+    ],
+    "canonical_title": "Google 推出个性化搜索功能 Personal Intelligence",
+    "category": "产品发布",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "Google"
+    ],
+    "facts": [
+      "Google 官方博客于 2026-11-23 发布由 Robby Stein 署名的文章，标题为《A more tailored Google Search that's uniquely yours》。",
+      "文章配图为 Google 搜索栏，其中显示文字 “Personal Intelligence”，周围环绕 Google Wallet、Google Drive、Gmail、Google Photos、Google Calendar 和 Google 标志图标。"
+    ],
+    "id": "story-338dd7afcf28f335390e",
+    "importance_score": 0.68,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/",
+    "product_names": [
+      "Google Search",
+      "Personal Intelligence",
+      "Google Wallet",
+      "Google Drive",
+      "Gmail",
+      "Google Photos",
+      "Google Calendar"
+    ],
+    "published_at": "2026-11-23T17:00:00Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-4f5fe20de68e9dfdec37"
+    ],
+    "source_refs": [
+      {
+        "author": "Robby Stein",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4f5fe20de68e9dfdec37",
+        "source_date": null,
+        "source_name": "Google AI",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "A more tailored Google Search that’s uniquely yours",
+        "url": "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+      }
+    ],
+    "source_urls": [
+      "https://blog.google/products-and-platforms/products/search/google-search-personal-intelligence-apps/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "个性化搜索",
+      "AI 搜索"
+    ],
+    "uncertainties": [
+      "Personal Intelligence 的具体功能细节、可用地区、上线时间与隐私处理方式尚未在输入中说明。",
+      "该功能是否已向用户开放，或仅为预告，输入未明确。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "该版本同时覆盖 API 能力扩展与客户端网络行为修正，对使用 Anthropic Python SDK 访问 Google Cloud 相关数据管控或合规功能的开发者具有直接影响。",
+      "代理修复改变了 NO_PROXY 与 proxy= 的优先级语义，现有依赖 NO_PROXY 直连特定主机的部署可能需要在升级后调整配置。"
+    ],
+    "canonical_title": "anthropic-sdk-python 发布 v2.14.0：新增 Google Cloud 数据管控与合规复核 API 支持，并修复代理环境变量优先级问题",
+    "category": "developer_tools",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "Anthropic",
+      "anthropics/anthropic-sdk-python",
+      "Google Cloud"
+    ],
+    "facts": [
+      "anthropic-sdk-python 发布 v2.14.0，发布者为 anthropic-sdks-releaser[bot]，发布时间为 2026-11-24T21:00:57Z。",
+      "v2.14.0 的 Features 包括：为 Google Cloud 项目新增 Google 托管的数据管控；为用户档案新增 Google 托管的数据管控；新增对合规复核案件、通知和条目的支持。",
+      "v2.14.0 修复了客户端在设置代理变量时忽略 proxy 和 trust_env 的问题：此前 DefaultHttpxClient 和 DefaultAsyncHttpxClient 即使调用方传入 proxy= 或 trust_env=False，仍会读取 HTTP_PROXY、HTTPS_PROXY、ALL_PROXY 和 NO_PROXY 并使其生效。",
+      "修复后，proxy= 会用于每个请求且不再读取上述环境变量，trust_env=False 会忽略这些变量，与原生 httpx2 行为一致。",
+      "行为变化提示：设置 proxy= 时，此前 NO_PROXY 中列出的主机是直连，现在会走代理；若要让某主机不走代理，需传入 mounts={\"all://that.host\": None}。",
+      "Chores 包括：从 Google Cloud 客户端 README 中删除临时命名说明；在文档中说明工具使用上限错误的两个原因；更新示例工作区和 API key ID。",
+      "Documentation 部分新增说明枚举值的含义。"
+    ],
+    "id": "story-c637330032e1349ccc0d",
+    "importance_score": 0.55,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.14.0",
+    "product_names": [
+      "anthropic-sdk-python",
+      "DefaultHttpxClient",
+      "DefaultAsyncHttpxClient",
+      "httpx2"
+    ],
+    "published_at": "2026-11-24T21:00:57Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-9d073debfa9f6067ff71"
+    ],
+    "source_refs": [
+      {
+        "author": "anthropic-sdks-releaser[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T21:00:57Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9d073debfa9f6067ff71",
+        "source_date": null,
+        "source_name": "GitHub · anthropics/anthropic-sdk-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "anthropics/anthropic-sdk-python: v2.14.0",
+        "url": "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.14.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/anthropics/anthropic-sdk-python/releases/tag/v2.14.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "ai_models"
+    ],
+    "uncertainties": [
+      "发布说明未逐一列出 Google 托管数据管控和合规复核功能对应的具体 API 端点或参数细节。",
+      "未说明该代理行为修复是否属于破坏性变更，也未提及是否提供迁移开关。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "若 MCP Events 规范刚合并而主流 harness 尚未支持，Wakeshift 这类中间层可降低每个 MCP 服务器为不同 harness 重复适配的成本。",
+      "项目价值取决于各 harness 插件/钩子生态的稳定性，以及草案与最终规范之间的兼容差异。",
+      "帖子将 Claude Code、Codex、Cursor 列为目标 harness，但这些集成尚未经独立验证。"
+    ],
+    "canonical_title": "Wakeshift 开源：为 MCP 服务器提供跨 harness 的 MCP Events 互操作事件推送",
+    "category": "开发者工具/开源项目",
+    "credibility_score": 0.42,
+    "entity_names": [
+      "Wakeshift",
+      "Model Context Protocol",
+      "Claude Code",
+      "Codex",
+      "Cursor",
+      "Hacker News"
+    ],
+    "facts": [
+      "Wakeshift 以开源形式发布在 GitHub 仓库 github.com/wakeshift/server 上，由 Hacker News 用户 ericlevine 在 2026-11-24T20:27:48Z 提交至 Hacker News。",
+      "据该帖子描述，Wakeshift 让任意 MCP 服务器通过 MCP Events 或针对具体 harness 的 bridge 提供可互操作的事件。",
+      "该帖子称 MCP Events 规范在五日前获批并合并，引用的仓库链接为 github.com/modelcontextprotocol/modelcontextprotocol。",
+      "该帖子称 Claude Code 和 Codex 目前完全不支持 MCP Events，且多数实现支持的是草案版本而非合并后的规范。",
+      "该帖子称 Wakeshift SDK 从 MCP 服务器侧提供 push 与 pull 两种投递方式，并称 MCP Events 规范定义了 webhook、push、pull 三种投递机制。",
+      "该帖子称若 harness 需要 hook 或 plugin 而尚未安装，agent 会收到通知及安装指引。"
+    ],
+    "id": "story-81489ff05e60ab4ec857",
+    "importance_score": 0.55,
+    "novelty_score": 0.72,
+    "primary_source_url": "https://github.com/wakeshift/server",
+    "product_names": [
+      "Wakeshift",
+      "MCP Events"
+    ],
+    "published_at": "2026-11-24T20:27:48Z",
+    "relevance_score": 0.86,
+    "source_item_ids": [
+      "item-9aacf82d4c1e9c24525d"
+    ],
+    "source_refs": [
+      {
+        "author": "ericlevine",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50634239",
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T20:27:48Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9aacf82d4c1e9c24525d",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Show HN: Wakeshift – Open-Source MCP Events for Claude Code, Codex and More",
+        "url": "https://github.com/wakeshift/server"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/wakeshift/server",
+      "https://news.ycombinator.com/item?id=50634239"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "MCP 事件推送",
+      "开源",
+      "Agent harness 集成"
+    ],
+    "uncertainties": [
+      "Wakeshift 仓库的代码成熟度、许可证与实际可用性未在输入中说明。",
+      "MCP Events 规范合并的具体日期与最终内容无法从输入独立核实。",
+      "Claude Code、Codex、Cursor 的实际兼容情况与安装体验未经第三方测试验证。",
+      "该帖子被标注为 unverified_lead，其自述功能均未获独立证实。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "该文章属于官方技术教程，重点在于降低本地部署视频生成模型时的显存压力，而非发布新的模型权重或产品版本。",
+      "以 Cosmos 3 Nano 为示例表明 NVIDIA 面向本地 AI 设备推广其 Cosmos 系列世界模型，并依赖 Hugging Face Diffusers 生态提供推理入口。"
+    ],
+    "canonical_title": "NVIDIA 发布 Cosmos 3 Nano 教程：用 Hugging Face Diffusers 在本地设备运行视频生成模型",
+    "category": "ai_models",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "NVIDIA",
+      "Hugging Face",
+      "NVIDIA Cosmos 3 Nano",
+      "NVIDIA Cosmos 3"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 发布由 Atharva Joshi 撰写的文章，标题为《How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers》。",
+      "文章提出在本地运行视频生成模型时，模型权重和中间数据可能超出可用 GPU 显存。",
+      "文章以 NVIDIA Cosmos 3 Nano 作为示例模型，说明在本地 AI 设备上使用 Hugging Face Diffusers 运行视频生成模型的方法。"
+    ],
+    "id": "story-7501aa42661b4224baa6",
+    "importance_score": 0.48,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://developer.nvidia.com/blog/how-to-run-nvidia-cosmos-3-on-local-ai-devices-using-hugging-face-diffusers/",
+    "product_names": [
+      "NVIDIA Cosmos 3 Nano",
+      "NVIDIA Cosmos 3",
+      "Hugging Face Diffusers"
+    ],
+    "published_at": "2026-11-24T18:44:05Z",
+    "relevance_score": 0.74,
+    "source_item_ids": [
+      "item-c0d507596078021a4d8b"
+    ],
+    "source_refs": [
+      {
+        "author": "Atharva Joshi",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T18:44:05Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c0d507596078021a4d8b",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How to Run NVIDIA Cosmos 3 on Local AI Devices Using Hugging Face Diffusers",
+        "url": "https://developer.nvidia.com/blog/how-to-run-nvidia-cosmos-3-on-local-ai-devices-using-hugging-face-diffusers/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/how-to-run-nvidia-cosmos-3-on-local-ai-devices-using-hugging-face-diffusers/"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "本地视频生成",
+      "GPU 显存优化",
+      "世界模型"
+    ],
+    "uncertainties": [
+      "输入仅提供摘要片段，未说明具体显存占用数字、量化或卸载策略的细节。",
+      "未确认 Cosmos 3 Nano 的发布状态及其与 Cosmos 3 其他版本之间的关系。",
+      "未提及该教程所述的本地设备硬件门槛与支持平台范围。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "该文章内容聚焦于为基于 AI 的市场预测准备市场数据，并使用了 NVIDIA Megatron Core，属于数据预处理与模型训练基础设施方向的技术实践解读。"
+    ],
+    "canonical_title": "NVIDIA 发布使用 Megatron Core 为市场数据预测准备数据的技术博客",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.78,
+    "entity_names": [
+      "NVIDIA",
+      "NVIDIA Megatron Core",
+      "Liana Mikaelyan"
+    ],
+    "facts": [
+      "NVIDIA Developer Blog 于 2026-11-24T17:00:00Z 发布了一篇由 Liana Mikaelyan 撰写、标题为《Prepare Market Data for Forecasting with NVIDIA Megatron Core》的文章。",
+      "输入摘要称市场数据以成交流（trades）和报价（quotes）的流形式到达，其中每次执行、买价和卖价都带有微秒级时间戳。"
+    ],
+    "id": "story-9dd404552fe9b8b050f7",
+    "importance_score": 0.42,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core/",
+    "product_names": [
+      "NVIDIA Megatron Core"
+    ],
+    "published_at": "2026-11-24T17:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-aeea7456d8046f44c635"
+    ],
+    "source_refs": [
+      {
+        "author": "Liana Mikaelyan",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-aeea7456d8046f44c635",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Prepare Market Data for Forecasting with NVIDIA Megatron Core",
+        "url": "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core/"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_models",
+      "ai_infrastructure"
+    ],
+    "uncertainties": [
+      "输入仅提供文章标题和摘要节选，未包含文章正文的完整方法、指标或代码细节，无法确认其中涉及的具体技术步骤和数据规模。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "T3 Code v0.1.11 首次启动时发送经过哈希处理的 OpenAI 与 Claude 账户 ID",
+    "category": "developer_tools",
+    "credibility_score": 0.28,
+    "entity_names": [
+      "T3 Code",
+      "OpenAI",
+      "Claude",
+      "everydev.ai",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-9222b4a207c9d51c3ef2",
+    "importance_score": 0.62,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://www.everydev.ai/p/tool-t3-code-v0111-sends-hashed-openai-and-claude-account-ids-at-first-launch",
+    "product_names": [
+      "T3 Code v0.1.11"
+    ],
+    "published_at": "2026-11-24T23:51:09Z",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-680141b899341e58cc00"
+    ],
+    "source_refs": [
+      {
+        "author": "devhouse",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50636552",
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T23:51:09Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-680141b899341e58cc00",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "T3 Code v0.1.11 sends hashed OpenAI and Claude account IDs at first launch",
+        "url": "https://www.everydev.ai/p/tool-t3-code-v0111-sends-hashed-openai-and-claude-account-ids-at-first-launch"
+      }
+    ],
+    "source_urls": [
+      "https://www.everydev.ai/p/tool-t3-code-v0111-sends-hashed-openai-and-claude-account-ids-at-first-launch",
+      "https://news.ycombinator.com/item?id=50636552"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "telemetry",
+      "privacy",
+      "account identifiers"
+    ],
+    "uncertainties": [
+      "目前仅有 Hacker News 社区发现线索（unverified lead），其标题称 T3 Code v0.1.11 在首次启动时会发送经过哈希处理的 OpenAI 与 Claude 账户 ID，但摘要与正文摘录均为空，尚无一手证据或官方说明可以核实该行为是否确实发生以及具体实现方式。",
+      "该工具是否确实在首次启动时向外部端点传输这些经过哈希处理的账户 ID，以及传输的目的、范围与可否关闭，均不明确。",
+      "Hacker News 讨论（https://news.ycombinator.com/item?id=50636552）中的相关内容尚未经过核实。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Microduck 避障：基于 Isaac Lab 与 Newton 的 Sim2Real 工作流",
+    "category": "ai_infrastructure",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "NVIDIA",
+      "Hugging Face",
+      "Isaac Lab",
+      "Newton",
+      "Microduck"
+    ],
+    "facts": [
+      "NVIDIA 在 Hugging Face 博客发布了题为《Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton》的文章。",
+      "文章发布日期为 2026-11-24T16:34:13Z。"
+    ],
+    "id": "story-649e733491b3683db65f",
+    "importance_score": 0.5,
+    "novelty_score": 0.45,
+    "primary_source_url": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance",
+    "product_names": [
+      "Isaac Lab",
+      "Newton",
+      "Microduck"
+    ],
+    "published_at": "2026-11-24T16:34:13Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-6a28e842b3bf4bfd8400"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T16:34:13Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-6a28e842b3bf4bfd8400",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Microduck Obstacle Avoidance: A Sim2Real Workflow with Isaac Lab and Newton",
+        "url": "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/nvidia/microduck-obstacle-avoidance"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "sim2real",
+      "obstacle avoidance",
+      "robot simulation"
+    ],
+    "uncertainties": [
+      "输入未提供文章摘要或正文，无法确认 Microduck 的具体硬件形态、避障算法细节及 Sim2Real 迁移效果。",
+      "该博客由 NVIDIA 官方账号发布，但内容属于教程/工作流介绍，具体性能结论未知。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "该案例由 OpenAI 官方发布，属于供应商侧的客户故事，可作为 iFood 使用 OpenAI 相关编码智能体产品的官方陈述来源。",
+      "由于输入仅包含标题与来源类型，缺少文章正文细节，尚无法判断 iFood 的具体部署架构、所用模型版本与量化效果。"
+    ],
+    "canonical_title": "OpenAI 发布 iFood 客户案例：iFood 如何在 15,000 个代码仓库中规模部署编码智能体",
+    "category": "ai_coding",
+    "credibility_score": 0.4,
+    "entity_names": [
+      "OpenAI",
+      "iFood"
+    ],
+    "facts": [
+      "OpenAI 官网商业客户案例页面发布了一篇题为《How iFood scales coding agents across 15,000 repositories》的客户故事，来源为 OpenAI News（官方一手来源）。",
+      "该客户案例主题涉及 iFood 在 15,000 个代码仓库中规模使用编码智能体（coding agents）。"
+    ],
+    "id": "story-476ef194ed38267db771",
+    "importance_score": 0.58,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/business/customer-stories/ifood",
+    "product_names": [
+      "coding agents"
+    ],
+    "published_at": "2026-11-24T00:00:00Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-89a905d5eae9fa3ef5a8"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-89a905d5eae9fa3ef5a8",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How iFood scales coding agents across 15,000 repositories",
+        "url": "https://openai.com/business/customer-stories/ifood"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/ifood"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_coding",
+      "enterprise adoption",
+      "scale deployment"
+    ],
+    "uncertainties": [
+      "输入未提供文章正文，iFood 实际使用的具体模型、智能体产品名称及版本均不可确认。",
+      "15,000 个仓库的覆盖方式（全自动或辅助）、效果指标与时间范围在输入中均未说明。",
+      "该客户案例的发布时间为 2026-11-24，需注意与当前时点关系。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Hacker News 讨论：LLM agents 服务于母公司而非用户",
+    "category": "community_discussion",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-bbb9ee969d3dda19e67c",
+    "importance_score": 0.55,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+    "product_names": [
+      "LLM agents"
+    ],
+    "published_at": "2026-11-24T12:40:15Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-f885ab4b774a274aaeee"
+    ],
+    "source_refs": [
+      {
+        "author": "surprisetalk",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50627340",
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T12:40:15Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f885ab4b774a274aaeee",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "LLM agents work for their parent companies, not for you",
+        "url": "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/"
+      }
+    ],
+    "source_urls": [
+      "https://michaelharley.net/posts/2026/11/01/llm-agents-work-for-their-parent-companies-not-for-you/",
+      "https://news.ycombinator.com/item?id=50627340"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI agent 动机与利益对齐",
+      "社区讨论"
+    ],
+    "uncertainties": [
+      "仅有社区发现摘要，缺少原文正文与作者 firsthand 证据，无法核实其论断。",
+      "该条目为 Hacker News 上的讨论帖（392 条评论，score 930），其内容可信度未经独立验证。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "该更新面向游戏开发者，重点在于把图形、动画与本地 AI 能力整合进游戏引擎的工作流。"
+    ],
+    "canonical_title": "NVIDIA 月度游戏开发者更新：AI 动画与 RTX 工具",
+    "category": "产品发布",
+    "credibility_score": 0.75,
+    "entity_names": [
+      "NVIDIA"
+    ],
+    "facts": [
+      "NVIDIA 开发者博客发布月度游戏开发者更新，介绍 AI 动画与 RTX 工具。",
+      "博文作者为 Phillip Singh，发布于 2026-11-24。",
+      "博文摘要称更新帮助团队把新的图形、动画和本地 AI 能力引入引擎，同时平衡画质。"
+    ],
+    "id": "story-60a8c9b43477e62c6618",
+    "importance_score": 0.35,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools/",
+    "product_names": [
+      "RTX",
+      "AI 动画工具"
+    ],
+    "published_at": "2026-11-24T17:00:00Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-2144450e43e277e0d3fb"
+    ],
+    "source_refs": [
+      {
+        "author": "Phillip Singh",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T17:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-2144450e43e277e0d3fb",
+        "source_date": null,
+        "source_name": "NVIDIA Developer Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "What’s New for Game Developers: AI Animation and RTX Tools",
+        "url": "https://developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools/"
+      }
+    ],
+    "source_urls": [
+      "https://developer.nvidia.com/blog/whats-new-for-game-developers-ai-animation-and-rtx-tools/"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "游戏开发",
+      "AI 动画",
+      "实时光线追踪"
+    ],
+    "uncertainties": [
+      "博文正文详情未被完整获取，具体新增或更新的功能、工具名称与版本号无法确认。",
+      "各功能是否已可用、是否需要特定硬件或驱动，无法从现有摘要确认。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  },
+  {
+    "analysis": [
+      "该内容属于 OpenAI 官方客户案例，展示了 dot 产品在增长工作流中的使用场景，但摘要未提供量化收益或具体部署细节。"
+    ],
+    "canonical_title": "OpenAI 发布 Intentful 客户案例：Marina Petrova 用 dot Aria 提升增长效率",
+    "category": "customer_story",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "OpenAI",
+      "Intentful",
+      "Marina Petrova",
+      "Aria"
+    ],
+    "facts": [
+      "OpenAI News 发布了一篇关于 Intentful 的客户案例，标题为《How Intentful uses dots to make more time for growth》。",
+      "该案例提到 Marina Petrova 的 dot Aria 可帮助调研网站并撰写提案，同时能主动标记消息并解决问题。"
+    ],
+    "id": "story-e78d6d91d2955d360da8",
+    "importance_score": 0.3,
+    "novelty_score": 0.35,
+    "primary_source_url": "https://openai.com/business/customer-stories/intentful-dots",
+    "product_names": [
+      "dot",
+      "Aria"
+    ],
+    "published_at": "2026-11-24T00:00:00Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-7e14b56be67443085907"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-25T03:09:46.978729Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-7e14b56be67443085907",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "How Intentful uses dots to make more time for growth",
+        "url": "https://openai.com/business/customer-stories/intentful-dots"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/intentful-dots"
+    ],
+    "status": "available",
+    "topic_names": [
+      "AI 助手",
+      "客户案例",
+      "增长效率"
+    ],
+    "uncertainties": [
+      "摘要未说明 dot Aria 主动标记消息和解决问题的具体机制与边界。",
+      "该案例缺少可核验的效率提升数据或时间节省指标。"
+    ],
+    "updated_at": "2026-11-25T03:11:20.983255Z"
+  }
+]

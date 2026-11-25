@@ -1,0 +1,92 @@
+{
+  "date": "2026-11-25",
+  "generated_at": "2026-11-25T03:11:20.983255Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "NVIDIA",
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 NVIDIA 是否发布 Cosmos 3 Nano 的模型权重、版本关系说明，或补充本地部署的显存占用数字、量化/卸载策略与硬件门槛。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "NVIDIA Cosmos 3 Nano",
+        "NVIDIA Cosmos 3",
+        "Hugging Face Diffusers"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-25T03:11:20.983255Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-25",
+          "story_id": "story-7501aa42661b4224baa6"
+        }
+      ],
+      "topic_anchors": [
+        "本地视频生成",
+        "GPU 显存优化",
+        "世界模型"
+      ],
+      "watch_id": "watch-25a83e86ffc51d1958c6"
+    },
+    {
+      "entity_anchors": [
+        "NVIDIA",
+        "Hugging Face"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Microduck 避障工作流是否公布具体硬件形态、避障算法细节与 Sim2Real 迁移效果指标。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Isaac Lab",
+        "Newton",
+        "Microduck"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-25T03:11:20.983255Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-25",
+          "story_id": "story-649e733491b3683db65f"
+        }
+      ],
+      "topic_anchors": [
+        "sim2real",
+        "obstacle avoidance",
+        "robot simulation"
+      ],
+      "watch_id": "watch-7b29dd6ac40f5a710a61"
+    },
+    {
+      "entity_anchors": [
+        "OpenAI",
+        "Intentful",
+        "Marina Petrova"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 OpenAI 是否补充 Intentful 客户案例中的量化收益或部署细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "dot",
+        "Aria"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-25T03:11:20.983255Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-25",
+          "story_id": "story-e78d6d91d2955d360da8"
+        }
+      ],
+      "topic_anchors": [
+        "AI 助手",
+        "客户案例",
+        "增长效率"
+      ],
+      "watch_id": "watch-9ecbaf4f5c389a0b57f7"
+    }
+  ]
+}
