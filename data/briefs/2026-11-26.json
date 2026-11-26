@@ -1,0 +1,874 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-9c93ff8f71aaf1e97af6",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从文章标题和摘要可推断，寄存器回收是一种用于优化 Blackwell 架构上 NVFP4 注意力计算的技术手段。"
+          ],
+          "canonical_title": "NVIDIA 开发者博客发布在 NVIDIA RTX Blackwell 上通过寄存器回收优化 NVFP4 注意力机制的方法",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "NVIDIA",
+            "NVIDIA RTX Blackwell"
+          ],
+          "facts": [
+            "NVIDIA 开发者博客发布了题为《How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling》的文章，作者为 Atharva Joshi，发布时间为 2026-11-25T19:30:00Z。",
+            "文章摘要指出，在服务世界基础模型时，注意力机制可能成为主要瓶颈，因为长序列会使推理的计算需求很高。",
+            "文章提到在 NVIDIA Hopper 及后续平台上存在该问题。"
+          ],
+          "primary_source_url": "https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling/",
+          "product_names": [
+            "NVFP4",
+            "NVIDIA RTX Blackwell"
+          ],
+          "published_at": "2026-11-25T19:30:00Z",
+          "source_refs": [
+            {
+              "author": "Atharva Joshi",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T19:30:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-f09aeb2897d181487b1d",
+              "source_date": null,
+              "source_name": "NVIDIA Developer Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling",
+              "url": "https://developer.nvidia.com/blog/how-to-optimize-nvfp4-attention-on-nvidia-rtx-blackwell-through-register-recycling/"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-84d938357bc0495f9916",
+          "topic_names": [
+            "注意力优化",
+            "寄存器回收",
+            "推理性能"
+          ],
+          "uncertainties": [
+            "文章给出的优化方法的具体实现细节与性能提升幅度，在输入摘要中未提供，无法确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-84d938357bc0495f9916"
+      ],
+      "title": "NVIDIA 开发者博客发布在 NVIDIA RTX Blackwell 上通过寄存器回收优化 NVFP4 注意力机制的方法",
+      "uncertainty": "文章给出的优化方法的具体实现细节与性能提升幅度，在输入摘要中未提供，无法确认。",
+      "what_happened": "NVIDIA 开发者博客发布了题为《How to Optimize NVFP4 Attention on NVIDIA RTX Blackwell Through Register Recycling》的文章，作者为 Atharva Joshi，发布时间为 2026-11-25T19:30:00Z。",
+      "why_it_matters": "从文章标题和摘要可推断，寄存器回收是一种用于优化 Blackwell 架构上 NVFP4 注意力计算的技术手段。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-4ff99d9939d3d1463123",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being",
+        "https://news.ycombinator.com/item?id=50637686"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "LessWrong 文章称模型可通过推理服务器相互通信，即使处于沙箱环境",
+          "category": "AI 研究讨论",
+          "entity_names": [
+            "LessWrong",
+            "Hacker News"
+          ],
+          "facts": [],
+          "primary_source_url": "https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being",
+          "product_names": [],
+          "published_at": "2026-11-25T02:34:21Z",
+          "source_refs": [
+            {
+              "author": "gmays",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=50637686",
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T02:34:21Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-14c0338dcd28a8d76b13",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "Models Can Communicate via Inference Servers Despite Being Sandboxed",
+              "url": "https://www.lesswrong.com/posts/7wzWuLP3HhyBLmKfo/models-can-communicate-via-inference-servers-despite-being"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-7a7495f70797b791b573",
+          "topic_names": [
+            "模型沙箱隔离",
+            "推理服务器通信",
+            "AI 安全"
+          ],
+          "uncertainties": [
+            "该说法仅来自 LessWrong 文章标题与 Hacker News 讨论，属未验证线索，尚无原始事实或可复核细节。",
+            "文章发布时间 2026-11-25T02:34:21Z 与抓取时间均来自输入元数据，内容真实性与技术机制未经核实。",
+            "模型之间通过推理服务器通信的具体方式、涉及模型与实验条件均不明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-7a7495f70797b791b573"
+      ],
+      "title": "LessWrong 文章称模型可通过推理服务器相互通信，即使处于沙箱环境",
+      "uncertainty": "该说法仅来自 LessWrong 文章标题与 Hacker News 讨论，属未验证线索，尚无原始事实或可复核细节。",
+      "what_happened": "LessWrong 文章称模型可通过推理服务器相互通信，即使处于沙箱环境",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-8f5b3219ce3ec68a9764",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/index/searching-for-distant-planets-with-astra"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该案例展示 AI 编程与数据分析工具在科研辅助场景中的应用，具体工作流与验证结果需参照原文。"
+          ],
+          "canonical_title": "两位业余天文学家利用 Codex 与 Astra 在 NASA 开普勒和 TESS 公开数据中发现潜在系外行星",
+          "category": "ai_application",
+          "entity_names": [
+            "OpenAI",
+            "Codex",
+            "Astra",
+            "NASA",
+            "Kepler",
+            "TESS"
+          ],
+          "facts": [
+            "OpenAI 于 2026-11-24 发布文章，介绍两位业余天文学家使用 Codex 和 Astra，在 NASA 开普勒与 TESS 太空望远镜的公开数据中寻找潜在系外行星。",
+            "文章标题为“Searching for distant planets with Astra”，来源为 OpenAI News 官方 RSS，标注为官方一手来源。"
+          ],
+          "primary_source_url": "https://openai.com/index/searching-for-distant-planets-with-astra",
+          "product_names": [
+            "Codex",
+            "Astra"
+          ],
+          "published_at": "2026-11-24T11:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-24T11:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-7758c04a629331bf9638",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Searching for distant planets with Astra",
+              "url": "https://openai.com/index/searching-for-distant-planets-with-astra"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-4f82f7805ae0d3dc624e",
+          "topic_names": [
+            "系外行星搜寻",
+            "天文数据分析",
+            "AI 辅助科研"
+          ],
+          "uncertainties": [
+            "输入摘要未说明两位业余天文学家的身份，也未披露发现候选体的数量及后续确认状态。",
+            "输入未提供 Astra 的产品定义与 Codex 在其中承担的具体步骤，无法判断各自贡献。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-4f82f7805ae0d3dc624e"
+      ],
+      "title": "两位业余天文学家利用 Codex 与 Astra 在 NASA 开普勒和 TESS 公开数据中发现潜在系外行星",
+      "uncertainty": "输入摘要未说明两位业余天文学家的身份，也未披露发现候选体的数量及后续确认状态。",
+      "what_happened": "OpenAI 于 2026-11-24 发布文章，介绍两位业余天文学家使用 Codex 和 Astra，在 NASA 开普勒与 TESS 太空望远镜的公开数据中寻找潜在系外行星。",
+      "why_it_matters": "该案例展示 AI 编程与数据分析工具在科研辅助场景中的应用，具体工作流与验证结果需参照原文。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-70e2055de7bcc57f883c",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "合并体验与统一用量计量意味着重度用户可能更早触及使用上限，这是报道标题所指向的直接含义。"
+          ],
+          "canonical_title": "OpenAI 合并 ChatGPT 的 Chat 与 Work 体验并推出统一用量计量",
+          "category": "ai_models",
+          "entity_names": [
+            "OpenAI",
+            "ChatGPT"
+          ],
+          "facts": [
+            "TechCrunch AI 于 2026-11-25T20:03:27Z 发布报道，标题为《OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work》。",
+            "报道称 OpenAI 将把 Chat 与 Work 体验合并，并在 ChatGPT 中引入单一用量计量（single usage meter）。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/",
+          "product_names": [
+            "ChatGPT",
+            "ChatGPT Work"
+          ],
+          "published_at": "2026-11-25T20:03:27Z",
+          "source_refs": [
+            {
+              "author": "Jagmeet Singh",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T20:03:27Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-3a73412d0df0bb71aee5",
+              "source_date": null,
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work",
+              "url": "https://techcrunch.com/2026/11/25/openai-says-heavy-chatgpt-users-may-hit-limits-sooner-as-it-merges-chat-and-work/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-9489daf14baffa54eff9",
+          "topic_names": [
+            "ai_models"
+          ],
+          "uncertainties": [
+            "具体上线时间、适用用户范围、上限计算方式与各档位额度均未在输入中说明。",
+            "该消息目前仅见于 TechCrunch 的编辑报道，输入未提供 OpenAI 官方公告链接。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-9489daf14baffa54eff9"
+      ],
+      "title": "OpenAI 合并 ChatGPT 的 Chat 与 Work 体验并推出统一用量计量",
+      "uncertainty": "具体上线时间、适用用户范围、上限计算方式与各档位额度均未在输入中说明。",
+      "what_happened": "TechCrunch AI 于 2026-11-25T20:03:27Z 发布报道，标题为《OpenAI says heavy ChatGPT users may hit limits sooner as it merges Chat and Work》。",
+      "why_it_matters": "合并体验与统一用量计量意味着重度用户可能更早触及使用上限，这是报道标题所指向的直接含义。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-b5ca6aa58d4cddce7c21",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.75.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "本次发布的重点在权限边界收紧与错误语义细化：低于 operator 权限的工作区文本不再直接进入模型指令，改为由模型通过文件工具主动读取，这降低了低权限内容被当作指令注入的风险。",
+            "新增的 ModelEmptyResponseError 与 ModelInvalidResponseError 使回退机制覆盖更多模型异常场景，但由于两者同时继承 UnexpectedModelBehavior，现有异常捕获逻辑的语义会发生变化，需注意 except ModelAPIError 的位置。",
+            "instructions 字符串共享属于内存层面的优化，对外类型与序列化行为保持不变，但比较逻辑应使用 == 而非 is。",
+            "持久化运行新增 realpath 调用意味着升级窗口内需协调在途任务，Temporal 与 DBOS 用户有相应的版本化手段。"
+          ],
+          "canonical_title": "pydantic-ai 发布 v2.75.0，调整工作区文件权限与模型回退错误处理",
+          "category": "开源发布",
+          "entity_names": [
+            "pydantic",
+            "pydantic-ai",
+            "RepoContext",
+            "Skills",
+            "Memory",
+            "FallbackModel",
+            "ModelFallback",
+            "Coder",
+            "Pax"
+          ],
+          "facts": [
+            "pydantic/pydantic-ai 发布 v2.75.0，发布日期为 2026-11-25，发布说明由 dsfaccini 提交，对应提交 003d60f6。",
+            "兼容性变更：低于 'operator' 权限的工作区文件内容不再进入 RepoContext、Skills 与 Memory 的指令；RepoContext 改为向模型指出工作目录文件供其用文件工具读取，Skills 通过 list_skills 和 load_skill 工具提供技能而非 load_capability，Memory 将该快照归属到 MEMORY.md。'operator' 权限（默认）的文件行为不变。",
+            "发布说明称持久化运行会在启动时记录额外的 realpath 工作区调用，建议等待在途运行结束，或使用 Temporal worker versioning 或新的 DBOS 应用版本后再升级。RepoContext(autoload_instructions=False) 配合嵌套指令文件时，升级后首个请求会错过一次提示缓存。",
+            "空响应与不可读模型响应现在会抛出 ModelEmptyResponseError 和 ModelInvalidResponseError，使 FallbackModel 与 ModelFallback 在默认 fallback_on 下对其回退。",
+            "默认 fallback_on 下，FallbackModel 与 ModelFallback 现会在空流、缺少 choices 的 OpenAI Chat completion、以及非 JSON 或不符合 schema 的 OpenAI Chat 响应体上回退，而此前会抛出 UnexpectedModelBehavior。两个新错误均继承 ModelAPIError 与 UnexpectedModelBehavior。",
+            "Pax 的 /permissions 审批改为通过带 token 的 HandleDeferredToolCalls 处理器结合 harness approval_ask 处理；pydantic_ai_pax.runtime.permissions.approval_handler 仍返回 ApprovalHandler，但其处理器现接收 resume token。",
+            "会话中各请求共享同一个 instructions 字符串，不再每请求保留副本；ModelMessagesTypeAdapter 现使用 AfterValidator 构建，history 中 instructions 相等的请求持有同一字符串对象，类型、JSON schema、序列化与校验值不变。",
+            "Coder 配合 SubAgents 时，仅在模型 profile 设置 delegates_unprompted（OpenAI 的 gpt-* 模型，gpt-oss 除外）时发送不主动创建子代理的指令；位于 FallbackModel 之后时不发送，并发出一次 UserWarning。相关 PR 编号包括 #11837、#12108、#13195、#13308、#13764。"
+          ],
+          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.75.0",
+          "product_names": [
+            "pydantic-ai v2.75.0",
+            "RepoContext",
+            "Skills",
+            "Memory",
+            "FallbackModel",
+            "ModelFallback",
+            "Coder",
+            "Pax"
+          ],
+          "published_at": "2026-11-25T18:21:00Z",
+          "source_refs": [
+            {
+              "author": "dsfaccini",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T18:21:00Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-d307e7ba0933893bee52",
+              "source_date": null,
+              "source_name": "GitHub · pydantic/pydantic-ai",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "pydantic/pydantic-ai: v2.75.0 (2026-11-25)",
+              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.75.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-e2aecd9025bcf0b3ae39",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "发布说明未说明该版本是否已正式推送至 Python 包索引，也未给出具体的安装或升级命令。",
+            "RepoContext(autoload_instructions=False) 配合嵌套指令文件时，首次请求错过提示缓存的性能影响程度未量化。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-e2aecd9025bcf0b3ae39"
+      ],
+      "title": "pydantic-ai 发布 v2.75.0，调整工作区文件权限与模型回退错误处理",
+      "uncertainty": "发布说明未说明该版本是否已正式推送至 Python 包索引，也未给出具体的安装或升级命令。",
+      "what_happened": "pydantic/pydantic-ai 发布 v2.75.0，发布日期为 2026-11-25，发布说明由 dsfaccini 提交，对应提交 003d60f6。",
+      "why_it_matters": "本次发布的重点在权限边界收紧与错误语义细化：低于 operator 权限的工作区文本不再直接进入模型指令，改为由模型通过文件工具主动读取，这降低了低权限内容被当作指令注入的风险。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-45481ccd37d738f22cff",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该内容被归类为官方一手来源的事实性公告，但输入仅提供标题与 URL，未包含正文摘要，因此无法确认模型细节、性能指标或发布状态。"
+          ],
+          "canonical_title": "IBM Research 在 Hugging Face 博客发布 CUGA 驱动的 Indic 语音智能体",
+          "category": "ai_models",
+          "entity_names": [
+            "IBM Research",
+            "Hugging Face"
+          ],
+          "facts": [
+            "Hugging Face 博客发布了一篇由 IBM Research 撰写的文章，标题为“An Indic Voice Agent with CUGA”。",
+            "该条目来自 Hugging Face Blog RSS，发布标记为官方一手来源，发布时间为 2026-11-25T10:22:09Z。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga",
+          "product_names": [
+            "CUGA"
+          ],
+          "published_at": "2026-11-25T10:22:09Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T10:22:09Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-0077e07924e43bf73f6b",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "An Indic Voice Agent with CUGA",
+              "url": "https://huggingface.co/blog/ibm-research/an-indic-voice-agent-with-cuga"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-1768afe56221510df73a",
+          "topic_names": [
+            "Indic 语音智能体",
+            "开源 AI",
+            "AI 基础设施"
+          ],
+          "uncertainties": [
+            "该语音智能体是否已经发布、开放权重或以何种形式提供，输入未说明。",
+            "CUGA 的具体技术构成、训练数据与支持语言范围，输入未提供。",
+            "该文章是否仅描述研究原型还是可部署产品，目前无法从输入确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-1768afe56221510df73a"
+      ],
+      "title": "IBM Research 在 Hugging Face 博客发布 CUGA 驱动的 Indic 语音智能体",
+      "uncertainty": "该语音智能体是否已经发布、开放权重或以何种形式提供，输入未说明。",
+      "what_happened": "Hugging Face 博客发布了一篇由 IBM Research 撰写的文章，标题为“An Indic Voice Agent with CUGA”。",
+      "why_it_matters": "该内容被归类为官方一手来源的事实性公告，但输入仅提供标题与 URL，未包含正文摘要，因此无法确认模型细节、性能指标或发布状态。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-2ce1e5248efafffd2f92",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该变更属于计费默认值调整，而非产品功能变更，因此已配置计费选项的组织可能不受影响，而尚未配置的组织需要在此日期前明确设置，以免费用计入组织账单。"
+          ],
+          "canonical_title": "GitHub 将把 Copilot 代码审查费用默认计入组织账单",
+          "category": "AI 开发工具计费变更",
+          "entity_names": [
+            "GitHub",
+            "Copilot",
+            "Allison"
+          ],
+          "facts": [
+            "GitHub Changelog 于 2026-11-25 发布公告：如果尚未选择如何为拥有 Copilot 许可证的成员计费 Copilot 代码审查，从 2026-12-30 起，这些审查将计入组织账单。",
+            "公告称该默认规则适用于尚未主动选择 Copilot 代码审查计费方式的组织。"
+          ],
+          "primary_source_url": "https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization",
+          "product_names": [
+            "Copilot code review"
+          ],
+          "published_at": "2026-11-25T22:18:03Z",
+          "source_refs": [
+            {
+              "author": "Allison",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T22:18:03Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-69c0601d70f93f1e53f8",
+              "source_date": null,
+              "source_name": "GitHub Changelog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Copilot code review billing will default to the organization",
+              "url": "https://github.blog/changelog/2026-11-25-copilot-code-review-billing-will-default-to-the-organization"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-66a482f075a3573020c0",
+          "topic_names": [
+            "AI 编程",
+            "计费"
+          ],
+          "uncertainties": [
+            "原文摘要以“To keep…”截断，公告中关于如何保持现有计费设置的具体操作说明未能从输入中获知。",
+            "“拥有 Copilot 许可证的成员”的具体范围，以及哪些审查会被计费、计费单位为何，输入中未说明。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-66a482f075a3573020c0"
+      ],
+      "title": "GitHub 将把 Copilot 代码审查费用默认计入组织账单",
+      "uncertainty": "原文摘要以“To keep…”截断，公告中关于如何保持现有计费设置的具体操作说明未能从输入中获知。",
+      "what_happened": "GitHub Changelog 于 2026-11-25 发布公告：如果尚未选择如何为拥有 Copilot 许可证的成员计费 Copilot 代码审查，从 2026-12-30 起，这些审查将计入组织账单。",
+      "why_it_matters": "该变更属于计费默认值调整，而非产品功能变更，因此已配置计费选项的组织可能不受影响，而尚未配置的组织需要在此日期前明确设置，以免费用计入组织账单。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-11-26",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-11-26T02:28:37.501222Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "Simon Willison 认为过去 12 个月 LLM 与编码 agent 能力出现三个重要拐点，并以 Claude Opus 4.5 发布一周年为参照。",
+      "id": "radar-c2731fbf7bc4616fe5cc",
+      "missing_evidence": [
+        "三个拐点的具体定义与判断依据",
+        "每个拐点对应的模型或产品版本及可复现测试",
+        "独立来源或基准数据"
+      ],
+      "observed_at": "2026-11-26T02:26:22.316816Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "analysis_judgement",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-5e8eba5b15ac60442c06",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Nov/24/llm-inflection-points/"
+        }
+      ],
+      "uncertainty": "文章节选被截断，仅能看到主题和 Claude Opus 4.5 一周年背景，无法核验三个拐点的具体内容与依据。",
+      "why_notable": "涉及 LLM 和编码 agent 能力阶段性变化，对判断 AI 编程工具演进方向有参考价值。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2792,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 3,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 9,
+    "ai_brief_recovery_attempts": 0,
+    "ai_brief_recovery_budget_exhausted": true,
+    "ai_brief_recovery_successes": 0,
+    "ai_brief_story_inputs": 9,
+    "ai_classify_completion_tokens": 1242,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 6221,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 16081,
+    "ai_direction_fallback": true,
+    "ai_direction_fallback_reason": "AI daily input character limit exceeded",
+    "ai_evaluate_editorial_completion_tokens": 1030,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9421,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 117640,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 4284,
+    "ai_merge_story_finish_stop": 12,
+    "ai_merge_story_prompt_tokens": 11572,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 61772,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 1159,
+    "ai_resolve_research_cases_completion_tokens": 1561,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 1974,
+    "ai_resolve_research_cases_reasoning_tokens": 1159,
+    "ai_score_story_completion_tokens": 2047,
+    "ai_score_story_finish_stop": 12,
+    "ai_score_story_prompt_tokens": 13882,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 2,
+    "ai_write_brief_completion_tokens": 5917,
+    "ai_write_brief_finish_stop": 4,
+    "ai_write_brief_prompt_tokens": 18702,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 16081,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 11,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 2,
+    "dry_run": false,
+    "editorial_decisions": 12,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 122,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 29,
+    "logical_ai_tasks": 29,
+    "main_brief_items": 9,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 31,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 61772,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 1,
+    "radar_signals_displayed": 1,
+    "radar_signals_generated": 1,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 0,
+    "reasoning_tokens": 1159,
+    "recent_24h": 83,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 11,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 11,
+    "research_cases": 2,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 4114,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 2,
+    "research_unknown_cases": 0,
+    "research_unresolved": 1,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 0,
+    "signals": 2,
+    "stories": 12,
+    "story_candidate_input": 15,
+    "structured_watches_opened": 0,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 9,
+    "total_displayed_items": 9,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-c960a5a9177776ba88db",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "若该说法成立，则意味着 GPT-6 的蛋白质设计能力来自模型本身的推理与代码能力，而非专门的外部工具流程；但当前证据仅为 OpenAI 官方公告摘要。"
+          ],
+          "canonical_title": "OpenAI 称 GPT-6 模型具备内在蛋白质设计能力，实验室测试在五个靶点上发现结合证据",
+          "category": "ai_models",
+          "entity_names": [
+            "OpenAI",
+            "GPT-6"
+          ],
+          "facts": [
+            "OpenAI News 于 2026-11-24T13:00:00Z 发布文章，标题为 GPT-6 models demonstrate intrinsic protein-design capabilities。",
+            "文章摘要称 GPT-6 模型使用推理和代码设计蛋白质结构与序列。",
+            "文章摘要称实验室测试在五个靶点上发现了结合证据。"
+          ],
+          "primary_source_url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+          "product_names": [
+            "GPT-6"
+          ],
+          "published_at": "2026-11-24T13:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-24T13:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-ac2f786b30f6d45772c4",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "GPT-6 models demonstrate intrinsic protein-design capabilities",
+              "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-75d376ff0b04bbeeb97b",
+          "topic_names": [
+            "蛋白质设计",
+            "AI for Science",
+            "AI 模型"
+          ],
+          "uncertainties": [
+            "公告未提供实验细节：五个靶点的具体身份、结合亲和力数据、实验方法以及是否经过同行评审均不明确。",
+            "“内在蛋白质设计能力”的具体范围与可复现性尚不清楚。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-75d376ff0b04bbeeb97b"
+      ],
+      "title": "OpenAI 称 GPT-6 模型具备内在蛋白质设计能力，实验室测试在五个靶点上发现结合证据",
+      "uncertainty": "公告未提供实验细节：五个靶点的具体身份、结合亲和力数据、实验方法以及是否经过同行评审均不明确。",
+      "what_happened": "OpenAI News 于 2026-11-24T13:00:00Z 发布文章，标题为 GPT-6 models demonstrate intrinsic protein-design capabilities。",
+      "why_it_matters": "若该说法成立，则意味着 GPT-6 的蛋白质设计能力来自模型本身的推理与代码能力，而非专门的外部工具流程；但当前证据仅为 OpenAI 官方公告摘要。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-556df8aeea9f45a212f2",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://blog.cloudflare.com/search-for-agents/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从定位看，该功能面向 AI 智能体访问网站内容的检索入口，将站点索引与标准化的搜索 API 打包为一项可开关能力。",
+            "原生 HTTP QUERY 支持若被广泛采用，可能影响智能体与站点之间的检索交互方式，但当前仅有官方公告描述。"
+          ],
+          "canonical_title": "Cloudflare 推出“Search for Agents”：一键让网站可被 AI 智能体搜索",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Cloudflare",
+            "Nelson Duarte"
+          ],
+          "facts": [
+            "Cloudflare 博客由 Nelson Duarte 于 2026-11-25 发布《Introducing Search for Agents》。",
+            "该功能宣称通过“翻转一个开关”让网站可被 AI 智能体搜索。",
+            "该功能包含自动内容索引、可发现的搜索 API 以及原生 HTTP QUERY 支持。"
+          ],
+          "primary_source_url": "https://blog.cloudflare.com/search-for-agents/",
+          "product_names": [
+            "Search for Agents"
+          ],
+          "published_at": "2026-11-25T14:00:00Z",
+          "source_refs": [
+            {
+              "author": "Nelson Duarte",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-26T02:26:22.316816Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T14:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-48919c55052d9c9281a8",
+              "source_date": null,
+              "source_name": "Cloudflare Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Introducing Search for Agents",
+              "url": "https://blog.cloudflare.com/search-for-agents/"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-a92e459cf98aa7bd4db7",
+          "topic_names": [
+            "AI 智能体搜索",
+            "HTTP QUERY",
+            "站点内容索引"
+          ],
+          "uncertainties": [
+            "“翻一个开关”即可完成配置的具体操作步骤与前置条件未在摘要中说明。",
+            "自动内容索引的覆盖范围、更新频率和权限控制细节未披露。",
+            "原生 HTTP QUERY 支持的具体实现与兼容范围未披露。",
+            "该功能是否已正式可用、定价与适用套餐未知。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-a92e459cf98aa7bd4db7"
+      ],
+      "title": "Cloudflare 推出“Search for Agents”：一键让网站可被 AI 智能体搜索",
+      "uncertainty": "“翻一个开关”即可完成配置的具体操作步骤与前置条件未在摘要中说明。",
+      "what_happened": "Cloudflare 博客由 Nelson Duarte 于 2026-11-25 发布《Introducing Search for Agents》。",
+      "why_it_matters": "从定位看，该功能面向 AI 智能体访问网站内容的检索入口，将站点索引与标准化的搜索 API 打包为一项可开关能力。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": []
+}

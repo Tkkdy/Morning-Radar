@@ -1,0 +1,165 @@
+{
+  "date": "2026-11-26",
+  "decisions": [
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "官方仅发摘要，能力主张重要但缺方法细节，值得展开并留作待复现证据。",
+      "retain_for_trends": true,
+      "story_id": "story-75d376ff0b04bbeeb97b",
+      "support_for_story_id": null,
+      "trend_links": [
+        "model-intrinsic-scientific-discovery",
+        "vendor-benchmark-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "STORY",
+      "reader_value": 3,
+      "reason": "打包站点索引与HTTP QUERY，可能改变智能体取数方式，需观察采用与权限细节。",
+      "retain_for_trends": true,
+      "story_id": "story-a92e459cf98aa7bd4db7",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-web-retrieval-standardization",
+        "http-query-method-adoption"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "厂商教程给出优化思路但无性能数字与复现，作为消费级GPU推理效率线索保留。",
+      "retain_for_trends": true,
+      "story_id": "story-84d938357bc0495f9916",
+      "support_for_story_id": null,
+      "trend_links": [
+        "consumer-gpu-attention-optimization",
+        "nvfp4-low-precision-inference"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "权限边界与回退错误语义调整对使用该库者具实际升级影响。",
+      "retain_for_trends": true,
+      "story_id": "story-e2aecd9025bcf0b3ae39",
+      "support_for_story_id": null,
+      "trend_links": [
+        "agent-permission-boundary-hardening",
+        "model-fallback-error-semantics"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "厂商叙述的业余天文案例，缺工作流与确认状态，一句话即可。",
+      "retain_for_trends": false,
+      "story_id": "story-4f82f7805ae0d3dc624e",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 3,
+      "reason": "统一计量可能让重度用户更早触限，影响使用成本，但仅二手报道。",
+      "retain_for_trends": true,
+      "story_id": "story-9489daf14baffa54eff9",
+      "support_for_story_id": null,
+      "trend_links": [
+        "unified-usage-metering-constraint",
+        "chat-work-product-convergence"
+      ]
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 2,
+      "reason": "未验证的沙箱通信线索，前台简短提示，后台留作安全验证信号。",
+      "retain_for_trends": true,
+      "story_id": "story-7a7495f70797b791b573",
+      "support_for_story_id": null,
+      "trend_links": [
+        "sandbox-escape-via-inference-channel"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "仅标题与链接，缺模型细节与发布形态，无法形成可读信息。",
+      "retain_for_trends": false,
+      "story_id": "story-1768afe56221510df73a",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认计费默认值变更与截止日期，组织需提前配置。",
+      "retain_for_trends": true,
+      "story_id": "story-66a482f075a3573020c0",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-code-review-billing-defaults",
+        "copilot-cost-attribution"
+      ]
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "体育赞助合作对开发者工具与工作流无实质影响。",
+      "retain_for_trends": false,
+      "story_id": "story-17daad749b27eba5af98",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "仅有标题无正文主张，无法命名可复用趋势机制。",
+      "retain_for_trends": false,
+      "story_id": "story-6c7d65737c5b4bd7a03c",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "股价数字可验证但单日波动无因果，前台一句带过并留作市场结构证据。",
+      "retain_for_trends": true,
+      "story_id": "story-3e1ae0a7c8f57b29081d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-infrastructure-market-volatility"
+      ]
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-26T02:28:37.501222Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}
