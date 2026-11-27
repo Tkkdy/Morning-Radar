@@ -15,7 +15,7 @@ from morning_radar.ai.models import (
     GeneratedWatchDraft,
 )
 from morning_radar.ai.output_validation import (
-    sanitize_memory_drafts,
+    sanitize_brief_explanation,
     validate_and_sanitize_brief,
 )
 from morning_radar.ai.provider import AIProvider
@@ -116,6 +116,39 @@ def ranked_eligible_stories(
     return eligible
 
 
+def select_brief_stories(
+    stories: list[Story],
+    *,
+    limits: BriefLimits,
+    relevance_threshold: float = 0,
+    importance_threshold: float = 0,
+    editorial_result: EditorialRunResult | None = None,
+) -> tuple[list[Story], list[Story]]:
+    """Return display candidates and ordered factual writing inputs for both callers.
+
+    Editorial primary slots and their support attachments keep their existing
+    meaning. Without active editorial selection, leads do not consume body slots.
+    """
+    selection = editorial_result.selection if editorial_result and editorial_result.active else None
+    if selection is not None:
+        by_id = {story.id: story for story in stories}
+        primary_ids = selection.visible_story_ids[:limits.maximum_items]
+        support_ids = [
+            support_id
+            for primary_id in primary_ids
+            for support_id in selection.support_by_story_id.get(primary_id, [])
+        ]
+        eligible = [by_id[story_id] for story_id in primary_ids]
+        writing = [by_id[story_id] for story_id in dict.fromkeys([*primary_ids, *support_ids])]
+        return eligible, [story for story in writing if any(f.strip() for f in story.facts)]
+    eligible = ranked_eligible_stories(
+        stories, relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold,
+    )
+    writing = [story for story in eligible if any(f.strip() for f in story.facts)]
+    return eligible, writing[:limits.maximum_items]
+
+
 def _brief_item_id(story_ids: list[str], section: str) -> str:
     identity = f"{section}:{'|'.join(sorted(story_ids))}"
     return f"brief-{hashlib.sha256(identity.encode()).hexdigest()[:20]}"
@@ -133,10 +166,14 @@ def _story_context(story: Story) -> BriefStoryContext:
         published_at=story.published_at,
         facts=story.facts,
         analysis=story.analysis,
+        opinions=story.opinions,
+        grounded_analysis=story.grounded_analysis,
         uncertainties=story.uncertainties,
         status=story.status,
         primary_source_url=story.primary_source_url,
         source_refs=story.source_refs,
+        technical_reading=story.technical_reading,
+        evidence_ids=story.evidence_ids,
     )
 
 
@@ -148,24 +185,27 @@ def _deterministic_generated_item(
     fallback_reason: str | None = None,
 ) -> GeneratedBriefItem:
     """Create a conservative, schema-valid item from an already verified Story."""
+    if not any(fact.strip() for fact in story.facts):
+        return GeneratedBriefItem(
+            story_ids=[story.id], section="other_reading", title=story.canonical_title,
+            what_happened="已发现这条报道线索，目前尚缺足够正文来确认具体事实。",
+            why_it_matters=None, uncertainty="待补充原文后再判断其内容与影响。",
+            source_urls=story.source_urls,
+        )
+    # Reuse a supported statement, not the upstream generated headline.
+    fact = next(fact for fact in story.facts if fact.strip())
     return GeneratedBriefItem(
         story_ids=[story.id],
         section=section,
-        title=story.canonical_title,
-        what_happened=story.facts[0] if story.facts else story.canonical_title,
-        why_it_matters=story.analysis[0] if story.analysis else None,
+        title=fact,
+        what_happened=fact,
+        why_it_matters=None,
         # Generation health is not an event uncertainty.  Preserve the latter
         # whenever it was already validated on the Story.
         uncertainty=story.uncertainties[0] if story.uncertainties else None,
         source_urls=story.source_urls,
-        generation_status=(
-            "fallback_existing_analysis" if story.analysis else "fallback_no_analysis"
-        ) if fallback else "generated",
-        generation_note=(
-            "本次成稿使用已验证的已有分析。"
-            if story.analysis
-            else "补充分析未生成，已保留已验证事实与来源。"
-        ) if fallback else None,
+        generation_status="fallback_no_analysis" if fallback else "generated",
+        generation_note="补充分析未生成，已保留材料中的事实陈述与来源。" if fallback else None,
         generation_reason=fallback_reason if fallback else None,
     )
 
@@ -187,12 +227,16 @@ def _validated_item(
     }
     if not generated.source_urls or not set(generated.source_urls).issubset(allowed_urls):
         raise BriefValidationError("Brief item URL is missing or not present in its Stories")
+    generated = sanitize_brief_explanation(generated, list(story_by_id.values()))
     return BriefItem(
         id=_brief_item_id(generated.story_ids, section),
         section=section,
         title=generated.title,
         what_happened=generated.what_happened,
         why_it_matters=generated.why_it_matters,
+        why_it_matters_evidence=generated.why_it_matters_evidence,
+        why_it_matters_omission_reason=generated._why_omission_reason,
+        why_quote_normalizations=generated._why_quote_normalizations,
         market_or_community_reaction=generated.market_or_community_reaction,
         uncertainty=generated.uncertainty,
         source_urls=generated.source_urls,
@@ -227,28 +271,20 @@ def generate_daily_brief_with_memory(
         for decision in (editorial_result.daily.decisions if editorial_active else [])
     }
     editorial_selection = editorial_result.selection if editorial_active else None
+    eligible_stories, ai_stories = select_brief_stories(
+        stories, limits=limits, relevance_threshold=relevance_threshold,
+        importance_threshold=importance_threshold, editorial_result=editorial_result,
+    )
+    stats["threshold_eligible_stories"] = len(eligible_stories)
     if editorial_selection is not None:
-        stories_by_id = {story.id: story for story in stories}
-        primary_ids = editorial_selection.visible_story_ids[: limits.maximum_items]
-        support_ids = [
-            support_id
-            for primary_id in primary_ids
-            for support_id in editorial_selection.support_by_story_id.get(primary_id, [])
-        ]
-        ai_story_ids = list(dict.fromkeys([*primary_ids, *support_ids]))
-        ai_stories = [stories_by_id[story_id] for story_id in ai_story_ids]
-        eligible_stories = [stories_by_id[story_id] for story_id in primary_ids]
-        stats["threshold_eligible_stories"] = len(eligible_stories)
         stats["editorial_visible_stories"] = len(editorial_selection.visible_story_ids)
-        stats["editorial_support_stories"] = len(support_ids)
-    else:
-        eligible_stories = ranked_eligible_stories(
-            stories,
-            relevance_threshold=relevance_threshold,
-            importance_threshold=importance_threshold,
+        stats["editorial_support_stories"] = sum(
+            len(editorial_selection.support_by_story_id.get(story.id, []))
+            for story in eligible_stories
         )
-        ai_stories = eligible_stories[: limits.maximum_items]
-        stats["threshold_eligible_stories"] = len(eligible_stories)
+    stats["evidence_limited_leads"] = sum(
+        not any(f.strip() for f in s.facts) for s in eligible_stories
+    )
     stats["ai_brief_story_inputs"] = len(ai_stories)
     bounded_signals = sorted(
         signals,
@@ -291,7 +327,9 @@ def generate_daily_brief_with_memory(
                     )
                 else:
                     batch_draft = provider.write_brief(batch, batch_signals)
-                batch_draft = sanitize_memory_drafts(batch_draft, batch)
+                batch_draft = validate_and_sanitize_brief(batch_draft, batch, batch_signals)
+            except ValueError as exc:
+                raise BriefValidationError(str(exc)) from exc
             except (AIBudgetExceeded, AIOutputError):
                 LOGGER.exception("AI degradation: brief batch failed; deferring item recovery")
                 batch_failures += 1
@@ -363,7 +401,7 @@ def generate_daily_brief_with_memory(
         draft = BriefDraft(items=[])
     story_by_id = {
         story.id: story
-        for story in (ai_stories if editorial_active else eligible_stories)
+        for story in [*eligible_stories, *ai_stories]
     }
     sections: dict[str, list[BriefItem]] = {name: [] for name in SECTION_NAMES}
     used_story_ids: set[str] = set()
@@ -381,6 +419,8 @@ def generate_daily_brief_with_memory(
             for story_id in generated.story_ids
             if story_id in story_by_id
         ]
+        if any(not any(f.strip() for f in story.facts) for story in referenced):
+            continue  # Retain as an explicit lead below; do not let generated prose upgrade it.
         primary_editorial_ids = [
             story_id
             for story_id in generated.story_ids
@@ -449,7 +489,9 @@ def generate_daily_brief_with_memory(
             continue
         if editorial_active:
             decision = editorial_decisions[story.id]
-            if decision.placement in {Placement.TOP, Placement.STORY}:
+            if decision.placement in {Placement.TOP, Placement.STORY} and any(
+                f.strip() for f in story.facts
+            ):
                 section = (
                     "top_stories"
                     if decision.placement is Placement.TOP

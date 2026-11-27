@@ -1,0 +1,367 @@
+{
+  "type": "review_candidate",
+  "phase": "isolated_negative_control",
+  "recorded_at": "2026-10-13T13:48:45.354076+00:00",
+  "revision": {
+    "schema_version": 2,
+    "revision_id": "rev-febedba708cf408ca43646abd121e70f",
+    "hypothesis_id": "hyp-ad6c6ee65c844a72ba860802b71bac03",
+    "previous_revision_id": null,
+    "parent_hypothesis_id": null,
+    "parent_revision_id": null,
+    "first_recorded_at": "2026-10-13T13:48:45.354076Z",
+    "recorded_at": "2026-10-13T13:48:45.354076Z",
+    "origin": "system",
+    "seed_id": null,
+    "standing": "early",
+    "decision": {
+      "hypothesis_id": null,
+      "previous_revision_id": null,
+      "parent_hypothesis_id": null,
+      "parent_revision_id": null,
+      "seed_id": null,
+      "kind": "early",
+      "basis": "external_evidence",
+      "hypothesis": {
+        "claim": "在2026年10月至2027年上半年这一可检验窗口内，若主流推理服务栈继续把“已验证清单/已加载模型复用”这类推理路由缓存机制与编码代理的模型选择器集成同时推进，则本地/自托管编码代理（如 Codex 类 CLI）的可用模型清单将不再由用户手工配置决定，而由服务端已加载模型的运行状态动态决定；这使得“换模型”从配置动作变成运行时路由动作，从而缩短代理任务中断后的恢复路径。该推断只针对已发布此类变更的 Ollama 发行线与宣称可被 Codex /model 选择器识别的本地模型，不外推到全部推理框架。",
+        "scope": [
+          "Ollama 0.40.4-rc0 发行说明所描述的 llama.cpp 更新、推理路由复用与 Codex /model 选择器集成三项变更",
+          "已安装本地模型与 Codex 类编码代理交互的场景"
+        ],
+        "scope_basis": "inferred",
+        "scope_reason": "证据仅为一则官方发行说明，未给出采用范围统计、Codex 侧接受度或跨框架行为；适用范围由发行说明中并列的三项变更外推至“本地模型→编码代理模型选择器”这一交互面，属推断而非已观察范围。",
+        "from_state": "本地编码代理的可用模型清单通常需要用户手工配置或重启服务后才能反映新安装/新加载的模型，模型切换与推理路由状态分离。",
+        "to_state": "服务端复用已验证清单与已加载模型，且启动流程把已安装模型直接注入 Codex /model 选择器，使可用模型清单反映运行时加载状态，模型切换可能变为路由侧行为。",
+        "baseline": [
+          {
+            "text": "发行说明自身未提供这些变更在真实用户工作流中的效果、采用率或与 Codex 的实际联通验证。",
+            "assumption": true,
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          }
+        ],
+        "conditions": [
+          {
+            "key": "manifest_reuse_in_routes",
+            "observation": "发行说明列出发行条目：'server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947'。",
+            "interpretation": "这是机制的核心来源声称：推理路由开始复用已验证清单与已加载模型，意味着模型可用性信息在服务端具备被复用的状态基础。它只是发行说明中的一条变更描述，未说明路由复用对用户可见行为的具体效果。",
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          },
+          {
+            "key": "codex_model_picker_integration",
+            "observation": "发行说明列出发行条目：'launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887'。",
+            "interpretation": "这是交互面的条件：启动流程被描述为把已安装模型纳入 Codex 的 /model 选择器。它把服务端状态与代理侧的模型选择界面连起来，但仅说明存在该集成条目，未说明选择器是否稳定、是否反映运行时加载而非仅磁盘已安装。",
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          },
+          {
+            "key": "llama_cpp_version_bump",
+            "observation": "发行说明列出发行条目：'llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2'。",
+            "interpretation": "后端升级为决策模型与嵌入模型提供较新的推理基础，属于使上述路由与选择器变更可落地的技术条件之一；但发行说明未说明该升级与模型选择器行为之间的因果联系。",
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          }
+        ],
+        "mechanism": "发行说明同时列出三条变更：后端 llama.cpp 升级、推理路由复用已验证清单与已加载模型、启动流程把已安装模型纳入 Codex /model 选择器。可提出的机制是：后端升级提供决策模型/嵌入模型的推理基础；路由复用使服务端持有可复用的清单与已加载模型状态；启动集成把该状态暴露到编码代理的模型选择界面。三者的联合作用可能把“模型可用性”从静态配置变为运行时状态，进而缩短代理任务中断后换模型重试的路径。这仍是基于单条发行说明的条件化结构推断，发行说明未报告端到端行为、延迟或用户可见效果。",
+        "unresolved": [
+          "发行说明未说明 Codex /model 选择器是否读取运行时加载状态还是仅读取磁盘安装列表。",
+          "未提供路由复用对推理延迟、显存占用或并发行为的影响数据。",
+          "未说明该集成在非 Codex 代理或非 Ollama 客户端中的适用性。",
+          "未说明 llama.cpp b11521 升级与“decision models”具体指哪些模型或能力。",
+          "发行说明为 rc0，最终发布是否保留全部条目未知。"
+        ],
+        "alternatives": [
+          "这些变更可能只是各自独立的维护性条目，彼此不构成联合机制，模型选择器集成仅是 UI 便利，未改变路由行为。",
+          "模型可用性仍可能由用户手工配置主导，路由复用与选择器集成只是内部优化，不影响代理工作流。",
+          "该模式可能仅适用于 Ollama/Codex 特定组合，不能解释为自托管编码代理的普遍趋势。"
+        ],
+        "tests": [
+          {
+            "condition_key": "codex_model_picker_integration",
+            "observe": "在相同版本下，安装/加载新模型后观察 Codex /model 选择器是否需要重启服务或手工刷新才出现该模型，以及选择器条目与运行时已加载模型的一致性。",
+            "if_seen": "若选择器无需手工配置即随运行时加载状态更新，则支持“模型可用性由运行时状态决定”的机制。",
+            "if_absent": "若选择器仅反映磁盘安装列表或需手工同步，则该条件下的机制被削弱，需退回为 UI 便利性解释。",
+            "absence_requires_completed_observation": true
+          },
+          {
+            "condition_key": "manifest_reuse_in_routes",
+            "observe": "对比启用与不启用该路由复用条目时的推理请求行为：切换模型后首个请求是否复用清单/已加载模型，是否出现重新加载或清单校验的可见延迟。",
+            "if_seen": "若路由复用可被观察到减少重复加载/校验，则支持服务端状态被复用的机制。",
+            "if_absent": "若无可观察复用效果，则该条件不成立，联合机制仅剩发行说明条目，不构成结构推断。",
+            "absence_requires_completed_observation": true
+          },
+          {
+            "condition_key": "llama_cpp_version_bump",
+            "observe": "核对 b11521 升级是否被后续版本说明或独立测试记录为决策模型/嵌入模型的必要前提，以及它与模型选择器行为是否同批发布。",
+            "if_seen": "若后续材料把它列为前提，则后端升级作为机制基础的条件得到支持。",
+            "if_absent": "若无法观察到该关联，则后端升级只是并列条目，不能支撑机制归因。",
+            "absence_requires_completed_observation": true
+          }
+        ]
+      },
+      "citations": [
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947",
+          "role": "support",
+          "condition_key": "manifest_reuse_in_routes"
+        },
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887",
+          "role": "support",
+          "condition_key": "codex_model_picker_integration"
+        },
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2 by @jmorganca in https://github.com/ollama/ollama/pull/18917",
+          "role": "support",
+          "condition_key": "llama_cpp_version_bump"
+        },
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "**Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.3...v0.40",
+          "role": "boundary",
+          "condition_key": "llama_cpp_version_bump"
+        }
+      ],
+      "changed_parts": [],
+      "relinquished": [],
+      "reason": "registry 为空，无既有命题需要校准，故按新发现处理。证据是一则官方发行说明，只能支持“存在若干并列变更条目”这一报告层事实；将其解释为“模型可用性由运行时状态决定、切换变为路由行为”属于跨条目的条件化结构推断，证据并未报告端到端效果，因此标 early 并保持 inferred 范围与未解决边界。"
+    },
+    "evidence": [
+      {
+        "schema_version": 2,
+        "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+        "input_id": "item-62bd2b4c042758daf6fa",
+        "content_version": "89a4910d140cf155233d6f65",
+        "event_ids": [],
+        "source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.4-rc0",
+        "source_kind": "source_claim",
+        "source_role": "official_primary",
+        "title": "ollama/ollama: v0.40.4",
+        "excerpt": "## What's Changed * llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2 by @jmorganca in https://github.com/ollama/ollama/pull/18917 * server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947 * mlx: compact restored recurrent state after speculative rollback by @dhiltgen in https://github.com/ollama/ollama/pull/18955 * launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887 * MLX, MLX-C: version bump by @dhiltgen in https://github.com/ollama/ollama/pull/18956 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.3...v0.40",
+        "excerpt_spans": [
+          [
+            0,
+            700
+          ]
+        ],
+        "excerpt_source_sha256": "23269a1e19d97865b37d5ac69c36be0041ec4750356cd0639fe5443f6a967bdf",
+        "scope": [],
+        "published_at": "2026-10-12T19:00:12Z",
+        "observed_at": "2026-10-13T01:36:45.048666Z",
+        "ingested_at": "2026-10-13T01:36:45.048666Z",
+        "status": "captured",
+        "information_gaps": [],
+        "synthetic": false,
+        "provenance": "data\\intake\\checkpoints\\batch-20261013T013645Z-db97148c18.json"
+      }
+    ],
+    "run_id": "isolated-negative-control",
+    "analysis_version": "original-decision-manual-review-fixture",
+    "observed_signatures": [
+      "32b8f649a817ba26365565b4"
+    ],
+    "synthetic": false
+  },
+  "request": {
+    "candidate_id": "rev-febedba708cf408ca43646abd121e70f",
+    "body_sha256": "cc6497c6edc8b29e6990ad2dd9ddc43ce8ced9f03db22229298769b1f50323bb",
+    "evidence_sha256": "189e12f07239e17917e7842aa351271db677ed3c7298f5d63efbce8a680cd3e8",
+    "analysis_version": "f4bc1c16f7bec4a778e26b75550f9a7055cc990dd6f1b7ae83429898aa58ca50",
+    "expected_previous_revision_id": null,
+    "decision": {
+      "hypothesis_id": null,
+      "previous_revision_id": null,
+      "parent_hypothesis_id": null,
+      "parent_revision_id": null,
+      "seed_id": null,
+      "kind": "early",
+      "basis": "external_evidence",
+      "hypothesis": {
+        "claim": "在2026年10月至2027年上半年这一可检验窗口内，若主流推理服务栈继续把“已验证清单/已加载模型复用”这类推理路由缓存机制与编码代理的模型选择器集成同时推进，则本地/自托管编码代理（如 Codex 类 CLI）的可用模型清单将不再由用户手工配置决定，而由服务端已加载模型的运行状态动态决定；这使得“换模型”从配置动作变成运行时路由动作，从而缩短代理任务中断后的恢复路径。该推断只针对已发布此类变更的 Ollama 发行线与宣称可被 Codex /model 选择器识别的本地模型，不外推到全部推理框架。",
+        "scope": [
+          "Ollama 0.40.4-rc0 发行说明所描述的 llama.cpp 更新、推理路由复用与 Codex /model 选择器集成三项变更",
+          "已安装本地模型与 Codex 类编码代理交互的场景"
+        ],
+        "scope_basis": "inferred",
+        "scope_reason": "证据仅为一则官方发行说明，未给出采用范围统计、Codex 侧接受度或跨框架行为；适用范围由发行说明中并列的三项变更外推至“本地模型→编码代理模型选择器”这一交互面，属推断而非已观察范围。",
+        "from_state": "本地编码代理的可用模型清单通常需要用户手工配置或重启服务后才能反映新安装/新加载的模型，模型切换与推理路由状态分离。",
+        "to_state": "服务端复用已验证清单与已加载模型，且启动流程把已安装模型直接注入 Codex /model 选择器，使可用模型清单反映运行时加载状态，模型切换可能变为路由侧行为。",
+        "baseline": [
+          {
+            "text": "发行说明自身未提供这些变更在真实用户工作流中的效果、采用率或与 Codex 的实际联通验证。",
+            "assumption": true,
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          }
+        ],
+        "conditions": [
+          {
+            "key": "manifest_reuse_in_routes",
+            "observation": "发行说明列出发行条目：'server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947'。",
+            "interpretation": "这是机制的核心来源声称：推理路由开始复用已验证清单与已加载模型，意味着模型可用性信息在服务端具备被复用的状态基础。它只是发行说明中的一条变更描述，未说明路由复用对用户可见行为的具体效果。",
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          },
+          {
+            "key": "codex_model_picker_integration",
+            "observation": "发行说明列出发行条目：'launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887'。",
+            "interpretation": "这是交互面的条件：启动流程被描述为把已安装模型纳入 Codex 的 /model 选择器。它把服务端状态与代理侧的模型选择界面连起来，但仅说明存在该集成条目，未说明选择器是否稳定、是否反映运行时加载而非仅磁盘已安装。",
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          },
+          {
+            "key": "llama_cpp_version_bump",
+            "observation": "发行说明列出发行条目：'llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2'。",
+            "interpretation": "后端升级为决策模型与嵌入模型提供较新的推理基础，属于使上述路由与选择器变更可落地的技术条件之一；但发行说明未说明该升级与模型选择器行为之间的因果联系。",
+            "evidence_ids": [
+              "ev-fd6335fec3df83000d3ef7ce"
+            ]
+          }
+        ],
+        "mechanism": "发行说明同时列出三条变更：后端 llama.cpp 升级、推理路由复用已验证清单与已加载模型、启动流程把已安装模型纳入 Codex /model 选择器。可提出的机制是：后端升级提供决策模型/嵌入模型的推理基础；路由复用使服务端持有可复用的清单与已加载模型状态；启动集成把该状态暴露到编码代理的模型选择界面。三者的联合作用可能把“模型可用性”从静态配置变为运行时状态，进而缩短代理任务中断后换模型重试的路径。这仍是基于单条发行说明的条件化结构推断，发行说明未报告端到端行为、延迟或用户可见效果。",
+        "unresolved": [
+          "发行说明未说明 Codex /model 选择器是否读取运行时加载状态还是仅读取磁盘安装列表。",
+          "未提供路由复用对推理延迟、显存占用或并发行为的影响数据。",
+          "未说明该集成在非 Codex 代理或非 Ollama 客户端中的适用性。",
+          "未说明 llama.cpp b11521 升级与“decision models”具体指哪些模型或能力。",
+          "发行说明为 rc0，最终发布是否保留全部条目未知。"
+        ],
+        "alternatives": [
+          "这些变更可能只是各自独立的维护性条目，彼此不构成联合机制，模型选择器集成仅是 UI 便利，未改变路由行为。",
+          "模型可用性仍可能由用户手工配置主导，路由复用与选择器集成只是内部优化，不影响代理工作流。",
+          "该模式可能仅适用于 Ollama/Codex 特定组合，不能解释为自托管编码代理的普遍趋势。"
+        ],
+        "tests": [
+          {
+            "condition_key": "codex_model_picker_integration",
+            "observe": "在相同版本下，安装/加载新模型后观察 Codex /model 选择器是否需要重启服务或手工刷新才出现该模型，以及选择器条目与运行时已加载模型的一致性。",
+            "if_seen": "若选择器无需手工配置即随运行时加载状态更新，则支持“模型可用性由运行时状态决定”的机制。",
+            "if_absent": "若选择器仅反映磁盘安装列表或需手工同步，则该条件下的机制被削弱，需退回为 UI 便利性解释。",
+            "absence_requires_completed_observation": true
+          },
+          {
+            "condition_key": "manifest_reuse_in_routes",
+            "observe": "对比启用与不启用该路由复用条目时的推理请求行为：切换模型后首个请求是否复用清单/已加载模型，是否出现重新加载或清单校验的可见延迟。",
+            "if_seen": "若路由复用可被观察到减少重复加载/校验，则支持服务端状态被复用的机制。",
+            "if_absent": "若无可观察复用效果，则该条件不成立，联合机制仅剩发行说明条目，不构成结构推断。",
+            "absence_requires_completed_observation": true
+          },
+          {
+            "condition_key": "llama_cpp_version_bump",
+            "observe": "核对 b11521 升级是否被后续版本说明或独立测试记录为决策模型/嵌入模型的必要前提，以及它与模型选择器行为是否同批发布。",
+            "if_seen": "若后续材料把它列为前提，则后端升级作为机制基础的条件得到支持。",
+            "if_absent": "若无法观察到该关联，则后端升级只是并列条目，不能支撑机制归因。",
+            "absence_requires_completed_observation": true
+          }
+        ]
+      },
+      "citations": [
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947",
+          "role": "support",
+          "condition_key": "manifest_reuse_in_routes"
+        },
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887",
+          "role": "support",
+          "condition_key": "codex_model_picker_integration"
+        },
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2 by @jmorganca in https://github.com/ollama/ollama/pull/18917",
+          "role": "support",
+          "condition_key": "llama_cpp_version_bump"
+        },
+        {
+          "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+          "quote": "**Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.3...v0.40",
+          "role": "boundary",
+          "condition_key": "llama_cpp_version_bump"
+        }
+      ],
+      "changed_parts": [],
+      "relinquished": [],
+      "reason": "registry 为空，无既有命题需要校准，故按新发现处理。证据是一则官方发行说明，只能支持“存在若干并列变更条目”这一报告层事实；将其解释为“模型可用性由运行时状态决定、切换变为路由行为”属于跨条目的条件化结构推断，证据并未报告端到端效果，因此标 early 并保持 inferred 范围与未解决边界。"
+    },
+    "evidence": [
+      {
+        "schema_version": 2,
+        "evidence_id": "ev-fd6335fec3df83000d3ef7ce",
+        "input_id": "item-62bd2b4c042758daf6fa",
+        "content_version": "89a4910d140cf155233d6f65",
+        "event_ids": [],
+        "source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.4-rc0",
+        "source_kind": "source_claim",
+        "source_role": "official_primary",
+        "title": "ollama/ollama: v0.40.4",
+        "excerpt": "## What's Changed * llama: update llama.cpp to b11521 for decision models and EmbeddingGemma 2 by @jmorganca in https://github.com/ollama/ollama/pull/18917 * server: reuse verified manifests and loaded models in inference routes by @dhiltgen in https://github.com/ollama/ollama/pull/18947 * mlx: compact restored recurrent state after speculative rollback by @dhiltgen in https://github.com/ollama/ollama/pull/18955 * launch: include installed models in Codex /model picker by @ParthSareen in https://github.com/ollama/ollama/pull/18887 * MLX, MLX-C: version bump by @dhiltgen in https://github.com/ollama/ollama/pull/18956 **Full Changelog**: https://github.com/ollama/ollama/compare/v0.40.3...v0.40",
+        "excerpt_spans": [
+          [
+            0,
+            700
+          ]
+        ],
+        "excerpt_source_sha256": "23269a1e19d97865b37d5ac69c36be0041ec4750356cd0639fe5443f6a967bdf",
+        "scope": [],
+        "published_at": "2026-10-12T19:00:12Z",
+        "observed_at": "2026-10-13T01:36:45.048666Z",
+        "ingested_at": "2026-10-13T01:36:45.048666Z",
+        "status": "captured",
+        "information_gaps": [],
+        "synthetic": false,
+        "provenance": "data\\intake\\checkpoints\\batch-20261013T013645Z-db97148c18.json"
+      }
+    ],
+    "narratives": [
+      "hypothesis.claim",
+      "hypothesis.scope.0",
+      "hypothesis.scope.1",
+      "hypothesis.scope_reason",
+      "hypothesis.from_state",
+      "hypothesis.to_state",
+      "hypothesis.baseline.0.text",
+      "hypothesis.conditions.0.observation",
+      "hypothesis.conditions.0.interpretation",
+      "hypothesis.conditions.1.observation",
+      "hypothesis.conditions.1.interpretation",
+      "hypothesis.conditions.2.observation",
+      "hypothesis.conditions.2.interpretation",
+      "hypothesis.mechanism",
+      "hypothesis.unresolved.0",
+      "hypothesis.unresolved.1",
+      "hypothesis.unresolved.2",
+      "hypothesis.unresolved.3",
+      "hypothesis.unresolved.4",
+      "hypothesis.alternatives.0",
+      "hypothesis.alternatives.1",
+      "hypothesis.alternatives.2",
+      "hypothesis.tests.0.observe",
+      "hypothesis.tests.0.if_seen",
+      "hypothesis.tests.0.if_absent",
+      "hypothesis.tests.1.observe",
+      "hypothesis.tests.1.if_seen",
+      "hypothesis.tests.1.if_absent",
+      "hypothesis.tests.2.observe",
+      "hypothesis.tests.2.if_seen",
+      "hypothesis.tests.2.if_absent",
+      "reason"
+    ],
+    "previous": null,
+    "new_evidence_ids": [
+      "ev-fd6335fec3df83000d3ef7ce"
+    ]
+  }
+}

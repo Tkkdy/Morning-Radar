@@ -1,0 +1,289 @@
+{
+  "schema_version": 1,
+  "runs": [
+    {
+      "date": "2026-09-30",
+      "intake_commit": "d9e837b99012510a7fef228662a90571f79db12e",
+      "generated_commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+      "run_id": 36643690053,
+      "objects": [
+        {
+          "commit": "d9e837b99012510a7fef228662a90571f79db12e",
+          "path": "data/raw/2026-09-30.json",
+          "sha256": "981f8dfc940044a86ad062d25eb9ccba6e78b1261d809e14aa56a270105ffd5d"
+        },
+        {
+          "commit": "d9e837b99012510a7fef228662a90571f79db12e",
+          "path": "data/intake/ledger.json",
+          "sha256": "5be5ed39f9ab21da0fe1a04786fddbc3b909b4761515a353ec42495f86680d3e"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "data/stories/2026-09-30.json",
+          "sha256": "ab40d30498c4a63169aece205044ec381ec2aef32f8f3d001b814fc52b70b1e6"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "data/briefs/2026-09-30.json",
+          "sha256": "10c0688cf005363a8f0dd57a286bacb1e2129c82bf534a97a5cfacb1b12f7694"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "data/editorial/2026-09-30.json",
+          "sha256": "f9a798eae94276b8236e23727d91453268b815685bfddce517fb7dea90bb2cfa"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "data/continuity/2026-09-30.json",
+          "sha256": "db2db407a22f3603747ea14e0eb40c6e2cabe807f1d89b6efc15d35a8582347e"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "data/intake/ledger.json",
+          "sha256": "a351f26bb09833971b064461bfa80c98cbfc840b63aeab11ee427a689fa04177"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "config/app.yaml",
+          "sha256": "b954c01651673087a313807fd601343c6d238b04b9655ae8ad141a31761aa99d"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "config/sources.yaml",
+          "sha256": "9b76221a600e8e9733135910d2924b03c701d44e184c20378bc0ee17907ce98c"
+        },
+        {
+          "commit": "d7416ff501f9042f3150d834bf61f2d2d7fa1f56",
+          "path": "config/lab_watchlist.yaml",
+          "sha256": "aaa88fde8687bd47fc68d2d28e5facec7320734c11c312c2f206ba845f0603f8"
+        },
+        {
+          "commit": "d9e837b99012510a7fef228662a90571f79db12e",
+          "path": "data/intake/checkpoints/batch-20260929T231035Z-a8fee83d05.json",
+          "sha256": "0036bc49be9d53f5bb0fc6d896e4f525ca4a83fb74fd3b5d6fdce0def258af25"
+        }
+      ],
+      "run": {
+        "head_sha": "3046d42cc0bcdfb21898d21ef7ec48c4860994a1",
+        "created_at": "2026-09-29T23:09:45Z",
+        "updated_at": "2026-09-29T23:13:21Z",
+        "event": "schedule",
+        "conclusion": "success",
+        "run_attempt": 1
+      },
+      "logs": "HTTP 403",
+      "brief_generated_at": "2026-09-29T23:11:34.468540Z"
+    },
+    {
+      "date": "2026-10-06",
+      "intake_commit": "25e160caa623c38bebfd677e928f4cb32a9ad29d",
+      "generated_commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+      "run_id": 37396542508,
+      "objects": [
+        {
+          "commit": "25e160caa623c38bebfd677e928f4cb32a9ad29d",
+          "path": "data/raw/2026-10-06.json",
+          "sha256": "9e2b243d6b9116152360620f993771d23150637c0c9540287c4d9ecb45a40b39"
+        },
+        {
+          "commit": "25e160caa623c38bebfd677e928f4cb32a9ad29d",
+          "path": "data/intake/ledger.json",
+          "sha256": "c65c8116827b2ae82c9d2f993fc8f39701eef9519fb357313b913b9d3fea6f32"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "data/stories/2026-10-06.json",
+          "sha256": "8d3664177ce87f334b61040cdcaefb2d70249293a4b934020271e58ebdc4b293"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "data/briefs/2026-10-06.json",
+          "sha256": "921fafe14636b504402626bab0369c1d5be616d580e9075b9f91d933875d8fe6"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "data/editorial/2026-10-06.json",
+          "sha256": "1d979fd92bdc57b5dc94f8354cdbbec94ad9a574533e8ab5e94d5fca96fa813e"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "data/continuity/2026-10-06.json",
+          "sha256": "bcf0ced738aab7065d80c20823ac56bc68e0024a4412f0cef4482f0f366181a9"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "data/intake/ledger.json",
+          "sha256": "6340bb87d72a620bd995c61371777271a1e23669b7e27e7526dd2819f28c8437"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "config/app.yaml",
+          "sha256": "b954c01651673087a313807fd601343c6d238b04b9655ae8ad141a31761aa99d"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "config/sources.yaml",
+          "sha256": "9b76221a600e8e9733135910d2924b03c701d44e184c20378bc0ee17907ce98c"
+        },
+        {
+          "commit": "8657b9e3fdaff9fd3ef86579e695255929fe9277",
+          "path": "config/lab_watchlist.yaml",
+          "sha256": "aaa88fde8687bd47fc68d2d28e5facec7320734c11c312c2f206ba845f0603f8"
+        },
+        {
+          "commit": "25e160caa623c38bebfd677e928f4cb32a9ad29d",
+          "path": "data/intake/checkpoints/batch-20261006T005648Z-d5e07bd76f.json",
+          "sha256": "63cd6db3075b425f43ff5bc8a59b5c30b906bc49d556a01cf5fb8dcbcb9da3b6"
+        }
+      ],
+      "run": {
+        "head_sha": "3584a4a8f9e47fc0f8cc3b7a8f00fb7fe1b0a433",
+        "created_at": "2026-10-06T00:55:45Z",
+        "updated_at": "2026-10-06T00:59:49Z",
+        "event": "schedule",
+        "conclusion": "success",
+        "run_attempt": 1
+      },
+      "logs": "HTTP 403",
+      "brief_generated_at": "2026-10-06T00:57:59.418607Z"
+    },
+    {
+      "date": "2026-10-07",
+      "intake_commit": "61ad8df2db00a8f510d1b995fc0fc04901c07f69",
+      "generated_commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+      "run_id": 37545287658,
+      "objects": [
+        {
+          "commit": "61ad8df2db00a8f510d1b995fc0fc04901c07f69",
+          "path": "data/raw/2026-10-07.json",
+          "sha256": "8954960ddccc986744edd156fa040710069fc81c1f7e1f4e9c084ca2408d0392"
+        },
+        {
+          "commit": "61ad8df2db00a8f510d1b995fc0fc04901c07f69",
+          "path": "data/intake/ledger.json",
+          "sha256": "2201a8664fc87ad96017671a4bc4bd32d412fc7c529adc5557fa9297d14b770a"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "data/stories/2026-10-07.json",
+          "sha256": "3e704ca6b5b6105df0cfed5f3ebac54cbd205c35382995f1813a0e1301e9a9db"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "data/briefs/2026-10-07.json",
+          "sha256": "4a5475a69f8e59307d7512cd4f7895a8ed1eefd2cec1a57d8118cfb44da4416a"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "data/editorial/2026-10-07.json",
+          "sha256": "29f53b9b4c7a3043eda210c530eafc4327bc4c913aeb93e9f0dcc658eb1f6f9c"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "data/continuity/2026-10-07.json",
+          "sha256": "c2db37c366aee57a0793f08feb57f0d5085d922ec32b36a90c8d1022dc6ee3e1"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "data/intake/ledger.json",
+          "sha256": "bb290c2b2f045e87d78d4aae5b63b119ce6901001517d46174a79f1d106efea5"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "config/app.yaml",
+          "sha256": "b954c01651673087a313807fd601343c6d238b04b9655ae8ad141a31761aa99d"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "config/sources.yaml",
+          "sha256": "9b76221a600e8e9733135910d2924b03c701d44e184c20378bc0ee17907ce98c"
+        },
+        {
+          "commit": "78852c06cba0a0f5bb417a56bc8c0094dbf5e0c1",
+          "path": "config/lab_watchlist.yaml",
+          "sha256": "aaa88fde8687bd47fc68d2d28e5facec7320734c11c312c2f206ba845f0603f8"
+        },
+        {
+          "commit": "61ad8df2db00a8f510d1b995fc0fc04901c07f69",
+          "path": "data/intake/checkpoints/batch-20261006T005648Z-d5e07bd76f.json",
+          "sha256": "63cd6db3075b425f43ff5bc8a59b5c30b906bc49d556a01cf5fb8dcbcb9da3b6"
+        },
+        {
+          "commit": "61ad8df2db00a8f510d1b995fc0fc04901c07f69",
+          "path": "data/intake/checkpoints/batch-20261006T231356Z-60cf4da449.json",
+          "sha256": "c85fcb4914b361f57ea68195c20f435021d82e3e7f824ed465770f6c65568239"
+        }
+      ],
+      "run": {
+        "head_sha": "8622fc4ec031b7096facc6aa430f3014eb8ef920",
+        "created_at": "2026-10-06T23:12:52Z",
+        "updated_at": "2026-10-06T23:17:16Z",
+        "event": "schedule",
+        "conclusion": "success",
+        "run_attempt": 1
+      },
+      "logs": "HTTP 403",
+      "brief_generated_at": "2026-10-06T23:14:49.961656Z"
+    }
+  ],
+  "notes": [
+    "Objects are pinned by full commit and SHA256.",
+    "history.json contains exact selected raw/ledger/record objects, not a reconstructed production run.",
+    "Actions log download returned HTTP 403 anonymously. No recorded model responses available."
+  ],
+  "baseline_sha": "8ddd314d5108d987f359f146484af61724f6a5b9",
+  "evidence_scope": "Git object snapshots and Actions metadata retrieved. Original provider requests/responses and Actions logs unavailable (HTTP403); no paid or live semantic replay.",
+  "case_fixture_sha256": "2696c9b08def6610eaed0e70489e2675521ac16197fb3830b6e7c8edac35c7ff",
+  "additional_cases": [
+    {
+      "case_id": "2026-10-06-no-run",
+      "report_reference": "晨报漏报审计-2026-10-07.md §11",
+      "evidence_status": "retrieved",
+      "fault_status": "withdrawn_by_report_and_refuted_by_actions_metadata",
+      "replay_status": "not_applicable",
+      "run_id": 37396542508
+    },
+    {
+      "case_id": "2026-10-06-budget",
+      "report_reference": "晨报漏报审计-2026-10-07.md §12",
+      "evidence_status": "brief_and_ledger_retrieved",
+      "fault_status": "confirmed_fallback_and_budget_pressure",
+      "actual": {
+        "input_characters": 119194,
+        "maximum": 120000,
+        "brief_fallbacks": 11,
+        "continuity_budget_skipped": 1
+      },
+      "replay_status": "synthetic_budget_competition_only",
+      "unresolved": "exact_provider_payload_sequence"
+    },
+    {
+      "case_id": "2026-10-07-budget",
+      "report_reference": "晨报漏报审计-2026-10-07.md §12",
+      "evidence_status": "brief_and_ledger_retrieved",
+      "fault_status": "confirmed_continuity_budget_skip",
+      "actual": {
+        "input_characters": 112050,
+        "maximum": 120000,
+        "continuity_budget_skipped": 1
+      },
+      "replay_status": "synthetic_budget_competition_only"
+    },
+    {
+      "case_id": "official-listing-coverage",
+      "report_reference": "晨报漏报审计-2026-09-30.md §4; 晨报漏报审计-2026-10-07.md §4",
+      "evidence_status": "historical_checkpoint_failure_status_and_current_public_pages_retrieved",
+      "fault_status": "confirmed_current_size_and_parser_incompatibility",
+      "replay_status": "current_observed_card_fixture_and_synthetic_stream_limit",
+      "unresolved": "historical_HTTP_response_bodies_and_xAI_403_cause",
+      "current_observation_file": "source_observations.json"
+    },
+    {
+      "case_id": "aihot-window-matched-coverage",
+      "evidence_status": "user_audit_only",
+      "fault_status": "unresolved",
+      "replay_status": "unresolved",
+      "reason": "No contemporaneous machine snapshot provided; live data would not recreate the historical cutoff; production integration remains disabled."
+    }
+  ]
+}

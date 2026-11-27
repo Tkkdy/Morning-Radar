@@ -8,12 +8,13 @@ import math
 from collections import Counter
 from datetime import datetime
 
-from morning_radar.ai import AIOutputError
-from morning_radar.ai.models import MergedStoryDraft
+from morning_radar.ai import AIBudgetExceeded, AIOutputError
+from morning_radar.ai.models import ClassificationBatch, MergedStoryDraft
 from morning_radar.ai.provider import AIProvider
-from morning_radar.ai.request_payload import get_call_meta
+from morning_radar.ai.request_payload import get_call_meta, story_materials
 from morning_radar.models import PublishedAtRole, RawItem, Story, StorySourceRef
-from morning_radar.processing.deduplicate import deduplicate_items
+from morning_radar.models.core import TechnicalQuoteNormalization, TechnicalReading
+from morning_radar.processing.deduplicate import _comparison_url, deduplicate_items
 from morning_radar.processing.grouping import group_items_by_normalized_title
 from morning_radar.provenance import verified_source_urls, verified_source_urls_for_items
 
@@ -91,16 +92,26 @@ def choose_primary_source(items: list[RawItem]) -> RawItem:
     return min(items, key=source_key)
 
 
-def _validate_draft_urls(draft: MergedStoryDraft, items: list[RawItem]) -> None:
+def _validate_draft_urls(
+    draft: MergedStoryDraft, items: list[RawItem],
+) -> tuple[TechnicalReading | None, list[TechnicalQuoteNormalization]]:
     allowed = set(verified_source_urls_for_items(items))
     returned = set(draft.source_urls)
     if draft.primary_source_url:
         returned.add(draft.primary_source_url)
+    reading, conversions = draft.technical_reading, []
+    if reading is not None:
+        from morning_radar.research.materials import validate_technical_reading
+        reading, conversions = validate_technical_reading(reading, items)
+    from morning_radar.research.materials import validate_analysis
+    validate_analysis(draft.grounded_analysis, items)
     invented = returned - allowed
     if invented:
         raise StoryValidationError(
             f"AI story draft contains URL outside verified source set: {sorted(invented)[0]}"
         )
+
+    return reading, conversions
 
 
 def _source_ref(item: RawItem) -> StorySourceRef:
@@ -129,6 +140,7 @@ def _source_ref(item: RawItem) -> StorySourceRef:
         source_role=item.source_role,
         statement_type=item.statement_type,
         practice_signal_kind=item.practice_signal_kind,
+        backfill_recorded_at=item.metadata.get("backfill_recorded_at"),
         source_date=item.metadata.get("source_date"),
         date_precision=item.metadata.get("date_precision"),
         source_timezone=item.metadata.get("source_timezone"),
@@ -143,7 +155,19 @@ def build_story(
     now: datetime,
 ) -> Story:
     draft = provider.merge_story(items)
-    _validate_draft_urls(draft, items)
+    reading, conversions = _validate_draft_urls(draft, items)
+    from morning_radar.research.materials import validate_analysis
+    grounded_analysis, analysis_conversions = validate_analysis(draft.grounded_analysis, items)
+    materials, omitted = story_materials(items)
+    uncertainties = list(draft.uncertainties)
+    if draft.technical_reading is not None and reading is None:
+        missing = [label for name, label in (("problem", "问题说明"), ("method", "方法概述"))
+                   if getattr(draft.technical_reading, name) is None]
+        uncertainties.append(
+            "技术阅读卡未展示：模型输出缺少有来源依据的" + "、".join(missing) + "。"
+        )
+    if draft.analysis:
+        uncertainties.append("部分分析未附可追溯的来源前提，未纳入本次分析。")
     primary = choose_primary_source(items)
     source_urls = list(verified_source_urls_for_items(items))
     published_values = [item.published_at for item in items if item.published_at is not None]
@@ -160,9 +184,18 @@ def build_story(
         source_urls=source_urls,
         primary_source_url=primary.url,
         source_refs=[_source_ref(item) for item in items],
+        technical_reading=reading,
+        technical_quote_normalizations=conversions,
+        evidence_ids=[str(item.metadata["evidence_id"]) for item in items
+                      if item.metadata.get("evidence_id")],
         facts=draft.facts,
-        analysis=draft.analysis,
-        uncertainties=draft.uncertainties,
+        analysis=[],
+        opinions=draft.opinions,
+        grounded_analysis=grounded_analysis,
+        analysis_quote_normalizations=analysis_conversions,
+        source_materials=materials,
+        source_materials_omitted=omitted,
+        uncertainties=uncertainties,
         relevance_score=0,
         importance_score=0,
         novelty_score=0,
@@ -195,6 +228,24 @@ def _capture_failed_score_meta(provider, score_out, items) -> None:
         failed[item.id] = meta
 
 
+def _merge_with_url_recovery(provider, group):
+    try:
+        draft = provider.merge_story(group)
+        _validate_draft_urls(draft, group)
+        return draft
+    except (AIOutputError, StoryValidationError) as exc:
+        if "url" not in str(exc).lower():
+            raise
+    # One smaller reconstruction, never transfer rejected facts onto valid URLs.
+    smaller = [item.model_copy(update={
+        "content_excerpt": item.content_excerpt[:600],
+        "summary": item.summary[:280],
+    }) for item in group]
+    draft = provider.merge_story(smaller)
+    _validate_draft_urls(draft, group)
+    return draft
+
+
 def build_stories(
     items: list[RawItem],
     *,
@@ -204,6 +255,7 @@ def build_stories(
     item_outcomes: dict[str, str] | None = None,
     classification_out: dict[str, object] | None = None,
     score_out: dict[str, object] | None = None,
+    classifications: ClassificationBatch | None = None,
 ) -> list[Story]:
     from morning_radar.intake.models import ReasonCode
 
@@ -224,7 +276,13 @@ def build_stories(
     if not candidates:
         LOGGER.warning("AI candidate budget left no items for classification")
         return []
-    classifications = provider.classify_items(candidates)
+    if classifications is None:
+        try:
+            classifications = provider.classify_items(candidates)
+        except AIBudgetExceeded:
+            for item in candidates:
+                note(item.id, ReasonCode.DEFERRED_BUDGET)
+            return []
     classified_by_id = {item.item_id: item for item in classifications.items}
     if classification_out is not None:
         classification_out.update(classified_by_id)
@@ -242,9 +300,22 @@ def build_stories(
 
     stories: list[Story] = []
     for group in group_items_by_normalized_title(relevant):
+        # Deduplication allocates one candidate slot, not permission to discard
+        # richer observations of the same page. Preserve source roles and IDs;
+        # the model still checks whether these observations describe one event.
+        group_urls = {_comparison_url(item) for item in group}
+        retained_ids = {item.id for item in group}
+        group = [*group, *(
+            item for item in items
+            if item.id not in retained_ids and _comparison_url(item) in group_urls
+        )]
         try:
-            draft = provider.merge_story(group)
-        except AIOutputError:
+            draft = _merge_with_url_recovery(provider, group)
+        except AIBudgetExceeded:
+            for item in group:
+                note(item.id, ReasonCode.DEFERRED_BUDGET)
+            continue
+        except (AIOutputError, StoryValidationError):
             LOGGER.exception(
                 "AI degradation: merge failed; skipping candidate group with %d item(s)",
                 len(group),
@@ -255,7 +326,11 @@ def build_stories(
         if draft.same_event or len(group) == 1:
             try:
                 story = build_story(group, provider=_DraftProvider(provider, draft), now=now)
-            except AIOutputError:
+            except AIBudgetExceeded:
+                for item in group:
+                    note(item.id, ReasonCode.DEFERRED_BUDGET)
+                continue
+            except (AIOutputError, StoryValidationError):
                 LOGGER.exception(
                     "AI degradation: scoring failed; skipping candidate group with %d item(s)",
                     len(group),
@@ -273,7 +348,10 @@ def build_stories(
             for item in group:
                 try:
                     story = build_story([item], provider=provider, now=now)
-                except AIOutputError:
+                except AIBudgetExceeded:
+                    note(item.id, ReasonCode.DEFERRED_BUDGET)
+                    continue
+                except (AIOutputError, StoryValidationError):
                     LOGGER.exception(
                         "AI degradation: single-item story generation failed; skipping item %s",
                         item.id,
