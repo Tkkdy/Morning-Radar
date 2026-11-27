@@ -1,0 +1,90 @@
+[
+  {
+    "claim": "有线索称《纽约时报》警告摄影师不要更新 Photoshop，原因是其 AI 功能可能影响新闻摄影的真实性标准。",
+    "id": "radar-f2844a31b0dc73f00265",
+    "missing_evidence": [
+      "《纽约时报》原始通知或政策文件",
+      "Adobe Photoshop 相关 AI 功能的具体说明",
+      "独立报道或官方确认"
+    ],
+    "observed_at": "2026-11-27T02:24:06.173064Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-fc654cd8c7a75232f8f6",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/26/hn-50651685/"
+      }
+    ],
+    "uncertainty": "仅有 Hacker News 评论转述，未提供 NYT 原文，警告的具体范围和措辞不明。",
+    "why_notable": "若属实，反映主流新闻机构对生成式 AI 编辑功能的合规与编辑政策收紧，可能影响专业摄影工作流。"
+  },
+  {
+    "claim": "有未经证实的消息称 OpenAI 收紧 GPT-6.2 使用限制，Astra 触限速度加快 40%，Sol 加快 25%。",
+    "id": "radar-b3271698d51c80543627",
+    "missing_evidence": [
+      "原推文内容",
+      "OpenAI 官方公告或文档",
+      "用户独立复现或用量数据"
+    ],
+    "observed_at": "2026-11-27T02:24:06.173064Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-3923094cc4756b9fa516",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://twitter.com/thsottiaux/status/2125784147889393806"
+      }
+    ],
+    "uncertainty": "内容缺失且仅来自 HN 标题，模型名称和百分比均无法核实。",
+    "why_notable": "若属实，将直接影响用户配额、API 成本和模型选择，属于重要的 AI 产品策略变化。"
+  }
+]

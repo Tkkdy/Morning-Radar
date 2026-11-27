@@ -1,0 +1,954 @@
+{
+  "ai_and_open_source": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-b8af22cddd8084af3ca7",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://twitter.com/thsottiaux/status/2125784147889393806",
+        "https://news.ycombinator.com/item?id=50651117"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "OpenAI 收紧 GPT-6.2 使用限制：Astra 触达限额快 40%，Sol 快 25%",
+          "category": "AI 平台与产品",
+          "entity_names": [
+            "OpenAI",
+            "GPT-6.2",
+            "Astra",
+            "Sol"
+          ],
+          "facts": [],
+          "primary_source_url": "https://twitter.com/thsottiaux/status/2125784147889393806",
+          "product_names": [
+            "GPT-6.2",
+            "Astra",
+            "Sol"
+          ],
+          "published_at": "2026-11-26T03:36:58Z",
+          "source_refs": [
+            {
+              "author": "Herrera",
+              "date_precision": null,
+              "discussion_url": "https://news.ycombinator.com/item?id=50651117",
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T03:36:58Z",
+              "published_at_role": "hn_submission_time",
+              "published_date_role": null,
+              "raw_item_id": "item-3923094cc4756b9fa516",
+              "source_date": null,
+              "source_name": "Hacker News",
+              "source_role": "community_discovery",
+              "source_timezone": null,
+              "source_type": "hacker_news",
+              "statement_type": "unverified_lead",
+              "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
+              "url": "https://twitter.com/thsottiaux/status/2125784147889393806"
+            }
+          ],
+          "status": "rumor",
+          "story_id": "story-f734b70787b5088d56a2",
+          "topic_names": [
+            "使用限制",
+            "配额调整",
+            "AI 模型服务"
+          ],
+          "uncertainties": [
+            "Hacker News 上的社区发现帖称 OpenAI 收紧 GPT-6.2 使用限制，Astra 达到限制的速度快 40%，Sol 快 25%。该说法来自 Hacker News 的社区发现（unverified lead），原始出处为一条 Twitter/X 链接，目前无内容摘录，无法独立核实。",
+            "帖子提到“Astra”和“Sol”两个名称，但输入未能确认它们是模型、产品还是功能名称，也无法确认与 GPT-6.2 的关系。",
+            "40% 和 25% 两个比例各自对应哪些配额或速率限制、采用何种基准，均不清楚。",
+            "发布时间为 2026-11-26，评论数 259、得分 467，但讨论内容未提供，无法据此验证任何具体变化。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f734b70787b5088d56a2"
+      ],
+      "title": "OpenAI 收紧 GPT-6.2 使用限制：Astra 触达限额快 40%，Sol 快 25%",
+      "uncertainty": "Hacker News 上的社区发现帖称 OpenAI 收紧 GPT-6.2 使用限制，Astra 达到限制的速度快 40%，Sol 快 25%。该说法来自 Hacker News 的社区发现（unverified lead），原始出处为一条 Twitter/X 链接，目前无内容摘录，无法独立核实。",
+      "what_happened": "OpenAI 收紧 GPT-6.2 使用限制：Astra 触达限额快 40%，Sol 快 25%",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-5b4b679252ff70faca29",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Hugging Face 博客发布 Hill-climbing Inkling 2 Mini 在单张 RTX PRO 6000 上的推理实践",
+          "category": "ai_infrastructure",
+          "entity_names": [
+            "Hugging Face",
+            "Hill-climbing",
+            "Inkling 2 Mini",
+            "RTX PRO 6000"
+          ],
+          "facts": [
+            "Hugging Face 博客发布了一篇题为《Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000》的文章。",
+            "该文章发布日期为 2026-11-25。",
+            "该条目来源为 Hugging Face Blog，来源类型为 rss，来源角色标记为 official_primary，并标记为官方来源、优先级 high。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+          "product_names": [
+            "Inkling 2 Mini",
+            "RTX PRO 6000"
+          ],
+          "published_at": "2026-11-25T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-25T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-df3be113c8aed13fbadf",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000",
+              "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-49e98c21503891daded9",
+          "topic_names": [
+            "ai_models",
+            "ai_infrastructure",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "输入未提供文章正文或摘要，因此无法确认该推理实践的具体实现方式、性能测度与结论。",
+            "无法核实 Inkling 2 Mini 模型的具体规格及其与 RTX PRO 6000 的推理性价比表现。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-49e98c21503891daded9"
+      ],
+      "title": "Hugging Face 博客发布 Hill-climbing Inkling 2 Mini 在单张 RTX PRO 6000 上的推理实践",
+      "uncertainty": "输入未提供文章正文或摘要，因此无法确认该推理实践的具体实现方式、性能测度与结论。",
+      "what_happened": "Hugging Face 博客发布了一篇题为《Hill-climbing Inkling 2 Mini inference on one RTX PRO 6000》的文章。",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-e6762c32b21eaa8623ce",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该公告属于 llama.cpp 生态在性能评测与可观测性方面的工具补充，目标平台明确指向 AMD 的 CPU（Ryzen）与 GPU（Radeon）产品线。"
+          ],
+          "canonical_title": "llama.cpp 推出面向 AMD Ryzen 和 Radeon 的基准测试仪表板",
+          "category": "open_source_ai",
+          "entity_names": [
+            "llama.cpp",
+            "AMD",
+            "Ryzen",
+            "Radeon",
+            "ggml-org",
+            "Hugging Face"
+          ],
+          "facts": [
+            "Hugging Face 博客发布了题为《Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon》的文章。",
+            "该文章由 ggml-org 发布在 Hugging Face 博客，发布时间为 2026-11-26T11:37:17Z。",
+            "标题表明该仪表板面向 AMD Ryzen 和 Radeon 平台。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+          "product_names": [
+            "llama.cpp benchmark dashboard"
+          ],
+          "published_at": "2026-11-26T11:37:17Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T11:37:17Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a734da9d3a1d876054f8",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon",
+              "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-7748a2249def82c3ca53",
+          "topic_names": [
+            "ai_infrastructure",
+            "open_source_ai",
+            "benchmarking"
+          ],
+          "uncertainties": [
+            "输入未提供正文内容，因此仪表板的具体指标、支持的模型范围、数据更新方式与可用地址均无法确认。",
+            "输入未说明该仪表板是全新发布还是既有工具的更新。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-7748a2249def82c3ca53"
+      ],
+      "title": "llama.cpp 推出面向 AMD Ryzen 和 Radeon 的基准测试仪表板",
+      "uncertainty": "输入未提供正文内容，因此仪表板的具体指标、支持的模型范围、数据更新方式与可用地址均无法确认。",
+      "what_happened": "Hugging Face 博客发布了题为《Introducing the llama.cpp benchmark dashboard for AMD Ryzen and Radeon》的文章。",
+      "why_it_matters": "该公告属于 llama.cpp 生态在性能评测与可观测性方面的工具补充，目标平台明确指向 AMD 的 CPU（Ryzen）与 GPU（Radeon）产品线。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-dacd4437fa02e26980b5",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "v2.76.0 是一个兼容性变更较多的版本：实时会话的工具更新能力与 `RealtimeInput` 类型的扩展改变了类型层面的契约，而 `read_file` 的 offset 语义从 0 起始改为 1 起始，属于会影响现有 Python 调用方的行为变更。",
+            "针对 gemini-2.5-pro 与 gemini-2.5-flash 的弃用警告表明上游模型支持正在迁移，但在替换模型明确之前，仍可通过过滤警告或设置 `profile={'deprecation': None}` 继续使用。"
+          ],
+          "canonical_title": "pydantic-ai 发布 v2.76.0：实时会话支持工具更新，并对 gemini-2.5 系列发出弃用警告",
+          "category": "open_source_ai",
+          "entity_names": [
+            "pydantic",
+            "pydantic-ai",
+            "Pax",
+            "GoogleModel",
+            "GoogleInteractionsModel"
+          ],
+          "facts": [
+            "pydantic/pydantic-ai 于 2026-11-26 发布 v2.76.0，发布说明由作者 dsfaccini 提交。",
+            "该版本通过 `RealtimeModelProfile.supports_tool_updates` 与 `UpdateTools`，使实时会话能够在会话中途向支持工具更新的模型揭示工具（PR #12440）。",
+            "`RealtimeInput`（`RealtimeConnection.send` 接受的联合类型）新增 `UpdateTools`，`DEFAULT_REALTIME_PROFILE` 新增 `supports_tool_updates: False`；会话仅向模型 profile 设置了 `supports_tool_updates` 的连接发送 `UpdateTools`。",
+            "对 `RealtimeInput` 的穷尽匹配（`assert_never`）将不再通过类型检查，需要处理 `UpdateTools` 或对其抛出异常。",
+            "经 `GoogleModel` 或 `GoogleInteractionsModel` 向 `gemini-2.5-pro` 与 `gemini-2.5-flash` 发出的请求现在会发出 `DeprecatedModelWarning`（一个 `UserWarning`）；将警告视为错误的代码（如 `filterwarnings = error`）会在这些请求上失败（PR #14679）。",
+            "Pax 中新增双击选中单词、三击选中整行的功能（PR #14558）。",
+            "`pydantic_ai_pax.ui.prompt.prompt_selection` 中的 `Selection.feed`、`span`、`highlight` 和 `text` 新增参数：`feed` 以 `now` 接收按下时间，`span` 以已绘制的 `frame` 和软换行标志 `joins` 取代 `width`，`highlight` 与 `text` 接收 `joins`。",
+            "Pax 新增 `/computer-use` 桌面沙箱（PR #14564）。",
+            "Pax 插件状态段现在除 `str` 外还可返回 `StatusLink`，状态行将其显示为可点击链接（PR #14564）。",
+            "为每个模型提供商新增 `pydantic-ai-pax` extra，并新增 `all`，默认安装 Google SDK（PR #14614）。",
+            "`pydantic_ai_pax.cli.self_update.PACKAGES`（`/update` 重新安装的包）现在请求 `pydantic-ai-slim[anthropic,google,mcp,openai]`，与 Pax 默认安装（现已包含 Google SDK）一致，无需迁移。",
+            "当能力在运行中途裁剪历史时，运行新增的每条消息都会保留在 `result.conversation` 中（PR #13211）。",
+            "`FileSystem` 的 `read_file` 的 `offset` 改为 1 起始索引（PR #13250）；从 Python 调用 `FileSystemToolset.read_file(..., offset=N)` 或显式传入 `offset` 构建 `ReadFileArgs`、`ReadFileCallPart` 时现在提前一行开始，`offset=0` 会报错。"
+          ],
+          "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0",
+          "product_names": [
+            "pydantic-ai",
+            "pydantic-ai v2.76.0",
+            "pydantic-ai-pax"
+          ],
+          "published_at": "2026-11-26T23:49:06Z",
+          "source_refs": [
+            {
+              "author": "dsfaccini",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T23:49:06Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-dacf48a7747b77c4b98e",
+              "source_date": null,
+              "source_name": "GitHub · pydantic/pydantic-ai",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "pydantic/pydantic-ai: v2.76.0 (2026-11-26)",
+              "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.76.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-7e3cc74d9a90e0be7fde",
+          "topic_names": [
+            "ai_coding",
+            "open_source_ai"
+          ],
+          "uncertainties": [
+            "`DeprecatedModelWarning` 中给出的替换模型具体是哪一个，输入摘要未说明。",
+            "本次发布未说明 `gemini-2.5-pro` 与 `gemini-2.5-flash` 弃用警告的最终移除时间表。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-7e3cc74d9a90e0be7fde"
+      ],
+      "title": "pydantic-ai 发布 v2.76.0：实时会话支持工具更新，并对 gemini-2.5 系列发出弃用警告",
+      "uncertainty": "`DeprecatedModelWarning` 中给出的替换模型具体是哪一个，输入摘要未说明。",
+      "what_happened": "pydantic/pydantic-ai 于 2026-11-26 发布 v2.76.0，发布说明由作者 dsfaccini 提交。",
+      "why_it_matters": "v2.76.0 是一个兼容性变更较多的版本：实时会话的工具更新能力与 `RealtimeInput` 类型的扩展改变了类型层面的契约，而 `read_file` 的 offset 语义从 0 起始改为 1 起始，属于会影响现有 Python 调用方的行为变更。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "补充分析未生成，已保留已验证事实与来源。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_no_analysis",
+      "id": "brief-6b92e941a83aa783f900",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/training-swarms"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [],
+          "canonical_title": "Hugging Face 博客：如何构建、训练与评估多智能体系统（Swarms、Flocks、Gangs）",
+          "category": "ai_research",
+          "entity_names": [
+            "Hugging Face"
+          ],
+          "facts": [
+            "Hugging Face Blog 发布了一篇题为《Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems》的文章。",
+            "该文章于 2026-11-26 发布，抓取自 2026-11-27。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/training-swarms",
+          "product_names": [],
+          "published_at": "2026-11-26T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-819f2bb8e324e5e7f3ab",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems",
+              "url": "https://huggingface.co/blog/training-swarms"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-f3148b131b5234c5a74d",
+          "topic_names": [
+            "多智能体系统",
+            "训练",
+            "评估"
+          ],
+          "uncertainties": [
+            "输入仅提供标题与发布日期，未提供摘要或正文，因此文章具体的构建方法、训练流程和评估指标无法确认。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-f3148b131b5234c5a74d"
+      ],
+      "title": "Hugging Face 博客：如何构建、训练与评估多智能体系统（Swarms、Flocks、Gangs）",
+      "uncertainty": "输入仅提供标题与发布日期，未提供摘要或正文，因此文章具体的构建方法、训练流程和评估指标无法确认。",
+      "what_happened": "Hugging Face Blog 发布了一篇题为《Swarms, Flocks, Gangs: How to build, train, and evaluate multi-agent systems》的文章。",
+      "why_it_matters": null
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-d7a34c895922aa091647",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "文章标题表明其内容围绕在 Nemotron 3.5 Parse 基础上进行开放数据、微调与更快推理的后续构建。",
+            "由于输入内容摘要与正文摘录为空，除标题主题外无法获取更具体的技术细节、数据规模或性能指标。"
+          ],
+          "canonical_title": "NVIDIA 发布 Nemotron 3.5 Parse 后续构建指南：开放数据、微调与更快推理",
+          "category": "ai_models",
+          "entity_names": [
+            "NVIDIA",
+            "Nemotron 3.5 Parse"
+          ],
+          "facts": [
+            "NVIDIA 在 Hugging Face 博客发布题为《Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference》的文章。",
+            "该文章于 2026-11-26T05:05:36Z 发布，来源为 Hugging Face Blog，来源类型为官方主源（official_primary）。"
+          ],
+          "primary_source_url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+          "product_names": [
+            "Nemotron 3.5 Parse"
+          ],
+          "published_at": "2026-11-26T05:05:36Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T05:05:36Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-3d2697b636d74b834fc0",
+              "source_date": null,
+              "source_name": "Hugging Face Blog",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference",
+              "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-bf8e02ce84f97c41a46f",
+          "topic_names": [
+            "开放数据",
+            "微调",
+            "推理加速",
+            "开源 AI"
+          ],
+          "uncertainties": [
+            "文章具体涉及哪些开放数据集、微调方法或推理优化技术，输入中未提供。",
+            "Nemotron 3.5 Parse 的发布时间、可用性和许可证等信息在输入中未明确。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-bf8e02ce84f97c41a46f"
+      ],
+      "title": "NVIDIA 发布 Nemotron 3.5 Parse 后续构建指南：开放数据、微调与更快推理",
+      "uncertainty": "文章具体涉及哪些开放数据集、微调方法或推理优化技术，输入中未提供。",
+      "what_happened": "NVIDIA 在 Hugging Face 博客发布题为《Building on Nemotron 3.5 Parse: Open Data, Fine-Tuning, and Faster Inference》的文章。",
+      "why_it_matters": "文章标题表明其内容围绕在 Nemotron 3.5 Parse 基础上进行开放数据、微调与更快推理的后续构建。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-317ec4d34d4517580a00",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/openai/openai-python/releases/tag/v3.60.0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "从变更条目看，本次发布以 API 能力增补（支出提醒、响应压缩字段、会话 vault 更新）为主，其余多为文档澄清，属于 SDK 跟进服务端 API 变化的常规节奏。"
+          ],
+          "canonical_title": "openai-python 发布 v3.60.0，新增支出提醒与响应压缩字段，并支持更新会话 vault",
+          "category": "开发者工具与SDK",
+          "entity_names": [
+            "OpenAI",
+            "openai-python"
+          ],
+          "facts": [
+            "openai/openai-python 于 2026-11-26 发布 v3.60.0，对比基线为 v3.59.0。",
+            "该版本新增 api 功能：add spend alerts and response compaction fields（#4335）。",
+            "该版本新增 api 功能：support updating session vaults（#4334）。",
+            "该版本还包含文档与说明类 chores：clarify message retries and Batch endpoints（#4333）、clarify Realtime audio noise reduction（#4331）、correct metadata documentation（#4328）、document inline skill upload limits（#4300）。"
+          ],
+          "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.60.0",
+          "product_names": [
+            "openai-python",
+            "v3.60.0"
+          ],
+          "published_at": "2026-11-26T07:09:55Z",
+          "source_refs": [
+            {
+              "author": "openai-sdks[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T07:09:55Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-9e0d0eeab0a50f4ec7e7",
+              "source_date": null,
+              "source_name": "GitHub · openai/openai-python",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "openai/openai-python: v3.60.0",
+              "url": "https://github.com/openai/openai-python/releases/tag/v3.60.0"
+            }
+          ],
+          "status": "available",
+          "story_id": "story-03c6fa12f9b6e461fa5d",
+          "topic_names": [
+            "API 版本更新",
+            "SDK 发布"
+          ],
+          "uncertainties": [
+            "摘要内容在“correct me”处被截断，可能遗漏部分变更条目。",
+            "未说明 spend alerts、response compaction fields 与 session vaults 对应的具体 API 语义、参数与可用范围。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-03c6fa12f9b6e461fa5d"
+      ],
+      "title": "openai-python 发布 v3.60.0，新增支出提醒与响应压缩字段，并支持更新会话 vault",
+      "uncertainty": "摘要内容在“correct me”处被截断，可能遗漏部分变更条目。",
+      "what_happened": "openai/openai-python 于 2026-11-26 发布 v3.60.0，对比基线为 v3.59.0。",
+      "why_it_matters": "从变更条目看，本次发布以 API 能力增补（支出提醒、响应压缩字段、会话 vault 更新）为主，其余多为文档澄清，属于 SDK 跟进服务端 API 变化的常规节奏。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-6f7f7f5709874d6c5a9b",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://github.com/ollama/ollama/releases/tag/v0.40.19-rc0"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该版本为 rc0 预发布候选版本，主要涉及性能优化与内部组件升级，而非重大功能发布。",
+            "提交集中在历史缓冲区与短历史处理，可能针对推理上下文管理的效率改进。"
+          ],
+          "canonical_title": "Ollama 发布 v0.40.19-rc0",
+          "category": "open_source_ai",
+          "entity_names": [
+            "Ollama",
+            "GitHub"
+          ],
+          "facts": [
+            "Ollama 仓库发布 v0.40.19-rc0，与 v0.40.18 之间存在变更。",
+            "变更包括：inkling2 加速短历史、草稿提案与对话快照（PR #19881，作者 dhiltgen）。",
+            "变更包括：mlxrunner 压缩 Engram 历史缓冲区（PR #19913，作者 pdevine）。",
+            "变更包括：升级 llama-server（PR #19917，作者 pdevine）。",
+            "该版本于 2026-11-26T17:52:02Z 发布。"
+          ],
+          "primary_source_url": "https://github.com/ollama/ollama/releases/tag/v0.40.19-rc0",
+          "product_names": [
+            "Ollama",
+            "llama-server"
+          ],
+          "published_at": "2026-11-26T17:52:02Z",
+          "source_refs": [
+            {
+              "author": "github-actions[bot]",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T17:52:02Z",
+              "published_at_role": "github_release_published_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a0f1ce00ad86158f95be",
+              "source_date": null,
+              "source_name": "GitHub · ollama/ollama",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "github",
+              "statement_type": "factual_announcement",
+              "title": "ollama/ollama: v0.40.19",
+              "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19-rc0"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-17d5bf7d6a98a9a292b7",
+          "topic_names": [
+            "ai_infrastructure",
+            "open_source_ai",
+            "release"
+          ],
+          "uncertainties": [
+            "v0.40.19 正式版发布时间与内容尚不明确。",
+            "各项变更对最终用户性能的实际影响未在发布说明中量化。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-17d5bf7d6a98a9a292b7"
+      ],
+      "title": "Ollama 发布 v0.40.19-rc0",
+      "uncertainty": "v0.40.19 正式版发布时间与内容尚不明确。",
+      "what_happened": "Ollama 仓库发布 v0.40.19-rc0，与 v0.40.18 之间存在变更。",
+      "why_it_matters": "该版本为 rc0 预发布候选版本，主要涉及性能优化与内部组件升级，而非重大功能发布。"
+    },
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-ec2d716c3da14ed8a380",
+      "market_or_community_reaction": null,
+      "section": "ai_and_open_source",
+      "source_urls": [
+        "https://openai.com/business/customer-stories/clay-plugins-openai"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该材料属于 OpenAI 官方发布的客户案例，其内容可作为 Clay 使用相关产品的官方陈述，但具体效果数据未在摘要中给出。"
+          ],
+          "canonical_title": "OpenAI 发布 Clay 使用 ChatGPT 与 Codex 的客户案例",
+          "category": "客户案例",
+          "entity_names": [
+            "OpenAI",
+            "Clay",
+            "ChatGPT",
+            "Codex",
+            "GPT-6"
+          ],
+          "facts": [
+            "OpenAI 发布了一篇关于 Clay 的客户案例。",
+            "该案例称 Clay 通过 ChatGPT 和 Codex 集成帮助其用户研究交易，并将数据转化为上市策略。",
+            "该案例称 GPT-6 模型承担其中的推理工作。"
+          ],
+          "primary_source_url": "https://openai.com/business/customer-stories/clay-plugins-openai",
+          "product_names": [
+            "ChatGPT",
+            "Codex",
+            "GPT-6"
+          ],
+          "published_at": "2026-11-24T00:00:00Z",
+          "source_refs": [
+            {
+              "author": null,
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-24T00:00:00Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-a3c9028eefd69cfd15ff",
+              "source_date": null,
+              "source_name": "OpenAI News",
+              "source_role": "official_primary",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "factual_announcement",
+              "title": "Clay helps sales teams win with Codex and ChatGPT",
+              "url": "https://openai.com/business/customer-stories/clay-plugins-openai"
+            }
+          ],
+          "status": "announced",
+          "story_id": "story-765a7c044871832deae7",
+          "topic_names": [
+            "ai_models",
+            "ai_coding"
+          ],
+          "uncertainties": [
+            "摘要未说明 Clay 具体如何使用 ChatGPT 与 Codex，也未给出可量化的效率或业绩数据。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-765a7c044871832deae7"
+      ],
+      "title": "OpenAI 发布 Clay 使用 ChatGPT 与 Codex 的客户案例",
+      "uncertainty": "摘要未说明 Clay 具体如何使用 ChatGPT 与 Codex，也未给出可量化的效率或业绩数据。",
+      "what_happened": "OpenAI 发布了一篇关于 Clay 的客户案例。",
+      "why_it_matters": "该材料属于 OpenAI 官方发布的客户案例，其内容可作为 Clay 使用相关产品的官方陈述，但具体效果数据未在摘要中给出。"
+    }
+  ],
+  "cognitive_extension": null,
+  "date": "2026-11-27",
+  "developer_discussions": [],
+  "direction_observation": null,
+  "generated_at": "2026-11-27T02:27:47.830388Z",
+  "market_and_companies": [],
+  "other_reading": [],
+  "radar_signals": [
+    {
+      "claim": "有线索称《纽约时报》警告摄影师不要更新 Photoshop，原因是其 AI 功能可能影响新闻摄影的真实性标准。",
+      "id": "radar-f2844a31b0dc73f00265",
+      "missing_evidence": [
+        "《纽约时报》原始通知或政策文件",
+        "Adobe Photoshop 相关 AI 功能的具体说明",
+        "独立报道或官方确认"
+      ],
+      "observed_at": "2026-11-27T02:24:06.173064Z",
+      "research_disposition": "radar_signal",
+      "source_roles": [
+        "practitioner"
+      ],
+      "statement_type": "unverified_lead",
+      "support_refs": [
+        {
+          "association_basis": "lead",
+          "content_excerpt": "",
+          "content_missing": false,
+          "content_version": null,
+          "date_precision": null,
+          "discussion_url": null,
+          "excerpt_truncated": false,
+          "fetched_at": null,
+          "official_page_fetched": false,
+          "published_at": null,
+          "published_at_role": "unknown",
+          "published_date_role": null,
+          "raw_item_id": "item-fc654cd8c7a75232f8f6",
+          "source_date": null,
+          "source_name": null,
+          "source_role": "practitioner",
+          "source_timezone": null,
+          "source_type": null,
+          "statement_type": null,
+          "summary": "",
+          "text_omission_reason": null,
+          "title": null,
+          "url": "https://simonwillison.net/2026/Nov/26/hn-50651685/"
+        }
+      ],
+      "uncertainty": "仅有 Hacker News 评论转述，未提供 NYT 原文，警告的具体范围和措辞不明。",
+      "why_notable": "若属实，反映主流新闻机构对生成式 AI 编辑功能的合规与编辑政策收紧，可能影响专业摄影工作流。"
+    }
+  ],
+  "run_stats": {
+    "active_channel_count": 4,
+    "after_global_cap": 2671,
+    "ai_brief_batch_failed": true,
+    "ai_brief_batch_failures": 3,
+    "ai_brief_batches": 3,
+    "ai_brief_fallback": true,
+    "ai_brief_item_fallbacks": 10,
+    "ai_brief_recovery_attempts": 0,
+    "ai_brief_recovery_budget_exhausted": true,
+    "ai_brief_recovery_successes": 0,
+    "ai_brief_story_inputs": 10,
+    "ai_classify_completion_tokens": 1347,
+    "ai_classify_finish_stop": 1,
+    "ai_classify_prompt_tokens": 7108,
+    "ai_classify_reasoning_tokens": 0,
+    "ai_completion_tokens": 17718,
+    "ai_direction_fallback": true,
+    "ai_direction_fallback_reason": "AI daily input character limit exceeded",
+    "ai_evaluate_editorial_completion_tokens": 916,
+    "ai_evaluate_editorial_finish_stop": 1,
+    "ai_evaluate_editorial_prompt_tokens": 9262,
+    "ai_evaluate_editorial_reasoning_tokens": 0,
+    "ai_input_characters": 119165,
+    "ai_maximum_input_characters": 120000,
+    "ai_merge_story_completion_tokens": 4273,
+    "ai_merge_story_finish_stop": 11,
+    "ai_merge_story_prompt_tokens": 11928,
+    "ai_merge_story_reasoning_tokens": 0,
+    "ai_model": "deepseek-v4-flash",
+    "ai_prompt_tokens": 63097,
+    "ai_provider": "deepseek",
+    "ai_reasoning_tokens": 2784,
+    "ai_resolve_research_cases_completion_tokens": 3561,
+    "ai_resolve_research_cases_finish_stop": 1,
+    "ai_resolve_research_cases_prompt_tokens": 3124,
+    "ai_resolve_research_cases_reasoning_tokens": 2784,
+    "ai_score_story_completion_tokens": 1882,
+    "ai_score_story_finish_stop": 11,
+    "ai_score_story_prompt_tokens": 13203,
+    "ai_score_story_reasoning_tokens": 0,
+    "ai_signal_inputs": 1,
+    "ai_write_brief_completion_tokens": 5739,
+    "ai_write_brief_finish_stop": 4,
+    "ai_write_brief_prompt_tokens": 18472,
+    "ai_write_brief_reasoning_tokens": 0,
+    "aihot_enabled": false,
+    "completion_tokens": 17718,
+    "configured_seed_count": 10,
+    "continuity_budget_skipped": 1,
+    "continuity_candidates": 14,
+    "continuity_character_budget_available": 0,
+    "continuity_input_chars": 0,
+    "continuity_judgement_inputs": 0,
+    "continuity_logical_ai_calls": 0,
+    "continuity_network_requests": 0,
+    "continuity_relation_inputs": 0,
+    "continuity_watch_inputs": 0,
+    "direction_signal_inputs": 1,
+    "dry_run": false,
+    "editorial_decisions": 11,
+    "editorial_degraded": false,
+    "editorial_enabled": true,
+    "editorial_shadow_mode": true,
+    "fixture_mode": false,
+    "historical_story_candidates": 124,
+    "judgement_candidates": 0,
+    "judgement_created": 0,
+    "judgement_deep_review_calls": 0,
+    "judgement_deep_review_triggers": 0,
+    "judgement_direct_revisions": 0,
+    "judgement_updates": 0,
+    "judgements_created": 0,
+    "logical_ai_calls": 27,
+    "logical_ai_tasks": 27,
+    "main_brief_items": 10,
+    "model": "deepseek-v4-flash",
+    "needs_review": 0,
+    "network_ai_requests": 29,
+    "open_watches_considered": 20,
+    "other_reading_items": 0,
+    "overturned": 0,
+    "practitioners_with_active_channels": 4,
+    "prompt_tokens": 63097,
+    "provider": "deepseek",
+    "provider_circuit_opened": false,
+    "provider_circuit_reason": "",
+    "radar_signals": 2,
+    "radar_signals_displayed": 1,
+    "radar_signals_generated": 2,
+    "radar_signals_suppressed_as_visible_brief_duplicates": 1,
+    "reasoning_tokens": 2784,
+    "recent_24h": 66,
+    "relation_ai_inputs": 0,
+    "relation_confirmed": 0,
+    "relation_deterministic": 0,
+    "relation_rejected": 0,
+    "relation_unresolved": 14,
+    "relations_confirmed": 0,
+    "relations_rejected": 0,
+    "relations_unresolved": 14,
+    "research_cases": 5,
+    "research_duplicate_cases": 0,
+    "research_input_characters": 7981,
+    "research_invalid_cases": 0,
+    "research_logical_ai_calls": 1,
+    "research_missing_cases": 0,
+    "research_omitted_cases": 0,
+    "research_truncated_fields": 3,
+    "research_unknown_cases": 0,
+    "research_unresolved": 3,
+    "research_verified_story_candidates": 0,
+    "revised": 0,
+    "routine_market_suppressed": 0,
+    "signals": 1,
+    "stories": 11,
+    "story_candidate_input": 14,
+    "structured_watches_opened": 0,
+    "task": "daily_pipeline",
+    "tendency_logical_ai_calls": 0,
+    "tendency_workflow_status": "persisted_projection",
+    "threshold_eligible_stories": 10,
+    "total_displayed_items": 10,
+    "watch_inputs": 0,
+    "watch_matches": 0
+  },
+  "tendencies": [],
+  "timezone": "Asia/Singapore",
+  "top_stories": [
+    {
+      "continuity_contexts": [],
+      "generation_note": "本次成稿使用已验证的已有分析。",
+      "generation_reason": "recovery_budget_unavailable",
+      "generation_status": "fallback_existing_analysis",
+      "id": "brief-6660cd62c85f00bb5c70",
+      "market_or_community_reaction": null,
+      "section": "top_stories",
+      "source_urls": [
+        "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+      ],
+      "story_contexts": [
+        {
+          "analysis": [
+            "该报道指出，暂停出货的范围限于服务器，而非明确涉及所有芯片或直接销售。",
+            "报道将这一动作与美国收紧AI芯片对华出口管制的政策目标联系起来，但未说明暂停的持续时间或完整受影响产品清单。"
+          ],
+          "canonical_title": "英伟达要求制造合作伙伴暂停向马来西亚、新加坡、泰国和印度尼西亚出货服务器",
+          "category": "供应链与地缘政治",
+          "entity_names": [
+            "Nvidia",
+            "马来西亚",
+            "新加坡",
+            "泰国",
+            "印度尼西亚",
+            "美国"
+          ],
+          "facts": [
+            "TechCrunch AI 报道称，英伟达已通知制造合作伙伴暂停向马来西亚、新加坡、泰国和印度尼西亚的服务器出货。",
+            "报道称此举发生在美国加大力度阻止AI芯片流入中国之际。"
+          ],
+          "primary_source_url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/",
+          "product_names": [],
+          "published_at": "2026-11-26T20:03:54Z",
+          "source_refs": [
+            {
+              "author": "Connie Loizos",
+              "date_precision": null,
+              "discussion_url": null,
+              "fetched_at": "2026-11-27T02:24:06.173064Z",
+              "practice_signal_kind": null,
+              "published_at": "2026-11-26T20:03:54Z",
+              "published_at_role": "feed_entry_time",
+              "published_date_role": null,
+              "raw_item_id": "item-33b3d08d99aeb285e8be",
+              "source_date": null,
+              "source_name": "TechCrunch AI",
+              "source_role": "editorial",
+              "source_timezone": null,
+              "source_type": "rss",
+              "statement_type": "unknown",
+              "title": "Nvidia hits pause on chip shipments to Southeast Asia",
+              "url": "https://techcrunch.com/2026/11/26/nvidia-hits-pause-on-chip-shipments-to-southeast-asia/"
+            }
+          ],
+          "status": "unknown",
+          "story_id": "story-44ced3d5c3f24aee1e1d",
+          "topic_names": [
+            "AI芯片出口管制",
+            "服务器出货"
+          ],
+          "uncertainties": [
+            "英伟达是否已正式确认该指令、暂停何时生效及持续多久，报道未说明。",
+            "暂停是否涵盖所有服务器型号或仅特定AI芯片配置，尚不清楚。",
+            "报道未提供英伟达或美国官方的一手声明作为依据。"
+          ]
+        }
+      ],
+      "story_ids": [
+        "story-44ced3d5c3f24aee1e1d"
+      ],
+      "title": "英伟达要求制造合作伙伴暂停向马来西亚、新加坡、泰国和印度尼西亚出货服务器",
+      "uncertainty": "英伟达是否已正式确认该指令、暂停何时生效及持续多久，报道未说明。",
+      "what_happened": "TechCrunch AI 报道称，英伟达已通知制造合作伙伴暂停向马来西亚、新加坡、泰国和印度尼西亚的服务器出货。",
+      "why_it_matters": "该报道指出，暂停出货的范围限于服务器，而非明确涉及所有芯片或直接销售。"
+    }
+  ],
+  "trend_radar": [],
+  "watch_next": []
+}

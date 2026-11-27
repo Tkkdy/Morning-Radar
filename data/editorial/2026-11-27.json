@@ -1,0 +1,140 @@
+{
+  "date": "2026-11-27",
+  "decisions": [
+    {
+      "evidence_value": 3,
+      "fact_status": "claim",
+      "placement": "TOP",
+      "reader_value": 3,
+      "reason": "若属实将实质改变AI芯片供应与部署成本，但目前仅单一媒体转述、无官方确认，需保留为地缘供应链趋势证据。",
+      "retain_for_trends": true,
+      "story_id": "story-44ced3d5c3f24aee1e1d",
+      "support_for_story_id": null,
+      "trend_links": [
+        "ai-chip-export-control-supply-chain",
+        "southeast-asia-server-transshipment-risk"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方发布可验证，但主要是常规SDK迭代与兼容性变更，影响面有限。",
+      "retain_for_trends": false,
+      "story_id": "story-7e3cc74d9a90e0be7fde",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "单卡消费级硬件推理主题相关，但缺正文与可复现数据，无法作为能力证据。",
+      "retain_for_trends": false,
+      "story_id": "story-49e98c21503891daded9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "verified_fact",
+      "placement": "NEWS",
+      "reader_value": 2,
+      "reason": "官方确认的AMD本地推理基准仪表板，可作为本地部署可观测性演化的弱信号保留。",
+      "retain_for_trends": true,
+      "story_id": "story-7748a2249def82c3ca53",
+      "support_for_story_id": null,
+      "trend_links": [
+        "amd-local-inference-benchmark-transparency"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "仅标题与发布日期，无方法或评估细节，不足以支撑多智能体趋势判断。",
+      "retain_for_trends": false,
+      "story_id": "story-f3148b131b5234c5a74d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "常规SDK跟进与文档澄清，无结构性开发影响。",
+      "retain_for_trends": false,
+      "story_id": "story-03c6fa12f9b6e461fa5d",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 2,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "配额收紧对开发成本重要但仅社区转述未验证，前台一句、后台留作可检验配额信号。",
+      "retain_for_trends": true,
+      "story_id": "story-f734b70787b5088d56a2",
+      "support_for_story_id": null,
+      "trend_links": [
+        "frontier-model-quota-tightening",
+        "vendor-usage-limit-claim-validation-gap"
+      ]
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "verified_fact",
+      "placement": "DROP",
+      "reader_value": 0,
+      "reason": "rc预发布常规维护更新，无对外行为或性能可验证变化。",
+      "retain_for_trends": false,
+      "story_id": "story-17d5bf7d6a98a9a292b7",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 1,
+      "fact_status": "claim",
+      "placement": "ONE-LINER",
+      "reader_value": 1,
+      "reason": "厂商博客仅标题与主题，缺开放数据与推理提速的具体细节。",
+      "retain_for_trends": false,
+      "story_id": "story-bf8e02ce84f97c41a46f",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "企业法务场景宣传性教育内容，无产品变化或可验证落地效果。",
+      "retain_for_trends": false,
+      "story_id": "story-60a86b200e148597edd9",
+      "support_for_story_id": null,
+      "trend_links": []
+    },
+    {
+      "evidence_value": 0,
+      "fact_status": "claim",
+      "placement": "DROP",
+      "reader_value": 1,
+      "reason": "无量化数据的官方客户案例营销材料，读者价值与证据价值均低。",
+      "retain_for_trends": false,
+      "story_id": "story-765a7c044871832deae7",
+      "support_for_story_id": null,
+      "trend_links": []
+    }
+  ],
+  "degradation_reason": null,
+  "degraded": false,
+  "enabled": true,
+  "generated_at": "2026-11-27T02:27:47.830388Z",
+  "profile_version": "1.0",
+  "shadow_mode": true
+}

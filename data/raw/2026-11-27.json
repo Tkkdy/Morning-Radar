@@ -67,6 +67,7 @@
     "id": "item-a734da9d3a1d876054f8",
     "language": "en-US",
     "metadata": {
+      "content_version": "6ad2d5b1d13eba456244",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -128,6 +129,7 @@
     "id": "item-33b3d08d99aeb285e8be",
     "language": "en-US",
     "metadata": {
+      "content_version": "1c872ec96a73d0a49514",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -219,6 +221,7 @@
     "id": "item-dbe542754cd1612143a2",
     "language": "en-us",
     "metadata": {
+      "content_version": "1c2f533df353f76be49a",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -341,6 +344,7 @@
     "id": "item-3d2697b636d74b834fc0",
     "language": "en-US",
     "metadata": {
+      "content_version": "4921c2a7895e22adeec3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -402,6 +406,7 @@
     "id": "item-7aa896c7cb490e59f4cc",
     "language": "en-US",
     "metadata": {
+      "content_version": "b3c1e4b5a53b4642ff6d",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -493,6 +498,7 @@
     "id": "item-d44a29290b4311e2732a",
     "language": "en-us",
     "metadata": {
+      "content_version": "3c57853a06a8beaa4f6a",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -615,6 +621,7 @@
     "id": "item-819f2bb8e324e5e7f3ab",
     "language": "en-US",
     "metadata": {
+      "content_version": "0bc970c29018a0ee5d26",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -767,6 +774,7 @@
     "id": "item-fc654cd8c7a75232f8f6",
     "language": "en-us",
     "metadata": {
+      "content_version": "de7ca447cdb8b1a28bae",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1103,6 +1111,7 @@
     "id": "item-a3c9028eefd69cfd15ff",
     "language": "en-US",
     "metadata": {
+      "content_version": "c508686bb256c1895ce2",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1437,6 +1446,7 @@
     "id": "item-df3be113c8aed13fbadf",
     "language": "en-US",
     "metadata": {
+      "content_version": "201bf58dabeda020ad5f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -1651,6 +1661,7 @@
     "id": "item-10878202550bbbf922d1",
     "language": "en-US",
     "metadata": {
+      "content_version": "6b5a43b8892e0b83ce0f",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -75265,6 +75276,7 @@
     "id": "item-9e0d0eeab0a50f4ec7e7",
     "language": "en",
     "metadata": {
+      "content_version": "4a6c398875b1c204af1d",
       "data_anomaly": false,
       "forks": 5833,
       "official": true,
@@ -77925,6 +77937,7 @@
     "id": "item-a0f1ce00ad86158f95be",
     "language": "en",
     "metadata": {
+      "content_version": "aa616e5c8222edca9695",
       "data_anomaly": false,
       "forks": 19220,
       "official": true,
@@ -78353,6 +78366,7 @@
     "id": "item-dacf48a7747b77c4b98e",
     "language": "en",
     "metadata": {
+      "content_version": "ea0cdd2e7418f4def6cf",
       "data_anomaly": false,
       "forks": 3287,
       "official": true,
@@ -79107,11 +79121,19 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:google_deepmind:Gemini"
+      ],
+      "discovery_reasons": [
+        "keyword",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50662044",
+      "lab_id": "google_deepmind",
       "official": false,
       "original_url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
       "score": 1,
-      "selection_reason": "keyword",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79287,11 +79309,19 @@
     "metadata": {
       "comments": 71,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:meta:Llama"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50657265",
+      "lab_id": "meta",
       "official": false,
       "original_url": "https://devnull.land/amd-specific-llama-cpp",
       "score": 290,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79377,6 +79407,7 @@
     "metadata": {
       "comments": 136,
       "community_signal": true,
+      "content_version": "18db9b19aa03b3c67fa0",
       "discussion_url": "https://news.ycombinator.com/item?id=50655664",
       "official": false,
       "original_url": null,
@@ -79407,11 +79438,19 @@
     "metadata": {
       "comments": 347,
       "community_signal": true,
+      "discovery_paths": [
+        "hn_search:anthropic:Anthropic"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50648050",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://github.com/lsernau/grh-lean",
       "score": 548,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79557,11 +79596,21 @@
     "metadata": {
       "comments": 259,
       "community_signal": true,
+      "content_version": "0ab8796032cefa7c4087",
+      "discovery_paths": [
+        "hn_search:openai:OpenAI",
+        "hn_search:openai:GPT"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50651117",
+      "lab_id": "openai",
       "official": false,
       "original_url": "https://twitter.com/thsottiaux/status/2125784147889393806",
       "score": 467,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79691,6 +79740,7 @@
     "metadata": {
       "change_percent": 0.034027342367154476,
       "close": 609.8900146484375,
+      "content_version": "d0f0460290086460494e",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 589.8200073242188,
@@ -80800,42 +80850,6 @@
     "url": "https://micjm.com/blog/openai-is-in-cost-control-mode/"
   },
   {
-    "author": "Herrera",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-27T02:24:06.173064Z",
-    "id": "item-3923094cc4756b9fa516",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:openai:OpenAI",
-        "hn_search:openai:GPT"
-      ],
-      "discovery_reasons": [
-        "watchlist_discovery"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50651117",
-      "hn_submission_time": 1795664218,
-      "lab_id": "openai",
-      "original_url": "https://twitter.com/thsottiaux/status/2125784147889393806",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-26T03:36:58Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "OpenAI cuts GPT-6.2 usage: Astra hits limits 40% faster, Sol 25% faster",
-    "topic_candidates": [],
-    "url": "https://twitter.com/thsottiaux/status/2125784147889393806"
-  },
-  {
     "author": "vismit2000",
     "company_candidates": [],
     "content_excerpt": "",
@@ -81132,70 +81146,6 @@
     "url": "https://www.wired.com/story/ai-agents-can-get-honeypotted-too-aw/"
   },
   {
-    "author": "nb-t",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-27T02:24:06.173064Z",
-    "id": "item-e693770d14feef87a615",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Anthropic"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50648050",
-      "hn_submission_time": 1795643290,
-      "lab_id": "anthropic",
-      "original_url": "https://github.com/lsernau/grh-lean",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-25T21:48:10Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Much shorter version of GRH Lean verification from Anthropic",
-    "topic_candidates": [],
-    "url": "https://github.com/lsernau/grh-lean"
-  },
-  {
-    "author": "gmays",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-27T02:24:06.173064Z",
-    "id": "item-f8ca98a16edb0d46ecfe",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:google_deepmind:Gemini"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50662044",
-      "hn_submission_time": 1795746139,
-      "lab_id": "google_deepmind",
-      "original_url": "https://www.philschmid.de/gemini-4-neon-context-engineering",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-27T02:22:19Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "My context engineering changed for Gemini 4 Neon",
-    "topic_candidates": [],
-    "url": "https://www.philschmid.de/gemini-4-neon-context-engineering"
-  },
-  {
     "author": "geox",
     "company_candidates": [],
     "content_excerpt": "",
@@ -81390,38 +81340,6 @@
     "title": "Is hydrogen faster than previous Google Gemini flash model?",
     "topic_candidates": [],
     "url": "https://news.ycombinator.com/item?id=50652562"
-  },
-  {
-    "author": "julianlam",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-27T02:24:06.173064Z",
-    "id": "item-a1c958020e74d8bd2e49",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:meta:Llama"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50657265",
-      "hn_submission_time": 1795713089,
-      "lab_id": "meta",
-      "original_url": "https://devnull.land/amd-specific-llama-cpp",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-26T17:11:29Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "AMD-specific fork of llama.cpp",
-    "topic_candidates": [],
-    "url": "https://devnull.land/amd-specific-llama-cpp"
   },
   {
     "author": "ex-aws-dude",
