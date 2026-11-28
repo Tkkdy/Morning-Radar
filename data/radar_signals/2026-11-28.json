@@ -1,0 +1,91 @@
+[
+  {
+    "claim": "Simon Willison 发布 datasette-charts 0.4a0，称其用 Claude Opus 5.5 构建实验插件以试用新的插件 hook，并发现若干设计摩擦点；该版本针对这些点做了改进。",
+    "id": "radar-b59b900f87bdacd640d8",
+    "missing_evidence": [
+      "未提供摩擦点的具体清单或复现步骤",
+      "未给出与人工设计或其他模型的对比",
+      "仅有作者单方描述，缺少独立验证"
+    ],
+    "observed_at": "2026-11-28T02:08:49.473704Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "practitioner"
+    ],
+    "statement_type": "firsthand_observation",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-9e4ae7f8dcf438b27157",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "practitioner",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://simonwillison.net/2026/Nov/27/datasette-charts/"
+      }
+    ],
+    "uncertainty": "该结论目前来自作者一次内部实验，未量化模型贡献或改进效果。",
+    "why_notable": "提供了一个具体案例：让模型实际使用新 API，可暴露插件 hook 的设计问题，对 AI 辅助开发与 API 设计有参考价值。"
+  },
+  {
+    "claim": "有社区 issue 称 Convex 的 skills 会在未告知用户的情况下把其应用想法发送到远程服务器。",
+    "id": "radar-127ca9ba5eda0572cc83",
+    "missing_evidence": [
+      "issue 正文与复现步骤",
+      "网络请求或日志证据",
+      "涉及的具体 skill 版本与默认配置",
+      "Convex 官方回应"
+    ],
+    "observed_at": "2026-11-28T02:08:49.473704Z",
+    "research_disposition": "radar_signal",
+    "source_roles": [
+      "community_discovery"
+    ],
+    "statement_type": "unverified_lead",
+    "support_refs": [
+      {
+        "association_basis": "lead",
+        "content_excerpt": "",
+        "content_missing": false,
+        "content_version": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "excerpt_truncated": false,
+        "fetched_at": null,
+        "official_page_fetched": false,
+        "published_at": null,
+        "published_at_role": "unknown",
+        "published_date_role": null,
+        "raw_item_id": "item-4fc390ccfec19e82e6fe",
+        "source_date": null,
+        "source_name": null,
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": null,
+        "statement_type": null,
+        "summary": "",
+        "text_omission_reason": null,
+        "title": null,
+        "url": "https://github.com/convex/convex-backend-skill/issues/64"
+      }
+    ],
+    "uncertainty": "仅有标题，缺少正文和独立验证，无法确认是否存在未披露的数据传输。",
+    "why_notable": "若属实，涉及 AI 编程辅助工具的数据隐私与信任边界，开发者需要关注。"
+  }
+]

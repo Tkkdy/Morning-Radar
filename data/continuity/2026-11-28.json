@@ -1,0 +1,99 @@
+{
+  "date": "2026-11-28",
+  "generated_at": "2026-11-28T02:11:13.759996Z",
+  "judgements": [],
+  "relations": [],
+  "watch_events": [
+    {
+      "entity_anchors": [
+        "Google",
+        "Android",
+        "Gemini"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Android 的 Create My Widget 功能是否有官方发布说明、可用地区与正式名称公布。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Create My Widget",
+        "Android Intelligence"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-28T02:11:13.759996Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-28",
+          "story_id": "story-3bccebbd60ac0b63cb78"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-efd2cad512fd6dc3678e"
+    },
+    {
+      "entity_anchors": [
+        "Hugging Face",
+        "Trainium3"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 Hugging Face 博客文章是否补充 Trainium3 上运行 LTX-2.5 视频生成的性能数据与实现细节。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "LTX-2.5"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-28T02:11:13.759996Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-28",
+          "story_id": "story-df22db4fbcfbe2defc25"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-0637ad6b6f729eece0a7"
+    },
+    {
+      "entity_anchors": [
+        "Claude Code",
+        "behnamoh"
+      ],
+      "event_type": "opened",
+      "expectation": "观察 SaboTest 仓库是否公开检测方法、覆盖范围与有效性验证。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "SaboTest"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-28T02:11:13.759996Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-28",
+          "story_id": "story-b3771c413b4b76914605"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-a1063054c143d20e4e68"
+    },
+    {
+      "entity_anchors": [
+        "Anthropic",
+        "Google DeepMind"
+      ],
+      "event_type": "opened",
+      "expectation": "观察是否有可核实的一手信息说明开发者从 Claude 转向 Gemini Neon 的具体案例或规模。",
+      "matched_story_refs": [],
+      "product_anchors": [
+        "Claude",
+        "Gemini Neon"
+      ],
+      "rationale": null,
+      "recorded_at": "2026-11-28T02:11:13.759996Z",
+      "source_story_refs": [
+        {
+          "date": "2026-11-28",
+          "story_id": "story-654a28fca8b924daeef2"
+        }
+      ],
+      "topic_anchors": [],
+      "watch_id": "watch-bc9204413a8bbda90d5c"
+    }
+  ]
+}

@@ -67,6 +67,7 @@
     "id": "item-c2bd7953104652e48b06",
     "language": "en-US",
     "metadata": {
+      "content_version": "5edb9aad7047173cd798",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -158,6 +159,7 @@
     "id": "item-1d140bb3b26b0663e87b",
     "language": "en-US",
     "metadata": {
+      "content_version": "87cc560f0e3a3e4903f4",
       "official": false,
       "practitioner_id": null,
       "priority": "medium",
@@ -219,6 +221,7 @@
     "id": "item-9e4ae7f8dcf438b27157",
     "language": "en-us",
     "metadata": {
+      "content_version": "c64e9318e6b0a98d9087",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -493,6 +496,7 @@
     "id": "item-4fb8ef7a2b51ab304075",
     "language": "en-us",
     "metadata": {
+      "content_version": "3a94d565949e42298a88",
       "official": false,
       "practitioner_id": "simon-willison",
       "priority": "high",
@@ -1925,6 +1929,7 @@
     "id": "item-1259b534687dd8b31711",
     "language": "en-US",
     "metadata": {
+      "content_version": "063c7373a5b7112b63e3",
       "official": true,
       "practitioner_id": null,
       "priority": "high",
@@ -75334,6 +75339,7 @@
     "id": "item-137088c2e6efb531ccf0",
     "language": "en",
     "metadata": {
+      "content_version": "bb073a1e05e26de62edf",
       "data_anomaly": false,
       "forks": 5794,
       "official": true,
@@ -78384,6 +78390,7 @@
     "id": "item-f9d5d58ce748f83c8161",
     "language": "en",
     "metadata": {
+      "content_version": "a2e06171e26046ccd90a",
       "data_anomaly": false,
       "forks": 3301,
       "official": true,
@@ -79198,6 +79205,7 @@
     "metadata": {
       "comments": 286,
       "community_signal": true,
+      "content_version": "df3ef47bd4fba53246a4",
       "discussion_url": "https://news.ycombinator.com/item?id=50663595",
       "official": false,
       "original_url": "https://construct22.com/",
@@ -79228,6 +79236,7 @@
     "metadata": {
       "comments": 226,
       "community_signal": true,
+      "content_version": "b2b008713bd2d581c4e8",
       "discussion_url": "https://news.ycombinator.com/item?id=50668145",
       "official": false,
       "original_url": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer",
@@ -79258,11 +79267,20 @@
     "metadata": {
       "comments": 288,
       "community_signal": true,
+      "content_version": "b33614ac842bc6457c1e",
+      "discovery_paths": [
+        "hn_search:anthropic:Claude"
+      ],
+      "discovery_reasons": [
+        "high_signal_discovery",
+        "watchlist_discovery"
+      ],
       "discussion_url": "https://news.ycombinator.com/item?id=50664325",
+      "lab_id": "anthropic",
       "official": false,
       "original_url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
       "score": 612,
-      "selection_reason": "high_signal_discovery",
+      "selection_reason": "watchlist_discovery",
       "source_id": "hn"
     },
     "practice_signal_kind": null,
@@ -79288,6 +79306,7 @@
     "metadata": {
       "comments": 75,
       "community_signal": true,
+      "content_version": "df1824c1fe31055cee9d",
       "discussion_url": "https://news.ycombinator.com/item?id=50669765",
       "official": false,
       "original_url": "https://github.com/convex/convex-backend-skill/issues/64",
@@ -79468,6 +79487,7 @@
     "metadata": {
       "comments": 0,
       "community_signal": true,
+      "content_version": "356508f9676cc8cd84fb",
       "discussion_url": "https://news.ycombinator.com/item?id=50673628",
       "official": false,
       "original_url": "https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
@@ -79700,6 +79720,7 @@
     "metadata": {
       "change_percent": 0.004264634724240284,
       "close": 355.5799865722656,
+      "content_version": "8f8eb97b8b414f0a0aae",
       "freshness_policy": "latest_market_trading_day",
       "official": false,
       "previous_close": 354.07000732421875,
@@ -80617,6 +80638,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "f592a0abbd68165dd8b8",
       "discovery_paths": [
         "hn_search:openai:OpenAI"
       ],
@@ -80681,6 +80703,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "e82c881f84ba7055f20f",
       "discovery_paths": [
         "hn_search:openai:OpenAI"
       ],
@@ -81129,6 +81152,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "9505829dc26c230ffdf9",
       "discovery_paths": [
         "hn_search:google_deepmind:Gemini",
         "hn_search:anthropic:Claude"
@@ -81425,6 +81449,7 @@
     "language": "en",
     "metadata": {
       "community_signal": true,
+      "content_version": "0d62a7c4b4cc9c1a068a",
       "discovery_paths": [
         "hn_search:anthropic:Claude"
       ],
@@ -82119,38 +82144,6 @@
     "title": "Show HN: An MCP that searches X using your own Grokbot plan",
     "topic_candidates": [],
     "url": "https://github.com/marciob/grok-x-mcp"
-  },
-  {
-    "author": "baobabKoodaa",
-    "company_candidates": [],
-    "content_excerpt": "",
-    "fetched_at": "2026-11-28T02:08:49.473704Z",
-    "id": "item-94e1dd15620ffd055fdc",
-    "language": "en",
-    "metadata": {
-      "community_signal": true,
-      "discovery_paths": [
-        "hn_search:anthropic:Claude"
-      ],
-      "discussion_url": "https://news.ycombinator.com/item?id=50664325",
-      "hn_submission_time": 1795768088,
-      "lab_id": "anthropic",
-      "original_url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
-      "selection_reason": "watchlist_discovery",
-      "source_id": "hn"
-    },
-    "practice_signal_kind": null,
-    "product_candidates": [],
-    "published_at": "2026-11-27T08:28:08Z",
-    "repository_candidates": [],
-    "source_name": "Hacker News",
-    "source_role": "community_discovery",
-    "source_type": "hacker_news",
-    "statement_type": "unverified_lead",
-    "summary": "",
-    "title": "Claude sabotaging ML research tasks?",
-    "topic_candidates": [],
-    "url": "https://twitter.com/RealAstropulse/status/2126119408997466389"
   },
   {
     "author": "moelsaka01",

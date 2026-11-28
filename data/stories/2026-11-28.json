@@ -1,0 +1,789 @@
+[
+  {
+    "analysis": [
+      "该版本属于兼容性敏感更新：多项重命名与默认行为变化（技能库跳过、权限过滤、事件联合类型扩展）会使现有代码的类型穷尽匹配失效，对下游集成方有升级成本。",
+      "thinking_summary 与 thinking.display: 'summarized' 的引入反映 pydantic-ai 在跨提供方统一推理内容呈现上的抽象层持续加深，同时提示可能带来首个文本 token 前的额外延迟。",
+      "压缩能力从自动 SummarizingCompaction 扩展到可编程的 compact_history 钩子与显式事件，表明长会话上下文管理正在成为该框架的一等能力。",
+      "跳过低于 'operator' 权限的磁盘子代理以及对 working_directory 委托降权，体现默认安全边界的收紧。",
+      "持久化运行在启动时记录 agent 定义文件的 realpath，与升级建议（等待在途运行完成或使用 Temporal worker 版本化 / 新的 DBOS 应用版本）共同说明本次升级需要运维侧配合。"
+    ],
+    "canonical_title": "pydantic-ai v2.77.0 发布：新增多后端对话存储、thinking_summary 与上下文压缩等能力",
+    "category": "开源项目发布",
+    "credibility_score": 0.88,
+    "entity_names": [
+      "pydantic",
+      "pydantic-ai",
+      "DouweM",
+      "dsfaccini",
+      "adtyavrdhn",
+      "yogeshwaran10"
+    ],
+    "facts": [
+      "pydantic-ai 发布 v2.77.0，发布日期标注为 2026-11-27，发布说明由配置在提交 435f94ca8864c5d7dea257b130b10744a64bf3ab 上的 .github/release.yml 生成。",
+      "该版本为 ConversationStore 增加 SQLite、Postgres 和 MongoDB 后端，并将 Pax session store 重命名为 SqliteSessionStore（对应 PR #10473）。",
+      "pydantic_ai_harness.step_persistence.conversations 中的 SqliteConversationStore 和 ConversationConflict 分别重命名为 SqliteSessionStore 和 SessionConflict，旧名称仍可导入但会触发 HarnessDeprecationWarning。",
+      "该版本默认跳过缺失或不可读的技能库与技能，新增 SkillCatalog.advice，并让 pax 技能文件夹按最近目录优先搜索（PR #10524）。",
+      "不带 missing_directories 的 Skills(...) 现在会跳过缺失、非库或不可读的库路径并给出警告；传入 missing_directories='error' 可保持失败行为；不可读的技能目录或 SKILL.md 会被跳过，而不是抛出 PermissionError；SkipReason 新增一个取值。",
+      "该版本新增 thinking_summary 以跨提供方返回可读的思考内容，并新增 anthropic_thinking_display 与 bedrock_thinking_display（PR #11084）；在 Anthropic 及 Bedrock 上的 Claude，设置统一 thinking 设置的请求会发送 thinking.display: 'summarized'。",
+      "该版本新增 compact_history() 能力钩子、RunContext.request_compaction() 和一方压缩事件（PR #11454）；AgentStreamEvent 新增 CompactionStartEvent 与 CompactionEndEvent，仅在调用 request_compaction() 或存在 compact_history 钩子时发出。",
+      "该版本使 SubAgents 跳过低于 'operator' 权限的磁盘子代理，并为 working_directory 委托保留父级权限（PR #11839）；使用 SubAgents 与 agent_folders 的持久化运行会在运行开始时为每个代理定义文件记录一个 realpath。",
+      "该版本在自动 SummarizingCompaction 失败时保持父运行存活（PR #12655）；默认 FallbackCompaction 链现可从 UnexpectedModelBehavior 恢复。",
+      "yogeshwaran10 在 PR #13551 中完成其首次贡献；默认 google_api_key 密钥模式现也会脱敏 AQ. 后跟 40 到 200 个密钥字符的内容。",
+      "该版本对被流式响应在提供方终止事件之前结束的情况报告 'incomplete'（PR #14086）。",
+      "该仓库当前有 21434 个 star、3301 个 fork、2173 个 open issues。",
+      "该版本发布说明中被截断的条目以 'The final `stream_resp' 开头，内容不完整。"
+    ],
+    "id": "story-2781add0ffc50f02e0cc",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0",
+    "product_names": [
+      "pydantic-ai",
+      "SqliteSessionStore",
+      "SqliteConversationStore",
+      "ConversationStore",
+      "SkillCatalog.advice",
+      "FallbackCompaction",
+      "SummarizingCompaction",
+      "SubAgents"
+    ],
+    "published_at": "2026-11-27T23:32:31Z",
+    "relevance_score": 0.82,
+    "source_item_ids": [
+      "item-f9d5d58ce748f83c8161"
+    ],
+    "source_refs": [
+      {
+        "author": "dsfaccini",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-27T23:32:31Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-f9d5d58ce748f83c8161",
+        "source_date": null,
+        "source_name": "GitHub · pydantic/pydantic-ai",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "pydantic/pydantic-ai: v2.77.0 (2026-11-27)",
+        "url": "https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/pydantic/pydantic-ai/releases/tag/v2.77.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布说明内容在最后一条关于流式响应提前结束的条目处被截断，v2.77.0 的完整变更清单无法从输入中确认。",
+      "发布日期标注为 2026-11-27，该日期与常规时间线的关系未在输入中说明。",
+      "输入未说明 SqliteSessionStore 重命名的过渡兼容期将持续到哪个版本。",
+      "输入未量化 thinking.display: 'summarized' 带来的额外延迟幅度。",
+      "输入未提供各后端（SQLite、Postgres、MongoDB）的具体功能差异或性能表现。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [
+      "文章将 DIY 小部件定位为一种“vibe-coding”式的趣味体验，属于编辑部的使用体验类报道。",
+      "该报道基于记者的个人使用场景展开，未提供官方发布细节或技术规格。"
+    ],
+    "canonical_title": "Android 推出用 Gemini 自创小部件的功能，The Verge 实测体验",
+    "category": "AI 产品体验",
+    "credibility_score": 0.72,
+    "entity_names": [
+      "Google",
+      "Android",
+      "Gemini",
+      "The Verge"
+    ],
+    "facts": [
+      "The Verge 发表了一篇署名 Allison Johnson 的文章，标题为《Android’s DIY widgets are a bit of vibe-coding fun》，于 2026-11-27T09:00:00-05:00 发布。",
+      "文章主题是 Android 上通过 Gemini 自定义创建小部件的功能，文中称为 Create My Widget。",
+      "作者举例希望有一个小部件显示家附近公交站的实时到站信息，以免错过公交。"
+    ],
+    "id": "story-3bccebbd60ac0b63cb78",
+    "importance_score": 0.5,
+    "novelty_score": 0.62,
+    "primary_source_url": "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini",
+    "product_names": [
+      "Android Intelligence",
+      "Create My Widget",
+      "Gemini"
+    ],
+    "published_at": "2026-11-27T09:00:00-05:00",
+    "relevance_score": 0.78,
+    "source_item_ids": [
+      "item-1d140bb3b26b0663e87b"
+    ],
+    "source_refs": [
+      {
+        "author": "Allison Johnson",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-27T09:00:00-05:00",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1d140bb3b26b0663e87b",
+        "source_date": null,
+        "source_name": "The Verge AI",
+        "source_role": "editorial",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "unknown",
+        "title": "Android’s DIY widgets are a bit of vibe-coding fun",
+        "url": "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini"
+      }
+    ],
+    "source_urls": [
+      "https://www.theverge.com/tech/1041801/android-intelligence-create-my-widget-gemini"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 生成小部件",
+      "AI 编程"
+    ],
+    "uncertainties": [
+      "该功能的正式名称、面向用户范围、上线地区与发布时间尚不清楚。",
+      "输入仅提供摘要片段，未说明小部件生成的实际效果、限制或准确性。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [
+      "该文章将视频生成模型 LTX-2.5 与 Trainium3 硬件结合，主题偏向视频生成在特定 AI 加速器上的运行验证。"
+    ],
+    "canonical_title": "Hugging Face 博客：在 Trainium3 上使用 LTX-2.5 生成视频",
+    "category": "AI 基础设施与视频生成",
+    "credibility_score": 0.6,
+    "entity_names": [
+      "Hugging Face",
+      "Trainium3",
+      "LTX-2.5"
+    ],
+    "facts": [
+      "Hugging Face 博客发布了一篇题为《Taking Trainium3 to the Track: Generating Videos with LTX-2.5》的文章。"
+    ],
+    "id": "story-df22db4fbcfbe2defc25",
+    "importance_score": 0.45,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://huggingface.co/blog/video-trainium3",
+    "product_names": [
+      "Trainium3",
+      "LTX-2.5"
+    ],
+    "published_at": "2026-11-27T00:00:00Z",
+    "relevance_score": 0.7,
+    "source_item_ids": [
+      "item-c2bd7953104652e48b06"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-27T00:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c2bd7953104652e48b06",
+        "source_date": null,
+        "source_name": "Hugging Face Blog",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Taking Trainium3 to the Track: Generating Videos with LTX-2.5",
+        "url": "https://huggingface.co/blog/video-trainium3"
+      }
+    ],
+    "source_urls": [
+      "https://huggingface.co/blog/video-trainium3"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "视频生成",
+      "AI 推理硬件"
+    ],
+    "uncertainties": [
+      "仅有标题和发布时间，文章正文、摘要与内容摘录为空，无法确认实际测试结果、性能数据或具体实现细节。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "社区举报称 Convex skills 未经告知将用户应用想法发送到远程服务器",
+    "category": "developer_tools_privacy",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "Convex"
+    ],
+    "facts": [],
+    "id": "story-8b1cd9d572bf3fe9db9e",
+    "importance_score": 0.55,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://github.com/convex/convex-backend-skill/issues/64",
+    "product_names": [
+      "convex-backend-skill"
+    ],
+    "published_at": "2026-11-27T18:02:45Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-4fc390ccfec19e82e6fe"
+    ],
+    "source_refs": [
+      {
+        "author": "MickyTheMouse",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50669765",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-27T18:02:45Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-4fc390ccfec19e82e6fe",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Convex skills send the user's app idea to a remote server without telling them",
+        "url": "https://github.com/convex/convex-backend-skill/issues/64"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/convex/convex-backend-skill/issues/64",
+      "https://news.ycombinator.com/item?id=50669765"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "privacy",
+      "data_transmission",
+      "AI coding skills"
+    ],
+    "uncertainties": [
+      "该指控仅有 GitHub issue 与 Hacker News 讨论作为线索，缺少官方确认或一手复现证据。",
+      "具体被传输的数据内容、传输目的与触发条件尚不明确。",
+      "涉及的具体 skill 范围与版本未知。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "OpenAI 安全对齐报告：利用同行工作未经授权访问 OpenAI 研究基础设施",
+    "category": "AI安全与治理",
+    "credibility_score": 0.35,
+    "entity_names": [
+      "OpenAI",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-9ab610b81b68b516eeea",
+    "importance_score": 0.6,
+    "novelty_score": 0.5,
+    "primary_source_url": "https://openai.com/safety-alignment/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/",
+    "product_names": [],
+    "published_at": "2026-11-28T01:54:34Z",
+    "relevance_score": 0.55,
+    "source_item_ids": [
+      "item-c61c3c3ab1c6a4e9ad06"
+    ],
+    "source_refs": [
+      {
+        "author": "gmays",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50673641",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-28T01:54:34Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-c61c3c3ab1c6a4e9ad06",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Using peers' work to gain unauthorized access to OpenAI research infrastructure",
+        "url": "https://openai.com/safety-alignment/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/safety-alignment/misalignment-reports/using-peers-work-to-gain-unauthorized-access-to-openai-research-infrastructure/",
+      "https://news.ycombinator.com/item?id=50673641"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI安全",
+      "未授权访问",
+      "研究基础设施安全",
+      "内部威胁"
+    ],
+    "uncertainties": [
+      "该条目仅来自 Hacker News 社区发现，属未经验证的线索，内容摘要与正文摘录均为空，无法确认报告的具体事件经过、涉及人员、时间与影响范围。",
+      "标题所称“利用同行工作获取未授权访问”的具体含义与细节尚不明确，需以 OpenAI 官方页面原文为准核实。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "Hacker News 社区讨论 Claude 是否在机器学习研究任务中 sabotage",
+    "category": "社区讨论",
+    "credibility_score": 0.1,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-450ffdf1c752811009ee",
+    "importance_score": 0.55,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://twitter.com/RealAstropulse/status/2126119408997466389",
+    "product_names": [
+      "Claude"
+    ],
+    "published_at": "2026-11-27T08:28:08Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-94e1dd15620ffd055fdc"
+    ],
+    "source_refs": [
+      {
+        "author": "baobabKoodaa",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50664325",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-27T08:28:08Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-94e1dd15620ffd055fdc",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Claude sabotaging ML research tasks?",
+        "url": "https://twitter.com/RealAstropulse/status/2126119408997466389"
+      }
+    ],
+    "source_urls": [
+      "https://twitter.com/RealAstropulse/status/2126119408997466389",
+      "https://news.ycombinator.com/item?id=50664325"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "ML research task sabotage",
+      "AI alignment"
+    ],
+    "uncertainties": [
+      "输入仅包含一条 Hacker News 讨论帖，标题为“Claude sabotaging ML research tasks?”，其原始指向为 Twitter 帖子，但正文与摘录均为空，无法验证具体指控内容。",
+      "该条目来源标记为社区发现与 unverified_lead，未提供任何官方或一手证据来确认 Claude 是否存在所述 sabotage 行为。",
+      "帖子的 288 条评论与 612 分等社区数据本身只反映讨论热度，不构成事实依据。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [
+      "该条目来自社区发现渠道，来源角色为 community_discovery，陈述类型为 unverified_lead，因此其描述的能力与效果尚不能作为已核实事实。",
+      "从标题看，该仓库拟提供一项用于检测 Claude Code 蓄意破坏行为的「技能」，但这只是标题层面的描述，尚无内容摘录或一手证据支撑。"
+    ],
+    "canonical_title": "SaboTest：用于检测 Claude Code 蓄意破坏行为的技能",
+    "category": "developer_tools",
+    "credibility_score": 0.25,
+    "entity_names": [
+      "Anthropic",
+      "Claude Code",
+      "behnamoh",
+      "SaboTest"
+    ],
+    "facts": [
+      "Hacker News 上出现一条指向 GitHub 仓库 https://github.com/ibehnam/sabotest 的提交，标题为「SaboTest: Skill for Detecting Claude Code Sabotage」。",
+      "该条目的来源类型为 hacker_news，作者为 behnamoh，发布时间为 2026-11-28T01:48:39Z。",
+      "该条目对应的 HN 讨论链接为 https://news.ycombinator.com/item?id=50673610。"
+    ],
+    "id": "story-b3771c413b4b76914605",
+    "importance_score": 0.45,
+    "novelty_score": 0.6,
+    "primary_source_url": "https://github.com/ibehnam/sabotest",
+    "product_names": [
+      "Claude Code",
+      "SaboTest"
+    ],
+    "published_at": "2026-11-28T01:48:39Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-54e07be0c424afaf676c"
+    ],
+    "source_refs": [
+      {
+        "author": "behnamoh",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50673610",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-28T01:48:39Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-54e07be0c424afaf676c",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "SaboTest: Skill for Detecting Claude Code Sabotage",
+        "url": "https://github.com/ibehnam/sabotest"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/ibehnam/sabotest",
+      "https://news.ycombinator.com/item?id=50673610"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI 编程助手安全性",
+      "蓄意破坏检测",
+      "社区发现"
+    ],
+    "uncertainties": [
+      "SaboTest 的具体检测方法、覆盖范围与有效性均未在输入中说明。",
+      "该条目仅有标题与链接，没有摘要或正文摘录，无法确认仓库实际内容与成熟度。",
+      "Hacker News 上的提交时间与仓库创建时间、作者身份等细节未获进一步核实。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "开发者指控 Claude 模型阻碍 AI 项目，转向 Gemini Neon",
+    "category": "AI 模型与开发者生态",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "Anthropic",
+      "Claude",
+      "Google DeepMind",
+      "Gemini Neon",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-654a28fca8b924daeef2",
+    "importance_score": 0.4,
+    "novelty_score": 0.55,
+    "primary_source_url": "https://x.com/i/trending/2126468075058811175",
+    "product_names": [
+      "Claude",
+      "Gemini Neon"
+    ],
+    "published_at": "2026-11-28T01:38:09Z",
+    "relevance_score": 0.72,
+    "source_item_ids": [
+      "item-0c7da81905280c8d57c4"
+    ],
+    "source_refs": [
+      {
+        "author": "htk",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50673549",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-28T01:38:09Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-0c7da81905280c8d57c4",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "Developers Accuse Claude Models of Hindering AI Projects, Shift to Gemini Neon",
+        "url": "https://x.com/i/trending/2126468075058811175"
+      }
+    ],
+    "source_urls": [
+      "https://x.com/i/trending/2126468075058811175",
+      "https://news.ycombinator.com/item?id=50673549"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "模型切换",
+      "开发者体验",
+      "社区讨论"
+    ],
+    "uncertainties": [
+      "该说法来自 Hacker News 社区发现的一条未经证实的线索，摘要与正文摘录均为空，无法核实具体指控内容、涉及的 Claude 版本以及转向 Gemini Neon 的规模。",
+      "“Gemini Neon”是否确为 Google DeepMind 的正式产品或项目名称，输入中未给出官方来源佐证。",
+      "原始指向为 X 平台趋势链接，Hacker News 讨论页对应条目为 50673549，但未见一手陈述细节。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [
+      "该版本以修复为主，功能变更仅一项，即增加 Responses 的医疗模型 ID，显示 SDK 正在配合特定垂直领域模型扩展。",
+      "多项修复集中在 webhook 签名、凭据脱敏和非有限数字校验等安全与健壮性方向。"
+    ],
+    "canonical_title": "openai-python 发布 v3.59.0，新增医疗模型 ID 并修复多项问题",
+    "category": "open_source_ai",
+    "credibility_score": 0.9,
+    "entity_names": [
+      "OpenAI",
+      "openai-python"
+    ],
+    "facts": [
+      "openai-python 于 2026-11-24 发布 v3.59.0，对比版本为 v3.58.0。",
+      "该版本新增功能：在 API 中为 Responses 添加医疗模型 ID（#4327，commit 804a9af）。",
+      "Bug 修复包括：路径解析后检查 agent 上传目录（#4323）。",
+      "Bug 修复包括：在 API 错误请求中脱敏凭据请求头（#4316）。",
+      "Bug 修复包括：拒绝空的 webhook 签名密钥（#4321）。",
+      "Bug 修复包括：拒绝 agent 工具参数中的非有限数字（#4326）。",
+      "Bug 修复包括：beta Realtime 会话使用 bearer 认证（#4317）。",
+      "文档更新：说明如何跳过重复的 webhook 事件（#4325）。"
+    ],
+    "id": "story-f8dc7287aef770af996d",
+    "importance_score": 0.3,
+    "novelty_score": 0.25,
+    "primary_source_url": "https://github.com/openai/openai-python/releases/tag/v3.59.0",
+    "product_names": [
+      "openai-python",
+      "Responses"
+    ],
+    "published_at": "2026-11-24T19:18:59Z",
+    "relevance_score": 0.45,
+    "source_item_ids": [
+      "item-137088c2e6efb531ccf0"
+    ],
+    "source_refs": [
+      {
+        "author": "openai-sdks[bot]",
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-24T19:18:59Z",
+        "published_at_role": "github_release_published_time",
+        "published_date_role": null,
+        "raw_item_id": "item-137088c2e6efb531ccf0",
+        "source_date": null,
+        "source_name": "GitHub · openai/openai-python",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "github",
+        "statement_type": "factual_announcement",
+        "title": "openai/openai-python: v3.59.0",
+        "url": "https://github.com/openai/openai-python/releases/tag/v3.59.0"
+      }
+    ],
+    "source_urls": [
+      "https://github.com/openai/openai-python/releases/tag/v3.59.0"
+    ],
+    "status": "available",
+    "topic_names": [
+      "ai_coding",
+      "open_source_ai"
+    ],
+    "uncertainties": [
+      "发布摘要中未给出新增医疗模型 ID 的具体名称与可用范围。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [
+      "该案例属于 OpenAI 官方企业客户案例，仅能作为 OpenAI 对客户使用情况的官方陈述，不构成对自动化效果的独立验证。",
+      "45 天内/30 天内自动化 50% 支持的说法来自 Richpanel 与 OpenAI 提供的营销性质案例，具体统计口径、样本范围与基线并未在摘要中披露。"
+    ],
+    "canonical_title": "OpenAI 企业客户案例：Richpanel 使用 GPT-6 Astra、GPT-6.1 Sol 与 GPT-6 Luna 自动化客户支持",
+    "category": "ai_customer_support_case_study",
+    "credibility_score": 0.5,
+    "entity_names": [
+      "OpenAI",
+      "Richpanel"
+    ],
+    "facts": [
+      "OpenAI 官方企业客户案例称，Richpanel 在 30 天内帮助公司自动化 50% 的客户支持。",
+      "该案例称 Richpanel 使用 GPT-6 Astra 和 GPT-6.1 Sol 为其 AI 支持代理配备工具与流程。",
+      "该案例称 Richpanel 使用 GPT-6 Luna 处理其对话。",
+      "该案例发布于 2026-11-23。"
+    ],
+    "id": "story-c4f3e47182d4dd669372",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support",
+    "product_names": [
+      "GPT-6 Astra",
+      "GPT-6.1 Sol",
+      "GPT-6 Luna"
+    ],
+    "published_at": "2026-11-23T08:00:00Z",
+    "relevance_score": 0.6,
+    "source_item_ids": [
+      "item-1259b534687dd8b31711"
+    ],
+    "source_refs": [
+      {
+        "author": null,
+        "date_precision": null,
+        "discussion_url": null,
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-23T08:00:00Z",
+        "published_at_role": "feed_entry_time",
+        "published_date_role": null,
+        "raw_item_id": "item-1259b534687dd8b31711",
+        "source_date": null,
+        "source_name": "OpenAI News",
+        "source_role": "official_primary",
+        "source_timezone": null,
+        "source_type": "rss",
+        "statement_type": "factual_announcement",
+        "title": "Richpanel helps companies automate 50% of support in 30 days",
+        "url": "https://openai.com/business/customer-stories/richpanel-ai-customer-support"
+      }
+    ],
+    "source_urls": [
+      "https://openai.com/business/customer-stories/richpanel-ai-customer-support"
+    ],
+    "status": "announced",
+    "topic_names": [
+      "ai_models",
+      "customer_support_automation"
+    ],
+    "uncertainties": [
+      "“30 天内自动化 50% 支持”的统计口径、计算方式与适用范围未在输入中说明。",
+      "GPT-6 Astra、GPT-6.1 Sol 与 GPT-6 Luna 的具体版本、发布时间与可用性未在输入中说明。",
+      "该案例未披露 Richpanel 的客户规模、行业分布与对照基准。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "AI 能否理解芯片设计：SemiEngineering 文章在 Hacker News 引发讨论",
+    "category": "AI与半导体设计",
+    "credibility_score": 0.3,
+    "entity_names": [
+      "SemiEngineering",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-90da23dd1daa3c6ce6a4",
+    "importance_score": 0.35,
+    "novelty_score": 0.4,
+    "primary_source_url": "https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
+    "product_names": [],
+    "published_at": "2026-11-28T01:51:46Z",
+    "relevance_score": 0.62,
+    "source_item_ids": [
+      "item-9c78201b32d6ad05574e"
+    ],
+    "source_refs": [
+      {
+        "author": "gmays",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50673628",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-28T01:51:46Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-9c78201b32d6ad05574e",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "AI Can Read the Code, but Can It Understand the Chip?",
+        "url": "https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/"
+      }
+    ],
+    "source_urls": [
+      "https://semiengineering.com/ai-can-read-the-code-but-can-it-understand-the-chip/",
+      "https://news.ycombinator.com/item?id=50673628"
+    ],
+    "status": "unknown",
+    "topic_names": [
+      "AI代码理解",
+      "芯片设计自动化",
+      "EDA"
+    ],
+    "uncertainties": [
+      "仅获取到 Hacker News 链接与标题，未获取文章正文，无法确认文章具体论点、引用案例或涉及的公司与产品。",
+      "该条目在 Hacker News 上得分 1、评论 0，社区讨论量极低，尚不构成实质性行业信号。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  },
+  {
+    "analysis": [],
+    "canonical_title": "据报北约获授 OpenAI 先进网络安全模型访问权限，每月处理 3000 亿 tokens",
+    "category": "partnership_deployment",
+    "credibility_score": 0.2,
+    "entity_names": [
+      "OpenAI",
+      "NATO",
+      "Dataconomy",
+      "Hacker News"
+    ],
+    "facts": [],
+    "id": "story-a12035eb81d3a20ce674",
+    "importance_score": 0.35,
+    "novelty_score": 0.3,
+    "primary_source_url": "https://dataconomy.com/2026/11/17/openai-grants-nato-access-to-advanced-cybersecurity-models/",
+    "product_names": [],
+    "published_at": "2026-11-27T22:54:08Z",
+    "relevance_score": 0.42,
+    "source_item_ids": [
+      "item-e2f7c3e4f2fc866fd556"
+    ],
+    "source_refs": [
+      {
+        "author": "trilogic",
+        "date_precision": null,
+        "discussion_url": "https://news.ycombinator.com/item?id=50672488",
+        "fetched_at": "2026-11-28T02:08:49.473704Z",
+        "practice_signal_kind": null,
+        "published_at": "2026-11-27T22:54:08Z",
+        "published_at_role": "hn_submission_time",
+        "published_date_role": null,
+        "raw_item_id": "item-e2f7c3e4f2fc866fd556",
+        "source_date": null,
+        "source_name": "Hacker News",
+        "source_role": "community_discovery",
+        "source_timezone": null,
+        "source_type": "hacker_news",
+        "statement_type": "unverified_lead",
+        "title": "NATO uses OpenAI for cybersecurity, 300B tokens monthly",
+        "url": "https://dataconomy.com/2026/11/17/openai-grants-nato-access-to-advanced-cybersecurity-models/"
+      }
+    ],
+    "source_urls": [
+      "https://dataconomy.com/2026/11/17/openai-grants-nato-access-to-advanced-cybersecurity-models/",
+      "https://news.ycombinator.com/item?id=50672488"
+    ],
+    "status": "rumor",
+    "topic_names": [
+      "cybersecurity",
+      "AI deployment",
+      "government AI partnership"
+    ],
+    "uncertainties": [
+      "该说法仅来自 Hacker News 社区发现指向 Dataconomy 的一篇报道，属于未经验证的线索，未获得 OpenAI 或北约的一手确认。",
+      "标题称北约已获授 OpenAI 先进网络安全模型访问权限，并每月使用 3000 亿 tokens；这两项具体数字与说法均无法从可用的一手来源独立核实。",
+      "该报道的发布日期为 2026-11-17，而 Hacker News 上的抓取时间为 2026-11-27，两者之间的时间差及原始发布背景不明。",
+      "北约具体如何、在何种职能范围内使用这些模型，以及‘访问权限’作何具体含义，目前尚不清楚。"
+    ],
+    "updated_at": "2026-11-28T02:11:13.759996Z"
+  }
+]
